@@ -3,8 +3,8 @@ package com.tb.wangfang.news.model.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.codeest.geeknews.app.App;
-import com.codeest.geeknews.app.Constants;
+import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 
 import javax.inject.Inject;
 
@@ -18,7 +18,7 @@ public class ImplPreferencesHelper implements PreferencesHelper {
 
     private static final boolean DEFAULT_NIGHT_MODE = false;
     private static final boolean DEFAULT_NO_IMAGE = false;
-
+    private static final boolean DEFAULT_AUTO_SAVE = true;
 
     private static final String SHAREDPREFERENCES_NAME = "my_sp";
 
@@ -59,43 +59,5 @@ public class ImplPreferencesHelper implements PreferencesHelper {
         mSPrefs.edit().putBoolean(Constants.SP_AUTO_CACHE, state).apply();
     }
 
-    @Override
-    public int getCurrentItem() {
-        return mSPrefs.getInt(Constants.SP_CURRENT_ITEM, DEFAULT_CURRENT_ITEM);
-    }
 
-    @Override
-    public void setCurrentItem(int item) {
-        mSPrefs.edit().putInt(Constants.SP_CURRENT_ITEM, item).apply();
-    }
-
-    @Override
-    public boolean getLikePoint() {
-        return mSPrefs.getBoolean(Constants.SP_LIKE_POINT, DEFAULT_LIKE_POINT);
-    }
-
-    @Override
-    public void setLikePoint(boolean isFirst) {
-        mSPrefs.edit().putBoolean(Constants.SP_LIKE_POINT, isFirst).apply();
-    }
-
-    @Override
-    public boolean getVersionPoint() {
-        return mSPrefs.getBoolean(Constants.SP_VERSION_POINT, DEFAULT_VERSION_POINT);
-    }
-
-    @Override
-    public void setVersionPoint(boolean isFirst) {
-        mSPrefs.edit().putBoolean(Constants.SP_VERSION_POINT, isFirst).apply();
-    }
-
-    @Override
-    public boolean getManagerPoint() {
-        return mSPrefs.getBoolean(Constants.SP_MANAGER_POINT, DEFAULT_MANAGER_POINT);
-    }
-
-    @Override
-    public void setManagerPoint(boolean isFirst) {
-        mSPrefs.edit().putBoolean(Constants.SP_MANAGER_POINT, isFirst).apply();
-    }
 }

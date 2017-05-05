@@ -10,6 +10,9 @@ import android.view.Display;
 import android.view.WindowManager;
 
 import com.tb.wangfang.news.di.component.AppComponent;
+import com.tb.wangfang.news.di.component.DaggerAppComponent;
+import com.tb.wangfang.news.di.module.AppModule;
+import com.tb.wangfang.news.di.module.HttpModule;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -100,6 +103,13 @@ public class App extends Application {
         }
     }
 
-    public static AppComponent getAppComponent() {
+    public static AppComponent getAppComponent(){
+        if (appComponent == null) {
+            appComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(instance))
+                    .httpModule(new HttpModule())
+                    .build();
+        }
+        return appComponent;
     }
 }
