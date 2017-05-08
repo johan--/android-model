@@ -6,7 +6,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.codeest.geeknews.app.App;
+import com.tb.wangfang.news.app.App;
+
 
 /**
  * Created by codeest on 2016/8/2.

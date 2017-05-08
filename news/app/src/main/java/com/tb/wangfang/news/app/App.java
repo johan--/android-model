@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.tb.wangfang.news.component.InitializeService;
 import com.tb.wangfang.news.di.component.AppComponent;
 import com.tb.wangfang.news.di.component.DaggerAppComponent;
 import com.tb.wangfang.news.di.module.AppModule;
@@ -54,7 +55,7 @@ public class App extends Application {
         Realm.init(getApplicationContext());
 
         //在子线程中完成其他初始化
-//        InitializeService.start(this);
+        InitializeService.start(this);
     }
 
     protected void attachBaseContext(Context base) {

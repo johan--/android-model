@@ -1,31 +1,56 @@
 package com.tb.wangfang.news;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.widget.TextView;
 
-import org.reactivestreams.Subscriber;
+import com.tb.wangfang.news.base.BaseActivity;
+import com.tb.wangfang.news.base.contract.MainContract;
+import com.tb.wangfang.news.presenter.MainPresenter;
 
-import io.reactivex.Observable;
+import butterknife.BindView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+
+
+    @BindView(R.id.tv_main)
+    TextView tvMain;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            mPresenter.setNightModeState(false);
+        } else {
 
 
+        }
+        mPresenter.getDailyData();
+    }
 
-        Observable.create(new OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                //Emit Data
-            }
-        });
+    @Override
+    protected void initEventAndData() {
 
+    }
 
+    @Override
+    public void showUpdateDialog(String versionContent) {
 
+    }
 
+    @Override
+    public void startDownloadService() {
+
+    }
+
+    @Override
+    protected void initInject() {
+        getActivityComponent().inject(this);
     }
 }

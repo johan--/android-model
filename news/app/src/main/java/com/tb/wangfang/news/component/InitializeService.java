@@ -4,17 +4,17 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
-import com.codeest.geeknews.app.App;
-import com.codeest.geeknews.app.Constants;
-import com.codeest.geeknews.util.SystemUtil;
-import com.codeest.geeknews.widget.AppBlockCanaryContext;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
+import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
+import com.tb.wangfang.news.utils.SystemUtil;
+import com.tb.wangfang.news.widget.AppBlockCanaryContext;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.tencent.smtt.sdk.QbSdk;
 
-import static com.codeest.geeknews.util.LogUtil.isDebug;
+import static com.tb.wangfang.news.utils.LogUtil.isDebug;
+
 
 /**
  * Created by codeest on 2017/2/12.
@@ -49,7 +49,7 @@ public class InitializeService extends IntentService {
         Logger.init(getPackageName()).hideThreadInfo();
 
         //初始化错误收集
-//      CrashHandler.init(new CrashHandler(getApplicationContext()));
+   CrashHandler.init(new CrashHandler(getApplicationContext()));
         initBugly();
 
         //初始化内存泄漏检测
@@ -58,17 +58,17 @@ public class InitializeService extends IntentService {
         //初始化过度绘制检测
         BlockCanary.install(getApplicationContext(), new AppBlockCanaryContext()).start();
 
-        //初始化tbs x5 webview
-        QbSdk.allowThirdPartyAppDownload(true);
-        QbSdk.initX5Environment(getApplicationContext(), QbSdk.WebviewInitType.FIRSTUSE_AND_PRELOAD, new QbSdk.PreInitCallback() {
-            @Override
-            public void onCoreInitFinished() {
-            }
-
-            @Override
-            public void onViewInitFinished(boolean b) {
-            }
-        });
+//        //初始化tbs x5 webview
+//        QbSdk.allowThirdPartyAppDownload(true);
+//        QbSdk.initX5Environment(getApplicationContext(), QbSdk.WebviewInitType.FIRSTUSE_AND_PRELOAD, new QbSdk.PreInitCallback() {
+//            @Override
+//            public void onCoreInitFinished() {
+//            }
+//
+//            @Override
+//            public void onViewInitFinished(boolean b) {
+//            }
+//        });
     }
 
     private void initBugly() {
