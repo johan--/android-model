@@ -2,9 +2,9 @@ package com.tb.wangfang.news.di.component;
 
 import android.app.Activity;
 
-import com.tb.wangfang.news.MainActivity;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.di.scope.ActivityScope;
+import com.tb.wangfang.news.ui.activity.MainActivity;
 
 import dagger.Component;
 
