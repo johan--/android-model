@@ -1,11 +1,19 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnDrawListener;
+import com.github.barteksc.pdfviewer.listener.OnErrorListener;
+import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.listener.OnPageScrollListener;
+import com.github.barteksc.pdfviewer.listener.OnRenderListener;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.FirstContract;
@@ -18,19 +26,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link FirstFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FirstFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View {
 
+    private static final String TAG = "FirstFragment";
     @BindView(R.id.banner)
     Banner banner;
     Unbinder unbinder;
+    @BindView(R.id.pdfView)
+    PDFView pdfview;
+
 
     public static FirstFragment newInstance() {
         FirstFragment fragment = new FirstFragment();
@@ -47,6 +52,55 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     @Override
     protected void initEventAndData() {
         mPresenter.getDailyData();
+        pdfview.fromAsset("tb.pdf")
+                // all pages are displayed by default
+                .enableSwipe(true) // allows to block changing pages using swipe
+                .swipeHorizontal(false)
+                .enableDoubletap(true)
+                .defaultPage(0)
+                .onDraw(new OnDrawListener() {
+                    @Override
+                    public void onLayerDrawn(Canvas canvas, float pageWidth, float pageHeight, int displayedPage) {
+
+                        Log.d(TAG, "onLayerDrawn: " + "pagewidth" + pageWidth + " pageHeight" + pageHeight + " displayedPage" + displayedPage);
+                    }
+                }) // allows to draw something on a provided canvas, above the current page
+                .onLoad(new OnLoadCompleteListener() {
+                    @Override
+                    public void loadComplete(int nbPages) {
+                        Log.d(TAG, "loadComplete: nbPages" + nbPages);
+                    }
+                }) // called after document is loaded and starts to be rendered
+                .onPageChange(new OnPageChangeListener() {
+                    @Override
+                    public void onPageChanged(int page, int pageCount) {
+                        Log.d(TAG, "onPageChanged: page" + page + "pageCount" + pageCount);
+                    }
+                })
+                .onPageScroll(new OnPageScrollListener() {
+                    @Override
+                    public void onPageScrolled(int page, float positionOffset) {
+                        Log.d(TAG, "onPageScrolled: page" + page + "positionOffset " + positionOffset);
+                    }
+                })
+                .onError(new OnErrorListener() {
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+                })
+                .onRender(new OnRenderListener() {
+                    @Override
+                    public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
+                        Log.d(TAG, "onInitiallyRendered: nbPages" + nbPages + "pageWidth" + pageWidth + "pageHeight" + pageHeight);
+                    }
+                }) // called after document is rendered for the first time
+                .enableAnnotationRendering(false) // render annotations (such as comments, colors or forms)
+                .password(null)
+                .scrollHandle(null)
+                .enableAntialiasing(true) // improve rendering a little bit on low-res screens
+                .load();
+
     }
 
 
@@ -78,4 +132,5 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         //banner设置方法全部调用完毕时最后调用
         banner.start();
     }
+
 }
