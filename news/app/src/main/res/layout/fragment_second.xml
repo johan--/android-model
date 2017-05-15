@@ -1,13 +1,27 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.fragment.FirstFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="2" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_raw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btn_raw"
+        android:text="Open epub from raw" />
+
+    <Button
+        android:id="@+id/btn_assest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btn_assest"
+        android:text="Open epub assests" />
+</LinearLayout>
