@@ -378,8 +378,17 @@ public class FolioPageFragment extends Fragment {
         mWebview.getSettings().setDefaultTextEncodingName("utf-8");
         String opfPath
                 = AppUtil.getPathOPF(FileUtil.getFolioEpubFolderPath(mEpubFileName), mContext);
-        String baseUrl
-                = "file://" + FileUtil.getFolioEpubFolderPath(mEpubFileName) + "/" + opfPath + "//";
+        String baseUrl;
+        if (TextUtils.isEmpty(opfPath)){
+            baseUrl
+                    = "file://" + FileUtil.getFolioEpubFolderPath(mEpubFileName) + "//";
+        }else{
+            baseUrl
+                    = "file://" + FileUtil.getFolioEpubFolderPath(mEpubFileName) + "/" + opfPath + "//";
+        }
+
+        Log.d(TAG, "initWebView: opfPath"+opfPath);
+        Log.d(TAG, "initWebView: baseUrl"+baseUrl);
         mWebview.loadDataWithBaseURL(baseUrl, htmlContent, "text/html", "UTF-8", null);
         ((FolioActivity) getActivity()).setLastWebViewPosition(mScrollY);
     }
@@ -641,6 +650,7 @@ public class FolioPageFragment extends Fragment {
                     "" + highlight.getContent() + "" + highlight.getContentPost();
             htmlContent = htmlContent.replaceFirst(searchStr, highlightStr);
         }
+        Log.d("htmlContent",htmlContent);
         return htmlContent;
     }
 

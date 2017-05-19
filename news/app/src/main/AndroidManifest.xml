@@ -27,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--<activity android:name="com.folioreader.activity.HighlightListActivity" />-->
+        <!--<activity android:name="com.folioreader.activity.ContentHighlightActivity" />-->
+        <!--<activity android:name="com.folioreader.activity.FolioActivity" />-->
+        <service android:name=".component.UpdateService" />
     </application>
 
 </manifest>

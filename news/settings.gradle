@@ -1,1 +1,1 @@
-include ':app', ':webViewMarker', ':folioreader'
+include ':app', ':webViewMarker', ':folioreader', ':downservice'
