@@ -9,7 +9,6 @@ import com.tb.wangfang.news.model.http.api.WangfangApis;
 import com.tb.wangfang.news.utils.AppUtil;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,13 +16,17 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 
 
 /**
@@ -91,7 +94,7 @@ public class HttpDownManager {
             Retrofit retrofit = new Retrofit.Builder()
                     .client(builder.build())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .baseUrl(AppUtil.getBasUrl(info.getUrl()))
                     .build();
             httpService = retrofit.create(WangfangApis.class);
@@ -104,24 +107,40 @@ public class HttpDownManager {
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                    /*失败后的retry配置*/
-                .retryWhen(new RetryWhenNetworkException())
+//                .retryWhen(new RetryWhenNetworkException())
                 /*读取下载写入文件*/
-                .map(new Func1<ResponseBody, DownInfo>() {
+                .map(new Function<ResponseBody, DownInfo>() {
                     @Override
-                    public DownInfo call(ResponseBody responseBody) {
-                        try {
-                            AppUtil.writeCache(responseBody, new File(info.getSavePath()), info);
-                        } catch (IOException e) {
-                            /*失败抛出异常*/
-                            throw new HttpTimeException(e.getMessage());
-                        }
+                    public DownInfo apply(@NonNull ResponseBody responseBody) throws Exception {
+                        AppUtil.writeCache(responseBody, new File(info.getSavePath()), info);
                         return info;
                     }
+
                 })
                 /*回调线程*/
                 .observeOn(AndroidSchedulers.mainThread())
                 /*数据回调*/
-                .subscribe(subscriber);
+                .subscribe(new Observer<DownInfo>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(DownInfo downInfo) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
 
     }
 
@@ -135,7 +154,7 @@ public class HttpDownManager {
         info.getListener().onStop();
         if (subMap.containsKey(info.getUrl())) {
             ProgressDownSubscriber subscriber = subMap.get(info.getUrl());
-            subscriber.unsubscribe();
+            subscriber.onComplete();
             subMap.remove(info.getUrl());
         }
         /*保存数据库信息和本地文件*/
@@ -154,7 +173,7 @@ public class HttpDownManager {
         info.getListener().onPuase();
         if (subMap.containsKey(info.getUrl())) {
             ProgressDownSubscriber subscriber = subMap.get(info.getUrl());
-            subscriber.unsubscribe();
+            subscriber.onComplete();
             subMap.remove(info.getUrl());
         }
         /*这里需要讲info信息写入到数据中，可自由扩展，用自己项目的数据库*/

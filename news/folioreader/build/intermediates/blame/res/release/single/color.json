@@ -12,20 +12,28 @@
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\content_highlight_text_selector_night_mode.xml",
-        "source": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\res\\color\\content_highlight_text_selector_night_mode.xml"
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\switch_thumb_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_material_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_edittext.xml"
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\design_tint_password_toggle.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\6c07b60a2c263918a58860d9add1f568e178bede\\output\\res\\color\\design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_hint_foreground_material_dark.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_thumb.xml",
@@ -36,16 +44,12 @@
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_hint_foreground_material_dark.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_btn_colored_borderless_text_material.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\design_error.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\d6a518784943bfb81072893f95da4cb3836d9dac\\output\\res\\color\\design_error.xml"
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\content_highlight_text_selector_night_mode.xml",
+        "source": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\res\\color\\content_highlight_text_selector_night_mode.xml"
     },
     {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_hint_foreground_material_light.xml",
@@ -56,35 +60,119 @@
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_spinner.xml"
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_switch_track.xml"
     },
     {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_btn_checkable.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_seek_thumb.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_hint_foreground_material_light.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\content_highlight_text_selector_night_mode.xml",
+        "source": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\res\\color\\content_highlight_text_selector_night_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_hint_foreground_material_dark.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\design_error.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\d6a518784943bfb81072893f95da4cb3836d9dac\\output\\res\\color\\design_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\design_error.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\6c07b60a2c263918a58860d9add1f568e178bede\\output\\res\\color\\design_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_default.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\color\\abc_tint_default.xml"
     }
 ]

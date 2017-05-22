@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi-v4\\ic_launcher.png",
         "source": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\res\\mipmap-xxhdpi\\ic_launcher.png"
     }

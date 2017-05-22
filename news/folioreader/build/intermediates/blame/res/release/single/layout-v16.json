@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\layout-v16\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\519d6b408bd1a50b947870950c14206d34575353\\output\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\layout-v16\\notification_template_custom_big.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\layout-v16\\notification_template_custom_big.xml"
     }

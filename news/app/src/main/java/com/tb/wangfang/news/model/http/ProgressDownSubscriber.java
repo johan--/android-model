@@ -7,14 +7,14 @@ import com.tb.wangfang.news.model.db.RealmHelper;
 import com.tb.wangfang.news.model.http.DownLoadListener.DownloadProgressListener;
 import com.tb.wangfang.news.model.http.DownLoadListener.HttpDownOnNextListener;
 
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-
 import java.lang.ref.SoftReference;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 
 
 /**
@@ -24,7 +24,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
  * 调用者自己对请求数据进行处理
  * Created by WZG on 2016/7/16.
  */
-public class ProgressDownSubscriber<T> extends Subscriber<T> implements DownloadProgressListener {
+public class ProgressDownSubscriber<T> implements DownloadProgressListener, Observer<T> {
     //弱引用结果回调
     private SoftReference<HttpDownOnNextListener> mSubscriberOnNextListener;
     /*下载数据*/
@@ -42,6 +42,16 @@ public class ProgressDownSubscriber<T> extends Subscriber<T> implements Download
         this.mSubscriberOnNextListener = new SoftReference<>(downInfo.getListener());
         this.downInfo = downInfo;
     }
+
+
+    @Override
+    public void onSubscribe(Disposable d) {
+        if (mSubscriberOnNextListener.get() != null) {
+            mSubscriberOnNextListener.get().onStart();
+        }
+        downInfo.setState(DownState.START);
+    }
+
 
 
     /**
@@ -78,13 +88,7 @@ public class ProgressDownSubscriber<T> extends Subscriber<T> implements Download
      * 订阅开始时调用
      * 显示ProgressDialog
      */
-    @Override
-    public void onSubscribe(Subscription s) {
-        if (mSubscriberOnNextListener.get() != null) {
-            mSubscriberOnNextListener.get().onStart();
-        }
-        downInfo.setState(DownState.START);
-    }
+
 
     /**
      * 将onNext方法中的返回结果交给Activity或Fragment自己处理
@@ -108,15 +112,30 @@ public class ProgressDownSubscriber<T> extends Subscriber<T> implements Download
         downInfo.setReadLength(read);
         if (mSubscriberOnNextListener.get() != null) {
             /*接受进度消息，造成UI阻塞，如果不需要显示进度可去掉实现逻辑，减少压力*/
-            rx.Observable.just(read).observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Action1<Long>() {
+            Observable.just(read).observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<Long>() {
                         @Override
-                        public void call(Long aLong) {
-                      /*如果暂停或者停止状态延迟，不需要继续发送回调，影响显示*/
+                        public void onSubscribe(Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onNext(Long aLong) {
+  /*如果暂停或者停止状态延迟，不需要继续发送回调，影响显示*/
                             if (downInfo.getState() == DownState.PAUSE || downInfo.getState() == DownState.STOP)
                                 return;
                             downInfo.setState(DownState.DOWN);
                             mSubscriberOnNextListener.get().updateProgress(aLong, downInfo.getCountLength());
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+
                         }
                     });
         }
