@@ -2,7 +2,7 @@ package com.tb.wangfang.news.di.module;
 
 import com.tb.wangfang.news.BuildConfig;
 import com.tb.wangfang.news.app.Constants;
-import com.tb.wangfang.news.model.http.api.ZhihuApis;
+import com.tb.wangfang.news.model.http.api.WangfangApis;
 import com.tb.wangfang.news.utils.SystemUtil;
 
 import java.io.File;
@@ -108,13 +108,13 @@ public class HttpModule {
     @Singleton
     @Provides
     Retrofit provideZhihuRetrofit(Retrofit.Builder builder, OkHttpClient client) {
-        return createRetrofit(builder, client, ZhihuApis.HOST);
+        return createRetrofit(builder, client, WangfangApis.HOST);
     }
 
     @Singleton
     @Provides
-    ZhihuApis provideZhihuService(Retrofit retrofit) {
-        return retrofit.create(ZhihuApis.class);
+    WangfangApis provideZhihuService(Retrofit retrofit) {
+        return retrofit.create(WangfangApis.class);
     }
     private Retrofit createRetrofit(Retrofit.Builder builder, OkHttpClient client, String url) {
         return builder

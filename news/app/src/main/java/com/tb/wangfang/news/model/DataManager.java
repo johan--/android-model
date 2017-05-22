@@ -2,9 +2,12 @@ package com.tb.wangfang.news.model;
 
 
 import com.tb.wangfang.news.model.bean.DailyListBean;
+import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.db.DBHelper;
 import com.tb.wangfang.news.model.http.HttpHelper;
 import com.tb.wangfang.news.model.prefs.PreferencesHelper;
+
+import java.util.List;
 
 import io.reactivex.Flowable;
 
@@ -62,5 +65,29 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     }
 
 
+    @Override
+    public void save(DownInfo info) {
+        mDbHelper.save(info);
+    }
+
+    @Override
+    public void update(DownInfo info) {
+        mDbHelper.update(info);
+    }
+
+    @Override
+    public void deleteDowninfo(DownInfo info) {
+        mDbHelper.deleteDowninfo(info);
+    }
+
+    @Override
+    public DownInfo queryDownBy(long Id) {
+        return mDbHelper.queryDownBy(Id);
+    }
+
+    @Override
+    public List<DownInfo> queryDownAll() {
+        return null;
+    }
 }
 

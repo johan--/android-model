@@ -2,7 +2,7 @@ package com.tb.wangfang.news.model.http;
 
 
 import com.tb.wangfang.news.model.bean.DailyListBean;
-import com.tb.wangfang.news.model.http.api.ZhihuApis;
+import com.tb.wangfang.news.model.http.api.WangfangApis;
 
 import javax.inject.Inject;
 
@@ -13,16 +13,16 @@ import io.reactivex.Flowable;
  */
 public class RetrofitHelper implements HttpHelper {
 
-    private ZhihuApis mZhihuApiService;
+    private WangfangApis mWanfangApiService;
 
 
     @Inject
-    public RetrofitHelper(ZhihuApis zhihuApiService) {
-        this.mZhihuApiService = zhihuApiService;
+    public RetrofitHelper(WangfangApis wangfangApiService) {
+        this.mWanfangApiService = wangfangApiService;
     }
 
     @Override
     public Flowable<DailyListBean> fetchDailyListInfo() {
-        return mZhihuApiService.getDailyList();
+        return mWanfangApiService.getDailyList();
     }
 }
