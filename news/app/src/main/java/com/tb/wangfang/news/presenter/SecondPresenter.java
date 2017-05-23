@@ -25,14 +25,25 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
 
 
     @Override
-    public void searchAndStore(String text) {
+    public void searchAndStore(String text, int page) {
         mDataManager.save(new HistoryDocItem(text));
-        if (searchDocItemArrayList != null) {
+        if (searchDocItemArrayList != null ) {
             searchDocItemArrayList.clear();
         }
-        searchDocItemArrayList.add(new SearchDocItem("1"));
-        searchDocItemArrayList.add(new SearchDocItem("2"));
-        mView.showSearchresult(searchDocItemArrayList);
+        for (int i = 0; i < 20; i++) {
+            searchDocItemArrayList.add(new SearchDocItem(i + ""));
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (page == 1) {
+            mView.showSearchresult(searchDocItemArrayList);
+        } else {
+            mView.loadMore(searchDocItemArrayList);
+        }
+
 
     }
 
@@ -40,5 +51,6 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
     public void searchAllHistory() {
         mView.showHistoryItem(mDataManager.findAllHistoryItem());
     }
+
 
 }
