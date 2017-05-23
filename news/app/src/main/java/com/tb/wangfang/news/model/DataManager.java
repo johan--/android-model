@@ -3,6 +3,7 @@ package com.tb.wangfang.news.model;
 
 import com.tb.wangfang.news.model.bean.DailyListBean;
 import com.tb.wangfang.news.model.bean.DownInfo;
+import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.db.DBHelper;
 import com.tb.wangfang.news.model.http.HttpHelper;
 import com.tb.wangfang.news.model.prefs.PreferencesHelper;
@@ -88,6 +89,21 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     @Override
     public List<DownInfo> queryDownAll() {
         return null;
+    }
+
+    @Override
+    public void save(HistoryDocItem item) {
+        mDbHelper.save(item);
+    }
+
+    @Override
+    public void deleteHistoryAll() {
+        mDbHelper.deleteHistoryAll();
+    }
+
+    @Override
+    public List<HistoryDocItem> findAllHistoryItem() {
+        return mDbHelper.findAllHistoryItem();
     }
 }
 

@@ -2,7 +2,10 @@ package com.tb.wangfang.news.base.contract;
 
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.tb.wangfang.news.model.bean.HistoryDocItem;
+import com.tb.wangfang.news.model.bean.SearchDocItem;
+
+import java.util.List;
 
 /**
  * Created by tangbin on 2017/5/9.
@@ -10,20 +13,18 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 
 public interface SecondContract {
     interface View extends BaseView {
+        void initView();
 
-        void showUpdateDialog(String versionContent);
+        void showSearchresult(List<SearchDocItem> searchDocItems);
 
-        void startDownloadService();
+        void showHistoryItem(List<HistoryDocItem> historyDocItems);
+
     }
 
     interface Presenter extends BasePresenter<View> {
+        void searchAndStore(String text);
 
-        void checkVersion(String currentVersion);
+        void searchAllHistory();
 
-        void checkPermissions(RxPermissions rxPermissions);
-
-        void setNightModeState(boolean b);
-
-        void getDailyData();
     }
 }
