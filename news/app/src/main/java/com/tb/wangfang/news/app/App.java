@@ -52,8 +52,7 @@ public class App extends Application {
         getScreenSize();
 
         //初始化数据库
-        Realm.init(getApplicationContext());
-
+        Realm.init(this);
         //在子线程中完成其他初始化
         InitializeService.start(this);
     }

@@ -1,5 +1,7 @@
 package com.tb.wangfang.news.presenter;
 
+import android.os.Handler;
+
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.DataManager;
@@ -25,24 +27,30 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
 
 
     @Override
-    public void searchAndStore(String text, int page) {
-        mDataManager.save(new HistoryDocItem(text));
-        if (searchDocItemArrayList != null ) {
+    public void searchAndStore(final String text, final int page) {
+
+        HistoryDocItem docItem = new HistoryDocItem();
+        docItem.setText(text);
+        mDataManager.save(docItem);
+
+
+        if (searchDocItemArrayList != null) {
             searchDocItemArrayList.clear();
         }
         for (int i = 0; i < 20; i++) {
             searchDocItemArrayList.add(new SearchDocItem(i + ""));
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        if (page == 1) {
-            mView.showSearchresult(searchDocItemArrayList);
-        } else {
-            mView.loadMore(searchDocItemArrayList);
-        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (page == 1) {
+
+                    mView.refreshView(searchDocItemArrayList);
+                } else {
+                    mView.loadMoreView(searchDocItemArrayList);
+                }
+            }
+        }, 1000);
 
 
     }

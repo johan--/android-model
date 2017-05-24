@@ -16,12 +16,13 @@ import java.util.List;
 public class SearchDocumentAdapter extends BaseQuickAdapter<SearchDocItem, BaseViewHolder> {
 
     public SearchDocumentAdapter(List<SearchDocItem> searchDocItemList) {
+
         super(R.layout.item_search_result, searchDocItemList);
     }
 
     @Override
     protected void convert(BaseViewHolder helper, SearchDocItem item) {
-//        helper.addOnClickListener(R.id.img).addOnClickListener(R.id.tweetText).addOnClickListener(R.id.tweetName);
+        helper.setText(R.id.tv_content, item.getText());
         ((TextView) helper.getView(R.id.tv_content)).setText(item.getText());
     }
 }

@@ -15,13 +15,13 @@ public interface SecondContract {
     interface View extends BaseView {
         void initView();
 
-        void showSearchresult(List<SearchDocItem> searchDocItems);
+
 
         void showHistoryItem(List<HistoryDocItem> historyDocItems);
 
-        void refresh(List<SearchDocItem> searchDocItems);
+        void refreshView(List<SearchDocItem> searchDocItems);
 
-        void loadMore(List<SearchDocItem> searchDocItems);
+        void loadMoreView(List<SearchDocItem> searchDocItems);
     }
 
     interface Presenter extends BasePresenter<View> {

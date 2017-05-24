@@ -2,11 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
+
     tools:context="com.tb.wangfang.news.ui.fragment.OtherFragment">
-=======
-    tools:context="com.tb.wangfang.news.ui.fragment.BlankFragment">
->>>>>>> 5c92c93e675a05e15657463087682632f0d9ae3c
+
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

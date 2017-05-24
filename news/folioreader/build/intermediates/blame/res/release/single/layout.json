@@ -20,12 +20,12 @@
         "source": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\res\\layout\\action_item_horizontal.xml"
     },
     {
-        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_multichoice_material.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\tangbin\\.android\\build-cache\\bee11779a4fa1916dc5bb3cdba8ee37854384e9a\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_item_separator.xml",

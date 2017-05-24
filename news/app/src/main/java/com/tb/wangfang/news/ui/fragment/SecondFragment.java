@@ -1,7 +1,9 @@
 package com.tb.wangfang.news.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -43,7 +45,6 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     RelativeLayout rlHistoryContent;
     @BindView(R.id.rv_content)
     RecyclerView rvContent;
-
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout swipeLayout;
     private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
@@ -67,12 +68,18 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @Override
     protected void initEventAndData() {
+        for (int i = 0; i < 20; i++) {
+            searchDocItemArrayList.add(new SearchDocItem(i + ""));
+        }
+        swipeLayout.setOnRefreshListener(this);
+        swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
+        rvContent.setLayoutManager(new LinearLayoutManager(getActivity()));
         docAdapter = new SearchDocumentAdapter(searchDocItemArrayList);
-        docAdapter.setOnLoadMoreListener(this, rvHistory);
+        docAdapter.setOnLoadMoreListener(this, rvContent);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-//        pullToRefreshAdapter.setPreLoadNumber(3);
-        rvHistory.setAdapter(docAdapter);
-        mPresenter.searchAllHistory();
+        docAdapter.setPreLoadNumber(3);
+        rvContent.setAdapter(docAdapter);
+
     }
 
 //    @OnClick(R.id.btn_assest)
@@ -106,7 +113,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @OnClick(R.id.btn_confirm)
     public void search() {
-        if (!TextUtils.isEmpty(filterEdit.getText().toString()) && TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
+        if (!TextUtils.isEmpty(filterEdit.getText().toString()) && !TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
             page = 1;
             mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
         }
@@ -119,12 +126,6 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     }
 
-    @Override
-    public void showSearchresult(List<SearchDocItem> searchDocItems) {
-        rlHistoryContent.setVisibility(View.GONE);
-        rvContent.setVisibility(View.VISIBLE);
-
-    }
 
     @Override
     public void showHistoryItem(List<HistoryDocItem> historyDocItems) {
@@ -132,8 +133,9 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     }
 
     @Override
-    public void refresh(List<SearchDocItem> searchDocItems) {
-        docAdapter.setEnableLoadMore(false);
+    public void refreshView(List<SearchDocItem> searchDocItems) {
+        rlHistoryContent.setVisibility(View.GONE);
+        rvContent.setVisibility(View.VISIBLE);
         docAdapter.setNewData(searchDocItems);
         isErr = false;
 //        mCurrentCounter = PAGE_SIZE;
@@ -143,7 +145,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     }
 
     @Override
-    public void loadMore(List<SearchDocItem> searchDocItems) {
+    public void loadMoreView(List<SearchDocItem> searchDocItems) {
         swipeLayout.setEnabled(false);
         if (searchDocItems.size() < PAGE_SIZE) {
             docAdapter.loadMoreEnd(false);
@@ -155,11 +157,10 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
                 isErr = true;
                 Toast.makeText(getContext(), R.string.network_err, Toast.LENGTH_LONG).show();
                 docAdapter.loadMoreFail();
-
             }
-
             swipeLayout.setEnabled(true);
         }
+
     }
 
 
@@ -167,18 +168,12 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     public void onRefresh() {
         if (!TextUtils.isEmpty(filterEdit.getText().toString()) && TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
             page = 1;
+            docAdapter.setEnableLoadMore(false);
             mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
+
+
         }
 
-//        docAdapter.setEnableLoadMore(false);
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                docAdapter.setNewData(mPresenter.searchAndStore("das"));
-//                swipeLayout.setRefreshing(false);
-//                docAdapter.setEnableLoadMore(true);
-//            }
-//        }, 1000);
     }
 
     @Override
