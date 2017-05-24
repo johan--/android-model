@@ -1,16 +1,13 @@
 package com.tb.wangfang.news.ui.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.folioreader.activity.FolioActivity;
@@ -27,9 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * Created by tangbin on 2017/5/9.
@@ -48,12 +43,15 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     RelativeLayout rlHistoryContent;
     @BindView(R.id.rv_content)
     RecyclerView rvContent;
-    Unbinder unbinder;
+
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout swipeLayout;
     private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
     private ArrayList<HistoryDocItem> historyDocItemArrayList = new ArrayList<>();
     private SearchDocumentAdapter docAdapter;
+    private int page = 1;
+    private static final int PAGE_SIZE = 20;
+    private boolean isErr;
 
     public static SecondFragment newInstance() {
         SecondFragment fragment = new SecondFragment();
@@ -109,7 +107,8 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     @OnClick(R.id.btn_confirm)
     public void search() {
         if (!TextUtils.isEmpty(filterEdit.getText().toString()) && TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
-            mPresenter.searchAndStore(filterEdit.getText().toString().trim());
+            page = 1;
+            mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
         }
     }
 
@@ -133,34 +132,57 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
+    public void refresh(List<SearchDocItem> searchDocItems) {
+        docAdapter.setEnableLoadMore(false);
+        docAdapter.setNewData(searchDocItems);
+        isErr = false;
+//        mCurrentCounter = PAGE_SIZE;
+        swipeLayout.setRefreshing(false);
+        docAdapter.setEnableLoadMore(true);
+
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
+    public void loadMore(List<SearchDocItem> searchDocItems) {
+        swipeLayout.setEnabled(false);
+        if (searchDocItems.size() < PAGE_SIZE) {
+            docAdapter.loadMoreEnd(false);
+        } else {
+            if (isErr) {
+                docAdapter.addData(searchDocItems);
+                docAdapter.loadMoreComplete();
+            } else {
+                isErr = true;
+                Toast.makeText(getContext(), R.string.network_err, Toast.LENGTH_LONG).show();
+                docAdapter.loadMoreFail();
+
+            }
+
+            swipeLayout.setEnabled(true);
+        }
     }
+
 
     @Override
     public void onRefresh() {
-        docAdapter.setEnableLoadMore(false);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                docAdapter.setNewData(mPresenter.searchAndStore("das"));
-                swipeLayout.setRefreshing(false);
-                docAdapter.setEnableLoadMore(true);
-            }
-        }, 1000);
+        if (!TextUtils.isEmpty(filterEdit.getText().toString()) && TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
+            page = 1;
+            mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
+        }
+
+//        docAdapter.setEnableLoadMore(false);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                docAdapter.setNewData(mPresenter.searchAndStore("das"));
+//                swipeLayout.setRefreshing(false);
+//                docAdapter.setEnableLoadMore(true);
+//            }
+//        }, 1000);
     }
 
     @Override
     public void onLoadMoreRequested() {
-
+        mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page++);
     }
 }
