@@ -1,17 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\anim-v21\\design_appbar_state_list_animator.xml",
-        "source": "C:\\Users\\admin\\.android\\build-cache\\6c07b60a2c263918a58860d9add1f568e178bede\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
-    },
-    {
-        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\anim-v21\\design_bottom_sheet_slide_in.xml",
-        "source": "C:\\Users\\admin\\.android\\build-cache\\6c07b60a2c263918a58860d9add1f568e178bede\\output\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\admin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\anim-v21\\design_bottom_sheet_slide_out.xml",
-        "source": "C:\\Users\\admin\\.android\\build-cache\\6c07b60a2c263918a58860d9add1f568e178bede\\output\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
-    },
-    {
         "merged": "C:\\Users\\tangbin\\Documents\\android-model\\news\\folioreader\\build\\intermediates\\res\\merged\\release\\anim-v21\\design_appbar_state_list_animator.xml",
         "source": "C:\\Users\\tangbin\\.android\\build-cache\\d6a518784943bfb81072893f95da4cb3836d9dac\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
     },

@@ -13,6 +13,7 @@ public interface FirstContract {
     interface View extends BaseView {
 
         void showSpanner(List<String> imgUrl);
+        void showTabContent();
 
 
     }

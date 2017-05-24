@@ -9,4 +9,9 @@
     <color name="bg_app">#F1F1F1</color>
     <color name="tab_unselect">#c9c9c9</color>
     <color name="bg_btn">#dadada</color>
+    <color name="gray_3">#bcbcbc</color>
+    <color name="text_hint">#bcbcbc</color>
+    <color name="transparent">#00000000</color>
+    <color name="frame_line">#c0c0c0</color>
 </resources>
+
