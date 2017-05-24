@@ -29,7 +29,11 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+<<<<<<< HEAD
 
+=======
+            app:tabBackground="@drawable/ripple_white_bg"
+>>>>>>> 5c92c93e675a05e15657463087682632f0d9ae3c
             app:tabIndicatorHeight="2dp"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/colorPrimaryDark"

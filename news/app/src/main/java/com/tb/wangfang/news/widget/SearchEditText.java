@@ -11,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 
+import com.tb.wangfang.news.R;
+
 /**
  * Created by tangbin on 2017/5/23.
  */
@@ -53,8 +55,8 @@ public class SearchEditText extends android.support.v7.widget.AppCompatEditText 
         // 获取EditText的DrawableRight,假如没有设置我们就使用默认的图片
         mClearDrawable = getCompoundDrawables()[2];
         if (mClearDrawable == null) {
-//            mClearDrawable = getResources().getDrawable(
-//                    R.drawable.delete_selected);
+            mClearDrawable = getResources().getDrawable(
+                    R.drawable.delete_selected);
         }
         mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(),
                 mClearDrawable.getIntrinsicHeight());

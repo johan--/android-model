@@ -35,5 +35,9 @@ public interface FragmentComponent {
     void inject(QuickSeeFragment quickSeeFragment);
 
     void inject(OtherFragment otherFragment);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c92c93e675a05e15657463087682632f0d9ae3c
 
 }

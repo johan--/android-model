@@ -35,6 +35,10 @@ public class HotFragment extends BaseFragment<HotPresenter> implements HotContra
 
     @Override
     protected void initInject() {
+<<<<<<< HEAD
        getFragmentComponent().inject(this);
+=======
+        getFragmentComponent().inject(this);
+>>>>>>> 5c92c93e675a05e15657463087682632f0d9ae3c
     }
 }

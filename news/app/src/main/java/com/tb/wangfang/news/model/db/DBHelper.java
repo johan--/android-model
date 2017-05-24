@@ -2,6 +2,7 @@ package com.tb.wangfang.news.model.db;
 
 
 import com.tb.wangfang.news.model.bean.DownInfo;
+import com.tb.wangfang.news.model.bean.HistoryDocItem;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  */
 
 public interface DBHelper {
+
     void save(DownInfo info);
 
     void update(DownInfo info);
@@ -19,5 +21,12 @@ public interface DBHelper {
     void deleteDowninfo(DownInfo info);
 
     DownInfo queryDownBy(long Id);
-   List<DownInfo> queryDownAll();
+
+    List<DownInfo> queryDownAll();
+
+    void save(HistoryDocItem item);
+
+    void deleteHistoryAll();
+
+    List<HistoryDocItem> findAllHistoryItem();
 }
