@@ -72,7 +72,7 @@ public class RealmHelper implements DBHelper {
     @Override
     public void save(HistoryDocItem item) {
         mRealm.beginTransaction();
-        mRealm.copyToRealmOrUpdate(item);
+        mRealm.copyToRealm(item);
         mRealm.commitTransaction();
     }
 
@@ -89,7 +89,7 @@ public class RealmHelper implements DBHelper {
          */
 
         //降序排列
-        historyDocItems = historyDocItems.sort("id", Sort.DESCENDING);
+        historyDocItems = historyDocItems.sort("time", Sort.DESCENDING);
         return mRealm.copyFromRealm(historyDocItems);
     }
 }

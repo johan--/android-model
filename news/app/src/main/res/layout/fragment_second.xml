@@ -52,6 +52,7 @@
             android:id="@+id/rl_history_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:background="@color/yellow">
 
             <TextView
@@ -71,6 +72,7 @@
                 android:layout_below="@id/tv_title"></android.support.v7.widget.RecyclerView>
 
             <Button
+                android:id="@+id/btn_delete_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -83,8 +85,8 @@
             android:id="@+id/swipeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/red"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_content"

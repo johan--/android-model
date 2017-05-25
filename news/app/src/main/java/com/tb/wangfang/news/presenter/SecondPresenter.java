@@ -31,6 +31,7 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
 
         HistoryDocItem docItem = new HistoryDocItem();
         docItem.setText(text);
+        docItem.setTime(System.currentTimeMillis() / 1000);
         mDataManager.save(docItem);
 
 
@@ -57,7 +58,14 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
 
     @Override
     public void searchAllHistory() {
+
         mView.showHistoryItem(mDataManager.findAllHistoryItem());
+    }
+
+    @Override
+    public void deleteAllHistry() {
+        mDataManager.deleteHistoryAll();
+        mView.showHistoryItem(new ArrayList<HistoryDocItem>());
     }
 
 

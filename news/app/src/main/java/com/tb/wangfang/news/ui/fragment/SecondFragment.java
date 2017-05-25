@@ -19,7 +19,9 @@ import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.presenter.SecondPresenter;
+import com.tb.wangfang.news.ui.adapter.HistoryItemAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
+import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.SearchEditText;
 
 import java.util.ArrayList;
@@ -53,6 +55,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     private int page = 1;
     private static final int PAGE_SIZE = 20;
     private boolean isErr;
+    private HistoryItemAdapter historyAdapter;
 
     public static SecondFragment newInstance() {
         SecondFragment fragment = new SecondFragment();
@@ -68,6 +71,14 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @Override
     protected void initEventAndData() {
+        filterEdit.setOnDeleteListener(new SearchEditText.onDeleteListener() {
+            @Override
+            public void onDelete() {
+                swipeLayout.setVisibility(View.GONE);
+                rlHistoryContent.setVisibility(View.VISIBLE);
+                mPresenter.searchAllHistory();
+            }
+        });
         for (int i = 0; i < 20; i++) {
             searchDocItemArrayList.add(new SearchDocItem(i + ""));
         }
@@ -77,9 +88,14 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         docAdapter = new SearchDocumentAdapter(searchDocItemArrayList);
         docAdapter.setOnLoadMoreListener(this, rvContent);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-        docAdapter.setPreLoadNumber(3);
+        docAdapter.setPreLoadNumber(19);
         rvContent.setAdapter(docAdapter);
 
+//历史记录初始化
+        rvHistory.setLayoutManager(new LinearLayoutManager(getActivity()));
+        historyAdapter = new HistoryItemAdapter(null);
+        rvHistory.setAdapter(historyAdapter);
+        mPresenter.searchAllHistory();
     }
 
 //    @OnClick(R.id.btn_assest)
@@ -116,9 +132,15 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         if (!TextUtils.isEmpty(filterEdit.getText().toString()) && !TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
             page = 1;
             mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
+        } else {
+            ToastUtil.shortShow("请输入搜索关键字");
         }
     }
 
+    @OnClick(R.id.btn_delete_history)
+    public void deleteHistory() {
+        mPresenter.deleteAllHistry();
+    }
 
     @Override
     public void initView() {
@@ -129,13 +151,22 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @Override
     public void showHistoryItem(List<HistoryDocItem> historyDocItems) {
+        historyDocItemArrayList.clear();
+        //去重
+        for (int i = 0; i < historyDocItems.size(); i++) {
+            if (!historyDocItemArrayList.contains(historyDocItems.get(i)) && historyDocItemArrayList.size() < 13) {
+                historyDocItemArrayList.add(historyDocItems.get(i));
+            }
+        }
+        historyAdapter.setNewData(historyDocItemArrayList);
+
 
     }
 
     @Override
     public void refreshView(List<SearchDocItem> searchDocItems) {
         rlHistoryContent.setVisibility(View.GONE);
-        rvContent.setVisibility(View.VISIBLE);
+        swipeLayout.setVisibility(View.VISIBLE);
         docAdapter.setNewData(searchDocItems);
         isErr = false;
 //        mCurrentCounter = PAGE_SIZE;
@@ -166,12 +197,13 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @Override
     public void onRefresh() {
-        if (!TextUtils.isEmpty(filterEdit.getText().toString()) && TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
+        if (!TextUtils.isEmpty(filterEdit.getText().toString()) && !TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
             page = 1;
             docAdapter.setEnableLoadMore(false);
             mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
 
-
+        } else {
+            ToastUtil.shortShow("请输入搜索关键字");
         }
 
     }

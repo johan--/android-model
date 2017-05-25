@@ -2,7 +2,6 @@ package com.tb.wangfang.news.model.bean;
 
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by tangbin on 2017/5/23.
@@ -10,17 +9,32 @@ import io.realm.annotations.PrimaryKey;
 
 
 public class HistoryDocItem extends RealmObject {
-    @PrimaryKey
-    private String id;
+    private long time;
 
     private String text;
 
-    public String getId() {
-        return id;
+    public long getTime() {
+        return time;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HistoryDocItem docItem = (HistoryDocItem) o;
+
+        return text.equals(docItem.text);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return text.hashCode();
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 
     public String getText() {

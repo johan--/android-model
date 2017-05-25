@@ -16,7 +16,6 @@ public interface SecondContract {
         void initView();
 
 
-
         void showHistoryItem(List<HistoryDocItem> historyDocItems);
 
         void refreshView(List<SearchDocItem> searchDocItems);
@@ -29,6 +28,7 @@ public interface SecondContract {
 
         void searchAllHistory();
 
+        void deleteAllHistry();
 
     }
 }
