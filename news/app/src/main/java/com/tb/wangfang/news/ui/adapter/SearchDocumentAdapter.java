@@ -22,7 +22,7 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchDocItem, BaseV
 
     @Override
     protected void convert(BaseViewHolder helper, SearchDocItem item) {
-        helper.setText(R.id.tv_content, item.getText());
-        ((TextView) helper.getView(R.id.tv_content)).setText(item.getText());
+        helper.setText(R.id.tv_content, item.getDescription());
+        ((TextView) helper.getView(R.id.tv_content)).setText(item.getDescription());
     }
 }

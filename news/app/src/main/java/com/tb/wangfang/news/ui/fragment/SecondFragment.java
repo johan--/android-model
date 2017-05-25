@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.folioreader.activity.FolioActivity;
@@ -19,6 +18,7 @@ import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.presenter.SecondPresenter;
+import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.adapter.HistoryItemAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
 import com.tb.wangfang.news.utils.ToastUtil;
@@ -79,16 +79,13 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
                 mPresenter.searchAllHistory();
             }
         });
-        for (int i = 0; i < 20; i++) {
-            searchDocItemArrayList.add(new SearchDocItem(i + ""));
-        }
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         rvContent.setLayoutManager(new LinearLayoutManager(getActivity()));
         docAdapter = new SearchDocumentAdapter(searchDocItemArrayList);
         docAdapter.setOnLoadMoreListener(this, rvContent);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-        docAdapter.setPreLoadNumber(19);
+        docAdapter.setPreLoadNumber(2);
         rvContent.setAdapter(docAdapter);
 
 //历史记录初始化
@@ -129,6 +126,10 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @OnClick(R.id.btn_confirm)
     public void search() {
+
+
+        Intent intent = new Intent(getActivity(), FilterDocActivity.class);
+        startActivity(intent);
         if (!TextUtils.isEmpty(filterEdit.getText().toString()) && !TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
             page = 1;
             mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
@@ -178,19 +179,9 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     @Override
     public void loadMoreView(List<SearchDocItem> searchDocItems) {
         swipeLayout.setEnabled(false);
-        if (searchDocItems.size() < PAGE_SIZE) {
-            docAdapter.loadMoreEnd(false);
-        } else {
-            if (isErr) {
-                docAdapter.addData(searchDocItems);
-                docAdapter.loadMoreComplete();
-            } else {
-                isErr = true;
-                Toast.makeText(getContext(), R.string.network_err, Toast.LENGTH_LONG).show();
-                docAdapter.loadMoreFail();
-            }
-            swipeLayout.setEnabled(true);
-        }
+        docAdapter.addData(searchDocItems);
+        docAdapter.loadMoreComplete();
+        swipeLayout.setEnabled(true);
 
     }
 
@@ -200,7 +191,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         if (!TextUtils.isEmpty(filterEdit.getText().toString()) && !TextUtils.isEmpty(filterEdit.getText().toString().trim())) {
             page = 1;
             docAdapter.setEnableLoadMore(false);
-            mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page);
+            mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page++);
 
         } else {
             ToastUtil.shortShow("请输入搜索关键字");
@@ -212,4 +203,5 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     public void onLoadMoreRequested() {
         mPresenter.searchAndStore(filterEdit.getText().toString().trim(), page++);
     }
+
 }

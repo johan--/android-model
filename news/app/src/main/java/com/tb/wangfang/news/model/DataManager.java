@@ -4,8 +4,10 @@ package com.tb.wangfang.news.model;
 import com.tb.wangfang.news.model.bean.DailyListBean;
 import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
+import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.model.db.DBHelper;
 import com.tb.wangfang.news.model.http.HttpHelper;
+import com.tb.wangfang.news.model.http.response.WXHttpResponse;
 import com.tb.wangfang.news.model.prefs.PreferencesHelper;
 
 import java.util.List;
@@ -63,6 +65,11 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     @Override
     public Flowable<DailyListBean> fetchDailyListInfo() {
         return mHttpHelper.fetchDailyListInfo();
+    }
+
+    @Override
+    public Flowable<WXHttpResponse<List<SearchDocItem>>> fetchWechatSearchListInfo(int num, int page, String word) {
+        return mHttpHelper.fetchWechatSearchListInfo(num, page, word);
     }
 
 

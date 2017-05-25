@@ -23,6 +23,7 @@ public class RxUtil {
 
     /**
      * 统一线程处理
+     *
      * @param <T>
      * @return
      */
@@ -38,6 +39,7 @@ public class RxUtil {
 
     /**
      * 统一返回结果处理
+     *
      * @param <T>
      * @return
      */
@@ -48,7 +50,7 @@ public class RxUtil {
                 return httpResponseFlowable.flatMap(new Function<GankHttpResponse<T>, Flowable<T>>() {
                     @Override
                     public Flowable<T> apply(GankHttpResponse<T> tGankHttpResponse) {
-                        if(!tGankHttpResponse.getError()) {
+                        if (!tGankHttpResponse.getError()) {
                             return createData(tGankHttpResponse.getResults());
                         } else {
                             return Flowable.error(new ApiException("服务器返回error"));
@@ -61,6 +63,7 @@ public class RxUtil {
 
     /**
      * 统一返回结果处理
+     *
      * @param <T>
      * @return
      */
@@ -71,10 +74,10 @@ public class RxUtil {
                 return httpResponseFlowable.flatMap(new Function<WXHttpResponse<T>, Flowable<T>>() {
                     @Override
                     public Flowable<T> apply(WXHttpResponse<T> tWXHttpResponse) {
-                        if(tWXHttpResponse.getCode() == 200) {
+                        if (tWXHttpResponse.getCode() == 200) {
                             return createData(tWXHttpResponse.getNewslist());
                         } else {
-                            return Flowable.error(new ApiException("服务器返回error"));
+                            return Flowable.error(new ApiException(tWXHttpResponse.getMsg()));
                         }
                     }
                 });
@@ -84,6 +87,7 @@ public class RxUtil {
 
     /**
      * 统一返回结果处理
+     *
      * @param <T>
      * @return
      */
@@ -94,7 +98,7 @@ public class RxUtil {
                 return httpResponseFlowable.flatMap(new Function<MyHttpResponse<T>, Flowable<T>>() {
                     @Override
                     public Flowable<T> apply(MyHttpResponse<T> tMyHttpResponse) {
-                        if(tMyHttpResponse.getCode() == 200) {
+                        if (tMyHttpResponse.getCode() == 200) {
                             return createData(tMyHttpResponse.getData());
                         } else {
                             return Flowable.error(new ApiException("服务器返回error"));
@@ -107,6 +111,7 @@ public class RxUtil {
 
     /**
      * 统一返回结果处理
+     *
      * @param <T>
      * @return
      */
@@ -117,7 +122,7 @@ public class RxUtil {
                 return httpResponseFlowable.flatMap(new Function<GoldHttpResponse<T>, Flowable<T>>() {
                     @Override
                     public Flowable<T> apply(GoldHttpResponse<T> tGoldHttpResponse) {
-                        if(tGoldHttpResponse.getResults() != null) {
+                        if (tGoldHttpResponse.getResults() != null) {
                             return createData(tGoldHttpResponse.getResults());
                         } else {
                             return Flowable.error(new ApiException("服务器返回error"));
@@ -130,6 +135,7 @@ public class RxUtil {
 
     /**
      * 生成Flowable
+     *
      * @param <T>
      * @return
      */

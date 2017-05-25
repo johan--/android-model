@@ -78,7 +78,13 @@ public class RealmHelper implements DBHelper {
 
     @Override
     public void deleteHistoryAll() {
-        mRealm.where(HistoryDocItem.class).findAll().deleteAllFromRealm();
+        final RealmResults<HistoryDocItem> historyDocItems = mRealm.where(HistoryDocItem.class).findAll();
+        mRealm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                historyDocItems.deleteAllFromRealm();
+            }
+        });
     }
 
     @Override
