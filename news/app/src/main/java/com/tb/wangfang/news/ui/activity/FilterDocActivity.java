@@ -1,47 +1,52 @@
 package com.tb.wangfang.news.ui.activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.FilterDocContract;
+import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.presenter.FilterDocPresenter;
+import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
 
-public class FilterDocActivity extends BaseActivity<FilterDocPresenter>
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, FilterDocContract.View {
+import java.util.ArrayList;
+import java.util.List;
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
-    private CharSequence mTitle;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implements FilterDocContract.View, DrawerLayout.DrawerListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
 
-        // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
-    }
+    @BindView(R.id.iv_go_back)
+    ImageView ivGoBack;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
+    @BindView(R.id.iv_menu)
+    ImageView ivMenu;
+    @BindView(R.id.lv_right_menu)
+    RecyclerView lvRightMenu;
+    @BindView(R.id.dl_right)
+    DrawerLayout dlRight;
+    @BindView(R.id.rv_content)
+    RecyclerView rvContent;
+    @BindView(R.id.swipeLayout)
+    SwipeRefreshLayout swipeLayout;
+    private SearchDocumentAdapter docAdapter;
+    private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
+    private int page = 1;
+    private String text;
 
     @Override
     protected int getLayout() {
@@ -50,82 +55,100 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter>
 
     @Override
     protected void initEventAndData() {
-
+        text = getIntent().getExtras().getString("text");
+        swipeLayout.setOnRefreshListener(this);
+        swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
+        rvContent.setLayoutManager(new LinearLayoutManager(this));
+        docAdapter = new SearchDocumentAdapter(searchDocItemArrayList);
+        docAdapter.setOnLoadMoreListener(this, rvContent);
+        docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        docAdapter.setPreLoadNumber(2);
+        rvContent.setAdapter(docAdapter);
+        mPresenter.searchAndStore(text, page);
     }
 
-    @Override
-    public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
-    }
-
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
-    }
-
-    public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
-    }
 
     @Override
     protected void initInject() {
         getActivityComponent().inject(this);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
 
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_filter_doc, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((FilterDocActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+    @OnClick({R.id.iv_go_back, R.id.iv_menu})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_go_back:
+                finish();
+                break;
+            case R.id.iv_menu:
+                if (dlRight.isDrawerOpen(Gravity.RIGHT)) {
+                    dlRight.closeDrawer(Gravity.RIGHT);
+                } else {
+                    dlRight.openDrawer(Gravity.RIGHT);
+                }
+                break;
         }
     }
+
+    @Override
+    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+    }
+
+    @Override
+    public void onDrawerOpened(View drawerView) {
+
+    }
+
+    @Override
+    public void onDrawerClosed(View drawerView) {
+
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+
+    }
+
+    @Override
+    public void refreshView(List<SearchDocItem> searchDocItems) {
+
+        docAdapter.setNewData(searchDocItems);
+        swipeLayout.setRefreshing(false);
+        docAdapter.setEnableLoadMore(true);
+
+    }
+
+    @Override
+    public void loadMoreView(List<SearchDocItem> searchDocItems) {
+        swipeLayout.setEnabled(false);
+        docAdapter.addData(searchDocItems);
+        docAdapter.loadMoreComplete();
+        swipeLayout.setEnabled(true);
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    public void onRefresh() {
+
+        page = 1;
+        docAdapter.setEnableLoadMore(false);
+        mPresenter.searchAndStore(text, page);
+
+
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        mPresenter.searchAndStore(text, ++page);
+    }
+
 
 }

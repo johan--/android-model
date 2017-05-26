@@ -18,13 +18,10 @@ public interface SecondContract {
 
         void showHistoryItem(List<HistoryDocItem> historyDocItems);
 
-        void refreshView(List<SearchDocItem> searchDocItems);
-
-        void loadMoreView(List<SearchDocItem> searchDocItems);
     }
 
     interface Presenter extends BasePresenter<View> {
-        void searchAndStore(String text, int page);
+
 
         void searchAllHistory();
 

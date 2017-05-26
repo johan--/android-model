@@ -3,7 +3,7 @@ ext {
             compileSdkVersion: 25,
             buildToolsVersion: '25.0.2',
             applicationId    : "com.codeest.geeknews",
-            minSdkVersion    : 22,
+            minSdkVersion    : 16,
             targetSdkVersion : 25,
             versionCode      : 130,
             versionName      : "1.3.0"
