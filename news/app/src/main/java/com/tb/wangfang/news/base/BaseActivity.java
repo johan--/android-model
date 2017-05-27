@@ -35,6 +35,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends SimpleActivi
     protected void onViewCreated() {
         super.onViewCreated();
         initInject();
+//        getSupportActionBar().hide();//隐藏掉整个ActionBar，包括下面的Tabs
         if (mPresenter != null)
             mPresenter.attachView(this);
     }

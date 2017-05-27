@@ -12,11 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.FilterDocContract;
+import com.tb.wangfang.news.model.bean.Level0;
+import com.tb.wangfang.news.model.bean.Level1;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.presenter.FilterDocPresenter;
+import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
 
 import java.util.ArrayList;
@@ -45,8 +49,10 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     SwipeRefreshLayout swipeLayout;
     private SearchDocumentAdapter docAdapter;
     private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
+    ArrayList<MultiItemEntity> multiItemEntityArrayList = new ArrayList<>();
     private int page = 1;
     private String text;
+    private FilterExpandAdapter expandAdapter;
 
     @Override
     protected int getLayout() {
@@ -55,6 +61,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
     @Override
     protected void initEventAndData() {
+        //初始化搜索控件
         text = getIntent().getExtras().getString("text");
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
@@ -64,7 +71,13 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         docAdapter.setPreLoadNumber(2);
         rvContent.setAdapter(docAdapter);
-        mPresenter.searchAndStore(text, page);
+        mPresenter.search(text, page);
+        //初始化筛选控件
+        expandAdapter = new FilterExpandAdapter(multiItemEntityArrayList);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        lvRightMenu.setLayoutManager(manager);
+        lvRightMenu.setAdapter(expandAdapter);
+
     }
 
 
@@ -129,6 +142,23 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
     @Override
+    public void loadFilterView(List<SearchDocItem> searchDocItems) {
+        multiItemEntityArrayList.clear();
+        for (int i = 0; i < searchDocItems.size(); i++) {
+            Level0 level0 = new Level0();
+            level0.setText(searchDocItems.get(i).getDescription());
+            for (int j = 0; j < 10; j++) {
+                Level1 level1 = new Level1();
+                level1.setText(j + "");
+                level0.addSubItem(level1);
+            }
+            multiItemEntityArrayList.add(level0);
+
+        }
+        expandAdapter.setNewData(multiItemEntityArrayList);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
@@ -140,14 +170,14 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
         page = 1;
         docAdapter.setEnableLoadMore(false);
-        mPresenter.searchAndStore(text, page);
+        mPresenter.search(text, page);
 
 
     }
 
     @Override
     public void onLoadMoreRequested() {
-        mPresenter.searchAndStore(text, ++page);
+        mPresenter.search(text, ++page);
     }
 
 

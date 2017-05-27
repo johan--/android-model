@@ -41,5 +41,11 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
         mView.showHistoryItem(new ArrayList<HistoryDocItem>());
     }
 
+    @Override
+    public void stotyHistory(HistoryDocItem item) {
+
+        mDataManager.save(item);
+    }
+
 
 }

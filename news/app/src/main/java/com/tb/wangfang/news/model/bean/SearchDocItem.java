@@ -4,7 +4,7 @@ package com.tb.wangfang.news.model.bean;
  * Created by tangbin on 2017/5/23.
  */
 
-public class SearchDocItem {
+public class SearchDocItem   {
 
     /**
      * ctime : 2016-03-31

@@ -3,7 +3,6 @@ package com.tb.wangfang.news.presenter;
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.FilterDocContract;
 import com.tb.wangfang.news.model.DataManager;
-import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.model.http.response.WXHttpResponse;
 import com.tb.wangfang.news.utils.RxUtil;
@@ -29,12 +28,9 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
     }
 
     @Override
-    public void searchAndStore(final String text, final int page) {
+    public void search(final String text, final int page) {
 
-        HistoryDocItem docItem = new HistoryDocItem();
-        docItem.setText(text);
-        docItem.setTime(System.currentTimeMillis() / 1000);
-        mDataManager.save(docItem);
+
         Flowable<WXHttpResponse<List<SearchDocItem>>> observable;
         observable = mDataManager.fetchWechatSearchListInfo(20, page, text);
         addSubscribe(observable
@@ -45,6 +41,7 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
                     public void onNext(List<SearchDocItem> wxItemBeen) {
                         if (page == 1) {
                             mView.refreshView(wxItemBeen);
+                            mView.loadFilterView(wxItemBeen);
                         } else {
                             mView.loadMoreView(wxItemBeen);
                         }

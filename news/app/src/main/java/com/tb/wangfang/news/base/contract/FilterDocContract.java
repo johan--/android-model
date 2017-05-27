@@ -17,10 +17,12 @@ public interface FilterDocContract {
 
         void loadMoreView(List<SearchDocItem> searchDocItems);
 
+        void loadFilterView(List<SearchDocItem> searchDocItems);
+
     }
 
     interface Presenter extends BasePresenter<View> {
-        void searchAndStore(String text, int page);
+        void search(String text, int page);
 
     }
 }

@@ -3,7 +3,6 @@ package com.tb.wangfang.news.base.contract;
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
-import com.tb.wangfang.news.model.bean.SearchDocItem;
 
 import java.util.List;
 
@@ -26,6 +25,8 @@ public interface SecondContract {
         void searchAllHistory();
 
         void deleteAllHistry();
+
+        void stotyHistory(HistoryDocItem item);
 
     }
 }

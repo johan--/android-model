@@ -4,7 +4,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.FrameLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tb.wangfang.news.R;
@@ -16,21 +21,28 @@ import com.tb.wangfang.news.ui.fragment.FirstFragment;
 import com.tb.wangfang.news.ui.fragment.FourthFragment;
 import com.tb.wangfang.news.ui.fragment.SecondFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
-import com.tb.wangfang.news.widget.BottomBar;
-import com.tb.wangfang.news.widget.BottomBarTab;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
-    @BindView(R.id.fl_container)
-    FrameLayout flContainer;
-    @BindView(R.id.bottomBar)
-    BottomBar bottomBar;
+    @BindView(R.id.tv_home)
+    TextView tvHome;
+    @BindView(R.id.tv_find)
+    TextView tvFind;
+    @BindView(R.id.tv_focus)
+    TextView tvFocus;
+    @BindView(R.id.tv_me)
+    TextView tvMe;
+    @BindView(R.id.main_vp)
+    ViewPager mainVp;
+
+
     private long TOUCH_TIME = 0;
     public static final int FIRST = 0;
     public static final int SECOND = 1;
@@ -53,12 +65,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             mFragments[SECOND] = SecondFragment.newInstance();
             mFragments[THIRD] = ThirdFragment.newInstance();
             mFragments[FOURTH] = FourthFragment.newInstance();
-
-            loadMultipleRootFragment(R.id.fl_container, FIRST,
-                    mFragments[FIRST],
-                    mFragments[SECOND],
-                    mFragments[THIRD],
-                    mFragments[FOURTH]);
+            FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
+            mainVp.setAdapter(adapter);
         } else {
             mFragments[FIRST] = findFragment(FirstFragment.class);
             mFragments[SECOND] = findFragment(SecondFragment.class);
@@ -71,34 +79,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
     private void initView() {
-        bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
-        bottomBar.addItem(new BottomBarTab(this, R.drawable.ic_action_action_search))
-                .addItem(new BottomBarTab(this, R.drawable.ic_action_navigation_arrow_back))
-                .addItem(new BottomBarTab(this, R.drawable.ic_action_navigation_close))
-                .addItem(new BottomBarTab(this, R.drawable.ic_action_stat_share));
-
-        bottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(int position, int prePosition) {
-                showHideFragment(mFragments[position], mFragments[prePosition]);
-                if (position == 1) {
-
-                }
-            }
-
-            @Override
-            public void onTabUnselected(int position) {
-
-            }
-
-            @Override
-            public void onTabReselected(int position) {
-                SupportFragment currentFragment = mFragments[position];
-                int count = currentFragment.getChildFragmentManager().getBackStackEntryCount();
-
-            }
-        });
     }
 
     @Override
@@ -108,7 +89,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void showUpdateDialog(String versionContent) {
-        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("检测到新版本!");
         builder.setMessage(versionContent);
         builder.setNegativeButton("取消", null);
@@ -146,4 +127,46 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     }
 
+
+    @OnClick({R.id.tv_home, R.id.tv_find, R.id.tv_focus, R.id.tv_me})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_home:
+                mainVp.setCurrentItem(0);
+                break;
+            case R.id.tv_find:
+                mainVp.setCurrentItem(1);
+                break;
+            case R.id.tv_focus:
+                mainVp.setCurrentItem(2);
+                break;
+            case R.id.tv_me:
+                mainVp.setCurrentItem(3);
+                break;
+        }
+    }
+
+    public class FragAdapter extends FragmentPagerAdapter {
+
+        private SupportFragment[] mFragments;
+
+        public FragAdapter(FragmentManager fm, SupportFragment[] fragments) {
+            super(fm);
+            // TODO Auto-generated constructor stub
+            mFragments = fragments;
+        }
+
+        @Override
+        public SupportFragment getItem(int arg0) {
+            // TODO Auto-generated method stub
+            return mFragments[arg0];
+        }
+
+        @Override
+        public int getCount() {
+            // TODO Auto-generated method stub
+            return mFragments.length;
+        }
+
+    }
 }
