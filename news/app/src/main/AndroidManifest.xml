@@ -31,9 +31,11 @@
 
         <activity
             android:name=".ui.activity.FilterDocActivity"
-            android:label="@string/title_activity_filter_doc">
-
-        </activity>
+            android:label="@string/title_activity_filter_doc"></activity>
+        <activity
+            android:name=".ui.activity.PdfActivity"
+            android:label="@string/title_activity_pdf"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

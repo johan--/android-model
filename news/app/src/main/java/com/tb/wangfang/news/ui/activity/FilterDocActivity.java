@@ -1,7 +1,7 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.FilterDocContract;
@@ -22,16 +23,16 @@ import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.presenter.FilterDocPresenter;
 import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
+import com.tb.wangfang.news.utils.SnackbarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implements FilterDocContract.View, DrawerLayout.DrawerListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implements FilterDocContract.View, DrawerLayout.DrawerListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, MaterialSpinner.OnItemSelectedListener<String> {
 
     @BindView(R.id.iv_go_back)
     ImageView ivGoBack;
@@ -47,6 +48,12 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     RecyclerView rvContent;
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout swipeLayout;
+    @BindView(R.id.ms_selet_one)
+    MaterialSpinner msSeletOne;
+    @BindView(R.id.ms_selet_two)
+    MaterialSpinner msSeletTwo;
+    @BindView(R.id.ms_selet_three)
+    MaterialSpinner msSeletThree;
     private SearchDocumentAdapter docAdapter;
     private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
     ArrayList<MultiItemEntity> multiItemEntityArrayList = new ArrayList<>();
@@ -63,6 +70,8 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     protected void initEventAndData() {
         //初始化搜索控件
         text = getIntent().getExtras().getString("text");
+        msSeletOne.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");
+        msSeletOne.setOnItemSelectedListener(this);
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         rvContent.setLayoutManager(new LinearLayoutManager(this));
@@ -77,6 +86,14 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         LinearLayoutManager manager = new LinearLayoutManager(this);
         lvRightMenu.setLayoutManager(manager);
         lvRightMenu.setAdapter(expandAdapter);
+
+        docAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(FilterDocActivity.this, PdfActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -158,12 +175,6 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         expandAdapter.setNewData(multiItemEntityArrayList);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @Override
     public void onRefresh() {
@@ -181,4 +192,12 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
 
+    @Override
+    public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+        switch (view.getId()) {
+            case R.id.ms_selet_one:
+                SnackbarUtil.show(findViewById(android.R.id.content), item);
+                break;
+        }
+    }
 }

@@ -29,6 +29,9 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+
+    // Used to load the 'native-lib' library on application startup.
+
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
     @BindView(R.id.tv_home)
@@ -122,10 +125,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             finish();
         } else {
             TOUCH_TIME = System.currentTimeMillis();
-            Toast.makeText(this, getString(R.string.press_again_exit), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.press_again_exit , Toast.LENGTH_SHORT).show();
         }
 
     }
+
+
 
 
     @OnClick({R.id.tv_home, R.id.tv_find, R.id.tv_focus, R.id.tv_me})
@@ -151,7 +156,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         private SupportFragment[] mFragments;
 
         public FragAdapter(FragmentManager fm, SupportFragment[] fragments) {
-            super(fm);
+            super(fm);  
             // TODO Auto-generated constructor stub
             mFragments = fragments;
         }

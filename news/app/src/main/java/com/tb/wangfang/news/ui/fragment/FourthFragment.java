@@ -27,8 +27,6 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
     protected void initEventAndData() {
 
     }
-
-
     @Override
     public void showUpdateDialog(String versionContent) {
 

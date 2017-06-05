@@ -19,7 +19,6 @@ import com.youth.banner.Banner;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 
 public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View {
@@ -27,9 +26,8 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     private static final String TAG = "FirstFragment";
     @BindView(R.id.banner)
     Banner banner;
-    Unbinder unbinder;
-    //    @BindView(R.id.pdfView)
-//    PDFView pdfview;
+
+
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
     @BindView(R.id.viewPager)

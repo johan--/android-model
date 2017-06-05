@@ -1,9 +1,9 @@
 package com.tb.wangfang.news.model.http;
 
 
+import com.tb.wangfang.news.model.DataManager;
 import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.bean.DownState;
-import com.tb.wangfang.news.model.db.RealmHelper;
 import com.tb.wangfang.news.model.http.DownLoadListener.DownloadInterceptor;
 import com.tb.wangfang.news.model.http.api.WangfangApis;
 import com.tb.wangfang.news.utils.AppUtil;
@@ -14,12 +14,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
-
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
@@ -41,8 +37,7 @@ public class HttpDownManager {
     /*单利对象*/
     private volatile static HttpDownManager INSTANCE;
     /*数据库类*/
-    @Inject
-    RealmHelper realmHelper;
+    private static DataManager dataManager;
 
     private HttpDownManager() {
         downInfos = new HashSet<>();
@@ -55,11 +50,23 @@ public class HttpDownManager {
      *
      * @return
      */
-    public static HttpDownManager getInstance() {
+    public static HttpDownManager getInstance(DataManager dataManager) {
         if (INSTANCE == null) {
             synchronized (HttpDownManager.class) {
                 if (INSTANCE == null) {
                     INSTANCE = new HttpDownManager();
+                    HttpDownManager.dataManager = dataManager;
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    public static HttpDownManager getInstance() {
+        if (INSTANCE == null) {
+            synchronized (HttpDownManager.class) {
+                if (INSTANCE == null) {
+
                 }
             }
         }
@@ -77,7 +84,7 @@ public class HttpDownManager {
             return;
         }
         /*添加回调处理类*/
-        ProgressDownSubscriber subscriber = new ProgressDownSubscriber(info);
+        ProgressDownSubscriber subscriber = new ProgressDownSubscriber(info, dataManager);
         /*记录回调sub*/
         subMap.put(info.getUrl(), subscriber);
         /*获取service，多次请求公用一个sercie*/
@@ -120,27 +127,7 @@ public class HttpDownManager {
                 /*回调线程*/
                 .observeOn(AndroidSchedulers.mainThread())
                 /*数据回调*/
-                .subscribe(new Observer<DownInfo>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(DownInfo downInfo) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+                .subscribe(subscriber);
 
     }
 
@@ -158,7 +145,7 @@ public class HttpDownManager {
             subMap.remove(info.getUrl());
         }
         /*保存数据库信息和本地文件*/
-        realmHelper.save(info);
+        dataManager.save(info);
     }
 
 
@@ -177,7 +164,7 @@ public class HttpDownManager {
             subMap.remove(info.getUrl());
         }
         /*这里需要讲info信息写入到数据中，可自由扩展，用自己项目的数据库*/
-        realmHelper.update(info);
+        dataManager.update(info, info.getStateInte());
     }
 
     /**

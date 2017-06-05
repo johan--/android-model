@@ -16,7 +16,7 @@ public interface DBHelper {
 
     void save(DownInfo info);
 
-    void update(DownInfo info);
+    void update(DownInfo info,int state);
 
     void deleteDowninfo(DownInfo info);
 

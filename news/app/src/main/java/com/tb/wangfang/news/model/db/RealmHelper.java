@@ -39,8 +39,9 @@ public class RealmHelper implements DBHelper {
     }
 
     @Override
-    public void update(DownInfo info) {
+    public void update(DownInfo info, int state) {
         mRealm.beginTransaction();
+        info.setStateInte(0);
         mRealm.copyToRealmOrUpdate(info);
         mRealm.commitTransaction();
     }

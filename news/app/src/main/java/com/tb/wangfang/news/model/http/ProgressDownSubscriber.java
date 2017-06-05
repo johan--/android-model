@@ -1,15 +1,13 @@
 package com.tb.wangfang.news.model.http;
 
 
+import com.tb.wangfang.news.model.DataManager;
 import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.bean.DownState;
-import com.tb.wangfang.news.model.db.RealmHelper;
 import com.tb.wangfang.news.model.http.DownLoadListener.DownloadProgressListener;
 import com.tb.wangfang.news.model.http.DownLoadListener.HttpDownOnNextListener;
 
 import java.lang.ref.SoftReference;
-
-import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -29,12 +27,14 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
     private SoftReference<HttpDownOnNextListener> mSubscriberOnNextListener;
     /*下载数据*/
     private DownInfo downInfo;
-    @Inject
-    RealmHelper realmHelper;
 
-    public ProgressDownSubscriber(DownInfo downInfo) {
+    DataManager dataManager;
+
+    public ProgressDownSubscriber(DownInfo downInfo, DataManager dataManager) {
         this.mSubscriberOnNextListener = new SoftReference<>(downInfo.getListener());
         this.downInfo = downInfo;
+        this.dataManager = dataManager;
+
     }
 
 
@@ -49,9 +49,9 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
         if (mSubscriberOnNextListener.get() != null) {
             mSubscriberOnNextListener.get().onStart();
         }
-        downInfo.setState(DownState.START);
-    }
+        dataManager.update(downInfo, 0);
 
+    }
 
 
     /**
@@ -66,9 +66,7 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
             mSubscriberOnNextListener.get().onError(e);
         }
         HttpDownManager.getInstance().remove(downInfo);
-        downInfo.setState(DownState.ERROR);
-
-        realmHelper.update(downInfo);
+        dataManager.update(downInfo, 4);
     }
 
     /**
@@ -80,8 +78,8 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
             mSubscriberOnNextListener.get().onComplete();
         }
         HttpDownManager.getInstance().remove(downInfo);
-        downInfo.setState(DownState.FINISH);
-        realmHelper.update(downInfo);
+
+        dataManager.update(downInfo, 5);
     }
 
     /**

@@ -79,8 +79,8 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     }
 
     @Override
-    public void update(DownInfo info) {
-        mDbHelper.update(info);
+    public void update(DownInfo info,int state) {
+        mDbHelper.update(info,state);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
 
     @Override
     public List<DownInfo> queryDownAll() {
-        return null;
+        return mDbHelper.queryDownAll();
     }
 
     @Override

@@ -8,9 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.folioreader.activity.FolioActivity;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
@@ -59,17 +61,19 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         rvHistory.setLayoutManager(new LinearLayoutManager(getActivity()));
         historyAdapter = new HistoryItemAdapter(historyDocItemArrayList);
         rvHistory.setAdapter(historyAdapter);
-
+        historyAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                TextView tvContent = (TextView) view.findViewById(R.id.tv_item);
+                filterEdit.setText(tvContent.getText());
+                search();
+            }
+        });
     }
 
     @Override
     protected void initEventAndData() {
-        filterEdit.setOnDeleteListener(new SearchEditText.onDeleteListener() {
-            @Override
-            public void onDelete() {
 
-            }
-        });
     }
 
     @Override
