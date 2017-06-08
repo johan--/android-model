@@ -9,6 +9,7 @@ public class NDKFileEncryptUtils {
         System.loadLibrary("native-lib");
     }
 
+    public native  void encry(String inputPath, String outputPath);
 
-
+    public native  void decry(String inputPath, String outputPath);
 }

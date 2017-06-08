@@ -22,7 +22,9 @@ import nl.siegmann.epublib.domain.Book;
 
 public class FileUtil {
     private static final String TAG = FileUtil.class.getSimpleName();
-    private static final String FOLIO_READER_ROOT = "/folioreader/";
+    private static final String FOLIO_READER_ROOT = "/wanfangreader/";
+    private static final String FOLIO_READER_ROOT_ENCRY = "/wanfangencry/";
+    private static final String FOLIO_READER_ROOT_DECRY = "/wanfangdecry/";
 
     public static Book saveEpubFile(final Context context, FolioActivity.EpubSourceType epubSourceType, String epubFilePath, int epubRawId, String epubFileName) {
         String filePath;
@@ -48,7 +50,7 @@ public class FileUtil {
                 new EpubManipulator(filePath, epubFileName, context);
                 book = AppUtil.saveBookToDb(filePath);
             } else {
-                EpubManipulator epubManipulator= new EpubManipulator(filePath, epubFileName, context);
+                EpubManipulator epubManipulator = new EpubManipulator(filePath, epubFileName, context);
                 book = epubManipulator.getEpubBook();
             }
             return book;
@@ -58,9 +60,52 @@ public class FileUtil {
         return book;
     }
 
+    public static void savePDFFile(final Context context, String epubFilePath, String epubFileName) {
+        String filePath;
+        InputStream epubInputStream;
+        boolean isFolderAvalable;
+        try {
+            isFolderAvalable = isFolderAvailable(epubFileName);
+            filePath = getFolioEpubFolderPath(epubFileName) + "/" + epubFileName + ".pdf";
+            if (!isFolderAvalable) {
+                AssetManager assetManager = context.getAssets();
+                epubInputStream = assetManager.open(epubFilePath);
+                saveTempEpubFile(filePath, epubFileName, epubInputStream);
+
+            }
+        } catch (Exception e) {
+            Log.d(TAG, e.getMessage());
+        }
+
+    }
+
     public static String getFolioEpubFolderPath(String epubFileName) {
         return Environment.getExternalStorageDirectory().getAbsolutePath()
                 + "/" + FOLIO_READER_ROOT + "/" + epubFileName;
+    }
+
+    public static String getFolioPDFEncryFolderPath(String epubFileName) {
+        return Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName;
+    }
+
+    public static String getFolioPDFDecryFolderPath(String epubFileName) {
+        return Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/" + FOLIO_READER_ROOT_DECRY + "/" + epubFileName;
+    }
+
+    public static String getFolioPDFFilePath(String epubFilePath, String epubFileName) {
+        return getFolioEpubFolderPath(epubFileName) + "/" + epubFileName + ".pdf";
+    }
+
+    public static String getFolioPDFEncryFilePath(String epubFilePath, String epubFileName) {
+        return Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
+    }
+
+    public static String getFolioPDFDecryFilePath(String epubFilePath, String epubFileName) {
+        return Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/" + FOLIO_READER_ROOT_DECRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
     }
 
     public static String getFolioEpubFilePath(FolioActivity.EpubSourceType sourceType, String epubFilePath, String epubFileName) {

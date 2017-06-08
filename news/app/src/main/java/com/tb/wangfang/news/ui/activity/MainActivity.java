@@ -125,12 +125,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             finish();
         } else {
             TOUCH_TIME = System.currentTimeMillis();
-            Toast.makeText(this, R.string.press_again_exit , Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.press_again_exit, Toast.LENGTH_SHORT).show();
         }
 
     }
-
-
 
 
     @OnClick({R.id.tv_home, R.id.tv_find, R.id.tv_focus, R.id.tv_me})
@@ -156,7 +154,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         private SupportFragment[] mFragments;
 
         public FragAdapter(FragmentManager fm, SupportFragment[] fragments) {
-            super(fm);  
+            super(fm);
             // TODO Auto-generated constructor stub
             mFragments = fragments;
         }
