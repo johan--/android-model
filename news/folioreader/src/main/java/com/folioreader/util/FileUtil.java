@@ -162,4 +162,17 @@ public class FileUtil {
         }
         return false;
     }
+
+
+    public static String getFolioPDFDecryFolderPath(String path, String about) {
+
+
+        return path
+                + "/" + FOLIO_READER_ROOT_DECRY + "/" + about;
+    }
+
+    public static String getFolioPDFDecryFilePath(String path, String s, String about) {
+        return path
+                + "/" + FOLIO_READER_ROOT_DECRY + "/" + about + "/" + about + ".pdf";
+    }
 }

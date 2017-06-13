@@ -15,6 +15,7 @@ import com.github.barteksc.pdfviewer.listener.OnRenderListener;
 import com.litesuits.common.utils.SdCardUtil;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.utils.LogUtil;
 import com.tb.wangfang.news.utils.NDKFileEncryptUtils;
 
 import java.io.File;
@@ -53,6 +54,16 @@ public class PdfActivity extends SimpleActivity {
             Folder2.mkdirs();
         }
         encryUtils.decry(FileUtil.getFolioPDFEncryFilePath("about.pdf", "about"), FileUtil.getFolioPDFDecryFilePath("about.pdf", "about"));
+
+        File Folder3 = new File(FileUtil.getFolioPDFDecryFolderPath(getFilesDir().getPath(), "about"));
+        if (!Folder3.exists()) {
+            Folder3.mkdirs();
+        }
+        encryUtils.decry(FileUtil.getFolioPDFEncryFilePath("about.pdf", "about"), FileUtil.getFolioPDFDecryFilePath(getFilesDir().getPath(), "about.pdf", "about"));
+        File file=new File(FileUtil.getFolioPDFDecryFilePath(getFilesDir().getPath(), "about.pdf", "about"));
+        if (file.exists()){
+            LogUtil.d("oyu");
+        }
         pdfview.fromAsset("about.pdf")
                 // all pages are displayed by default
                 .enableSwipe(true) // allows to block changing pages using swipe

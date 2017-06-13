@@ -89,8 +89,8 @@ public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {
     }
 
     @Override
-    public DownInfo queryDownBy(long Id) {
-        return mDbHelper.queryDownBy(Id);
+    public DownInfo queryDownBy(String url) {
+        return mDbHelper.queryDownBy(url);
     }
 
     @Override

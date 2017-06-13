@@ -69,12 +69,11 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
 
         listData = mDataManager.queryDownAll();
         if (listData.isEmpty()) {
-            String[] downUrl = new String[]{"http://www.izaodao.com/app/izaodao_app.apk"};
+            String[] downUrl = new String[]{"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"};
             for (int i = 0; i < downUrl.length; i++) {
                 File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
                         "test" + i + ".apk");
                 DownInfo apkApi = new DownInfo(downUrl[i]);
-                apkApi.setId(i);
                 apkApi.setState(DownState.START);
                 apkApi.setSavePath(outputFile.getAbsolutePath());
                 mDataManager.save(apkApi);
@@ -103,8 +102,8 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
             }
             listData = mDataManager.queryDownAll();
         }
-        DownInfo apkApi = mDataManager.queryDownBy(0);
+        DownInfo apkApi = mDataManager.queryDownBy("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
         manager = HttpDownManager.getInstance(mDataManager);
-        manager.startDown(apkApi);
+        manager.startDown(apkApi,mDataManager);
     }
 }

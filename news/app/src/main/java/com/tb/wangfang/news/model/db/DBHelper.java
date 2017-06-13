@@ -20,7 +20,7 @@ public interface DBHelper {
 
     void deleteDowninfo(DownInfo info);
 
-    DownInfo queryDownBy(long Id);
+    DownInfo queryDownBy(String url);
 
     List<DownInfo> queryDownAll();
 

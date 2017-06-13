@@ -18,8 +18,8 @@ import io.realm.annotations.PrimaryKey;
 
 
 public class DownInfo extends RealmObject implements Serializable {
-    @PrimaryKey
-    private long id;
+
+
     /*存储位置*/
     private String savePath;
     /*文件总长度*/
@@ -37,6 +37,7 @@ public class DownInfo extends RealmObject implements Serializable {
     /*state状态数据库保存*/
     private int stateInte;
     /*url*/
+    @PrimaryKey
     private String url;
 
     public DownInfo(String url, HttpDownOnNextListener listener) {
@@ -45,13 +46,12 @@ public class DownInfo extends RealmObject implements Serializable {
     }
 
     public DownInfo(String url) {
-        setUrl(url);
+        this.url = url;
     }
 
 
     public DownInfo(long id, String savePath, long countLength, long readLength,
                     int connectonTime, int stateInte, String url) {
-        this.id = id;
         this.savePath = savePath;
         this.countLength = countLength;
         this.readLength = readLength;
@@ -146,13 +146,6 @@ public class DownInfo extends RealmObject implements Serializable {
         this.readLength = readLength;
     }
 
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public int getConnectonTime() {
         return this.connectonTime;

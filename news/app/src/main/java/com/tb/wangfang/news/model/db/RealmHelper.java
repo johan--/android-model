@@ -41,14 +41,14 @@ public class RealmHelper implements DBHelper {
     @Override
     public void update(DownInfo info, int state) {
         mRealm.beginTransaction();
-        info.setStateInte(0);
+        info.setStateInte(state);
         mRealm.copyToRealmOrUpdate(info);
         mRealm.commitTransaction();
     }
 
     @Override
     public void deleteDowninfo(DownInfo info) {
-        DownInfo data = mRealm.where(DownInfo.class).equalTo("id", info.getId()).findFirst();
+        DownInfo data = mRealm.where(DownInfo.class).equalTo("url", info.getUrl()).findFirst();
         mRealm.beginTransaction();
         if (data != null) {
             data.deleteFromRealm();
@@ -57,8 +57,8 @@ public class RealmHelper implements DBHelper {
     }
 
     @Override
-    public DownInfo queryDownBy(long Id) {
-        return mRealm.where(DownInfo.class).equalTo("id", Id).findFirst();
+    public DownInfo queryDownBy(String url) {
+        return mRealm.where(DownInfo.class).equalTo("url", url).findFirst();
     }
 
     @Override

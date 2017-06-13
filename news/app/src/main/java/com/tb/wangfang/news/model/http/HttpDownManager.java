@@ -77,7 +77,7 @@ public class HttpDownManager {
     /**
      * 开始下载
      */
-    public void startDown(final DownInfo info) {
+    public void startDown(final DownInfo info, final DataManager mDataManager) {
         /*正在下载不处理*/
         if (info == null || subMap.get(info.getUrl()) != null) {
             subMap.get(info.getUrl()).setDownInfo(info);
@@ -106,9 +106,11 @@ public class HttpDownManager {
                     .build();
             httpService = retrofit.create(WangfangApis.class);
             info.setService(httpService);
+            mDataManager.update(info, info.getStateInte());
             downInfos.add(info);
         }
         /*得到rx对象-上一次下載的位置開始下載*/
+        final String url = info.getUrl();
         httpService.download("bytes=" + info.getReadLength() + "-", info.getUrl())
                 /*指定线程*/
                 .subscribeOn(Schedulers.io())
@@ -119,8 +121,9 @@ public class HttpDownManager {
                 .map(new Function<ResponseBody, DownInfo>() {
                     @Override
                     public DownInfo apply(@NonNull ResponseBody responseBody) throws Exception {
-                        AppUtil.writeCache(responseBody, new File(info.getSavePath()), info);
-                        return info;
+                        DownInfo info2 = mDataManager.queryDownBy(url);
+                        AppUtil.writeCache(responseBody, new File(info2.getSavePath()), info2);
+                        return info2;
                     }
 
                 })
