@@ -1,17 +1,22 @@
 package com.tb.wangfang.news.model.db;
 
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.tb.greendao.gen.DaoMaster;
+import com.tb.greendao.gen.DaoSession;
+import com.tb.greendao.gen.DownInfoDao;
+import com.tb.greendao.gen.HistoryDocItemDao;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
+
+import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
 
 import javax.inject.Inject;
-
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmResults;
-import io.realm.Sort;
 
 /**
  * Created by codeest on 16/8/16.
@@ -19,84 +24,127 @@ import io.realm.Sort;
 
 public class RealmHelper implements DBHelper {
 
-    private static final String DB_NAME = "myRealm.realm";
-
-    private Realm mRealm;
+    private RealmHelper dbHelp;
+    private final static String dbName = "tests_db";
+    private DaoMaster.DevOpenHelper openHelper;
+    private Context context;
 
     @Inject
-    public RealmHelper() {
-        mRealm = Realm.getInstance(new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .name(DB_NAME)
-                .build());
+    public RealmHelper(App app) {
+        context = App.getInstance();
+        openHelper = new DaoMaster.DevOpenHelper(context, dbName, null);
+
+
+    }
+
+    /**
+     * 获取可读数据库
+     */
+    private SQLiteDatabase getReadableDatabase() {
+        if (openHelper == null) {
+            openHelper = new DaoMaster.DevOpenHelper(context, dbName, null);
+        }
+        SQLiteDatabase db = openHelper.getReadableDatabase();
+        return db;
+    }
+
+    /**
+     * 获取可写数据库
+     */
+    private SQLiteDatabase getWritableDatabase() {
+        if (openHelper == null) {
+            openHelper = new DaoMaster.DevOpenHelper(context, dbName, null);
+        }
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        return db;
     }
 
     @Override
     public void save(DownInfo info) {
-        mRealm.beginTransaction();
-        mRealm.copyToRealmOrUpdate(info);
-        mRealm.commitTransaction();
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
+        downInfoDao.insert(info);
     }
 
     @Override
     public void update(DownInfo info, int state) {
-        mRealm.beginTransaction();
-        info.setStateInte(state);
-        mRealm.copyToRealmOrUpdate(info);
-        mRealm.commitTransaction();
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
+        downInfoDao.update(info);
     }
 
     @Override
     public void deleteDowninfo(DownInfo info) {
-        DownInfo data = mRealm.where(DownInfo.class).equalTo("url", info.getUrl()).findFirst();
-        mRealm.beginTransaction();
-        if (data != null) {
-            data.deleteFromRealm();
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
+        downInfoDao.delete(info);
+
+    }
+
+    @Override
+    public DownInfo queryDownBy(long Id) {
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
+        QueryBuilder<DownInfo> qb = downInfoDao.queryBuilder();
+        qb.where(DownInfoDao.Properties.Id.eq(Id));
+        List<DownInfo> list = qb.list();
+        if (list.isEmpty()) {
+            return null;
+        } else {
+            return list.get(0);
         }
-        mRealm.commitTransaction();
     }
 
     @Override
     public DownInfo queryDownBy(String url) {
-        return mRealm.where(DownInfo.class).equalTo("url", url).findFirst();
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
+        QueryBuilder<DownInfo> qb = downInfoDao.queryBuilder();
+        qb.where(DownInfoDao.Properties.Url.eq(url));
+        List<DownInfo> list = qb.list();
+        if (list.isEmpty()) {
+            return null;
+        } else {
+            return list.get(0);
+        }
     }
 
     @Override
     public List<DownInfo> queryDownAll() {
-
-
-        RealmResults<DownInfo> dogs = mRealm.where(DownInfo.class).findAll();
-
-        return mRealm.copyFromRealm(dogs);
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
+        QueryBuilder<DownInfo> qb = downInfoDao.queryBuilder();
+        return qb.list();
     }
 
     @Override
     public void save(HistoryDocItem item) {
-        mRealm.beginTransaction();
-        mRealm.copyToRealm(item);
-        mRealm.commitTransaction();
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        HistoryDocItemDao downInfoDao = daoSession.getHistoryDocItemDao();
+        downInfoDao.insert(item);
     }
 
     @Override
     public void deleteHistoryAll() {
-        final RealmResults<HistoryDocItem> historyDocItems = mRealm.where(HistoryDocItem.class).findAll();
-        mRealm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                historyDocItems.deleteAllFromRealm();
-            }
-        });
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        HistoryDocItemDao historyDocItemDao = daoSession.getHistoryDocItemDao();
+        historyDocItemDao.deleteAll();
     }
 
     @Override
     public List<HistoryDocItem> findAllHistoryItem() {
-        RealmResults<HistoryDocItem> historyDocItems = mRealm.where(HistoryDocItem.class).findAll();
-        /**
-         * 对查询结果，按Id进行排序，只能对查询结果进行排序
-         */
-
-        //降序排列
-        historyDocItems = historyDocItems.sort("time", Sort.DESCENDING);
-        return mRealm.copyFromRealm(historyDocItems);
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        HistoryDocItemDao historyDocItemDao = daoSession.getHistoryDocItemDao();
+        QueryBuilder<HistoryDocItem> qb = historyDocItemDao.queryBuilder().orderDesc();
+        return qb.list();
     }
 }

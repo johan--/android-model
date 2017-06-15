@@ -20,9 +20,11 @@ public interface DBHelper {
 
     void deleteDowninfo(DownInfo info);
 
+    DownInfo queryDownBy(long id);
     DownInfo queryDownBy(String url);
-
     List<DownInfo> queryDownAll();
+
+
 
     void save(HistoryDocItem item);
 

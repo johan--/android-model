@@ -24,6 +24,7 @@ public interface AppComponent {
 
     RetrofitHelper retrofitHelper();  //提供http的帮助类
 
+
     RealmHelper realmHelper();    //提供数据库帮助类
 
     ImplPreferencesHelper preferencesHelper(); //提供sp帮助类

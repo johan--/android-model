@@ -5,7 +5,7 @@ import com.tb.wangfang.news.model.DataManager;
 import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.bean.DownState;
 import com.tb.wangfang.news.model.http.DownLoadListener.DownloadInterceptor;
-import com.tb.wangfang.news.model.http.api.WangfangApis;
+import com.tb.wangfang.news.model.http.api.HttpDownService;
 import com.tb.wangfang.news.utils.AppUtil;
 
 import java.io.File;
@@ -18,6 +18,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
@@ -88,7 +90,7 @@ public class HttpDownManager {
         /*记录回调sub*/
         subMap.put(info.getUrl(), subscriber);
         /*获取service，多次请求公用一个sercie*/
-        WangfangApis httpService;
+        HttpDownService httpService;
         if (downInfos.contains(info)) {
             httpService = info.getService();
         } else {
@@ -104,7 +106,7 @@ public class HttpDownManager {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .baseUrl(AppUtil.getBasUrl(info.getUrl()))
                     .build();
-            httpService = retrofit.create(WangfangApis.class);
+            httpService = retrofit.create(HttpDownService.class);
             info.setService(httpService);
             mDataManager.update(info, info.getStateInte());
             downInfos.add(info);
@@ -121,9 +123,12 @@ public class HttpDownManager {
                 .map(new Function<ResponseBody, DownInfo>() {
                     @Override
                     public DownInfo apply(@NonNull ResponseBody responseBody) throws Exception {
-                        DownInfo info2 = mDataManager.queryDownBy(url);
-                        AppUtil.writeCache(responseBody, new File(info2.getSavePath()), info2);
-                        return info2;
+                        Realm mRealm = Realm.getInstance(new RealmConfiguration.Builder()
+                                .deleteRealmIfMigrationNeeded()
+                                .name("myRealm.realm")
+                                .build());
+                        AppUtil.writeCache(responseBody, new File(info.getSavePath()), info);
+                        return info;
                     }
 
                 })

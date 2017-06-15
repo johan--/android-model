@@ -49,6 +49,7 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
         if (mSubscriberOnNextListener.get() != null) {
             mSubscriberOnNextListener.get().onStart();
         }
+        downInfo.setStateInte(0);
         dataManager.update(downInfo, 0);
 
     }
@@ -66,6 +67,7 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
             mSubscriberOnNextListener.get().onError(e);
         }
         HttpDownManager.getInstance().remove(downInfo);
+        downInfo.setStateInte(4);
         dataManager.update(downInfo, 4);
     }
 
@@ -78,7 +80,7 @@ public class ProgressDownSubscriber<T> implements DownloadProgressListener, Obse
             mSubscriberOnNextListener.get().onComplete();
         }
         HttpDownManager.getInstance().remove(downInfo);
-
+        downInfo.setStateInte(5);
         dataManager.update(downInfo, 5);
     }
 

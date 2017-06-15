@@ -36,16 +36,19 @@ public class AppModule {
     HttpHelper provideHttpHelper(RetrofitHelper retrofitHelper) {
         return retrofitHelper;
     }
+
     @Provides
     @Singleton
     DBHelper provideDBHelper(RealmHelper realmHelper) {
         return realmHelper;
     }
+
     @Provides
     @Singleton
     PreferencesHelper providePreferencesHelper(ImplPreferencesHelper implPreferencesHelper) {
         return implPreferencesHelper;
     }
+
     @Provides
     @Singleton
     DataManager provideDataManager(HttpHelper httpHelper, DBHelper DBHelper, PreferencesHelper preferencesHelper) {

@@ -103,6 +103,12 @@ public class FileUtil {
                 + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
     }
 
+    /**
+     *
+     * @param epubFilePath 没用
+     * @param epubFileName 名字和子目录
+     * @return
+     */
     public static String getFolioPDFDecryFilePath(String epubFilePath, String epubFileName) {
         return Environment.getExternalStorageDirectory().getAbsolutePath()
                 + "/" + FOLIO_READER_ROOT_DECRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
@@ -137,6 +143,13 @@ public class FileUtil {
         return epubFileName;
     }
 
+    /**
+     *
+     * @param filePath
+     * @param fileName
+     * @param inputStream
+     * @return
+     */
     public static Boolean saveTempEpubFile(String filePath, String fileName, InputStream inputStream) {
         OutputStream outputStream = null;
         File file = new File(filePath);
@@ -171,6 +184,12 @@ public class FileUtil {
                 + "/" + FOLIO_READER_ROOT_DECRY + "/" + about;
     }
 
+    /**
+     * @param path  根目录如 getFilesDir().getPath()
+     * @param s     没用
+     * @param about 子目录 和文件名 如pdf
+     * @return
+     */
     public static String getFolioPDFDecryFilePath(String path, String s, String about) {
         return path
                 + "/" + FOLIO_READER_ROOT_DECRY + "/" + about + "/" + about + ".pdf";

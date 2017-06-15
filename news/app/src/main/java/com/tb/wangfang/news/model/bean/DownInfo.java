@@ -2,13 +2,12 @@ package com.tb.wangfang.news.model.bean;
 
 
 import com.tb.wangfang.news.model.http.DownLoadListener.HttpDownOnNextListener;
-import com.tb.wangfang.news.model.http.api.WangfangApis;
+import com.tb.wangfang.news.model.http.api.HttpDownService;
 
-import java.io.Serializable;
-
-import io.realm.RealmObject;
-import io.realm.annotations.Ignore;
-import io.realm.annotations.PrimaryKey;
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Transient;
 
 
 /**
@@ -16,10 +15,9 @@ import io.realm.annotations.PrimaryKey;
  * Created by WZG on 2016/10/20.
  */
 
-
-public class DownInfo extends RealmObject implements Serializable {
-
-
+@Entity
+public class DownInfo {
+    private long id;
     /*存储位置*/
     private String savePath;
     /*文件总长度*/
@@ -27,18 +25,28 @@ public class DownInfo extends RealmObject implements Serializable {
     /*下载长度*/
     private long readLength;
     /*下载唯一的HttpService*/
-    @Ignore
-    private WangfangApis service;
+    @Transient
+    private HttpDownService service;
     /*回调监听*/
-    @Ignore
+    @Transient
     private HttpDownOnNextListener listener;
     /*超时设置*/
     private int connectonTime = 6;
     /*state状态数据库保存*/
     private int stateInte;
     /*url*/
-    @PrimaryKey
+    @Id
     private String url;
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    private String bookName;
 
     public DownInfo(String url, HttpDownOnNextListener listener) {
         setUrl(url);
@@ -46,21 +54,23 @@ public class DownInfo extends RealmObject implements Serializable {
     }
 
     public DownInfo(String url) {
-        this.url = url;
+        setUrl(url);
     }
 
-
+    @Generated(hash = 2064056211)
     public DownInfo(long id, String savePath, long countLength, long readLength,
-                    int connectonTime, int stateInte, String url) {
+            int connectonTime, int stateInte, String url, String bookName) {
+        this.id = id;
         this.savePath = savePath;
         this.countLength = countLength;
         this.readLength = readLength;
         this.connectonTime = connectonTime;
         this.stateInte = stateInte;
         this.url = url;
+        this.bookName = bookName;
     }
 
-
+    @Generated(hash = 928324469)
     public DownInfo() {
     }
 
@@ -104,11 +114,11 @@ public class DownInfo extends RealmObject implements Serializable {
         this.listener = listener;
     }
 
-    public WangfangApis getService() {
+    public HttpDownService getService() {
         return service;
     }
 
-    public void setService(WangfangApis service) {
+    public void setService(HttpDownService service) {
         this.service = service;
     }
 
@@ -146,6 +156,13 @@ public class DownInfo extends RealmObject implements Serializable {
         this.readLength = readLength;
     }
 
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public int getConnectonTime() {
         return this.connectonTime;

@@ -1,20 +1,31 @@
 package com.tb.wangfang.news.model.bean;
 
 
-import io.realm.RealmObject;
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by tangbin on 2017/5/23.
  */
 
-
-public class HistoryDocItem extends RealmObject {
+@Entity
+public class HistoryDocItem {
     private long time;
 
     private String text;
 
     public long getTime() {
         return time;
+    }
+
+    @Generated(hash = 15921219)
+    public HistoryDocItem(long time, String text) {
+        this.time = time;
+        this.text = text;
+    }
+
+    @Generated(hash = 1510618610)
+    public HistoryDocItem() {
     }
 
     @Override
