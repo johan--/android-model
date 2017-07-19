@@ -1,0 +1,16 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+//热搜词
+
+
+
+message HotSearchWordRequest {
+    string user_id = 1;
+
+}
+
+
+message HotSearchWordReply {
+    repeated string hot_word = 1;
+}

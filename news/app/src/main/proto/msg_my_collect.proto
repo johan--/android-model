@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "any.proto";
+
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+// 获取我的收藏-(文献 期刊...)
+message MyCollectRequest {
+    string user_id = 1; // 用户id
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+message MyCollectResponse {
+    repeated Any results = 1;
+    int32 total_count = 2; // 命中数
+}
+
+
+
+
+
+
+
+
+
+
+
+

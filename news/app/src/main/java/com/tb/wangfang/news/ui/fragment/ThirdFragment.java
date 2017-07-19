@@ -1,52 +1,47 @@
 package com.tb.wangfang.news.ui.fragment;
 
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.Canvas;
+import android.util.Log;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.GravityEnum;
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.bumptech.glide.Glide;
-import com.folioreader.util.FileUtil;
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnDrawListener;
+import com.github.barteksc.pdfviewer.listener.OnErrorListener;
+import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.listener.OnPageScrollListener;
+import com.github.barteksc.pdfviewer.listener.OnRenderListener;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.ThirdContract;
-import com.tb.wangfang.news.model.DataManager;
 import com.tb.wangfang.news.model.bean.DownInfo;
-import com.tb.wangfang.news.model.bean.DownState;
-import com.tb.wangfang.news.model.http.DownLoadListener.HttpDownOnNextListener;
-import com.tb.wangfang.news.model.http.HttpDownManager;
 import com.tb.wangfang.news.presenter.ThirdPresenter;
-import com.tb.wangfang.news.utils.LogUtil;
 import com.tb.wangfang.news.utils.NDKFileEncryptUtils;
 
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * Created by tangbin on 2017/5/9.
  */
 
 public class ThirdFragment extends BaseFragment<ThirdPresenter> implements ThirdContract.View {
-    @Inject
-    DataManager mDataManager;
+
     List<DownInfo> listData;
-    HttpDownManager manager;
+
     @BindView(R.id.iv_test)
     ImageView ivTest;
-    Unbinder unbinder;
+    @BindView(R.id.pdfView)
+    PDFView pdfview;
     private DownInfo apkApi;
     NDKFileEncryptUtils encryptUtils = new NDKFileEncryptUtils();
+    private String TAG = "ThirdFragment";
 
     public static ThirdFragment newInstance() {
         ThirdFragment fragment = new ThirdFragment();
@@ -62,7 +57,80 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
 
     @Override
     protected void initEventAndData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("http://www.medline.org.cn/ueditor/jsp/upload/file/20170510/1494388974063025511.pdf");
+                    HttpURLConnection connection = (HttpURLConnection)
+                            url.openConnection();
+                    connection.setRequestMethod("GET");//试过POST 可能报错
+                    connection.setDoInput(true);
+                    connection.setConnectTimeout(10000);
+                    connection.setReadTimeout(10000);
+                    //实现连接
+                    connection.connect();
 
+                    System.out.println("connection.getResponseCode()=" + connection.getResponseCode());
+                    if (connection.getResponseCode() == 200) {
+                        InputStream is = connection.getInputStream();
+                        //这里给过去就行了
+
+
+                        pdfview.fromAsset("1.5.pdf")
+                                // all pages are displayed by default
+                                .enableSwipe(true) // allows to block changing pages using swipe
+                                .swipeHorizontal(false).enableAntialiasing(false)
+                                .enableDoubletap(true)
+                                .defaultPage(0)
+                                .onDraw(new OnDrawListener() {
+                                    @Override
+                                    public void onLayerDrawn(Canvas canvas, float pageWidth, float pageHeight, int displayedPage) {
+
+                                        Log.d(TAG, "onLayerDrawn: " + "pagewidth" + pageWidth + " pageHeight" + pageHeight + " displayedPage" + displayedPage);
+                                    }
+                                }) // allows to draw something on a provided canvas, above the current page
+                                .onLoad(new OnLoadCompleteListener() {
+                                    @Override
+                                    public void loadComplete(int nbPages) {
+                                        Log.d(TAG, "loadComplete: nbPages" + nbPages);
+                                    }
+                                }) // called after document is loaded and starts to be rendered
+                                .onPageChange(new OnPageChangeListener() {
+                                    @Override
+                                    public void onPageChanged(int page, int pageCount) {
+                                        Log.d(TAG, "onPageChanged: page" + page + "pageCount" + pageCount);
+                                    }
+                                })
+                                .onPageScroll(new OnPageScrollListener() {
+                                    @Override
+                                    public void onPageScrolled(int page, float positionOffset) {
+                                        Log.d(TAG, "onPageScrolled: page" + page + "positionOffset " + positionOffset);
+                                    }
+                                })
+                                .onError(new OnErrorListener() {
+                                    @Override
+                                    public void onError(Throwable t) {
+
+                                    }
+                                })
+                                .onRender(new OnRenderListener() {
+                                    @Override
+                                    public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
+                                        Log.d(TAG, "onInitiallyRendered: nbPages" + nbPages + "pageWidth" + pageWidth + "pageHeight" + pageHeight);
+                                    }
+                                }) // called after document is rendered for the first time
+                                .enableAnnotationRendering(false) // render annotations (such as comments, colors or forms)
+                                .password(null)
+                                .scrollHandle(null)
+                                .enableAntialiasing(true) // improve rendering a little bit on low-res screens
+                                .load();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
 
@@ -83,119 +151,7 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
 
     @OnClick(R.id.btn_down)
     public void down() {
-        String url = "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png";
-        manager = HttpDownManager.getInstance(mDataManager);
-        File Folder = new File(FileUtil.getFolioPDFDecryFolderPath(getActivity().getFilesDir().getPath(), "about"));
-        if (!Folder.exists()) {
-            Folder.mkdirs();
-        }
-
-
-        apkApi = mDataManager.queryDownBy(url);
-
-        if (apkApi == null) {
-            File outputFile = new File(FileUtil.getFolioPDFEncryFilePath("about.pdf", "about"));
-            apkApi = new DownInfo(url);
-            apkApi.setState(DownState.START);
-            apkApi.setSavePath(outputFile.getAbsolutePath());
-            apkApi.setBookName("about");
-            mDataManager.save(apkApi);
-            apkApi.setListener(httpDownOnNextListener);
-            manager.startDown(apkApi, mDataManager);
-        } else if (apkApi.getState() == DownState.FINISH) {
-            encryptUtils.decry(apkApi.getSavePath(), FileUtil.getFolioPDFDecryFilePath(getActivity().getFilesDir().getPath(), apkApi.getBookName(), apkApi.getBookName()));
-            File file = new File(FileUtil.getFolioPDFDecryFilePath(getActivity().getFilesDir().getPath(), apkApi.getBookName(), apkApi.getBookName()));
-            if (file.exists()) {
-                Glide.with(getActivity()).load(FileUtil.getFolioPDFDecryFilePath(getActivity().getFilesDir().getPath(), apkApi.getBookName(), apkApi.getBookName())).into(ivTest);
-            }
-        } else {
-            apkApi.setListener(httpDownOnNextListener);
-            manager.startDown(apkApi, mDataManager);
-        }
-
 
     }
 
-    private MaterialDialog materialDialog;
-    HttpDownOnNextListener httpDownOnNextListener = new HttpDownOnNextListener() {
-        @Override
-        public void onNext(Object o) {
-
-        }
-
-        @Override
-        public void onStart() {
-            materialDialog = new MaterialDialog.Builder(getActivity())
-                    .title("下载中")
-                    .content("请等待")
-                    .contentGravity(GravityEnum.CENTER)
-                    .progress(false, 150, true)
-                    .cancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-                            LogUtil.d("被取消了");
-                        }
-                    }).cancelable(false)
-//                    .showListener(new DialogInterface.OnShowListener() {
-//                        @Override
-//                        public void onShow(DialogInterface dialog) {
-//                            final MaterialDialog materialDialog = (MaterialDialog) dialog;
-//                            startThread(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    startThread(new Runnable() {
-//                                        @Override
-//                                        public void run() {
-//                                            while (materialDialog.getCurrentProgress() != materialDialog.getMaxProgress()
-//                                                    && !Thread.currentThread().isInterrupted()) {
-//                                                if (materialDialog.isCancelled()) {
-//                                                    break;
-//                                                }
-//                                                try {
-//                                                    Thread.sleep(50);
-//                                                } catch (InterruptedException e) {
-//                                                    break;
-//                                                }
-//                                                materialDialog.incrementProgress(1);
-//                                            }
-//                                            runOnUiThread(
-//                                                    () -> {
-//                                                        thread = null;
-//                                                        materialDialog.setContent(getString(R.string.md_done_label));
-//                                                    });
-//                                        }
-//                                    });
-//                                }
-//                            });
-//                        }
-//                    })
-                    .show();
-        }
-
-        @Override
-        public void onComplete() {
-            materialDialog.dismiss();
-            encryptUtils.decry(apkApi.getSavePath(), FileUtil.getFolioPDFDecryFilePath(getActivity().getFilesDir().getPath(), apkApi.getBookName(), apkApi.getBookName()));
-            Glide.with(getActivity()).load(FileUtil.getFolioPDFDecryFilePath(getActivity().getFilesDir().getPath(), apkApi.getBookName(), apkApi.getBookName())).into(ivTest);
-        }
-
-        @Override
-        public void updateProgress(long readLength, long countLength) {
-            materialDialog.incrementProgress((int) (readLength * 150 / countLength));
-        }
-    };
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 }

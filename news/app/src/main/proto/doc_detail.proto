@@ -1,0 +1,29 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+
+
+
+message DocRequest {
+    string docuID = 1;//	文献ID
+}
+
+
+message DocReply {
+    repeated AboutResources aboutResources = 1;//相似论文
+    string docuAbstract = 2;//文献摘要
+    string  docuAuthor = 3;//	文献作者
+    string docuAuthorCompany = 4;//	作者单位
+    string docuDate = 5;//	年期
+    string docuDownloadCount = 6;//文献下载量
+    string docuJournalName = 7;//	文献刊名
+    string docuKeywords = 8;//	文献关键字
+    string docuQuoteCount = 9;//	文献被引用量
+    string docuReadCount = 10;//	文献阅读量
+    string docuThirdLinkCount = 11;//	第三方链接量
+    string docuTitle = 12;//	文献标题
+}
+message AboutResources {
+    string docuID = 1;//论文ID
+    string docuTitle = 2;//	论文标题
+}

@@ -2,21 +2,22 @@ package com.tb.wangfang.news.presenter;
 
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.FourthContract;
-import com.tb.wangfang.news.model.DataManager;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
+
+import io.grpc.ManagedChannel;
 
 /**
  * Created by tangbin on 2017/5/9.
  */
 
 public class FourthPresenter extends RxPresenter<FourthContract.View> implements FourthContract.Presenter {
-    private DataManager mDataManager;
+    private ManagedChannel managedChannel;
 
     @Inject
-    public FourthPresenter(DataManager mDataManager) {
-        this.mDataManager = mDataManager;
+    public FourthPresenter(ManagedChannel managedChannel) {
+        this.managedChannel = managedChannel;
     }
 
     @Override

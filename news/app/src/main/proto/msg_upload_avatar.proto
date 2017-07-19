@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+
+// 上传用户头像
+message UploadAvatarRequest {
+	string user_id = 1; // 用户id
+	string avatar_url = 2; // 头像图片地址
+}
+message UploadAvatarResponse {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

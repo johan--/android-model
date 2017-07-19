@@ -13,12 +13,12 @@
     <LinearLayout
         android:id="@+id/ll_bottom_tab"
         android:layout_width="0dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
         android:background="@color/white"
         android:baselineAligned="true"
         android:gravity="center_vertical"
@@ -35,9 +35,11 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/ripple_white_bg"
+            android:drawableTop="@mipmap/mainpage_icon_selected"
             android:gravity="center"
+            android:paddingTop="5dp"
             android:text="首页"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/text_table_selected"
             android:textSize="12sp" />
 
 
@@ -48,9 +50,11 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/ripple_white_bg"
+            android:drawableTop="@mipmap/search_page_icon"
             android:gravity="center"
-            android:text="发现"
-            android:textColor="@color/colorPrimaryDark"
+            android:paddingTop="5dp"
+            android:text="智搜"
+            android:textColor="@color/text_table"
             android:textSize="12sp" />
 
 
@@ -61,9 +65,11 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/ripple_white_bg"
+            android:drawableTop="@mipmap/treasure_chest_icon"
             android:gravity="center"
-            android:text="关注"
-            android:textColor="@color/colorPrimaryDark"
+            android:paddingTop="5dp"
+            android:text="百宝箱"
+            android:textColor="@color/text_table"
             android:textSize="12sp" />
 
         <TextView
@@ -73,9 +79,11 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/ripple_white_bg"
+            android:drawableTop="@mipmap/mine_page_icon"
             android:gravity="center"
+            android:paddingTop="5dp"
             android:text="我的"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/text_table"
             android:textSize="12sp" />
 
     </LinearLayout>
@@ -87,8 +95,8 @@
         android:id="@+id/main_vp"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toTopOf="@+id/ll_bottom_tab"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

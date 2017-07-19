@@ -1,0 +1,19 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+
+
+message MeetingRequest {
+    string page_number = 1;
+    string page_size = 2;
+}
+
+
+message MeetingReply {
+    repeated Meeting meeting = 1; //会议信息列表
+}
+message Meeting {
+    string meeting_link = 1; //会议信息链接
+    string meeting_title = 2; //会议信息标题
+
+}

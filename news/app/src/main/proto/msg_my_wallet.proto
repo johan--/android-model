@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+
+// 获取我的钱包详情
+message MyWalletRequest {
+	string user_id = 1; // 用户id
+}
+message MyWalletResponse {
+	string balance = 1; // 账户余额 单位:元
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+
+// 图片验证码相关：本地生成并校验/服务端生成？
+
+// 注册请求
+message RegistRequest {
+	string email = 1; // 注册邮箱地址
+	string interest_subject = 2; // 感兴趣主题
+	string password = 3; // 密码
+	string phone = 4; // 手机号
+	string phone_captcha = 5; // 手机号验证码(发送给服务端做双向验证)
+	string user_name = 6; // 用户名
+}
+// 注册返回
+message RegistResponse {
+	string user_id = 1; // 用户id
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

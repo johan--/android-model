@@ -5,18 +5,23 @@ import android.Manifest;
 
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.MainContract;
-import com.tb.wangfang.news.model.DataManager;
-import com.tb.wangfang.news.model.bean.DailyListBean;
 import com.tb.wangfang.news.utils.LogUtil;
-import com.tb.wangfang.news.utils.RxUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
 
+import io.grpc.ManagedChannel;
+import io.grpc.examples.helloworld.GreeterGrpc;
+import io.grpc.examples.helloworld.HelloReply;
+import io.grpc.examples.helloworld.HelloRequest;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.subscribers.ResourceSubscriber;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -24,11 +29,11 @@ import io.reactivex.subscribers.ResourceSubscriber;
  */
 
 public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter {
-    private DataManager mDataManager;
+    private ManagedChannel managedChannel;
 
     @Inject
-    public MainPresenter(DataManager mDataManager) {
-        this.mDataManager = mDataManager;
+    public MainPresenter(ManagedChannel managedChannel) {
+        this.managedChannel = managedChannel;
     }
 
     @Override
@@ -68,30 +73,26 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
     @Override
     public void getDailyData() {
-        addSubscribe(mDataManager.fetchDailyListInfo().compose(RxUtil.<DailyListBean>rxSchedulerHelper())
-                .map(new Function<DailyListBean, DailyListBean>() {
+        addSubscribe(Single.create(new SingleOnSubscribe<String>() {
+            @Override
+            public void subscribe(SingleEmitter<String> e) throws Exception {
+                GreeterGrpc.GreeterBlockingStub stub = GreeterGrpc.newBlockingStub(managedChannel);
+                HelloRequest message = HelloRequest.newBuilder().setName("sdasdada").build();
+                HelloReply reply = stub.sayHello(message);
+                e.onSuccess(reply.getMessage());
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<String>() {
                     @Override
-                    public DailyListBean apply(@NonNull DailyListBean dailyListBean) throws Exception {
-                        return dailyListBean;
-                    }
-                }).subscribeWith(new ResourceSubscriber<DailyListBean>() {
-                    @Override
-                    public void onNext(DailyListBean dailyListBean) {
-                        LogUtil.d(dailyListBean.toString());
-                        mView.showUpdateDialog(dailyListBean.toString());
+                    public void onSuccess(String s) {
 
                     }
 
                     @Override
-                    public void onError(Throwable t) {
-                        LogUtil.d(t.getMessage());
+                    public void onError(Throwable e) {
+                        LogUtil.d(e.getMessage());
                     }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                })
-        );
+                }));
     }
 }

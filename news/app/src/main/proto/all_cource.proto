@@ -1,0 +1,19 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+
+
+
+message AlCourseRequest {
+    string page_number  = 1;
+    string page_size  = 2;
+}
+
+message AlCourseReply {
+    repeated Course course = 1;//精品课程列表
+}
+message Course {
+    string course_cover = 1;//精品课程封面
+    string course_id = 2;
+    string course_title = 3;
+}

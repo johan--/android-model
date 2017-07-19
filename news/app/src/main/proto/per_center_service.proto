@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+
+import "msg_login.proto"; // 登录
+import "msg_regist.proto"; // 注册
+import "msg_password.proto"; // 找回(获取)密码
+import "msg_my_wallet.proto"; // 获取我的钱包详情
+import "msg_my_orders.proto"; // 获取我的订单数据
+import "msg_my_collect.proto"; // 获取我的收藏
+import "msg_common.proto"; // 获取验证码 上传文件
+import "msg_upload_avatar.proto"; // 上传用户头像
+import "msg_interest_word.proto"; // 上传用户头像
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+
+service PersonalCenterService {
+    // 登录
+    rpc Login (LoginRequest) returns (LoginResponse) {
+    }
+
+    // 第三方登录后绑定万方账号
+    rpc BindExistAccount (BindExistAccountRequest) returns (LoginResponse);
+
+    // 第三方登录后注册万方账号
+    rpc BindNewRegist (BindNewRegistRequest) returns (RegistResponse);
+
+    // 注册
+    rpc Regist (RegistRequest) returns (RegistResponse);
+
+    // 通过邮箱找回密码
+    rpc GetPasswordByEmail (PasswordByEmailRequest) returns (PasswordByEmailResponse);
+
+    // 发送找回密码邮件
+    rpc SendPasswordEmail (PasswordEmailRequest) returns (PasswordEmailResponse);
+
+    // 通过手机号找回密码
+    rpc GetPasswordByPhone (PasswordByPhoneRequest) returns (PasswordByPhoneResponse);
+
+    // 获取我的钱包详情
+    rpc GetMyWallet (MyWalletRequest) returns (MyWalletResponse);
+
+    // 获取我的订单数据
+    rpc GetMyOrders (MyOrdersRequest) returns (MyOrdersResponse);
+
+    // 获取我的收藏
+    rpc GetMyCollect (MyCollectRequest) returns (MyCollectResponse);
+
+    // 获取验证码
+    rpc GetPhoneCaptcha (PhoneCaptchaRequest) returns (PhoneCaptchaResponse);
+
+    // 上传文件
+    rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
+
+    // 上传用户头像
+    rpc UploadAvatar (UploadAvatarRequest) returns (UploadAvatarResponse);
+
+    // 根据关键字获取感兴趣列表
+    rpc GetInterestSubject (InterestSubjectRequest) returns (InterestSubjectResponse);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

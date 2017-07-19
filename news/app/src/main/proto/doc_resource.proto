@@ -1,0 +1,15 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+
+
+
+message DocResourceRequest {
+    string doc_id = 1;//	文献ID
+    string user_id = 2;
+}
+
+
+message DocResourceReply {
+    string resource_url = 1;//	资源下载地址，要判断阅读权限
+}

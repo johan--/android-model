@@ -6,10 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.tb.greendao.gen.DaoMaster;
 import com.tb.greendao.gen.DaoSession;
-import com.tb.greendao.gen.DownInfoDao;
 import com.tb.greendao.gen.HistoryDocItemDao;
 import com.tb.wangfang.news.app.App;
-import com.tb.wangfang.news.model.bean.DownInfo;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
 
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -57,70 +55,6 @@ public class RealmHelper implements DBHelper {
         }
         SQLiteDatabase db = openHelper.getWritableDatabase();
         return db;
-    }
-
-    @Override
-    public void save(DownInfo info) {
-        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
-        downInfoDao.insert(info);
-    }
-
-    @Override
-    public void update(DownInfo info, int state) {
-        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
-        downInfoDao.update(info);
-    }
-
-    @Override
-    public void deleteDowninfo(DownInfo info) {
-        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
-        downInfoDao.delete(info);
-
-    }
-
-    @Override
-    public DownInfo queryDownBy(long Id) {
-        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
-        QueryBuilder<DownInfo> qb = downInfoDao.queryBuilder();
-        qb.where(DownInfoDao.Properties.Id.eq(Id));
-        List<DownInfo> list = qb.list();
-        if (list.isEmpty()) {
-            return null;
-        } else {
-            return list.get(0);
-        }
-    }
-
-    @Override
-    public DownInfo queryDownBy(String url) {
-        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
-        QueryBuilder<DownInfo> qb = downInfoDao.queryBuilder();
-        qb.where(DownInfoDao.Properties.Url.eq(url));
-        List<DownInfo> list = qb.list();
-        if (list.isEmpty()) {
-            return null;
-        } else {
-            return list.get(0);
-        }
-    }
-
-    @Override
-    public List<DownInfo> queryDownAll() {
-        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        DownInfoDao downInfoDao = daoSession.getDownInfoDao();
-        QueryBuilder<DownInfo> qb = downInfoDao.queryBuilder();
-        return qb.list();
     }
 
     @Override

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#417dc8</color>
     <color name="colorAccent">#FF4081</color>
     <color name="toast_bg">#dddfe0</color>
-
-
+    <color name="text_table_selected">#417dc9</color>
+    <color name="text_table">#353535</color>
     <color name="bg_app">#F1F1F1</color>
     <color name="tab_unselect">#c9c9c9</color>
     <color name="bg_btn">#dadada</color>
     <color name="gray_3">#bcbcbc</color>
     <color name="text_hint">#bcbcbc</color>
     <color name="transparent">#00000000</color>
-    <color name="frame_line">#c0c0c0</color>
+    <color name="frame_line">#f2f2f2</color>
 </resources>
 

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+
+// 获取我的订单数据
+message MyOrdersRequest {
+	string user_id = 1; // 用户id
+	int32 page_number = 2;
+	int32 page_size = 3;
+}
+message MyOrdersResponse {
+	message Result {
+		string order_id = 1; // 订单ID
+		string create_time = 2; // 创建日期
+		string order_money = 3; // 订单金额
+		string order_product_type = 5; // 产品类型
+ 		string order_state = 6; // 订单状态
+		string order_title = 7; // 订单内容标题
+		string pay_way = 8; // 支付方式
+	}
+	repeated Result results = 1;
+	int32 total_count = 2; // 命中数
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+
+
+
+message HotDocRequest {
+    string page_number  = 1;
+    string page_size  = 2;
+}
+
+
+message HotDocReply {
+    repeated HotDoc hot_doc = 1;
+}
+message HotDoc {
+    string docu_id = 1;
+    string docu_title = 2;
+}

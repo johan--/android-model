@@ -2,6 +2,7 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public static final int THIRD = 2;
     public static final int FOURTH = 3;
     private SupportFragment[] mFragments = new SupportFragment[4];
-
+    private int preSelected = 0;
 
     @Override
     protected int getLayout() {
@@ -87,7 +88,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initEventAndData() {
-
+        mPresenter.getDailyData();
     }
 
     @Override
@@ -136,15 +137,60 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         switch (view.getId()) {
             case R.id.tv_home:
                 mainVp.setCurrentItem(0);
+                setState(0);
+                preSelected = 0;
                 break;
             case R.id.tv_find:
                 mainVp.setCurrentItem(1);
+                setState(1);
+                preSelected = 1;
                 break;
             case R.id.tv_focus:
                 mainVp.setCurrentItem(2);
+                setState(2);
+                preSelected = 2;
                 break;
             case R.id.tv_me:
                 mainVp.setCurrentItem(3);
+                setState(3);
+                preSelected = 3;
+                break;
+        }
+    }
+
+    private void setState(int i) {
+        tvHome.setTextColor(getResources().getColor(R.color.text_table));
+        tvFind.setTextColor(getResources().getColor(R.color.text_table));
+        tvFocus.setTextColor(getResources().getColor(R.color.text_table));
+        tvMe.setTextColor(getResources().getColor(R.color.text_table));
+        Drawable top1 = getResources().getDrawable(R.mipmap.mainpage_icon);
+        Drawable top2 = getResources().getDrawable(R.mipmap.search_page_icon);
+        Drawable top3 = getResources().getDrawable(R.mipmap.treasure_chest_icon);
+        Drawable top4 = getResources().getDrawable(R.mipmap.mine_page_icon);
+        tvHome.setCompoundDrawablesWithIntrinsicBounds(null, top1, null, null);
+        tvFind.setCompoundDrawablesWithIntrinsicBounds(null, top2, null, null);
+        tvFocus.setCompoundDrawablesWithIntrinsicBounds(null, top3, null, null);
+        tvMe.setCompoundDrawablesWithIntrinsicBounds(null, top4, null, null);
+        switch (i) {
+            case 0:
+                Drawable tops1 = getResources().getDrawable(R.mipmap.mainpage_icon_selected);
+                tvHome.setCompoundDrawablesWithIntrinsicBounds(null, tops1, null, null);
+                tvHome.setTextColor(getResources().getColor(R.color.text_table_selected));
+                break;
+            case 1:
+                Drawable tops2 = getResources().getDrawable(R.mipmap.search_page_icon_selected);
+                tvFind.setCompoundDrawablesWithIntrinsicBounds(null, tops2, null, null);
+                tvFind.setTextColor(getResources().getColor(R.color.text_table_selected));
+                break;
+            case 2:
+                Drawable tops3 = getResources().getDrawable(R.mipmap.treasure_chest_icon_selected);
+                tvFocus.setCompoundDrawablesWithIntrinsicBounds(null, tops3, null, null);
+                tvFocus.setTextColor(getResources().getColor(R.color.text_table_selected));
+                break;
+            case 3:
+                Drawable tops4 = getResources().getDrawable(R.mipmap.mine_page_selected);
+                tvMe.setCompoundDrawablesWithIntrinsicBounds(null, tops4, null, null);
+                tvMe.setTextColor(getResources().getColor(R.color.text_table_selected));
                 break;
         }
     }

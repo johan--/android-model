@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.FirstContract;
-import com.tb.wangfang.news.model.DataManager;
 import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
@@ -14,12 +13,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.grpc.ManagedChannel;
+
 /**
  * Created by tangbin on 2017/5/9.
  */
 
 public class FirstPresenter extends RxPresenter<FirstContract.View> implements FirstContract.Presenter {
-    private DataManager mDataManager;
+    private final ManagedChannel managedChannel;
 
     public GlideImageLoader getImageLoader() {
         return imageLoader;
@@ -28,8 +29,8 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
     private GlideImageLoader imageLoader;
 
     @Inject
-    public FirstPresenter(DataManager mDataManager) {
-        this.mDataManager = mDataManager;
+    public FirstPresenter(ManagedChannel managedChannel) {
+        this.managedChannel = managedChannel;
         this.imageLoader = new GlideImageLoader();
     }
 

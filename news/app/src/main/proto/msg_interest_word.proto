@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package personal;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+// 根据关键字查询的主题列表
+message InterestSubjectRequest {
+    string keyword = 1; // 主题关键字
+}
+message InterestSubjectResponse {
+    repeated string subject = 1; // 根据关键字查询的主题列表
+    int32 total_count = 2; // 命中数
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+package main;
+option java_package = "com.wanfang.main";
+
+
+
+message AllScienceRequest {
+    string page_number  = 1;
+    string page_size  = 2;
+}
+
+
+message AllScienceReply {
+    repeated Science science = 1;//	科技动态
+}
+message Science {
+    string science_link = 1;
+    string science_title = 2;
+}
