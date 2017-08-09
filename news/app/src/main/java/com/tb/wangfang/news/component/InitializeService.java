@@ -8,7 +8,6 @@ import com.github.moduth.blockcanary.BlockCanary;
 import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 import com.tb.wangfang.news.app.App;
-import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.widget.AppBlockCanaryContext;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -49,7 +48,7 @@ public class InitializeService extends IntentService {
         Logger.init(getPackageName()).hideThreadInfo();
 
         //初始化错误收集
-   CrashHandler.init(new CrashHandler(getApplicationContext()));
+        CrashHandler.init(new CrashHandler(getApplicationContext()));
         initBugly();
 
         //初始化内存泄漏检测
@@ -77,6 +76,6 @@ public class InitializeService extends IntentService {
         String processName = SystemUtil.getProcessName(android.os.Process.myPid());
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
-        CrashReport.initCrashReport(context, Constants.BUGLY_ID, isDebug, strategy);
+        CrashReport.initCrashReport(context,"123", isDebug, strategy);
     }
 }

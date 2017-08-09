@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.fragment.FirstFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -16,328 +17,612 @@
             android:layout_marginLeft="16.5dp"
             android:layout_marginTop="3dp"
             android:background="@mipmap/logo" />
+
+        <LinearLayout
+            android:id="@+id/ll_top_search"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/miansearch_frame"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@mipmap/mainsearch_icon"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:text="检索关键字"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-
-        <com.youth.banner.Banner
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="#8749" />
-
+        <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginBottom="15dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_hot"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:background="@drawable/ripple_white_bg"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/hot_icon"
-                android:gravity="center"
-                android:paddingTop="15dp"
-                android:text="热点"
-                android:textColor="@color/text_table"
-                android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_quick_see"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:background="@drawable/ripple_white_bg"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/quick_see"
-                android:gravity="center"
-                android:paddingTop="15dp"
-                android:text="快看"
-                android:textColor="@color/text_table"
-                android:textSize="12sp" />
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:indicator_width="18dp"
+                app:indicator_height="4dp"
+                android:background="#8749" />
 
-            <TextView
-                android:id="@+id/tv_guess_love"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:background="@drawable/ripple_white_bg"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/you_love_icon"
-                android:gravity="center"
-                android:paddingTop="15dp"
-                android:text="猜你喜欢"
-                android:textColor="@color/text_table"
-                android:textSize="12sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginBottom="15dp">
 
-            <TextView
-                android:id="@+id/tv_more"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:background="@drawable/ripple_white_bg"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/more_news"
-                android:gravity="center"
-                android:paddingTop="15dp"
-                android:text="更多"
-                android:textColor="@color/text_table"
-                android:textSize="12sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_hot"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_white_bg"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/hot_icon"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="热点"
+                    android:textColor="@color/text_table"
+                    android:textSize="12sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/frame_line" />
+                <TextView
+                    android:id="@+id/tv_quick_see"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_white_bg"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/quick_see"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="快看"
+                    android:textColor="@color/text_table"
+                    android:textSize="12sp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp">
+                <TextView
+                    android:id="@+id/tv_guess_love"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_white_bg"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/you_love_icon"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="猜你喜欢"
+                    android:textColor="@color/text_table"
+                    android:textSize="12sp" />
 
-            <ImageView
-                android:id="@+id/iv_last_news_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
-                android:background="@mipmap/last_news_icon" />
-
-            <ImageView
-                android:id="@+id/iv_news_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/iv_last_news_icon"
-                android:layout_marginLeft="12.5dp"
-                android:layout_marginStart="12dp"
-                android:layout_toEndOf="@+id/iv_last_news_icon"
-                android:background="@mipmap/news_type_meeting" />
-
-            <TextView
-                android:id="@+id/tv_last_news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="12.5dp"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/tv_last_news_more"
-                android:layout_toRightOf="@id/iv_news_type"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="西安数图研讨班会议通知"
-                android:textColor="#4c566c" />
+                <TextView
+                    android:id="@+id/tv_more"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_white_bg"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/more_news"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="更多"
+                    android:textColor="@color/text_table"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/frame_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <ImageView
+                    android:id="@+id/iv_last_news_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:background="@mipmap/last_news_icon" />
+
+                <ImageView
+                    android:id="@+id/iv_news_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/iv_last_news_icon"
+                    android:layout_marginLeft="12.5dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@+id/iv_last_news_icon"
+                    android:background="@mipmap/news_type_meeting" />
+
+                <com.tb.wangfang.news.widget.VerticalTextview
+                    android:id="@+id/tv_last_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12.5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/tv_last_news_more"
+                    android:layout_toRightOf="@id/iv_news_type"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="西安数图研讨班会议通知"
+                    android:textColor="#4c566c" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="10dp"
+
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/tv_last_news_more"
+                    android:background="#d7d7d7"></View>
+
+                <TextView
+                    android:id="@+id/tv_last_news_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="16.5dp"
+                    android:text="更多"
+                    android:textColor="#999999" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="10dp"
+                android:background="#f1f1f1"></View>
 
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/tv_last_news_more"
-                android:background="#d7d7d7"></View>
-
-            <TextView
-                android:id="@+id/tv_last_news_more"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="16.5dp"
-                android:text="更多"
-                android:textColor="#999999" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="#f1f1f1"></View>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="专家聚集"
+                        android:textColor="@color/text_table"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_expert_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="7.5dp"
+                        android:drawableRight="@mipmap/right_more_icon"
+                        android:gravity="center"
+                        android:paddingRight="16.5dp"
+                        android:text="查看全部"
+                        android:textColor="#999999"
+
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:id="@+id/tv_expert1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_marginLeft="20dp"
-                    android:text="专家聚集"
-                    android:textColor="@color/text_table"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:drawablePadding="7.5dp"
-                    android:drawableRight="@mipmap/right_more_icon"
-                    android:gravity="center"
-                    android:paddingRight="16.5dp"
-                    android:text="查看全部"
-                    android:textColor="#999999"
-
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
                     android:textSize="12sp" />
 
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:background="@color/frame_line" />
-
-            <TextView
-                android:id="@+id/tv_expert1"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="灾难来了，你准备好了吗"
-                android:textColor="#4c566c"
-                android:textSize="12sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:background="@color/frame_line" />
-
-            <TextView
-                android:id="@+id/tv_expert2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="灾难来了，你准备好了吗"
-                android:textColor="#4c566c"
-                android:textSize="12sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:background="@color/frame_line" />
-
-            <TextView
-                android:id="@+id/tv_expert3"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="灾难来了，你准备好了吗"
-                android:textColor="#4c566c"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="#f1f1f1"></View>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:id="@+id/tv_expert2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_marginLeft="20dp"
-                    android:text="会议信息"
-                    android:textColor="@color/text_table"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:drawablePadding="7.5dp"
-                    android:drawableRight="@mipmap/right_more_icon"
-                    android:gravity="center"
-                    android:paddingRight="16.5dp"
-                    android:text="查看全部"
-                    android:textColor="#999999"
-
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
                     android:textSize="12sp" />
 
-            </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_expert3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:background="@color/frame_line" />
+                android:layout_height="10dp"
+                android:background="#f1f1f1"></View>
 
-            <TextView
-                android:id="@+id/tv_metting1"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="灾难来了，你准备好了吗"
-                android:textColor="#4c566c"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="会议信息"
+                        android:textColor="@color/text_table"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_metting_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="7.5dp"
+                        android:drawableRight="@mipmap/right_more_icon"
+                        android:gravity="center"
+                        android:paddingRight="16.5dp"
+                        android:text="查看全部"
+                        android:textColor="#999999"
+
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_metting1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_metting2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_metting3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:background="@color/frame_line" />
+                android:layout_height="10dp"
+                android:background="#f1f1f1"></View>
 
-            <TextView
-                android:id="@+id/tv_metting2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="灾难来了，你准备好了吗"
-                android:textColor="#4c566c"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="科技动态"
+                        android:textColor="@color/text_table"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_science_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="7.5dp"
+                        android:drawableRight="@mipmap/right_more_icon"
+                        android:gravity="center"
+                        android:paddingRight="16.5dp"
+                        android:text="查看全部"
+                        android:textColor="#999999"
+
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_science1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_science2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <TextView
+                    android:id="@+id/tv_science3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="灾难来了，你准备好了吗"
+                    android:textColor="#4c566c"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:background="@color/frame_line" />
+                android:layout_height="10dp"
+                android:background="#f1f1f1"></View>
 
-            <TextView
-                android:id="@+id/tv_metting3"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="灾难来了，你准备好了吗"
-                android:textColor="#4c566c"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="猜你喜欢"
+                        android:textColor="@color/text_table"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_love_exchange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="7.5dp"
+                        android:drawableRight="@mipmap/exchange_icon"
+                        android:gravity="center"
+                        android:paddingRight="16.5dp"
+                        android:text="换一换"
+                        android:textColor="#999999"
+
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@color/frame_line" />
+
+                <LinearLayout
+                    android:id="@+id/ll_bottom_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/iv_love1"
+                            android:layout_width="82.5dp"
+                            android:layout_height="105dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp" />
+
+                        <TextView
+                            android:id="@+id/tv_love1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_love1"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginTop="10dp"
+                            android:text="太空漫游"
+                            android:textColor="#4c566c"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/iv_love2"
+                            android:layout_width="82.5dp"
+                            android:layout_height="105dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp" />
+
+                        <TextView
+                            android:id="@+id/tv_love2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_love2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginTop="10dp"
+                            android:text="太空漫游"
+                            android:textColor="#4c566c"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/iv_love3"
+                            android:layout_width="82.5dp"
+                            android:layout_height="105dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp" />
+
+                        <TextView
+                            android:id="@+id/tv_love3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_love3"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginTop="10dp"
+                            android:text="太空漫游"
+                            android:textColor="#4c566c"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#f1f1f1"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="精品课程"
+                        android:textColor="@color/text_table"
+                        android:textSize="14sp" />
+
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#f1f1f1"></View>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
     </ScrollView>
 </LinearLayout>

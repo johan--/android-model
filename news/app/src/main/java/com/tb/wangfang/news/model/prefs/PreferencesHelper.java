@@ -8,16 +8,9 @@ package com.tb.wangfang.news.model.prefs;
 
 public interface PreferencesHelper {
 
-    boolean getNightModeState();
+    void setTextSizeState(String state);
 
-    void setNightModeState(boolean state);
+    String getTextSizeState();
 
-    boolean getNoImageState();
-
-    void setNoImageState(boolean state);
-
-    boolean getAutoCacheState();
-
-    void setAutoCacheState(boolean state);
 
 }

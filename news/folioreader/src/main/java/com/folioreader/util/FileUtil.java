@@ -84,6 +84,10 @@ public class FileUtil {
                 + "/" + FOLIO_READER_ROOT + "/" + epubFileName;
     }
 
+    /**
+     * @param epubFileName
+     * @return externalStorage/wanfangencry/name
+     */
     public static String getFolioPDFEncryFolderPath(String epubFileName) {
         return Environment.getExternalStorageDirectory().getAbsolutePath()
                 + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName;
@@ -98,21 +102,15 @@ public class FileUtil {
         return getFolioEpubFolderPath(epubFileName) + "/" + epubFileName + ".pdf";
     }
 
-    public static String getFolioPDFEncryFilePath(String epubFilePath, String epubFileName) {
+    /**
+     * @param epubFileName
+     * @return /wanfangencry/epubFileName/epubFileName.pdf
+     */
+    public static String getFolioPDFEncryFilePath(String epubFileName) {
         return Environment.getExternalStorageDirectory().getAbsolutePath()
                 + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
     }
 
-    /**
-     *
-     * @param epubFilePath 没用
-     * @param epubFileName 名字和子目录
-     * @return
-     */
-    public static String getFolioPDFDecryFilePath(String epubFilePath, String epubFileName) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/" + FOLIO_READER_ROOT_DECRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
-    }
 
     public static String getFolioEpubFilePath(FolioActivity.EpubSourceType sourceType, String epubFilePath, String epubFileName) {
         if (FolioActivity.EpubSourceType.SD_CARD.equals(sourceType)) {
@@ -144,7 +142,6 @@ public class FileUtil {
     }
 
     /**
-     *
      * @param filePath
      * @param fileName
      * @param inputStream
@@ -185,13 +182,12 @@ public class FileUtil {
     }
 
     /**
-     * @param path  根目录如 getFilesDir().getPath()
-     * @param s     没用
-     * @param about 子目录 和文件名 如pdf
+     * @param pathPre 根目录如 getFilesDir().getPath()
+     * @param about   子目录 和文件名 如pdf
      * @return
      */
-    public static String getFolioPDFDecryFilePath(String path, String s, String about) {
-        return path
+    public static String getFolioPDFDecryFilePath(String pathPre, String about) {
+        return pathPre
                 + "/" + FOLIO_READER_ROOT_DECRY + "/" + about + "/" + about + ".pdf";
     }
 }

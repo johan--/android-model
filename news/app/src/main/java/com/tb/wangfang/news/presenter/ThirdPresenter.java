@@ -2,6 +2,7 @@ package com.tb.wangfang.news.presenter;
 
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.ThirdContract;
+import com.tb.wangfang.news.model.db.RealmHelper;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
@@ -14,10 +15,12 @@ import io.grpc.ManagedChannel;
 
 public class ThirdPresenter extends RxPresenter<ThirdContract.View> implements ThirdContract.Presenter {
     private ManagedChannel managedChannel;
+    private final RealmHelper realmHelper;
 
     @Inject
-    public ThirdPresenter(ManagedChannel managedChannel) {
+    public ThirdPresenter(ManagedChannel managedChannel, RealmHelper realmHelper) {
         this.managedChannel = managedChannel;
+        this.realmHelper = realmHelper;
     }
 
 
@@ -40,4 +43,6 @@ public class ThirdPresenter extends RxPresenter<ThirdContract.View> implements T
     public void getDailyData() {
 
     }
+
+
 }

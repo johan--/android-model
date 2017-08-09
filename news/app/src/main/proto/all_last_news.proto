@@ -3,17 +3,17 @@ package main;
 option java_package = "com.wanfang.main";
 
 
-
 message LastNewsRequest {
-    string page_number  = 1;
-    string page_size  = 2;
+    string page_number = 1;
+    string page_size = 2;
 }
 
 
 message LastNewsReply {
-    repeated LastNews last_news = 1;//	最新资讯列表
+    repeated LastNews last_news = 1; //	最新资讯列表
 }
 message LastNews {
     string lastNews_link = 1;
     string lastNews_title = 2;
+    string type = 3;
 }

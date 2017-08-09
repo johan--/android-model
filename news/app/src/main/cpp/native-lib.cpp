@@ -16,7 +16,8 @@ Java_com_tb_wangfang_news_utils_NDKFileEncryptUtils_encry(JNIEnv *env, jclass ty
     int ch;
     while ((ch = fgetc(normal_fp)) != EOF) { //End of File
         //写入（异或运算）
-        fputc(ch ^ 9, crypt_fp);
+//        fputc(ch ^ 9, crypt_fp);
+        fputc(ch, crypt_fp);
     }
     //关闭
     fclose(crypt_fp);
@@ -41,7 +42,8 @@ Java_com_tb_wangfang_news_utils_NDKFileEncryptUtils_decry(JNIEnv *env, jclass ty
     int ch;
     while ((ch = fgetc(normal_fp)) != EOF) { //End of File
         //写入（异或运算）
-        fputc(ch ^ 9, crypt_fp);
+//        fputc(ch ^ 9, crypt_fp);
+        fputc(ch, crypt_fp);
     }
     //关闭
     fclose(crypt_fp);

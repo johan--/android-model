@@ -1,1 +1,1 @@
-include ':app', ':webViewMarker', ':folioreader', ':library'
+include ':app', ':webViewMarker', ':folioreader', ':library', ':librarypdf', ':PhotoPicker', ':banner'

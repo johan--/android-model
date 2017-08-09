@@ -3,6 +3,7 @@ package com.tb.wangfang.news.widget;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.EditorInfo;
 
 import com.tb.wangfang.news.R;
 
@@ -34,6 +36,7 @@ public class SearchEditText extends android.support.v7.widget.AppCompatEditText 
     }
 
     public SearchEditText(Context context) {
+
         this(context, null);
     }
 
@@ -52,6 +55,9 @@ public class SearchEditText extends android.support.v7.widget.AppCompatEditText 
     }
 
     private void init() {
+        setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+        setMaxLines(1);
+        setInputType(InputType.TYPE_CLASS_TEXT);
         // 获取EditText的DrawableRight,假如没有设置我们就使用默认的图片
         mClearDrawable = getCompoundDrawables()[2];
         if (mClearDrawable == null) {

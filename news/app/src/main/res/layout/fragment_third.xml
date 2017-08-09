@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.fragment.FirstFragment">
 
@@ -23,10 +24,9 @@
         android:id="@+id/iv_test"
         android:layout_width="match_parent"
         android:layout_height="55dp" />
-
-    <com.github.barteksc.pdfviewer.PDFView
+    <es.voghdev.pdfviewpager.library.PDFViewPager
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
-        android:background="@color/blue"
-        android:layout_height="match_parent"></com.github.barteksc.pdfviewer.PDFView>
+        android:layout_height="match_parent"
+        app:assetFileName="sample.pdf"/>
 </LinearLayout>

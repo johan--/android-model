@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+
+            android:src="@mipmap/return_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edit_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:hint="用户名"
+
+        android:paddingLeft="4dp"
+        android:shadowColor="@color/black"
+        android:textColor="#333"
+        android:textColorHint="#ccc"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:hint="密码"
+        android:paddingLeft="4dp"
+        android:shadowColor="@color/black"
+        android:textColor="#333"
+        android:textColorHint="#ccc"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edit_phonenum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:hint="手机号"
+        android:paddingLeft="4dp"
+        android:shadowColor="@color/black"
+        android:textColor="#333"
+        android:textColorHint="#ccc"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/edit_security"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="16.5dp"
+            android:background="@null"
+            android:hint="请输入验证码"
+
+            android:paddingLeft="4dp"
+            android:shadowColor="@color/black"
+            android:textColor="#333"
+            android:textColorHint="#ccc"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_get_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6.5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="获取验证码"
+            android:textColor="#417dc9"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="选择注册代表您已经阅读并同意"
+        android:textColor="#ccc" />
+
+    <TextView
+        android:id="@+id/tv_wanfang_protocol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7.5dp"
+        android:gravity="center_horizontal"
+        android:text="万方数据用户协议>"
+
+        android:textColor="@color/colorPrimaryDark" />
+
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_blue_bg"
+        android:text="注册"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/tv_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16.5dp"
+            android:text="直接登录"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_to_login"
+            android:text="已有万方账号？"
+            android:textColor="#333"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+</LinearLayout>

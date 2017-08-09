@@ -5,7 +5,9 @@ import android.app.Activity;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.di.scope.ActivityScope;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
+import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MainActivity;
+import com.tb.wangfang.news.ui.activity.SettingActivity;
 
 import dagger.Component;
 
@@ -22,4 +24,7 @@ public interface ActivityComponent {
 
     void inject(FilterDocActivity filterDocActivity);
 
+    void inject(LoginActivity loginActivity);
+
+    void inject(SettingActivity settingActivity);
 }

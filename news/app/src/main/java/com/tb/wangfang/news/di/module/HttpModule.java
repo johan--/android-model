@@ -15,7 +15,7 @@ public class HttpModule {
     @Singleton
     @Provides
     ManagedChannel provideClient() {
-        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.0.2.2", 8080)
+        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.0.3.2", 8080)
                 .usePlaintext(true)
                 .build();
         return mChannel;

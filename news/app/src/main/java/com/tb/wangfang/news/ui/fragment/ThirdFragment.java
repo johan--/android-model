@@ -1,31 +1,28 @@
 package com.tb.wangfang.news.ui.fragment;
 
-import android.graphics.Canvas;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.github.barteksc.pdfviewer.PDFView;
-import com.github.barteksc.pdfviewer.listener.OnDrawListener;
-import com.github.barteksc.pdfviewer.listener.OnErrorListener;
-import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
-import com.github.barteksc.pdfviewer.listener.OnPageScrollListener;
-import com.github.barteksc.pdfviewer.listener.OnRenderListener;
+import com.afollestad.materialdialogs.GravityEnum;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.folioreader.util.FileUtil;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.ThirdContract;
-import com.tb.wangfang.news.model.bean.DownInfo;
+import com.tb.wangfang.news.model.DownLoadObserver;
+import com.tb.wangfang.news.model.DownloadManager;
+import com.tb.wangfang.news.model.bean.DownloadInfo;
 import com.tb.wangfang.news.presenter.ThirdPresenter;
+import com.tb.wangfang.news.utils.LogUtil;
 import com.tb.wangfang.news.utils.NDKFileEncryptUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import es.voghdev.pdfviewpager.library.PDFViewPager;
 
 /**
  * Created by tangbin on 2017/5/9.
@@ -33,15 +30,15 @@ import butterknife.OnClick;
 
 public class ThirdFragment extends BaseFragment<ThirdPresenter> implements ThirdContract.View {
 
-    List<DownInfo> listData;
-
     @BindView(R.id.iv_test)
     ImageView ivTest;
     @BindView(R.id.pdfView)
-    PDFView pdfview;
-    private DownInfo apkApi;
+    PDFViewPager pdfview;
+
     NDKFileEncryptUtils encryptUtils = new NDKFileEncryptUtils();
     private String TAG = "ThirdFragment";
+
+    private Thread thread;
 
     public static ThirdFragment newInstance() {
         ThirdFragment fragment = new ThirdFragment();
@@ -57,81 +54,10 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
 
     @Override
     protected void initEventAndData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL("http://www.medline.org.cn/ueditor/jsp/upload/file/20170510/1494388974063025511.pdf");
-                    HttpURLConnection connection = (HttpURLConnection)
-                            url.openConnection();
-                    connection.setRequestMethod("GET");//试过POST 可能报错
-                    connection.setDoInput(true);
-                    connection.setConnectTimeout(10000);
-                    connection.setReadTimeout(10000);
-                    //实现连接
-                    connection.connect();
 
-                    System.out.println("connection.getResponseCode()=" + connection.getResponseCode());
-                    if (connection.getResponseCode() == 200) {
-                        InputStream is = connection.getInputStream();
-                        //这里给过去就行了
-
-
-                        pdfview.fromAsset("1.5.pdf")
-                                // all pages are displayed by default
-                                .enableSwipe(true) // allows to block changing pages using swipe
-                                .swipeHorizontal(false).enableAntialiasing(false)
-                                .enableDoubletap(true)
-                                .defaultPage(0)
-                                .onDraw(new OnDrawListener() {
-                                    @Override
-                                    public void onLayerDrawn(Canvas canvas, float pageWidth, float pageHeight, int displayedPage) {
-
-                                        Log.d(TAG, "onLayerDrawn: " + "pagewidth" + pageWidth + " pageHeight" + pageHeight + " displayedPage" + displayedPage);
-                                    }
-                                }) // allows to draw something on a provided canvas, above the current page
-                                .onLoad(new OnLoadCompleteListener() {
-                                    @Override
-                                    public void loadComplete(int nbPages) {
-                                        Log.d(TAG, "loadComplete: nbPages" + nbPages);
-                                    }
-                                }) // called after document is loaded and starts to be rendered
-                                .onPageChange(new OnPageChangeListener() {
-                                    @Override
-                                    public void onPageChanged(int page, int pageCount) {
-                                        Log.d(TAG, "onPageChanged: page" + page + "pageCount" + pageCount);
-                                    }
-                                })
-                                .onPageScroll(new OnPageScrollListener() {
-                                    @Override
-                                    public void onPageScrolled(int page, float positionOffset) {
-                                        Log.d(TAG, "onPageScrolled: page" + page + "positionOffset " + positionOffset);
-                                    }
-                                })
-                                .onError(new OnErrorListener() {
-                                    @Override
-                                    public void onError(Throwable t) {
-
-                                    }
-                                })
-                                .onRender(new OnRenderListener() {
-                                    @Override
-                                    public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
-                                        Log.d(TAG, "onInitiallyRendered: nbPages" + nbPages + "pageWidth" + pageWidth + "pageHeight" + pageHeight);
-                                    }
-                                }) // called after document is rendered for the first time
-                                .enableAnnotationRendering(false) // render annotations (such as comments, colors or forms)
-                                .password(null)
-                                .scrollHandle(null)
-                                .enableAntialiasing(true) // improve rendering a little bit on low-res screens
-                                .load();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
     }
+
+    private MaterialDialog materialDialog;
 
 
     @Override
@@ -152,6 +78,91 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
     @OnClick(R.id.btn_down)
     public void down() {
 
+        materialDialog = new MaterialDialog.Builder(getActivity())
+                .title("下载中")
+                .content("请等待")
+                .contentGravity(GravityEnum.CENTER)
+                .progress(false, 100, true)
+                .cancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        LogUtil.d("被取消了");
+                    }
+                }).cancelable(false)
+                .showListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+//                        final MaterialDialog materialDialog = (MaterialDialog) dialog;
+//                        materialDialog.setProgress((int) (value.getProgress() / value.getTotal()));
+                    }
+                }).show();
+        DownloadManager.getInstance().download(getActivity().getFilesDir().getAbsolutePath(), "http://www.medline.org.cn/ueditor/jsp/upload/file/20170510/1494388974063025511.pdf", new DownLoadObserver() {
+            @Override
+            public void onNext(final DownloadInfo value) {
+                super.onNext(value);
+                Log.d(TAG, "onNext: " + value.getProgress());
+                materialDialog.setProgress((int) (value.getProgress() / value.getTotal()));
+                materialDialog.incrementProgress((int) (value.getProgress() * 100 / value.getTotal()));
+            }
+
+            @Override
+            public void onComplete() {
+
+                if (downloadInfo != null) {
+                    Toast.makeText(getActivity(),
+                            downloadInfo.getFileName() + "-DownloadComplete",
+                            Toast.LENGTH_SHORT).show();
+                    open(downloadInfo.getFileName());
+                }
+                materialDialog.dismiss();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                Toast.makeText(getActivity(), "网络异常", Toast.LENGTH_SHORT).show();
+                materialDialog.dismiss();
+            }
+        });
     }
+
+    private void open(String fileName) {
+        String inputString = FileUtil.getFolioPDFEncryFilePath(fileName.replace(".pdf", "").replace(".epub", ""));
+        String outputString = FileUtil.getFolioPDFDecryFilePath(getActivity().getFilesDir().getPath(), fileName.replace(".pdf", "").replace(".epub", ""));
+        File folder = new File(FileUtil.getFolioPDFDecryFolderPath(getActivity().getFilesDir().getPath(), fileName.replace(".pdf", "").replace(".epub", "")));
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        File file = new File(outputString);
+        if (!file.exists()) {
+            encryptUtils.decry(inputString, outputString);
+        }
+        if (fileName.endsWith("pdf")) {
+            pdfview.initAdapter(getActivity(), outputString);
+        }
+
+    }
+
+//    private MaterialDialog materialDialog;
+//    HttpDownOnNextListener httpDownOnNextListener = new HttpDownOnNextListener() {
+//        @Override
+//        public void onNext(Object o) {
+//
+//        }
+//
+//        @Override
+//        public void onStart() {
+
+//        }
+//
+//        @Override
+//        public void onComplete() {
+//
+//        }
+//
+//        @Override
+//        public void updateProgress(long readLength, long countLength) {
+//
+//        }
 
 }

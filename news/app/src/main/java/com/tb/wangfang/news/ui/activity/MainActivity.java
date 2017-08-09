@@ -54,6 +54,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public static final int FOURTH = 3;
     private SupportFragment[] mFragments = new SupportFragment[4];
     private int preSelected = 0;
+    private String TAG = "MainActivity";
 
     @Override
     protected int getLayout() {
@@ -63,23 +64,16 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-//            mPresenter.setNightModeState(false);
-            mFragments[FIRST] = FirstFragment.newInstance();
-            mFragments[SECOND] = SecondFragment.newInstance();
-            mFragments[THIRD] = ThirdFragment.newInstance();
-            mFragments[FOURTH] = FourthFragment.newInstance();
-            FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
-            mainVp.setAdapter(adapter);
-        } else {
-            mFragments[FIRST] = findFragment(FirstFragment.class);
-            mFragments[SECOND] = findFragment(SecondFragment.class);
-            mFragments[THIRD] = findFragment(ThirdFragment.class);
-            mFragments[FOURTH] = findFragment(FourthFragment.class);
 
-        }
+//            mPresenter.setNightModeState(false);
+        mFragments[FIRST] = FirstFragment.newInstance();
+        mFragments[SECOND] = SecondFragment.newInstance();
+        mFragments[THIRD] = ThirdFragment.newInstance();
+        mFragments[FOURTH] = FourthFragment.newInstance();
+        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
+        mainVp.setAdapter(adapter);
+
         initView();
-        mPresenter.getDailyData();
     }
 
     private void initView() {
@@ -88,7 +82,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initEventAndData() {
-        mPresenter.getDailyData();
+        checkPermissions();
     }
 
     @Override
@@ -158,6 +152,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         }
     }
 
+
     private void setState(int i) {
         tvHome.setTextColor(getResources().getColor(R.color.text_table));
         tvFind.setTextColor(getResources().getColor(R.color.text_table));
@@ -215,6 +210,15 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         public int getCount() {
             // TODO Auto-generated method stub
             return mFragments.length;
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (mFragments[FOURTH]!=null){
+            mFragments[FOURTH].onActivityResult(requestCode, resultCode, data);
         }
 
     }

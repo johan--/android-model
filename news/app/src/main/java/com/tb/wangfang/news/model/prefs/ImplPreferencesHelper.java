@@ -29,35 +29,14 @@ public class ImplPreferencesHelper implements PreferencesHelper {
         mSPrefs = App.getInstance().getSharedPreferences(SHAREDPREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
+
     @Override
-    public boolean getNightModeState() {
-        return mSPrefs.getBoolean(Constants.SP_NIGHT_MODE, DEFAULT_NIGHT_MODE);
+    public void setTextSizeState(String state) {
+        mSPrefs.edit().putString(Constants.TEXT_SIZE, state).apply();
     }
 
     @Override
-    public void setNightModeState(boolean state) {
-        mSPrefs.edit().putBoolean(Constants.SP_NIGHT_MODE, state).apply();
+    public String getTextSizeState() {
+        return mSPrefs.getString(Constants.TEXT_SIZE, "1");
     }
-
-    @Override
-    public boolean getNoImageState() {
-        return mSPrefs.getBoolean(Constants.SP_NO_IMAGE, DEFAULT_NO_IMAGE);
-    }
-
-    @Override
-    public void setNoImageState(boolean state) {
-        mSPrefs.edit().putBoolean(Constants.SP_NO_IMAGE, state).apply();
-    }
-
-    @Override
-    public boolean getAutoCacheState() {
-        return mSPrefs.getBoolean(Constants.SP_AUTO_CACHE, DEFAULT_AUTO_SAVE);
-    }
-
-    @Override
-    public void setAutoCacheState(boolean state) {
-        mSPrefs.edit().putBoolean(Constants.SP_AUTO_CACHE, state).apply();
-    }
-
-
 }

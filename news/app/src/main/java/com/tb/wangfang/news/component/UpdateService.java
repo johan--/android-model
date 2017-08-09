@@ -11,7 +11,9 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 
+import com.tb.wangfang.news.BuildConfig;
 import com.tb.wangfang.news.utils.ToastUtil;
 
 import java.io.File;
@@ -36,9 +38,18 @@ public class UpdateService extends Service {
             public void onReceive(Context context, Intent intent) {
                 unregisterReceiver(receiver);
                 intent = new Intent(Intent.ACTION_VIEW);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/download/geeknews.apk")),
-                        "application/vnd.android.package-archive");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    Uri contentUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileProvider", new File(Environment.getExternalStorageDirectory() + "/download/geeknews.apk"));
+                    intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+                } else {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/download/geeknews.apk")),
+                            "application/vnd.android.package-archive");
+                }
+
+
+
                 startActivity(intent);
                 stopSelf();
             }

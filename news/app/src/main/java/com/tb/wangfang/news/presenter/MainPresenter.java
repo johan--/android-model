@@ -5,23 +5,13 @@ import android.Manifest;
 
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.MainContract;
-import com.tb.wangfang.news.utils.LogUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
 
 import io.grpc.ManagedChannel;
-import io.grpc.examples.helloworld.GreeterGrpc;
-import io.grpc.examples.helloworld.HelloReply;
-import io.grpc.examples.helloworld.HelloRequest;
-import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
-import io.reactivex.SingleOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -71,28 +61,4 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
     }
 
-    @Override
-    public void getDailyData() {
-        addSubscribe(Single.create(new SingleOnSubscribe<String>() {
-            @Override
-            public void subscribe(SingleEmitter<String> e) throws Exception {
-                GreeterGrpc.GreeterBlockingStub stub = GreeterGrpc.newBlockingStub(managedChannel);
-                HelloRequest message = HelloRequest.newBuilder().setName("sdasdada").build();
-                HelloReply reply = stub.sayHello(message);
-                e.onSuccess(reply.getMessage());
-            }
-        }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<String>() {
-                    @Override
-                    public void onSuccess(String s) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.d(e.getMessage());
-                    }
-                }));
-    }
 }

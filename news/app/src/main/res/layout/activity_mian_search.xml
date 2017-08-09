@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.MianSearchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp">
+
+            <com.tb.wangfang.news.widget.SearchEditText
+                android:id="@+id/et_search"
+                inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tv_cancel"
+                android:background="@drawable/miansearch_frame"
+                android:drawableLeft="@mipmap/mainsearch_icon"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="取消"
+
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <com.tb.wangfang.news.widget.FlowLayout
+        android:id="@+id/flow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.tb.wangfang.news.widget.FlowLayout>
+</LinearLayout>
