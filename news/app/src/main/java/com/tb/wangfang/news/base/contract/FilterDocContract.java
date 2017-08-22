@@ -2,6 +2,7 @@ package com.tb.wangfang.news.base.contract;
 
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
+import com.tb.wangfang.news.model.bean.Level0;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface FilterDocContract {
 
         void loadMoreView(List<SearchDocItem> searchDocItems);
 
-        void loadFilterView(List<SearchDocItem> searchDocItems);
+        void loadFilterView(List<Level0> searchDocItems);
 
     }
 

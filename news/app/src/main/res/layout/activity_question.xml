@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/divide"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.QuestionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/return_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="意见反馈"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="16.5dp"
+        android:gravity="center_vertical"
+        android:text="在线留言"
+        android:textColor="@color/black_text"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="top"
+        android:hint="请在此描述遇到的问题，反馈，意见或者建议"
+        android:lines="4"
+        android:paddingBottom="12.5dp"
+        android:paddingLeft="16.5dp"
+        android:paddingRight="16.5dp"
+        android:paddingTop="12.5dp"
+        android:textColor="@color/black_text"
+        android:textColorHint="#ccc"
+
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="15dp"
+        android:paddingLeft="16.5dp"
+        android:paddingRight="16.5dp"
+        android:paddingTop="15dp"></android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp" />
+
+    <EditText
+        android:id="@+id/edit_contact"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:hint="输入您的邮箱或QQ，便于我们联系您解决问题"
+        android:lines="1"
+        android:paddingBottom="12.5dp"
+        android:paddingLeft="16.5dp"
+        android:paddingRight="16.5dp"
+        android:paddingTop="12.5dp"
+        android:textColor="@color/black_text"
+        android:textColorHint="#ccc"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@drawable/button_blue_bg"
+        android:text="提交"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btn_call_phone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_blue_b_white_s"
+        android:text="拨打客服电话"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>

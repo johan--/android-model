@@ -1,7 +1,5 @@
 package com.tb.wangfang.news.ui.adapter;
 
-import android.widget.TextView;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tb.wangfang.news.R;
@@ -22,7 +20,7 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchDocItem, BaseV
 
     @Override
     protected void convert(BaseViewHolder helper, SearchDocItem item) {
+        helper.addOnClickListener(R.id.tv_book_name);
         helper.setText(R.id.tv_content, item.getDescription());
-        ((TextView) helper.getView(R.id.tv_content)).setText(item.getDescription());
     }
 }

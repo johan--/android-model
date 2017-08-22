@@ -16,6 +16,8 @@ public interface DBHelper {
 
     void save(HistoryDocItem item);
 
+    void deleteHis(HistoryDocItem item);
+
     void deleteHistoryAll();
 
     List<HistoryDocItem> findAllHistoryItem();

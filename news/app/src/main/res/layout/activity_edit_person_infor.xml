@@ -62,7 +62,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <com.tb.wangfang.news.widget.TestView
+            <com.tb.wangfang.news.widget.DynamicWave
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
         </LinearLayout>

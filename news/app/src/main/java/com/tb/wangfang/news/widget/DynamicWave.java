@@ -99,7 +99,7 @@ public class DynamicWave extends View {
         }
 
         // 引发view重绘，一般可以考虑延迟20-30ms重绘，空出时间片
-
+        postInvalidate();
 //        handler.sendMessageDelayed(new Message(), 1000);
 
         Log.d("main", "onDraw: " + Thread.currentThread().getId());

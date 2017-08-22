@@ -1,13 +1,13 @@
 package com.tb.wangfang.news.ui.fragment;
 
 import android.content.DialogInterface;
+import android.os.Build;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.folioreader.util.FileUtil;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.ThirdContract;
@@ -15,6 +15,7 @@ import com.tb.wangfang.news.model.DownLoadObserver;
 import com.tb.wangfang.news.model.DownloadManager;
 import com.tb.wangfang.news.model.bean.DownloadInfo;
 import com.tb.wangfang.news.presenter.ThirdPresenter;
+import com.tb.wangfang.news.utils.FileUtil;
 import com.tb.wangfang.news.utils.LogUtil;
 import com.tb.wangfang.news.utils.NDKFileEncryptUtils;
 
@@ -138,7 +139,10 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
             encryptUtils.decry(inputString, outputString);
         }
         if (fileName.endsWith("pdf")) {
-            pdfview.initAdapter(getActivity(), outputString);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                pdfview.initAdapter(getActivity(), outputString);
+            }
+
         }
 
     }

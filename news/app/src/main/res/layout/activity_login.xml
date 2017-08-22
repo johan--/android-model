@@ -73,8 +73,8 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:hint="请输入手机号"
+                android:inputType="phone"
                 android:paddingLeft="4dp"
-
                 android:shadowColor="@color/black"
                 android:textColor="#333"
                 android:textColorHint="#ccc"
@@ -103,7 +103,7 @@
                 android:layout_marginLeft="16.5dp"
                 android:background="@null"
                 android:hint="请输入验证码"
-
+                android:inputType="phone"
                 android:paddingLeft="4dp"
                 android:shadowColor="@color/black"
                 android:textColor="#333"
@@ -200,7 +200,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
 
             >
 
@@ -223,10 +223,10 @@
             <ImageView
                 android:id="@+id/iv_graph"
                 android:layout_width="80dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="6.5dp"
-                android:background="@color/yellow" />
+                android:layout_marginRight="6.5dp" />
 
         </RelativeLayout>
 

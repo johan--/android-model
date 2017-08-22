@@ -2,12 +2,12 @@ package com.tb.wangfang.news.model;
 
 import android.util.Log;
 
-import com.folioreader.util.FileUtil;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.tb.wangfang.news.model.bean.DownloadInfo;
+import com.tb.wangfang.news.utils.FileUtil;
 import com.tb.wangfang.news.utils.LogUtil;
 
 import java.io.File;

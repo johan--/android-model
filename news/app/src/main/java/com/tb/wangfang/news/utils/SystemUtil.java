@@ -21,6 +21,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by codeest on 2016/8/4.
@@ -36,6 +38,7 @@ public class SystemUtil {
                 .getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return wifiInfo != null;
     }
+
     /**
      * 检查手机网络(4G/3G/2G)是否连接
      */
@@ -45,6 +48,7 @@ public class SystemUtil {
                 .getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         return mobileNetworkInfo != null;
     }
+
     /**
      * 检查是否有可用网络
      */
@@ -55,6 +59,7 @@ public class SystemUtil {
 
     /**
      * 保存文字到剪贴板
+     *
      * @param context
      * @param text
      */
@@ -67,17 +72,18 @@ public class SystemUtil {
 
     /**
      * 保存图片到本地
+     *
      * @param context
      * @param url
      * @param bitmap
      */
-    public static Uri saveBitmapToFile(Context context, String url, Bitmap bitmap,View container, boolean isShare){
-        String fileName = url.substring(url.lastIndexOf("/"),url.lastIndexOf(".")) + ".png";
+    public static Uri saveBitmapToFile(Context context, String url, Bitmap bitmap, View container, boolean isShare) {
+        String fileName = url.substring(url.lastIndexOf("/"), url.lastIndexOf(".")) + ".png";
         File fileDir = new File(Constants.PATH_DATA);
-        if (!fileDir.exists()){
+        if (!fileDir.exists()) {
             fileDir.mkdir();
         }
-        File imageFile = new File(fileDir,fileName);
+        File imageFile = new File(fileDir, fileName);
         Uri uri = Uri.fromFile(imageFile);
         if (isShare && imageFile.exists()) {
             return uri;
@@ -86,22 +92,22 @@ public class SystemUtil {
             FileOutputStream fos = new FileOutputStream(imageFile);
             boolean isCompress = bitmap.compress(Bitmap.CompressFormat.PNG, 90, fos);
             if (isCompress) {
-                SnackbarUtil.showShort(container,"保存妹纸成功n(*≧▽≦*)n");
+                SnackbarUtil.showShort(container, "保存妹纸成功n(*≧▽≦*)n");
             } else {
-                SnackbarUtil.showShort(container,"保存妹纸失败ヽ(≧Д≦)ノ");
+                SnackbarUtil.showShort(container, "保存妹纸失败ヽ(≧Д≦)ノ");
             }
             fos.flush();
             fos.close();
         } catch (IOException e) {
             e.printStackTrace();
-            SnackbarUtil.showShort(container,"保存妹纸失败ヽ(≧Д≦)ノ");
+            SnackbarUtil.showShort(container, "保存妹纸失败ヽ(≧Д≦)ノ");
         }
         try {
             MediaStore.Images.Media.insertImage(context.getContentResolver(), imageFile.getAbsolutePath(), fileName, null);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,uri));
+        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
         return uri;
     }
 
@@ -158,5 +164,17 @@ public class SystemUtil {
             }
         }
         return null;
+    }
+
+    public static boolean isMobileNO(String mobiles) {
+
+        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+
+        Matcher m = p.matcher(mobiles);
+
+        System.out.println(m.matches() + "---");
+
+        return m.matches();
+
     }
 }

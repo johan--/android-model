@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -75,26 +76,48 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         rvContent.setLayoutManager(new LinearLayoutManager(this));
+        //假数据
+        for (int i = 0; i < 30; i++) {
+            SearchDocItem item = new SearchDocItem();
+            item.setDescription("违法科技为飞机无法访问广告位" + i);
+            searchDocItemArrayList.add(item);
+        }
         docAdapter = new SearchDocumentAdapter(searchDocItemArrayList);
         docAdapter.setOnLoadMoreListener(this, rvContent);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         docAdapter.setPreLoadNumber(2);
         rvContent.setAdapter(docAdapter);
-        mPresenter.search(text, page);
+
         //初始化筛选控件
         expandAdapter = new FilterExpandAdapter(multiItemEntityArrayList);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        lvRightMenu.setLayoutManager(manager);
+        final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+//                Log.d("tb", "getSpanSize: wda");
+//                int num=docAdapter.getItemViewType(position) == FilterExpandAdapter.TYPE_LEVEL_0 ? 1 : gridLayoutManager.getSpanCount();
+                return expandAdapter.getItemViewType(position) == FilterExpandAdapter.TYPE_LEVEL_0 ? 2 : 1;
+            }
+        });
         lvRightMenu.setAdapter(expandAdapter);
+        lvRightMenu.setLayoutManager(gridLayoutManager);
+
 
         docAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(FilterDocActivity.this, PdfActivity.class);
+                Intent intent = new Intent(FilterDocActivity.this, DocDetailActivity.class);
                 startActivity(intent);
             }
         });
-
+        docAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(FilterDocActivity.this, JournalActivity.class);
+                startActivity(intent);
+            }
+        });
+        mPresenter.search(text, page);
     }
 
 
@@ -104,7 +127,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
 
-    @OnClick({R.id.iv_go_back, R.id.iv_menu})
+    @OnClick({R.id.iv_go_back, R.id.iv_menu, R.id.tv_reset, R.id.tv_complete})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_go_back:
@@ -116,6 +139,13 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 } else {
                     dlRight.openDrawer(Gravity.RIGHT);
                 }
+                break;
+            case R.id.tv_reset:
+                for (int i = 0; i < expandAdapter.getData().size(); i++) {
+                    expandAdapter.getData().get(i);
+                }
+                break;
+            case R.id.tv_complete:
                 break;
         }
     }
@@ -159,20 +189,25 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
     @Override
-    public void loadFilterView(List<SearchDocItem> searchDocItems) {
+    public void loadFilterView(List<Level0> searchDocItems) {
         multiItemEntityArrayList.clear();
-        for (int i = 0; i < searchDocItems.size(); i++) {
+        for (int i = 0; i < 3; i++) {
             Level0 level0 = new Level0();
-            level0.setText(searchDocItems.get(i).getDescription());
-            for (int j = 0; j < 10; j++) {
+            level0.setText("氛围妇女节窝囊废" + i);
+            for (int j = 0; j < 3; j++) {
                 Level1 level1 = new Level1();
-                level1.setText(j + "");
+                level1.setText(j + "蜂窝肺");
+                level1.setParentId(i);
+                level1.setChildId(j);
                 level0.addSubItem(level1);
             }
+
             multiItemEntityArrayList.add(level0);
 
         }
+
         expandAdapter.setNewData(multiItemEntityArrayList);
+
     }
 
 
@@ -200,4 +235,6 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 break;
         }
     }
+
+
 }

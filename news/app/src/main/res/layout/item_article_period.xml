@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_period_name"
+            android:layout_width="40dp"
+            android:layout_height="49.5dp"
+            android:layout_marginLeft="16.5dp"
+            android:gravity="center_vertical"
+            android:text="一期" />
+
+        <RelativeLayout
+            android:layout_width="20dp"
+            android:layout_height="50dp">
+
+            <View
+                android:id="@+id/v_line_top"
+                android:layout_width="0.5dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/blue" />
+
+            <com.tb.wangfang.news.widget.CircleImageView
+                android:id="@+id/iv_ci"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_centerInParent="true"
+                android:src="@color/blue" />
+
+            <View
+                android:id="@+id/v_line_bottom"
+                android:layout_width="0.5dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/blue" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="49.5dp"
+            android:gravity="center_vertical"
+            android:text="万方我跟别人为广大"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="70dp"
+        android:background="@color/divide" />
+
+</LinearLayout>

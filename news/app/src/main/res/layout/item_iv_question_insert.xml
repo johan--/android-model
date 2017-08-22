@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:id="@+id/rl_insert"
+    android:background="@drawable/dash_gray_frame"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:id="@+id/iv_insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/insert_question_icon" />
+
+    <TextView
+        android:id="@+id/tv_sgn_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_insert"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="图片说明"
+        android:textColor="#dfdfdf"
+        android:textSize="12sp" />
+
+</RelativeLayout>

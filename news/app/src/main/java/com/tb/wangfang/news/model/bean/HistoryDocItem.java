@@ -3,6 +3,7 @@ package com.tb.wangfang.news.model.bean;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by tangbin on 2017/5/23.
@@ -11,7 +12,7 @@ import org.greenrobot.greendao.annotation.Generated;
 @Entity
 public class HistoryDocItem {
     private long time;
-
+    @Id
     private String text;
 
     public long getTime() {

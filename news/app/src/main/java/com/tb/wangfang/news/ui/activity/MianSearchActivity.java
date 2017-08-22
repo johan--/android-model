@@ -15,6 +15,7 @@ import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.db.RealmHelper;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.FlowLayout;
 import com.tb.wangfang.news.widget.SearchEditText;
@@ -64,18 +65,28 @@ public class MianSearchActivity extends SimpleActivity {
             }
         });
 
-        List<HistoryDocItem> historyDocItems = realmHelper.findAllHistoryItem();
+        final List<HistoryDocItem> historyDocItems = realmHelper.findAllHistoryItem();
         for (int i = 0; i < historyDocItems.size(); i++) {
             if (historyDocItems.size() < 13) {
                 TextView textView = new TextView(this);
-                textView.setTextSize(16);
+                textView.setTextSize(12);
                 textView.setGravity(Gravity.CENTER);
                 textView.setText(historyDocItems.get(i).getText());
                 ViewGroup.LayoutParams vglp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(vglp);
-                params.setMargins(10, 10, 10, 10);
-                textView.setBackgroundResource(R.color.colorPrimary);
+                params.setMargins(SystemUtil.dp2px(this, 8), SystemUtil.dp2px(5), SystemUtil.dp2px(5), SystemUtil.dp2px(8));
+                textView.setBackgroundResource(R.drawable.item_flow_gray_frame);
+                textView.setTextColor(getResources().getColor(R.color.gray_text_6));
                 textView.setLayoutParams(params);
+                final int finalI = i;
+                textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MianSearchActivity.this, FilterDocActivity.class);
+                        intent.putExtra("text", historyDocItems.get(finalI).getText());
+                        startActivity(intent);
+                    }
+                });
                 flowLayout.addView(textView);
             }
         }

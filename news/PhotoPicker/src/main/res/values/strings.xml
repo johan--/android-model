@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
   <string name="__picker_title">Images</string>
   <string name="__picker_delete">Delete</string>
   <string name="__picker_done">Done</string>

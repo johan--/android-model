@@ -20,6 +20,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -71,14 +72,17 @@ public class BasePDFPagerAdapter extends PagerAdapter {
 
     @SuppressWarnings("NewApi")
     protected void init() {
-        try {
-            renderer = new PdfRenderer(getSeekableFileDescriptor(pdfPath));
-            inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            PdfRendererParams params = extractPdfParamsFromFirstPage(renderer, renderQuality);
-            bitmapContainer = new SimpleBitmapPool(params);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            try {
+                renderer = new PdfRenderer(getSeekableFileDescriptor(pdfPath));
+                inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                PdfRendererParams params = extractPdfParamsFromFirstPage(renderer, renderQuality);
+                bitmapContainer = new SimpleBitmapPool(params);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     @SuppressWarnings("NewApi")

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.NormalQuestionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/return_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="常见问题"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16.5dp"
+            android:background="@color/divide"
+            android:gravity="center_vertical"
+            android:text="一、忘记用户名密码"
+            android:textColor="@color/black_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="15dp"
+            android:text="        8月19日,长沙柏女士带着5个月的女儿去打疫苗,期间将孩子抱到留观室进行哺乳。可就在哺乳期间,一名6岁左右的小男孩突然冲了进来,拿起手机对着柏女士拍照,然后转身就跑。柏女士的婆婆追上男孩后,并将男孩手里的手机一把抢了过来。这时,小孩的奶奶过 "
+            android:textColor="@color/gray_text_6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16.5dp"
+            android:background="@color/divide"
+            android:gravity="center_vertical"
+            android:text="二、忘记用户名密码"
+            android:textColor="@color/black_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="15dp"
+            android:text="        8月19日,长沙柏女士带着5个月的女儿去打疫苗,期间将孩子抱到留观室进行哺乳。可就在哺乳期间,一名6岁左右的小男孩突然冲了进来,拿起手机对着柏女士拍照,然后转身就跑。柏女士的婆婆追上男孩后,并将男孩手里的手机一把抢了过来。这时,小孩的奶奶过 "
+            android:textColor="@color/gray_text_6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16.5dp"
+            android:background="@color/divide"
+            android:gravity="center_vertical"
+            android:text="三、忘记用户名密码"
+            android:textColor="@color/black_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="15dp"
+            android:text="        8月19日,长沙柏女士带着5个月的女儿去打疫苗,期间将孩子抱到留观室进行哺乳。可就在哺乳期间,一名6岁左右的小男孩突然冲了进来,拿起手机对着柏女士拍照,然后转身就跑。柏女士的婆婆追上男孩后,并将男孩手里的手机一把抢了过来。这时,小孩的奶奶过 "
+            android:textColor="@color/gray_text_6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16.5dp"
+            android:background="@color/divide"
+            android:gravity="center_vertical"
+            android:text="四、忘记用户名密码"
+            android:textColor="@color/black_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="15dp"
+            android:text="        8月19日,长沙柏女士带着5个月的女儿去打疫苗,期间将孩子抱到留观室进行哺乳。可就在哺乳期间,一名6岁左右的小男孩突然冲了进来,拿起手机对着柏女士拍照,然后转身就跑。柏女士的婆婆追上男孩后,并将男孩手里的手机一把抢了过来。这时,小孩的奶奶过 "
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

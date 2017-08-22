@@ -55,7 +55,7 @@ public class UpdateService extends Service {
             }
         };
         registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-        startDownload();
+//        startDownload();
         return Service.START_STICKY;
     }
 

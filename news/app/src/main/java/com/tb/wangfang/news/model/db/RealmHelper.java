@@ -62,7 +62,16 @@ public class RealmHelper implements DBHelper {
         DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         HistoryDocItemDao downInfoDao = daoSession.getHistoryDocItemDao();
+        downInfoDao.delete(item);
         downInfoDao.insert(item);
+    }
+
+    @Override
+    public void deleteHis(HistoryDocItem item) {
+        DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        HistoryDocItemDao downInfoDao = daoSession.getHistoryDocItemDao();
+        downInfoDao.delete(item);
     }
 
     @Override
@@ -78,7 +87,7 @@ public class RealmHelper implements DBHelper {
         DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         HistoryDocItemDao historyDocItemDao = daoSession.getHistoryDocItemDao();
-        QueryBuilder<HistoryDocItem> qb = historyDocItemDao.queryBuilder().orderDesc();
+        QueryBuilder<HistoryDocItem> qb = historyDocItemDao.queryBuilder().orderDesc(HistoryDocItemDao.Properties.Time);
         return qb.list();
     }
 

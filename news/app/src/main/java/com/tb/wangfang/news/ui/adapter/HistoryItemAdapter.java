@@ -20,7 +20,7 @@ public class HistoryItemAdapter extends BaseQuickAdapter<HistoryDocItem, BaseVie
 
     @Override
     protected void convert(BaseViewHolder helper, HistoryDocItem item) {
-        helper.setText(R.id.tv_item, item.getText());
+        helper.setText(R.id.tv_item, item.getText()).addOnClickListener(R.id.iv_delete_item);
 
     }
 

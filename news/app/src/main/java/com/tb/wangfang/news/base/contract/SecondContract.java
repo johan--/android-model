@@ -17,6 +17,8 @@ public interface SecondContract {
 
         void showHistoryItem(List<HistoryDocItem> historyDocItems);
 
+        void showHotSearchWord(List<String> hotSearchWord);
+
     }
 
     interface Presenter extends BasePresenter<View> {
@@ -27,6 +29,10 @@ public interface SecondContract {
         void deleteAllHistry();
 
         void stotyHistory(HistoryDocItem item);
+
+        void deleteHistory(HistoryDocItem item);
+
+        void getHotDoc();
 
     }
 }

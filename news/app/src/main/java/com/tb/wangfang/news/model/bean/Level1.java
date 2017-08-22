@@ -9,6 +9,36 @@ import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 
 public class Level1 implements MultiItemEntity {
     public String text;
+    int parentId = -1;
+    int childId = -1;
+
+    boolean isSelected = false;
+
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
+    }
+
+    public int getChildId() {
+        return childId;
+    }
+
+    public void setChildId(int childId) {
+        this.childId = childId;
+    }
+
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
 
     public String getText() {
         return text;

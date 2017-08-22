@@ -10,6 +10,15 @@ import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 
 public class Level0 extends AbstractExpandableItem<Level1> implements MultiItemEntity {
     String text;
+    int seletedPosition = -1;
+
+    public int getSeletedPosition() {
+        return seletedPosition;
+    }
+
+    public void setSeletedPosition(int seletedPosition) {
+        this.seletedPosition = seletedPosition;
+    }
 
     @Override
     public int getItemType() {
@@ -28,4 +37,5 @@ public class Level0 extends AbstractExpandableItem<Level1> implements MultiItemE
     public void setText(String text) {
         this.text = text;
     }
+
 }

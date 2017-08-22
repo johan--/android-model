@@ -7,33 +7,8 @@
     android:orientation="vertical"
     tools:context=".ui.activity.FilterDocActivity">
     <!--Toolbar-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/iv_go_back"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:background="@drawable/keyboard_arraw" />
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="fewfew" />
-
-        <ImageView
-            android:id="@+id/iv_menu"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/ic_meun" />
-
-    </RelativeLayout>
     <!--DrawerLayout-->
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/dl_right"
@@ -44,6 +19,47 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+
+                android:background="@color/colorPrimaryDark">
+
+                <ImageView
+                    android:id="@+id/iv_go_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16dp"
+                    android:src="@mipmap/return_icon" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:maxEms="13"
+                    android:text="文献详情"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/iv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16.5dp"
+                    android:padding="5dp"
+                    android:paddingLeft="16.5dp"
+                    android:paddingRight="16.5dp"
+                    android:src="@mipmap/ic_meun" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,29 +103,61 @@
                     android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
             </android.support.v4.widget.SwipeRefreshLayout>
         </LinearLayout><!--侧滑菜单-->
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:background="#000"
-            android:orientation="vertical">
+            android:layout_gravity="end">
 
             <TextView
-
+                android:id="@+id/tv_sign_one"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_height="54dp"
+                android:background="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:text="筛选"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/lv_right_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="@null"
+                android:layout_below="@id/tv_sign_one"
+                android:layout_above="@+id/ll_sign_two"
+                android:background="@color/divide"
+                android:divider="@color/divide"
                 android:text="DrawerLayout" />
-        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_sign_two"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="重置"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_complete"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="#417dc9"
+                    android:gravity="center"
+                    android:text="完成"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </RelativeLayout>
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>

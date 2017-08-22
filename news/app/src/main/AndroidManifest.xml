@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.tb.wangfang.news">
+
+    <uses-sdk tools:overrideLibrary="com.folioreader,com.bossturban.webviewmarker" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -66,7 +69,15 @@
         <activity
             android:name=".ui.activity.EditPersonInforActivity"
             android:hardwareAccelerated="true" />
-        <activity android:name=".ui.activity.RegisterActivity"></activity>
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.MyOrderActivity" />
+        <activity android:name=".ui.activity.MycollectActivity" />
+        <activity android:name=".ui.activity.DocDetailActivity" />
+        <activity android:name=".ui.activity.JournalActivity" />
+        <activity android:name=".ui.activity.PayOrderActivity" />
+        <activity android:name=".ui.activity.HelpActivity" />
+        <activity android:name=".ui.activity.QuestionActivity" />
+        <activity android:name=".ui.activity.NormalQuestionActivity"></activity>
     </application>
 
 </manifest>

@@ -1,14 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_articl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="电气工程自动化中人工智能的运用"
+        android:textColor="@color/black_text"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp">
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16.5dp"
+            android:text="王小平"
+            android:textColor="@color/gray_text_6" />
+
+        <TextView
+            android:id="@+id/tv_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="《价值工程》"
+            android:textColor="@color/gray_text_6" />
+
+        <TextView
+            android:id="@+id/tv_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="2017年1期"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="1e1dasdae"
-        android:textSize="16sp" />
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="12.5dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="12.5dp"
+        android:lines="2"
+        android:text="摘要:房屋开发及无附件为科技离开房间玩if交网费框架偶尔玩方季惟方季惟付军翁付军扩翁军覅翁付军二扩付几扩无风接军付翁付军扩无付几无付军二我偶偶偶偶偶偶偶付军"
+        android:textColor="#999"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp">
+
+        <LinearLayout
+            android:id="@+id/ll_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_summary_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16.5dp"
+
+                android:layout_marginRight="15dp"
+                android:drawableLeft="@mipmap/summary_icon"
+                android:drawablePadding="5dp"
+                android:lines="1"
+                android:text="文摘阅读 : 67"
+                android:textColor="@color/gray_text_6"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_down_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="15dp"
+                android:drawableLeft="@mipmap/down_num_icon"
+                android:drawablePadding="5dp"
+                android:lines="1"
+                android:text="下载 : 67"
+                android:textColor="@color/gray_text_6"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_link_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+
+                android:drawableLeft="@mipmap/link_icon"
+                android:drawablePadding="5dp"
+                android:lines="1"
+                android:text="第三方链接 : 67"
+                android:textColor="@color/gray_text_6"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_reference_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16.5dp"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/reference_icon"
+                android:drawablePadding="5dp"
+                android:lines="1"
+                android:text="被应用 : 67"
+                android:textColor="@color/gray_text_6"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
 </LinearLayout>

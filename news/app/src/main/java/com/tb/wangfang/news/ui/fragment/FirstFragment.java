@@ -177,7 +177,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvLastNews.setOnItemUpdataListener(new VerticalTextview.onItemUpdataListener() {
             @Override
             public void onItemUpdata(int position) {
-                ivNewsType.setBackgroundResource(R.drawable.arrow_down);
+                ivNewsType.setImageResource(R.mipmap.red_stroke_fruit);
             }
         });
         tvLastNews.startAutoScroll();

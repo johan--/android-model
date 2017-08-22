@@ -57,7 +57,7 @@ public class RegisterActivity extends SimpleActivity {
             case R.id.tv_to_login:
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
-            
+
                 break;
         }
     }

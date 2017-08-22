@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public static final int THIRD = 2;
     public static final int FOURTH = 3;
     private SupportFragment[] mFragments = new SupportFragment[4];
-    private int preSelected = 0;
+
     private String TAG = "MainActivity";
 
     @Override
@@ -72,6 +72,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mFragments[FOURTH] = FourthFragment.newInstance();
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
         mainVp.setAdapter(adapter);
+        mainVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                setState(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         initView();
     }
@@ -132,22 +148,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             case R.id.tv_home:
                 mainVp.setCurrentItem(0);
                 setState(0);
-                preSelected = 0;
+
                 break;
             case R.id.tv_find:
                 mainVp.setCurrentItem(1);
                 setState(1);
-                preSelected = 1;
+
                 break;
             case R.id.tv_focus:
                 mainVp.setCurrentItem(2);
                 setState(2);
-                preSelected = 2;
+
                 break;
             case R.id.tv_me:
                 mainVp.setCurrentItem(3);
                 setState(3);
-                preSelected = 3;
+
                 break;
         }
     }
@@ -217,7 +233,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (mFragments[FOURTH]!=null){
+        if (mFragments[FOURTH] != null) {
             mFragments[FOURTH].onActivityResult(requestCode, resultCode, data);
         }
 

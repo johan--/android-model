@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.DocDetailActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/return_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="文献详情页"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ViewStub
+                android:id="@+id/view_stub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout="@layout/frag_article" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12.5dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_summary_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16.5dp"
+
+                        android:layout_marginRight="15dp"
+                        android:drawableLeft="@mipmap/summary_icon"
+                        android:drawablePadding="5dp"
+                        android:lines="1"
+                        android:text="文摘阅读 : 67"
+                        android:textColor="@color/gray_text_6"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tv_down_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginRight="15dp"
+                        android:drawableLeft="@mipmap/down_num_icon"
+                        android:drawablePadding="5dp"
+                        android:lines="1"
+                        android:text="下载 : 67"
+                        android:textColor="@color/gray_text_6"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tv_link_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+
+                        android:drawableLeft="@mipmap/link_icon"
+                        android:drawablePadding="5dp"
+                        android:lines="1"
+                        android:text="第三方链接 : 67"
+                        android:textColor="@color/gray_text_6"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tv_reference_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16.5dp"
+                        android:layout_weight="1"
+                        android:drawableLeft="@mipmap/reference_icon"
+                        android:drawablePadding="5dp"
+                        android:lines="1"
+                        android:text="被应用 : 67"
+                        android:textColor="@color/gray_text_6"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_read_online"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16.5dp"
+                    android:background="@drawable/button_blue_bg"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/read_online"
+                        android:drawablePadding="8dp"
+                        android:text="在线阅读"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_collect"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/button_blue_bg"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/collect_icon"
+                        android:drawablePadding="8dp"
+                        android:text="收藏"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_share"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16.5dp"
+                    android:background="@drawable/button_blue_bg"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:drawableLeft="@mipmap/share_icon"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="分享"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16.5dp"
+                android:layout_marginTop="15dp"
+                android:text="相似论文"
+                android:textColor="@color/gray_text_6" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12.5dp"
+                android:layout_marginLeft="16.5dp"
+                android:layout_marginTop="15dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="22.5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/blue_circle" />
+
+                <TextView
+                    android:id="@+id/tv_similarity_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="基于PLC的一种霸星材料放松放松"
+                    android:textColor="@color/gray_text_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12.5dp"
+                android:layout_marginLeft="16.5dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="22.5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/blue_circle" />
+
+                <TextView
+                    android:id="@+id/tv_similarity_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="基于PLC的一种霸星材料放松放松"
+                    android:textColor="@color/gray_text_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12.5dp"
+                android:layout_marginLeft="16.5dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="22.5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/blue_circle" />
+
+                <TextView
+                    android:id="@+id/tv_similarity_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="基于PLC的一种霸星材料放松放松"
+                    android:textColor="@color/gray_text_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12.5dp"
+                android:layout_marginLeft="16.5dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="22.5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/blue_circle" />
+
+                <TextView
+                    android:id="@+id/tv_similarity_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="基于PLC的一种霸星材料放松放松"
+                    android:textColor="@color/gray_text_6" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
