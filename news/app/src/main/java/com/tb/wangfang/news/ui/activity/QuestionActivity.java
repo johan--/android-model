@@ -1,8 +1,12 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
@@ -56,13 +60,32 @@ public class QuestionActivity extends SimpleActivity {
                         ToastUtil.show("只能提交3张图片");
                     }
                 } else if (view.getId() == R.id.iv_delete) {
-                    if (questionsList.size() == 3&&questionsList.get(2).getItemType()==QueestionIvAdapter.TYPE_IMAGE_0) {
+                    if (questionsList.size() == 3 && questionsList.get(2).getItemType() == QueestionIvAdapter.TYPE_IMAGE_0) {
                         questionsList.add(new ItemQuestion(QueestionIvAdapter.TYPE_INSERT_1, null));
                     }
                     questionsList.remove(position);
                     gapSize = 4 - questionsList.size();
                     adapter.notifyDataSetChanged();
                 }
+            }
+        });
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ArrayList<String> paths = new ArrayList<String>();
+                for (int i = 0; i < questionsList.size(); i++) {
+                    if (!TextUtils.isEmpty(questionsList.get(i).getImgUrl())) {
+                        paths.add(questionsList.get(i).getImgUrl());
+                    }
+
+                }
+
+                Intent intent = new Intent(QuestionActivity.this, ImageBrowseActivity.class);
+                intent.putStringArrayListExtra("paths", paths);
+                intent.putExtra("position", position);
+                ActivityOptionsCompat options = ActivityOptionsCompat
+                        .makeSceneTransitionAnimation(QuestionActivity.this, view, "image");
+                startActivity(intent, options.toBundle());
             }
         });
 
@@ -105,6 +128,16 @@ public class QuestionActivity extends SimpleActivity {
 
 
             }
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onBackPressedSupport() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            pop();
+        } else {
+            finishAfterTransition();
         }
     }
 }

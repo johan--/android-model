@@ -9,14 +9,9 @@ import com.bumptech.glide.Glide;
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.FirstContract;
 import com.tb.wangfang.news.utils.LogUtil;
-import com.wanfang.main.AllCource;
 import com.wanfang.main.AllLastNews;
-import com.wanfang.main.AllProject;
-import com.wanfang.main.AllScience;
 import com.wanfang.main.Banner;
-import com.wanfang.main.GuessLikeOuterClass;
 import com.wanfang.main.HomePageServiceGrpc;
-import com.wanfang.main.MeetingMessage;
 import com.youth.banner.loader.ImageLoader;
 
 import javax.inject.Inject;
@@ -102,125 +97,125 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
         });
     }
 
-    @Override
-    public void getProject() {
-     Single.create(new SingleOnSubscribe<AllProject.ProjectReply>() {
-            @Override
-            public void subscribe(SingleEmitter<AllProject.ProjectReply> e) throws Exception {
-                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-                AllProject.ProjectRequest request = AllProject.ProjectRequest.newBuilder().build();
-                AllProject.ProjectReply reply = stub.getAllProject(request);
-                e.onSuccess(reply);
+//    @Override
+//    public void getProject() {
+//     Single.create(new SingleOnSubscribe<AllProject.ProjectReply>() {
+//            @Override
+//            public void subscribe(SingleEmitter<AllProject.ProjectReply> e) throws Exception {
+//                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
+//                AllProject.ProjectRequest request = AllProject.ProjectRequest.newBuilder().build();
+//                AllProject.ProjectReply reply = stub.getAllProject(request);
+//                e.onSuccess(reply);
+//
+//            }
+//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllProject.ProjectReply>() {
+//            @Override
+//            public void onSuccess(AllProject.ProjectReply Reply) {
+//                mView.showProjects(Reply);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.d(TAG, "onError: " + e.getMessage());
+//            }
+//        });
+//    }
 
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllProject.ProjectReply>() {
-            @Override
-            public void onSuccess(AllProject.ProjectReply Reply) {
-                mView.showProjects(Reply);
-            }
+//    @Override
+//    public void getMeeting() {
+//       Single.create(new SingleOnSubscribe<MeetingMessage.MeetingReply>() {
+//            @Override
+//            public void subscribe(SingleEmitter<MeetingMessage.MeetingReply> e) throws Exception {
+//                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
+//                MeetingMessage.MeetingRequest request = MeetingMessage.MeetingRequest.newBuilder().build();
+//                MeetingMessage.MeetingReply reply = stub.getAllMeetingMessage(request);
+//                e.onSuccess(reply);
+//
+//            }
+//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MeetingMessage.MeetingReply>() {
+//            @Override
+//            public void onSuccess(MeetingMessage.MeetingReply Reply) {
+//                mView.showMeeting(Reply);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.d(TAG, "onError: " + e.getMessage());
+//            }
+//        });
+//    }
 
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
-            }
-        });
-    }
+//    @Override
+//    public void getScience() {
+//       Single.create(new SingleOnSubscribe<AllScience.AllScienceReply>() {
+//            @Override
+//            public void subscribe(SingleEmitter<AllScience.AllScienceReply> e) throws Exception {
+//                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
+//                AllScience.AllScienceRequest request = AllScience.AllScienceRequest.newBuilder().build();
+//                AllScience.AllScienceReply reply = stub.getAllScience(request);
+//                e.onSuccess(reply);
+//
+//            }
+//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllScience.AllScienceReply>() {
+//            @Override
+//            public void onSuccess(AllScience.AllScienceReply Reply) {
+//                mView.showScience(Reply);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.d(TAG, "onError: " + e.getMessage());
+//            }
+//        });
+//    }
 
-    @Override
-    public void getMeeting() {
-       Single.create(new SingleOnSubscribe<MeetingMessage.MeetingReply>() {
-            @Override
-            public void subscribe(SingleEmitter<MeetingMessage.MeetingReply> e) throws Exception {
-                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-                MeetingMessage.MeetingRequest request = MeetingMessage.MeetingRequest.newBuilder().build();
-                MeetingMessage.MeetingReply reply = stub.getAllMeetingMessage(request);
-                e.onSuccess(reply);
+//    @Override
+//    public void getGuessLike() {
+//      Single.create(new SingleOnSubscribe<GuessLikeOuterClass.GuessLikeReply>() {
+//            @Override
+//            public void subscribe(SingleEmitter<GuessLikeOuterClass.GuessLikeReply> e) throws Exception {
+//                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
+//                GuessLikeOuterClass.GuessLikeRequest request = GuessLikeOuterClass.GuessLikeRequest.newBuilder().build();
+//                GuessLikeOuterClass.GuessLikeReply reply = stub.getAllGuessLike(request);
+//                e.onSuccess(reply);
+//
+//            }
+//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<GuessLikeOuterClass.GuessLikeReply>() {
+//            @Override
+//            public void onSuccess(GuessLikeOuterClass.GuessLikeReply Reply) {
+//                mView.showGuessLike(Reply);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.d(TAG, "onError: " + e.getMessage());
+//            }
+//        });
+//    }
 
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MeetingMessage.MeetingReply>() {
-            @Override
-            public void onSuccess(MeetingMessage.MeetingReply Reply) {
-                mView.showMeeting(Reply);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
-            }
-        });
-    }
-
-    @Override
-    public void getScience() {
-       Single.create(new SingleOnSubscribe<AllScience.AllScienceReply>() {
-            @Override
-            public void subscribe(SingleEmitter<AllScience.AllScienceReply> e) throws Exception {
-                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-                AllScience.AllScienceRequest request = AllScience.AllScienceRequest.newBuilder().build();
-                AllScience.AllScienceReply reply = stub.getAllScience(request);
-                e.onSuccess(reply);
-
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllScience.AllScienceReply>() {
-            @Override
-            public void onSuccess(AllScience.AllScienceReply Reply) {
-                mView.showScience(Reply);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
-            }
-        });
-    }
-
-    @Override
-    public void getGuessLike() {
-      Single.create(new SingleOnSubscribe<GuessLikeOuterClass.GuessLikeReply>() {
-            @Override
-            public void subscribe(SingleEmitter<GuessLikeOuterClass.GuessLikeReply> e) throws Exception {
-                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-                GuessLikeOuterClass.GuessLikeRequest request = GuessLikeOuterClass.GuessLikeRequest.newBuilder().build();
-                GuessLikeOuterClass.GuessLikeReply reply = stub.getAllGuessLike(request);
-                e.onSuccess(reply);
-
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<GuessLikeOuterClass.GuessLikeReply>() {
-            @Override
-            public void onSuccess(GuessLikeOuterClass.GuessLikeReply Reply) {
-                mView.showGuessLike(Reply);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
-            }
-        });
-    }
-
-    @Override
-    public void getCourese(String userId) {
-     Single.create(new SingleOnSubscribe<AllCource.AlCourseReply>() {
-            @Override
-            public void subscribe(SingleEmitter<AllCource.AlCourseReply> e) throws Exception {
-                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-                AllCource.AlCourseRequest request = AllCource.AlCourseRequest.newBuilder().build();
-                AllCource.AlCourseReply reply = stub.getAlCourse(request);
-                e.onSuccess(reply);
-
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllCource.AlCourseReply>() {
-            @Override
-            public void onSuccess(AllCource.AlCourseReply Reply) {
-                mView.showCourse(Reply);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
-            }
-        });
-    }
+//    @Override
+//    public void getCourese(String userId) {
+//     Single.create(new SingleOnSubscribe<AllCource.AlCourseReply>() {
+//            @Override
+//            public void subscribe(SingleEmitter<AllCource.AlCourseReply> e) throws Exception {
+//                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
+//                AllCource.AlCourseRequest request = AllCource.AlCourseRequest.newBuilder().build();
+//                AllCource.AlCourseReply reply = stub.getAlCourse(request);
+//                e.onSuccess(reply);
+//
+//            }
+//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllCource.AlCourseReply>() {
+//            @Override
+//            public void onSuccess(AllCource.AlCourseReply Reply) {
+//                mView.showCourse(Reply);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.d(TAG, "onError: " + e.getMessage());
+//            }
+//        });
+//    }
 
     public class GlideImageLoader extends ImageLoader {
         @Override

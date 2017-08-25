@@ -67,17 +67,49 @@
                 android:layout_height="30dp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_nick_name"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_nickname"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="昵称"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="昵                 称"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:lines="1"
+                android:hint="未填写"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,17 +124,52 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_name"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="姓名"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="姓                 名"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/imageView2"
+              />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,17 +184,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_last_name"
-            android:layout_width="match_parent"
+
+        <RelativeLayout
+            android:id="@+id/rl_id_country"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="曾用名"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_id_country"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="身   份   证   号"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_id_country"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -142,17 +238,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_id_country"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_gender"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="身份证号"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="性                 别"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_gender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:ellipsize="end"
+                android:lines="1"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -167,17 +292,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_sex"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_birthday"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="性别"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="出   身   年   月"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:lines="1"
+                android:hint="未填写"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -192,17 +346,47 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_birthday"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_job_title"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="出生年月"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_job_title"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="职                 称"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_job_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:ellipsize="end"
+                android:lines="1"
+
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -217,17 +401,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_job_title"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_unit"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="职称"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="当前单位/院校"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_unit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -242,17 +455,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_unit"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_education"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="当前单位/院校:"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_education"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="最   高   学   历"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_education"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -267,17 +509,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_education"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_graduate_school"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="最高学历:"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_graduate_school"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="毕   业   院   校"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_graduate_school"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -292,17 +563,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_graduate_school"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_reward"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="毕业院校:"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_reward"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="获   奖   经   历"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_reward"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -317,17 +617,48 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_reward"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_subject"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="获奖经历"
-            android:textSize="16sp"></TextView>
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="学                 科"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
+
+            <TextView
+                android:id="@+id/et_subject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -342,42 +673,46 @@
                 android:background="@color/divide" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_subject"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_interest"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="学科:"
-            android:textSize="16sp"></TextView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
             android:background="@color/white">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:layout_marginRight="16.5dp"
-                android:background="@color/divide" />
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tv_interest"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text=" 感兴趣的主题"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"></TextView>
 
-        <TextView
-            android:id="@+id/tv_interest"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableRight="@mipmap/step_arrow_icon"
-            android:gravity="center_vertical"
-            android:paddingLeft="16.5dp"
-            android:paddingRight="20dp"
-            android:text="感兴趣的主题:"
-            android:textSize="16sp"></TextView>
+            <TextView
+                android:id="@+id/et_interest"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginRight="40dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/gray_text_6"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/step_arrow_icon" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

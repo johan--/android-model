@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="252dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ll_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12.5dp"
+        android:layout_marginRight="12.5dp"
+        android:background="@mipmap/bottom_center_main_pop">
+
+        <LinearLayout
+            android:id="@+id/ll_grivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="选择理由，精准屏蔽（可多选）"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/iv_delete"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:padding="10dp"
+                    android:src="@mipmap/item_delete_his" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_evaluate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/main_pop_frame"
+                        android:gravity="center"
+                        android:text="不感兴趣"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_evaluate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/main_pop_frame"
+                        android:gravity="center"
+                        android:text="重复内容"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_evaluate3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/main_pop_frame"
+                        android:gravity="center"
+                        android:text="看过了"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_evaluate4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/main_pop_frame"
+                        android:gravity="center"
+                        android:text="内容质量差"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_evaluate5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/main_pop_frame"
+                        android:gravity="center"
+                        android:text="不感兴趣"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_evaluate6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/main_pop_frame"
+                        android:gravity="center"
+                        android:text="不感兴趣"
+                        android:textColor="@color/black_text"
+                        android:textSize="16sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/blue_oral_btn"
+                    android:gravity="center"
+                    android:text="提交"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

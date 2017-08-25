@@ -1,111 +1,70 @@
 package com.tb.wangfang.news.ui.fragment;
 
-import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.FirstContract;
+import com.tb.wangfang.news.model.bean.MainPageData;
 import com.tb.wangfang.news.presenter.FirstPresenter;
-import com.tb.wangfang.news.ui.activity.MianSearchActivity;
 import com.tb.wangfang.news.ui.adapter.MainCourseAdapter;
+import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
+import com.tb.wangfang.news.widget.EvaluatePop;
 import com.tb.wangfang.news.widget.VerticalTextview;
 import com.wanfang.main.AllCource;
 import com.wanfang.main.AllLastNews;
-import com.wanfang.main.AllProject;
-import com.wanfang.main.AllScience;
-import com.wanfang.main.GuessLikeOuterClass;
-import com.wanfang.main.MeetingMessage;
-import com.youth.banner.Banner;
+import com.wanfang.main.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+
+import static com.tb.wangfang.news.app.App.SCREEN_HEIGHT;
 
 
 public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View {
 
     private static final String TAG = "FirstFragment";
 
-    @BindView(R.id.banner)
-    Banner banner;
-    @BindView(R.id.tv_hot)
-    TextView tvHot;
-    @BindView(R.id.tv_quick_see)
-    TextView tvQuickSee;
-    @BindView(R.id.tv_guess_love)
-    TextView tvGuessLove;
-    @BindView(R.id.tv_more)
-    TextView tvMore;
-    @BindView(R.id.iv_last_news_icon)
-    ImageView ivLastNewsIcon;
-    @BindView(R.id.iv_news_type)
-    ImageView ivNewsType;
-    @BindView(R.id.tv_last_news)
-    VerticalTextview tvLastNews;
-    @BindView(R.id.tv_last_news_more)
-    TextView tvLastNewsMore;
-    @BindView(R.id.tv_expert_all)
-    TextView tvExpertAll;
-    @BindView(R.id.tv_expert1)
-    TextView tvExpert1;
-    @BindView(R.id.tv_expert2)
-    TextView tvExpert2;
-    @BindView(R.id.tv_expert3)
-    TextView tvExpert3;
-    @BindView(R.id.tv_metting_all)
-    TextView tvMettingAll;
-    @BindView(R.id.tv_metting1)
-    TextView tvMetting1;
-    @BindView(R.id.tv_metting2)
-    TextView tvMetting2;
-    @BindView(R.id.tv_metting3)
-    TextView tvMetting3;
-    @BindView(R.id.tv_science_all)
-    TextView tvScienceAll;
-    @BindView(R.id.tv_science1)
-    TextView tvScience1;
-    @BindView(R.id.tv_science2)
-    TextView tvScience2;
-    @BindView(R.id.tv_science3)
-    TextView tvScience3;
-    @BindView(R.id.tv_love_exchange)
-    TextView tvLoveExchange;
-    @BindView(R.id.iv_love1)
-    ImageView ivLove1;
-    @BindView(R.id.tv_love1)
-    TextView tvLove1;
-    @BindView(R.id.iv_love2)
-    ImageView ivLove2;
-    @BindView(R.id.tv_love2)
-    TextView tvLove2;
-    @BindView(R.id.iv_love3)
-    ImageView ivLove3;
-    @BindView(R.id.tv_love3)
-    TextView tvLove3;
-    @BindView(R.id.ll_bottom_tab)
-    LinearLayout llBottomTab;
-    Unbinder unbinder;
+
+    LinearLayout llTopSearch;
     @BindView(R.id.recycler_course)
     RecyclerView recyclerCourse;
+
+    TextView tvSpecial;
+
+    TextView tvScience;
+
+    TextView tvMeeting;
+
+    TextView tvJournal;
+
+    ImageView ivNewsType;
+
+    VerticalTextview tvLastNews;
+
+    TextView tvLastNewsMore;
+    List<MultiItemEntity> datas = new ArrayList<>();
+    int halfScreen = SCREEN_HEIGHT / 2;
     private MainCourseAdapter mainCourseAdapter;
     private ArrayList<AllCource.Course> coursetemArrayList = new ArrayList<>();
+    private MainPageAdapter mainPageAdapter;
 
     public static FirstFragment newInstance() {
         FirstFragment fragment = new FirstFragment();
@@ -121,45 +80,84 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
     @Override
     protected void initEventAndData() {
-        mPresenter.getBanner("tb");
-        mPresenter.getCourese("tb");
-        mPresenter.getGuessLike();
-        mPresenter.getLastNews();
-        mPresenter.getMeeting();
-        mPresenter.getProject();
-        mPresenter.getScience();
+        View view = getActivity().getLayoutInflater().inflate(R.layout.item_main_head, (ViewGroup) recyclerCourse.getParent(), false);
+        tvSpecial = (TextView) view.findViewById(R.id.tv_special);
+        tvScience = (TextView) view.findViewById(R.id.tv_science);
+        tvMeeting = (TextView) view.findViewById(R.id.tv_meeting);
+        tvJournal = (TextView) view.findViewById(R.id.tv_journal);
+        ivNewsType = (ImageView) view.findViewById(R.id.iv_news_type);
+        tvLastNews = (VerticalTextview) view.findViewById(R.id.tv_last_news);
+        tvLastNewsMore = (TextView) view.findViewById(R.id.tv_last_news_more);
 
-
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        recyclerCourse.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        mainCourseAdapter = new MainCourseAdapter(coursetemArrayList, getContext());
-        recyclerCourse.setAdapter(mainCourseAdapter);
-        mainCourseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        for (int i = 0; i < 30; i++) {
+            MainPageData data = new MainPageData();
+            data.setImg1("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+            data.setImg2("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+            data.setImg3("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+            data.setItemType(i % 3);
+            data.setSource("个玩热风发改委为");
+            data.setTitle("心有猛虎，细嗅蔷薇");
+            datas.add(data);
+        }
+        mainPageAdapter = new MainPageAdapter(getActivity(), datas);
+        mainPageAdapter.addHeaderView(view);
+        recyclerCourse.setAdapter(mainPageAdapter);
+        final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        mainPageAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+            public void onItemChildClick(BaseQuickAdapter adapter, final View view, int position) {
+                final ImageView iv = (ImageView) view.findViewById(R.id.iv_delete);
+                int[] location = new int[2];
+                iv.getLocationOnScreen(location);
+                int l1 = location[0];
+                int l2 = location[1];
+                if (l1 == 0 || l2 == 0) {
+                    Rect rect = new Rect();
+                    iv.getGlobalVisibleRect(rect);
+                    l1 = rect.left;
+                    l2 = rect.top;
+                }
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getActivity().getWindow().setAttributes(lp);
+                MainPageData item = (MainPageData) adapter.getData().get(position);
+                EvaluatePop pop = null;
+                if (item.getItemType() == MainPageAdapter.TYPE_IMAGE_0) {
+                    if (l2 > halfScreen) {
+                        pop = new EvaluatePop(getActivity(), EvaluatePop.TOP_CENTER);
+                    } else {
+                        pop = new EvaluatePop(getActivity(), EvaluatePop.BOTTOM_CENTER);
+                    }
+                } else {
+                    if (l2 > halfScreen) {
+                        pop = new EvaluatePop(getActivity(), EvaluatePop.TOP_RIGHT);
+                    } else {
+                        pop = new EvaluatePop(getActivity(), EvaluatePop.BOTTOM_RIGHT);
+                    }
+                }
+
+                pop.showPopupWindow(iv);
+                Log.d(TAG, "onItemChildClick:  iv.getTop() " + l1);
+                Log.d(TAG, "onItemChildClick:  iv.getBottom() " +pop.getHeight());
+                pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                    @Override
+                    public void onDismiss() {
+                        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getActivity().getWindow().setAttributes(lp);
+                    }
+                });
 
             }
         });
-    }
-
-    @Override
-    protected void initInject() {
-        getFragmentComponent().inject(this);
-    }
 
 
-    @Override
-    public void showSpanner(List<com.wanfang.main.Banner.Baner> baners) {
+        recyclerCourse.setLayoutManager(manager);
+        mPresenter.getBanner("tb");
+        mPresenter.getLastNews();
 
-        banner.setImageLoader(mPresenter.getImageLoader());
-        //设置图片集合
-        banner.setImages(baners);
-        //banner设置方法全部调用完毕时最后调用
-        banner.start();
+
     }
 
     @Override
@@ -184,191 +182,25 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     }
 
     @Override
-    public void showProjects(AllProject.ProjectReply reply) {
-        for (int i = 0; i < reply.getProjectList().size(); i++) {
-            if (i == 0) {
-                tvExpert1.setText(reply.getProject(i).getProjectTitle());
-                tvExpert1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-                    }
-                });
-            }
-            if (i == 1) {
-                tvExpert2.setText(reply.getProject(i).getProjectTitle());
-                tvExpert2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-            if (i == 2) {
-                tvExpert3.setText(reply.getProject(i).getProjectTitle());
-                tvExpert3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-
-        }
     }
 
     @Override
-    public void showMeeting(MeetingMessage.MeetingReply reply) {
-        for (int i = 0; i < reply.getMeetingList().size(); i++) {
-            if (i == 0) {
-                tvMetting1.setText(reply.getMeeting(i).getMeetingTitle());
-                tvMetting1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-            if (i == 1) {
-                tvMetting2.setText(reply.getMeeting(i).getMeetingTitle());
-                tvMetting2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-            if (i == 2) {
-                tvMetting3.setText(reply.getMeeting(i).getMeetingTitle());
-                tvMetting3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-
-        }
+    protected void initInject() {
+        getFragmentComponent().inject(this);
     }
+
 
     @Override
-    public void showScience(AllScience.AllScienceReply reply) {
-        for (int i = 0; i < reply.getScienceList().size(); i++) {
-            if (i == 0) {
-                tvScience1.setText(reply.getScience(i).getScienceTitle());
-                tvScience1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+    public void showSpanner(List<Banner.Baner> baners) {
 
-                    }
-                });
-            }
-            if (i == 1) {
-                tvScience2.setText(reply.getScience(i).getScienceTitle());
-                tvScience2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-            if (i == 2) {
-                tvScience3.setText(reply.getScience(i).getScienceTitle());
-                tvScience3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-
-        }
-    }
-
-    @Override
-    public void showGuessLike(GuessLikeOuterClass.GuessLikeReply reply) {
-        for (int i = 0; i < reply.getGuessLikeList().size(); i++) {
-            if (i == 0) {
-                tvLove1.setText(reply.getGuessLike(i).getLikeTitle());
-                Glide.with(getActivity()).load(reply.getGuessLike(i).getLikeCover()).into(ivLove1);
-                ivLove1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-            if (i == 1) {
-                tvLove2.setText(reply.getGuessLike(i).getLikeTitle());
-                Glide.with(getActivity()).load(reply.getGuessLike(i).getLikeCover()).into(ivLove2);
-                ivLove2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-            if (i == 2) {
-                tvLove3.setText(reply.getGuessLike(i).getLikeTitle());
-                Glide.with(getActivity()).load(reply.getGuessLike(i).getLikeCover()).into(ivLove3);
-                ivLove3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-            }
-
-        }
-    }
-
-    @Override
-    public void showCourse(AllCource.AlCourseReply reply) {
-        mainCourseAdapter.setNewData(reply.getCourseList());
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
-            savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-    @OnClick({R.id.tv_hot, R.id.tv_quick_see, R.id.tv_guess_love, R.id.tv_more, R.id.tv_last_news_more, R.id.tv_expert_all,
-            R.id.tv_metting_all, R.id.tv_science_all, R.id.tv_love_exchange, R.id.ll_top_search})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.tv_hot:
-                break;
-            case R.id.tv_quick_see:
-                break;
-            case R.id.tv_guess_love:
-                break;
-            case R.id.tv_more:
-                break;
-            case R.id.tv_last_news_more:
-                break;
-            case R.id.tv_expert_all:
-                break;
-            case R.id.tv_metting_all:
-                break;
-            case R.id.tv_science_all:
-                break;
-            case R.id.tv_love_exchange:
-                break;
-            case R.id.ll_top_search:
-                Intent intent = new Intent(getActivity(), MianSearchActivity.class);
-                getActivity().startActivity(intent);
-                break;
-        }
+//        banner.setImageLoader(mPresenter.getImageLoader());
+//        //设置图片集合
+//        banner.setImages(baners);
+//        //banner设置方法全部调用完毕时最后调用
+//        banner.start();
     }
 
     @Override
@@ -383,7 +215,6 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvLastNews.stopAutoScroll();
     }
 
-    @OnClick(R.id.ll_top_search)
-    public void onViewClicked() {
-    }
 }
+
+

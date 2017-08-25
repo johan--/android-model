@@ -11,10 +11,8 @@
             <option value="$PROJECT_DIR$/PhotoPicker" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/banner" />
-            <option value="$PROJECT_DIR$/folioreader" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/librarypdf" />
-            <option value="$PROJECT_DIR$/webViewMarker" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
