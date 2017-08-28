@@ -95,6 +95,12 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etIdCountry.setText(name);
             }
         }
+        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_JOB_TITLE) {
+            if (data != null) {
+                String item = data.getStringExtra("item");
+                etJobTitle.setText(item);
+            }
+        }
     }
 
 
@@ -173,11 +179,16 @@ public class EditPersonInforActivity extends SimpleActivity {
                     }
                 });
                 picker.show();
-
                 break;
             case R.id.rl_job_title:
+                Intent intent4 = new Intent(this, PersonEditListActivity.class);
+                intent4.putExtra("type", PersonEditListActivity.TYPE_JOB_TITLE);
+                startActivityForResult(intent4, PersonEditListActivity.TYPE_JOB_TITLE);
                 break;
             case R.id.rl_unit:
+                Intent intent5 = new Intent(this, PersonEditListActivity.class);
+                intent5.putExtra("type", PersonEditListActivity.TYPE_UNIT);
+                startActivityForResult(intent5, PersonEditListActivity.TYPE_UNIT);
                 break;
             case R.id.rl_education:
                 break;

@@ -25,6 +25,7 @@ public class editNackNameActivity extends SimpleActivity {
     final static int TYPE_NICKNAME = 0;
     final static int TYPE_NAME = 1;
     final static int TYPE_ID_CARD = 2;
+
     private int type;
 
     @Override

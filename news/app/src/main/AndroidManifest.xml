@@ -79,7 +79,8 @@
         <activity android:name=".ui.activity.QuestionActivity" />
         <activity android:name=".ui.activity.NormalQuestionActivity" />
         <activity android:name=".ui.activity.ImageBrowseActivity" />
-        <activity android:name=".ui.activity.editNackNameActivity"></activity>
+        <activity android:name=".ui.activity.editNackNameActivity" />
+        <activity android:name=".ui.activity.PersonEditListActivity"></activity>
     </application>
 
 </manifest>
