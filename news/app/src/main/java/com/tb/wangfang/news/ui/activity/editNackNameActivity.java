@@ -36,6 +36,11 @@ public class editNackNameActivity extends SimpleActivity {
     @Override
     protected void initEventAndData() {
         type = getIntent().getIntExtra("type", 0);
+        String content = getIntent().getStringExtra("content");
+        if (!TextUtils.isEmpty(content)) {
+            etName.setText(content);
+            etName.setSelection(etName.length());
+        }
         if (type == TYPE_NICKNAME) {
             tvPageTitle.setText("昵称");
             etName.setHint("请输入昵称");

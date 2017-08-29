@@ -81,24 +81,90 @@ public class EditPersonInforActivity extends SimpleActivity {
             if (data != null) {
                 String nickname = data.getStringExtra("nickname");
                 etNickname.setText(nickname);
+            } else {
+                etNickname.setHint("未填写");
+                etNickname.setText("");
             }
         }
         if (resultCode == RESULT_OK && requestCode == editNackNameActivity.TYPE_NAME) {
             if (data != null) {
                 String name = data.getStringExtra("nickname");
                 etName.setText(name);
+            } else {
+                etName.setHint("未填写");
+                etName.setText("");
             }
         }
         if (resultCode == RESULT_OK && requestCode == editNackNameActivity.TYPE_ID_CARD) {
             if (data != null) {
                 String name = data.getStringExtra("nickname");
                 etIdCountry.setText(name);
+            } else {
+                etIdCountry.setHint("未填写");
+                etIdCountry.setText("");
             }
         }
         if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_JOB_TITLE) {
             if (data != null) {
                 String item = data.getStringExtra("item");
                 etJobTitle.setText(item);
+            } else {
+                etJobTitle.setHint("未填写");
+                etJobTitle.setText("");
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_UNIT) {
+            if (data != null) {
+                String unit = data.getStringExtra("item");
+                etUnit.setText(unit);
+            } else {
+                etUnit.setHint("未填写");
+                etUnit.setText("");
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_EDUCATION) {
+            if (data != null) {
+                String unit = data.getStringExtra("item");
+                etEducation.setText(unit);
+            } else {
+                etEducation.setHint("未填写");
+                etEducation.setText("");
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_GRADUATE_SCHOOL) {
+            if (data != null) {
+                String unit = data.getStringExtra("item");
+                etGraduateSchool.setText(unit);
+            } else {
+                etGraduateSchool.setHint("未填写");
+                etGraduateSchool.setText("");
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_SUBJECT) {
+            if (data != null) {
+                String unit = data.getStringExtra("item");
+                etSubject.setText(unit);
+            } else {
+                etSubject.setHint("未填写");
+                etSubject.setText("");
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == 8) {
+            if (data != null) {
+                String experience = data.getStringExtra("experience");
+                etReward.setText(experience);
+            } else {
+                etReward.setHint("未填写");
+                etReward.setText("");
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == 9) {
+            if (data != null) {
+                String experience = data.getStringExtra("experience");
+                etInterest.setText(experience);
+            } else {
+                etInterest.setHint("未填写");
+                etInterest.setText("");
             }
         }
     }
@@ -119,16 +185,19 @@ public class EditPersonInforActivity extends SimpleActivity {
             case R.id.rl_nickname:
                 Intent intent = new Intent(this, editNackNameActivity.class);
                 intent.putExtra("type", editNackNameActivity.TYPE_NICKNAME);
+                intent.putExtra("content", etNickname.getText().toString().trim());
                 startActivityForResult(intent, editNackNameActivity.TYPE_NICKNAME);
                 break;
             case R.id.rl_name:
                 Intent intent2 = new Intent(this, editNackNameActivity.class);
                 intent2.putExtra("type", editNackNameActivity.TYPE_NAME);
+                intent2.putExtra("content", etName.getText().toString().trim());
                 startActivityForResult(intent2, editNackNameActivity.TYPE_NAME);
                 break;
             case R.id.rl_id_country:
                 Intent intent3 = new Intent(this, editNackNameActivity.class);
                 intent3.putExtra("type", editNackNameActivity.TYPE_ID_CARD);
+                intent3.putExtra("content", etIdCountry.getText().toString().trim());
                 startActivityForResult(intent3, editNackNameActivity.TYPE_ID_CARD);
                 break;
             case R.id.rl_gender:
@@ -191,14 +260,29 @@ public class EditPersonInforActivity extends SimpleActivity {
                 startActivityForResult(intent5, PersonEditListActivity.TYPE_UNIT);
                 break;
             case R.id.rl_education:
+                Intent intent6 = new Intent(this, PersonEditListActivity.class);
+                intent6.putExtra("type", PersonEditListActivity.TYPE_EDUCATION);
+                startActivityForResult(intent6, PersonEditListActivity.TYPE_EDUCATION);
                 break;
             case R.id.rl_graduate_school:
+                Intent intent7 = new Intent(this, PersonEditListActivity.class);
+                intent7.putExtra("type", PersonEditListActivity.TYPE_GRADUATE_SCHOOL);
+                startActivityForResult(intent7, PersonEditListActivity.TYPE_GRADUATE_SCHOOL);
                 break;
             case R.id.rl_reward:
+                Intent intent9 = new Intent(this, EditRewardActivity.class);
+                intent9.putExtra("experience", etReward.getText().toString().trim());
+                startActivityForResult(intent9, 8);
                 break;
             case R.id.rl_subject:
+                Intent intent8 = new Intent(this, PersonEditListActivity.class);
+                intent8.putExtra("type", PersonEditListActivity.TYPE_SUBJECT);
+                startActivityForResult(intent8, PersonEditListActivity.TYPE_SUBJECT);
                 break;
             case R.id.rl_interest:
+                Intent intent10 = new Intent(this, EditRewardActivity.class);
+                intent10.putExtra("experience", etInterest.getText().toString().trim());
+                startActivityForResult(intent10, 9);
                 break;
         }
     }

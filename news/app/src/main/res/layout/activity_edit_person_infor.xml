@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,35 +7,40 @@
     android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.activity.EditPersonInforActivity">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/return_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="个人信息"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-
-            android:background="@color/colorPrimaryDark">
-
-            <ImageView
-                android:id="@+id/tv_return"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:paddingLeft="16sp"
-                android:paddingRight="16dp"
-                android:src="@mipmap/return_icon" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="个人信息"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,10 +97,10 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
-                android:gravity="center_vertical"
                 android:ellipsize="end"
-                android:lines="1"
+                android:gravity="center_vertical"
                 android:hint="未填写"
+                android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
                 android:textSize="16sp" />
@@ -146,19 +151,18 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_alignParentTop="true"
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
+                android:layout_toStartOf="@+id/imageView2"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
-                android:textSize="16sp"
-                android:layout_alignParentTop="true"
-                android:layout_toStartOf="@+id/imageView2"
-              />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -207,9 +211,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="140dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -262,9 +266,9 @@
                 android:layout_marginRight="40dp"
                 android:background="@null"
                 android:ellipsize="end"
-                android:lines="1"
                 android:gravity="center_vertical"
                 android:hint="未填写"
+                android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
                 android:textSize="16sp" />
@@ -315,10 +319,10 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
-                android:gravity="center_vertical"
                 android:ellipsize="end"
-                android:lines="1"
+                android:gravity="center_vertical"
                 android:hint="未填写"
+                android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
                 android:textSize="16sp" />
@@ -370,10 +374,10 @@
                 android:layout_marginRight="40dp"
                 android:background="@null"
                 android:ellipsize="end"
-                android:lines="1"
-
                 android:gravity="center_vertical"
+
                 android:hint="未填写"
+                android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
                 android:textSize="16sp" />
@@ -424,9 +428,9 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -478,9 +482,9 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -532,9 +536,9 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -586,9 +590,9 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -642,9 +646,9 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -696,9 +700,9 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginRight="40dp"
                 android:background="@null"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:hint="未填写"
-                android:ellipsize="end"
                 android:lines="1"
                 android:textColor="@color/gray_text_6"
                 android:textColorHint="#ccc"
@@ -728,3 +732,4 @@
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
+</LinearLayout>
