@@ -1,9 +1,15 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -13,9 +19,11 @@ import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.GlideCircleTransform;
+import com.tb.wangfang.news.widget.WaveView;
 import com.tb.wangfang.news.widget.datapick.DatePicker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -52,6 +60,54 @@ public class EditPersonInforActivity extends SimpleActivity {
     TextView etSubject;
     @BindView(R.id.et_interest)
     TextView etInterest;
+    @BindView(R.id.wv_ge)
+    WaveView wvGe;
+    @BindView(R.id.tv_name)
+    TextView tvName;
+    @BindView(R.id.imageView2)
+    ImageView imageView2;
+    @BindView(R.id.rl_name)
+    RelativeLayout rlName;
+    @BindView(R.id.tv_id_country)
+    TextView tvIdCountry;
+    @BindView(R.id.rl_id_country)
+    RelativeLayout rlIdCountry;
+    @BindView(R.id.tv_gender)
+    TextView tvGender;
+    @BindView(R.id.rl_gender)
+    RelativeLayout rlGender;
+    @BindView(R.id.tv_birthday)
+    TextView tvBirthday;
+    @BindView(R.id.rl_birthday)
+    RelativeLayout rlBirthday;
+    @BindView(R.id.tv_job_title)
+    TextView tvJobTitle;
+    @BindView(R.id.rl_job_title)
+    RelativeLayout rlJobTitle;
+    @BindView(R.id.tv_unit)
+    TextView tvUnit;
+    @BindView(R.id.rl_unit)
+    RelativeLayout rlUnit;
+    @BindView(R.id.tv_education)
+    TextView tvEducation;
+    @BindView(R.id.rl_education)
+    RelativeLayout rlEducation;
+    @BindView(R.id.tv_graduate_school)
+    TextView tvGraduateSchool;
+    @BindView(R.id.rl_graduate_school)
+    RelativeLayout rlGraduateSchool;
+    @BindView(R.id.tv_reward)
+    TextView tvReward;
+    @BindView(R.id.rl_reward)
+    RelativeLayout rlReward;
+    @BindView(R.id.tv_subject)
+    TextView tvSubject;
+    @BindView(R.id.rl_subject)
+    RelativeLayout rlSubject;
+    @BindView(R.id.tv_interest)
+    TextView tvInterest;
+    @BindView(R.id.rl_interest)
+    RelativeLayout rlInterest;
     private String TAG = "EditPersonInforActivity";
     String[] s = new String[]{"男", "女"};
 
@@ -63,6 +119,36 @@ public class EditPersonInforActivity extends SimpleActivity {
     @Override
     protected void initEventAndData() {
 
+
+        List<Animator> animators = new ArrayList<>();
+
+        // horizontal animation.
+        // wave waves infinitely.
+        ObjectAnimator waveShiftAnim = ObjectAnimator.ofFloat(
+                wvGe, "waveShiftRatio", 0f, 1f);
+        waveShiftAnim.setRepeatCount(ValueAnimator.INFINITE);
+        waveShiftAnim.setDuration(1000);
+        waveShiftAnim.setInterpolator(new LinearInterpolator());
+        animators.add(waveShiftAnim);
+
+
+        wvGe.setWaterLevelRatio(0.3f);
+        // amplitude animation.
+        // wave grows big then grows small, repeatedly
+        ObjectAnimator amplitudeAnim = ObjectAnimator.ofFloat(
+                wvGe, "amplitudeRatio", 0.1f, 0.3f);
+        amplitudeAnim.setRepeatCount(ValueAnimator.INFINITE);
+        amplitudeAnim.setRepeatMode(ValueAnimator.REVERSE);
+        amplitudeAnim.setDuration(5000);
+        amplitudeAnim.setInterpolator(new LinearInterpolator());
+        animators.add(amplitudeAnim);
+
+        AnimatorSet mAnimatorSet = new AnimatorSet();
+        mAnimatorSet.playTogether(animators);
+        wvGe.setShowWave(true);
+        if (mAnimatorSet != null) {
+            mAnimatorSet.start();
+        }
     }
 
 
@@ -286,4 +372,6 @@ public class EditPersonInforActivity extends SimpleActivity {
                 break;
         }
     }
+
+
 }

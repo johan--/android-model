@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.FourthContract;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.presenter.FourthPresenter;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
 import com.tb.wangfang.news.ui.activity.HelpActivity;
@@ -16,9 +17,10 @@ import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.SettingActivity;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * Created by tangbin on 2017/5/9.
@@ -35,7 +37,8 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
     TextView tvEditPersonnal;
     @BindView(R.id.tv_register)
     TextView tvRegister;
-    Unbinder unbinder;
+    @Inject
+    ImplPreferencesHelper PreferencesHelper;
 
     public static FourthFragment newInstance() {
         FourthFragment fragment = new FourthFragment();
@@ -51,6 +54,7 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
 
     @Override
     protected void initEventAndData() {
+
 
     }
 
@@ -97,6 +101,18 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
                 Intent intent1 = new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent1);
                 break;
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (PreferencesHelper.getLoginState()) {
+            tvRegister.setVisibility(View.GONE);
+            tvEditPersonnal.setVisibility(View.VISIBLE);
+        } else {
+            tvRegister.setVisibility(View.VISIBLE);
+            tvEditPersonnal.setVisibility(View.GONE);
         }
     }
 }

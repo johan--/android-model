@@ -52,6 +52,8 @@
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:hint="输入关键字"
+            android:paddingLeft="10dp"
+            android:textSize="12sp"
             android:imeOptions="actionSearch"
             android:maxLines="1"
             android:textColor="@color/white"
@@ -133,6 +135,7 @@
             android:drawablePadding="5dp"
             android:gravity="center"
             android:text="清楚搜索记录"
+            android:textSize="12sp"
             android:textColor="@color/wanfang_gray_text" />
     </LinearLayout>
 

@@ -122,6 +122,8 @@ public class SettingActivity extends SimpleActivity {
             case R.id.tv_share_app:
                 break;
             case R.id.tv_exit:
+                PreferencesHelper.setLoginState(false);
+                App.getInstance().exitApp();
                 break;
         }
     }

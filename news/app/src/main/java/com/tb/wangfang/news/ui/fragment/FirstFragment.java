@@ -1,10 +1,9 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +16,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.tb.wangfang.news.R;
@@ -25,14 +23,14 @@ import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.FirstContract;
 import com.tb.wangfang.news.model.bean.MainPageData;
 import com.tb.wangfang.news.presenter.FirstPresenter;
+import com.tb.wangfang.news.ui.activity.MianSearchActivity;
 import com.tb.wangfang.news.ui.adapter.MainCourseAdapter;
 import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
-import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.widget.EvaluatePop;
 import com.tb.wangfang.news.widget.VerticalTextview;
 import com.wanfang.main.AllCource;
 import com.wanfang.main.AllLastNews;
-import com.wanfang.main.Banner;
+import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,15 +40,14 @@ import butterknife.BindView;
 import static com.tb.wangfang.news.app.App.SCREEN_HEIGHT;
 
 
-public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View {
+public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View, View.OnClickListener {
 
     private static final String TAG = "FirstFragment";
 
-
+    @BindView(R.id.ll_top_search)
     LinearLayout llTopSearch;
     @BindView(R.id.recycler_course)
     RecyclerView recyclerCourse;
-
     TextView tvSpecial;
 
     TextView tvScience;
@@ -69,14 +66,8 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     private MainCourseAdapter mainCourseAdapter;
     private ArrayList<AllCource.Course> coursetemArrayList = new ArrayList<>();
     private MainPageAdapter mainPageAdapter;
-    private ViewPager banner;
-    private LinearLayout tipsBox;
-    /**
-     * 装点点的ImageView数组
-     */
-    private ImageView[] tips;
+    private Banner banner;
 
-    private ImageView[] photoViews;
 
     public static FirstFragment newInstance() {
         FirstFragment fragment = new FirstFragment();
@@ -100,9 +91,12 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         ivNewsType = (ImageView) view.findViewById(R.id.iv_news_type);
         tvLastNews = (VerticalTextview) view.findViewById(R.id.tv_last_news);
         tvLastNewsMore = (TextView) view.findViewById(R.id.tv_last_news_more);
-        banner = (ViewPager) view.findViewById(R.id.banner);
-        tipsBox = (LinearLayout) view.findViewById(R.id.tipsBox);
-
+        banner = (Banner) view.findViewById(R.id.banner);
+        llTopSearch.setOnClickListener(this);
+        tvSpecial.setOnClickListener(this);
+        tvScience.setOnClickListener(this);
+        tvMeeting.setOnClickListener(this);
+        tvJournal.setOnClickListener(this);
         for (int i = 0; i < 30; i++) {
             MainPageData data = new MainPageData();
             data.setImg1("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
@@ -208,50 +202,62 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
 
     @Override
-    public void showSpanner(List<Banner.Baner> baners) {
+    public void showSpanner(List<com.wanfang.main.Banner.Baner> baners) {
 
-//        banner.setImageLoader(mPresenter.getImageLoader());
-//        //设置图片集合
-//        banner.setImages(baners);
-//        //banner设置方法全部调用完毕时最后调用
-//        banner.start();
-        tips = new ImageView[baners.size()];
-        photoViews = new ImageView[baners.size()];
-        for (int i = 0; i < tips.length; i++) {
-            ImageView img = new ImageView(getActivity());
-            img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            tips[i] = img;
-            if (i == 0) {
-                img.setBackgroundResource(R.drawable.gray_radius);//蓝色背景
-            } else {
-                img.setBackgroundResource(R.drawable.white_radius);//黑色背景
-            }
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(SystemUtil.dp2px(18), SystemUtil.dp2px(4)));
-            params.leftMargin = SystemUtil.dp2px(5);
-            params.rightMargin = SystemUtil.dp2px(5);
-            tipsBox.addView(img, params); //把点点添加到容器中
-            ImageView photoView = new ImageView(getActivity());
-            Glide.with(this).load(baners.get(i).getBannerPic()).into(photoView);
-            photoViews[i] = photoView;
-        }
-        banner.setAdapter(new BrowsePageAdapter());
-        banner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-        banner.setCurrentItem(0);
+////        banner.setImageLoader(mPresenter.getImageLoader());
+////        //设置图片集合
+////        banner.setImages(baners);
+////        //banner设置方法全部调用完毕时最后调用
+////        banner.start();
+//        tips = new ImageView[baners.size()];
+//        photoViews = new ImageView[baners.size()];
+//        for (int i = 0; i < tips.length; i++) {
+//            ImageView img = new ImageView(getActivity());
+//            img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            tips[i] = img;
+//            if (i == 0) {
+//                img.setBackgroundResource(R.drawable.gray_radius);//蓝色背景
+//            } else {
+//                img.setBackgroundResource(R.drawable.white_radius);//黑色背景
+//            }
+//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(SystemUtil.dp2px(18), SystemUtil.dp2px(4)));
+//            params.leftMargin = SystemUtil.dp2px(3);
+//            params.rightMargin = SystemUtil.dp2px(3);
+//            tipsBox.addView(img, params); //把点点添加到容器中
+//            ImageView photoView = new ImageView(getActivity());
+//            photoView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            Glide.with(this).load(baners.get(i).getBannerPic()).into(photoView);
+//            photoViews[i] = photoView;
+//        }
+//        banner.setAdapter(new BrowsePageAdapter());
+//        banner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                for (int i = 0; i < tips.length; i++) {
+//                    if (i == position) {
+//                        tips[i].setBackgroundResource(R.drawable.gray_radius);
+//                    } else {
+//                        tips[i].setBackgroundResource(R.drawable.white_radius);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
+//        banner.setCurrentItem(0);
+        banner.setImageLoader(mPresenter.getImageLoader());
+        //设置图片集合
+        banner.setImages(baners);
+        //banner设置方法全部调用完毕时最后调用
+        banner.start();
     }
 
     @Override
@@ -266,26 +272,13 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvLastNews.stopAutoScroll();
     }
 
-    public class BrowsePageAdapter extends PagerAdapter {
-        @Override
-        public int getCount() {
-            return tips.length;
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(photoViews[position]);
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(photoViews[position]);
-            return photoViews[position];
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ll_top_search:
+                Intent intent = new Intent(getActivity(), MianSearchActivity.class);
+                getActivity().startActivity(intent);
+                break;
         }
     }
 }

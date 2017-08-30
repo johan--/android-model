@@ -162,6 +162,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    compile 'com.gelitenight.waveview:waveview:1.0.0'
     testCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'

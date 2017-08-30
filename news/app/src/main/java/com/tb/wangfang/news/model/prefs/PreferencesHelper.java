@@ -12,5 +12,9 @@ public interface PreferencesHelper {
 
     String getTextSizeState();
 
+    void setLoginState(boolean state);
+
+    boolean getLoginState();
+
 
 }

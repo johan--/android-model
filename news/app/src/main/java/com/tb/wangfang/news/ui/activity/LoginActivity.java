@@ -17,9 +17,12 @@ import android.widget.TextView;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.LoginContract;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.presenter.LoginPresenter;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -68,6 +71,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @BindView(R.id.ll_common)
     LinearLayout llCommon;
     boolean passwordIsSee = false;
+    @Inject
+    ImplPreferencesHelper PreferencesHelper;
 
 
     @Override
@@ -105,13 +110,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
             }
         });
-        ivGraph.setImageBitmap(CodeUtils.getInstance().createBitmap(SystemUtil.dp2px(this,80),SystemUtil.dp2px(this,40)));
+        ivGraph.setImageBitmap(CodeUtils.getInstance().createBitmap(SystemUtil.dp2px(this, 80), SystemUtil.dp2px(this, 40)));
 
     }
 
     @Override
     protected void initInject() {
-
+        getActivityComponent().inject(this);
     }
 
     @Override
@@ -124,7 +129,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @OnClick({R.id.tv_return, R.id.tv_pre_num, R.id.tv_get_code, R.id.ll_quick, R.id.btn_login, R.id.tv_find_password, R.id.tv_register, R.id.iv_qq_share,
-            R.id.iv_weichat_share, R.id.iv_weibo_share,R.id.iv_graph})
+            R.id.iv_weichat_share, R.id.iv_weibo_share, R.id.iv_graph})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
@@ -139,6 +144,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.ll_quick:
                 break;
             case R.id.btn_login:
+                PreferencesHelper.setLoginState(true);
+                finish();
 
                 break;
             case R.id.tv_find_password:
@@ -157,7 +164,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.iv_weibo_share:
                 break;
             case R.id.iv_graph:
-                ivGraph.setImageBitmap(CodeUtils.getInstance().createBitmap(SystemUtil.dp2px(this,80),SystemUtil.dp2px(this,40)));
+                ivGraph.setImageBitmap(CodeUtils.getInstance().createBitmap(SystemUtil.dp2px(this, 80), SystemUtil.dp2px(this, 40)));
                 break;
         }
     }

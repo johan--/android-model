@@ -18,7 +18,8 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:text="计算机维护"
-        android:textColor="@color/gray_text_6" />
+        android:textColor="@color/gray_text_6"
+        android:textSize="12sp" />
 
     <!--<View-->
     <!--android:layout_width="0.5dp"-->

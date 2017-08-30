@@ -39,4 +39,14 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     public String getTextSizeState() {
         return mSPrefs.getString(Constants.TEXT_SIZE, "1");
     }
+
+    @Override
+    public void setLoginState(boolean state) {
+        mSPrefs.edit().putBoolean(Constants.LOGIN_STATE, state).apply();
+    }
+
+    @Override
+    public boolean getLoginState() {
+        return mSPrefs.getBoolean(Constants.LOGIN_STATE, false);
+    }
 }

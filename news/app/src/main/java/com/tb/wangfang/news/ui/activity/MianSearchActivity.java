@@ -1,7 +1,6 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -23,7 +22,6 @@ import com.tb.wangfang.news.widget.SearchEditText;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MianSearchActivity extends SimpleActivity {
@@ -65,6 +63,13 @@ public class MianSearchActivity extends SimpleActivity {
             }
         });
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        flowLayout.removeAllViews();
         final List<HistoryDocItem> historyDocItems = realmHelper.findAllHistoryItem();
         for (int i = 0; i < historyDocItems.size(); i++) {
             if (historyDocItems.size() < 13) {
@@ -87,16 +92,10 @@ public class MianSearchActivity extends SimpleActivity {
                         startActivity(intent);
                     }
                 });
+
                 flowLayout.addView(textView);
             }
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 
     @OnClick({R.id.et_search, R.id.tv_cancel})
