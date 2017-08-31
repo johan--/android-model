@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -101,6 +102,12 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         });
         lvRightMenu.setAdapter(expandAdapter);
         lvRightMenu.setLayoutManager(gridLayoutManager);
+        View view = getLayoutInflater().inflate(R.layout.item_year_condition, (ViewGroup) lvRightMenu.getParent(), false);
+        ImageView view1 = new ImageView(this);
+        view1.setBackgroundResource(R.color.black);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
+        view1.setLayoutParams(params);
+        ((ViewGroup) lvRightMenu.getParent()).addView(view1);
 
 
         docAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

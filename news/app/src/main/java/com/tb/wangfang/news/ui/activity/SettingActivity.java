@@ -2,9 +2,12 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
@@ -122,8 +125,26 @@ public class SettingActivity extends SimpleActivity {
             case R.id.tv_share_app:
                 break;
             case R.id.tv_exit:
-                PreferencesHelper.setLoginState(false);
-                App.getInstance().exitApp();
+                new MaterialDialog.Builder(this)
+                        .content("确认退出登录吗")
+                        .positiveText("同意")
+                        .negativeText("取消")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                                PreferencesHelper.setLoginState(false);
+                                App.getInstance().exitApp();
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+
                 break;
         }
     }

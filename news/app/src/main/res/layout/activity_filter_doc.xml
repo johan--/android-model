@@ -91,6 +91,11 @@
                     android:text="文件类型"></com.jaredrummler.materialspinner.MaterialSpinner>
             </LinearLayout>
 
+            <com.tb.wangfang.news.widget.FlowLayout
+                android:id="@+id/fl_condition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.tb.wangfang.news.widget.FlowLayout>
+
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipeLayout"
                 android:layout_width="match_parent"
@@ -102,6 +107,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
             </android.support.v4.widget.SwipeRefreshLayout>
+
+
         </LinearLayout><!--侧滑菜单-->
         <RelativeLayout
             android:layout_width="300dp"
@@ -122,11 +129,11 @@
                 android:id="@+id/lv_right_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/tv_sign_one"
                 android:layout_above="@+id/ll_sign_two"
                 android:background="@color/divide"
                 android:divider="@color/divide"
                 android:text="DrawerLayout" />
+
 
             <LinearLayout
                 android:id="@+id/ll_sign_two"
@@ -140,21 +147,26 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:text="重置"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black_text"
                     android:textSize="16sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divide" />
 
                 <TextView
                     android:id="@+id/tv_complete"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:background="#417dc9"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:text="完成"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
             </LinearLayout>
