@@ -7,9 +7,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +21,8 @@ import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.FilterDocContract;
 import com.tb.wangfang.news.model.bean.Level0;
 import com.tb.wangfang.news.model.bean.Level1;
+import com.tb.wangfang.news.model.bean.Level2;
+import com.tb.wangfang.news.model.bean.Level3;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.presenter.FilterDocPresenter;
 import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
@@ -95,19 +97,11 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-//                Log.d("tb", "getSpanSize: wda");
-//                int num=docAdapter.getItemViewType(position) == FilterExpandAdapter.TYPE_LEVEL_0 ? 1 : gridLayoutManager.getSpanCount();
-                return expandAdapter.getItemViewType(position) == FilterExpandAdapter.TYPE_LEVEL_0 ? 2 : 1;
+                return expandAdapter.getItemViewType(position) == FilterExpandAdapter.TYPE_LEVEL_1 ? 1 : 2;
             }
         });
         lvRightMenu.setAdapter(expandAdapter);
         lvRightMenu.setLayoutManager(gridLayoutManager);
-        View view = getLayoutInflater().inflate(R.layout.item_year_condition, (ViewGroup) lvRightMenu.getParent(), false);
-        ImageView view1 = new ImageView(this);
-        view1.setBackgroundResource(R.color.black);
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
-        view1.setLayoutParams(params);
-        ((ViewGroup) lvRightMenu.getParent()).addView(view1);
 
 
         docAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -153,6 +147,8 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
                 break;
             case R.id.tv_complete:
+                int m = multiItemEntityArrayList.size();
+                Log.d("tb", "onViewClicked: " + m);
                 break;
         }
     }
@@ -212,7 +208,11 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
             multiItemEntityArrayList.add(level0);
 
         }
-
+        Level2 level2 = new Level2();
+        level2.setText("年份");
+        Level3 level3 = new Level3();
+        level2.addSubItem(level3);
+        multiItemEntityArrayList.add(level2);
         expandAdapter.setNewData(multiItemEntityArrayList);
 
     }

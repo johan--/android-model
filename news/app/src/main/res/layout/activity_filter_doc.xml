@@ -130,6 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/ll_sign_two"
+                android:layout_below="@id/tv_sign_one"
                 android:background="@color/divide"
                 android:divider="@color/divide"
                 android:text="DrawerLayout" />
