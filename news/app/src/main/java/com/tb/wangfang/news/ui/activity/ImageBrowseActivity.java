@@ -62,12 +62,7 @@ public class ImageBrowseActivity extends SimpleActivity {
 
             tipsBox.addView(img, params); //把点点添加到容器中
             PhotoView photoView = new PhotoView(this);
-            photoView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
-                @Override
-                public void onPhotoTap(View view, float x, float y) {
-                    onBackPressed();
-                }
-            });
+
             Glide.with(this).load(paths.get(i)).into(photoView);
             photoViews[i] = photoView;
 
@@ -81,7 +76,7 @@ public class ImageBrowseActivity extends SimpleActivity {
 
             @Override
             public void onPageSelected(int position) {
-
+                setImgState(position);
             }
 
             @Override
@@ -90,6 +85,17 @@ public class ImageBrowseActivity extends SimpleActivity {
             }
         });
         viewpager1.setCurrentItem(position);
+    }
+
+    private void setImgState(int position) {
+        for (int i = 0; i < tips.length; i++) {
+            if (i == position) {
+                tips[i].setBackgroundResource(R.drawable.gray_radius);//蓝色背景
+
+            } else {
+                tips[i].setBackgroundResource(R.drawable.white_radius);//黑色背景
+            }
+        }
     }
 
     public class BrowsePageAdapter extends PagerAdapter {
@@ -111,7 +117,14 @@ public class ImageBrowseActivity extends SimpleActivity {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             container.addView(photoViews[position]);
+            photoViews[position].setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+                @Override
+                public void onPhotoTap(View view, float x, float y) {
+                    onBackPressed();
+                }
+            });
             return photoViews[position];
         }
+
     }
 }

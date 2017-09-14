@@ -3,7 +3,6 @@ package com.tb.wangfang.news.ui.fragment;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,11 +22,14 @@ import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.FirstContract;
 import com.tb.wangfang.news.model.bean.MainPageData;
 import com.tb.wangfang.news.presenter.FirstPresenter;
+import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.MianSearchActivity;
 import com.tb.wangfang.news.ui.adapter.MainCourseAdapter;
 import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
 import com.tb.wangfang.news.widget.EvaluatePop;
 import com.tb.wangfang.news.widget.VerticalTextview;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.wanfang.main.AllCource;
 import com.wanfang.main.AllLastNews;
 import com.youth.banner.Banner;
@@ -36,8 +38,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.Unbinder;
 
 import static com.tb.wangfang.news.app.App.SCREEN_HEIGHT;
+import static me.iwf.photopicker.PhotoPicker.REQUEST_CODE;
 
 
 public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View, View.OnClickListener {
@@ -63,6 +67,9 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     TextView tvLastNewsMore;
     List<MultiItemEntity> datas = new ArrayList<>();
     int halfScreen = SCREEN_HEIGHT / 2;
+    @BindView(R.id.iv_qc_code)
+    ImageView ivQcCode;
+    Unbinder unbinder;
     private MainCourseAdapter mainCourseAdapter;
     private ArrayList<AllCource.Course> coursetemArrayList = new ArrayList<>();
     private MainPageAdapter mainPageAdapter;
@@ -162,6 +169,15 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
 
         recyclerCourse.setLayoutManager(manager);
+        //初始化扫码
+        ivQcCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
         mPresenter.getBanner("tb");
         mPresenter.getLastNews();
 
@@ -189,11 +205,6 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvLastNews.startAutoScroll();
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
 
     @Override
     protected void initInject() {
@@ -203,56 +214,6 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
     @Override
     public void showSpanner(List<com.wanfang.main.Banner.Baner> baners) {
-
-////        banner.setImageLoader(mPresenter.getImageLoader());
-////        //设置图片集合
-////        banner.setImages(baners);
-////        //banner设置方法全部调用完毕时最后调用
-////        banner.start();
-//        tips = new ImageView[baners.size()];
-//        photoViews = new ImageView[baners.size()];
-//        for (int i = 0; i < tips.length; i++) {
-//            ImageView img = new ImageView(getActivity());
-//            img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            tips[i] = img;
-//            if (i == 0) {
-//                img.setBackgroundResource(R.drawable.gray_radius);//蓝色背景
-//            } else {
-//                img.setBackgroundResource(R.drawable.white_radius);//黑色背景
-//            }
-//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(SystemUtil.dp2px(18), SystemUtil.dp2px(4)));
-//            params.leftMargin = SystemUtil.dp2px(3);
-//            params.rightMargin = SystemUtil.dp2px(3);
-//            tipsBox.addView(img, params); //把点点添加到容器中
-//            ImageView photoView = new ImageView(getActivity());
-//            photoView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            Glide.with(this).load(baners.get(i).getBannerPic()).into(photoView);
-//            photoViews[i] = photoView;
-//        }
-//        banner.setAdapter(new BrowsePageAdapter());
-//        banner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                for (int i = 0; i < tips.length; i++) {
-//                    if (i == position) {
-//                        tips[i].setBackgroundResource(R.drawable.gray_radius);
-//                    } else {
-//                        tips[i].setBackgroundResource(R.drawable.white_radius);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
-//        banner.setCurrentItem(0);
         banner.setImageLoader(mPresenter.getImageLoader());
         //设置图片集合
         banner.setImages(baners);
@@ -279,8 +240,36 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
                 Intent intent = new Intent(getActivity(), MianSearchActivity.class);
                 getActivity().startActivity(intent);
                 break;
+            case R.id.tv_special:
+                Intent intent2 = new Intent(getActivity(), MainDetailActivity.class);
+                getActivity().startActivity(intent2);
+                break;
         }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        /**
+         * 处理二维码扫描结果
+         */
+        if (requestCode == REQUEST_CODE) {
+            //处理扫描结果（在界面上显示）
+            if (null != data) {
+                Bundle bundle = data.getExtras();
+                if (bundle == null) {
+                    return;
+                }
+                if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
+                    String result = bundle.getString(CodeUtils.RESULT_STRING);
+                    Toast.makeText(getActivity(), "解析结果:" + result, Toast.LENGTH_LONG).show();
+                } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
+                    Toast.makeText(getActivity(), "解析二维码失败", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
 }
 
 

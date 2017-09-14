@@ -8,19 +8,23 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.LoginContract;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.presenter.LoginPresenter;
 import com.tb.wangfang.news.utils.SystemUtil;
+import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
+import com.wanfang.personal.MsgLogin;
 
 import javax.inject.Inject;
 
@@ -73,6 +77,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     boolean passwordIsSee = false;
     @Inject
     ImplPreferencesHelper PreferencesHelper;
+    private MaterialDialog mdialog;
 
 
     @Override
@@ -144,9 +149,32 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.ll_quick:
                 break;
             case R.id.btn_login:
-                PreferencesHelper.setLoginState(true);
-                finish();
-
+                String account = editAccount.getText().toString();
+                String passWord = editPassword.getText().toString();
+                String graphCode = editGraphCode.getText().toString();
+                if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(account.trim())) {
+                    if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
+                        if (!TextUtils.isEmpty(graphCode) && !TextUtils.isEmpty(graphCode.trim())) {
+                            if (graphCode.equals(CodeUtils.getInstance().getCode())) {
+                                mdialog = new MaterialDialog.Builder(this)
+                                        .title("登录中")
+                                        .content("请等待")
+                                        .progress(true, 0)
+                                        .progressIndeterminateStyle(true)
+                                        .show();
+                                mPresenter.AccountLogin(account, passWord);
+                            }else{
+                                ToastUtil.show("图形码不正确，请重新输入");
+                            }
+                        } else {
+                            ToastUtil.show("请输入图形验证码");
+                        }
+                    } else {
+                        ToastUtil.show("请输入密码");
+                    }
+                } else {
+                    ToastUtil.show("请输入账号");
+                }
                 break;
             case R.id.tv_find_password:
                 Intent intent1 = new Intent(this, FindPassWordActivity1.class);
@@ -155,7 +183,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.tv_register:
                 Intent intent2 = new Intent(this, RegisterActivity.class);
                 startActivity(intent2);
-
                 break;
             case R.id.iv_qq_share:
                 break;
@@ -168,6 +195,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
         }
     }
+
 
     @OnClick(R.id.iv_password_is_see)
     public void onViewClicked() {
@@ -199,6 +227,18 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 0 && data != null) {
             tvPreNum.setText(data.getExtras().getString("phone"));
+        }
+    }
+
+    @Override
+    public void loginSuccess(MsgLogin.LoginResponse response) {
+        mdialog.dismiss();
+        if (response == null) {
+            PreferencesHelper.setLoginState(true);
+            finish();
+        } else {
+            PreferencesHelper.setLoginState(true);
+            finish();
         }
     }
 }

@@ -2,15 +2,16 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -28,11 +29,13 @@ import com.tb.wangfang.news.presenter.FilterDocPresenter;
 import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
 import com.tb.wangfang.news.utils.SnackbarUtil;
+import com.tb.wangfang.news.widget.FlowLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -58,12 +61,23 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     MaterialSpinner msSeletTwo;
     @BindView(R.id.ms_selet_three)
     MaterialSpinner msSeletThree;
+    @BindView(R.id.fl_condition)
+    FlowLayout flCondition;
+    @BindView(R.id.tv_sign_one)
+    TextView tvSignOne;
+    @BindView(R.id.tv_reset)
+    TextView tvReset;
+    @BindView(R.id.tv_complete)
+    TextView tvComplete;
+    @BindView(R.id.ll_sign_two)
+    LinearLayout llSignTwo;
     private SearchDocumentAdapter docAdapter;
     private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
     ArrayList<MultiItemEntity> multiItemEntityArrayList = new ArrayList<>();
     private int page = 1;
     private String text;
     private FilterExpandAdapter expandAdapter;
+    private ArrayList<View> viewArrayList = new ArrayList<>();
 
     @Override
     protected int getLayout() {
@@ -143,12 +157,46 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 break;
             case R.id.tv_reset:
                 for (int i = 0; i < expandAdapter.getData().size(); i++) {
-                    expandAdapter.getData().get(i);
+                    if (expandAdapter.getData().get(i) instanceof Level0) {
+                        Level0 level0 = (Level0) expandAdapter.getData().get(i);
+                        level0.setSeletedPosition(-1);
+                        for (int j = 0; j < level0.getSubItems().size(); j++) {
+                            Level1 level1 = level0.getSubItem(j);
+                            level1.setSelected(false);
+                        }
+                    }
                 }
+                expandAdapter.notifyDataSetChanged();
                 break;
             case R.id.tv_complete:
-                int m = multiItemEntityArrayList.size();
-                Log.d("tb", "onViewClicked: " + m);
+                viewArrayList.clear();
+                flCondition.removeAllViews();
+                for (int i = 0; i < expandAdapter.getData().size(); i++) {
+                    if (expandAdapter.getData().get(i) instanceof Level0) {
+                        Level0 level0 = (Level0) expandAdapter.getData().get(i);
+                        for (int j = 0; j < level0.getSubItems().size(); j++) {
+                            Level1 level1 = level0.getSubItem(j);
+                            if (level1.isSelected()) {
+                                View view1 = getLayoutInflater().inflate(R.layout.item_search_condition, flCondition, false);
+                                TextView tvCondition = (TextView) view1.findViewById(R.id.tv_condition);
+                                tvCondition.setText(level1.getText());
+                                viewArrayList.add(view1);
+                            }
+                        }
+                    }
+                }
+                for (int i = 0; i < viewArrayList.size(); i++) {
+                    View view2 = viewArrayList.get(i);
+                    final ImageView ivDelete = (ImageView) view2.findViewById(R.id.iv_delete);
+                    ivDelete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            flCondition.removeView((View) ivDelete.getParent());
+                        }
+                    });
+                    flCondition.addView(view2);
+                }
+                dlRight.closeDrawer(Gravity.RIGHT);
                 break;
         }
     }
@@ -244,4 +292,10 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

@@ -7,6 +7,7 @@ import com.tb.wangfang.news.di.scope.ActivityScope;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MainActivity;
+import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.RegisterActivity;
 import com.tb.wangfang.news.ui.activity.SettingActivity;
@@ -34,4 +35,6 @@ public interface ActivityComponent {
     void inject(MyOrderActivity myOrderActivity);
 
     void inject(RegisterActivity registerActivity);
+
+    void inject(MainDetailActivity mainDetailActivity);
 }

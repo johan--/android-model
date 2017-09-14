@@ -14,11 +14,10 @@ import com.tb.wangfang.news.di.component.AppComponent;
 import com.tb.wangfang.news.di.component.DaggerAppComponent;
 import com.tb.wangfang.news.di.module.AppModule;
 import com.tb.wangfang.news.di.module.HttpModule;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import io.realm.Realm;
 
 /**
  * Created by tangbin on 2017/5/4.
@@ -47,14 +46,14 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-
         //初始化屏幕宽高
         getScreenSize();
 
-        //初始化数据库
-        Realm.init(this);
         //在子线程中完成其他初始化
         InitializeService.start(this);
+        ZXingLibrary.initDisplayOpinion(this);
+
+
     }
 
     protected void attachBaseContext(Context base) {

@@ -34,17 +34,17 @@ android {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.debug
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         debug {
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     signingConfigs {
-        debug {
+        release {
             storeFile file("E:/keystore/news.jks")
             storePassword "wanfangnews"
             keyAlias "key0"
@@ -102,40 +102,81 @@ protobuf {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    debugCompile 'com.github.moduth:blockcanary-android:1.2.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-    //        exclude group: 'com.android.support', module: 'support-annotations'
-    //    })
-    //base
-    //ui
-    //    compile "com.prolificinteractive:material-calendarview:1.4.0"
-    //    compile "com.miguelcatalan:materialsearchview:1.4.0"
-    //    compile "net.opacapp:multiline-collapsingtoolbar:1.3.1"
-    //    compile "org.sufficientlysecure:html-textview:3.1"
-    //rx
-    //network
-    //    compile "org.jsoup:jsoup:1.10.1"
-    //di
-    //other
-    //canary
-    //最新版本
-    //grpc和rxjava
-    // You need to build grpc-java to obtain these libraries below.
-    // CURRENT_GRPC_VERSION
-    // CURRENT_GRPC_VERSION
-    // CURRENT_GRPC_VERSION
-    //    compile 'io.reactivex:rxjava:1.0.14'
-    //    compile 'io.reactivex:rxandroid:1.0.1'
 
+    //        exclude group: 'com.android.support', module: 'support-annotations'
+
+    //    })
+
+    //base
+
+    //ui
+
+    //    compile "com.prolificinteractive:material-calendarview:1.4.0"
+
+    //    compile "com.miguelcatalan:materialsearchview:1.4.0"
+
+    //    compile "net.opacapp:multiline-collapsingtoolbar:1.3.1"
+
+    //    compile "org.sufficientlysecure:html-textview:3.1"
+
+    //rx
+
+    //network
+
+    //    compile "org.jsoup:jsoup:1.10.1"
+
+    //di
+
+    //other
+
+    //canary
+
+    //最新版本
+
+    //grpc和rxjava
+
+    // You need to build grpc-java to obtain these libraries below.
+
+    // CURRENT_GRPC_VERSION
+
+    // CURRENT_GRPC_VERSION
+
+    // CURRENT_GRPC_VERSION
+
+    //    compile 'io.reactivex:rxjava:1.0.14'
+
+    //    compile 'io.reactivex:rxandroid:1.0.1'
     compile project(path: ':library')
     compile project(':librarypdf')
     compile project(path: ':PhotoPicker')
     compile project(path: ':banner')
     //    compile 'com.luffykou:android-common-utils:1.1.3'
+
     //    compile 'com.github.barteksc:android-pdf-viewer:2.5.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile files('libs/MobCommons-2017.0823.1556.jar')
+    compile files('libs/MobTools-2017.0823.1556.jar')
+    compile files('libs/ShareSDK-Core-3.0.2.jar')
+    compile files('libs/ShareSDK-QQ-3.0.2.jar')
+    compile files('libs/ShareSDK-QZone-3.0.2.jar')
+    compile files('libs/ShareSDK-Renren-3.0.2.jar')
+    compile files('libs/ShareSDK-SinaWeibo-3.0.2.jar')
+    compile files('libs/ShareSDK-Wechat-3.0.2.jar')
+    compile files('libs/ShareSDK-Wechat-Core-3.0.2.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-3.0.2.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-3.0.2.jar')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
@@ -161,14 +202,8 @@ dependencies {
     compile 'com.jaredrummler:material-spinner:1.1.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+//    compile 'com.github.chrisbanes.photoview:library:1.2.4'
     compile 'com.gelitenight.waveview:waveview:1.0.0'
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    debugCompile 'com.github.moduth:blockcanary-android:1.2.1'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+
 }

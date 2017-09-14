@@ -13,15 +13,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="废物废物"
+
         android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/iv_delete"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
         android:paddingBottom="1dp"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="0dp"
         android:paddingTop="1dp"
         android:src="@mipmap/condition_delete_icon" />
 </LinearLayout>

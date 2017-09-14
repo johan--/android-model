@@ -132,11 +132,11 @@
                 android:id="@+id/tv_period_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:text="2016-2017"
                 android:textColor="@color/gray_text_6"
-                android:textSize="12sp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_last_period_three"

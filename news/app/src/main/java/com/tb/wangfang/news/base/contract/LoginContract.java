@@ -2,6 +2,7 @@ package com.tb.wangfang.news.base.contract;
 
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
+import com.wanfang.personal.MsgLogin;
 
 /**
  * Created by tangbin on 2017/8/3.
@@ -9,12 +10,12 @@ import com.tb.wangfang.news.base.BaseView;
 
 public interface LoginContract {
     interface View extends BaseView {
-
+        void loginSuccess(MsgLogin.LoginResponse response);
 
     }
 
     interface Presenter extends BasePresenter<View> {
-
+        void AccountLogin(String account, String passWord);
 
 
     }

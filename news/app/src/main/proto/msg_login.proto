@@ -2,6 +2,7 @@ syntax = "proto3";
 
 
 package personal;
+option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
 option objc_class_prefix = "WFPR";
 
@@ -10,6 +11,13 @@ enum ThirdPartyType {
 	WECHAT = 0; // 微信登录
 	QQ = 1; // qq登录
 	SINA = 3; // 新浪微博登录
+}
+// 登出
+message LoginOutRequest {
+	string user_id = 1; // 用户id
+}
+message LoginOutResponse {
+
 }
 
 // 登录请求msg
@@ -22,6 +30,12 @@ message LoginResponse {
 	string user_id = 1; // 用户id
 	string user_name = 2; // 用户名
 	string user_avatar_url = 3; // 用户头像
+}
+// 快捷登录（手机号登录请求）
+message QuickLoginRequest {
+	string phone = 1;
+	string token = 2;
+	string captcha = 3;
 }
 
 // 第三方登录 绑定万方账号
@@ -39,7 +53,16 @@ message BindNewRegistRequest {
 	ThirdPartyType third_party_type = 4; // 第三方登录类型
 }
 
+message UserInfoRequest {
+	string user_id = 1;
+}
 
+message UserInfoResponse {
+	string user_id = 1; // 用户id
+	string user_name = 2; // 用户名
+	string phone = 3;
+	string user_avatar_url = 4; // 用户头像
+}
 
 
 

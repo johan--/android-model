@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package personal;
+option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
 option objc_class_prefix = "WFPR";
 
@@ -9,20 +10,26 @@ option objc_class_prefix = "WFPR";
 
 // 注册请求
 message RegistRequest {
-	string email = 1; // 注册邮箱地址
-	string interest_subject = 2; // 感兴趣主题
-	string password = 3; // 密码
-	string phone = 4; // 手机号
-	string phone_captcha = 5; // 手机号验证码(发送给服务端做双向验证)
-	string user_name = 6; // 用户名
+	string password = 1; // 密码
+	string phone = 2; // 手机号
+	string phone_captcha = 3; // 手机号验证码(发送给服务端做双向验证)
+	string user_name = 4; // 用户名
+	string token = 5;
 }
 // 注册返回
 message RegistResponse {
 	string user_id = 1; // 用户id
 }
 
+message UpdateRegistInfoRequest {
+	string user_id = 1;
+	string email = 2; // 注册邮箱地址
+	string interest_subject = 3; // 感兴趣主题
+}
 
+message UpdateRegistInfoResponse {
 
+}
 
 
 
