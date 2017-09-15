@@ -62,6 +62,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<com.wanfang.main.Banner.AllBannerReply>() {
             @Override
             public void onSuccess(com.wanfang.main.Banner.AllBannerReply allBannerReply) {
+
                 mView.showSpanner(allBannerReply.getBanerList());
                 Log.d(TAG, "onSuccess: " + allBannerReply.getBaner(0).getBannerPic());
             }

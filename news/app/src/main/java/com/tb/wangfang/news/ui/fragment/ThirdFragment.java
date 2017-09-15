@@ -43,7 +43,6 @@ public class ThirdFragment extends BaseFragment<ThirdPresenter> implements Third
 
     public static ThirdFragment newInstance() {
         ThirdFragment fragment = new ThirdFragment();
-
         return fragment;
     }
 

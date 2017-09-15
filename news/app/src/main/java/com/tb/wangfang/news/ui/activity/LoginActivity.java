@@ -24,7 +24,7 @@ import com.tb.wangfang.news.presenter.LoginPresenter;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
-import com.wanfang.personal.MsgLogin;
+import com.wanfang.personal.LoginResponse;
 
 import javax.inject.Inject;
 
@@ -231,7 +231,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void loginSuccess(MsgLogin.LoginResponse response) {
+    public void loginSuccess(LoginResponse response) {
         mdialog.dismiss();
         if (response == null) {
             PreferencesHelper.setLoginState(true);

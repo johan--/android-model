@@ -2,7 +2,7 @@ package com.tb.wangfang.news.base.contract;
 
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
-import com.wanfang.personal.MsgLogin;
+import com.wanfang.personal.LoginResponse;
 
 /**
  * Created by tangbin on 2017/8/3.
@@ -10,7 +10,7 @@ import com.wanfang.personal.MsgLogin;
 
 public interface LoginContract {
     interface View extends BaseView {
-        void loginSuccess(MsgLogin.LoginResponse response);
+        void loginSuccess(LoginResponse response);
 
     }
 

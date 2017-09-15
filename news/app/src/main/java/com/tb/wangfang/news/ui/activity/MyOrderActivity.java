@@ -11,7 +11,9 @@ import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.ui.adapter.MyOrderAdapter;
-import com.wanfang.personal.MsgMyOrders;
+import com.wanfang.personal.Any;
+import com.wanfang.personal.MyOrdersRequest;
+import com.wanfang.personal.MyOrdersResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 
 import javax.inject.Inject;
@@ -53,19 +55,21 @@ public class MyOrderActivity extends SimpleActivity {
 
             }
         });
-        Single.create(new SingleOnSubscribe<MsgMyOrders.MyOrdersResponse>() {
+        Single.create(new SingleOnSubscribe<MyOrdersResponse>() {
             @Override
-            public void subscribe(SingleEmitter<MsgMyOrders.MyOrdersResponse> e) throws Exception {
+            public void subscribe(SingleEmitter<MyOrdersResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                MsgMyOrders.MyOrdersRequest request = MsgMyOrders.MyOrdersRequest.newBuilder().setUserId("tb").build();
-                MsgMyOrders.MyOrdersResponse response = stub.getMyOrders(request);
+             MyOrdersRequest request = MyOrdersRequest.newBuilder().setUserId("tb").build();
+              MyOrdersResponse response = stub.getMyOrders(request);
+                Any any=Any.newBuilder().build();
+
                 e.onSuccess(response);
 
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<MsgMyOrders.MyOrdersResponse>() {
+                .subscribeWith(new DisposableSingleObserver<MyOrdersResponse>() {
                     @Override
-                    public void onSuccess(MsgMyOrders.MyOrdersResponse myOrdersResponse) {
+                    public void onSuccess(MyOrdersResponse myOrdersResponse) {
                         myOrderAdapter.setNewData(myOrdersResponse.getResultsList());
                     }
 
