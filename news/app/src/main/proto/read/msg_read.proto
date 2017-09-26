@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package personal;
+option java_multiple_files = true;
+option java_package = "com.wanfang.read";
+option objc_class_prefix = "WFPR";
+
+message ReadRequest {
+    string user_id = 1;
+    string language = 2; // 语种
+    string resource_type = 3; // 资源类型 eg：perio
+    string source = 4; // 数据库来源
+    string resource_title = 5; // 论文标题
+    string resource_id = 6; // 论文id
+
+    string login_token = 7;
+}
+
+message ReadResponse {
+    string price = 1;
+    string title = 2;
+    string description = 3;
+    string safe_transaction_string = 4; // 统一下单需要的参数
+
+    bool has_trade_power = 5; // 是否可以支付
+}

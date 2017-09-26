@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/PhotoPicker" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/banner" />
+            <option value="$PROJECT_DIR$/hMSSdkBase" />
+            <option value="$PROJECT_DIR$/hMSSdkPush" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/librarypdf" />
           </set>

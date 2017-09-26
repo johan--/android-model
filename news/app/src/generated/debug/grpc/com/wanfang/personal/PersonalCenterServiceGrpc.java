@@ -18,8 +18,8 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.6.1)",
-    comments = "Source: ser_personal_center.proto")
+    value = "by gRPC proto compiler (version 1.4.0)",
+    comments = "Source: personalCenter/ser_personal_center.proto")
 public final class PersonalCenterServiceGrpc {
 
   private PersonalCenterServiceGrpc() {}
@@ -34,9 +34,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "Login"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -46,9 +46,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "LoginOut"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginOutRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginOutResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -58,9 +58,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "QuickLogin"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.QuickLoginRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -70,9 +70,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "BindExistAccount"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.BindExistAccountRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -82,9 +82,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "BindNewRegist"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.BindNewRegistRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.RegistResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -94,9 +94,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "Regist"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.RegistRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.RegistResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -106,9 +106,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetPasswordByPhone"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordByPhoneRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordByPhoneResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -118,9 +118,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "PasswordVerify"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordVerifyRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordVerifyResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -130,9 +130,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "UpdatePassword"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordUpdateRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordUpdateResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -142,9 +142,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetMyWallet"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.MyWalletRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.MyWalletResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -154,9 +154,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetMyOrders"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.MyOrdersRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.MyOrdersResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -166,9 +166,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetMyCollect"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.MyCollectRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.MyCollectResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -178,9 +178,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetPhoneCaptcha"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PhoneCaptchaRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PhoneCaptchaResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -190,9 +190,9 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "UploadFile"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.UploadFileRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.UploadFileResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -202,22 +202,10 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "UploadAvatar"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.UploadAvatarRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.UploadAvatarResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UpdateRegistInfoRequest,
-      com.wanfang.personal.UpdateRegistInfoResponse> METHOD_UPDATE_REGIST_INFO =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.UpdateRegistInfoRequest, com.wanfang.personal.UpdateRegistInfoResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "UpdateRegistInfo"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.UpdateRegistInfoRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.UpdateRegistInfoResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.InterestSubjectRequest,
@@ -226,22 +214,58 @@ public final class PersonalCenterServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetInterestSubject"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.InterestSubjectRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.InterestSubjectResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UserInfoRequest,
-      com.wanfang.personal.UserInfoResponse> METHOD_GET_USER_INFO =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.UserInfoRequest, com.wanfang.personal.UserInfoResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.MyInfoRequest,
+      com.wanfang.personal.MyInfoResponse> METHOD_GET_USER_INFO =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.MyInfoRequest, com.wanfang.personal.MyInfoResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.PersonalCenterService", "GetUserInfo"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.UserInfoRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.UserInfoResponse.getDefaultInstance()))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.MyInfoRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.MyInfoResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.MyInfoUpdateRequest,
+      com.wanfang.personal.MyInfoUpdateResponse> METHOD_UPDATE_USER_INFO =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.MyInfoUpdateRequest, com.wanfang.personal.MyInfoUpdateResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "UpdateUserInfo"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.MyInfoUpdateRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.MyInfoUpdateResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UserRolesListRequest,
+      com.wanfang.personal.UserRolesListResponse> METHOD_GET_ROLES_LIST =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.UserRolesListRequest, com.wanfang.personal.UserRolesListResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "GetRolesList"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.UserRolesListRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.UserRolesListResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.EducationLevelListRequest,
+      com.wanfang.personal.EducationLevelListResponse> METHOD_GET_EDUCATION_LEVEL_LIST =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.EducationLevelListRequest, com.wanfang.personal.EducationLevelListResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "getEducationLevelList"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.EducationLevelListRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.EducationLevelListResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -282,6 +306,9 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 登出
+     * </pre>
      */
     public void loginOut(com.wanfang.personal.LoginOutRequest request,
         io.grpc.stub.StreamObserver<com.wanfang.personal.LoginOutResponse> responseObserver) {
@@ -420,16 +447,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 更新注册信息
-     * </pre>
-     */
-    public void updateRegistInfo(com.wanfang.personal.UpdateRegistInfoRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UpdateRegistInfoResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_UPDATE_REGIST_INFO, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 根据关键字获取感兴趣列表
      * </pre>
      */
@@ -439,10 +456,43 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 获取用户信息
+     * </pre>
      */
-    public void getUserInfo(com.wanfang.personal.UserInfoRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UserInfoResponse> responseObserver) {
+    public void getUserInfo(com.wanfang.personal.MyInfoRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.MyInfoResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_USER_INFO, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 更新用户信息
+     * </pre>
+     */
+    public void updateUserInfo(com.wanfang.personal.MyInfoUpdateRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.MyInfoUpdateResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_UPDATE_USER_INFO, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 获取职称对照表
+     * </pre>
+     */
+    public void getRolesList(com.wanfang.personal.UserRolesListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.UserRolesListResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_ROLES_LIST, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 获取学历对照表
+     * </pre>
+     */
+    public void getEducationLevelList(com.wanfang.personal.EducationLevelListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.EducationLevelListResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_EDUCATION_LEVEL_LIST, responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -553,13 +603,6 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.UploadAvatarResponse>(
                   this, METHODID_UPLOAD_AVATAR)))
           .addMethod(
-            METHOD_UPDATE_REGIST_INFO,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.UpdateRegistInfoRequest,
-                com.wanfang.personal.UpdateRegistInfoResponse>(
-                  this, METHODID_UPDATE_REGIST_INFO)))
-          .addMethod(
             METHOD_GET_INTEREST_SUBJECT,
             asyncUnaryCall(
               new MethodHandlers<
@@ -570,9 +613,30 @@ public final class PersonalCenterServiceGrpc {
             METHOD_GET_USER_INFO,
             asyncUnaryCall(
               new MethodHandlers<
-                com.wanfang.personal.UserInfoRequest,
-                com.wanfang.personal.UserInfoResponse>(
+                com.wanfang.personal.MyInfoRequest,
+                com.wanfang.personal.MyInfoResponse>(
                   this, METHODID_GET_USER_INFO)))
+          .addMethod(
+            METHOD_UPDATE_USER_INFO,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.MyInfoUpdateRequest,
+                com.wanfang.personal.MyInfoUpdateResponse>(
+                  this, METHODID_UPDATE_USER_INFO)))
+          .addMethod(
+            METHOD_GET_ROLES_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.UserRolesListRequest,
+                com.wanfang.personal.UserRolesListResponse>(
+                  this, METHODID_GET_ROLES_LIST)))
+          .addMethod(
+            METHOD_GET_EDUCATION_LEVEL_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.EducationLevelListRequest,
+                com.wanfang.personal.EducationLevelListResponse>(
+                  this, METHODID_GET_EDUCATION_LEVEL_LIST)))
           .build();
     }
   }
@@ -607,6 +671,9 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 登出
+     * </pre>
      */
     public void loginOut(com.wanfang.personal.LoginOutRequest request,
         io.grpc.stub.StreamObserver<com.wanfang.personal.LoginOutResponse> responseObserver) {
@@ -759,17 +826,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 更新注册信息
-     * </pre>
-     */
-    public void updateRegistInfo(com.wanfang.personal.UpdateRegistInfoRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UpdateRegistInfoResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_UPDATE_REGIST_INFO, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 根据关键字获取感兴趣列表
      * </pre>
      */
@@ -780,11 +836,47 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 获取用户信息
+     * </pre>
      */
-    public void getUserInfo(com.wanfang.personal.UserInfoRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UserInfoResponse> responseObserver) {
+    public void getUserInfo(com.wanfang.personal.MyInfoRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.MyInfoResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_USER_INFO, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 更新用户信息
+     * </pre>
+     */
+    public void updateUserInfo(com.wanfang.personal.MyInfoUpdateRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.MyInfoUpdateResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_USER_INFO, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 获取职称对照表
+     * </pre>
+     */
+    public void getRolesList(com.wanfang.personal.UserRolesListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.UserRolesListResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_ROLES_LIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 获取学历对照表
+     * </pre>
+     */
+    public void getEducationLevelList(com.wanfang.personal.EducationLevelListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.EducationLevelListResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_EDUCATION_LEVEL_LIST, getCallOptions()), request, responseObserver);
     }
   }
 
@@ -817,6 +909,9 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 登出
+     * </pre>
      */
     public com.wanfang.personal.LoginOutResponse loginOut(com.wanfang.personal.LoginOutRequest request) {
       return blockingUnaryCall(
@@ -955,16 +1050,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 更新注册信息
-     * </pre>
-     */
-    public com.wanfang.personal.UpdateRegistInfoResponse updateRegistInfo(com.wanfang.personal.UpdateRegistInfoRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_UPDATE_REGIST_INFO, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
      * 根据关键字获取感兴趣列表
      * </pre>
      */
@@ -974,10 +1059,43 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 获取用户信息
+     * </pre>
      */
-    public com.wanfang.personal.UserInfoResponse getUserInfo(com.wanfang.personal.UserInfoRequest request) {
+    public com.wanfang.personal.MyInfoResponse getUserInfo(com.wanfang.personal.MyInfoRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_USER_INFO, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 更新用户信息
+     * </pre>
+     */
+    public com.wanfang.personal.MyInfoUpdateResponse updateUserInfo(com.wanfang.personal.MyInfoUpdateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_UPDATE_USER_INFO, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 获取职称对照表
+     * </pre>
+     */
+    public com.wanfang.personal.UserRolesListResponse getRolesList(com.wanfang.personal.UserRolesListRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_ROLES_LIST, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 获取学历对照表
+     * </pre>
+     */
+    public com.wanfang.personal.EducationLevelListResponse getEducationLevelList(com.wanfang.personal.EducationLevelListRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_EDUCATION_LEVEL_LIST, getCallOptions(), request);
     }
   }
 
@@ -1011,6 +1129,9 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 登出
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.LoginOutResponse> loginOut(
         com.wanfang.personal.LoginOutRequest request) {
@@ -1163,17 +1284,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 更新注册信息
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UpdateRegistInfoResponse> updateRegistInfo(
-        com.wanfang.personal.UpdateRegistInfoRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_UPDATE_REGIST_INFO, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * 根据关键字获取感兴趣列表
      * </pre>
      */
@@ -1184,11 +1294,47 @@ public final class PersonalCenterServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 获取用户信息
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UserInfoResponse> getUserInfo(
-        com.wanfang.personal.UserInfoRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.MyInfoResponse> getUserInfo(
+        com.wanfang.personal.MyInfoRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_USER_INFO, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 更新用户信息
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.MyInfoUpdateResponse> updateUserInfo(
+        com.wanfang.personal.MyInfoUpdateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_USER_INFO, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 获取职称对照表
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UserRolesListResponse> getRolesList(
+        com.wanfang.personal.UserRolesListRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_ROLES_LIST, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 获取学历对照表
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.EducationLevelListResponse> getEducationLevelList(
+        com.wanfang.personal.EducationLevelListRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_EDUCATION_LEVEL_LIST, getCallOptions()), request);
     }
   }
 
@@ -1207,9 +1353,11 @@ public final class PersonalCenterServiceGrpc {
   private static final int METHODID_GET_PHONE_CAPTCHA = 12;
   private static final int METHODID_UPLOAD_FILE = 13;
   private static final int METHODID_UPLOAD_AVATAR = 14;
-  private static final int METHODID_UPDATE_REGIST_INFO = 15;
-  private static final int METHODID_GET_INTEREST_SUBJECT = 16;
-  private static final int METHODID_GET_USER_INFO = 17;
+  private static final int METHODID_GET_INTEREST_SUBJECT = 15;
+  private static final int METHODID_GET_USER_INFO = 16;
+  private static final int METHODID_UPDATE_USER_INFO = 17;
+  private static final int METHODID_GET_ROLES_LIST = 18;
+  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 19;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1288,17 +1436,25 @@ public final class PersonalCenterServiceGrpc {
           serviceImpl.uploadAvatar((com.wanfang.personal.UploadAvatarRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.UploadAvatarResponse>) responseObserver);
           break;
-        case METHODID_UPDATE_REGIST_INFO:
-          serviceImpl.updateRegistInfo((com.wanfang.personal.UpdateRegistInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.UpdateRegistInfoResponse>) responseObserver);
-          break;
         case METHODID_GET_INTEREST_SUBJECT:
           serviceImpl.getInterestSubject((com.wanfang.personal.InterestSubjectRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.InterestSubjectResponse>) responseObserver);
           break;
         case METHODID_GET_USER_INFO:
-          serviceImpl.getUserInfo((com.wanfang.personal.UserInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.UserInfoResponse>) responseObserver);
+          serviceImpl.getUserInfo((com.wanfang.personal.MyInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.MyInfoResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_USER_INFO:
+          serviceImpl.updateUserInfo((com.wanfang.personal.MyInfoUpdateRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.MyInfoUpdateResponse>) responseObserver);
+          break;
+        case METHODID_GET_ROLES_LIST:
+          serviceImpl.getRolesList((com.wanfang.personal.UserRolesListRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.UserRolesListResponse>) responseObserver);
+          break;
+        case METHODID_GET_EDUCATION_LEVEL_LIST:
+          serviceImpl.getEducationLevelList((com.wanfang.personal.EducationLevelListRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.EducationLevelListResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1316,13 +1472,6 @@ public final class PersonalCenterServiceGrpc {
     }
   }
 
-  private static final class PersonalCenterServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.wanfang.personal.SerPersonalCenter.getDescriptor();
-    }
-  }
-
   private static volatile io.grpc.ServiceDescriptor serviceDescriptor;
 
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
@@ -1332,7 +1481,6 @@ public final class PersonalCenterServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new PersonalCenterServiceDescriptorSupplier())
               .addMethod(METHOD_LOGIN)
               .addMethod(METHOD_LOGIN_OUT)
               .addMethod(METHOD_QUICK_LOGIN)
@@ -1348,9 +1496,11 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_GET_PHONE_CAPTCHA)
               .addMethod(METHOD_UPLOAD_FILE)
               .addMethod(METHOD_UPLOAD_AVATAR)
-              .addMethod(METHOD_UPDATE_REGIST_INFO)
               .addMethod(METHOD_GET_INTEREST_SUBJECT)
               .addMethod(METHOD_GET_USER_INFO)
+              .addMethod(METHOD_UPDATE_USER_INFO)
+              .addMethod(METHOD_GET_ROLES_LIST)
+              .addMethod(METHOD_GET_EDUCATION_LEVEL_LIST)
               .build();
         }
       }

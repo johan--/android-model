@@ -1,11 +1,14 @@
 package com.tb.wangfang.news.app;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.os.Process;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
@@ -15,9 +18,13 @@ import com.tb.wangfang.news.di.component.DaggerAppComponent;
 import com.tb.wangfang.news.di.module.AppModule;
 import com.tb.wangfang.news.di.module.HttpModule;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+import com.xiaomi.channel.commonutils.logger.LoggerInterface;
+import com.xiaomi.mipush.sdk.Logger;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 
 /**
  * Created by tangbin on 2017/5/4.
@@ -32,6 +39,7 @@ public class App extends Application {
     public static int SCREEN_HEIGHT = -1;
     public static float DIMEN_RATE = -1.0F;
     public static int DIMEN_DPI = -1;
+    public String TAG = "mipush";
 
     public static synchronized App getInstance() {
         return instance;
@@ -50,6 +58,28 @@ public class App extends Application {
         getScreenSize();
 
         //在子线程中完成其他初始化
+        if (shouldInit()) {
+//            MiPushClient.registerPush(this, APP_ID, APP_KEY);
+        }
+        //打开Log
+        LoggerInterface newLogger = new LoggerInterface() {
+
+            @Override
+            public void setTag(String tag) {
+                // ignore
+            }
+
+            @Override
+            public void log(String content, Throwable t) {
+                Log.d(TAG, content, t);
+            }
+
+            @Override
+            public void log(String content) {
+                Log.d(TAG, content);
+            }
+        };
+        Logger.setLogger(this, newLogger);
         InitializeService.start(this);
         ZXingLibrary.initDisplayOpinion(this);
 
@@ -110,5 +140,18 @@ public class App extends Application {
                     .build();
         }
         return appComponent;
+    }
+
+    private boolean shouldInit() {
+        ActivityManager am = ((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE));
+        List<ActivityManager.RunningAppProcessInfo> processInfos = am.getRunningAppProcesses();
+        String mainProcessName = getPackageName();
+        int myPid = Process.myPid();
+        for (ActivityManager.RunningAppProcessInfo info : processInfos) {
+            if (info.pid == myPid && mainProcessName.equals(info.processName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

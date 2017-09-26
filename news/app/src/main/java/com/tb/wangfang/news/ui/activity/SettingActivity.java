@@ -14,12 +14,23 @@ import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.personal.LoginOutRequest;
+import com.wanfang.personal.LoginOutResponse;
+import com.wanfang.personal.PersonalCenterServiceGrpc;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.grpc.ManagedChannel;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class SettingActivity extends SimpleActivity {
 
@@ -40,6 +51,8 @@ public class SettingActivity extends SimpleActivity {
 
     @Inject
     ImplPreferencesHelper PreferencesHelper;
+    @Inject
+    ManagedChannel mManagedChannel;
 
     @Override
     protected int getLayout() {
@@ -77,8 +90,7 @@ public class SettingActivity extends SimpleActivity {
         }
     }
 
-
-//    @Override
+    //    @Override
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
 //
@@ -90,7 +102,6 @@ public class SettingActivity extends SimpleActivity {
 //            }
 //        }
 //    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,9 +143,8 @@ public class SettingActivity extends SimpleActivity {
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                dialog.dismiss();
-                                PreferencesHelper.setLoginState(false);
-                                App.getInstance().exitApp();
+                                loginOut(dialog);
+
                             }
                         })
                         .onNegative(new MaterialDialog.SingleButtonCallback() {
@@ -147,5 +157,30 @@ public class SettingActivity extends SimpleActivity {
 
                 break;
         }
+    }
+
+    private void loginOut(final MaterialDialog dialog) {
+        Single.create(new SingleOnSubscribe<LoginOutResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<LoginOutResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(mManagedChannel);
+                LoginOutRequest request = LoginOutRequest.newBuilder().setUserId(PreferencesHelper.getUserId()).build();
+                LoginOutResponse response = stub.loginOut(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginOutResponse>() {
+            @Override
+            public void onSuccess(LoginOutResponse loginOutResponse) {
+                dialog.dismiss();
+                PreferencesHelper.setLoginState(false);
+                App.getInstance().exitApp();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                dialog.dismiss();
+                ToastUtil.show("服务器错误");
+            }
+        });
     }
 }

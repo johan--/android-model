@@ -5,13 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.protobuf.Any;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.ui.adapter.MyOrderAdapter;
-import com.wanfang.personal.Any;
 import com.wanfang.personal.MyOrdersRequest;
 import com.wanfang.personal.MyOrdersResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;

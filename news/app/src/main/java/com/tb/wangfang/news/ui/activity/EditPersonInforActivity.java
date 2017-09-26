@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -15,22 +16,41 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.di.component.DaggerActivityComponent;
+import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.GlideCircleTransform;
 import com.tb.wangfang.news.widget.WaveView;
 import com.tb.wangfang.news.widget.datapick.DatePicker;
+import com.wanfang.personal.MyInfoRequest;
+import com.wanfang.personal.MyInfoResponse;
+import com.wanfang.personal.PersonalCenterServiceGrpc;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.grpc.ManagedChannel;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 import me.iwf.photopicker.PhotoPicker;
 
 public class EditPersonInforActivity extends SimpleActivity {
-
+    @Inject
+    ManagedChannel managedChannel;
+    @Inject
+    ImplPreferencesHelper preferencesHelper;
 
     @BindView(R.id.iv_user_icon)
     ImageView ivUserIcon;
@@ -113,6 +133,10 @@ public class EditPersonInforActivity extends SimpleActivity {
 
     @Override
     protected int getLayout() {
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
         return R.layout.activity_edit_person_infor;
     }
 
@@ -143,12 +167,79 @@ public class EditPersonInforActivity extends SimpleActivity {
         amplitudeAnim.setInterpolator(new LinearInterpolator());
         animators.add(amplitudeAnim);
 
-        AnimatorSet mAnimatorSet = new AnimatorSet();
+        final AnimatorSet mAnimatorSet = new AnimatorSet();
         mAnimatorSet.playTogether(animators);
         wvGe.setShowWave(true);
         if (mAnimatorSet != null) {
             mAnimatorSet.start();
         }
+        Single.create(new SingleOnSubscribe<MyInfoResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<MyInfoResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                MyInfoRequest request = MyInfoRequest.newBuilder().setUserId(preferencesHelper.getUserId()).build();
+                MyInfoResponse response = stub.getUserInfo(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoResponse>() {
+            @Override
+            public void onSuccess(MyInfoResponse myInfoResponse) {
+                String avatarUrl = myInfoResponse.getAvatarUrl().getAvatarUrl();
+                String award = myInfoResponse.getAward().getAward();
+                String birthday = myInfoResponse.getBirthday().getBirthday();
+                String nickName = myInfoResponse.getNickName().getNickName();
+                String realName = myInfoResponse.getRealName().getRealName();
+                String idNumber = myInfoResponse.getIdNumber().getIdNumber();
+                String sex = myInfoResponse.getSex().getSex();
+                String userRoles = myInfoResponse.getUserRoles().getUserRoles();
+                String workUnit = myInfoResponse.getWorkUnit().getWorkUnit();
+                String educationLevel = myInfoResponse.getEducationLevel().getEducationLevel();
+                String graduatedSchool = myInfoResponse.getGraduatedSchool().getGraduatedSchool();
+                String subject = myInfoResponse.getSubject().getSubject();
+                String interestSubject = myInfoResponse.getInterestSubject().getInterestSubject();
+                String infoEmail = myInfoResponse.getEmail().getEmail();
+                if (!TextUtils.isEmpty(avatarUrl)) {
+                    Glide.with(EditPersonInforActivity.this).load(avatarUrl).into(ivUserIcon);
+                }
+                if (!TextUtils.isEmpty(nickName)) {
+                    etNickname.setText(nickName);
+                }
+                if (!TextUtils.isEmpty(realName)) {
+                    etName.setText(realName);
+                }
+                if (!TextUtils.isEmpty(idNumber)) {
+                    etIdCountry.setText(idNumber);
+                }
+                if (!TextUtils.isEmpty(sex)) {
+                    etGender.setText(sex);
+                }
+                if (!TextUtils.isEmpty(birthday)) {
+                    etBirthday.setText(birthday);
+                }
+                if (!TextUtils.isEmpty(userRoles)) {
+                    etJobTitle.setText(userRoles);
+                }
+                if (!TextUtils.isEmpty(workUnit)) {
+                    etUnit.setText(workUnit);
+                }
+                if (!TextUtils.isEmpty(educationLevel)) {
+                    etEducation.setText(educationLevel);
+                }
+                if (!TextUtils.isEmpty(graduatedSchool)) {
+                    etGraduateSchool.setText(graduatedSchool);
+                }
+                if (!TextUtils.isEmpty(award)){
+
+                }
+
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
     }
 
 
@@ -161,6 +252,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 ArrayList<String> photos =
                         data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
                 Glide.with(this).load(photos.get(0)).transform(new GlideCircleTransform(this)).into(ivUserIcon);
+
             }
         }
         if (resultCode == RESULT_OK && requestCode == editNackNameActivity.TYPE_NICKNAME) {

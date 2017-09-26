@@ -18,8 +18,8 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.6.1)",
-    comments = "Source: ser_search.proto")
+    value = "by gRPC proto compiler (version 1.4.0)",
+    comments = "Source: search/ser_search.proto")
 public final class SearchServiceGrpc {
 
   private SearchServiceGrpc() {}
@@ -28,28 +28,28 @@ public final class SearchServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.HotThemesRequest,
-      com.wanfang.personal.HotThemesResponse> METHOD_HOT_THEMES =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.HotThemesRequest, com.wanfang.personal.HotThemesResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wanfang.search.HotThemesRequest,
+      com.wanfang.search.HotThemesResponse> METHOD_HOT_THEMES =
+      io.grpc.MethodDescriptor.<com.wanfang.search.HotThemesRequest, com.wanfang.search.HotThemesResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.SearchService", "HotThemes"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.HotThemesRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.HotThemesResponse.getDefaultInstance()))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.search.HotThemesRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.search.HotThemesResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.SearchHistoryRequest,
-      com.wanfang.personal.SearchHistoryResponse> METHOD_SEARCH_HISTORY =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.SearchHistoryRequest, com.wanfang.personal.SearchHistoryResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wanfang.search.SearchHistoryRequest,
+      com.wanfang.search.SearchHistoryResponse> METHOD_SEARCH_HISTORY =
+      io.grpc.MethodDescriptor.<com.wanfang.search.SearchHistoryRequest, com.wanfang.search.SearchHistoryResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "personal.SearchService", "SearchHistory"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.SearchHistoryRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.wanfang.personal.SearchHistoryResponse.getDefaultInstance()))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.search.SearchHistoryRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.search.SearchHistoryResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -84,8 +84,8 @@ public final class SearchServiceGrpc {
      * 获取热搜词
      * </pre>
      */
-    public void hotThemes(com.wanfang.personal.HotThemesRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.HotThemesResponse> responseObserver) {
+    public void hotThemes(com.wanfang.search.HotThemesRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.search.HotThemesResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_HOT_THEMES, responseObserver);
     }
 
@@ -94,8 +94,8 @@ public final class SearchServiceGrpc {
      * 获取搜索历史
      * </pre>
      */
-    public void searchHistory(com.wanfang.personal.SearchHistoryRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.SearchHistoryResponse> responseObserver) {
+    public void searchHistory(com.wanfang.search.SearchHistoryRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.search.SearchHistoryResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_SEARCH_HISTORY, responseObserver);
     }
 
@@ -105,15 +105,15 @@ public final class SearchServiceGrpc {
             METHOD_HOT_THEMES,
             asyncUnaryCall(
               new MethodHandlers<
-                com.wanfang.personal.HotThemesRequest,
-                com.wanfang.personal.HotThemesResponse>(
+                com.wanfang.search.HotThemesRequest,
+                com.wanfang.search.HotThemesResponse>(
                   this, METHODID_HOT_THEMES)))
           .addMethod(
             METHOD_SEARCH_HISTORY,
             asyncUnaryCall(
               new MethodHandlers<
-                com.wanfang.personal.SearchHistoryRequest,
-                com.wanfang.personal.SearchHistoryResponse>(
+                com.wanfang.search.SearchHistoryRequest,
+                com.wanfang.search.SearchHistoryResponse>(
                   this, METHODID_SEARCH_HISTORY)))
           .build();
     }
@@ -142,8 +142,8 @@ public final class SearchServiceGrpc {
      * 获取热搜词
      * </pre>
      */
-    public void hotThemes(com.wanfang.personal.HotThemesRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.HotThemesResponse> responseObserver) {
+    public void hotThemes(com.wanfang.search.HotThemesRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.search.HotThemesResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_HOT_THEMES, getCallOptions()), request, responseObserver);
     }
@@ -153,8 +153,8 @@ public final class SearchServiceGrpc {
      * 获取搜索历史
      * </pre>
      */
-    public void searchHistory(com.wanfang.personal.SearchHistoryRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.SearchHistoryResponse> responseObserver) {
+    public void searchHistory(com.wanfang.search.SearchHistoryRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.search.SearchHistoryResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_SEARCH_HISTORY, getCallOptions()), request, responseObserver);
     }
@@ -183,7 +183,7 @@ public final class SearchServiceGrpc {
      * 获取热搜词
      * </pre>
      */
-    public com.wanfang.personal.HotThemesResponse hotThemes(com.wanfang.personal.HotThemesRequest request) {
+    public com.wanfang.search.HotThemesResponse hotThemes(com.wanfang.search.HotThemesRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_HOT_THEMES, getCallOptions(), request);
     }
@@ -193,7 +193,7 @@ public final class SearchServiceGrpc {
      * 获取搜索历史
      * </pre>
      */
-    public com.wanfang.personal.SearchHistoryResponse searchHistory(com.wanfang.personal.SearchHistoryRequest request) {
+    public com.wanfang.search.SearchHistoryResponse searchHistory(com.wanfang.search.SearchHistoryRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_SEARCH_HISTORY, getCallOptions(), request);
     }
@@ -222,8 +222,8 @@ public final class SearchServiceGrpc {
      * 获取热搜词
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.HotThemesResponse> hotThemes(
-        com.wanfang.personal.HotThemesRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.search.HotThemesResponse> hotThemes(
+        com.wanfang.search.HotThemesRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_HOT_THEMES, getCallOptions()), request);
     }
@@ -233,8 +233,8 @@ public final class SearchServiceGrpc {
      * 获取搜索历史
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.SearchHistoryResponse> searchHistory(
-        com.wanfang.personal.SearchHistoryRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.search.SearchHistoryResponse> searchHistory(
+        com.wanfang.search.SearchHistoryRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_SEARCH_HISTORY, getCallOptions()), request);
     }
@@ -261,12 +261,12 @@ public final class SearchServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_HOT_THEMES:
-          serviceImpl.hotThemes((com.wanfang.personal.HotThemesRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.HotThemesResponse>) responseObserver);
+          serviceImpl.hotThemes((com.wanfang.search.HotThemesRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.search.HotThemesResponse>) responseObserver);
           break;
         case METHODID_SEARCH_HISTORY:
-          serviceImpl.searchHistory((com.wanfang.personal.SearchHistoryRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.SearchHistoryResponse>) responseObserver);
+          serviceImpl.searchHistory((com.wanfang.search.SearchHistoryRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.search.SearchHistoryResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -284,13 +284,6 @@ public final class SearchServiceGrpc {
     }
   }
 
-  private static final class SearchServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.wanfang.search.SerSearch.getDescriptor();
-    }
-  }
-
   private static volatile io.grpc.ServiceDescriptor serviceDescriptor;
 
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
@@ -300,7 +293,6 @@ public final class SearchServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new SearchServiceDescriptorSupplier())
               .addMethod(METHOD_HOT_THEMES)
               .addMethod(METHOD_SEARCH_HISTORY)
               .build();

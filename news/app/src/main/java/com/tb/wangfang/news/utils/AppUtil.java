@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 方法工具类
  * Created by WZG on 2016/10/31.
@@ -54,5 +57,16 @@ public class AppUtil {
         return head + url;
     }
 
+    public static boolean isMobileNO(String mobiles) {
+
+        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+
+        Matcher m = p.matcher(mobiles);
+
+        System.out.println(m.matches() + "---");
+
+        return m.matches();
+
+    }
 
 }

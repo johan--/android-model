@@ -18,8 +18,8 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.6.1)",
-    comments = "Source: main_page_service.proto")
+    value = "by gRPC proto compiler (version 1.4.0)",
+    comments = "Source: mainPage/ser_main_page.proto")
 public final class HomePageServiceGrpc {
 
   private HomePageServiceGrpc() {}
@@ -34,9 +34,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAlCourse"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllCource.AlCourseRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllCource.AlCourseReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -46,9 +46,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllHotDoc"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllHotDoc.HotDocRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllHotDoc.HotDocReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -58,9 +58,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllLastNews"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllLastNews.LastNewsRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllLastNews.LastNewsReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -70,9 +70,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllProject"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllProject.ProjectRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllProject.ProjectReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -82,9 +82,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllScience"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllScience.AllScienceRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.AllScience.AllScienceReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -94,9 +94,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllBanner"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.Banner.AllBannerRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.Banner.AllBannerReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -106,9 +106,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetDocResource"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.DocResource.DocResourceRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.DocResource.DocResourceReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -118,9 +118,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllGuessLike"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.GuessLikeOuterClass.GuessLikeRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.GuessLikeOuterClass.GuessLikeReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -130,9 +130,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllHotPeriodical"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.HotPeriodical.PeriodicalRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.HotPeriodical.PeriodicalReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -142,9 +142,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetHotSearchWord"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.HotSearchWord.HotSearchWordRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.HotSearchWord.HotSearchWordReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -154,9 +154,9 @@ public final class HomePageServiceGrpc {
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "main.HomePageService", "GetAllMeetingMessage"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.MeetingMessage.MeetingRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.MeetingMessage.MeetingReply.getDefaultInstance()))
           .build();
 
@@ -878,13 +878,6 @@ public final class HomePageServiceGrpc {
     }
   }
 
-  private static final class HomePageServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.wanfang.main.MainPageService.getDescriptor();
-    }
-  }
-
   private static volatile io.grpc.ServiceDescriptor serviceDescriptor;
 
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
@@ -894,7 +887,6 @@ public final class HomePageServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new HomePageServiceDescriptorSupplier())
               .addMethod(METHOD_GET_AL_COURSE)
               .addMethod(METHOD_GET_ALL_HOT_DOC)
               .addMethod(METHOD_GET_ALL_LAST_NEWS)

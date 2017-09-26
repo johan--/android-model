@@ -55,3 +55,13 @@
 -dontwarn com.mob.**
 -dontwarn cn.sharesdk.**
 -dontwarn **.R$*
+# 小米推送
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tb.wangfang.news.Receiver.XiaomiMessageReceiver {*;}
+# 华为推送
+-keepattributes *Annotation*
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes SourceFile,LineNumberTable
+-keep class com.huawei.hms.**{*;}

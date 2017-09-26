@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+
+package personal;
+option java_multiple_files = true;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+
+enum ThirdPartyType {
+	WECHAT = 0; // 微信登录
+	QQ = 1; // qq登录
+	SINA = 3; // 新浪微博登录
+}
+// 登出
+message LoginOutRequest {
+	string user_id = 1; // 用户id
+	string login_token = 2; // 单点登录token
+}
+message LoginOutResponse {
+
+}
+
+// 登录请求msg
+message LoginRequest {
+	string password = 1; // 登录密码
+	string user_name = 2; // 登录用户名  
+}
+// 登录返回
+message LoginResponse {
+	string user_id = 1; // 用户id
+	string user_name = 2; // 用户名
+	string user_avatar_url = 3; // 用户头像
+	string login_token = 4; // 单点登录token
+}
+// 快捷登录（手机号登录请求）
+message QuickLoginRequest {
+	string phone = 1;
+	string token = 2;
+	string captcha = 3;
+}
+
+// 第三方登录 绑定万方账号
+message BindExistAccountRequest {
+	string uid = 1; // 第三方登录唯一码
+	string user_name = 2; // 用户名
+	string password = 3; // 密码
+	ThirdPartyType third_party_type = 4; // 第三方登录类型
+}
+// 第三方登录 快捷注册万方账号
+message BindNewRegistRequest {
+	string user_name = 1; // 用户名
+	string email = 2; // 邮箱地址
+	string password = 3; // 密码
+	ThirdPartyType third_party_type = 4; // 第三方登录类型
+}
+
+
+
+
+
+

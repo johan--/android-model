@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "read/msg_read.proto"; // 搜索
+
+package personal;
+option java_multiple_files = true;
+option java_package = "com.wanfang.read";
+option objc_class_prefix = "WFPR";
+
+service ReadService {
+    // 发起阅读请求
+    rpc Read (ReadRequest) returns (ReadResponse);
+}

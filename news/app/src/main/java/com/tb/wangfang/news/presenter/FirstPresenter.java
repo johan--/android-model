@@ -50,7 +50,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
     @Override
     public void getBanner(String userId) {
 
-     Single.create(new SingleOnSubscribe<com.wanfang.main.Banner.AllBannerReply>() {
+        Single.create(new SingleOnSubscribe<com.wanfang.main.Banner.AllBannerReply>() {
             @Override
             public void subscribe(SingleEmitter<com.wanfang.main.Banner.AllBannerReply> e) throws Exception {
                 HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
@@ -76,7 +76,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
 
     @Override
     public void getLastNews() {
-     Single.create(new SingleOnSubscribe<AllLastNews.LastNewsReply>() {
+        Single.create(new SingleOnSubscribe<AllLastNews.LastNewsReply>() {
             @Override
             public void subscribe(SingleEmitter<AllLastNews.LastNewsReply> e) throws Exception {
                 HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);

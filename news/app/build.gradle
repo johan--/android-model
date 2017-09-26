@@ -21,6 +21,17 @@ android {
             }
         }
     }
+    sourceSets {
+        main {
+            proto {
+                srcDir 'src/main/proto'
+                include '**/*.proto'
+            }
+            java {
+                srcDir 'src/main/java'
+            }
+        }
+    }
     lintOptions {
         abortOnError false
         checkReleaseBuilds false
@@ -76,11 +87,11 @@ android {
 //}
 protobuf {
     protoc {
-        artifact = 'com.google.protobuf:protoc:3.3.0'
+        artifact = 'com.google.protobuf:protoc:3.1.0'
     }
     plugins {
         javalite {
-            artifact = "com.google.protobuf:protoc-gen-javalite:3.0.0"
+            artifact = "com.google.protobuf:protoc-gen-javalite:3.1.0"
         }
         grpc {
             artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0' // CURRENT_GRPC_VERSION
@@ -89,14 +100,25 @@ protobuf {
     generateProtoTasks {
         all().each { task ->
             task.plugins {
-                javalite {}
+//                javalite {}
                 grpc {
                     // Options added to --grpc_out
                     option 'lite'
                 }
             }
+            task.builtins {
+                remove java
+            }
+            task.builtins {
+                java {}
+                // Add cpp output without any option.
+                // DO NOT omit the braces if you want this builtin to be added.
+                cpp {}
+
+            }
         }
     }
+    generatedFilesBaseDir = "$projectDir/src/generated"
 }
 
 
@@ -202,8 +224,17 @@ dependencies {
     compile 'com.jaredrummler:material-spinner:1.1.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:support-v4:25.3.1'
-//    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    //    compile 'com.github.chrisbanes.photoview:library:1.2.4'
     compile 'com.gelitenight.waveview:waveview:1.0.0'
     compile 'cn.yipianfengye.android:zxing-library:2.2'
+    //    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
+    compile files('libs/libammsdk.jar')
+    compile 'com.google.protobuf:protobuf-java:3.1.0'
+    //    compile 'com.google.protobuf.nano:protobuf-javanano:3.2.0rc2'
 
+    //    compile 'com.google.protobuf:protobuf-lite:3.0.1'
+    compile files('libs/MiPush_SDK_Client_3_4_5.jar')
+    compile project(':hMSSdkBase')
+    compile project(':hMSSdkPush')
 }

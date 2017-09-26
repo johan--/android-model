@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
+import com.wanfang.personal.LoginResponse;
 
 import javax.inject.Inject;
 
@@ -48,5 +49,16 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     @Override
     public boolean getLoginState() {
         return mSPrefs.getBoolean(Constants.LOGIN_STATE, false);
+    }
+
+    @Override
+    public void storeLoginInfo(LoginResponse response) {
+        mSPrefs.edit().putString(Constants.USER_AVATAR, response.getUserAvatarUrl()).putString(Constants.USER_ID, response.getUserId())
+                .putString(Constants.USER_NAME, response.getUserName()).apply();
+    }
+
+    @Override
+    public String getUserId() {
+        return mSPrefs.getString(Constants.USER_ID, "");
     }
 }

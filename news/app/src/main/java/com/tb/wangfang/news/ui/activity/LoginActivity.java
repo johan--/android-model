@@ -163,7 +163,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                         .progressIndeterminateStyle(true)
                                         .show();
                                 mPresenter.AccountLogin(account, passWord);
-                            }else{
+                            } else {
                                 ToastUtil.show("图形码不正确，请重新输入");
                             }
                         } else {
@@ -234,9 +234,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void loginSuccess(LoginResponse response) {
         mdialog.dismiss();
         if (response == null) {
-            PreferencesHelper.setLoginState(true);
-            finish();
+            ToastUtil.show("访问失败");
         } else {
+            ToastUtil.show("登录成功");
             PreferencesHelper.setLoginState(true);
             finish();
         }

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+
+package personal;
+option java_multiple_files = true;
+option java_package = "com.wanfang.trade";
+option objc_class_prefix = "WFPR";
+
+message UnifiedorderRequest  {
+    string user_id = 1;
+    string safe_transaction_string = 2; // 统一下单需要的参数
+}
+
+message UnifiedorderResponse {
+    string app_id = 1;
+    string partner_id = 2;
+    string prepay_id = 3;
+    string package = 4;
+    string noncestr = 5;
+    string time_stamp = 6;
+    string sign = 7;
+}

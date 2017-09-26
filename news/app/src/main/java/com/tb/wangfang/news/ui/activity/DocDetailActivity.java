@@ -1,19 +1,40 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.di.component.DaggerActivityComponent;
+import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.wanfang.read.ReadRequest;
+import com.wanfang.read.ReadResponse;
+import com.wanfang.read.ReadServiceGrpc;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import io.grpc.ManagedChannel;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class DocDetailActivity extends SimpleActivity {
+    @Inject
+    ManagedChannel managedChannel;
+    @Inject
+    ImplPreferencesHelper preferencesHelper;
     @BindView(R.id.view_stub)
     ViewStub viewStub;
     @BindView(R.id.tv_summary_num)
@@ -35,9 +56,14 @@ public class DocDetailActivity extends SimpleActivity {
     @BindView(R.id.tv_similarity_four)
     TextView tvSimilarityFour;
     int i = 0;
+    private String TAG = "DocDetailActivity";
 
     @Override
     protected int getLayout() {
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
         return R.layout.activity_doc_detail;
     }
 
@@ -84,7 +110,8 @@ public class DocDetailActivity extends SimpleActivity {
                 finish();
                 break;
             case R.id.ll_read_online:
-                Intent intent = new Intent(this, PayOrderActivity.class);
+                goRead();
+                Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_collect:
@@ -93,6 +120,32 @@ public class DocDetailActivity extends SimpleActivity {
                 showShare();
                 break;
         }
+    }
+
+    private void goRead() {
+        Single.create(new SingleOnSubscribe<ReadResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<ReadResponse> e) throws Exception {
+                ReadServiceGrpc.ReadServiceBlockingStub stub = ReadServiceGrpc.newBlockingStub(managedChannel);
+                ReadRequest readRequest = ReadRequest.newBuilder().setLanguage("").setLoginToken("").setResourceId("").setUserId("").
+                        setSource("").setResourceTitle("").setResourceType("").build();
+                ReadResponse readResponse = stub.read(readRequest);
+                e.onSuccess(readResponse);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ReadResponse>() {
+            @Override
+            public void onSuccess(ReadResponse readResponse) {
+                Log.d(TAG, "onSuccess: " + readResponse.toString());
+                Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
+
     }
 
     private void showShare() {

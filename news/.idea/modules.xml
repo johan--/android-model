@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/PhotoPicker/PhotoPicker.iml" filepath="$PROJECT_DIR$/PhotoPicker/PhotoPicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/banner/banner.iml" filepath="$PROJECT_DIR$/banner/banner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hMSSdkBase/hMSSdkBase.iml" filepath="$PROJECT_DIR$/hMSSdkBase/hMSSdkBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hMSSdkPush/hMSSdkPush.iml" filepath="$PROJECT_DIR$/hMSSdkPush/hMSSdkPush.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/librarypdf/librarypdf.iml" filepath="$PROJECT_DIR$/librarypdf/librarypdf.iml" />
       <module fileurl="file://$PROJECT_DIR$/news.iml" filepath="$PROJECT_DIR$/news.iml" />

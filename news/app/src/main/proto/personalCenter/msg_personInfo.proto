@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package personal;
+option java_multiple_files = true;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+// 职称对照表
+message UserRolesListRequest {
+
+}
+message UserRolesListResponse {
+    map<string, string> roles = 1;
+    string list_version = 2; // 版本号，如果不同则更新app本地文件，否则直接加载
+}
+// 学历对照表
+message EducationLevelListRequest {
+
+}
+message EducationLevelListResponse {
+    map<string, string> educationLevels = 1;
+    string list_version = 2; // 版本号，如果不同则更新app本地文件，否则直接加载
+}
+
+// 获取个人信息
+message MyInfoRequest {
+    string user_id = 1;
+}
+// 获取个人信息
+message MyInfoResponse {
+    InfoNickName nick_name = 1; // 昵称
+    InfoRealName real_name = 2; // 姓名
+    InfoIdNumber id_number = 3; // 身份证号
+    InfoSex sex = 4; // 性别
+    InfoBirthday birthday = 5; // 出生日期
+    InfoUserRoles user_roles = 6; // 职称
+    InfoWorkUnit workUnit = 7; // 当前单位/院校
+    InfoEducationLevel educationLevel = 8; // 最高学历
+    InfoGraduatedSchool graduated_school = 9; // 毕业院校
+    InfoAward award = 10; // 获奖经历
+    InfoSubject subject = 11; // 学科
+    InfoInterestSubject interest_subject = 12; // 感兴趣主题   % 分割
+    InfoEmail email = 13; // 邮箱
+    InfoAvatar avatar_url = 14; // 用户头像
+}
+// 更新用户信息
+message MyInfoUpdateRequest {
+    string user_id = 1;
+    repeated google.protobuf.Any field = 2; // 修改的字段
+}
+message MyInfoUpdateResponse {
+
+}
+
+message InfoNickName {
+    string nick_name = 1;
+}
+message InfoRealName {
+    string real_name = 1;
+}
+message InfoIdNumber {
+    string id_number = 1;
+}
+message InfoSex {
+    string sex = 1;
+}
+message InfoBirthday {
+    string birthday = 1;
+}
+message InfoUserRoles {
+    string user_roles = 1;
+}
+message InfoWorkUnit {
+    string workUnit = 1;
+}
+message InfoEducationLevel {
+    string educationLevel = 1;
+}
+message InfoGraduatedSchool {
+    string graduated_school = 1;
+}
+message InfoAward {
+    string award = 1;
+}
+message InfoSubject {
+    string subject = 1;
+}
+message InfoInterestSubject {
+    string interest_subject = 1;
+}
+message InfoEmail {
+    string email = 1;
+}
+message InfoAvatar {
+    string avatar_url = 1;
+}

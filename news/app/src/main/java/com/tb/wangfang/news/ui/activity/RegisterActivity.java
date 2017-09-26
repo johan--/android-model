@@ -2,19 +2,45 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.AppCompatEditText;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.di.component.DaggerActivityComponent;
+import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.utils.AppUtil;
+import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.personal.PhoneCaptchaRequest;
+import com.wanfang.personal.PhoneCaptchaResponse;
+import com.wanfang.personal.RegistRequest;
+import com.wanfang.personal.RegistResponse;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.grpc.ManagedChannel;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class RegisterActivity extends SimpleActivity {
-
-
+    @Inject
+    ManagedChannel managedChannel;
+    @Inject
+    ImplPreferencesHelper PreferencesHelper;
     @BindView(R.id.edit_user_name)
     AppCompatEditText editUserName;
     @BindView(R.id.edit_password)
@@ -29,9 +55,43 @@ public class RegisterActivity extends SimpleActivity {
     TextView tvWanfangProtocol;
     @BindView(R.id.tv_to_login)
     TextView tvToLogin;
+    private String phone;
+    int seconds = 60;
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0:
+                    if (seconds > 0) {
+                        Message message = new Message();
+                        message.what = 0;
+                        handler.sendMessageDelayed(message, 1000);
+                        tvGetCode.setText(seconds + "s");
+                        seconds--;
+                    } else {
+                        seconds = 60;
+                        tvGetCode.setEnabled(true);
+                        tvGetCode.setText("获取验证码");
+                    }
+
+                    break;
+            }
+
+        }
+    };
+    private String TAG = "RegisterActivity";
+    private String userName;
+    private String passWord;
+    private String code;
 
     @Override
     protected int getLayout() {
+
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
         return R.layout.activity_register;
     }
 
@@ -44,7 +104,7 @@ public class RegisterActivity extends SimpleActivity {
     }
 
 
-    @OnClick({R.id.tv_return, R.id.tv_wanfang_protocol, R.id.btn_register, R.id.tv_to_login})
+    @OnClick({R.id.tv_return, R.id.tv_wanfang_protocol, R.id.btn_register, R.id.tv_to_login, R.id.tv_get_code})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
@@ -53,12 +113,109 @@ public class RegisterActivity extends SimpleActivity {
             case R.id.tv_wanfang_protocol:
                 break;
             case R.id.btn_register:
+                userName = editUserName.getText().toString();
+                phone = editPhonenum.getText().toString();
+                passWord = editPassword.getText().toString();
+                code = editSecurity.getText().toString();
+                if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userName.trim())) {
+                    if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
+                        if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
+                            if (AppUtil.isMobileNO(phone.trim())) {
+                                if (!TextUtils.isEmpty(code) && !TextUtils.isEmpty(code.trim())) {
+                                    register(userName, passWord, phone, code);
+                                } else {
+                                    ToastUtil.show("请输入验证码");
+                                }
+                            } else {
+                                ToastUtil.show("请输入正确的手机号码");
+                            }
+                        } else {
+                            ToastUtil.show("用户手机号码不能为空");
+                        }
+                    } else {
+                        ToastUtil.show("用户密码不能为空");
+                    }
+                } else {
+                    ToastUtil.show("用户名不能为空");
+                }
+
                 break;
             case R.id.tv_to_login:
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
-
+                break;
+            case R.id.tv_get_code:
+                phone = editPhonenum.getText().toString();
+                if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
+                    if (AppUtil.isMobileNO(phone.trim())) {
+                        get_Code(phone.trim());
+                        startTimeing();
+                    } else {
+                        ToastUtil.show("请输入正确的手机号码");
+                    }
+                } else {
+                    ToastUtil.show("请输入手机号码");
+                }
                 break;
         }
+    }
+
+    private void register(final String userName, final String passWord, final String phone, final String code) {
+        Single.create(new SingleOnSubscribe<RegistResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<RegistResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                RegistRequest registRequest = RegistRequest.newBuilder().setPassword(passWord.trim()).setPhone(phone.trim()).
+                        setUserName(userName.trim()).setPhoneCaptcha(code.trim()).build();
+                RegistResponse response = stub.regist(registRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<RegistResponse>() {
+            @Override
+            public void onSuccess(RegistResponse registResponse) {
+                registResponse.getUserId();
+                Log.d(TAG, "onSuccess: " + registResponse.toString());
+                ToastUtil.show("注册成功");
+                finish();
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                ToastUtil.show("服务器错误");
+            }
+        });
+    }
+
+    private void startTimeing() {
+        tvGetCode.setEnabled(false);
+        Message message = new Message();
+        message.what = 0;
+        handler.sendMessage(message);
+    }
+
+    private void get_Code(final String phone) {
+        Single.create(new SingleOnSubscribe<PhoneCaptchaResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<PhoneCaptchaResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                PhoneCaptchaRequest request = PhoneCaptchaRequest.newBuilder().setPhone(phone).build();
+                PhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<PhoneCaptchaResponse>() {
+            @Override
+            public void onSuccess(PhoneCaptchaResponse phoneCaptchaResponse) {
+                ToastUtil.show("发送验证码成功");
+                Log.d(TAG, "onSuccess: " + phoneCaptchaResponse.getPhoneCaptcha() + "发送验证码成功");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("服务器异常");
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
     }
 }
