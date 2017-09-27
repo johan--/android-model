@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -28,6 +29,8 @@ import com.wanfang.personal.InfoUserRoles;
 import com.wanfang.personal.MyInfoUpdateRequest;
 import com.wanfang.personal.MyInfoUpdateResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.personal.SubjectListRequest;
+import com.wanfang.personal.SubjectListResponse;
 import com.wanfang.personal.UserRolesListRequest;
 import com.wanfang.personal.UserRolesListResponse;
 
@@ -69,6 +72,7 @@ public class PersonEditListActivity extends SimpleActivity {
     int type = 0;
     private SelectPersonInfoAdapter adapter;
     private MaterialDialog mdialog;
+    private String TAG = "PersonEdit";
 
 
     @Override
@@ -229,6 +233,29 @@ public class PersonEditListActivity extends SimpleActivity {
                 break;
             case TYPE_SUBJECT:
                 tvPageTitle.setText("学科");
+                Single.create(new SingleOnSubscribe<SubjectListResponse>() {
+                    @Override
+                    public void subscribe(SingleEmitter<SubjectListResponse> e) throws Exception {
+                        PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                        SubjectListRequest request = SubjectListRequest.newBuilder().build();
+                        SubjectListResponse response = stub.getSubjectList(request);
+                        e.onSuccess(response);
+                    }
+                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribeWith(new DisposableSingleObserver<SubjectListResponse>() {
+                            @Override
+                            public void onSuccess(SubjectListResponse subjectListResponse) {
+                                arrayList.clear();
+                                String json = subjectListResponse.getSubjectList();
+                                Log.d(TAG, "onSuccess: " + json);
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                ToastUtil.show("网络出错");
+                            }
+                        });
 //                arrayList.add("哲学");
 //                arrayList.add("经济学");
 //                arrayList.add("法学");

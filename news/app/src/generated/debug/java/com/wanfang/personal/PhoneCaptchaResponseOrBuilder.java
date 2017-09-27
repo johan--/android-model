@@ -42,4 +42,17 @@ public interface PhoneCaptchaResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTokenBytes();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

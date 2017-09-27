@@ -19,6 +19,7 @@ public  final class CollectBody extends
     docuTitle_ = "";
     addTime_ = "";
     starLevel_ = 0;
+    docuType_ = "";
   }
 
   @java.lang.Override
@@ -67,6 +68,12 @@ public  final class CollectBody extends
           case 32: {
 
             starLevel_ = input.readInt32();
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            docuType_ = s;
             break;
           }
         }
@@ -203,6 +210,40 @@ public  final class CollectBody extends
     return starLevel_;
   }
 
+  public static final int DOCU_TYPE_FIELD_NUMBER = 5;
+  private volatile java.lang.Object docuType_;
+  /**
+   * <code>optional string docu_type = 5;</code>
+   */
+  public java.lang.String getDocuType() {
+    java.lang.Object ref = docuType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      docuType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string docu_type = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDocuTypeBytes() {
+    java.lang.Object ref = docuType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      docuType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -227,6 +268,9 @@ public  final class CollectBody extends
     if (starLevel_ != 0) {
       output.writeInt32(4, starLevel_);
     }
+    if (!getDocuTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, docuType_);
+    }
   }
 
   public int getSerializedSize() {
@@ -246,6 +290,9 @@ public  final class CollectBody extends
     if (starLevel_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, starLevel_);
+    }
+    if (!getDocuTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, docuType_);
     }
     memoizedSize = size;
     return size;
@@ -271,6 +318,8 @@ public  final class CollectBody extends
         .equals(other.getAddTime());
     result = result && (getStarLevel()
         == other.getStarLevel());
+    result = result && getDocuType()
+        .equals(other.getDocuType());
     return result;
   }
 
@@ -289,6 +338,8 @@ public  final class CollectBody extends
     hash = (53 * hash) + getAddTime().hashCode();
     hash = (37 * hash) + STAR_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getStarLevel();
+    hash = (37 * hash) + DOCU_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getDocuType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -415,6 +466,8 @@ public  final class CollectBody extends
 
       starLevel_ = 0;
 
+      docuType_ = "";
+
       return this;
     }
 
@@ -441,6 +494,7 @@ public  final class CollectBody extends
       result.docuTitle_ = docuTitle_;
       result.addTime_ = addTime_;
       result.starLevel_ = starLevel_;
+      result.docuType_ = docuType_;
       onBuilt();
       return result;
     }
@@ -496,6 +550,10 @@ public  final class CollectBody extends
       }
       if (other.getStarLevel() != 0) {
         setStarLevel(other.getStarLevel());
+      }
+      if (!other.getDocuType().isEmpty()) {
+        docuType_ = other.docuType_;
+        onChanged();
       }
       onChanged();
       return this;
@@ -752,6 +810,75 @@ public  final class CollectBody extends
     public Builder clearStarLevel() {
       
       starLevel_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object docuType_ = "";
+    /**
+     * <code>optional string docu_type = 5;</code>
+     */
+    public java.lang.String getDocuType() {
+      java.lang.Object ref = docuType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        docuType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string docu_type = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDocuTypeBytes() {
+      java.lang.Object ref = docuType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        docuType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string docu_type = 5;</code>
+     */
+    public Builder setDocuType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      docuType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string docu_type = 5;</code>
+     */
+    public Builder clearDocuType() {
+      
+      docuType_ = getDefaultInstance().getDocuType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string docu_type = 5;</code>
+     */
+    public Builder setDocuTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      docuType_ = value;
       onChanged();
       return this;
     }

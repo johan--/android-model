@@ -28,6 +28,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -236,10 +237,20 @@ class LoginOutResponse : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.LoginOutResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
@@ -462,6 +473,15 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_login_token();
   void set_allocated_login_token(::std::string* login_token);
 
+  // optional .grpcCommon.GrpcError error = 5;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 5;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.LoginResponse)
  private:
 
@@ -470,6 +490,7 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::ArenaStringPtr user_name_;
   ::google::protobuf::internal::ArenaStringPtr user_avatar_url_;
   ::google::protobuf::internal::ArenaStringPtr login_token_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
@@ -942,6 +963,45 @@ inline const LoginOutRequest* LoginOutRequest::internal_default_instance() {
 
 // LoginOutResponse
 
+// optional .grpcCommon.GrpcError error = 2;
+inline bool LoginOutResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void LoginOutResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& LoginOutResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.LoginOutResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* LoginOutResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.LoginOutResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* LoginOutResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.LoginOutResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void LoginOutResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginOutResponse.error)
+}
+
 inline const LoginOutResponse* LoginOutResponse::internal_default_instance() {
   return &LoginOutResponse_default_instance_.get();
 }
@@ -1218,6 +1278,45 @@ inline void LoginResponse::set_allocated_login_token(::std::string* login_token)
   }
   login_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_token);
   // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.login_token)
+}
+
+// optional .grpcCommon.GrpcError error = 5;
+inline bool LoginResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void LoginResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& LoginResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.LoginResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* LoginResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.LoginResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* LoginResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.LoginResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void LoginResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.error)
 }
 
 inline const LoginResponse* LoginResponse::internal_default_instance() {

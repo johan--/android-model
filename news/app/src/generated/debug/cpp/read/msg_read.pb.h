@@ -27,7 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
-#include <google/protobuf/any.pb.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -319,6 +319,15 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   bool has_trade_power() const;
   void set_has_trade_power(bool value);
 
+  // optional .grpcCommon.GrpcError error = 6;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 6;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.ReadResponse)
  private:
 
@@ -327,6 +336,7 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::ArenaStringPtr title_;
   ::google::protobuf::internal::ArenaStringPtr description_;
   ::google::protobuf::internal::ArenaStringPtr safe_transaction_string_;
+  ::grpcCommon::GrpcError* error_;
   bool has_trade_power_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_read_2fmsg_5fread_2eproto_impl();
@@ -849,6 +859,45 @@ inline void ReadResponse::set_has_trade_power(bool value) {
   
   has_trade_power_ = value;
   // @@protoc_insertion_point(field_set:personal.ReadResponse.has_trade_power)
+}
+
+// optional .grpcCommon.GrpcError error = 6;
+inline bool ReadResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void ReadResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& ReadResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.ReadResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* ReadResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* ReadResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.ReadResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void ReadResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.error)
 }
 
 inline const ReadResponse* ReadResponse::internal_default_instance() {

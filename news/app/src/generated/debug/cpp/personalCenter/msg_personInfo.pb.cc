@@ -35,6 +35,12 @@ const ::google::protobuf::Descriptor* EducationLevelListResponse_descriptor_ = N
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EducationLevelListResponse_reflection_ = NULL;
 const ::google::protobuf::Descriptor* EducationLevelListResponse_EducationLevelsEntry_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* SubjectListRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SubjectListRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SubjectListResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SubjectListResponse_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MyInfoRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MyInfoRequest_reflection_ = NULL;
@@ -114,9 +120,10 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       sizeof(UserRolesListRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListRequest, _internal_metadata_));
   UserRolesListResponse_descriptor_ = file->message_type(1);
-  static const int UserRolesListResponse_offsets_[2] = {
+  static const int UserRolesListResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListResponse, roles_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListResponse, list_version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListResponse, error_),
   };
   UserRolesListResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -143,9 +150,10 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       sizeof(EducationLevelListRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListRequest, _internal_metadata_));
   EducationLevelListResponse_descriptor_ = file->message_type(3);
-  static const int EducationLevelListResponse_offsets_[2] = {
+  static const int EducationLevelListResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, educationlevels_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, list_version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, error_),
   };
   EducationLevelListResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -158,7 +166,35 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       sizeof(EducationLevelListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, _internal_metadata_));
   EducationLevelListResponse_EducationLevelsEntry_descriptor_ = EducationLevelListResponse_descriptor_->nested_type(0);
-  MyInfoRequest_descriptor_ = file->message_type(4);
+  SubjectListRequest_descriptor_ = file->message_type(4);
+  static const int SubjectListRequest_offsets_[1] = {
+  };
+  SubjectListRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      SubjectListRequest_descriptor_,
+      SubjectListRequest::internal_default_instance(),
+      SubjectListRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(SubjectListRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListRequest, _internal_metadata_));
+  SubjectListResponse_descriptor_ = file->message_type(5);
+  static const int SubjectListResponse_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, subject_list_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, error_),
+  };
+  SubjectListResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      SubjectListResponse_descriptor_,
+      SubjectListResponse::internal_default_instance(),
+      SubjectListResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(SubjectListResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, _internal_metadata_));
+  MyInfoRequest_descriptor_ = file->message_type(6);
   static const int MyInfoRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoRequest, user_id_),
   };
@@ -172,8 +208,8 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoRequest, _internal_metadata_));
-  MyInfoResponse_descriptor_ = file->message_type(5);
-  static const int MyInfoResponse_offsets_[14] = {
+  MyInfoResponse_descriptor_ = file->message_type(7);
+  static const int MyInfoResponse_offsets_[15] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, nick_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, real_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, id_number_),
@@ -188,6 +224,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, interest_subject_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, email_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, avatar_url_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, error_),
   };
   MyInfoResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -199,7 +236,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, _internal_metadata_));
-  MyInfoUpdateRequest_descriptor_ = file->message_type(6);
+  MyInfoUpdateRequest_descriptor_ = file->message_type(8);
   static const int MyInfoUpdateRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, field_),
@@ -214,8 +251,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoUpdateRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, _internal_metadata_));
-  MyInfoUpdateResponse_descriptor_ = file->message_type(7);
+  MyInfoUpdateResponse_descriptor_ = file->message_type(9);
   static const int MyInfoUpdateResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateResponse, error_),
   };
   MyInfoUpdateResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -227,7 +265,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoUpdateResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateResponse, _internal_metadata_));
-  InfoNickName_descriptor_ = file->message_type(8);
+  InfoNickName_descriptor_ = file->message_type(10);
   static const int InfoNickName_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoNickName, nick_name_),
   };
@@ -241,7 +279,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoNickName),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoNickName, _internal_metadata_));
-  InfoRealName_descriptor_ = file->message_type(9);
+  InfoRealName_descriptor_ = file->message_type(11);
   static const int InfoRealName_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoRealName, real_name_),
   };
@@ -255,7 +293,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoRealName),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoRealName, _internal_metadata_));
-  InfoIdNumber_descriptor_ = file->message_type(10);
+  InfoIdNumber_descriptor_ = file->message_type(12);
   static const int InfoIdNumber_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoIdNumber, id_number_),
   };
@@ -269,7 +307,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoIdNumber),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoIdNumber, _internal_metadata_));
-  InfoSex_descriptor_ = file->message_type(11);
+  InfoSex_descriptor_ = file->message_type(13);
   static const int InfoSex_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSex, sex_),
   };
@@ -283,7 +321,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoSex),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSex, _internal_metadata_));
-  InfoBirthday_descriptor_ = file->message_type(12);
+  InfoBirthday_descriptor_ = file->message_type(14);
   static const int InfoBirthday_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoBirthday, birthday_),
   };
@@ -297,7 +335,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoBirthday),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoBirthday, _internal_metadata_));
-  InfoUserRoles_descriptor_ = file->message_type(13);
+  InfoUserRoles_descriptor_ = file->message_type(15);
   static const int InfoUserRoles_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoUserRoles, user_roles_),
   };
@@ -311,7 +349,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoUserRoles),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoUserRoles, _internal_metadata_));
-  InfoWorkUnit_descriptor_ = file->message_type(14);
+  InfoWorkUnit_descriptor_ = file->message_type(16);
   static const int InfoWorkUnit_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoWorkUnit, workunit_),
   };
@@ -325,7 +363,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoWorkUnit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoWorkUnit, _internal_metadata_));
-  InfoEducationLevel_descriptor_ = file->message_type(15);
+  InfoEducationLevel_descriptor_ = file->message_type(17);
   static const int InfoEducationLevel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEducationLevel, educationlevel_),
   };
@@ -339,7 +377,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoEducationLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEducationLevel, _internal_metadata_));
-  InfoGraduatedSchool_descriptor_ = file->message_type(16);
+  InfoGraduatedSchool_descriptor_ = file->message_type(18);
   static const int InfoGraduatedSchool_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoGraduatedSchool, graduated_school_),
   };
@@ -353,7 +391,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoGraduatedSchool),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoGraduatedSchool, _internal_metadata_));
-  InfoAward_descriptor_ = file->message_type(17);
+  InfoAward_descriptor_ = file->message_type(19);
   static const int InfoAward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAward, award_),
   };
@@ -367,7 +405,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoAward),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAward, _internal_metadata_));
-  InfoSubject_descriptor_ = file->message_type(18);
+  InfoSubject_descriptor_ = file->message_type(20);
   static const int InfoSubject_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSubject, subject_),
   };
@@ -381,7 +419,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSubject, _internal_metadata_));
-  InfoInterestSubject_descriptor_ = file->message_type(19);
+  InfoInterestSubject_descriptor_ = file->message_type(21);
   static const int InfoInterestSubject_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoInterestSubject, interest_subject_),
   };
@@ -395,7 +433,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoInterestSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoInterestSubject, _internal_metadata_));
-  InfoEmail_descriptor_ = file->message_type(20);
+  InfoEmail_descriptor_ = file->message_type(22);
   static const int InfoEmail_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEmail, email_),
   };
@@ -409,7 +447,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoEmail),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEmail, _internal_metadata_));
-  InfoAvatar_descriptor_ = file->message_type(21);
+  InfoAvatar_descriptor_ = file->message_type(23);
   static const int InfoAvatar_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAvatar, avatar_url_),
   };
@@ -463,6 +501,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
             0>::CreateDefaultInstance(
                 EducationLevelListResponse_EducationLevelsEntry_descriptor_));
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      SubjectListRequest_descriptor_, SubjectListRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      SubjectListResponse_descriptor_, SubjectListResponse::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MyInfoRequest_descriptor_, MyInfoRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MyInfoResponse_descriptor_, MyInfoResponse::internal_default_instance());
@@ -511,6 +553,10 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto() {
   delete EducationLevelListRequest_reflection_;
   EducationLevelListResponse_default_instance_.Shutdown();
   delete EducationLevelListResponse_reflection_;
+  SubjectListRequest_default_instance_.Shutdown();
+  delete SubjectListRequest_reflection_;
+  SubjectListResponse_default_instance_.Shutdown();
+  delete SubjectListResponse_reflection_;
   MyInfoRequest_default_instance_.Shutdown();
   delete MyInfoRequest_reflection_;
   MyInfoResponse_default_instance_.Shutdown();
@@ -553,6 +599,7 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::protobuf_InitDefaults_google_2fprotobuf_2fany_2eproto();
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   UserRolesListRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   UserRolesListResponse_default_instance_.DefaultConstruct();
@@ -561,6 +608,9 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   EducationLevelListResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  SubjectListRequest_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  SubjectListResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   MyInfoRequest_default_instance_.DefaultConstruct();
   MyInfoResponse_default_instance_.DefaultConstruct();
@@ -599,6 +649,8 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   UserRolesListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   EducationLevelListRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   EducationLevelListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
+  SubjectListRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  SubjectListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyInfoRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyInfoResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyInfoUpdateRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -630,53 +682,61 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n#personalCenter/msg_personInfo.proto\022\010p"
-    "ersonal\032\031google/protobuf/any.proto\"\026\n\024Us"
-    "erRolesListRequest\"\226\001\n\025UserRolesListResp"
-    "onse\0229\n\005roles\030\001 \003(\0132*.personal.UserRoles"
-    "ListResponse.RolesEntry\022\024\n\014list_version\030"
-    "\002 \001(\t\032,\n\nRolesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
-    "e\030\002 \001(\t:\0028\001\"\033\n\031EducationLevelListRequest"
-    "\"\276\001\n\032EducationLevelListResponse\022R\n\017educa"
-    "tionLevels\030\001 \003(\01329.personal.EducationLev"
-    "elListResponse.EducationLevelsEntry\022\024\n\014l"
-    "ist_version\030\002 \001(\t\0326\n\024EducationLevelsEntr"
-    "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\rMyI"
-    "nfoRequest\022\017\n\007user_id\030\001 \001(\t\"\364\004\n\016MyInfoRe"
-    "sponse\022)\n\tnick_name\030\001 \001(\0132\026.personal.Inf"
-    "oNickName\022)\n\treal_name\030\002 \001(\0132\026.personal."
-    "InfoRealName\022)\n\tid_number\030\003 \001(\0132\026.person"
-    "al.InfoIdNumber\022\036\n\003sex\030\004 \001(\0132\021.personal."
-    "InfoSex\022(\n\010birthday\030\005 \001(\0132\026.personal.Inf"
-    "oBirthday\022+\n\nuser_roles\030\006 \001(\0132\027.personal"
-    ".InfoUserRoles\022(\n\010workUnit\030\007 \001(\0132\026.perso"
-    "nal.InfoWorkUnit\0224\n\016educationLevel\030\010 \001(\013"
-    "2\034.personal.InfoEducationLevel\0227\n\020gradua"
-    "ted_school\030\t \001(\0132\035.personal.InfoGraduate"
-    "dSchool\022\"\n\005award\030\n \001(\0132\023.personal.InfoAw"
-    "ard\022&\n\007subject\030\013 \001(\0132\025.personal.InfoSubj"
-    "ect\0227\n\020interest_subject\030\014 \001(\0132\035.personal"
-    ".InfoInterestSubject\022\"\n\005email\030\r \001(\0132\023.pe"
-    "rsonal.InfoEmail\022(\n\navatar_url\030\016 \001(\0132\024.p"
-    "ersonal.InfoAvatar\"K\n\023MyInfoUpdateReques"
-    "t\022\017\n\007user_id\030\001 \001(\t\022#\n\005field\030\002 \003(\0132\024.goog"
-    "le.protobuf.Any\"\026\n\024MyInfoUpdateResponse\""
-    "!\n\014InfoNickName\022\021\n\tnick_name\030\001 \001(\t\"!\n\014In"
-    "foRealName\022\021\n\treal_name\030\001 \001(\t\"!\n\014InfoIdN"
-    "umber\022\021\n\tid_number\030\001 \001(\t\"\026\n\007InfoSex\022\013\n\003s"
-    "ex\030\001 \001(\t\" \n\014InfoBirthday\022\020\n\010birthday\030\001 \001"
-    "(\t\"#\n\rInfoUserRoles\022\022\n\nuser_roles\030\001 \001(\t\""
-    " \n\014InfoWorkUnit\022\020\n\010workUnit\030\001 \001(\t\",\n\022Inf"
-    "oEducationLevel\022\026\n\016educationLevel\030\001 \001(\t\""
-    "/\n\023InfoGraduatedSchool\022\030\n\020graduated_scho"
-    "ol\030\001 \001(\t\"\032\n\tInfoAward\022\r\n\005award\030\001 \001(\t\"\036\n\013"
-    "InfoSubject\022\017\n\007subject\030\001 \001(\t\"/\n\023InfoInte"
-    "restSubject\022\030\n\020interest_subject\030\001 \001(\t\"\032\n"
-    "\tInfoEmail\022\r\n\005email\030\001 \001(\t\" \n\nInfoAvatar\022"
-    "\022\n\navatar_url\030\001 \001(\tB\037\n\024com.wanfang.perso"
-    "nalP\001\242\002\004WFPRb\006proto3", 1780);
+    "ersonal\032\031google/protobuf/any.proto\032\032grpc"
+    "Common/msg_error.proto\"\026\n\024UserRolesListR"
+    "equest\"\274\001\n\025UserRolesListResponse\0229\n\005role"
+    "s\030\001 \003(\0132*.personal.UserRolesListResponse"
+    ".RolesEntry\022\024\n\014list_version\030\002 \001(\t\022$\n\005err"
+    "or\030\003 \001(\0132\025.grpcCommon.GrpcError\032,\n\nRoles"
+    "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\033\n"
+    "\031EducationLevelListRequest\"\344\001\n\032Education"
+    "LevelListResponse\022R\n\017educationLevels\030\001 \003"
+    "(\01329.personal.EducationLevelListResponse"
+    ".EducationLevelsEntry\022\024\n\014list_version\030\002 "
+    "\001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon.GrpcErro"
+    "r\0326\n\024EducationLevelsEntry\022\013\n\003key\030\001 \001(\t\022\r"
+    "\n\005value\030\002 \001(\t:\0028\001\"\024\n\022SubjectListRequest\""
+    "Q\n\023SubjectListResponse\022\024\n\014subject_list\030\001"
+    " \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErr"
+    "or\" \n\rMyInfoRequest\022\017\n\007user_id\030\001 \001(\t\"\232\005\n"
+    "\016MyInfoResponse\022)\n\tnick_name\030\001 \001(\0132\026.per"
+    "sonal.InfoNickName\022)\n\treal_name\030\002 \001(\0132\026."
+    "personal.InfoRealName\022)\n\tid_number\030\003 \001(\013"
+    "2\026.personal.InfoIdNumber\022\036\n\003sex\030\004 \001(\0132\021."
+    "personal.InfoSex\022(\n\010birthday\030\005 \001(\0132\026.per"
+    "sonal.InfoBirthday\022+\n\nuser_roles\030\006 \001(\0132\027"
+    ".personal.InfoUserRoles\022(\n\010workUnit\030\007 \001("
+    "\0132\026.personal.InfoWorkUnit\0224\n\016educationLe"
+    "vel\030\010 \001(\0132\034.personal.InfoEducationLevel\022"
+    "7\n\020graduated_school\030\t \001(\0132\035.personal.Inf"
+    "oGraduatedSchool\022\"\n\005award\030\n \001(\0132\023.person"
+    "al.InfoAward\022&\n\007subject\030\013 \001(\0132\025.personal"
+    ".InfoSubject\0227\n\020interest_subject\030\014 \001(\0132\035"
+    ".personal.InfoInterestSubject\022\"\n\005email\030\r"
+    " \001(\0132\023.personal.InfoEmail\022(\n\navatar_url\030"
+    "\016 \001(\0132\024.personal.InfoAvatar\022$\n\005error\030\017 \001"
+    "(\0132\025.grpcCommon.GrpcError\"K\n\023MyInfoUpdat"
+    "eRequest\022\017\n\007user_id\030\001 \001(\t\022#\n\005field\030\002 \003(\013"
+    "2\024.google.protobuf.Any\"<\n\024MyInfoUpdateRe"
+    "sponse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcE"
+    "rror\"!\n\014InfoNickName\022\021\n\tnick_name\030\001 \001(\t\""
+    "!\n\014InfoRealName\022\021\n\treal_name\030\001 \001(\t\"!\n\014In"
+    "foIdNumber\022\021\n\tid_number\030\001 \001(\t\"\026\n\007InfoSex"
+    "\022\013\n\003sex\030\001 \001(\t\" \n\014InfoBirthday\022\020\n\010birthda"
+    "y\030\001 \001(\t\"#\n\rInfoUserRoles\022\022\n\nuser_roles\030\001"
+    " \001(\t\" \n\014InfoWorkUnit\022\020\n\010workUnit\030\001 \001(\t\","
+    "\n\022InfoEducationLevel\022\026\n\016educationLevel\030\001"
+    " \001(\t\"/\n\023InfoGraduatedSchool\022\030\n\020graduated"
+    "_school\030\001 \001(\t\"\032\n\tInfoAward\022\r\n\005award\030\001 \001("
+    "\t\"\036\n\013InfoSubject\022\017\n\007subject\030\001 \001(\t\"/\n\023Inf"
+    "oInterestSubject\022\030\n\020interest_subject\030\001 \001"
+    "(\t\"\032\n\tInfoEmail\022\r\n\005email\030\001 \001(\t\" \n\nInfoAv"
+    "atar\022\022\n\navatar_url\030\001 \001(\tB\037\n\024com.wanfang."
+    "personalP\001\242\002\004WFPRb\006proto3", 2065);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_personInfo.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto);
 }
 
@@ -894,6 +954,7 @@ inline const UserRolesListRequest* UserRolesListRequest::internal_default_instan
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int UserRolesListResponse::kRolesFieldNumber;
 const int UserRolesListResponse::kListVersionFieldNumber;
+const int UserRolesListResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UserRolesListResponse::UserRolesListResponse()
@@ -904,6 +965,8 @@ UserRolesListResponse::UserRolesListResponse()
 }
 
 void UserRolesListResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 UserRolesListResponse::UserRolesListResponse(const UserRolesListResponse& from)
@@ -920,6 +983,7 @@ void UserRolesListResponse::SharedCtor() {
   roles_.SetEntryDescriptor(
       &::personal::UserRolesListResponse_RolesEntry_descriptor_);
   list_version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -930,6 +994,9 @@ UserRolesListResponse::~UserRolesListResponse() {
 
 void UserRolesListResponse::SharedDtor() {
   list_version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &UserRolesListResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void UserRolesListResponse::SetCachedSize(int size) const {
@@ -960,6 +1027,8 @@ UserRolesListResponse* UserRolesListResponse::New(::google::protobuf::Arena* are
 void UserRolesListResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.UserRolesListResponse)
   list_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
   roles_.Clear();
 }
 
@@ -1013,6 +1082,19 @@ bool UserRolesListResponse::MergePartialFromCodedStream(
             this->list_version().data(), this->list_version().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.UserRolesListResponse.list_version"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -1107,6 +1189,12 @@ void UserRolesListResponse::SerializeWithCachedSizes(
       2, this->list_version(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.UserRolesListResponse)
 }
 
@@ -1182,6 +1270,13 @@ void UserRolesListResponse::SerializeWithCachedSizes(
         2, this->list_version(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.UserRolesListResponse)
   return target;
 }
@@ -1195,6 +1290,13 @@ size_t UserRolesListResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->list_version());
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   // map<string, string> roles = 1;
@@ -1249,6 +1351,9 @@ void UserRolesListResponse::UnsafeMergeFrom(const UserRolesListResponse& from) {
 
     list_version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.list_version_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void UserRolesListResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1277,6 +1382,7 @@ void UserRolesListResponse::Swap(UserRolesListResponse* other) {
 void UserRolesListResponse::InternalSwap(UserRolesListResponse* other) {
   roles_.Swap(&other->roles_);
   list_version_.Swap(&other->list_version_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1352,6 +1458,45 @@ void UserRolesListResponse::set_allocated_list_version(::std::string* list_versi
   }
   list_version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), list_version);
   // @@protoc_insertion_point(field_set_allocated:personal.UserRolesListResponse.list_version)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
+bool UserRolesListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void UserRolesListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& UserRolesListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UserRolesListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* UserRolesListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UserRolesListResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* UserRolesListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UserRolesListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void UserRolesListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UserRolesListResponse.error)
 }
 
 inline const UserRolesListResponse* UserRolesListResponse::internal_default_instance() {
@@ -1551,6 +1696,7 @@ inline const EducationLevelListRequest* EducationLevelListRequest::internal_defa
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int EducationLevelListResponse::kEducationLevelsFieldNumber;
 const int EducationLevelListResponse::kListVersionFieldNumber;
+const int EducationLevelListResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 EducationLevelListResponse::EducationLevelListResponse()
@@ -1561,6 +1707,8 @@ EducationLevelListResponse::EducationLevelListResponse()
 }
 
 void EducationLevelListResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 EducationLevelListResponse::EducationLevelListResponse(const EducationLevelListResponse& from)
@@ -1577,6 +1725,7 @@ void EducationLevelListResponse::SharedCtor() {
   educationlevels_.SetEntryDescriptor(
       &::personal::EducationLevelListResponse_EducationLevelsEntry_descriptor_);
   list_version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -1587,6 +1736,9 @@ EducationLevelListResponse::~EducationLevelListResponse() {
 
 void EducationLevelListResponse::SharedDtor() {
   list_version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &EducationLevelListResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void EducationLevelListResponse::SetCachedSize(int size) const {
@@ -1617,6 +1769,8 @@ EducationLevelListResponse* EducationLevelListResponse::New(::google::protobuf::
 void EducationLevelListResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.EducationLevelListResponse)
   list_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
   educationlevels_.Clear();
 }
 
@@ -1670,6 +1824,19 @@ bool EducationLevelListResponse::MergePartialFromCodedStream(
             this->list_version().data(), this->list_version().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.EducationLevelListResponse.list_version"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -1764,6 +1931,12 @@ void EducationLevelListResponse::SerializeWithCachedSizes(
       2, this->list_version(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.EducationLevelListResponse)
 }
 
@@ -1839,6 +2012,13 @@ void EducationLevelListResponse::SerializeWithCachedSizes(
         2, this->list_version(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.EducationLevelListResponse)
   return target;
 }
@@ -1852,6 +2032,13 @@ size_t EducationLevelListResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->list_version());
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   // map<string, string> educationLevels = 1;
@@ -1906,6 +2093,9 @@ void EducationLevelListResponse::UnsafeMergeFrom(const EducationLevelListRespons
 
     list_version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.list_version_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void EducationLevelListResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1934,6 +2124,7 @@ void EducationLevelListResponse::Swap(EducationLevelListResponse* other) {
 void EducationLevelListResponse::InternalSwap(EducationLevelListResponse* other) {
   educationlevels_.Swap(&other->educationlevels_);
   list_version_.Swap(&other->list_version_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2011,8 +2202,608 @@ void EducationLevelListResponse::set_allocated_list_version(::std::string* list_
   // @@protoc_insertion_point(field_set_allocated:personal.EducationLevelListResponse.list_version)
 }
 
+// optional .grpcCommon.GrpcError error = 3;
+bool EducationLevelListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void EducationLevelListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& EducationLevelListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.EducationLevelListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* EducationLevelListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.EducationLevelListResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* EducationLevelListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.EducationLevelListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void EducationLevelListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.EducationLevelListResponse.error)
+}
+
 inline const EducationLevelListResponse* EducationLevelListResponse::internal_default_instance() {
   return &EducationLevelListResponse_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SubjectListRequest::SubjectListRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.SubjectListRequest)
+}
+
+void SubjectListRequest::InitAsDefaultInstance() {
+}
+
+SubjectListRequest::SubjectListRequest(const SubjectListRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.SubjectListRequest)
+}
+
+void SubjectListRequest::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+SubjectListRequest::~SubjectListRequest() {
+  // @@protoc_insertion_point(destructor:personal.SubjectListRequest)
+  SharedDtor();
+}
+
+void SubjectListRequest::SharedDtor() {
+}
+
+void SubjectListRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SubjectListRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SubjectListRequest_descriptor_;
+}
+
+const SubjectListRequest& SubjectListRequest::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<SubjectListRequest> SubjectListRequest_default_instance_;
+
+SubjectListRequest* SubjectListRequest::New(::google::protobuf::Arena* arena) const {
+  SubjectListRequest* n = new SubjectListRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SubjectListRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.SubjectListRequest)
+}
+
+bool SubjectListRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.SubjectListRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0 ||
+        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.SubjectListRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.SubjectListRequest)
+  return false;
+#undef DO_
+}
+
+void SubjectListRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.SubjectListRequest)
+  // @@protoc_insertion_point(serialize_end:personal.SubjectListRequest)
+}
+
+::google::protobuf::uint8* SubjectListRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.SubjectListRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:personal.SubjectListRequest)
+  return target;
+}
+
+size_t SubjectListRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.SubjectListRequest)
+  size_t total_size = 0;
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SubjectListRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.SubjectListRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const SubjectListRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SubjectListRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.SubjectListRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.SubjectListRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void SubjectListRequest::MergeFrom(const SubjectListRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.SubjectListRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void SubjectListRequest::UnsafeMergeFrom(const SubjectListRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+}
+
+void SubjectListRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.SubjectListRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SubjectListRequest::CopyFrom(const SubjectListRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.SubjectListRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool SubjectListRequest::IsInitialized() const {
+
+  return true;
+}
+
+void SubjectListRequest::Swap(SubjectListRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SubjectListRequest::InternalSwap(SubjectListRequest* other) {
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SubjectListRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SubjectListRequest_descriptor_;
+  metadata.reflection = SubjectListRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SubjectListRequest
+
+inline const SubjectListRequest* SubjectListRequest::internal_default_instance() {
+  return &SubjectListRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SubjectListResponse::kSubjectListFieldNumber;
+const int SubjectListResponse::kErrorFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SubjectListResponse::SubjectListResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.SubjectListResponse)
+}
+
+void SubjectListResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
+}
+
+SubjectListResponse::SubjectListResponse(const SubjectListResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.SubjectListResponse)
+}
+
+void SubjectListResponse::SharedCtor() {
+  subject_list_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
+  _cached_size_ = 0;
+}
+
+SubjectListResponse::~SubjectListResponse() {
+  // @@protoc_insertion_point(destructor:personal.SubjectListResponse)
+  SharedDtor();
+}
+
+void SubjectListResponse::SharedDtor() {
+  subject_list_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &SubjectListResponse_default_instance_.get()) {
+    delete error_;
+  }
+}
+
+void SubjectListResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SubjectListResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SubjectListResponse_descriptor_;
+}
+
+const SubjectListResponse& SubjectListResponse::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<SubjectListResponse> SubjectListResponse_default_instance_;
+
+SubjectListResponse* SubjectListResponse::New(::google::protobuf::Arena* arena) const {
+  SubjectListResponse* n = new SubjectListResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SubjectListResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.SubjectListResponse)
+  subject_list_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+
+bool SubjectListResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.SubjectListResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string subject_list = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_subject_list()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->subject_list().data(), this->subject_list().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.SubjectListResponse.subject_list"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.SubjectListResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.SubjectListResponse)
+  return false;
+#undef DO_
+}
+
+void SubjectListResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.SubjectListResponse)
+  // optional string subject_list = 1;
+  if (this->subject_list().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject_list().data(), this->subject_list().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.SubjectListResponse.subject_list");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->subject_list(), output);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.SubjectListResponse)
+}
+
+::google::protobuf::uint8* SubjectListResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.SubjectListResponse)
+  // optional string subject_list = 1;
+  if (this->subject_list().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject_list().data(), this->subject_list().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.SubjectListResponse.subject_list");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->subject_list(), target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.SubjectListResponse)
+  return target;
+}
+
+size_t SubjectListResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.SubjectListResponse)
+  size_t total_size = 0;
+
+  // optional string subject_list = 1;
+  if (this->subject_list().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->subject_list());
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SubjectListResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.SubjectListResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const SubjectListResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SubjectListResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.SubjectListResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.SubjectListResponse)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void SubjectListResponse::MergeFrom(const SubjectListResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.SubjectListResponse)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void SubjectListResponse::UnsafeMergeFrom(const SubjectListResponse& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.subject_list().size() > 0) {
+
+    subject_list_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_list_);
+  }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
+}
+
+void SubjectListResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.SubjectListResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SubjectListResponse::CopyFrom(const SubjectListResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.SubjectListResponse)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool SubjectListResponse::IsInitialized() const {
+
+  return true;
+}
+
+void SubjectListResponse::Swap(SubjectListResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SubjectListResponse::InternalSwap(SubjectListResponse* other) {
+  subject_list_.Swap(&other->subject_list_);
+  std::swap(error_, other->error_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SubjectListResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SubjectListResponse_descriptor_;
+  metadata.reflection = SubjectListResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SubjectListResponse
+
+// optional string subject_list = 1;
+void SubjectListResponse::clear_subject_list() {
+  subject_list_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& SubjectListResponse::subject_list() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectListResponse.subject_list)
+  return subject_list_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubjectListResponse::set_subject_list(const ::std::string& value) {
+  
+  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.SubjectListResponse.subject_list)
+}
+void SubjectListResponse::set_subject_list(const char* value) {
+  
+  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.SubjectListResponse.subject_list)
+}
+void SubjectListResponse::set_subject_list(const char* value, size_t size) {
+  
+  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.SubjectListResponse.subject_list)
+}
+::std::string* SubjectListResponse::mutable_subject_list() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.SubjectListResponse.subject_list)
+  return subject_list_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SubjectListResponse::release_subject_list() {
+  // @@protoc_insertion_point(field_release:personal.SubjectListResponse.subject_list)
+  
+  return subject_list_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubjectListResponse::set_allocated_subject_list(::std::string* subject_list) {
+  if (subject_list != NULL) {
+    
+  } else {
+    
+  }
+  subject_list_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_list);
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectListResponse.subject_list)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool SubjectListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void SubjectListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& SubjectListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* SubjectListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.SubjectListResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* SubjectListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.SubjectListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void SubjectListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectListResponse.error)
+}
+
+inline const SubjectListResponse* SubjectListResponse::internal_default_instance() {
+  return &SubjectListResponse_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
@@ -2322,6 +3113,7 @@ const int MyInfoResponse::kSubjectFieldNumber;
 const int MyInfoResponse::kInterestSubjectFieldNumber;
 const int MyInfoResponse::kEmailFieldNumber;
 const int MyInfoResponse::kAvatarUrlFieldNumber;
+const int MyInfoResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MyInfoResponse::MyInfoResponse()
@@ -2360,6 +3152,8 @@ void MyInfoResponse::InitAsDefaultInstance() {
       ::personal::InfoEmail::internal_default_instance());
   avatar_url_ = const_cast< ::personal::InfoAvatar*>(
       ::personal::InfoAvatar::internal_default_instance());
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 MyInfoResponse::MyInfoResponse(const MyInfoResponse& from)
@@ -2385,6 +3179,7 @@ void MyInfoResponse::SharedCtor() {
   interest_subject_ = NULL;
   email_ = NULL;
   avatar_url_ = NULL;
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -2409,6 +3204,7 @@ void MyInfoResponse::SharedDtor() {
     delete interest_subject_;
     delete email_;
     delete avatar_url_;
+    delete error_;
   }
 }
 
@@ -2467,6 +3263,8 @@ void MyInfoResponse::Clear() {
   email_ = NULL;
   if (GetArenaNoVirtual() == NULL && avatar_url_ != NULL) delete avatar_url_;
   avatar_url_ = NULL;
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool MyInfoResponse::MergePartialFromCodedStream(
@@ -2656,6 +3454,19 @@ bool MyInfoResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(122)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 15;
+      case 15: {
+        if (tag == 122) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2768,6 +3579,12 @@ void MyInfoResponse::SerializeWithCachedSizes(
       14, *this->avatar_url_, output);
   }
 
+  // optional .grpcCommon.GrpcError error = 15;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      15, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.MyInfoResponse)
 }
 
@@ -2871,6 +3688,13 @@ void MyInfoResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         14, *this->avatar_url_, false, target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 15;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        15, *this->error_, false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:personal.MyInfoResponse)
@@ -2979,6 +3803,13 @@ size_t MyInfoResponse::ByteSizeLong() const {
         *this->avatar_url_);
   }
 
+  // optional .grpcCommon.GrpcError error = 15;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -3054,6 +3885,9 @@ void MyInfoResponse::UnsafeMergeFrom(const MyInfoResponse& from) {
   if (from.has_avatar_url()) {
     mutable_avatar_url()->::personal::InfoAvatar::MergeFrom(from.avatar_url());
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void MyInfoResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3094,6 +3928,7 @@ void MyInfoResponse::InternalSwap(MyInfoResponse* other) {
   std::swap(interest_subject_, other->interest_subject_);
   std::swap(email_, other->email_);
   std::swap(avatar_url_, other->avatar_url_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3655,6 +4490,45 @@ void MyInfoResponse::set_allocated_avatar_url(::personal::InfoAvatar* avatar_url
   // @@protoc_insertion_point(field_set_allocated:personal.MyInfoResponse.avatar_url)
 }
 
+// optional .grpcCommon.GrpcError error = 15;
+bool MyInfoResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void MyInfoResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& MyInfoResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyInfoResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* MyInfoResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyInfoResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* MyInfoResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyInfoResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void MyInfoResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyInfoResponse.error)
+}
+
 inline const MyInfoResponse* MyInfoResponse::internal_default_instance() {
   return &MyInfoResponse_default_instance_.get();
 }
@@ -4027,6 +4901,7 @@ inline const MyInfoUpdateRequest* MyInfoUpdateRequest::internal_default_instance
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MyInfoUpdateResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MyInfoUpdateResponse::MyInfoUpdateResponse()
@@ -4037,6 +4912,8 @@ MyInfoUpdateResponse::MyInfoUpdateResponse()
 }
 
 void MyInfoUpdateResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 MyInfoUpdateResponse::MyInfoUpdateResponse(const MyInfoUpdateResponse& from)
@@ -4048,6 +4925,7 @@ MyInfoUpdateResponse::MyInfoUpdateResponse(const MyInfoUpdateResponse& from)
 }
 
 void MyInfoUpdateResponse::SharedCtor() {
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -4057,6 +4935,9 @@ MyInfoUpdateResponse::~MyInfoUpdateResponse() {
 }
 
 void MyInfoUpdateResponse::SharedDtor() {
+  if (this != &MyInfoUpdateResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void MyInfoUpdateResponse::SetCachedSize(int size) const {
@@ -4086,6 +4967,8 @@ MyInfoUpdateResponse* MyInfoUpdateResponse::New(::google::protobuf::Arena* arena
 
 void MyInfoUpdateResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.MyInfoUpdateResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool MyInfoUpdateResponse::MergePartialFromCodedStream(
@@ -4097,13 +4980,30 @@ bool MyInfoUpdateResponse::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0 ||
-        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .grpcCommon.GrpcError error = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
   // @@protoc_insertion_point(parse_success:personal.MyInfoUpdateResponse)
@@ -4117,6 +5017,12 @@ failure:
 void MyInfoUpdateResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.MyInfoUpdateResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.MyInfoUpdateResponse)
 }
 
@@ -4124,6 +5030,13 @@ void MyInfoUpdateResponse::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.MyInfoUpdateResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.MyInfoUpdateResponse)
   return target;
 }
@@ -4131,6 +5044,13 @@ void MyInfoUpdateResponse::SerializeWithCachedSizes(
 size_t MyInfoUpdateResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.MyInfoUpdateResponse)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -4165,6 +5085,9 @@ void MyInfoUpdateResponse::MergeFrom(const MyInfoUpdateResponse& from) {
 
 void MyInfoUpdateResponse::UnsafeMergeFrom(const MyInfoUpdateResponse& from) {
   GOOGLE_DCHECK(&from != this);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void MyInfoUpdateResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -4191,6 +5114,7 @@ void MyInfoUpdateResponse::Swap(MyInfoUpdateResponse* other) {
   InternalSwap(other);
 }
 void MyInfoUpdateResponse::InternalSwap(MyInfoUpdateResponse* other) {
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4205,6 +5129,45 @@ void MyInfoUpdateResponse::InternalSwap(MyInfoUpdateResponse* other) {
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // MyInfoUpdateResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+bool MyInfoUpdateResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void MyInfoUpdateResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& MyInfoUpdateResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyInfoUpdateResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* MyInfoUpdateResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyInfoUpdateResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* MyInfoUpdateResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyInfoUpdateResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void MyInfoUpdateResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyInfoUpdateResponse.error)
+}
 
 inline const MyInfoUpdateResponse* MyInfoUpdateResponse::internal_default_instance() {
   return &MyInfoUpdateResponse_default_instance_.get();

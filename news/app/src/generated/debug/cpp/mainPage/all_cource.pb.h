@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace main {
@@ -221,11 +222,21 @@ class AlCourseReply : public ::google::protobuf::Message /* @@protoc_insertion_p
   const ::google::protobuf::RepeatedPtrField< ::main::Course >&
       course() const;
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:main.AlCourseReply)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::main::Course > course_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_mainPage_2fall_5fcource_2eproto_impl();
   friend void  protobuf_AddDesc_mainPage_2fall_5fcource_2eproto_impl();
@@ -482,6 +493,45 @@ inline const ::google::protobuf::RepeatedPtrField< ::main::Course >&
 AlCourseReply::course() const {
   // @@protoc_insertion_point(field_list:main.AlCourseReply.course)
   return course_;
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool AlCourseReply::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void AlCourseReply::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& AlCourseReply::error() const {
+  // @@protoc_insertion_point(field_get:main.AlCourseReply.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* AlCourseReply::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:main.AlCourseReply.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* AlCourseReply::release_error() {
+  // @@protoc_insertion_point(field_release:main.AlCourseReply.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void AlCourseReply::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:main.AlCourseReply.error)
 }
 
 inline const AlCourseReply* AlCourseReply::internal_default_instance() {

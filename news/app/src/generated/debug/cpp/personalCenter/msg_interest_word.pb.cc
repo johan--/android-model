@@ -53,9 +53,10 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5finterest_5fword_2eproto() {
       sizeof(InterestSubjectRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InterestSubjectRequest, _internal_metadata_));
   InterestSubjectResponse_descriptor_ = file->message_type(1);
-  static const int InterestSubjectResponse_offsets_[2] = {
+  static const int InterestSubjectResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InterestSubjectResponse, subject_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InterestSubjectResponse, total_count_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InterestSubjectResponse, error_),
   };
   InterestSubjectResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -98,6 +99,7 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5finterest_5fword_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5finterest_5fword_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   InterestSubjectRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -117,12 +119,15 @@ void protobuf_AddDesc_personalCenter_2fmsg_5finterest_5fword_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5finterest_5fword_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n&personalCenter/msg_interest_word.proto"
-    "\022\010personal\")\n\026InterestSubjectRequest\022\017\n\007"
-    "keyword\030\001 \001(\t\"\?\n\027InterestSubjectResponse"
-    "\022\017\n\007subject\030\001 \003(\t\022\023\n\013total_count\030\002 \001(\005B\037"
-    "\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3", 199);
+    "\022\010personal\032\032grpcCommon/msg_error.proto\")"
+    "\n\026InterestSubjectRequest\022\017\n\007keyword\030\001 \001("
+    "\t\"e\n\027InterestSubjectResponse\022\017\n\007subject\030"
+    "\001 \003(\t\022\023\n\013total_count\030\002 \001(\005\022$\n\005error\030\003 \001("
+    "\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang."
+    "personalP\001\242\002\004WFPRb\006proto3", 265);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_interest_word.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5finterest_5fword_2eproto);
 }
 
@@ -442,6 +447,7 @@ inline const InterestSubjectRequest* InterestSubjectRequest::internal_default_in
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int InterestSubjectResponse::kSubjectFieldNumber;
 const int InterestSubjectResponse::kTotalCountFieldNumber;
+const int InterestSubjectResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 InterestSubjectResponse::InterestSubjectResponse()
@@ -452,6 +458,8 @@ InterestSubjectResponse::InterestSubjectResponse()
 }
 
 void InterestSubjectResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 InterestSubjectResponse::InterestSubjectResponse(const InterestSubjectResponse& from)
@@ -463,6 +471,7 @@ InterestSubjectResponse::InterestSubjectResponse(const InterestSubjectResponse& 
 }
 
 void InterestSubjectResponse::SharedCtor() {
+  error_ = NULL;
   total_count_ = 0;
   _cached_size_ = 0;
 }
@@ -473,6 +482,9 @@ InterestSubjectResponse::~InterestSubjectResponse() {
 }
 
 void InterestSubjectResponse::SharedDtor() {
+  if (this != &InterestSubjectResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void InterestSubjectResponse::SetCachedSize(int size) const {
@@ -503,6 +515,8 @@ InterestSubjectResponse* InterestSubjectResponse::New(::google::protobuf::Arena*
 void InterestSubjectResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.InterestSubjectResponse)
   total_count_ = 0;
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
   subject_.Clear();
 }
 
@@ -543,6 +557,19 @@ bool InterestSubjectResponse::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &total_count_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -589,6 +616,12 @@ void InterestSubjectResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->total_count(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.InterestSubjectResponse)
 }
 
@@ -611,6 +644,13 @@ void InterestSubjectResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->total_count(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.InterestSubjectResponse)
   return target;
 }
@@ -624,6 +664,13 @@ size_t InterestSubjectResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->total_count());
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   // repeated string subject = 1;
@@ -671,6 +718,9 @@ void InterestSubjectResponse::UnsafeMergeFrom(const InterestSubjectResponse& fro
   if (from.total_count() != 0) {
     set_total_count(from.total_count());
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void InterestSubjectResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -699,6 +749,7 @@ void InterestSubjectResponse::Swap(InterestSubjectResponse* other) {
 void InterestSubjectResponse::InternalSwap(InterestSubjectResponse* other) {
   subject_.UnsafeArenaSwap(&other->subject_);
   std::swap(total_count_, other->total_count_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -781,6 +832,45 @@ void InterestSubjectResponse::set_total_count(::google::protobuf::int32 value) {
   
   total_count_ = value;
   // @@protoc_insertion_point(field_set:personal.InterestSubjectResponse.total_count)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
+bool InterestSubjectResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void InterestSubjectResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& InterestSubjectResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.InterestSubjectResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* InterestSubjectResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.InterestSubjectResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* InterestSubjectResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.InterestSubjectResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void InterestSubjectResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.InterestSubjectResponse.error)
 }
 
 inline const InterestSubjectResponse* InterestSubjectResponse::internal_default_instance() {

@@ -74,21 +74,26 @@ public final class MsgPassword {
   static {
     java.lang.String[] descriptorData = {
       "\n!personalCenter/msg_password.proto\022\010per" +
-      "sonal\"M\n\026PasswordByEmailRequest\022\023\n\tuser_" +
-      "name\030\003 \001(\tH\000\022\017\n\005email\030\004 \001(\tH\000B\r\n\013field_o" +
-      "neof\";\n\027PasswordByEmailResponse\022\r\n\005email" +
-      "\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\"%\n\024PasswordEma" +
-      "ilRequest\022\r\n\005email\030\001 \001(\t\"\027\n\025PasswordEmai" +
-      "lResponse\"M\n\026PasswordByPhoneRequest\022\r\n\005p" +
-      "hone\030\001 \001(\t\022\025\n\rphone_captcha\030\002 \001(\t\022\r\n\005tok" +
-      "en\030\003 \001(\t\"*\n\027PasswordByPhoneResponse\022\017\n\007u" +
-      "ser_id\030\001 \001(\t\">\n\025PasswordUpdateRequest\022\017\n",
-      "\007user_id\030\001 \001(\t\022\024\n\014new_password\030\002 \001(\t\"\030\n\026" +
-      "PasswordUpdateResponse\":\n\025PasswordVerify" +
-      "Request\022\017\n\007user_id\030\001 \001(\t\022\020\n\010password\030\002 \001" +
-      "(\t\"*\n\026PasswordVerifyResponse\022\020\n\010is_right" +
-      "\030\001 \001(\010B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb" +
-      "\006proto3"
+      "sonal\032\032grpcCommon/msg_error.proto\"M\n\026Pas" +
+      "swordByEmailRequest\022\023\n\tuser_name\030\003 \001(\tH\000" +
+      "\022\017\n\005email\030\004 \001(\tH\000B\r\n\013field_oneof\"a\n\027Pass" +
+      "wordByEmailResponse\022\r\n\005email\030\001 \001(\t\022\021\n\tus" +
+      "er_name\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommo" +
+      "n.GrpcError\"%\n\024PasswordEmailRequest\022\r\n\005e" +
+      "mail\030\001 \001(\t\"=\n\025PasswordEmailResponse\022$\n\005e" +
+      "rror\030\001 \001(\0132\025.grpcCommon.GrpcError\"M\n\026Pas" +
+      "swordByPhoneRequest\022\r\n\005phone\030\001 \001(\t\022\025\n\rph",
+      "one_captcha\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\"P\n\027Pass" +
+      "wordByPhoneResponse\022\017\n\007user_id\030\001 \001(\t\022$\n\005" +
+      "error\030\002 \001(\0132\025.grpcCommon.GrpcError\">\n\025Pa" +
+      "sswordUpdateRequest\022\017\n\007user_id\030\001 \001(\t\022\024\n\014" +
+      "new_password\030\002 \001(\t\">\n\026PasswordUpdateResp" +
+      "onse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErr" +
+      "or\":\n\025PasswordVerifyRequest\022\017\n\007user_id\030\001" +
+      " \001(\t\022\020\n\010password\030\002 \001(\t\"P\n\026PasswordVerify" +
+      "Response\022\020\n\010is_right\030\001 \001(\010\022$\n\005error\030\002 \001(" +
+      "\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang.",
+      "personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -101,6 +106,7 @@ public final class MsgPassword {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_PasswordByEmailRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -113,7 +119,7 @@ public final class MsgPassword {
     internal_static_personal_PasswordByEmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PasswordByEmailResponse_descriptor,
-        new java.lang.String[] { "Email", "UserName", });
+        new java.lang.String[] { "Email", "UserName", "Error", });
     internal_static_personal_PasswordEmailRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_personal_PasswordEmailRequest_fieldAccessorTable = new
@@ -125,7 +131,7 @@ public final class MsgPassword {
     internal_static_personal_PasswordEmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PasswordEmailResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Error", });
     internal_static_personal_PasswordByPhoneRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_personal_PasswordByPhoneRequest_fieldAccessorTable = new
@@ -137,7 +143,7 @@ public final class MsgPassword {
     internal_static_personal_PasswordByPhoneResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PasswordByPhoneResponse_descriptor,
-        new java.lang.String[] { "UserId", });
+        new java.lang.String[] { "UserId", "Error", });
     internal_static_personal_PasswordUpdateRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_personal_PasswordUpdateRequest_fieldAccessorTable = new
@@ -149,7 +155,7 @@ public final class MsgPassword {
     internal_static_personal_PasswordUpdateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PasswordUpdateResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Error", });
     internal_static_personal_PasswordVerifyRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_personal_PasswordVerifyRequest_fieldAccessorTable = new
@@ -161,7 +167,8 @@ public final class MsgPassword {
     internal_static_personal_PasswordVerifyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PasswordVerifyResponse_descriptor,
-        new java.lang.String[] { "IsRight", });
+        new java.lang.String[] { "IsRight", "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

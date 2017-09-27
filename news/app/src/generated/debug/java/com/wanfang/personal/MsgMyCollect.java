@@ -29,6 +29,16 @@ public final class MsgMyCollect {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_personal_CollectBody_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_MyCollectDetailRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_MyCollectDetailRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_MyCollectDetailResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_MyCollectDetailResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -39,15 +49,24 @@ public final class MsgMyCollect {
   static {
     java.lang.String[] descriptorData = {
       "\n#personalCenter/msg_my_collect.proto\022\010p" +
-      "ersonal\032\031google/protobuf/any.proto\"K\n\020My" +
-      "CollectRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_" +
-      "number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"a\n\021MyCol" +
-      "lectResponse\022%\n\007results\030\001 \003(\0132\024.google.p" +
-      "rotobuf.Any\022\020\n\010has_more\030\002 \001(\010\022\023\n\013total_c" +
-      "ount\030\003 \001(\005\"X\n\013CollectBody\022\017\n\007docu_id\030\001 \001" +
-      "(\t\022\022\n\ndocu_title\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t" +
-      "\022\022\n\nstar_level\030\004 \001(\005B\037\n\024com.wanfang.pers" +
-      "onalP\001\242\002\004WFPRb\006proto3"
+      "ersonal\032\031google/protobuf/any.proto\032\032grpc" +
+      "Common/msg_error.proto\"K\n\020MyCollectReque" +
+      "st\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005" +
+      "\022\021\n\tpage_size\030\003 \001(\005\"\207\001\n\021MyCollectRespons" +
+      "e\022%\n\007results\030\001 \003(\0132\024.google.protobuf.Any" +
+      "\022\020\n\010has_more\030\002 \001(\010\022\023\n\013total_count\030\003 \001(\005\022" +
+      "$\n\005error\030\004 \001(\0132\025.grpcCommon.GrpcError\"k\n" +
+      "\013CollectBody\022\017\n\007docu_id\030\001 \001(\t\022\022\n\ndocu_ti" +
+      "tle\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t\022\022\n\nstar_leve",
+      "l\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t\"B\n\026MyCollectD" +
+      "etailRequest\022\022\n\nartical_id\030\001 \001(\t\022\024\n\014arti" +
+      "cal_type\030\002 \001(\t\"\307\001\n\027MyCollectDetailRespon" +
+      "se\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcError" +
+      "\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\022\n\narti" +
+      "cal_id\030\004 \001(\t\022\021\n\tstand_num\030\005 \001(\t\022\022\n\nwork_" +
+      "limit\030\006 \001(\t\022\025\n\rpublish_place\030\007 \001(\t\022\024\n\014su" +
+      "bject_code\030\010 \001(\tB\037\n\024com.wanfang.personal" +
+      "P\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -61,6 +80,7 @@ public final class MsgMyCollect {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.AnyProto.getDescriptor(),
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_MyCollectRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -73,14 +93,27 @@ public final class MsgMyCollect {
     internal_static_personal_MyCollectResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyCollectResponse_descriptor,
-        new java.lang.String[] { "Results", "HasMore", "TotalCount", });
+        new java.lang.String[] { "Results", "HasMore", "TotalCount", "Error", });
     internal_static_personal_CollectBody_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_personal_CollectBody_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_CollectBody_descriptor,
-        new java.lang.String[] { "DocuId", "DocuTitle", "AddTime", "StarLevel", });
+        new java.lang.String[] { "DocuId", "DocuTitle", "AddTime", "StarLevel", "DocuType", });
+    internal_static_personal_MyCollectDetailRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_personal_MyCollectDetailRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_MyCollectDetailRequest_descriptor,
+        new java.lang.String[] { "ArticalId", "ArticalType", });
+    internal_static_personal_MyCollectDetailResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_personal_MyCollectDetailResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_MyCollectDetailResponse_descriptor,
+        new java.lang.String[] { "Error", "Title", "Summary", "ArticalId", "StandNum", "WorkLimit", "PublishPlace", "SubjectCode", });
     com.google.protobuf.AnyProto.getDescriptor();
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

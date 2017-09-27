@@ -59,23 +59,25 @@ public final class MsgLogin {
   static {
     java.lang.String[] descriptorData = {
       "\n\036personalCenter/msg_login.proto\022\010person" +
-      "al\"7\n\017LoginOutRequest\022\017\n\007user_id\030\001 \001(\t\022\023" +
-      "\n\013login_token\030\002 \001(\t\"\022\n\020LoginOutResponse\"" +
-      "3\n\014LoginRequest\022\020\n\010password\030\001 \001(\t\022\021\n\tuse" +
-      "r_name\030\002 \001(\t\"a\n\rLoginResponse\022\017\n\007user_id" +
-      "\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\027\n\017user_avatar" +
-      "_url\030\003 \001(\t\022\023\n\013login_token\030\004 \001(\t\"B\n\021Quick" +
-      "LoginRequest\022\r\n\005phone\030\001 \001(\t\022\r\n\005token\030\002 \001" +
-      "(\t\022\017\n\007captcha\030\003 \001(\t\"\177\n\027BindExistAccountR" +
-      "equest\022\013\n\003uid\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\020",
-      "\n\010password\030\003 \001(\t\0222\n\020third_party_type\030\004 \001" +
-      "(\0162\030.personal.ThirdPartyType\"~\n\024BindNewR" +
-      "egistRequest\022\021\n\tuser_name\030\001 \001(\t\022\r\n\005email" +
-      "\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\0222\n\020third_party_" +
-      "type\030\004 \001(\0162\030.personal.ThirdPartyType*.\n\016" +
-      "ThirdPartyType\022\n\n\006WECHAT\020\000\022\006\n\002QQ\020\001\022\010\n\004SI" +
-      "NA\020\003B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006p" +
-      "roto3"
+      "al\032\032grpcCommon/msg_error.proto\"7\n\017LoginO" +
+      "utRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013login_toke" +
+      "n\030\002 \001(\t\"8\n\020LoginOutResponse\022$\n\005error\030\002 \001" +
+      "(\0132\025.grpcCommon.GrpcError\"3\n\014LoginReques" +
+      "t\022\020\n\010password\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\"\207" +
+      "\001\n\rLoginResponse\022\017\n\007user_id\030\001 \001(\t\022\021\n\tuse" +
+      "r_name\030\002 \001(\t\022\027\n\017user_avatar_url\030\003 \001(\t\022\023\n" +
+      "\013login_token\030\004 \001(\t\022$\n\005error\030\005 \001(\0132\025.grpc" +
+      "Common.GrpcError\"B\n\021QuickLoginRequest\022\r\n",
+      "\005phone\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\022\017\n\007captcha\030\003" +
+      " \001(\t\"\177\n\027BindExistAccountRequest\022\013\n\003uid\030\001" +
+      " \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\020\n\010password\030\003 \001(" +
+      "\t\0222\n\020third_party_type\030\004 \001(\0162\030.personal.T" +
+      "hirdPartyType\"~\n\024BindNewRegistRequest\022\021\n" +
+      "\tuser_name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010passw" +
+      "ord\030\003 \001(\t\0222\n\020third_party_type\030\004 \001(\0162\030.pe" +
+      "rsonal.ThirdPartyType*.\n\016ThirdPartyType\022" +
+      "\n\n\006WECHAT\020\000\022\006\n\002QQ\020\001\022\010\n\004SINA\020\003B\037\n\024com.wan" +
+      "fang.personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -88,6 +90,7 @@ public final class MsgLogin {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_LoginOutRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -100,7 +103,7 @@ public final class MsgLogin {
     internal_static_personal_LoginOutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_LoginOutResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Error", });
     internal_static_personal_LoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_personal_LoginRequest_fieldAccessorTable = new
@@ -112,7 +115,7 @@ public final class MsgLogin {
     internal_static_personal_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_LoginResponse_descriptor,
-        new java.lang.String[] { "UserId", "UserName", "UserAvatarUrl", "LoginToken", });
+        new java.lang.String[] { "UserId", "UserName", "UserAvatarUrl", "LoginToken", "Error", });
     internal_static_personal_QuickLoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_personal_QuickLoginRequest_fieldAccessorTable = new
@@ -131,6 +134,7 @@ public final class MsgLogin {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_BindNewRegistRequest_descriptor,
         new java.lang.String[] { "UserName", "Email", "Password", "ThirdPartyType", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

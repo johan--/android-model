@@ -660,7 +660,7 @@ public final class AllCource {
 
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -669,7 +669,7 @@ public final class AllCource {
         getCourseList();
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -677,7 +677,7 @@ public final class AllCource {
     com.wanfang.main.AllCource.Course getCourse(int index);
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -685,7 +685,7 @@ public final class AllCource {
     int getCourseCount();
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -694,13 +694,26 @@ public final class AllCource {
         getCourseOrBuilderList();
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
      */
     com.wanfang.main.AllCource.CourseOrBuilder getCourseOrBuilder(
         int index);
+
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    boolean hasError();
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    com.wanfang.grpcCommon.MsgError.GrpcError getError();
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
   }
   /**
    * Protobuf type {@code main.AlCourseReply}
@@ -751,6 +764,19 @@ public final class AllCource {
                   input.readMessage(com.wanfang.main.AllCource.Course.parser(), extensionRegistry));
               break;
             }
+            case 18: {
+              com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
+              if (error_ != null) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(com.wanfang.grpcCommon.MsgError.GrpcError.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -777,11 +803,12 @@ public final class AllCource {
               com.wanfang.main.AllCource.AlCourseReply.class, com.wanfang.main.AllCource.AlCourseReply.Builder.class);
     }
 
+    private int bitField0_;
     public static final int COURSE_FIELD_NUMBER = 1;
     private java.util.List<com.wanfang.main.AllCource.Course> course_;
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -791,7 +818,7 @@ public final class AllCource {
     }
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -802,7 +829,7 @@ public final class AllCource {
     }
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -812,7 +839,7 @@ public final class AllCource {
     }
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -822,7 +849,7 @@ public final class AllCource {
     }
     /**
      * <pre>
-     *精品课程列表
+     * 精品课程列表
      * </pre>
      *
      * <code>repeated .main.Course course = 1;</code>
@@ -830,6 +857,27 @@ public final class AllCource {
     public com.wanfang.main.AllCource.CourseOrBuilder getCourseOrBuilder(
         int index) {
       return course_.get(index);
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 2;
+    private com.wanfang.grpcCommon.MsgError.GrpcError error_;
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+      return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+      return getError();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -847,6 +895,9 @@ public final class AllCource {
       for (int i = 0; i < course_.size(); i++) {
         output.writeMessage(1, course_.get(i));
       }
+      if (error_ != null) {
+        output.writeMessage(2, getError());
+      }
     }
 
     public int getSerializedSize() {
@@ -857,6 +908,10 @@ public final class AllCource {
       for (int i = 0; i < course_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, course_.get(i));
+      }
+      if (error_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getError());
       }
       memoizedSize = size;
       return size;
@@ -876,6 +931,11 @@ public final class AllCource {
       boolean result = true;
       result = result && getCourseList()
           .equals(other.getCourseList());
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
+      }
       return result;
     }
 
@@ -889,6 +949,10 @@ public final class AllCource {
       if (getCourseCount() > 0) {
         hash = (37 * hash) + COURSE_FIELD_NUMBER;
         hash = (53 * hash) + getCourseList().hashCode();
+      }
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1015,6 +1079,12 @@ public final class AllCource {
         } else {
           courseBuilder_.clear();
         }
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
         return this;
       }
 
@@ -1038,6 +1108,7 @@ public final class AllCource {
       public com.wanfang.main.AllCource.AlCourseReply buildPartial() {
         com.wanfang.main.AllCource.AlCourseReply result = new com.wanfang.main.AllCource.AlCourseReply(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (courseBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             course_ = java.util.Collections.unmodifiableList(course_);
@@ -1047,6 +1118,12 @@ public final class AllCource {
         } else {
           result.course_ = courseBuilder_.build();
         }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1114,6 +1191,9 @@ public final class AllCource {
             }
           }
         }
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
         onChanged();
         return this;
       }
@@ -1155,7 +1235,7 @@ public final class AllCource {
 
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1169,7 +1249,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1183,7 +1263,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1197,7 +1277,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1218,7 +1298,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1236,7 +1316,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1256,7 +1336,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1277,7 +1357,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1295,7 +1375,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1313,7 +1393,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1332,7 +1412,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1349,7 +1429,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1366,7 +1446,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1377,7 +1457,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1391,7 +1471,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1406,7 +1486,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1417,7 +1497,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1429,7 +1509,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程列表
+       * 精品课程列表
        * </pre>
        *
        * <code>repeated .main.Course course = 1;</code>
@@ -1451,6 +1531,123 @@ public final class AllCource {
           course_ = null;
         }
         return courseBuilder_;
+      }
+
+      private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public Builder setError(
+          com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              com.wanfang.grpcCommon.MsgError.GrpcError.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <code>optional .grpcCommon.GrpcError error = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1507,7 +1704,7 @@ public final class AllCource {
 
     /**
      * <pre>
-     *精品课程封面
+     * 精品课程封面
      * </pre>
      *
      * <code>optional string course_cover = 1;</code>
@@ -1515,7 +1712,7 @@ public final class AllCource {
     java.lang.String getCourseCover();
     /**
      * <pre>
-     *精品课程封面
+     * 精品课程封面
      * </pre>
      *
      * <code>optional string course_cover = 1;</code>
@@ -1630,7 +1827,7 @@ public final class AllCource {
     private volatile java.lang.Object courseCover_;
     /**
      * <pre>
-     *精品课程封面
+     * 精品课程封面
      * </pre>
      *
      * <code>optional string course_cover = 1;</code>
@@ -1649,7 +1846,7 @@ public final class AllCource {
     }
     /**
      * <pre>
-     *精品课程封面
+     * 精品课程封面
      * </pre>
      *
      * <code>optional string course_cover = 1;</code>
@@ -2042,7 +2239,7 @@ public final class AllCource {
       private java.lang.Object courseCover_ = "";
       /**
        * <pre>
-       *精品课程封面
+       * 精品课程封面
        * </pre>
        *
        * <code>optional string course_cover = 1;</code>
@@ -2061,7 +2258,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程封面
+       * 精品课程封面
        * </pre>
        *
        * <code>optional string course_cover = 1;</code>
@@ -2081,7 +2278,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程封面
+       * 精品课程封面
        * </pre>
        *
        * <code>optional string course_cover = 1;</code>
@@ -2098,7 +2295,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程封面
+       * 精品课程封面
        * </pre>
        *
        * <code>optional string course_cover = 1;</code>
@@ -2111,7 +2308,7 @@ public final class AllCource {
       }
       /**
        * <pre>
-       *精品课程封面
+       * 精品课程封面
        * </pre>
        *
        * <code>optional string course_cover = 1;</code>
@@ -2338,12 +2535,14 @@ public final class AllCource {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\031mainPage/all_cource.proto\022\004main\"9\n\017AlC" +
-      "ourseRequest\022\023\n\013page_number\030\001 \001(\t\022\021\n\tpag" +
-      "e_size\030\002 \001(\t\"-\n\rAlCourseReply\022\034\n\006course\030" +
-      "\001 \003(\0132\014.main.Course\"G\n\006Course\022\024\n\014course_" +
-      "cover\030\001 \001(\t\022\021\n\tcourse_id\030\002 \001(\t\022\024\n\014course" +
-      "_title\030\003 \001(\tB\022\n\020com.wanfang.mainb\006proto3"
+      "\n\031mainPage/all_cource.proto\022\004main\032\032grpcC" +
+      "ommon/msg_error.proto\"9\n\017AlCourseRequest" +
+      "\022\023\n\013page_number\030\001 \001(\t\022\021\n\tpage_size\030\002 \001(\t" +
+      "\"S\n\rAlCourseReply\022\034\n\006course\030\001 \003(\0132\014.main" +
+      ".Course\022$\n\005error\030\002 \001(\0132\025.grpcCommon.Grpc" +
+      "Error\"G\n\006Course\022\024\n\014course_cover\030\001 \001(\t\022\021\n" +
+      "\tcourse_id\030\002 \001(\t\022\024\n\014course_title\030\003 \001(\tB\022" +
+      "\n\020com.wanfang.mainb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2356,6 +2555,7 @@ public final class AllCource {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_main_AlCourseRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2368,13 +2568,14 @@ public final class AllCource {
     internal_static_main_AlCourseReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_main_AlCourseReply_descriptor,
-        new java.lang.String[] { "Course", });
+        new java.lang.String[] { "Course", "Error", });
     internal_static_main_Course_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_main_Course_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_main_Course_descriptor,
         new java.lang.String[] { "CourseCover", "CourseId", "CourseTitle", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

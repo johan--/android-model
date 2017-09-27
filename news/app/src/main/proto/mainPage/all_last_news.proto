@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package main;
 option java_package = "com.wanfang.main";
 

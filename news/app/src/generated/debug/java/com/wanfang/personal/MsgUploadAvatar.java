@@ -34,10 +34,12 @@ public final class MsgUploadAvatar {
   static {
     java.lang.String[] descriptorData = {
       "\n&personalCenter/msg_upload_avatar.proto" +
-      "\022\010personal\":\n\023UploadAvatarRequest\022\017\n\007use" +
-      "r_id\030\001 \001(\t\022\022\n\navatar_url\030\002 \001(\t\"\026\n\024Upload" +
-      "AvatarResponseB\037\n\024com.wanfang.personalP\001" +
-      "\242\002\004WFPRb\006proto3"
+      "\022\010personal\032\032grpcCommon/msg_error.proto\":" +
+      "\n\023UploadAvatarRequest\022\017\n\007user_id\030\001 \001(\t\022\022" +
+      "\n\navatar_url\030\002 \001(\t\"<\n\024UploadAvatarRespon" +
+      "se\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcError" +
+      "B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -50,6 +52,7 @@ public final class MsgUploadAvatar {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_UploadAvatarRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -62,7 +65,8 @@ public final class MsgUploadAvatar {
     internal_static_personal_UploadAvatarResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_UploadAvatarResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -76,4 +76,17 @@ public interface UnifiedorderResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSignBytes();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

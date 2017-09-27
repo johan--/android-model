@@ -30,6 +30,7 @@
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/any.pb.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -60,6 +61,8 @@ class MyInfoRequest;
 class MyInfoResponse;
 class MyInfoUpdateRequest;
 class MyInfoUpdateResponse;
+class SubjectListRequest;
+class SubjectListResponse;
 class UserRolesListRequest;
 class UserRolesListResponse;
 
@@ -228,6 +231,15 @@ class UserRolesListResponse : public ::google::protobuf::Message /* @@protoc_ins
   ::std::string* release_list_version();
   void set_allocated_list_version(::std::string* list_version);
 
+  // optional .grpcCommon.GrpcError error = 3;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.UserRolesListResponse)
  private:
 
@@ -244,6 +256,7 @@ class UserRolesListResponse : public ::google::protobuf::Message /* @@protoc_ins
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 > roles_;
   ::google::protobuf::internal::ArenaStringPtr list_version_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
@@ -419,6 +432,15 @@ class EducationLevelListResponse : public ::google::protobuf::Message /* @@proto
   ::std::string* release_list_version();
   void set_allocated_list_version(::std::string* list_version);
 
+  // optional .grpcCommon.GrpcError error = 3;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.EducationLevelListResponse)
  private:
 
@@ -435,6 +457,7 @@ class EducationLevelListResponse : public ::google::protobuf::Message /* @@proto
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 > educationlevels_;
   ::google::protobuf::internal::ArenaStringPtr list_version_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
@@ -444,6 +467,186 @@ class EducationLevelListResponse : public ::google::protobuf::Message /* @@proto
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<EducationLevelListResponse> EducationLevelListResponse_default_instance_;
+
+// -------------------------------------------------------------------
+
+class SubjectListRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SubjectListRequest) */ {
+ public:
+  SubjectListRequest();
+  virtual ~SubjectListRequest();
+
+  SubjectListRequest(const SubjectListRequest& from);
+
+  inline SubjectListRequest& operator=(const SubjectListRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SubjectListRequest& default_instance();
+
+  static const SubjectListRequest* internal_default_instance();
+
+  void Swap(SubjectListRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SubjectListRequest* New() const { return New(NULL); }
+
+  SubjectListRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SubjectListRequest& from);
+  void MergeFrom(const SubjectListRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(SubjectListRequest* other);
+  void UnsafeMergeFrom(const SubjectListRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:personal.SubjectListRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<SubjectListRequest> SubjectListRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class SubjectListResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SubjectListResponse) */ {
+ public:
+  SubjectListResponse();
+  virtual ~SubjectListResponse();
+
+  SubjectListResponse(const SubjectListResponse& from);
+
+  inline SubjectListResponse& operator=(const SubjectListResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SubjectListResponse& default_instance();
+
+  static const SubjectListResponse* internal_default_instance();
+
+  void Swap(SubjectListResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SubjectListResponse* New() const { return New(NULL); }
+
+  SubjectListResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SubjectListResponse& from);
+  void MergeFrom(const SubjectListResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(SubjectListResponse* other);
+  void UnsafeMergeFrom(const SubjectListResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string subject_list = 1;
+  void clear_subject_list();
+  static const int kSubjectListFieldNumber = 1;
+  const ::std::string& subject_list() const;
+  void set_subject_list(const ::std::string& value);
+  void set_subject_list(const char* value);
+  void set_subject_list(const char* value, size_t size);
+  ::std::string* mutable_subject_list();
+  ::std::string* release_subject_list();
+  void set_allocated_subject_list(::std::string* subject_list);
+
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:personal.SubjectListResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr subject_list_;
+  ::grpcCommon::GrpcError* error_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<SubjectListResponse> SubjectListResponse_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -727,6 +930,15 @@ class MyInfoResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::personal::InfoAvatar* release_avatar_url();
   void set_allocated_avatar_url(::personal::InfoAvatar* avatar_url);
 
+  // optional .grpcCommon.GrpcError error = 15;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 15;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.MyInfoResponse)
  private:
 
@@ -745,6 +957,7 @@ class MyInfoResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::personal::InfoInterestSubject* interest_subject_;
   ::personal::InfoEmail* email_;
   ::personal::InfoAvatar* avatar_url_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
@@ -924,10 +1137,20 @@ class MyInfoUpdateResponse : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
+  // optional .grpcCommon.GrpcError error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.MyInfoUpdateResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
@@ -2289,6 +2512,45 @@ inline void UserRolesListResponse::set_allocated_list_version(::std::string* lis
   // @@protoc_insertion_point(field_set_allocated:personal.UserRolesListResponse.list_version)
 }
 
+// optional .grpcCommon.GrpcError error = 3;
+inline bool UserRolesListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void UserRolesListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& UserRolesListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UserRolesListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* UserRolesListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UserRolesListResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* UserRolesListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UserRolesListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void UserRolesListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UserRolesListResponse.error)
+}
+
 inline const UserRolesListResponse* UserRolesListResponse::internal_default_instance() {
   return &UserRolesListResponse_default_instance_.get();
 }
@@ -2365,8 +2627,144 @@ inline void EducationLevelListResponse::set_allocated_list_version(::std::string
   // @@protoc_insertion_point(field_set_allocated:personal.EducationLevelListResponse.list_version)
 }
 
+// optional .grpcCommon.GrpcError error = 3;
+inline bool EducationLevelListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void EducationLevelListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& EducationLevelListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.EducationLevelListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* EducationLevelListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.EducationLevelListResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* EducationLevelListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.EducationLevelListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void EducationLevelListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.EducationLevelListResponse.error)
+}
+
 inline const EducationLevelListResponse* EducationLevelListResponse::internal_default_instance() {
   return &EducationLevelListResponse_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// SubjectListRequest
+
+inline const SubjectListRequest* SubjectListRequest::internal_default_instance() {
+  return &SubjectListRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// SubjectListResponse
+
+// optional string subject_list = 1;
+inline void SubjectListResponse::clear_subject_list() {
+  subject_list_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubjectListResponse::subject_list() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectListResponse.subject_list)
+  return subject_list_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubjectListResponse::set_subject_list(const ::std::string& value) {
+  
+  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.SubjectListResponse.subject_list)
+}
+inline void SubjectListResponse::set_subject_list(const char* value) {
+  
+  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.SubjectListResponse.subject_list)
+}
+inline void SubjectListResponse::set_subject_list(const char* value, size_t size) {
+  
+  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.SubjectListResponse.subject_list)
+}
+inline ::std::string* SubjectListResponse::mutable_subject_list() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.SubjectListResponse.subject_list)
+  return subject_list_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubjectListResponse::release_subject_list() {
+  // @@protoc_insertion_point(field_release:personal.SubjectListResponse.subject_list)
+  
+  return subject_list_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubjectListResponse::set_allocated_subject_list(::std::string* subject_list) {
+  if (subject_list != NULL) {
+    
+  } else {
+    
+  }
+  subject_list_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_list);
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectListResponse.subject_list)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool SubjectListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void SubjectListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& SubjectListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* SubjectListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.SubjectListResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* SubjectListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.SubjectListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void SubjectListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectListResponse.error)
+}
+
+inline const SubjectListResponse* SubjectListResponse::internal_default_instance() {
+  return &SubjectListResponse_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -2969,6 +3367,45 @@ inline void MyInfoResponse::set_allocated_avatar_url(::personal::InfoAvatar* ava
   // @@protoc_insertion_point(field_set_allocated:personal.MyInfoResponse.avatar_url)
 }
 
+// optional .grpcCommon.GrpcError error = 15;
+inline bool MyInfoResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void MyInfoResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& MyInfoResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyInfoResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* MyInfoResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyInfoResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* MyInfoResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyInfoResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void MyInfoResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyInfoResponse.error)
+}
+
 inline const MyInfoResponse* MyInfoResponse::internal_default_instance() {
   return &MyInfoResponse_default_instance_.get();
 }
@@ -3056,6 +3493,45 @@ inline const MyInfoUpdateRequest* MyInfoUpdateRequest::internal_default_instance
 // -------------------------------------------------------------------
 
 // MyInfoUpdateResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+inline bool MyInfoUpdateResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void MyInfoUpdateResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& MyInfoUpdateResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyInfoUpdateResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* MyInfoUpdateResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyInfoUpdateResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* MyInfoUpdateResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyInfoUpdateResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void MyInfoUpdateResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyInfoUpdateResponse.error)
+}
 
 inline const MyInfoUpdateResponse* MyInfoUpdateResponse::internal_default_instance() {
   return &MyInfoUpdateResponse_default_instance_.get();
@@ -3775,6 +4251,10 @@ inline const InfoAvatar* InfoAvatar::internal_default_instance() {
   return &InfoAvatar_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

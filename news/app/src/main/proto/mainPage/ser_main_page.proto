@@ -1,4 +1,6 @@
 syntax = "proto3";
+
+
 import "mainPage/all_cource.proto"; // 课程视频
 import "mainPage/all_hot_doc.proto"; // 热门文献
 import "mainPage/all_last_news.proto"; // 最新资讯

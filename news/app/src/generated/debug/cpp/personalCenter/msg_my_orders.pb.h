@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -395,11 +396,21 @@ class MyOrdersResponse : public ::google::protobuf::Message /* @@protoc_insertio
   bool has_more() const;
   void set_has_more(bool value);
 
+  // optional .grpcCommon.GrpcError error = 4;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 4;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.MyOrdersResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::personal::MyOrdersResponse_Result > results_;
+  ::grpcCommon::GrpcError* error_;
   ::google::protobuf::int32 total_count_;
   bool has_more_;
   mutable int _cached_size_;
@@ -840,6 +851,45 @@ inline void MyOrdersResponse::set_has_more(bool value) {
   
   has_more_ = value;
   // @@protoc_insertion_point(field_set:personal.MyOrdersResponse.has_more)
+}
+
+// optional .grpcCommon.GrpcError error = 4;
+inline bool MyOrdersResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void MyOrdersResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& MyOrdersResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyOrdersResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* MyOrdersResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyOrdersResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* MyOrdersResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyOrdersResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void MyOrdersResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyOrdersResponse.error)
 }
 
 inline const MyOrdersResponse* MyOrdersResponse::internal_default_instance() {

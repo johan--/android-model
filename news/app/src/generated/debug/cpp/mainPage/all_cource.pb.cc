@@ -57,8 +57,9 @@ void protobuf_AssignDesc_mainPage_2fall_5fcource_2eproto() {
       sizeof(AlCourseRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AlCourseRequest, _internal_metadata_));
   AlCourseReply_descriptor_ = file->message_type(1);
-  static const int AlCourseReply_offsets_[1] = {
+  static const int AlCourseReply_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AlCourseReply, course_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AlCourseReply, error_),
   };
   AlCourseReply_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -121,6 +122,7 @@ void protobuf_ShutdownFile_mainPage_2fall_5fcource_2eproto() {
 void protobuf_InitDefaults_mainPage_2fall_5fcource_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   AlCourseRequest_default_instance_.DefaultConstruct();
   AlCourseReply_default_instance_.DefaultConstruct();
@@ -141,14 +143,17 @@ void protobuf_AddDesc_mainPage_2fall_5fcource_2eproto_impl() {
 
   protobuf_InitDefaults_mainPage_2fall_5fcource_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\031mainPage/all_cource.proto\022\004main\"9\n\017AlC"
-    "ourseRequest\022\023\n\013page_number\030\001 \001(\t\022\021\n\tpag"
-    "e_size\030\002 \001(\t\"-\n\rAlCourseReply\022\034\n\006course\030"
-    "\001 \003(\0132\014.main.Course\"G\n\006Course\022\024\n\014course_"
-    "cover\030\001 \001(\t\022\021\n\tcourse_id\030\002 \001(\t\022\024\n\014course"
-    "_title\030\003 \001(\tB\022\n\020com.wanfang.mainb\006proto3", 240);
+    "\n\031mainPage/all_cource.proto\022\004main\032\032grpcC"
+    "ommon/msg_error.proto\"9\n\017AlCourseRequest"
+    "\022\023\n\013page_number\030\001 \001(\t\022\021\n\tpage_size\030\002 \001(\t"
+    "\"S\n\rAlCourseReply\022\034\n\006course\030\001 \003(\0132\014.main"
+    ".Course\022$\n\005error\030\002 \001(\0132\025.grpcCommon.Grpc"
+    "Error\"G\n\006Course\022\024\n\014course_cover\030\001 \001(\t\022\021\n"
+    "\tcourse_id\030\002 \001(\t\022\024\n\014course_title\030\003 \001(\tB\022"
+    "\n\020com.wanfang.mainb\006proto3", 306);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "mainPage/all_cource.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_mainPage_2fall_5fcource_2eproto);
 }
 
@@ -565,6 +570,7 @@ inline const AlCourseRequest* AlCourseRequest::internal_default_instance() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int AlCourseReply::kCourseFieldNumber;
+const int AlCourseReply::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AlCourseReply::AlCourseReply()
@@ -575,6 +581,8 @@ AlCourseReply::AlCourseReply()
 }
 
 void AlCourseReply::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 AlCourseReply::AlCourseReply(const AlCourseReply& from)
@@ -586,6 +594,7 @@ AlCourseReply::AlCourseReply(const AlCourseReply& from)
 }
 
 void AlCourseReply::SharedCtor() {
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -595,6 +604,9 @@ AlCourseReply::~AlCourseReply() {
 }
 
 void AlCourseReply::SharedDtor() {
+  if (this != &AlCourseReply_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void AlCourseReply::SetCachedSize(int size) const {
@@ -624,6 +636,8 @@ AlCourseReply* AlCourseReply::New(::google::protobuf::Arena* arena) const {
 
 void AlCourseReply::Clear() {
 // @@protoc_insertion_point(message_clear_start:main.AlCourseReply)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
   course_.Clear();
 }
 
@@ -649,6 +663,19 @@ bool AlCourseReply::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(10)) goto parse_loop_course;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -683,6 +710,12 @@ void AlCourseReply::SerializeWithCachedSizes(
       1, this->course(i), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:main.AlCourseReply)
 }
 
@@ -697,6 +730,13 @@ void AlCourseReply::SerializeWithCachedSizes(
         1, this->course(i), false, target);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:main.AlCourseReply)
   return target;
 }
@@ -704,6 +744,13 @@ void AlCourseReply::SerializeWithCachedSizes(
 size_t AlCourseReply::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:main.AlCourseReply)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   // repeated .main.Course course = 1;
   {
@@ -750,6 +797,9 @@ void AlCourseReply::MergeFrom(const AlCourseReply& from) {
 void AlCourseReply::UnsafeMergeFrom(const AlCourseReply& from) {
   GOOGLE_DCHECK(&from != this);
   course_.MergeFrom(from.course_);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void AlCourseReply::CopyFrom(const ::google::protobuf::Message& from) {
@@ -777,6 +827,7 @@ void AlCourseReply::Swap(AlCourseReply* other) {
 }
 void AlCourseReply::InternalSwap(AlCourseReply* other) {
   course_.UnsafeArenaSwap(&other->course_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -820,6 +871,45 @@ const ::google::protobuf::RepeatedPtrField< ::main::Course >&
 AlCourseReply::course() const {
   // @@protoc_insertion_point(field_list:main.AlCourseReply.course)
   return course_;
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool AlCourseReply::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void AlCourseReply::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& AlCourseReply::error() const {
+  // @@protoc_insertion_point(field_get:main.AlCourseReply.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* AlCourseReply::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:main.AlCourseReply.error)
+  return error_;
+}
+::grpcCommon::GrpcError* AlCourseReply::release_error() {
+  // @@protoc_insertion_point(field_release:main.AlCourseReply.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void AlCourseReply::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:main.AlCourseReply.error)
 }
 
 inline const AlCourseReply* AlCourseReply::internal_default_instance() {

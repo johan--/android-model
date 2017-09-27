@@ -41,4 +41,14 @@ public interface CollectBodyOrBuilder extends
    * <code>optional int32 star_level = 4;</code>
    */
   int getStarLevel();
+
+  /**
+   * <code>optional string docu_type = 5;</code>
+   */
+  java.lang.String getDocuType();
+  /**
+   * <code>optional string docu_type = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getDocuTypeBytes();
 }

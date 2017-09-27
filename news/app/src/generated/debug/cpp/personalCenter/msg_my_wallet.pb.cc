@@ -53,8 +53,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fmy_5fwallet_2eproto() {
       sizeof(MyWalletRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyWalletRequest, _internal_metadata_));
   MyWalletResponse_descriptor_ = file->message_type(1);
-  static const int MyWalletResponse_offsets_[1] = {
+  static const int MyWalletResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyWalletResponse, balance_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyWalletResponse, error_),
   };
   MyWalletResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -97,6 +98,7 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fmy_5fwallet_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fwallet_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   MyWalletRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -116,11 +118,14 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fmy_5fwallet_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fwallet_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\"personalCenter/msg_my_wallet.proto\022\010pe"
-    "rsonal\"\"\n\017MyWalletRequest\022\017\n\007user_id\030\001 \001"
-    "(\t\"#\n\020MyWalletResponse\022\017\n\007balance\030\001 \001(\tB"
-    "\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3", 160);
+    "rsonal\032\032grpcCommon/msg_error.proto\"\"\n\017My"
+    "WalletRequest\022\017\n\007user_id\030\001 \001(\t\"I\n\020MyWall"
+    "etResponse\022\017\n\007balance\030\001 \001(\t\022$\n\005error\030\002 \001"
+    "(\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang"
+    ".personalP\001\242\002\004WFPRb\006proto3", 226);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_my_wallet.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fmy_5fwallet_2eproto);
 }
 
@@ -439,6 +444,7 @@ inline const MyWalletRequest* MyWalletRequest::internal_default_instance() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int MyWalletResponse::kBalanceFieldNumber;
+const int MyWalletResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MyWalletResponse::MyWalletResponse()
@@ -449,6 +455,8 @@ MyWalletResponse::MyWalletResponse()
 }
 
 void MyWalletResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 MyWalletResponse::MyWalletResponse(const MyWalletResponse& from)
@@ -461,6 +469,7 @@ MyWalletResponse::MyWalletResponse(const MyWalletResponse& from)
 
 void MyWalletResponse::SharedCtor() {
   balance_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -471,6 +480,9 @@ MyWalletResponse::~MyWalletResponse() {
 
 void MyWalletResponse::SharedDtor() {
   balance_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &MyWalletResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void MyWalletResponse::SetCachedSize(int size) const {
@@ -501,6 +513,8 @@ MyWalletResponse* MyWalletResponse::New(::google::protobuf::Arena* arena) const 
 void MyWalletResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.MyWalletResponse)
   balance_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool MyWalletResponse::MergePartialFromCodedStream(
@@ -522,6 +536,19 @@ bool MyWalletResponse::MergePartialFromCodedStream(
             this->balance().data(), this->balance().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.MyWalletResponse.balance"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -563,6 +590,12 @@ void MyWalletResponse::SerializeWithCachedSizes(
       1, this->balance(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.MyWalletResponse)
 }
 
@@ -581,6 +614,13 @@ void MyWalletResponse::SerializeWithCachedSizes(
         1, this->balance(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.MyWalletResponse)
   return target;
 }
@@ -594,6 +634,13 @@ size_t MyWalletResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->balance());
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -633,6 +680,9 @@ void MyWalletResponse::UnsafeMergeFrom(const MyWalletResponse& from) {
 
     balance_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.balance_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void MyWalletResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -660,6 +710,7 @@ void MyWalletResponse::Swap(MyWalletResponse* other) {
 }
 void MyWalletResponse::InternalSwap(MyWalletResponse* other) {
   balance_.Swap(&other->balance_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -717,6 +768,45 @@ void MyWalletResponse::set_allocated_balance(::std::string* balance) {
   }
   balance_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), balance);
   // @@protoc_insertion_point(field_set_allocated:personal.MyWalletResponse.balance)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool MyWalletResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void MyWalletResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& MyWalletResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyWalletResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* MyWalletResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyWalletResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* MyWalletResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyWalletResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void MyWalletResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyWalletResponse.error)
 }
 
 inline const MyWalletResponse* MyWalletResponse::internal_default_instance() {

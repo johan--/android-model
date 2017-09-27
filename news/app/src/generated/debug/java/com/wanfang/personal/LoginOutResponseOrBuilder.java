@@ -6,4 +6,17 @@ package com.wanfang.personal;
 public interface LoginOutResponseOrBuilder extends
     // @@protoc_insertion_point(interface_extends:personal.LoginOutResponse)
     com.google.protobuf.MessageOrBuilder {
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

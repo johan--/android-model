@@ -85,9 +85,10 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpassword_2eproto() {
       sizeof(PasswordByEmailRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByEmailRequest, _internal_metadata_));
   PasswordByEmailResponse_descriptor_ = file->message_type(1);
-  static const int PasswordByEmailResponse_offsets_[2] = {
+  static const int PasswordByEmailResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByEmailResponse, email_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByEmailResponse, user_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByEmailResponse, error_),
   };
   PasswordByEmailResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -115,6 +116,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpassword_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordEmailRequest, _internal_metadata_));
   PasswordEmailResponse_descriptor_ = file->message_type(3);
   static const int PasswordEmailResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordEmailResponse, error_),
   };
   PasswordEmailResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -143,8 +145,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpassword_2eproto() {
       sizeof(PasswordByPhoneRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, _internal_metadata_));
   PasswordByPhoneResponse_descriptor_ = file->message_type(5);
-  static const int PasswordByPhoneResponse_offsets_[1] = {
+  static const int PasswordByPhoneResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneResponse, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneResponse, error_),
   };
   PasswordByPhoneResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -173,6 +176,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpassword_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordUpdateRequest, _internal_metadata_));
   PasswordUpdateResponse_descriptor_ = file->message_type(7);
   static const int PasswordUpdateResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordUpdateResponse, error_),
   };
   PasswordUpdateResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -200,8 +204,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpassword_2eproto() {
       sizeof(PasswordVerifyRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordVerifyRequest, _internal_metadata_));
   PasswordVerifyResponse_descriptor_ = file->message_type(9);
-  static const int PasswordVerifyResponse_offsets_[1] = {
+  static const int PasswordVerifyResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordVerifyResponse, is_right_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordVerifyResponse, error_),
   };
   PasswordVerifyResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -277,6 +282,7 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fpassword_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   PasswordByEmailRequest_default_instance_.DefaultConstruct();
   PasswordByEmailRequest_default_oneof_instance_ = new PasswordByEmailRequestOneofInstance();
@@ -318,23 +324,29 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n!personalCenter/msg_password.proto\022\010per"
-    "sonal\"M\n\026PasswordByEmailRequest\022\023\n\tuser_"
-    "name\030\003 \001(\tH\000\022\017\n\005email\030\004 \001(\tH\000B\r\n\013field_o"
-    "neof\";\n\027PasswordByEmailResponse\022\r\n\005email"
-    "\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\"%\n\024PasswordEma"
-    "ilRequest\022\r\n\005email\030\001 \001(\t\"\027\n\025PasswordEmai"
-    "lResponse\"M\n\026PasswordByPhoneRequest\022\r\n\005p"
-    "hone\030\001 \001(\t\022\025\n\rphone_captcha\030\002 \001(\t\022\r\n\005tok"
-    "en\030\003 \001(\t\"*\n\027PasswordByPhoneResponse\022\017\n\007u"
-    "ser_id\030\001 \001(\t\">\n\025PasswordUpdateRequest\022\017\n"
-    "\007user_id\030\001 \001(\t\022\024\n\014new_password\030\002 \001(\t\"\030\n\026"
-    "PasswordUpdateResponse\":\n\025PasswordVerify"
-    "Request\022\017\n\007user_id\030\001 \001(\t\022\020\n\010password\030\002 \001"
-    "(\t\"*\n\026PasswordVerifyResponse\022\020\n\010is_right"
-    "\030\001 \001(\010B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb"
-    "\006proto3", 607);
+    "sonal\032\032grpcCommon/msg_error.proto\"M\n\026Pas"
+    "swordByEmailRequest\022\023\n\tuser_name\030\003 \001(\tH\000"
+    "\022\017\n\005email\030\004 \001(\tH\000B\r\n\013field_oneof\"a\n\027Pass"
+    "wordByEmailResponse\022\r\n\005email\030\001 \001(\t\022\021\n\tus"
+    "er_name\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommo"
+    "n.GrpcError\"%\n\024PasswordEmailRequest\022\r\n\005e"
+    "mail\030\001 \001(\t\"=\n\025PasswordEmailResponse\022$\n\005e"
+    "rror\030\001 \001(\0132\025.grpcCommon.GrpcError\"M\n\026Pas"
+    "swordByPhoneRequest\022\r\n\005phone\030\001 \001(\t\022\025\n\rph"
+    "one_captcha\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\"P\n\027Pass"
+    "wordByPhoneResponse\022\017\n\007user_id\030\001 \001(\t\022$\n\005"
+    "error\030\002 \001(\0132\025.grpcCommon.GrpcError\">\n\025Pa"
+    "sswordUpdateRequest\022\017\n\007user_id\030\001 \001(\t\022\024\n\014"
+    "new_password\030\002 \001(\t\">\n\026PasswordUpdateResp"
+    "onse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErr"
+    "or\":\n\025PasswordVerifyRequest\022\017\n\007user_id\030\001"
+    " \001(\t\022\020\n\010password\030\002 \001(\t\"P\n\026PasswordVerify"
+    "Response\022\020\n\010is_right\030\001 \001(\010\022$\n\005error\030\002 \001("
+    "\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang."
+    "personalP\001\242\002\004WFPRb\006proto3", 825);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_password.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fpassword_2eproto);
 }
 
@@ -865,6 +877,7 @@ inline const PasswordByEmailRequest* PasswordByEmailRequest::internal_default_in
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PasswordByEmailResponse::kEmailFieldNumber;
 const int PasswordByEmailResponse::kUserNameFieldNumber;
+const int PasswordByEmailResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PasswordByEmailResponse::PasswordByEmailResponse()
@@ -875,6 +888,8 @@ PasswordByEmailResponse::PasswordByEmailResponse()
 }
 
 void PasswordByEmailResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 PasswordByEmailResponse::PasswordByEmailResponse(const PasswordByEmailResponse& from)
@@ -888,6 +903,7 @@ PasswordByEmailResponse::PasswordByEmailResponse(const PasswordByEmailResponse& 
 void PasswordByEmailResponse::SharedCtor() {
   email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -899,6 +915,9 @@ PasswordByEmailResponse::~PasswordByEmailResponse() {
 void PasswordByEmailResponse::SharedDtor() {
   email_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &PasswordByEmailResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void PasswordByEmailResponse::SetCachedSize(int size) const {
@@ -930,6 +949,8 @@ void PasswordByEmailResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PasswordByEmailResponse)
   email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool PasswordByEmailResponse::MergePartialFromCodedStream(
@@ -968,6 +989,19 @@ bool PasswordByEmailResponse::MergePartialFromCodedStream(
             this->user_name().data(), this->user_name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.PasswordByEmailResponse.user_name"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -1019,6 +1053,12 @@ void PasswordByEmailResponse::SerializeWithCachedSizes(
       2, this->user_name(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.PasswordByEmailResponse)
 }
 
@@ -1048,6 +1088,13 @@ void PasswordByEmailResponse::SerializeWithCachedSizes(
         2, this->user_name(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.PasswordByEmailResponse)
   return target;
 }
@@ -1068,6 +1115,13 @@ size_t PasswordByEmailResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->user_name());
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1111,6 +1165,9 @@ void PasswordByEmailResponse::UnsafeMergeFrom(const PasswordByEmailResponse& fro
 
     user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void PasswordByEmailResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1139,6 +1196,7 @@ void PasswordByEmailResponse::Swap(PasswordByEmailResponse* other) {
 void PasswordByEmailResponse::InternalSwap(PasswordByEmailResponse* other) {
   email_.Swap(&other->email_);
   user_name_.Swap(&other->user_name_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1240,6 +1298,45 @@ void PasswordByEmailResponse::set_allocated_user_name(::std::string* user_name) 
   }
   user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
   // @@protoc_insertion_point(field_set_allocated:personal.PasswordByEmailResponse.user_name)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
+bool PasswordByEmailResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void PasswordByEmailResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& PasswordByEmailResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByEmailResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* PasswordByEmailResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByEmailResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* PasswordByEmailResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByEmailResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void PasswordByEmailResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByEmailResponse.error)
 }
 
 inline const PasswordByEmailResponse* PasswordByEmailResponse::internal_default_instance() {
@@ -1539,6 +1636,7 @@ inline const PasswordEmailRequest* PasswordEmailRequest::internal_default_instan
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PasswordEmailResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PasswordEmailResponse::PasswordEmailResponse()
@@ -1549,6 +1647,8 @@ PasswordEmailResponse::PasswordEmailResponse()
 }
 
 void PasswordEmailResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 PasswordEmailResponse::PasswordEmailResponse(const PasswordEmailResponse& from)
@@ -1560,6 +1660,7 @@ PasswordEmailResponse::PasswordEmailResponse(const PasswordEmailResponse& from)
 }
 
 void PasswordEmailResponse::SharedCtor() {
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -1569,6 +1670,9 @@ PasswordEmailResponse::~PasswordEmailResponse() {
 }
 
 void PasswordEmailResponse::SharedDtor() {
+  if (this != &PasswordEmailResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void PasswordEmailResponse::SetCachedSize(int size) const {
@@ -1598,6 +1702,8 @@ PasswordEmailResponse* PasswordEmailResponse::New(::google::protobuf::Arena* are
 
 void PasswordEmailResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PasswordEmailResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool PasswordEmailResponse::MergePartialFromCodedStream(
@@ -1609,13 +1715,30 @@ bool PasswordEmailResponse::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0 ||
-        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .grpcCommon.GrpcError error = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
   // @@protoc_insertion_point(parse_success:personal.PasswordEmailResponse)
@@ -1629,6 +1752,12 @@ failure:
 void PasswordEmailResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.PasswordEmailResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.PasswordEmailResponse)
 }
 
@@ -1636,6 +1765,13 @@ void PasswordEmailResponse::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.PasswordEmailResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.PasswordEmailResponse)
   return target;
 }
@@ -1643,6 +1779,13 @@ void PasswordEmailResponse::SerializeWithCachedSizes(
 size_t PasswordEmailResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.PasswordEmailResponse)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1677,6 +1820,9 @@ void PasswordEmailResponse::MergeFrom(const PasswordEmailResponse& from) {
 
 void PasswordEmailResponse::UnsafeMergeFrom(const PasswordEmailResponse& from) {
   GOOGLE_DCHECK(&from != this);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void PasswordEmailResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1703,6 +1849,7 @@ void PasswordEmailResponse::Swap(PasswordEmailResponse* other) {
   InternalSwap(other);
 }
 void PasswordEmailResponse::InternalSwap(PasswordEmailResponse* other) {
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1717,6 +1864,45 @@ void PasswordEmailResponse::InternalSwap(PasswordEmailResponse* other) {
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PasswordEmailResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+bool PasswordEmailResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void PasswordEmailResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& PasswordEmailResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordEmailResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* PasswordEmailResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordEmailResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* PasswordEmailResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordEmailResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void PasswordEmailResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordEmailResponse.error)
+}
 
 inline const PasswordEmailResponse* PasswordEmailResponse::internal_default_instance() {
   return &PasswordEmailResponse_default_instance_.get();
@@ -2212,6 +2398,7 @@ inline const PasswordByPhoneRequest* PasswordByPhoneRequest::internal_default_in
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PasswordByPhoneResponse::kUserIdFieldNumber;
+const int PasswordByPhoneResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PasswordByPhoneResponse::PasswordByPhoneResponse()
@@ -2222,6 +2409,8 @@ PasswordByPhoneResponse::PasswordByPhoneResponse()
 }
 
 void PasswordByPhoneResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 PasswordByPhoneResponse::PasswordByPhoneResponse(const PasswordByPhoneResponse& from)
@@ -2234,6 +2423,7 @@ PasswordByPhoneResponse::PasswordByPhoneResponse(const PasswordByPhoneResponse& 
 
 void PasswordByPhoneResponse::SharedCtor() {
   user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -2244,6 +2434,9 @@ PasswordByPhoneResponse::~PasswordByPhoneResponse() {
 
 void PasswordByPhoneResponse::SharedDtor() {
   user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &PasswordByPhoneResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void PasswordByPhoneResponse::SetCachedSize(int size) const {
@@ -2274,6 +2467,8 @@ PasswordByPhoneResponse* PasswordByPhoneResponse::New(::google::protobuf::Arena*
 void PasswordByPhoneResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PasswordByPhoneResponse)
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool PasswordByPhoneResponse::MergePartialFromCodedStream(
@@ -2295,6 +2490,19 @@ bool PasswordByPhoneResponse::MergePartialFromCodedStream(
             this->user_id().data(), this->user_id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.PasswordByPhoneResponse.user_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -2336,6 +2544,12 @@ void PasswordByPhoneResponse::SerializeWithCachedSizes(
       1, this->user_id(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.PasswordByPhoneResponse)
 }
 
@@ -2354,6 +2568,13 @@ void PasswordByPhoneResponse::SerializeWithCachedSizes(
         1, this->user_id(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.PasswordByPhoneResponse)
   return target;
 }
@@ -2367,6 +2588,13 @@ size_t PasswordByPhoneResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->user_id());
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2406,6 +2634,9 @@ void PasswordByPhoneResponse::UnsafeMergeFrom(const PasswordByPhoneResponse& fro
 
     user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void PasswordByPhoneResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2433,6 +2664,7 @@ void PasswordByPhoneResponse::Swap(PasswordByPhoneResponse* other) {
 }
 void PasswordByPhoneResponse::InternalSwap(PasswordByPhoneResponse* other) {
   user_id_.Swap(&other->user_id_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2490,6 +2722,45 @@ void PasswordByPhoneResponse::set_allocated_user_id(::std::string* user_id) {
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
   // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneResponse.user_id)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool PasswordByPhoneResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void PasswordByPhoneResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& PasswordByPhoneResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* PasswordByPhoneResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* PasswordByPhoneResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void PasswordByPhoneResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneResponse.error)
 }
 
 inline const PasswordByPhoneResponse* PasswordByPhoneResponse::internal_default_instance() {
@@ -2887,6 +3158,7 @@ inline const PasswordUpdateRequest* PasswordUpdateRequest::internal_default_inst
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PasswordUpdateResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PasswordUpdateResponse::PasswordUpdateResponse()
@@ -2897,6 +3169,8 @@ PasswordUpdateResponse::PasswordUpdateResponse()
 }
 
 void PasswordUpdateResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 PasswordUpdateResponse::PasswordUpdateResponse(const PasswordUpdateResponse& from)
@@ -2908,6 +3182,7 @@ PasswordUpdateResponse::PasswordUpdateResponse(const PasswordUpdateResponse& fro
 }
 
 void PasswordUpdateResponse::SharedCtor() {
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -2917,6 +3192,9 @@ PasswordUpdateResponse::~PasswordUpdateResponse() {
 }
 
 void PasswordUpdateResponse::SharedDtor() {
+  if (this != &PasswordUpdateResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void PasswordUpdateResponse::SetCachedSize(int size) const {
@@ -2946,6 +3224,8 @@ PasswordUpdateResponse* PasswordUpdateResponse::New(::google::protobuf::Arena* a
 
 void PasswordUpdateResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PasswordUpdateResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool PasswordUpdateResponse::MergePartialFromCodedStream(
@@ -2957,13 +3237,30 @@ bool PasswordUpdateResponse::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0 ||
-        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .grpcCommon.GrpcError error = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
   // @@protoc_insertion_point(parse_success:personal.PasswordUpdateResponse)
@@ -2977,6 +3274,12 @@ failure:
 void PasswordUpdateResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.PasswordUpdateResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.PasswordUpdateResponse)
 }
 
@@ -2984,6 +3287,13 @@ void PasswordUpdateResponse::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.PasswordUpdateResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.PasswordUpdateResponse)
   return target;
 }
@@ -2991,6 +3301,13 @@ void PasswordUpdateResponse::SerializeWithCachedSizes(
 size_t PasswordUpdateResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.PasswordUpdateResponse)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -3025,6 +3342,9 @@ void PasswordUpdateResponse::MergeFrom(const PasswordUpdateResponse& from) {
 
 void PasswordUpdateResponse::UnsafeMergeFrom(const PasswordUpdateResponse& from) {
   GOOGLE_DCHECK(&from != this);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void PasswordUpdateResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3051,6 +3371,7 @@ void PasswordUpdateResponse::Swap(PasswordUpdateResponse* other) {
   InternalSwap(other);
 }
 void PasswordUpdateResponse::InternalSwap(PasswordUpdateResponse* other) {
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3065,6 +3386,45 @@ void PasswordUpdateResponse::InternalSwap(PasswordUpdateResponse* other) {
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PasswordUpdateResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+bool PasswordUpdateResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void PasswordUpdateResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& PasswordUpdateResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordUpdateResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* PasswordUpdateResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordUpdateResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* PasswordUpdateResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordUpdateResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void PasswordUpdateResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordUpdateResponse.error)
+}
 
 inline const PasswordUpdateResponse* PasswordUpdateResponse::internal_default_instance() {
   return &PasswordUpdateResponse_default_instance_.get();
@@ -3462,6 +3822,7 @@ inline const PasswordVerifyRequest* PasswordVerifyRequest::internal_default_inst
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PasswordVerifyResponse::kIsRightFieldNumber;
+const int PasswordVerifyResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PasswordVerifyResponse::PasswordVerifyResponse()
@@ -3472,6 +3833,8 @@ PasswordVerifyResponse::PasswordVerifyResponse()
 }
 
 void PasswordVerifyResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 PasswordVerifyResponse::PasswordVerifyResponse(const PasswordVerifyResponse& from)
@@ -3483,6 +3846,7 @@ PasswordVerifyResponse::PasswordVerifyResponse(const PasswordVerifyResponse& fro
 }
 
 void PasswordVerifyResponse::SharedCtor() {
+  error_ = NULL;
   is_right_ = false;
   _cached_size_ = 0;
 }
@@ -3493,6 +3857,9 @@ PasswordVerifyResponse::~PasswordVerifyResponse() {
 }
 
 void PasswordVerifyResponse::SharedDtor() {
+  if (this != &PasswordVerifyResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void PasswordVerifyResponse::SetCachedSize(int size) const {
@@ -3523,6 +3890,8 @@ PasswordVerifyResponse* PasswordVerifyResponse::New(::google::protobuf::Arena* a
 void PasswordVerifyResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PasswordVerifyResponse)
   is_right_ = false;
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool PasswordVerifyResponse::MergePartialFromCodedStream(
@@ -3542,6 +3911,19 @@ bool PasswordVerifyResponse::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &is_right_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -3578,6 +3960,12 @@ void PasswordVerifyResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->is_right(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.PasswordVerifyResponse)
 }
 
@@ -3588,6 +3976,13 @@ void PasswordVerifyResponse::SerializeWithCachedSizes(
   // optional bool is_right = 1;
   if (this->is_right() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->is_right(), target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:personal.PasswordVerifyResponse)
@@ -3601,6 +3996,13 @@ size_t PasswordVerifyResponse::ByteSizeLong() const {
   // optional bool is_right = 1;
   if (this->is_right() != 0) {
     total_size += 1 + 1;
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -3639,6 +4041,9 @@ void PasswordVerifyResponse::UnsafeMergeFrom(const PasswordVerifyResponse& from)
   if (from.is_right() != 0) {
     set_is_right(from.is_right());
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void PasswordVerifyResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3666,6 +4071,7 @@ void PasswordVerifyResponse::Swap(PasswordVerifyResponse* other) {
 }
 void PasswordVerifyResponse::InternalSwap(PasswordVerifyResponse* other) {
   std::swap(is_right_, other->is_right_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3693,6 +4099,45 @@ void PasswordVerifyResponse::set_is_right(bool value) {
   
   is_right_ = value;
   // @@protoc_insertion_point(field_set:personal.PasswordVerifyResponse.is_right)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool PasswordVerifyResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void PasswordVerifyResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& PasswordVerifyResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordVerifyResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* PasswordVerifyResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordVerifyResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* PasswordVerifyResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordVerifyResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void PasswordVerifyResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordVerifyResponse.error)
 }
 
 inline const PasswordVerifyResponse* PasswordVerifyResponse::internal_default_instance() {

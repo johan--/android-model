@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "grpcCommon/msg_error.proto"; // 错误码
+
 package personal;
 option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
@@ -19,6 +21,7 @@ message RegistRequest {
 // 注册返回
 message RegistResponse {
 	string user_id = 1; // 用户id
+	grpcCommon.GrpcError error = 2;
 }
 
 message UpdateRegistInfoRequest {
@@ -28,7 +31,7 @@ message UpdateRegistInfoRequest {
 }
 
 message UpdateRegistInfoResponse {
-
+	grpcCommon.GrpcError error = 1;
 }
 
 

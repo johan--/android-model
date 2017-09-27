@@ -71,6 +71,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginOutRequest, _internal_metadata_));
   LoginOutResponse_descriptor_ = file->message_type(1);
   static const int LoginOutResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginOutResponse, error_),
   };
   LoginOutResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -98,11 +99,12 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto() {
       sizeof(LoginRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _internal_metadata_));
   LoginResponse_descriptor_ = file->message_type(3);
-  static const int LoginResponse_offsets_[4] = {
+  static const int LoginResponse_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, user_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, user_avatar_url_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, login_token_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, error_),
   };
   LoginResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -216,6 +218,7 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5flogin_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   LoginOutRequest_default_instance_.DefaultConstruct();
   LoginOutResponse_default_instance_.DefaultConstruct();
@@ -249,25 +252,28 @@ void protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\036personalCenter/msg_login.proto\022\010person"
-    "al\"7\n\017LoginOutRequest\022\017\n\007user_id\030\001 \001(\t\022\023"
-    "\n\013login_token\030\002 \001(\t\"\022\n\020LoginOutResponse\""
-    "3\n\014LoginRequest\022\020\n\010password\030\001 \001(\t\022\021\n\tuse"
-    "r_name\030\002 \001(\t\"a\n\rLoginResponse\022\017\n\007user_id"
-    "\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\027\n\017user_avatar"
-    "_url\030\003 \001(\t\022\023\n\013login_token\030\004 \001(\t\"B\n\021Quick"
-    "LoginRequest\022\r\n\005phone\030\001 \001(\t\022\r\n\005token\030\002 \001"
-    "(\t\022\017\n\007captcha\030\003 \001(\t\"\177\n\027BindExistAccountR"
-    "equest\022\013\n\003uid\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\020"
-    "\n\010password\030\003 \001(\t\0222\n\020third_party_type\030\004 \001"
-    "(\0162\030.personal.ThirdPartyType\"~\n\024BindNewR"
-    "egistRequest\022\021\n\tuser_name\030\001 \001(\t\022\r\n\005email"
-    "\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\0222\n\020third_party_"
-    "type\030\004 \001(\0162\030.personal.ThirdPartyType*.\n\016"
-    "ThirdPartyType\022\n\n\006WECHAT\020\000\022\006\n\002QQ\020\001\022\010\n\004SI"
-    "NA\020\003B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006p"
-    "roto3", 685);
+    "al\032\032grpcCommon/msg_error.proto\"7\n\017LoginO"
+    "utRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013login_toke"
+    "n\030\002 \001(\t\"8\n\020LoginOutResponse\022$\n\005error\030\002 \001"
+    "(\0132\025.grpcCommon.GrpcError\"3\n\014LoginReques"
+    "t\022\020\n\010password\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\"\207"
+    "\001\n\rLoginResponse\022\017\n\007user_id\030\001 \001(\t\022\021\n\tuse"
+    "r_name\030\002 \001(\t\022\027\n\017user_avatar_url\030\003 \001(\t\022\023\n"
+    "\013login_token\030\004 \001(\t\022$\n\005error\030\005 \001(\0132\025.grpc"
+    "Common.GrpcError\"B\n\021QuickLoginRequest\022\r\n"
+    "\005phone\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\022\017\n\007captcha\030\003"
+    " \001(\t\"\177\n\027BindExistAccountRequest\022\013\n\003uid\030\001"
+    " \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\020\n\010password\030\003 \001("
+    "\t\0222\n\020third_party_type\030\004 \001(\0162\030.personal.T"
+    "hirdPartyType\"~\n\024BindNewRegistRequest\022\021\n"
+    "\tuser_name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010passw"
+    "ord\030\003 \001(\t\0222\n\020third_party_type\030\004 \001(\0162\030.pe"
+    "rsonal.ThirdPartyType*.\n\016ThirdPartyType\022"
+    "\n\n\006WECHAT\020\000\022\006\n\002QQ\020\001\022\010\n\004SINA\020\003B\037\n\024com.wan"
+    "fang.personalP\001\242\002\004WFPRb\006proto3", 790);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_login.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5flogin_2eproto);
 }
 
@@ -698,6 +704,7 @@ inline const LoginOutRequest* LoginOutRequest::internal_default_instance() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LoginOutResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LoginOutResponse::LoginOutResponse()
@@ -708,6 +715,8 @@ LoginOutResponse::LoginOutResponse()
 }
 
 void LoginOutResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 LoginOutResponse::LoginOutResponse(const LoginOutResponse& from)
@@ -719,6 +728,7 @@ LoginOutResponse::LoginOutResponse(const LoginOutResponse& from)
 }
 
 void LoginOutResponse::SharedCtor() {
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -728,6 +738,9 @@ LoginOutResponse::~LoginOutResponse() {
 }
 
 void LoginOutResponse::SharedDtor() {
+  if (this != &LoginOutResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void LoginOutResponse::SetCachedSize(int size) const {
@@ -757,6 +770,8 @@ LoginOutResponse* LoginOutResponse::New(::google::protobuf::Arena* arena) const 
 
 void LoginOutResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.LoginOutResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool LoginOutResponse::MergePartialFromCodedStream(
@@ -768,13 +783,30 @@ bool LoginOutResponse::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0 ||
-        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
   // @@protoc_insertion_point(parse_success:personal.LoginOutResponse)
@@ -788,6 +820,12 @@ failure:
 void LoginOutResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.LoginOutResponse)
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.LoginOutResponse)
 }
 
@@ -795,6 +833,13 @@ void LoginOutResponse::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.LoginOutResponse)
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.LoginOutResponse)
   return target;
 }
@@ -802,6 +847,13 @@ void LoginOutResponse::SerializeWithCachedSizes(
 size_t LoginOutResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.LoginOutResponse)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -836,6 +888,9 @@ void LoginOutResponse::MergeFrom(const LoginOutResponse& from) {
 
 void LoginOutResponse::UnsafeMergeFrom(const LoginOutResponse& from) {
   GOOGLE_DCHECK(&from != this);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void LoginOutResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -862,6 +917,7 @@ void LoginOutResponse::Swap(LoginOutResponse* other) {
   InternalSwap(other);
 }
 void LoginOutResponse::InternalSwap(LoginOutResponse* other) {
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -876,6 +932,45 @@ void LoginOutResponse::InternalSwap(LoginOutResponse* other) {
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LoginOutResponse
+
+// optional .grpcCommon.GrpcError error = 2;
+bool LoginOutResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void LoginOutResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& LoginOutResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.LoginOutResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* LoginOutResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.LoginOutResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* LoginOutResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.LoginOutResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void LoginOutResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginOutResponse.error)
+}
 
 inline const LoginOutResponse* LoginOutResponse::internal_default_instance() {
   return &LoginOutResponse_default_instance_.get();
@@ -1276,6 +1371,7 @@ const int LoginResponse::kUserIdFieldNumber;
 const int LoginResponse::kUserNameFieldNumber;
 const int LoginResponse::kUserAvatarUrlFieldNumber;
 const int LoginResponse::kLoginTokenFieldNumber;
+const int LoginResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LoginResponse::LoginResponse()
@@ -1286,6 +1382,8 @@ LoginResponse::LoginResponse()
 }
 
 void LoginResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 LoginResponse::LoginResponse(const LoginResponse& from)
@@ -1301,6 +1399,7 @@ void LoginResponse::SharedCtor() {
   user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_avatar_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -1314,6 +1413,9 @@ void LoginResponse::SharedDtor() {
   user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_avatar_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &LoginResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void LoginResponse::SetCachedSize(int size) const {
@@ -1347,6 +1449,8 @@ void LoginResponse::Clear() {
   user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_avatar_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool LoginResponse::MergePartialFromCodedStream(
@@ -1422,6 +1526,19 @@ bool LoginResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1490,6 +1607,12 @@ void LoginResponse::SerializeWithCachedSizes(
       4, this->login_token(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 5;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.LoginResponse)
 }
 
@@ -1541,6 +1664,13 @@ void LoginResponse::SerializeWithCachedSizes(
         4, this->login_token(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 5;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.LoginResponse)
   return target;
 }
@@ -1575,6 +1705,13 @@ size_t LoginResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->login_token());
+  }
+
+  // optional .grpcCommon.GrpcError error = 5;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1626,6 +1763,9 @@ void LoginResponse::UnsafeMergeFrom(const LoginResponse& from) {
 
     login_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_token_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void LoginResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1656,6 +1796,7 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
   user_name_.Swap(&other->user_name_);
   user_avatar_url_.Swap(&other->user_avatar_url_);
   login_token_.Swap(&other->login_token_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1845,6 +1986,45 @@ void LoginResponse::set_allocated_login_token(::std::string* login_token) {
   }
   login_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_token);
   // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.login_token)
+}
+
+// optional .grpcCommon.GrpcError error = 5;
+bool LoginResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void LoginResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& LoginResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.LoginResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* LoginResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.LoginResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* LoginResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.LoginResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void LoginResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.error)
 }
 
 inline const LoginResponse* LoginResponse::internal_default_instance() {

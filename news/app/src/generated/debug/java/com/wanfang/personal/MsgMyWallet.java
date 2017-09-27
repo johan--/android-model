@@ -34,9 +34,11 @@ public final class MsgMyWallet {
   static {
     java.lang.String[] descriptorData = {
       "\n\"personalCenter/msg_my_wallet.proto\022\010pe" +
-      "rsonal\"\"\n\017MyWalletRequest\022\017\n\007user_id\030\001 \001" +
-      "(\t\"#\n\020MyWalletResponse\022\017\n\007balance\030\001 \001(\tB" +
-      "\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3"
+      "rsonal\032\032grpcCommon/msg_error.proto\"\"\n\017My" +
+      "WalletRequest\022\017\n\007user_id\030\001 \001(\t\"I\n\020MyWall" +
+      "etResponse\022\017\n\007balance\030\001 \001(\t\022$\n\005error\030\002 \001" +
+      "(\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang" +
+      ".personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -49,6 +51,7 @@ public final class MsgMyWallet {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_MyWalletRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -61,7 +64,8 @@ public final class MsgMyWallet {
     internal_static_personal_MyWalletResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyWalletResponse_descriptor,
-        new java.lang.String[] { "Balance", });
+        new java.lang.String[] { "Balance", "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

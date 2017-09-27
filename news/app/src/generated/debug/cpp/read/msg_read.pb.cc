@@ -59,12 +59,13 @@ void protobuf_AssignDesc_read_2fmsg_5fread_2eproto() {
       sizeof(ReadRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadRequest, _internal_metadata_));
   ReadResponse_descriptor_ = file->message_type(1);
-  static const int ReadResponse_offsets_[5] = {
+  static const int ReadResponse_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, price_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, description_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, safe_transaction_string_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, has_trade_power_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, error_),
   };
   ReadResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -107,7 +108,7 @@ void protobuf_ShutdownFile_read_2fmsg_5fread_2eproto() {
 void protobuf_InitDefaults_read_2fmsg_5fread_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::protobuf_InitDefaults_google_2fprotobuf_2fany_2eproto();
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   ReadRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -126,19 +127,20 @@ void protobuf_AddDesc_read_2fmsg_5fread_2eproto_impl() {
 
   protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023read/msg_read.proto\022\010personal\032\031google/"
-    "protobuf/any.proto\"\231\001\n\013ReadRequest\022\017\n\007us"
-    "er_id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresourc"
-    "e_type\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resource"
-    "_title\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013log"
-    "in_token\030\007 \001(\t\"{\n\014ReadResponse\022\r\n\005price\030"
-    "\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 \001("
-    "\t\022\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017ha"
-    "s_trade_power\030\005 \001(\010B\033\n\020com.wanfang.readP"
-    "\001\242\002\004WFPRb\006proto3", 376);
+    "\n\023read/msg_read.proto\022\010personal\032\032grpcCom"
+    "mon/msg_error.proto\"\231\001\n\013ReadRequest\022\017\n\007u"
+    "ser_id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresour"
+    "ce_type\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resourc"
+    "e_title\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013lo"
+    "gin_token\030\007 \001(\t\"\241\001\n\014ReadResponse\022\r\n\005pric"
+    "e\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 "
+    "\001(\t\022\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017"
+    "has_trade_power\030\005 \001(\010\022$\n\005error\030\006 \001(\0132\025.g"
+    "rpcCommon.GrpcErrorB\033\n\020com.wanfang.readP"
+    "\001\242\002\004WFPRb\006proto3", 416);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "read/msg_read.proto", &protobuf_RegisterTypes);
-  ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_read_2fmsg_5fread_2eproto);
 }
 
@@ -1049,6 +1051,7 @@ const int ReadResponse::kTitleFieldNumber;
 const int ReadResponse::kDescriptionFieldNumber;
 const int ReadResponse::kSafeTransactionStringFieldNumber;
 const int ReadResponse::kHasTradePowerFieldNumber;
+const int ReadResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ReadResponse::ReadResponse()
@@ -1059,6 +1062,8 @@ ReadResponse::ReadResponse()
 }
 
 void ReadResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 ReadResponse::ReadResponse(const ReadResponse& from)
@@ -1074,6 +1079,7 @@ void ReadResponse::SharedCtor() {
   title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   has_trade_power_ = false;
   _cached_size_ = 0;
 }
@@ -1088,6 +1094,9 @@ void ReadResponse::SharedDtor() {
   title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &ReadResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void ReadResponse::SetCachedSize(int size) const {
@@ -1122,6 +1131,8 @@ void ReadResponse::Clear() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   has_trade_power_ = false;
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool ReadResponse::MergePartialFromCodedStream(
@@ -1212,6 +1223,19 @@ bool ReadResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(50)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1285,6 +1309,12 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->has_trade_power(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 6;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.ReadResponse)
 }
 
@@ -1341,6 +1371,13 @@ void ReadResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->has_trade_power(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 6;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        6, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.ReadResponse)
   return target;
 }
@@ -1380,6 +1417,13 @@ size_t ReadResponse::ByteSizeLong() const {
   // optional bool has_trade_power = 5;
   if (this->has_trade_power() != 0) {
     total_size += 1 + 1;
+  }
+
+  // optional .grpcCommon.GrpcError error = 6;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1434,6 +1478,9 @@ void ReadResponse::UnsafeMergeFrom(const ReadResponse& from) {
   if (from.has_trade_power() != 0) {
     set_has_trade_power(from.has_trade_power());
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void ReadResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1465,6 +1512,7 @@ void ReadResponse::InternalSwap(ReadResponse* other) {
   description_.Swap(&other->description_);
   safe_transaction_string_.Swap(&other->safe_transaction_string_);
   std::swap(has_trade_power_, other->has_trade_power_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1668,6 +1716,45 @@ void ReadResponse::set_has_trade_power(bool value) {
   
   has_trade_power_ = value;
   // @@protoc_insertion_point(field_set:personal.ReadResponse.has_trade_power)
+}
+
+// optional .grpcCommon.GrpcError error = 6;
+bool ReadResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void ReadResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& ReadResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.ReadResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* ReadResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* ReadResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.ReadResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void ReadResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.error)
 }
 
 inline const ReadResponse* ReadResponse::internal_default_instance() {

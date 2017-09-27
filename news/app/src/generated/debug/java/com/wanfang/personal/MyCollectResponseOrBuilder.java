@@ -44,4 +44,17 @@ public interface MyCollectResponseOrBuilder extends
    * <code>optional int32 total_count = 3;</code>
    */
   int getTotalCount();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 4;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 4;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 4;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

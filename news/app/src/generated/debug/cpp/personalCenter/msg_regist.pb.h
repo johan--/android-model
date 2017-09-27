@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -257,11 +258,21 @@ class RegistResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_user_id();
   void set_allocated_user_id(::std::string* user_id);
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.RegistResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl();
@@ -452,10 +463,20 @@ class UpdateRegistInfoResponse : public ::google::protobuf::Message /* @@protoc_
 
   // accessors -------------------------------------------------------
 
+  // optional .grpcCommon.GrpcError error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.UpdateRegistInfoResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl();
@@ -745,6 +766,45 @@ inline void RegistResponse::set_allocated_user_id(::std::string* user_id) {
   // @@protoc_insertion_point(field_set_allocated:personal.RegistResponse.user_id)
 }
 
+// optional .grpcCommon.GrpcError error = 2;
+inline bool RegistResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void RegistResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& RegistResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.RegistResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* RegistResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.RegistResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* RegistResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.RegistResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void RegistResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.RegistResponse.error)
+}
+
 inline const RegistResponse* RegistResponse::internal_default_instance() {
   return &RegistResponse_default_instance_.get();
 }
@@ -890,6 +950,45 @@ inline const UpdateRegistInfoRequest* UpdateRegistInfoRequest::internal_default_
 // -------------------------------------------------------------------
 
 // UpdateRegistInfoResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+inline bool UpdateRegistInfoResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void UpdateRegistInfoResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& UpdateRegistInfoResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UpdateRegistInfoResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* UpdateRegistInfoResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UpdateRegistInfoResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* UpdateRegistInfoResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UpdateRegistInfoResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void UpdateRegistInfoResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UpdateRegistInfoResponse.error)
+}
 
 inline const UpdateRegistInfoResponse* UpdateRegistInfoResponse::internal_default_instance() {
   return &UpdateRegistInfoResponse_default_instance_.get();

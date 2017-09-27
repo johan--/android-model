@@ -63,4 +63,17 @@ public interface ReadResponseOrBuilder extends
    * <code>optional bool has_trade_power = 5;</code>
    */
   boolean getHasTradePower();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.di.scope.ActivityScope;
 import com.tb.wangfang.news.ui.activity.DocDetailActivity;
+import com.tb.wangfang.news.ui.activity.EditNackNameActivity;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
@@ -51,4 +52,7 @@ public interface ActivityComponent {
     void inject(PersonEditListActivity personEditListActivity);
 
     void inject(EditPersonInforActivity editPersonInforActivity);
+
+    void inject(EditNackNameActivity editNackNameActivity);
+
 }

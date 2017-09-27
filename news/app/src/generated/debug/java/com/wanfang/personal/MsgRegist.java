@@ -44,14 +44,17 @@ public final class MsgRegist {
   static {
     java.lang.String[] descriptorData = {
       "\n\037personalCenter/msg_regist.proto\022\010perso" +
-      "nal\"i\n\rRegistRequest\022\020\n\010password\030\001 \001(\t\022\r" +
-      "\n\005phone\030\002 \001(\t\022\025\n\rphone_captcha\030\003 \001(\t\022\021\n\t" +
-      "user_name\030\004 \001(\t\022\r\n\005token\030\005 \001(\t\"!\n\016Regist" +
-      "Response\022\017\n\007user_id\030\001 \001(\t\"S\n\027UpdateRegis" +
-      "tInfoRequest\022\017\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002" +
-      " \001(\t\022\030\n\020interest_subject\030\003 \001(\t\"\032\n\030Update" +
-      "RegistInfoResponseB\037\n\024com.wanfang.person" +
-      "alP\001\242\002\004WFPRb\006proto3"
+      "nal\032\032grpcCommon/msg_error.proto\"i\n\rRegis" +
+      "tRequest\022\020\n\010password\030\001 \001(\t\022\r\n\005phone\030\002 \001(" +
+      "\t\022\025\n\rphone_captcha\030\003 \001(\t\022\021\n\tuser_name\030\004 " +
+      "\001(\t\022\r\n\005token\030\005 \001(\t\"G\n\016RegistResponse\022\017\n\007" +
+      "user_id\030\001 \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommo" +
+      "n.GrpcError\"S\n\027UpdateRegistInfoRequest\022\017" +
+      "\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\030\n\020intere" +
+      "st_subject\030\003 \001(\t\"@\n\030UpdateRegistInfoResp" +
+      "onse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErr",
+      "orB\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -64,6 +67,7 @@ public final class MsgRegist {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_RegistRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -76,7 +80,7 @@ public final class MsgRegist {
     internal_static_personal_RegistResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_RegistResponse_descriptor,
-        new java.lang.String[] { "UserId", });
+        new java.lang.String[] { "UserId", "Error", });
     internal_static_personal_UpdateRegistInfoRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_personal_UpdateRegistInfoRequest_fieldAccessorTable = new
@@ -88,7 +92,8 @@ public final class MsgRegist {
     internal_static_personal_UpdateRegistInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_UpdateRegistInfoResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

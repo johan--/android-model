@@ -181,10 +181,11 @@
         <activity android:name=".ui.activity.QuestionActivity" />
         <activity android:name=".ui.activity.NormalQuestionActivity" />
         <activity android:name=".ui.activity.ImageBrowseActivity" />
-        <activity android:name=".ui.activity.editNackNameActivity" />
+        <activity android:name=".ui.activity.EditNackNameActivity" />
         <activity android:name=".ui.activity.PersonEditListActivity" />
         <activity android:name=".ui.activity.EditRewardActivity" />
         <activity android:name=".ui.activity.MainDetailActivity"></activity>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
         <!--微信支付 -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"

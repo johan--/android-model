@@ -33,14 +33,15 @@ public final class MsgTrade {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025trade/msg_trade.proto\022\010personal\"G\n\023Uni" +
-      "fiedorderRequest\022\017\n\007user_id\030\001 \001(\t\022\037\n\027saf" +
-      "e_transaction_string\030\002 \001(\t\"\222\001\n\024Unifiedor" +
-      "derResponse\022\016\n\006app_id\030\001 \001(\t\022\022\n\npartner_i" +
-      "d\030\002 \001(\t\022\021\n\tprepay_id\030\003 \001(\t\022\017\n\007package\030\004 " +
-      "\001(\t\022\020\n\010noncestr\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(" +
-      "\t\022\014\n\004sign\030\007 \001(\tB\034\n\021com.wanfang.tradeP\001\242\002" +
-      "\004WFPRb\006proto3"
+      "\n\025trade/msg_trade.proto\022\010personal\032\032grpcC" +
+      "ommon/msg_error.proto\"G\n\023UnifiedorderReq" +
+      "uest\022\017\n\007user_id\030\001 \001(\t\022\037\n\027safe_transactio" +
+      "n_string\030\002 \001(\t\"\270\001\n\024UnifiedorderResponse\022" +
+      "\016\n\006app_id\030\001 \001(\t\022\022\n\npartner_id\030\002 \001(\t\022\021\n\tp" +
+      "repay_id\030\003 \001(\t\022\017\n\007package\030\004 \001(\t\022\020\n\010nonce" +
+      "str\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(\t\022\014\n\004sign\030\007 " +
+      "\001(\t\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcErro" +
+      "rB\034\n\021com.wanfang.tradeP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -53,6 +54,7 @@ public final class MsgTrade {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_UnifiedorderRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -65,7 +67,8 @@ public final class MsgTrade {
     internal_static_personal_UnifiedorderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_UnifiedorderResponse_descriptor,
-        new java.lang.String[] { "AppId", "PartnerId", "PrepayId", "Package", "Noncestr", "TimeStamp", "Sign", });
+        new java.lang.String[] { "AppId", "PartnerId", "PrepayId", "Package", "Noncestr", "TimeStamp", "Sign", "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -58,10 +58,11 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fmy_5forders_2eproto() {
       sizeof(MyOrdersRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersRequest, _internal_metadata_));
   MyOrdersResponse_descriptor_ = file->message_type(1);
-  static const int MyOrdersResponse_offsets_[3] = {
+  static const int MyOrdersResponse_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, results_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, total_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, has_more_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, error_),
   };
   MyOrdersResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -128,6 +129,7 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fmy_5forders_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5forders_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   MyOrdersRequest_default_instance_.DefaultConstruct();
   MyOrdersResponse_default_instance_.DefaultConstruct();
@@ -149,18 +151,21 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fmy_5forders_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5forders_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\"personalCenter/msg_my_orders.proto\022\010pe"
-    "rsonal\"J\n\017MyOrdersRequest\022\017\n\007user_id\030\001 \001"
-    "(\t\022\023\n\013page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001"
-    "(\005\"\213\002\n\020MyOrdersResponse\0222\n\007results\030\001 \003(\013"
-    "2!.personal.MyOrdersResponse.Result\022\023\n\013t"
-    "otal_count\030\002 \001(\005\022\020\n\010has_more\030\003 \001(\010\032\233\001\n\006R"
-    "esult\022\020\n\010order_id\030\001 \001(\t\022\023\n\013create_time\030\002"
-    " \001(\t\022\023\n\013order_money\030\003 \001(\t\022\032\n\022order_produ"
-    "ct_type\030\005 \001(\t\022\023\n\013order_state\030\006 \001(\005\022\023\n\013or"
-    "der_title\030\007 \001(\t\022\017\n\007pay_way\030\010 \001(\tB\037\n\024com."
-    "wanfang.personalP\001\242\002\004WFPRb\006proto3", 433);
+    "rsonal\032\032grpcCommon/msg_error.proto\"J\n\017My"
+    "OrdersRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_n"
+    "umber\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\261\002\n\020MyOrd"
+    "ersResponse\0222\n\007results\030\001 \003(\0132!.personal."
+    "MyOrdersResponse.Result\022\023\n\013total_count\030\002"
+    " \001(\005\022\020\n\010has_more\030\003 \001(\010\022$\n\005error\030\004 \001(\0132\025."
+    "grpcCommon.GrpcError\032\233\001\n\006Result\022\020\n\010order"
+    "_id\030\001 \001(\t\022\023\n\013create_time\030\002 \001(\t\022\023\n\013order_"
+    "money\030\003 \001(\t\022\032\n\022order_product_type\030\005 \001(\t\022"
+    "\023\n\013order_state\030\006 \001(\005\022\023\n\013order_title\030\007 \001("
+    "\t\022\017\n\007pay_way\030\010 \001(\tB\037\n\024com.wanfang.person"
+    "alP\001\242\002\004WFPRb\006proto3", 499);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_my_orders.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fmy_5forders_2eproto);
 }
 
@@ -1153,6 +1158,7 @@ void MyOrdersResponse_Result::InternalSwap(MyOrdersResponse_Result* other) {
 const int MyOrdersResponse::kResultsFieldNumber;
 const int MyOrdersResponse::kTotalCountFieldNumber;
 const int MyOrdersResponse::kHasMoreFieldNumber;
+const int MyOrdersResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MyOrdersResponse::MyOrdersResponse()
@@ -1163,6 +1169,8 @@ MyOrdersResponse::MyOrdersResponse()
 }
 
 void MyOrdersResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 MyOrdersResponse::MyOrdersResponse(const MyOrdersResponse& from)
@@ -1174,6 +1182,7 @@ MyOrdersResponse::MyOrdersResponse(const MyOrdersResponse& from)
 }
 
 void MyOrdersResponse::SharedCtor() {
+  error_ = NULL;
   ::memset(&total_count_, 0, reinterpret_cast<char*>(&has_more_) -
     reinterpret_cast<char*>(&total_count_) + sizeof(has_more_));
   _cached_size_ = 0;
@@ -1185,6 +1194,9 @@ MyOrdersResponse::~MyOrdersResponse() {
 }
 
 void MyOrdersResponse::SharedDtor() {
+  if (this != &MyOrdersResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void MyOrdersResponse::SetCachedSize(int size) const {
@@ -1231,6 +1243,8 @@ void MyOrdersResponse::Clear() {
 } while (0)
 
   ZR_(total_count_, has_more_);
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -1290,6 +1304,19 @@ bool MyOrdersResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(34)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1334,6 +1361,12 @@ void MyOrdersResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->has_more(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 4;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.MyOrdersResponse)
 }
 
@@ -1358,6 +1391,13 @@ void MyOrdersResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->has_more(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 4;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.MyOrdersResponse)
   return target;
 }
@@ -1376,6 +1416,13 @@ size_t MyOrdersResponse::ByteSizeLong() const {
   // optional bool has_more = 3;
   if (this->has_more() != 0) {
     total_size += 1 + 1;
+  }
+
+  // optional .grpcCommon.GrpcError error = 4;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   // repeated .personal.MyOrdersResponse.Result results = 1;
@@ -1429,6 +1476,9 @@ void MyOrdersResponse::UnsafeMergeFrom(const MyOrdersResponse& from) {
   if (from.has_more() != 0) {
     set_has_more(from.has_more());
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void MyOrdersResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1458,6 +1508,7 @@ void MyOrdersResponse::InternalSwap(MyOrdersResponse* other) {
   results_.UnsafeArenaSwap(&other->results_);
   std::swap(total_count_, other->total_count_);
   std::swap(has_more_, other->has_more_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1814,6 +1865,45 @@ void MyOrdersResponse::set_has_more(bool value) {
   
   has_more_ = value;
   // @@protoc_insertion_point(field_set:personal.MyOrdersResponse.has_more)
+}
+
+// optional .grpcCommon.GrpcError error = 4;
+bool MyOrdersResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void MyOrdersResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& MyOrdersResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyOrdersResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* MyOrdersResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyOrdersResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* MyOrdersResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyOrdersResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void MyOrdersResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyOrdersResponse.error)
 }
 
 inline const MyOrdersResponse* MyOrdersResponse::internal_default_instance() {

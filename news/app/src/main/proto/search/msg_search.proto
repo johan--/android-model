@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/any.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
 
 package personal;
 option java_multiple_files = true;
@@ -15,6 +16,7 @@ message HotThemesRequest {
 }
 message HotThemesResponse {
     repeated string themes_title = 1;
+    grpcCommon.GrpcError error = 2;
 }
 
 message SearchHistoryRequest {
@@ -24,4 +26,5 @@ message SearchHistoryRequest {
 }
 message SearchHistoryResponse {
     repeated string history_title = 1;
+    grpcCommon.GrpcError error = 2;
 }

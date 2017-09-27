@@ -24,4 +24,17 @@ public interface MyWalletResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getBalanceBytes();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

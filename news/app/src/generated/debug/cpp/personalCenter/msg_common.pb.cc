@@ -64,9 +64,10 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fcommon_2eproto() {
       sizeof(PhoneCaptchaRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PhoneCaptchaRequest, _internal_metadata_));
   PhoneCaptchaResponse_descriptor_ = file->message_type(1);
-  static const int PhoneCaptchaResponse_offsets_[2] = {
+  static const int PhoneCaptchaResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PhoneCaptchaResponse, phone_captcha_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PhoneCaptchaResponse, token_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PhoneCaptchaResponse, error_),
   };
   PhoneCaptchaResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -112,8 +113,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fcommon_2eproto() {
       sizeof(UploadFileRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UploadFileRequest, _internal_metadata_));
   UploadFileResponse_descriptor_ = file->message_type(4);
-  static const int UploadFileResponse_offsets_[1] = {
+  static const int UploadFileResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UploadFileResponse, upload_urls_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UploadFileResponse, error_),
   };
   UploadFileResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -187,13 +189,13 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fcommon_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5fcommon_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   PhoneCaptchaRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   PhoneCaptchaResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   FileMetaData_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
   ::google::protobuf::internal::GetEmptyString();
   UploadFileRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -217,22 +219,25 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fcommon_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fcommon_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\037personalCenter/msg_common.proto\022\010perso"
-    "nal\"$\n\023PhoneCaptchaRequest\022\r\n\005phone\030\001 \001("
-    "\t\"<\n\024PhoneCaptchaResponse\022\025\n\rphone_captc"
-    "ha\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\"\243\001\n\014FileMetaData"
-    "\0222\n\006labels\030\001 \003(\0132\".personal.FileMetaData"
-    ".LabelsEntry\022\014\n\004type\030\002 \001(\t\022\r\n\005owner\030\003 \001("
-    "\t\022\023\n\013login_token\030\004 \001(\t\032-\n\013LabelsEntry\022\013\n"
-    "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"Q\n\021UploadF"
-    "ileRequest\022)\n\tmeta_data\030\001 \001(\0132\026.personal"
-    ".FileMetaData\022\021\n\tfile_data\030\002 \001(\014\"\212\001\n\022Upl"
-    "oadFileResponse\022A\n\013upload_urls\030\001 \003(\0132,.p"
-    "ersonal.UploadFileResponse.UploadUrlsEnt"
-    "ry\0321\n\017UploadUrlsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va"
-    "lue\030\002 \001(\t:\0028\001B\037\n\024com.wanfang.personalP\001\242"
-    "\002\004WFPRb\006proto3", 574);
+    "nal\032\032grpcCommon/msg_error.proto\"$\n\023Phone"
+    "CaptchaRequest\022\r\n\005phone\030\001 \001(\t\"b\n\024PhoneCa"
+    "ptchaResponse\022\025\n\rphone_captcha\030\001 \001(\t\022\r\n\005"
+    "token\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon."
+    "GrpcError\"\243\001\n\014FileMetaData\0222\n\006labels\030\001 \003"
+    "(\0132\".personal.FileMetaData.LabelsEntry\022\014"
+    "\n\004type\030\002 \001(\t\022\r\n\005owner\030\003 \001(\t\022\023\n\013login_tok"
+    "en\030\004 \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
+    "value\030\002 \001(\t:\0028\001\"Q\n\021UploadFileRequest\022)\n\t"
+    "meta_data\030\001 \001(\0132\026.personal.FileMetaData\022"
+    "\021\n\tfile_data\030\002 \001(\014\"\260\001\n\022UploadFileRespons"
+    "e\022A\n\013upload_urls\030\001 \003(\0132,.personal.Upload"
+    "FileResponse.UploadUrlsEntry\022$\n\005error\030\002 "
+    "\001(\0132\025.grpcCommon.GrpcError\0321\n\017UploadUrls"
+    "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\037\n"
+    "\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3", 678);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_common.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fcommon_2eproto);
 }
 
@@ -552,6 +557,7 @@ inline const PhoneCaptchaRequest* PhoneCaptchaRequest::internal_default_instance
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PhoneCaptchaResponse::kPhoneCaptchaFieldNumber;
 const int PhoneCaptchaResponse::kTokenFieldNumber;
+const int PhoneCaptchaResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PhoneCaptchaResponse::PhoneCaptchaResponse()
@@ -562,6 +568,8 @@ PhoneCaptchaResponse::PhoneCaptchaResponse()
 }
 
 void PhoneCaptchaResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 PhoneCaptchaResponse::PhoneCaptchaResponse(const PhoneCaptchaResponse& from)
@@ -575,6 +583,7 @@ PhoneCaptchaResponse::PhoneCaptchaResponse(const PhoneCaptchaResponse& from)
 void PhoneCaptchaResponse::SharedCtor() {
   phone_captcha_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -586,6 +595,9 @@ PhoneCaptchaResponse::~PhoneCaptchaResponse() {
 void PhoneCaptchaResponse::SharedDtor() {
   phone_captcha_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &PhoneCaptchaResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void PhoneCaptchaResponse::SetCachedSize(int size) const {
@@ -617,6 +629,8 @@ void PhoneCaptchaResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PhoneCaptchaResponse)
   phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool PhoneCaptchaResponse::MergePartialFromCodedStream(
@@ -655,6 +669,19 @@ bool PhoneCaptchaResponse::MergePartialFromCodedStream(
             this->token().data(), this->token().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.PhoneCaptchaResponse.token"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -706,6 +733,12 @@ void PhoneCaptchaResponse::SerializeWithCachedSizes(
       2, this->token(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.PhoneCaptchaResponse)
 }
 
@@ -735,6 +768,13 @@ void PhoneCaptchaResponse::SerializeWithCachedSizes(
         2, this->token(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.PhoneCaptchaResponse)
   return target;
 }
@@ -755,6 +795,13 @@ size_t PhoneCaptchaResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->token());
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -798,6 +845,9 @@ void PhoneCaptchaResponse::UnsafeMergeFrom(const PhoneCaptchaResponse& from) {
 
     token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void PhoneCaptchaResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -826,6 +876,7 @@ void PhoneCaptchaResponse::Swap(PhoneCaptchaResponse* other) {
 void PhoneCaptchaResponse::InternalSwap(PhoneCaptchaResponse* other) {
   phone_captcha_.Swap(&other->phone_captcha_);
   token_.Swap(&other->token_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -927,6 +978,45 @@ void PhoneCaptchaResponse::set_allocated_token(::std::string* token) {
   }
   token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
   // @@protoc_insertion_point(field_set_allocated:personal.PhoneCaptchaResponse.token)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
+bool PhoneCaptchaResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void PhoneCaptchaResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& PhoneCaptchaResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PhoneCaptchaResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* PhoneCaptchaResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PhoneCaptchaResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* PhoneCaptchaResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PhoneCaptchaResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void PhoneCaptchaResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PhoneCaptchaResponse.error)
 }
 
 inline const PhoneCaptchaResponse* PhoneCaptchaResponse::internal_default_instance() {
@@ -1966,6 +2056,7 @@ inline const UploadFileRequest* UploadFileRequest::internal_default_instance() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int UploadFileResponse::kUploadUrlsFieldNumber;
+const int UploadFileResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UploadFileResponse::UploadFileResponse()
@@ -1976,6 +2067,8 @@ UploadFileResponse::UploadFileResponse()
 }
 
 void UploadFileResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 UploadFileResponse::UploadFileResponse(const UploadFileResponse& from)
@@ -1991,6 +2084,7 @@ void UploadFileResponse::SharedCtor() {
       protobuf_AssignDescriptorsOnce);
   upload_urls_.SetEntryDescriptor(
       &::personal::UploadFileResponse_UploadUrlsEntry_descriptor_);
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -2000,6 +2094,9 @@ UploadFileResponse::~UploadFileResponse() {
 }
 
 void UploadFileResponse::SharedDtor() {
+  if (this != &UploadFileResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void UploadFileResponse::SetCachedSize(int size) const {
@@ -2029,6 +2126,8 @@ UploadFileResponse* UploadFileResponse::New(::google::protobuf::Arena* arena) co
 
 void UploadFileResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.UploadFileResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
   upload_urls_.Clear();
 }
 
@@ -2068,6 +2167,19 @@ bool UploadFileResponse::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(10)) goto parse_loop_upload_urls;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2149,6 +2261,12 @@ void UploadFileResponse::SerializeWithCachedSizes(
     }
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.UploadFileResponse)
 }
 
@@ -2213,6 +2331,13 @@ void UploadFileResponse::SerializeWithCachedSizes(
     }
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.UploadFileResponse)
   return target;
 }
@@ -2220,6 +2345,13 @@ void UploadFileResponse::SerializeWithCachedSizes(
 size_t UploadFileResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.UploadFileResponse)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   // map<string, string> upload_urls = 1;
   total_size += 1 *
@@ -2269,6 +2401,9 @@ void UploadFileResponse::MergeFrom(const UploadFileResponse& from) {
 void UploadFileResponse::UnsafeMergeFrom(const UploadFileResponse& from) {
   GOOGLE_DCHECK(&from != this);
   upload_urls_.MergeFrom(from.upload_urls_);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void UploadFileResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2296,6 +2431,7 @@ void UploadFileResponse::Swap(UploadFileResponse* other) {
 }
 void UploadFileResponse::InternalSwap(UploadFileResponse* other) {
   upload_urls_.Swap(&other->upload_urls_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2327,6 +2463,45 @@ UploadFileResponse::upload_urls() const {
 UploadFileResponse::mutable_upload_urls() {
   // @@protoc_insertion_point(field_mutable_map:personal.UploadFileResponse.upload_urls)
   return upload_urls_.MutableMap();
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool UploadFileResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void UploadFileResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& UploadFileResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UploadFileResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* UploadFileResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UploadFileResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* UploadFileResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UploadFileResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void UploadFileResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UploadFileResponse.error)
 }
 
 inline const UploadFileResponse* UploadFileResponse::internal_default_instance() {

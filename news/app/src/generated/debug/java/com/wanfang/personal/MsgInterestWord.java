@@ -34,10 +34,12 @@ public final class MsgInterestWord {
   static {
     java.lang.String[] descriptorData = {
       "\n&personalCenter/msg_interest_word.proto" +
-      "\022\010personal\")\n\026InterestSubjectRequest\022\017\n\007" +
-      "keyword\030\001 \001(\t\"?\n\027InterestSubjectResponse" +
-      "\022\017\n\007subject\030\001 \003(\t\022\023\n\013total_count\030\002 \001(\005B\037" +
-      "\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3"
+      "\022\010personal\032\032grpcCommon/msg_error.proto\")" +
+      "\n\026InterestSubjectRequest\022\017\n\007keyword\030\001 \001(" +
+      "\t\"e\n\027InterestSubjectResponse\022\017\n\007subject\030" +
+      "\001 \003(\t\022\023\n\013total_count\030\002 \001(\005\022$\n\005error\030\003 \001(" +
+      "\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang." +
+      "personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -50,6 +52,7 @@ public final class MsgInterestWord {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_InterestSubjectRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -62,7 +65,8 @@ public final class MsgInterestWord {
     internal_static_personal_InterestSubjectResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InterestSubjectResponse_descriptor,
-        new java.lang.String[] { "Subject", "TotalCount", });
+        new java.lang.String[] { "Subject", "TotalCount", "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

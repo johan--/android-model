@@ -33,15 +33,16 @@ public final class MsgRead {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023read/msg_read.proto\022\010personal\032\031google/" +
-      "protobuf/any.proto\"\231\001\n\013ReadRequest\022\017\n\007us" +
-      "er_id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresourc" +
-      "e_type\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resource" +
-      "_title\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013log" +
-      "in_token\030\007 \001(\t\"{\n\014ReadResponse\022\r\n\005price\030" +
-      "\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 \001(" +
-      "\t\022\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017ha" +
-      "s_trade_power\030\005 \001(\010B\033\n\020com.wanfang.readP" +
+      "\n\023read/msg_read.proto\022\010personal\032\032grpcCom" +
+      "mon/msg_error.proto\"\231\001\n\013ReadRequest\022\017\n\007u" +
+      "ser_id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresour" +
+      "ce_type\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resourc" +
+      "e_title\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013lo" +
+      "gin_token\030\007 \001(\t\"\241\001\n\014ReadResponse\022\r\n\005pric" +
+      "e\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 " +
+      "\001(\t\022\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017" +
+      "has_trade_power\030\005 \001(\010\022$\n\005error\030\006 \001(\0132\025.g" +
+      "rpcCommon.GrpcErrorB\033\n\020com.wanfang.readP",
       "\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -55,7 +56,7 @@ public final class MsgRead {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.AnyProto.getDescriptor(),
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_ReadRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -68,8 +69,8 @@ public final class MsgRead {
     internal_static_personal_ReadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_ReadResponse_descriptor,
-        new java.lang.String[] { "Price", "Title", "Description", "SafeTransactionString", "HasTradePower", });
-    com.google.protobuf.AnyProto.getDescriptor();
+        new java.lang.String[] { "Price", "Title", "Description", "SafeTransactionString", "HasTradePower", "Error", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

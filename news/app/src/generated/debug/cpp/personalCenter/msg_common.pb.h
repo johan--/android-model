@@ -29,6 +29,7 @@
 #include <google/protobuf/map.h>
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -223,12 +224,22 @@ class PhoneCaptchaResponse : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_token();
   void set_allocated_token(::std::string* token);
 
+  // optional .grpcCommon.GrpcError error = 3;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.PhoneCaptchaResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr phone_captcha_;
   ::google::protobuf::internal::ArenaStringPtr token_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fcommon_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fcommon_2eproto_impl();
@@ -551,6 +562,15 @@ class UploadFileResponse : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::Map< ::std::string, ::std::string >*
       mutable_upload_urls();
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.UploadFileResponse)
  private:
 
@@ -566,6 +586,7 @@ class UploadFileResponse : public ::google::protobuf::Message /* @@protoc_insert
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 > upload_urls_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fcommon_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fcommon_2eproto_impl();
@@ -721,6 +742,45 @@ inline void PhoneCaptchaResponse::set_allocated_token(::std::string* token) {
   }
   token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
   // @@protoc_insertion_point(field_set_allocated:personal.PhoneCaptchaResponse.token)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
+inline bool PhoneCaptchaResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void PhoneCaptchaResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& PhoneCaptchaResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PhoneCaptchaResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* PhoneCaptchaResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PhoneCaptchaResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* PhoneCaptchaResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PhoneCaptchaResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void PhoneCaptchaResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PhoneCaptchaResponse.error)
 }
 
 inline const PhoneCaptchaResponse* PhoneCaptchaResponse::internal_default_instance() {
@@ -993,6 +1053,45 @@ inline ::google::protobuf::Map< ::std::string, ::std::string >*
 UploadFileResponse::mutable_upload_urls() {
   // @@protoc_insertion_point(field_mutable_map:personal.UploadFileResponse.upload_urls)
   return upload_urls_.MutableMap();
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool UploadFileResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void UploadFileResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& UploadFileResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UploadFileResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* UploadFileResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UploadFileResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* UploadFileResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UploadFileResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void UploadFileResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UploadFileResponse.error)
 }
 
 inline const UploadFileResponse* UploadFileResponse::internal_default_instance() {

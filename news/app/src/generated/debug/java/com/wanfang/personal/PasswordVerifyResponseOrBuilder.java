@@ -11,4 +11,17 @@ public interface PasswordVerifyResponseOrBuilder extends
    * <code>optional bool is_right = 1;</code>
    */
   boolean getIsRight();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

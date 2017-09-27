@@ -30,6 +30,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CollectBody_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CollectBody_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MyCollectDetailRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MyCollectDetailRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MyCollectDetailResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MyCollectDetailResponse_reflection_ = NULL;
 
 }  // namespace
 
@@ -58,10 +64,11 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fmy_5fcollect_2eproto() {
       sizeof(MyCollectRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectRequest, _internal_metadata_));
   MyCollectResponse_descriptor_ = file->message_type(1);
-  static const int MyCollectResponse_offsets_[3] = {
+  static const int MyCollectResponse_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectResponse, results_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectResponse, has_more_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectResponse, total_count_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectResponse, error_),
   };
   MyCollectResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -74,11 +81,12 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fmy_5fcollect_2eproto() {
       sizeof(MyCollectResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectResponse, _internal_metadata_));
   CollectBody_descriptor_ = file->message_type(2);
-  static const int CollectBody_offsets_[4] = {
+  static const int CollectBody_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectBody, docu_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectBody, docu_title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectBody, add_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectBody, star_level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectBody, docu_type_),
   };
   CollectBody_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -90,6 +98,42 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fmy_5fcollect_2eproto() {
       -1,
       sizeof(CollectBody),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectBody, _internal_metadata_));
+  MyCollectDetailRequest_descriptor_ = file->message_type(3);
+  static const int MyCollectDetailRequest_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailRequest, artical_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailRequest, artical_type_),
+  };
+  MyCollectDetailRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MyCollectDetailRequest_descriptor_,
+      MyCollectDetailRequest::internal_default_instance(),
+      MyCollectDetailRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(MyCollectDetailRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailRequest, _internal_metadata_));
+  MyCollectDetailResponse_descriptor_ = file->message_type(4);
+  static const int MyCollectDetailResponse_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, title_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, summary_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, artical_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, stand_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, work_limit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, publish_place_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, subject_code_),
+  };
+  MyCollectDetailResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MyCollectDetailResponse_descriptor_,
+      MyCollectDetailResponse::internal_default_instance(),
+      MyCollectDetailResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(MyCollectDetailResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyCollectDetailResponse, _internal_metadata_));
 }
 
 namespace {
@@ -109,6 +153,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
       MyCollectResponse_descriptor_, MyCollectResponse::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       CollectBody_descriptor_, CollectBody::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MyCollectDetailRequest_descriptor_, MyCollectDetailRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MyCollectDetailResponse_descriptor_, MyCollectDetailResponse::internal_default_instance());
 }
 
 }  // namespace
@@ -120,20 +168,31 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fmy_5fcollect_2eproto() {
   delete MyCollectResponse_reflection_;
   CollectBody_default_instance_.Shutdown();
   delete CollectBody_reflection_;
+  MyCollectDetailRequest_default_instance_.Shutdown();
+  delete MyCollectDetailRequest_reflection_;
+  MyCollectDetailResponse_default_instance_.Shutdown();
+  delete MyCollectDetailResponse_reflection_;
 }
 
 void protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::protobuf_InitDefaults_google_2fprotobuf_2fany_2eproto();
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   MyCollectRequest_default_instance_.DefaultConstruct();
   MyCollectResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   CollectBody_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  MyCollectDetailRequest_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  MyCollectDetailResponse_default_instance_.DefaultConstruct();
   MyCollectRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyCollectResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   CollectBody_default_instance_.get_mutable()->InitAsDefaultInstance();
+  MyCollectDetailRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  MyCollectDetailResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto_once_);
@@ -147,18 +206,28 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fmy_5fcollect_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n#personalCenter/msg_my_collect.proto\022\010p"
-    "ersonal\032\031google/protobuf/any.proto\"K\n\020My"
-    "CollectRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_"
-    "number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"a\n\021MyCol"
-    "lectResponse\022%\n\007results\030\001 \003(\0132\024.google.p"
-    "rotobuf.Any\022\020\n\010has_more\030\002 \001(\010\022\023\n\013total_c"
-    "ount\030\003 \001(\005\"X\n\013CollectBody\022\017\n\007docu_id\030\001 \001"
-    "(\t\022\022\n\ndocu_title\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t"
-    "\022\022\n\nstar_level\030\004 \001(\005B\037\n\024com.wanfang.pers"
-    "onalP\001\242\002\004WFPRb\006proto3", 381);
+    "ersonal\032\031google/protobuf/any.proto\032\032grpc"
+    "Common/msg_error.proto\"K\n\020MyCollectReque"
+    "st\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005"
+    "\022\021\n\tpage_size\030\003 \001(\005\"\207\001\n\021MyCollectRespons"
+    "e\022%\n\007results\030\001 \003(\0132\024.google.protobuf.Any"
+    "\022\020\n\010has_more\030\002 \001(\010\022\023\n\013total_count\030\003 \001(\005\022"
+    "$\n\005error\030\004 \001(\0132\025.grpcCommon.GrpcError\"k\n"
+    "\013CollectBody\022\017\n\007docu_id\030\001 \001(\t\022\022\n\ndocu_ti"
+    "tle\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t\022\022\n\nstar_leve"
+    "l\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t\"B\n\026MyCollectD"
+    "etailRequest\022\022\n\nartical_id\030\001 \001(\t\022\024\n\014arti"
+    "cal_type\030\002 \001(\t\"\307\001\n\027MyCollectDetailRespon"
+    "se\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcError"
+    "\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\022\n\narti"
+    "cal_id\030\004 \001(\t\022\021\n\tstand_num\030\005 \001(\t\022\022\n\nwork_"
+    "limit\030\006 \001(\t\022\025\n\rpublish_place\030\007 \001(\t\022\024\n\014su"
+    "bject_code\030\010 \001(\tB\037\n\024com.wanfang.personal"
+    "P\001\242\002\004WFPRb\006proto3", 737);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_my_collect.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fmy_5fcollect_2eproto);
 }
 
@@ -604,6 +673,7 @@ inline const MyCollectRequest* MyCollectRequest::internal_default_instance() {
 const int MyCollectResponse::kResultsFieldNumber;
 const int MyCollectResponse::kHasMoreFieldNumber;
 const int MyCollectResponse::kTotalCountFieldNumber;
+const int MyCollectResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MyCollectResponse::MyCollectResponse()
@@ -614,6 +684,8 @@ MyCollectResponse::MyCollectResponse()
 }
 
 void MyCollectResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 MyCollectResponse::MyCollectResponse(const MyCollectResponse& from)
@@ -625,6 +697,7 @@ MyCollectResponse::MyCollectResponse(const MyCollectResponse& from)
 }
 
 void MyCollectResponse::SharedCtor() {
+  error_ = NULL;
   ::memset(&has_more_, 0, reinterpret_cast<char*>(&total_count_) -
     reinterpret_cast<char*>(&has_more_) + sizeof(total_count_));
   _cached_size_ = 0;
@@ -636,6 +709,9 @@ MyCollectResponse::~MyCollectResponse() {
 }
 
 void MyCollectResponse::SharedDtor() {
+  if (this != &MyCollectResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void MyCollectResponse::SetCachedSize(int size) const {
@@ -682,6 +758,8 @@ void MyCollectResponse::Clear() {
 } while (0)
 
   ZR_(has_more_, total_count_);
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -741,6 +819,19 @@ bool MyCollectResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(34)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -785,6 +876,12 @@ void MyCollectResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->total_count(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 4;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.MyCollectResponse)
 }
 
@@ -809,6 +906,13 @@ void MyCollectResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->total_count(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 4;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.MyCollectResponse)
   return target;
 }
@@ -827,6 +931,13 @@ size_t MyCollectResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->total_count());
+  }
+
+  // optional .grpcCommon.GrpcError error = 4;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   // repeated .google.protobuf.Any results = 1;
@@ -880,6 +991,9 @@ void MyCollectResponse::UnsafeMergeFrom(const MyCollectResponse& from) {
   if (from.total_count() != 0) {
     set_total_count(from.total_count());
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void MyCollectResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -909,6 +1023,7 @@ void MyCollectResponse::InternalSwap(MyCollectResponse* other) {
   results_.UnsafeArenaSwap(&other->results_);
   std::swap(has_more_, other->has_more_);
   std::swap(total_count_, other->total_count_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -982,6 +1097,45 @@ void MyCollectResponse::set_total_count(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:personal.MyCollectResponse.total_count)
 }
 
+// optional .grpcCommon.GrpcError error = 4;
+bool MyCollectResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void MyCollectResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& MyCollectResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* MyCollectResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* MyCollectResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void MyCollectResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectResponse.error)
+}
+
 inline const MyCollectResponse* MyCollectResponse::internal_default_instance() {
   return &MyCollectResponse_default_instance_.get();
 }
@@ -994,6 +1148,7 @@ const int CollectBody::kDocuIdFieldNumber;
 const int CollectBody::kDocuTitleFieldNumber;
 const int CollectBody::kAddTimeFieldNumber;
 const int CollectBody::kStarLevelFieldNumber;
+const int CollectBody::kDocuTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CollectBody::CollectBody()
@@ -1018,6 +1173,7 @@ void CollectBody::SharedCtor() {
   docu_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   docu_title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   add_time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  docu_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   star_level_ = 0;
   _cached_size_ = 0;
 }
@@ -1031,6 +1187,7 @@ void CollectBody::SharedDtor() {
   docu_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   docu_title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   add_time_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  docu_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void CollectBody::SetCachedSize(int size) const {
@@ -1064,6 +1221,7 @@ void CollectBody::Clear() {
   docu_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   add_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   star_level_ = 0;
+  docu_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool CollectBody::MergePartialFromCodedStream(
@@ -1137,6 +1295,23 @@ bool CollectBody::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_docu_type;
+        break;
+      }
+
+      // optional string docu_type = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_docu_type:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_docu_type()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->docu_type().data(), this->docu_type().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.CollectBody.docu_type"));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1200,6 +1375,16 @@ void CollectBody::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->star_level(), output);
   }
 
+  // optional string docu_type = 5;
+  if (this->docu_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->docu_type().data(), this->docu_type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.CollectBody.docu_type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->docu_type(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.CollectBody)
 }
 
@@ -1245,6 +1430,17 @@ void CollectBody::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->star_level(), target);
   }
 
+  // optional string docu_type = 5;
+  if (this->docu_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->docu_type().data(), this->docu_type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.CollectBody.docu_type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->docu_type(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.CollectBody)
   return target;
 }
@@ -1279,6 +1475,13 @@ size_t CollectBody::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->star_level());
+  }
+
+  // optional string docu_type = 5;
+  if (this->docu_type().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->docu_type());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1329,6 +1532,10 @@ void CollectBody::UnsafeMergeFrom(const CollectBody& from) {
   if (from.star_level() != 0) {
     set_star_level(from.star_level());
   }
+  if (from.docu_type().size() > 0) {
+
+    docu_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.docu_type_);
+  }
 }
 
 void CollectBody::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1359,6 +1566,7 @@ void CollectBody::InternalSwap(CollectBody* other) {
   docu_title_.Swap(&other->docu_title_);
   add_time_.Swap(&other->add_time_);
   std::swap(star_level_, other->star_level_);
+  docu_type_.Swap(&other->docu_type_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1520,8 +1728,1401 @@ void CollectBody::set_star_level(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:personal.CollectBody.star_level)
 }
 
+// optional string docu_type = 5;
+void CollectBody::clear_docu_type() {
+  docu_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& CollectBody::docu_type() const {
+  // @@protoc_insertion_point(field_get:personal.CollectBody.docu_type)
+  return docu_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CollectBody::set_docu_type(const ::std::string& value) {
+  
+  docu_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.CollectBody.docu_type)
+}
+void CollectBody::set_docu_type(const char* value) {
+  
+  docu_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.CollectBody.docu_type)
+}
+void CollectBody::set_docu_type(const char* value, size_t size) {
+  
+  docu_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.CollectBody.docu_type)
+}
+::std::string* CollectBody::mutable_docu_type() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.CollectBody.docu_type)
+  return docu_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* CollectBody::release_docu_type() {
+  // @@protoc_insertion_point(field_release:personal.CollectBody.docu_type)
+  
+  return docu_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CollectBody::set_allocated_docu_type(::std::string* docu_type) {
+  if (docu_type != NULL) {
+    
+  } else {
+    
+  }
+  docu_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), docu_type);
+  // @@protoc_insertion_point(field_set_allocated:personal.CollectBody.docu_type)
+}
+
 inline const CollectBody* CollectBody::internal_default_instance() {
   return &CollectBody_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MyCollectDetailRequest::kArticalIdFieldNumber;
+const int MyCollectDetailRequest::kArticalTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MyCollectDetailRequest::MyCollectDetailRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.MyCollectDetailRequest)
+}
+
+void MyCollectDetailRequest::InitAsDefaultInstance() {
+}
+
+MyCollectDetailRequest::MyCollectDetailRequest(const MyCollectDetailRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.MyCollectDetailRequest)
+}
+
+void MyCollectDetailRequest::SharedCtor() {
+  artical_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  artical_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+MyCollectDetailRequest::~MyCollectDetailRequest() {
+  // @@protoc_insertion_point(destructor:personal.MyCollectDetailRequest)
+  SharedDtor();
+}
+
+void MyCollectDetailRequest::SharedDtor() {
+  artical_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  artical_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void MyCollectDetailRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MyCollectDetailRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MyCollectDetailRequest_descriptor_;
+}
+
+const MyCollectDetailRequest& MyCollectDetailRequest::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<MyCollectDetailRequest> MyCollectDetailRequest_default_instance_;
+
+MyCollectDetailRequest* MyCollectDetailRequest::New(::google::protobuf::Arena* arena) const {
+  MyCollectDetailRequest* n = new MyCollectDetailRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MyCollectDetailRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.MyCollectDetailRequest)
+  artical_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  artical_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool MyCollectDetailRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.MyCollectDetailRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string artical_id = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_artical_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->artical_id().data(), this->artical_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailRequest.artical_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_artical_type;
+        break;
+      }
+
+      // optional string artical_type = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_artical_type:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_artical_type()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->artical_type().data(), this->artical_type().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailRequest.artical_type"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.MyCollectDetailRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.MyCollectDetailRequest)
+  return false;
+#undef DO_
+}
+
+void MyCollectDetailRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.MyCollectDetailRequest)
+  // optional string artical_id = 1;
+  if (this->artical_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->artical_id().data(), this->artical_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailRequest.artical_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->artical_id(), output);
+  }
+
+  // optional string artical_type = 2;
+  if (this->artical_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->artical_type().data(), this->artical_type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailRequest.artical_type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->artical_type(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.MyCollectDetailRequest)
+}
+
+::google::protobuf::uint8* MyCollectDetailRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.MyCollectDetailRequest)
+  // optional string artical_id = 1;
+  if (this->artical_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->artical_id().data(), this->artical_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailRequest.artical_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->artical_id(), target);
+  }
+
+  // optional string artical_type = 2;
+  if (this->artical_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->artical_type().data(), this->artical_type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailRequest.artical_type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->artical_type(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.MyCollectDetailRequest)
+  return target;
+}
+
+size_t MyCollectDetailRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.MyCollectDetailRequest)
+  size_t total_size = 0;
+
+  // optional string artical_id = 1;
+  if (this->artical_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->artical_id());
+  }
+
+  // optional string artical_type = 2;
+  if (this->artical_type().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->artical_type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MyCollectDetailRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.MyCollectDetailRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MyCollectDetailRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MyCollectDetailRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.MyCollectDetailRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.MyCollectDetailRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void MyCollectDetailRequest::MergeFrom(const MyCollectDetailRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.MyCollectDetailRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void MyCollectDetailRequest::UnsafeMergeFrom(const MyCollectDetailRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.artical_id().size() > 0) {
+
+    artical_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.artical_id_);
+  }
+  if (from.artical_type().size() > 0) {
+
+    artical_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.artical_type_);
+  }
+}
+
+void MyCollectDetailRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.MyCollectDetailRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MyCollectDetailRequest::CopyFrom(const MyCollectDetailRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.MyCollectDetailRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool MyCollectDetailRequest::IsInitialized() const {
+
+  return true;
+}
+
+void MyCollectDetailRequest::Swap(MyCollectDetailRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MyCollectDetailRequest::InternalSwap(MyCollectDetailRequest* other) {
+  artical_id_.Swap(&other->artical_id_);
+  artical_type_.Swap(&other->artical_type_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MyCollectDetailRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MyCollectDetailRequest_descriptor_;
+  metadata.reflection = MyCollectDetailRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MyCollectDetailRequest
+
+// optional string artical_id = 1;
+void MyCollectDetailRequest::clear_artical_id() {
+  artical_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailRequest::artical_id() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailRequest.artical_id)
+  return artical_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailRequest::set_artical_id(const ::std::string& value) {
+  
+  artical_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailRequest.artical_id)
+}
+void MyCollectDetailRequest::set_artical_id(const char* value) {
+  
+  artical_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailRequest.artical_id)
+}
+void MyCollectDetailRequest::set_artical_id(const char* value, size_t size) {
+  
+  artical_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailRequest.artical_id)
+}
+::std::string* MyCollectDetailRequest::mutable_artical_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailRequest.artical_id)
+  return artical_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailRequest::release_artical_id() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailRequest.artical_id)
+  
+  return artical_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailRequest::set_allocated_artical_id(::std::string* artical_id) {
+  if (artical_id != NULL) {
+    
+  } else {
+    
+  }
+  artical_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), artical_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailRequest.artical_id)
+}
+
+// optional string artical_type = 2;
+void MyCollectDetailRequest::clear_artical_type() {
+  artical_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailRequest::artical_type() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailRequest.artical_type)
+  return artical_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailRequest::set_artical_type(const ::std::string& value) {
+  
+  artical_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailRequest.artical_type)
+}
+void MyCollectDetailRequest::set_artical_type(const char* value) {
+  
+  artical_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailRequest.artical_type)
+}
+void MyCollectDetailRequest::set_artical_type(const char* value, size_t size) {
+  
+  artical_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailRequest.artical_type)
+}
+::std::string* MyCollectDetailRequest::mutable_artical_type() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailRequest.artical_type)
+  return artical_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailRequest::release_artical_type() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailRequest.artical_type)
+  
+  return artical_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailRequest::set_allocated_artical_type(::std::string* artical_type) {
+  if (artical_type != NULL) {
+    
+  } else {
+    
+  }
+  artical_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), artical_type);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailRequest.artical_type)
+}
+
+inline const MyCollectDetailRequest* MyCollectDetailRequest::internal_default_instance() {
+  return &MyCollectDetailRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MyCollectDetailResponse::kErrorFieldNumber;
+const int MyCollectDetailResponse::kTitleFieldNumber;
+const int MyCollectDetailResponse::kSummaryFieldNumber;
+const int MyCollectDetailResponse::kArticalIdFieldNumber;
+const int MyCollectDetailResponse::kStandNumFieldNumber;
+const int MyCollectDetailResponse::kWorkLimitFieldNumber;
+const int MyCollectDetailResponse::kPublishPlaceFieldNumber;
+const int MyCollectDetailResponse::kSubjectCodeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MyCollectDetailResponse::MyCollectDetailResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.MyCollectDetailResponse)
+}
+
+void MyCollectDetailResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
+}
+
+MyCollectDetailResponse::MyCollectDetailResponse(const MyCollectDetailResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.MyCollectDetailResponse)
+}
+
+void MyCollectDetailResponse::SharedCtor() {
+  title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  summary_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  artical_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  stand_num_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  work_limit_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  publish_place_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
+  _cached_size_ = 0;
+}
+
+MyCollectDetailResponse::~MyCollectDetailResponse() {
+  // @@protoc_insertion_point(destructor:personal.MyCollectDetailResponse)
+  SharedDtor();
+}
+
+void MyCollectDetailResponse::SharedDtor() {
+  title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  summary_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  artical_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  stand_num_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  work_limit_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  publish_place_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &MyCollectDetailResponse_default_instance_.get()) {
+    delete error_;
+  }
+}
+
+void MyCollectDetailResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MyCollectDetailResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MyCollectDetailResponse_descriptor_;
+}
+
+const MyCollectDetailResponse& MyCollectDetailResponse::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<MyCollectDetailResponse> MyCollectDetailResponse_default_instance_;
+
+MyCollectDetailResponse* MyCollectDetailResponse::New(::google::protobuf::Arena* arena) const {
+  MyCollectDetailResponse* n = new MyCollectDetailResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MyCollectDetailResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.MyCollectDetailResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+  title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  summary_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  artical_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  stand_num_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  work_limit_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  publish_place_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool MyCollectDetailResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.MyCollectDetailResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .grpcCommon.GrpcError error = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_title;
+        break;
+      }
+
+      // optional string title = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_title:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_title()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->title().data(), this->title().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.title"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_summary;
+        break;
+      }
+
+      // optional string summary = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_summary:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_summary()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->summary().data(), this->summary().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.summary"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_artical_id;
+        break;
+      }
+
+      // optional string artical_id = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_artical_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_artical_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->artical_id().data(), this->artical_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.artical_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_stand_num;
+        break;
+      }
+
+      // optional string stand_num = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_stand_num:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_stand_num()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->stand_num().data(), this->stand_num().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.stand_num"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_work_limit;
+        break;
+      }
+
+      // optional string work_limit = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_work_limit:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_work_limit()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->work_limit().data(), this->work_limit().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.work_limit"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(58)) goto parse_publish_place;
+        break;
+      }
+
+      // optional string publish_place = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_publish_place:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_publish_place()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->publish_place().data(), this->publish_place().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.publish_place"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_subject_code;
+        break;
+      }
+
+      // optional string subject_code = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_subject_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_subject_code()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->subject_code().data(), this->subject_code().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.MyCollectDetailResponse.subject_code"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.MyCollectDetailResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.MyCollectDetailResponse)
+  return false;
+#undef DO_
+}
+
+void MyCollectDetailResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.MyCollectDetailResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->error_, output);
+  }
+
+  // optional string title = 2;
+  if (this->title().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->title().data(), this->title().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.title");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->title(), output);
+  }
+
+  // optional string summary = 3;
+  if (this->summary().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->summary().data(), this->summary().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.summary");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->summary(), output);
+  }
+
+  // optional string artical_id = 4;
+  if (this->artical_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->artical_id().data(), this->artical_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.artical_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->artical_id(), output);
+  }
+
+  // optional string stand_num = 5;
+  if (this->stand_num().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->stand_num().data(), this->stand_num().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.stand_num");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->stand_num(), output);
+  }
+
+  // optional string work_limit = 6;
+  if (this->work_limit().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->work_limit().data(), this->work_limit().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.work_limit");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->work_limit(), output);
+  }
+
+  // optional string publish_place = 7;
+  if (this->publish_place().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->publish_place().data(), this->publish_place().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.publish_place");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->publish_place(), output);
+  }
+
+  // optional string subject_code = 8;
+  if (this->subject_code().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject_code().data(), this->subject_code().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.subject_code");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->subject_code(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.MyCollectDetailResponse)
+}
+
+::google::protobuf::uint8* MyCollectDetailResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.MyCollectDetailResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->error_, false, target);
+  }
+
+  // optional string title = 2;
+  if (this->title().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->title().data(), this->title().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.title");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->title(), target);
+  }
+
+  // optional string summary = 3;
+  if (this->summary().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->summary().data(), this->summary().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.summary");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->summary(), target);
+  }
+
+  // optional string artical_id = 4;
+  if (this->artical_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->artical_id().data(), this->artical_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.artical_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->artical_id(), target);
+  }
+
+  // optional string stand_num = 5;
+  if (this->stand_num().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->stand_num().data(), this->stand_num().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.stand_num");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->stand_num(), target);
+  }
+
+  // optional string work_limit = 6;
+  if (this->work_limit().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->work_limit().data(), this->work_limit().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.work_limit");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->work_limit(), target);
+  }
+
+  // optional string publish_place = 7;
+  if (this->publish_place().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->publish_place().data(), this->publish_place().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.publish_place");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->publish_place(), target);
+  }
+
+  // optional string subject_code = 8;
+  if (this->subject_code().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject_code().data(), this->subject_code().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.MyCollectDetailResponse.subject_code");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->subject_code(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.MyCollectDetailResponse)
+  return target;
+}
+
+size_t MyCollectDetailResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.MyCollectDetailResponse)
+  size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+
+  // optional string title = 2;
+  if (this->title().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->title());
+  }
+
+  // optional string summary = 3;
+  if (this->summary().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->summary());
+  }
+
+  // optional string artical_id = 4;
+  if (this->artical_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->artical_id());
+  }
+
+  // optional string stand_num = 5;
+  if (this->stand_num().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->stand_num());
+  }
+
+  // optional string work_limit = 6;
+  if (this->work_limit().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->work_limit());
+  }
+
+  // optional string publish_place = 7;
+  if (this->publish_place().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->publish_place());
+  }
+
+  // optional string subject_code = 8;
+  if (this->subject_code().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->subject_code());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MyCollectDetailResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.MyCollectDetailResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MyCollectDetailResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MyCollectDetailResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.MyCollectDetailResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.MyCollectDetailResponse)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void MyCollectDetailResponse::MergeFrom(const MyCollectDetailResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.MyCollectDetailResponse)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void MyCollectDetailResponse::UnsafeMergeFrom(const MyCollectDetailResponse& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
+  if (from.title().size() > 0) {
+
+    title_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.title_);
+  }
+  if (from.summary().size() > 0) {
+
+    summary_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.summary_);
+  }
+  if (from.artical_id().size() > 0) {
+
+    artical_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.artical_id_);
+  }
+  if (from.stand_num().size() > 0) {
+
+    stand_num_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.stand_num_);
+  }
+  if (from.work_limit().size() > 0) {
+
+    work_limit_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.work_limit_);
+  }
+  if (from.publish_place().size() > 0) {
+
+    publish_place_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.publish_place_);
+  }
+  if (from.subject_code().size() > 0) {
+
+    subject_code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_code_);
+  }
+}
+
+void MyCollectDetailResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.MyCollectDetailResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MyCollectDetailResponse::CopyFrom(const MyCollectDetailResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.MyCollectDetailResponse)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool MyCollectDetailResponse::IsInitialized() const {
+
+  return true;
+}
+
+void MyCollectDetailResponse::Swap(MyCollectDetailResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MyCollectDetailResponse::InternalSwap(MyCollectDetailResponse* other) {
+  std::swap(error_, other->error_);
+  title_.Swap(&other->title_);
+  summary_.Swap(&other->summary_);
+  artical_id_.Swap(&other->artical_id_);
+  stand_num_.Swap(&other->stand_num_);
+  work_limit_.Swap(&other->work_limit_);
+  publish_place_.Swap(&other->publish_place_);
+  subject_code_.Swap(&other->subject_code_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MyCollectDetailResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MyCollectDetailResponse_descriptor_;
+  metadata.reflection = MyCollectDetailResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MyCollectDetailResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+bool MyCollectDetailResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void MyCollectDetailResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& MyCollectDetailResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* MyCollectDetailResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* MyCollectDetailResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void MyCollectDetailResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.error)
+}
+
+// optional string title = 2;
+void MyCollectDetailResponse::clear_title() {
+  title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::title() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.title)
+  return title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_title(const ::std::string& value) {
+  
+  title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.title)
+}
+void MyCollectDetailResponse::set_title(const char* value) {
+  
+  title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.title)
+}
+void MyCollectDetailResponse::set_title(const char* value, size_t size) {
+  
+  title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.title)
+}
+::std::string* MyCollectDetailResponse::mutable_title() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.title)
+  return title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_title() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.title)
+  
+  return title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_title(::std::string* title) {
+  if (title != NULL) {
+    
+  } else {
+    
+  }
+  title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), title);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.title)
+}
+
+// optional string summary = 3;
+void MyCollectDetailResponse::clear_summary() {
+  summary_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::summary() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.summary)
+  return summary_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_summary(const ::std::string& value) {
+  
+  summary_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.summary)
+}
+void MyCollectDetailResponse::set_summary(const char* value) {
+  
+  summary_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.summary)
+}
+void MyCollectDetailResponse::set_summary(const char* value, size_t size) {
+  
+  summary_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.summary)
+}
+::std::string* MyCollectDetailResponse::mutable_summary() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.summary)
+  return summary_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_summary() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.summary)
+  
+  return summary_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_summary(::std::string* summary) {
+  if (summary != NULL) {
+    
+  } else {
+    
+  }
+  summary_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), summary);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.summary)
+}
+
+// optional string artical_id = 4;
+void MyCollectDetailResponse::clear_artical_id() {
+  artical_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::artical_id() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.artical_id)
+  return artical_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_artical_id(const ::std::string& value) {
+  
+  artical_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.artical_id)
+}
+void MyCollectDetailResponse::set_artical_id(const char* value) {
+  
+  artical_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.artical_id)
+}
+void MyCollectDetailResponse::set_artical_id(const char* value, size_t size) {
+  
+  artical_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.artical_id)
+}
+::std::string* MyCollectDetailResponse::mutable_artical_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.artical_id)
+  return artical_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_artical_id() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.artical_id)
+  
+  return artical_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_artical_id(::std::string* artical_id) {
+  if (artical_id != NULL) {
+    
+  } else {
+    
+  }
+  artical_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), artical_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.artical_id)
+}
+
+// optional string stand_num = 5;
+void MyCollectDetailResponse::clear_stand_num() {
+  stand_num_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::stand_num() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.stand_num)
+  return stand_num_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_stand_num(const ::std::string& value) {
+  
+  stand_num_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.stand_num)
+}
+void MyCollectDetailResponse::set_stand_num(const char* value) {
+  
+  stand_num_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.stand_num)
+}
+void MyCollectDetailResponse::set_stand_num(const char* value, size_t size) {
+  
+  stand_num_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.stand_num)
+}
+::std::string* MyCollectDetailResponse::mutable_stand_num() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.stand_num)
+  return stand_num_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_stand_num() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.stand_num)
+  
+  return stand_num_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_stand_num(::std::string* stand_num) {
+  if (stand_num != NULL) {
+    
+  } else {
+    
+  }
+  stand_num_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), stand_num);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.stand_num)
+}
+
+// optional string work_limit = 6;
+void MyCollectDetailResponse::clear_work_limit() {
+  work_limit_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::work_limit() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.work_limit)
+  return work_limit_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_work_limit(const ::std::string& value) {
+  
+  work_limit_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.work_limit)
+}
+void MyCollectDetailResponse::set_work_limit(const char* value) {
+  
+  work_limit_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.work_limit)
+}
+void MyCollectDetailResponse::set_work_limit(const char* value, size_t size) {
+  
+  work_limit_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.work_limit)
+}
+::std::string* MyCollectDetailResponse::mutable_work_limit() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.work_limit)
+  return work_limit_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_work_limit() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.work_limit)
+  
+  return work_limit_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_work_limit(::std::string* work_limit) {
+  if (work_limit != NULL) {
+    
+  } else {
+    
+  }
+  work_limit_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), work_limit);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.work_limit)
+}
+
+// optional string publish_place = 7;
+void MyCollectDetailResponse::clear_publish_place() {
+  publish_place_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::publish_place() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.publish_place)
+  return publish_place_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_publish_place(const ::std::string& value) {
+  
+  publish_place_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.publish_place)
+}
+void MyCollectDetailResponse::set_publish_place(const char* value) {
+  
+  publish_place_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.publish_place)
+}
+void MyCollectDetailResponse::set_publish_place(const char* value, size_t size) {
+  
+  publish_place_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.publish_place)
+}
+::std::string* MyCollectDetailResponse::mutable_publish_place() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.publish_place)
+  return publish_place_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_publish_place() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.publish_place)
+  
+  return publish_place_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_publish_place(::std::string* publish_place) {
+  if (publish_place != NULL) {
+    
+  } else {
+    
+  }
+  publish_place_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), publish_place);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.publish_place)
+}
+
+// optional string subject_code = 8;
+void MyCollectDetailResponse::clear_subject_code() {
+  subject_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyCollectDetailResponse::subject_code() const {
+  // @@protoc_insertion_point(field_get:personal.MyCollectDetailResponse.subject_code)
+  return subject_code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_subject_code(const ::std::string& value) {
+  
+  subject_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.MyCollectDetailResponse.subject_code)
+}
+void MyCollectDetailResponse::set_subject_code(const char* value) {
+  
+  subject_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.MyCollectDetailResponse.subject_code)
+}
+void MyCollectDetailResponse::set_subject_code(const char* value, size_t size) {
+  
+  subject_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.MyCollectDetailResponse.subject_code)
+}
+::std::string* MyCollectDetailResponse::mutable_subject_code() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.MyCollectDetailResponse.subject_code)
+  return subject_code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyCollectDetailResponse::release_subject_code() {
+  // @@protoc_insertion_point(field_release:personal.MyCollectDetailResponse.subject_code)
+  
+  return subject_code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyCollectDetailResponse::set_allocated_subject_code(::std::string* subject_code) {
+  if (subject_code != NULL) {
+    
+  } else {
+    
+  }
+  subject_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_code);
+  // @@protoc_insertion_point(field_set_allocated:personal.MyCollectDetailResponse.subject_code)
+}
+
+inline const MyCollectDetailResponse* MyCollectDetailResponse::internal_default_instance() {
+  return &MyCollectDetailResponse_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

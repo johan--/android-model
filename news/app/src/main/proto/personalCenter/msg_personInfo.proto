@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/any.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
 
 package personal;
 option java_multiple_files = true;
@@ -14,6 +15,7 @@ message UserRolesListRequest {
 message UserRolesListResponse {
     map<string, string> roles = 1;
     string list_version = 2; // 版本号，如果不同则更新app本地文件，否则直接加载
+    grpcCommon.GrpcError error = 3;
 }
 // 学历对照表
 message EducationLevelListRequest {
@@ -22,6 +24,15 @@ message EducationLevelListRequest {
 message EducationLevelListResponse {
     map<string, string> educationLevels = 1;
     string list_version = 2; // 版本号，如果不同则更新app本地文件，否则直接加载
+    grpcCommon.GrpcError error = 3;
+}
+// 学科选择列表
+message SubjectListRequest {
+
+}
+message SubjectListResponse {
+    string subject_list = 1;
+    grpcCommon.GrpcError error = 2;
 }
 
 // 获取个人信息
@@ -33,8 +44,8 @@ message MyInfoResponse {
     InfoNickName nick_name = 1; // 昵称
     InfoRealName real_name = 2; // 姓名
     InfoIdNumber id_number = 3; // 身份证号
-    InfoSex sex = 4; // 性别
-    InfoBirthday birthday = 5; // 出生日期
+    InfoSex sex = 4;            // 性别
+    InfoBirthday birthday = 5;  // 出生日期
     InfoUserRoles user_roles = 6; // 职称
     InfoWorkUnit workUnit = 7; // 当前单位/院校
     InfoEducationLevel educationLevel = 8; // 最高学历
@@ -44,6 +55,7 @@ message MyInfoResponse {
     InfoInterestSubject interest_subject = 12; // 感兴趣主题   % 分割
     InfoEmail email = 13; // 邮箱
     InfoAvatar avatar_url = 14; // 用户头像
+    grpcCommon.GrpcError error = 15;
 }
 // 更新用户信息
 message MyInfoUpdateRequest {
@@ -51,7 +63,7 @@ message MyInfoUpdateRequest {
     repeated google.protobuf.Any field = 2; // 修改的字段
 }
 message MyInfoUpdateResponse {
-
+    grpcCommon.GrpcError error = 1;
 }
 
 message InfoNickName {

@@ -54,7 +54,7 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
       sizeof(UnifiedorderRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderRequest, _internal_metadata_));
   UnifiedorderResponse_descriptor_ = file->message_type(1);
-  static const int UnifiedorderResponse_offsets_[7] = {
+  static const int UnifiedorderResponse_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, app_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, partner_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, prepay_id_),
@@ -62,6 +62,7 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, noncestr_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, time_stamp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, sign_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, error_),
   };
   UnifiedorderResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -104,6 +105,7 @@ void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto() {
 void protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   UnifiedorderRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -122,16 +124,18 @@ void protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl() {
 
   protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025trade/msg_trade.proto\022\010personal\"G\n\023Uni"
-    "fiedorderRequest\022\017\n\007user_id\030\001 \001(\t\022\037\n\027saf"
-    "e_transaction_string\030\002 \001(\t\"\222\001\n\024Unifiedor"
-    "derResponse\022\016\n\006app_id\030\001 \001(\t\022\022\n\npartner_i"
-    "d\030\002 \001(\t\022\021\n\tprepay_id\030\003 \001(\t\022\017\n\007package\030\004 "
-    "\001(\t\022\020\n\010noncestr\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001("
-    "\t\022\014\n\004sign\030\007 \001(\tB\034\n\021com.wanfang.tradeP\001\242\002"
-    "\004WFPRb\006proto3", 293);
+    "\n\025trade/msg_trade.proto\022\010personal\032\032grpcC"
+    "ommon/msg_error.proto\"G\n\023UnifiedorderReq"
+    "uest\022\017\n\007user_id\030\001 \001(\t\022\037\n\027safe_transactio"
+    "n_string\030\002 \001(\t\"\270\001\n\024UnifiedorderResponse\022"
+    "\016\n\006app_id\030\001 \001(\t\022\022\n\npartner_id\030\002 \001(\t\022\021\n\tp"
+    "repay_id\030\003 \001(\t\022\017\n\007package\030\004 \001(\t\022\020\n\010nonce"
+    "str\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(\t\022\014\n\004sign\030\007 "
+    "\001(\t\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcErro"
+    "rB\034\n\021com.wanfang.tradeP\001\242\002\004WFPRb\006proto3", 359);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "trade/msg_trade.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto);
 }
 
@@ -554,6 +558,7 @@ const int UnifiedorderResponse::kPackageFieldNumber;
 const int UnifiedorderResponse::kNoncestrFieldNumber;
 const int UnifiedorderResponse::kTimeStampFieldNumber;
 const int UnifiedorderResponse::kSignFieldNumber;
+const int UnifiedorderResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UnifiedorderResponse::UnifiedorderResponse()
@@ -564,6 +569,8 @@ UnifiedorderResponse::UnifiedorderResponse()
 }
 
 void UnifiedorderResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 UnifiedorderResponse::UnifiedorderResponse(const UnifiedorderResponse& from)
@@ -582,6 +589,7 @@ void UnifiedorderResponse::SharedCtor() {
   noncestr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   time_stamp_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sign_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -598,6 +606,9 @@ void UnifiedorderResponse::SharedDtor() {
   noncestr_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   time_stamp_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sign_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &UnifiedorderResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void UnifiedorderResponse::SetCachedSize(int size) const {
@@ -634,6 +645,8 @@ void UnifiedorderResponse::Clear() {
   noncestr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   time_stamp_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sign_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool UnifiedorderResponse::MergePartialFromCodedStream(
@@ -760,6 +773,19 @@ bool UnifiedorderResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(66)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -858,6 +884,12 @@ void UnifiedorderResponse::SerializeWithCachedSizes(
       7, this->sign(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 8;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.UnifiedorderResponse)
 }
 
@@ -942,6 +974,13 @@ void UnifiedorderResponse::SerializeWithCachedSizes(
         7, this->sign(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 8;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        8, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.UnifiedorderResponse)
   return target;
 }
@@ -997,6 +1036,13 @@ size_t UnifiedorderResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->sign());
+  }
+
+  // optional .grpcCommon.GrpcError error = 8;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1060,6 +1106,9 @@ void UnifiedorderResponse::UnsafeMergeFrom(const UnifiedorderResponse& from) {
 
     sign_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sign_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void UnifiedorderResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1093,6 +1142,7 @@ void UnifiedorderResponse::InternalSwap(UnifiedorderResponse* other) {
   noncestr_.Swap(&other->noncestr_);
   time_stamp_.Swap(&other->time_stamp_);
   sign_.Swap(&other->sign_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1414,6 +1464,45 @@ void UnifiedorderResponse::set_allocated_sign(::std::string* sign) {
   }
   sign_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sign);
   // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.sign)
+}
+
+// optional .grpcCommon.GrpcError error = 8;
+bool UnifiedorderResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void UnifiedorderResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& UnifiedorderResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* UnifiedorderResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* UnifiedorderResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void UnifiedorderResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.error)
 }
 
 inline const UnifiedorderResponse* UnifiedorderResponse::internal_default_instance() {

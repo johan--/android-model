@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-
+import "grpcCommon/msg_error.proto"; // 错误码
 package personal;
 option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
@@ -14,6 +14,7 @@ message PhoneCaptchaRequest {
 message PhoneCaptchaResponse {
 	string phone_captcha = 1; // 手机验证码
 	string token = 2; // 获取验证码操作的token
+	grpcCommon.GrpcError error = 3;
 }
 
 // 上传文件
@@ -29,6 +30,7 @@ message UploadFileRequest {
 }
 message UploadFileResponse {
 	map<string, string> upload_urls = 1;
+	grpcCommon.GrpcError error = 2;
 }
 
 

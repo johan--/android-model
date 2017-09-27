@@ -87,7 +87,7 @@ void protobuf_AddDesc_personalCenter_2fser_5fpersonal_5fcenter_2eproto_impl() {
     "g_common.proto\032&personalCenter/msg_uploa"
     "d_avatar.proto\032&personalCenter/msg_inter"
     "est_word.proto\032#personalCenter/msg_perso"
-    "nInfo.proto2\227\014\n\025PersonalCenterService\0228\n"
+    "nInfo.proto2\273\r\n\025PersonalCenterService\0228\n"
     "\005Login\022\026.personal.LoginRequest\032\027.persona"
     "l.LoginResponse\022A\n\010LoginOut\022\031.personal.L"
     "oginOutRequest\032\032.personal.LoginOutRespon"
@@ -126,8 +126,12 @@ void protobuf_AddDesc_personalCenter_2fser_5fpersonal_5fcenter_2eproto_impl() {
     "\032\037.personal.UserRolesListResponse\022b\n\025get"
     "EducationLevelList\022#.personal.EducationL"
     "evelListRequest\032$.personal.EducationLeve"
-    "lListResponseB\037\n\024com.wanfang.personalP\001\242"
-    "\002\004WFPRb\006proto3", 2014);
+    "lListResponse\022M\n\016getSubjectList\022\034.person"
+    "al.SubjectListRequest\032\035.personal.Subject"
+    "ListResponse\022S\n\014getDocDetail\022 .personal."
+    "MyCollectDetailRequest\032!.personal.MyColl"
+    "ectDetailResponseB\037\n\024com.wanfang.persona"
+    "lP\001\242\002\004WFPRb\006proto3", 2178);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/ser_personal_center.proto", &protobuf_RegisterTypes);
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto();

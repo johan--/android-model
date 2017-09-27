@@ -58,4 +58,17 @@ public interface UserRolesListResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getListVersionBytes();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -218,11 +219,21 @@ class InterestSubjectResponse : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::int32 total_count() const;
   void set_total_count(::google::protobuf::int32 value);
 
+  // optional .grpcCommon.GrpcError error = 3;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.InterestSubjectResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> subject_;
+  ::grpcCommon::GrpcError* error_;
   ::google::protobuf::int32 total_count_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5finterest_5fword_2eproto_impl();
@@ -360,6 +371,45 @@ inline void InterestSubjectResponse::set_total_count(::google::protobuf::int32 v
   
   total_count_ = value;
   // @@protoc_insertion_point(field_set:personal.InterestSubjectResponse.total_count)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
+inline bool InterestSubjectResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void InterestSubjectResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& InterestSubjectResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.InterestSubjectResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* InterestSubjectResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.InterestSubjectResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* InterestSubjectResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.InterestSubjectResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void InterestSubjectResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.InterestSubjectResponse.error)
 }
 
 inline const InterestSubjectResponse* InterestSubjectResponse::internal_default_instance() {

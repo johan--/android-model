@@ -74,6 +74,19 @@ public  final class LoginResponse extends
             loginToken_ = s;
             break;
           }
+          case 42: {
+            com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
+            if (error_ != null) {
+              subBuilder = error_.toBuilder();
+            }
+            error_ = input.readMessage(com.wanfang.grpcCommon.MsgError.GrpcError.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(error_);
+              error_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -265,6 +278,27 @@ public  final class LoginResponse extends
     }
   }
 
+  public static final int ERROR_FIELD_NUMBER = 5;
+  private com.wanfang.grpcCommon.MsgError.GrpcError error_;
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   */
+  public boolean hasError() {
+    return error_ != null;
+  }
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   */
+  public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+    return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+  }
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   */
+  public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+    return getError();
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -289,6 +323,9 @@ public  final class LoginResponse extends
     if (!getLoginTokenBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, loginToken_);
     }
+    if (error_ != null) {
+      output.writeMessage(5, getError());
+    }
   }
 
   public int getSerializedSize() {
@@ -307,6 +344,10 @@ public  final class LoginResponse extends
     }
     if (!getLoginTokenBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, loginToken_);
+    }
+    if (error_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getError());
     }
     memoizedSize = size;
     return size;
@@ -332,6 +373,11 @@ public  final class LoginResponse extends
         .equals(other.getUserAvatarUrl());
     result = result && getLoginToken()
         .equals(other.getLoginToken());
+    result = result && (hasError() == other.hasError());
+    if (hasError()) {
+      result = result && getError()
+          .equals(other.getError());
+    }
     return result;
   }
 
@@ -350,6 +396,10 @@ public  final class LoginResponse extends
     hash = (53 * hash) + getUserAvatarUrl().hashCode();
     hash = (37 * hash) + LOGIN_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getLoginToken().hashCode();
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -480,6 +530,12 @@ public  final class LoginResponse extends
 
       loginToken_ = "";
 
+      if (errorBuilder_ == null) {
+        error_ = null;
+      } else {
+        error_ = null;
+        errorBuilder_ = null;
+      }
       return this;
     }
 
@@ -506,6 +562,11 @@ public  final class LoginResponse extends
       result.userName_ = userName_;
       result.userAvatarUrl_ = userAvatarUrl_;
       result.loginToken_ = loginToken_;
+      if (errorBuilder_ == null) {
+        result.error_ = error_;
+      } else {
+        result.error_ = errorBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -562,6 +623,9 @@ public  final class LoginResponse extends
       if (!other.getLoginToken().isEmpty()) {
         loginToken_ = other.loginToken_;
         onChanged();
+      }
+      if (other.hasError()) {
+        mergeError(other.getError());
       }
       onChanged();
       return this;
@@ -943,6 +1007,123 @@ public  final class LoginResponse extends
       loginToken_ = value;
       onChanged();
       return this;
+    }
+
+    private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public boolean hasError() {
+      return errorBuilder_ != null || error_ != null;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+      if (errorBuilder_ == null) {
+        return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+      } else {
+        return errorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        error_ = value;
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public Builder setError(
+        com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        error_ = builderForValue.build();
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+      if (errorBuilder_ == null) {
+        if (error_ != null) {
+          error_ =
+            com.wanfang.grpcCommon.MsgError.GrpcError.newBuilder(error_).mergeFrom(value).buildPartial();
+        } else {
+          error_ = value;
+        }
+        onChanged();
+      } else {
+        errorBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public Builder clearError() {
+      if (errorBuilder_ == null) {
+        error_ = null;
+        onChanged();
+      } else {
+        error_ = null;
+        errorBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
+      
+      onChanged();
+      return getErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+      if (errorBuilder_ != null) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        return error_ == null ?
+            com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+      }
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 
+        getErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder>(
+                getError(),
+                getParentForChildren(),
+                isClean());
+        error_ = null;
+      }
+      return errorBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "grpcCommon/msg_error.proto"; // 错误码
 package personal;
 option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
@@ -12,6 +13,7 @@ message MyWalletRequest {
 }
 message MyWalletResponse {
 	string balance = 1; // 账户余额 单位:元
+	grpcCommon.GrpcError error = 2;
 }
 
 

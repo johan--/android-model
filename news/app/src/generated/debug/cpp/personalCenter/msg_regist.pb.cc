@@ -63,8 +63,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto() {
       sizeof(RegistRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, _internal_metadata_));
   RegistResponse_descriptor_ = file->message_type(1);
-  static const int RegistResponse_offsets_[1] = {
+  static const int RegistResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistResponse, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistResponse, error_),
   };
   RegistResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -94,6 +95,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateRegistInfoRequest, _internal_metadata_));
   UpdateRegistInfoResponse_descriptor_ = file->message_type(3);
   static const int UpdateRegistInfoResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateRegistInfoResponse, error_),
   };
   UpdateRegistInfoResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -144,6 +146,7 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fregist_2eproto() {
 void protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
   RegistRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -168,16 +171,20 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\037personalCenter/msg_regist.proto\022\010perso"
-    "nal\"i\n\rRegistRequest\022\020\n\010password\030\001 \001(\t\022\r"
-    "\n\005phone\030\002 \001(\t\022\025\n\rphone_captcha\030\003 \001(\t\022\021\n\t"
-    "user_name\030\004 \001(\t\022\r\n\005token\030\005 \001(\t\"!\n\016Regist"
-    "Response\022\017\n\007user_id\030\001 \001(\t\"S\n\027UpdateRegis"
-    "tInfoRequest\022\017\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002"
-    " \001(\t\022\030\n\020interest_subject\030\003 \001(\t\"\032\n\030Update"
-    "RegistInfoResponseB\037\n\024com.wanfang.person"
-    "alP\001\242\002\004WFPRb\006proto3", 339);
+    "nal\032\032grpcCommon/msg_error.proto\"i\n\rRegis"
+    "tRequest\022\020\n\010password\030\001 \001(\t\022\r\n\005phone\030\002 \001("
+    "\t\022\025\n\rphone_captcha\030\003 \001(\t\022\021\n\tuser_name\030\004 "
+    "\001(\t\022\r\n\005token\030\005 \001(\t\"G\n\016RegistResponse\022\017\n\007"
+    "user_id\030\001 \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommo"
+    "n.GrpcError\"S\n\027UpdateRegistInfoRequest\022\017"
+    "\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\030\n\020intere"
+    "st_subject\030\003 \001(\t\"@\n\030UpdateRegistInfoResp"
+    "onse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErr"
+    "orB\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006pro"
+    "to3", 443);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_regist.proto", &protobuf_RegisterTypes);
+  ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_personalCenter_2fmsg_5fregist_2eproto);
 }
 
@@ -888,6 +895,7 @@ inline const RegistRequest* RegistRequest::internal_default_instance() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int RegistResponse::kUserIdFieldNumber;
+const int RegistResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RegistResponse::RegistResponse()
@@ -898,6 +906,8 @@ RegistResponse::RegistResponse()
 }
 
 void RegistResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 RegistResponse::RegistResponse(const RegistResponse& from)
@@ -910,6 +920,7 @@ RegistResponse::RegistResponse(const RegistResponse& from)
 
 void RegistResponse::SharedCtor() {
   user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -920,6 +931,9 @@ RegistResponse::~RegistResponse() {
 
 void RegistResponse::SharedDtor() {
   user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &RegistResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void RegistResponse::SetCachedSize(int size) const {
@@ -950,6 +964,8 @@ RegistResponse* RegistResponse::New(::google::protobuf::Arena* arena) const {
 void RegistResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.RegistResponse)
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool RegistResponse::MergePartialFromCodedStream(
@@ -971,6 +987,19 @@ bool RegistResponse::MergePartialFromCodedStream(
             this->user_id().data(), this->user_id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.RegistResponse.user_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
         } else {
           goto handle_unusual;
         }
@@ -1012,6 +1041,12 @@ void RegistResponse::SerializeWithCachedSizes(
       1, this->user_id(), output);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.RegistResponse)
 }
 
@@ -1030,6 +1065,13 @@ void RegistResponse::SerializeWithCachedSizes(
         1, this->user_id(), target);
   }
 
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.RegistResponse)
   return target;
 }
@@ -1043,6 +1085,13 @@ size_t RegistResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->user_id());
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1082,6 +1131,9 @@ void RegistResponse::UnsafeMergeFrom(const RegistResponse& from) {
 
     user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
   }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void RegistResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1109,6 +1161,7 @@ void RegistResponse::Swap(RegistResponse* other) {
 }
 void RegistResponse::InternalSwap(RegistResponse* other) {
   user_id_.Swap(&other->user_id_);
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1166,6 +1219,45 @@ void RegistResponse::set_allocated_user_id(::std::string* user_id) {
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
   // @@protoc_insertion_point(field_set_allocated:personal.RegistResponse.user_id)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool RegistResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void RegistResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& RegistResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.RegistResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* RegistResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.RegistResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* RegistResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.RegistResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void RegistResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.RegistResponse.error)
 }
 
 inline const RegistResponse* RegistResponse::internal_default_instance() {
@@ -1661,6 +1753,7 @@ inline const UpdateRegistInfoRequest* UpdateRegistInfoRequest::internal_default_
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdateRegistInfoResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UpdateRegistInfoResponse::UpdateRegistInfoResponse()
@@ -1671,6 +1764,8 @@ UpdateRegistInfoResponse::UpdateRegistInfoResponse()
 }
 
 void UpdateRegistInfoResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
 }
 
 UpdateRegistInfoResponse::UpdateRegistInfoResponse(const UpdateRegistInfoResponse& from)
@@ -1682,6 +1777,7 @@ UpdateRegistInfoResponse::UpdateRegistInfoResponse(const UpdateRegistInfoRespons
 }
 
 void UpdateRegistInfoResponse::SharedCtor() {
+  error_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -1691,6 +1787,9 @@ UpdateRegistInfoResponse::~UpdateRegistInfoResponse() {
 }
 
 void UpdateRegistInfoResponse::SharedDtor() {
+  if (this != &UpdateRegistInfoResponse_default_instance_.get()) {
+    delete error_;
+  }
 }
 
 void UpdateRegistInfoResponse::SetCachedSize(int size) const {
@@ -1720,6 +1819,8 @@ UpdateRegistInfoResponse* UpdateRegistInfoResponse::New(::google::protobuf::Aren
 
 void UpdateRegistInfoResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.UpdateRegistInfoResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
 }
 
 bool UpdateRegistInfoResponse::MergePartialFromCodedStream(
@@ -1731,13 +1832,30 @@ bool UpdateRegistInfoResponse::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0 ||
-        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .grpcCommon.GrpcError error = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
   // @@protoc_insertion_point(parse_success:personal.UpdateRegistInfoResponse)
@@ -1751,6 +1869,12 @@ failure:
 void UpdateRegistInfoResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.UpdateRegistInfoResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->error_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:personal.UpdateRegistInfoResponse)
 }
 
@@ -1758,6 +1882,13 @@ void UpdateRegistInfoResponse::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.UpdateRegistInfoResponse)
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->error_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:personal.UpdateRegistInfoResponse)
   return target;
 }
@@ -1765,6 +1896,13 @@ void UpdateRegistInfoResponse::SerializeWithCachedSizes(
 size_t UpdateRegistInfoResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.UpdateRegistInfoResponse)
   size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 1;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1799,6 +1937,9 @@ void UpdateRegistInfoResponse::MergeFrom(const UpdateRegistInfoResponse& from) {
 
 void UpdateRegistInfoResponse::UnsafeMergeFrom(const UpdateRegistInfoResponse& from) {
   GOOGLE_DCHECK(&from != this);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
 }
 
 void UpdateRegistInfoResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1825,6 +1966,7 @@ void UpdateRegistInfoResponse::Swap(UpdateRegistInfoResponse* other) {
   InternalSwap(other);
 }
 void UpdateRegistInfoResponse::InternalSwap(UpdateRegistInfoResponse* other) {
+  std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1839,6 +1981,45 @@ void UpdateRegistInfoResponse::InternalSwap(UpdateRegistInfoResponse* other) {
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // UpdateRegistInfoResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+bool UpdateRegistInfoResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void UpdateRegistInfoResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& UpdateRegistInfoResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UpdateRegistInfoResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* UpdateRegistInfoResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UpdateRegistInfoResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* UpdateRegistInfoResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UpdateRegistInfoResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void UpdateRegistInfoResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UpdateRegistInfoResponse.error)
+}
 
 inline const UpdateRegistInfoResponse* UpdateRegistInfoResponse::internal_default_instance() {
   return &UpdateRegistInfoResponse_default_instance_.get();

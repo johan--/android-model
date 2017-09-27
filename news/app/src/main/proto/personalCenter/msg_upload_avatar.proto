@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "grpcCommon/msg_error.proto"; // 错误码
 package personal;
 option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
@@ -13,7 +14,7 @@ message UploadAvatarRequest {
 	string avatar_url = 2; // 头像图片地址
 }
 message UploadAvatarResponse {
-
+	grpcCommon.GrpcError error = 1;
 }
 
 

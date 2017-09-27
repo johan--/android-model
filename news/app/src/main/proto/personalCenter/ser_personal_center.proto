@@ -83,6 +83,12 @@ service PersonalCenterService {
 
     // 获取学历对照表
     rpc getEducationLevelList (EducationLevelListRequest) returns (EducationLevelListResponse);
+
+    // 获取学科列表
+    rpc getSubjectList (SubjectListRequest) returns (SubjectListResponse);
+
+    // 收藏列表详情
+    rpc getDocDetail (MyCollectDetailRequest) returns (MyCollectDetailResponse);
 }
 
 

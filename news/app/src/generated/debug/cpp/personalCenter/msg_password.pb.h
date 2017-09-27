@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -262,12 +263,22 @@ class PasswordByEmailResponse : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_user_name();
   void set_allocated_user_name(::std::string* user_name);
 
+  // optional .grpcCommon.GrpcError error = 3;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.PasswordByEmailResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr email_;
   ::google::protobuf::internal::ArenaStringPtr user_name_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl();
@@ -434,10 +445,20 @@ class PasswordEmailResponse : public ::google::protobuf::Message /* @@protoc_ins
 
   // accessors -------------------------------------------------------
 
+  // optional .grpcCommon.GrpcError error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.PasswordEmailResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl();
@@ -639,11 +660,21 @@ class PasswordByPhoneResponse : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_user_id();
   void set_allocated_user_id(::std::string* user_id);
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.PasswordByPhoneResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl();
@@ -822,10 +853,20 @@ class PasswordUpdateResponse : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
+  // optional .grpcCommon.GrpcError error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.PasswordUpdateResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl();
@@ -1010,10 +1051,20 @@ class PasswordVerifyResponse : public ::google::protobuf::Message /* @@protoc_in
   bool is_right() const;
   void set_is_right(bool value);
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.PasswordVerifyResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
   bool is_right_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl();
@@ -1299,6 +1350,45 @@ inline void PasswordByEmailResponse::set_allocated_user_name(::std::string* user
   // @@protoc_insertion_point(field_set_allocated:personal.PasswordByEmailResponse.user_name)
 }
 
+// optional .grpcCommon.GrpcError error = 3;
+inline bool PasswordByEmailResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void PasswordByEmailResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& PasswordByEmailResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByEmailResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* PasswordByEmailResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByEmailResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* PasswordByEmailResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByEmailResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void PasswordByEmailResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByEmailResponse.error)
+}
+
 inline const PasswordByEmailResponse* PasswordByEmailResponse::internal_default_instance() {
   return &PasswordByEmailResponse_default_instance_.get();
 }
@@ -1356,6 +1446,45 @@ inline const PasswordEmailRequest* PasswordEmailRequest::internal_default_instan
 // -------------------------------------------------------------------
 
 // PasswordEmailResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+inline bool PasswordEmailResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void PasswordEmailResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& PasswordEmailResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordEmailResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* PasswordEmailResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordEmailResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* PasswordEmailResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordEmailResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void PasswordEmailResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordEmailResponse.error)
+}
 
 inline const PasswordEmailResponse* PasswordEmailResponse::internal_default_instance() {
   return &PasswordEmailResponse_default_instance_.get();
@@ -1547,6 +1676,45 @@ inline void PasswordByPhoneResponse::set_allocated_user_id(::std::string* user_i
   // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneResponse.user_id)
 }
 
+// optional .grpcCommon.GrpcError error = 2;
+inline bool PasswordByPhoneResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void PasswordByPhoneResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& PasswordByPhoneResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* PasswordByPhoneResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* PasswordByPhoneResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void PasswordByPhoneResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneResponse.error)
+}
+
 inline const PasswordByPhoneResponse* PasswordByPhoneResponse::internal_default_instance() {
   return &PasswordByPhoneResponse_default_instance_.get();
 }
@@ -1648,6 +1816,45 @@ inline const PasswordUpdateRequest* PasswordUpdateRequest::internal_default_inst
 // -------------------------------------------------------------------
 
 // PasswordUpdateResponse
+
+// optional .grpcCommon.GrpcError error = 1;
+inline bool PasswordUpdateResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void PasswordUpdateResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& PasswordUpdateResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordUpdateResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* PasswordUpdateResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordUpdateResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* PasswordUpdateResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordUpdateResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void PasswordUpdateResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordUpdateResponse.error)
+}
 
 inline const PasswordUpdateResponse* PasswordUpdateResponse::internal_default_instance() {
   return &PasswordUpdateResponse_default_instance_.get();
@@ -1763,6 +1970,45 @@ inline void PasswordVerifyResponse::set_is_right(bool value) {
   
   is_right_ = value;
   // @@protoc_insertion_point(field_set:personal.PasswordVerifyResponse.is_right)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool PasswordVerifyResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void PasswordVerifyResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& PasswordVerifyResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordVerifyResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* PasswordVerifyResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.PasswordVerifyResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* PasswordVerifyResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.PasswordVerifyResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void PasswordVerifyResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordVerifyResponse.error)
 }
 
 inline const PasswordVerifyResponse* PasswordVerifyResponse::internal_default_instance() {

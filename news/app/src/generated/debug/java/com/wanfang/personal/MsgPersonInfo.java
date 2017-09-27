@@ -45,6 +45,16 @@ public final class MsgPersonInfo {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_personal_EducationLevelListResponse_EducationLevelsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_SubjectListRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_SubjectListRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_SubjectListResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_SubjectListResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_personal_MyInfoRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -144,50 +154,57 @@ public final class MsgPersonInfo {
   static {
     java.lang.String[] descriptorData = {
       "\n#personalCenter/msg_personInfo.proto\022\010p" +
-      "ersonal\032\031google/protobuf/any.proto\"\026\n\024Us" +
-      "erRolesListRequest\"\226\001\n\025UserRolesListResp" +
-      "onse\0229\n\005roles\030\001 \003(\0132*.personal.UserRoles" +
-      "ListResponse.RolesEntry\022\024\n\014list_version\030" +
-      "\002 \001(\t\032,\n\nRolesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\t:\0028\001\"\033\n\031EducationLevelListRequest" +
-      "\"\276\001\n\032EducationLevelListResponse\022R\n\017educa" +
-      "tionLevels\030\001 \003(\01329.personal.EducationLev" +
-      "elListResponse.EducationLevelsEntry\022\024\n\014l",
-      "ist_version\030\002 \001(\t\0326\n\024EducationLevelsEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\rMyI" +
-      "nfoRequest\022\017\n\007user_id\030\001 \001(\t\"\364\004\n\016MyInfoRe" +
-      "sponse\022)\n\tnick_name\030\001 \001(\0132\026.personal.Inf" +
-      "oNickName\022)\n\treal_name\030\002 \001(\0132\026.personal." +
-      "InfoRealName\022)\n\tid_number\030\003 \001(\0132\026.person" +
-      "al.InfoIdNumber\022\036\n\003sex\030\004 \001(\0132\021.personal." +
-      "InfoSex\022(\n\010birthday\030\005 \001(\0132\026.personal.Inf" +
-      "oBirthday\022+\n\nuser_roles\030\006 \001(\0132\027.personal" +
-      ".InfoUserRoles\022(\n\010workUnit\030\007 \001(\0132\026.perso",
-      "nal.InfoWorkUnit\0224\n\016educationLevel\030\010 \001(\013" +
-      "2\034.personal.InfoEducationLevel\0227\n\020gradua" +
-      "ted_school\030\t \001(\0132\035.personal.InfoGraduate" +
-      "dSchool\022\"\n\005award\030\n \001(\0132\023.personal.InfoAw" +
-      "ard\022&\n\007subject\030\013 \001(\0132\025.personal.InfoSubj" +
-      "ect\0227\n\020interest_subject\030\014 \001(\0132\035.personal" +
-      ".InfoInterestSubject\022\"\n\005email\030\r \001(\0132\023.pe" +
-      "rsonal.InfoEmail\022(\n\navatar_url\030\016 \001(\0132\024.p" +
-      "ersonal.InfoAvatar\"K\n\023MyInfoUpdateReques" +
-      "t\022\017\n\007user_id\030\001 \001(\t\022#\n\005field\030\002 \003(\0132\024.goog",
-      "le.protobuf.Any\"\026\n\024MyInfoUpdateResponse\"" +
-      "!\n\014InfoNickName\022\021\n\tnick_name\030\001 \001(\t\"!\n\014In" +
-      "foRealName\022\021\n\treal_name\030\001 \001(\t\"!\n\014InfoIdN" +
-      "umber\022\021\n\tid_number\030\001 \001(\t\"\026\n\007InfoSex\022\013\n\003s" +
-      "ex\030\001 \001(\t\" \n\014InfoBirthday\022\020\n\010birthday\030\001 \001" +
-      "(\t\"#\n\rInfoUserRoles\022\022\n\nuser_roles\030\001 \001(\t\"" +
-      " \n\014InfoWorkUnit\022\020\n\010workUnit\030\001 \001(\t\",\n\022Inf" +
-      "oEducationLevel\022\026\n\016educationLevel\030\001 \001(\t\"" +
-      "/\n\023InfoGraduatedSchool\022\030\n\020graduated_scho" +
-      "ol\030\001 \001(\t\"\032\n\tInfoAward\022\r\n\005award\030\001 \001(\t\"\036\n\013",
-      "InfoSubject\022\017\n\007subject\030\001 \001(\t\"/\n\023InfoInte" +
-      "restSubject\022\030\n\020interest_subject\030\001 \001(\t\"\032\n" +
-      "\tInfoEmail\022\r\n\005email\030\001 \001(\t\" \n\nInfoAvatar\022" +
-      "\022\n\navatar_url\030\001 \001(\tB\037\n\024com.wanfang.perso" +
-      "nalP\001\242\002\004WFPRb\006proto3"
+      "ersonal\032\031google/protobuf/any.proto\032\032grpc" +
+      "Common/msg_error.proto\"\026\n\024UserRolesListR" +
+      "equest\"\274\001\n\025UserRolesListResponse\0229\n\005role" +
+      "s\030\001 \003(\0132*.personal.UserRolesListResponse" +
+      ".RolesEntry\022\024\n\014list_version\030\002 \001(\t\022$\n\005err" +
+      "or\030\003 \001(\0132\025.grpcCommon.GrpcError\032,\n\nRoles" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\033\n" +
+      "\031EducationLevelListRequest\"\344\001\n\032Education" +
+      "LevelListResponse\022R\n\017educationLevels\030\001 \003",
+      "(\01329.personal.EducationLevelListResponse" +
+      ".EducationLevelsEntry\022\024\n\014list_version\030\002 " +
+      "\001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon.GrpcErro" +
+      "r\0326\n\024EducationLevelsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\"\024\n\022SubjectListRequest\"" +
+      "Q\n\023SubjectListResponse\022\024\n\014subject_list\030\001" +
+      " \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErr" +
+      "or\" \n\rMyInfoRequest\022\017\n\007user_id\030\001 \001(\t\"\232\005\n" +
+      "\016MyInfoResponse\022)\n\tnick_name\030\001 \001(\0132\026.per" +
+      "sonal.InfoNickName\022)\n\treal_name\030\002 \001(\0132\026.",
+      "personal.InfoRealName\022)\n\tid_number\030\003 \001(\013" +
+      "2\026.personal.InfoIdNumber\022\036\n\003sex\030\004 \001(\0132\021." +
+      "personal.InfoSex\022(\n\010birthday\030\005 \001(\0132\026.per" +
+      "sonal.InfoBirthday\022+\n\nuser_roles\030\006 \001(\0132\027" +
+      ".personal.InfoUserRoles\022(\n\010workUnit\030\007 \001(" +
+      "\0132\026.personal.InfoWorkUnit\0224\n\016educationLe" +
+      "vel\030\010 \001(\0132\034.personal.InfoEducationLevel\022" +
+      "7\n\020graduated_school\030\t \001(\0132\035.personal.Inf" +
+      "oGraduatedSchool\022\"\n\005award\030\n \001(\0132\023.person" +
+      "al.InfoAward\022&\n\007subject\030\013 \001(\0132\025.personal",
+      ".InfoSubject\0227\n\020interest_subject\030\014 \001(\0132\035" +
+      ".personal.InfoInterestSubject\022\"\n\005email\030\r" +
+      " \001(\0132\023.personal.InfoEmail\022(\n\navatar_url\030" +
+      "\016 \001(\0132\024.personal.InfoAvatar\022$\n\005error\030\017 \001" +
+      "(\0132\025.grpcCommon.GrpcError\"K\n\023MyInfoUpdat" +
+      "eRequest\022\017\n\007user_id\030\001 \001(\t\022#\n\005field\030\002 \003(\013" +
+      "2\024.google.protobuf.Any\"<\n\024MyInfoUpdateRe" +
+      "sponse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcE" +
+      "rror\"!\n\014InfoNickName\022\021\n\tnick_name\030\001 \001(\t\"" +
+      "!\n\014InfoRealName\022\021\n\treal_name\030\001 \001(\t\"!\n\014In",
+      "foIdNumber\022\021\n\tid_number\030\001 \001(\t\"\026\n\007InfoSex" +
+      "\022\013\n\003sex\030\001 \001(\t\" \n\014InfoBirthday\022\020\n\010birthda" +
+      "y\030\001 \001(\t\"#\n\rInfoUserRoles\022\022\n\nuser_roles\030\001" +
+      " \001(\t\" \n\014InfoWorkUnit\022\020\n\010workUnit\030\001 \001(\t\"," +
+      "\n\022InfoEducationLevel\022\026\n\016educationLevel\030\001" +
+      " \001(\t\"/\n\023InfoGraduatedSchool\022\030\n\020graduated" +
+      "_school\030\001 \001(\t\"\032\n\tInfoAward\022\r\n\005award\030\001 \001(" +
+      "\t\"\036\n\013InfoSubject\022\017\n\007subject\030\001 \001(\t\"/\n\023Inf" +
+      "oInterestSubject\022\030\n\020interest_subject\030\001 \001" +
+      "(\t\"\032\n\tInfoEmail\022\r\n\005email\030\001 \001(\t\" \n\nInfoAv",
+      "atar\022\022\n\navatar_url\030\001 \001(\tB\037\n\024com.wanfang." +
+      "personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -201,6 +218,7 @@ public final class MsgPersonInfo {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.AnyProto.getDescriptor(),
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_UserRolesListRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -213,7 +231,7 @@ public final class MsgPersonInfo {
     internal_static_personal_UserRolesListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_UserRolesListResponse_descriptor,
-        new java.lang.String[] { "Roles", "ListVersion", });
+        new java.lang.String[] { "Roles", "ListVersion", "Error", });
     internal_static_personal_UserRolesListResponse_RolesEntry_descriptor =
       internal_static_personal_UserRolesListResponse_descriptor.getNestedTypes().get(0);
     internal_static_personal_UserRolesListResponse_RolesEntry_fieldAccessorTable = new
@@ -231,122 +249,135 @@ public final class MsgPersonInfo {
     internal_static_personal_EducationLevelListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_EducationLevelListResponse_descriptor,
-        new java.lang.String[] { "EducationLevels", "ListVersion", });
+        new java.lang.String[] { "EducationLevels", "ListVersion", "Error", });
     internal_static_personal_EducationLevelListResponse_EducationLevelsEntry_descriptor =
       internal_static_personal_EducationLevelListResponse_descriptor.getNestedTypes().get(0);
     internal_static_personal_EducationLevelListResponse_EducationLevelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_EducationLevelListResponse_EducationLevelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_personal_MyInfoRequest_descriptor =
+    internal_static_personal_SubjectListRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_personal_SubjectListRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_SubjectListRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_personal_SubjectListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_personal_SubjectListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_SubjectListResponse_descriptor,
+        new java.lang.String[] { "SubjectList", "Error", });
+    internal_static_personal_MyInfoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_personal_MyInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyInfoRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_personal_MyInfoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_personal_MyInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyInfoResponse_descriptor,
-        new java.lang.String[] { "NickName", "RealName", "IdNumber", "Sex", "Birthday", "UserRoles", "WorkUnit", "EducationLevel", "GraduatedSchool", "Award", "Subject", "InterestSubject", "Email", "AvatarUrl", });
+        new java.lang.String[] { "NickName", "RealName", "IdNumber", "Sex", "Birthday", "UserRoles", "WorkUnit", "EducationLevel", "GraduatedSchool", "Award", "Subject", "InterestSubject", "Email", "AvatarUrl", "Error", });
     internal_static_personal_MyInfoUpdateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_personal_MyInfoUpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyInfoUpdateRequest_descriptor,
         new java.lang.String[] { "UserId", "Field", });
     internal_static_personal_MyInfoUpdateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_personal_MyInfoUpdateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyInfoUpdateResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Error", });
     internal_static_personal_InfoNickName_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_personal_InfoNickName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoNickName_descriptor,
         new java.lang.String[] { "NickName", });
     internal_static_personal_InfoRealName_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_personal_InfoRealName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoRealName_descriptor,
         new java.lang.String[] { "RealName", });
     internal_static_personal_InfoIdNumber_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_personal_InfoIdNumber_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoIdNumber_descriptor,
         new java.lang.String[] { "IdNumber", });
     internal_static_personal_InfoSex_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_personal_InfoSex_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoSex_descriptor,
         new java.lang.String[] { "Sex", });
     internal_static_personal_InfoBirthday_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_personal_InfoBirthday_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoBirthday_descriptor,
         new java.lang.String[] { "Birthday", });
     internal_static_personal_InfoUserRoles_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_personal_InfoUserRoles_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoUserRoles_descriptor,
         new java.lang.String[] { "UserRoles", });
     internal_static_personal_InfoWorkUnit_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_personal_InfoWorkUnit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoWorkUnit_descriptor,
         new java.lang.String[] { "WorkUnit", });
     internal_static_personal_InfoEducationLevel_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_personal_InfoEducationLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoEducationLevel_descriptor,
         new java.lang.String[] { "EducationLevel", });
     internal_static_personal_InfoGraduatedSchool_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_personal_InfoGraduatedSchool_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoGraduatedSchool_descriptor,
         new java.lang.String[] { "GraduatedSchool", });
     internal_static_personal_InfoAward_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_personal_InfoAward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoAward_descriptor,
         new java.lang.String[] { "Award", });
     internal_static_personal_InfoSubject_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_personal_InfoSubject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoSubject_descriptor,
         new java.lang.String[] { "Subject", });
     internal_static_personal_InfoInterestSubject_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_personal_InfoInterestSubject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoInterestSubject_descriptor,
         new java.lang.String[] { "InterestSubject", });
     internal_static_personal_InfoEmail_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_personal_InfoEmail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoEmail_descriptor,
         new java.lang.String[] { "Email", });
     internal_static_personal_InfoAvatar_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_personal_InfoAvatar_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoAvatar_descriptor,
         new java.lang.String[] { "AvatarUrl", });
     com.google.protobuf.AnyProto.getDescriptor();
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

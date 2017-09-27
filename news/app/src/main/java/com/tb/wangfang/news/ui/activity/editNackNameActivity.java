@@ -8,15 +8,39 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.protobuf.Any;
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.di.component.DaggerActivityComponent;
+import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.personal.InfoIdNumber;
+import com.wanfang.personal.InfoNickName;
+import com.wanfang.personal.InfoRealName;
+import com.wanfang.personal.MyInfoUpdateRequest;
+import com.wanfang.personal.MyInfoUpdateResponse;
+import com.wanfang.personal.PersonalCenterServiceGrpc;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.grpc.ManagedChannel;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
-public class editNackNameActivity extends SimpleActivity {
-
+public class EditNackNameActivity extends SimpleActivity {
+    @Inject
+    ManagedChannel managedChannel;
+    @Inject
+    ImplPreferencesHelper preferencesHelper;
 
     @BindView(R.id.tv_page_title)
     TextView tvPageTitle;
@@ -27,9 +51,14 @@ public class editNackNameActivity extends SimpleActivity {
     final static int TYPE_ID_CARD = 2;
 
     private int type;
+    private MaterialDialog mdialog;
 
     @Override
     protected int getLayout() {
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
         return R.layout.activity_edit_nack_name;
     }
 
@@ -99,10 +128,14 @@ public class editNackNameActivity extends SimpleActivity {
             case R.id.tv_save:
                 if (!TextUtils.isEmpty(etName.getText().toString())) {
                     if (!TextUtils.isEmpty(etName.getText().toString().trim())) {
-                        Intent intent = new Intent();
-                        intent.putExtra("nickname", etName.getText().toString().trim());
-                        setResult(RESULT_OK, intent);
-                        finish();
+                        mdialog = new MaterialDialog.Builder(this)
+                                .title("修改中")
+                                .content("请等待")
+                                .progress(true, 0)
+                                .progressIndeterminateStyle(true)
+                                .show();
+                        submitInfo(etName.getText().toString().trim(), type);
+
                     } else {
                         if (type == TYPE_NICKNAME) {
                             ToastUtil.show("昵称不能是空格");
@@ -125,5 +158,43 @@ public class editNackNameActivity extends SimpleActivity {
 
                 break;
         }
+    }
+
+    private void submitInfo(final String trim, final int type) {
+        Single.create(new SingleOnSubscribe<MyInfoUpdateResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                Any any = null;
+                if (type == TYPE_NICKNAME) {
+                    InfoNickName infoNickName = InfoNickName.newBuilder().setNickName(trim).build();
+                    any = Any.pack(infoNickName);
+                } else if (type == TYPE_NAME) {
+                    InfoRealName infoRealName = InfoRealName.newBuilder().setRealName(trim).build();
+                    any = Any.pack(infoRealName);
+                } else if (type == TYPE_ID_CARD) {
+                    InfoIdNumber infoIdNumber = InfoIdNumber.newBuilder().setIdNumber(trim).build();
+                    any = Any.pack(infoIdNumber);
+                }
+                MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();
+                MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoUpdateResponse>() {
+            @Override
+            public void onSuccess(MyInfoUpdateResponse myInfoUpdateResponse) {
+                mdialog.dismiss();
+                Intent intent = new Intent();
+                intent.putExtra("nickname", trim);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mdialog.dismiss();
+                ToastUtil.show("访问服务器错误");
+            }
+        });
     }
 }

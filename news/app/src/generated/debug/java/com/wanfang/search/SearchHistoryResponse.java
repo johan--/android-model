@@ -52,6 +52,19 @@ public  final class SearchHistoryResponse extends
             historyTitle_.add(s);
             break;
           }
+          case 18: {
+            com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
+            if (error_ != null) {
+              subBuilder = error_.toBuilder();
+            }
+            error_ = input.readMessage(com.wanfang.grpcCommon.MsgError.GrpcError.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(error_);
+              error_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -78,6 +91,7 @@ public  final class SearchHistoryResponse extends
             com.wanfang.search.SearchHistoryResponse.class, com.wanfang.search.SearchHistoryResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int HISTORY_TITLE_FIELD_NUMBER = 1;
   private com.google.protobuf.LazyStringList historyTitle_;
   /**
@@ -107,6 +121,27 @@ public  final class SearchHistoryResponse extends
     return historyTitle_.getByteString(index);
   }
 
+  public static final int ERROR_FIELD_NUMBER = 2;
+  private com.wanfang.grpcCommon.MsgError.GrpcError error_;
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  public boolean hasError() {
+    return error_ != null;
+  }
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+    return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+  }
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+    return getError();
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -122,6 +157,9 @@ public  final class SearchHistoryResponse extends
     for (int i = 0; i < historyTitle_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, historyTitle_.getRaw(i));
     }
+    if (error_ != null) {
+      output.writeMessage(2, getError());
+    }
   }
 
   public int getSerializedSize() {
@@ -136,6 +174,10 @@ public  final class SearchHistoryResponse extends
       }
       size += dataSize;
       size += 1 * getHistoryTitleList().size();
+    }
+    if (error_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getError());
     }
     memoizedSize = size;
     return size;
@@ -155,6 +197,11 @@ public  final class SearchHistoryResponse extends
     boolean result = true;
     result = result && getHistoryTitleList()
         .equals(other.getHistoryTitleList());
+    result = result && (hasError() == other.hasError());
+    if (hasError()) {
+      result = result && getError()
+          .equals(other.getError());
+    }
     return result;
   }
 
@@ -168,6 +215,10 @@ public  final class SearchHistoryResponse extends
     if (getHistoryTitleCount() > 0) {
       hash = (37 * hash) + HISTORY_TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getHistoryTitleList().hashCode();
+    }
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -289,6 +340,12 @@ public  final class SearchHistoryResponse extends
       super.clear();
       historyTitle_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      if (errorBuilder_ == null) {
+        error_ = null;
+      } else {
+        error_ = null;
+        errorBuilder_ = null;
+      }
       return this;
     }
 
@@ -312,11 +369,18 @@ public  final class SearchHistoryResponse extends
     public com.wanfang.search.SearchHistoryResponse buildPartial() {
       com.wanfang.search.SearchHistoryResponse result = new com.wanfang.search.SearchHistoryResponse(this);
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         historyTitle_ = historyTitle_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.historyTitle_ = historyTitle_;
+      if (errorBuilder_ == null) {
+        result.error_ = error_;
+      } else {
+        result.error_ = errorBuilder_.build();
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -367,6 +431,9 @@ public  final class SearchHistoryResponse extends
           historyTitle_.addAll(other.historyTitle_);
         }
         onChanged();
+      }
+      if (other.hasError()) {
+        mergeError(other.getError());
       }
       onChanged();
       return this;
@@ -487,6 +554,123 @@ public  final class SearchHistoryResponse extends
       historyTitle_.add(value);
       onChanged();
       return this;
+    }
+
+    private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public boolean hasError() {
+      return errorBuilder_ != null || error_ != null;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+      if (errorBuilder_ == null) {
+        return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+      } else {
+        return errorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        error_ = value;
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder setError(
+        com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        error_ = builderForValue.build();
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+      if (errorBuilder_ == null) {
+        if (error_ != null) {
+          error_ =
+            com.wanfang.grpcCommon.MsgError.GrpcError.newBuilder(error_).mergeFrom(value).buildPartial();
+        } else {
+          error_ = value;
+        }
+        onChanged();
+      } else {
+        errorBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder clearError() {
+      if (errorBuilder_ == null) {
+        error_ = null;
+        onChanged();
+      } else {
+        error_ = null;
+        errorBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
+      
+      onChanged();
+      return getErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+      if (errorBuilder_ != null) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        return error_ == null ?
+            com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+      }
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 
+        getErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder>(
+                getError(),
+                getParentForChildren(),
+                isClean());
+        error_ = null;
+      }
+      return errorBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

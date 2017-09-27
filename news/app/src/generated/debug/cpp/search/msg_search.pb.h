@@ -28,6 +28,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/any.pb.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -217,11 +218,21 @@ class HotThemesResponse : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::std::string>& themes_title() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_themes_title();
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.HotThemesResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> themes_title_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto_impl();
   friend void  protobuf_AddDesc_search_2fmsg_5fsearch_2eproto_impl();
@@ -418,11 +429,21 @@ class SearchHistoryResponse : public ::google::protobuf::Message /* @@protoc_ins
   const ::google::protobuf::RepeatedPtrField< ::std::string>& history_title() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_history_title();
 
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.SearchHistoryResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> history_title_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto_impl();
   friend void  protobuf_AddDesc_search_2fmsg_5fsearch_2eproto_impl();
@@ -529,6 +550,45 @@ inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 HotThemesResponse::mutable_themes_title() {
   // @@protoc_insertion_point(field_mutable_list:personal.HotThemesResponse.themes_title)
   return &themes_title_;
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool HotThemesResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void HotThemesResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& HotThemesResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.HotThemesResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* HotThemesResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.HotThemesResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* HotThemesResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.HotThemesResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void HotThemesResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.HotThemesResponse.error)
 }
 
 inline const HotThemesResponse* HotThemesResponse::internal_default_instance() {
@@ -670,6 +730,45 @@ inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 SearchHistoryResponse::mutable_history_title() {
   // @@protoc_insertion_point(field_mutable_list:personal.SearchHistoryResponse.history_title)
   return &history_title_;
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool SearchHistoryResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void SearchHistoryResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& SearchHistoryResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.SearchHistoryResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* SearchHistoryResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* SearchHistoryResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.SearchHistoryResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void SearchHistoryResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.SearchHistoryResponse.error)
 }
 
 inline const SearchHistoryResponse* SearchHistoryResponse::internal_default_instance() {

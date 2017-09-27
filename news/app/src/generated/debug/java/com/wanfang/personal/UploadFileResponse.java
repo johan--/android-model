@@ -55,6 +55,19 @@ public  final class UploadFileResponse extends
                 uploadUrls__.getKey(), uploadUrls__.getValue());
             break;
           }
+          case 18: {
+            com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
+            if (error_ != null) {
+              subBuilder = error_.toBuilder();
+            }
+            error_ = input.readMessage(com.wanfang.grpcCommon.MsgError.GrpcError.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(error_);
+              error_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -89,6 +102,7 @@ public  final class UploadFileResponse extends
             com.wanfang.personal.UploadFileResponse.class, com.wanfang.personal.UploadFileResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int UPLOAD_URLS_FIELD_NUMBER = 1;
   private static final class UploadUrlsDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -165,6 +179,27 @@ public  final class UploadFileResponse extends
     return map.get(key);
   }
 
+  public static final int ERROR_FIELD_NUMBER = 2;
+  private com.wanfang.grpcCommon.MsgError.GrpcError error_;
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  public boolean hasError() {
+    return error_ != null;
+  }
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+    return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+  }
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   */
+  public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+    return getError();
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -183,6 +218,9 @@ public  final class UploadFileResponse extends
         internalGetUploadUrls(),
         UploadUrlsDefaultEntryHolder.defaultEntry,
         1);
+    if (error_ != null) {
+      output.writeMessage(2, getError());
+    }
   }
 
   public int getSerializedSize() {
@@ -199,6 +237,10 @@ public  final class UploadFileResponse extends
           .build();
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, uploadUrls__);
+    }
+    if (error_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getError());
     }
     memoizedSize = size;
     return size;
@@ -218,6 +260,11 @@ public  final class UploadFileResponse extends
     boolean result = true;
     result = result && internalGetUploadUrls().equals(
         other.internalGetUploadUrls());
+    result = result && (hasError() == other.hasError());
+    if (hasError()) {
+      result = result && getError()
+          .equals(other.getError());
+    }
     return result;
   }
 
@@ -231,6 +278,10 @@ public  final class UploadFileResponse extends
     if (!internalGetUploadUrls().getMap().isEmpty()) {
       hash = (37 * hash) + UPLOAD_URLS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetUploadUrls().hashCode();
+    }
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -373,6 +424,12 @@ public  final class UploadFileResponse extends
     public Builder clear() {
       super.clear();
       internalGetMutableUploadUrls().clear();
+      if (errorBuilder_ == null) {
+        error_ = null;
+      } else {
+        error_ = null;
+        errorBuilder_ = null;
+      }
       return this;
     }
 
@@ -396,8 +453,15 @@ public  final class UploadFileResponse extends
     public com.wanfang.personal.UploadFileResponse buildPartial() {
       com.wanfang.personal.UploadFileResponse result = new com.wanfang.personal.UploadFileResponse(this);
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.uploadUrls_ = internalGetUploadUrls();
       result.uploadUrls_.makeImmutable();
+      if (errorBuilder_ == null) {
+        result.error_ = error_;
+      } else {
+        result.error_ = errorBuilder_.build();
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -441,6 +505,9 @@ public  final class UploadFileResponse extends
       if (other == com.wanfang.personal.UploadFileResponse.getDefaultInstance()) return this;
       internalGetMutableUploadUrls().mergeFrom(
           other.internalGetUploadUrls());
+      if (other.hasError()) {
+        mergeError(other.getError());
+      }
       onChanged();
       return this;
     }
@@ -585,6 +652,123 @@ public  final class UploadFileResponse extends
         java.util.Map<java.lang.String, java.lang.String> values) {
       getMutableUploadUrls().putAll(values);
       return this;
+    }
+
+    private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public boolean hasError() {
+      return errorBuilder_ != null || error_ != null;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
+      if (errorBuilder_ == null) {
+        return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+      } else {
+        return errorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        error_ = value;
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder setError(
+        com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        error_ = builderForValue.build();
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
+      if (errorBuilder_ == null) {
+        if (error_ != null) {
+          error_ =
+            com.wanfang.grpcCommon.MsgError.GrpcError.newBuilder(error_).mergeFrom(value).buildPartial();
+        } else {
+          error_ = value;
+        }
+        onChanged();
+      } else {
+        errorBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public Builder clearError() {
+      if (errorBuilder_ == null) {
+        error_ = null;
+        onChanged();
+      } else {
+        error_ = null;
+        errorBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
+      
+      onChanged();
+      return getErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
+      if (errorBuilder_ != null) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        return error_ == null ?
+            com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
+      }
+    }
+    /**
+     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 
+        getErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder>(
+                getError(),
+                getParentForChildren(),
+                isClean());
+        error_ = null;
+      }
+      return errorBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

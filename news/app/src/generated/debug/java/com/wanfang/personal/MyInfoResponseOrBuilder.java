@@ -356,4 +356,17 @@ public interface MyInfoResponseOrBuilder extends
    * <code>optional .personal.InfoAvatar avatar_url = 14;</code>
    */
   com.wanfang.personal.InfoAvatarOrBuilder getAvatarUrlOrBuilder();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 15;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 15;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 15;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

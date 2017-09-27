@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
+import com.soundcloud.android.crop.Crop;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
@@ -30,6 +32,7 @@ import com.wanfang.personal.MyInfoRequest;
 import com.wanfang.personal.MyInfoResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,6 +133,7 @@ public class EditPersonInforActivity extends SimpleActivity {
     RelativeLayout rlInterest;
     private String TAG = "EditPersonInforActivity";
     String[] s = new String[]{"男", "女"};
+    private Uri destination;
 
     @Override
     protected int getLayout() {
@@ -228,16 +232,20 @@ public class EditPersonInforActivity extends SimpleActivity {
                 if (!TextUtils.isEmpty(graduatedSchool)) {
                     etGraduateSchool.setText(graduatedSchool);
                 }
-                if (!TextUtils.isEmpty(award)){
-
+                if (!TextUtils.isEmpty(award)) {
+                    tvReward.setText(award);
                 }
-
-
+                if (!TextUtils.isEmpty(subject)) {
+                    tvSubject.setText(subject);
+                }
+                if (!TextUtils.isEmpty(interestSubject)) {
+                    etInterest.setText(interestSubject);
+                }
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Log.d(TAG, "onError: " + e.getMessage());
             }
         });
     }
@@ -246,16 +254,20 @@ public class EditPersonInforActivity extends SimpleActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
+            Glide.with(this).load(destination).transform(new GlideCircleTransform(this)).into(ivUserIcon);
+        }
         if (resultCode == RESULT_OK && requestCode == PhotoPicker.REQUEST_CODE) {
             if (data != null) {
                 ArrayList<String> photos =
                         data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
-                Glide.with(this).load(photos.get(0)).transform(new GlideCircleTransform(this)).into(ivUserIcon);
-
+                Log.d(TAG, "onActivityResult: " + photos.get(0));
+                destination = Uri.fromFile(new File(getCacheDir(), "cropped"));
+                Uri source = Uri.parse(photos.get(0));
+                Crop.of(source, destination).asSquare().start(this);
             }
         }
-        if (resultCode == RESULT_OK && requestCode == editNackNameActivity.TYPE_NICKNAME) {
+        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_NICKNAME) {
             if (data != null) {
                 String nickname = data.getStringExtra("nickname");
                 etNickname.setText(nickname);
@@ -264,7 +276,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etNickname.setText("");
             }
         }
-        if (resultCode == RESULT_OK && requestCode == editNackNameActivity.TYPE_NAME) {
+        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_NAME) {
             if (data != null) {
                 String name = data.getStringExtra("nickname");
                 etName.setText(name);
@@ -273,7 +285,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etName.setText("");
             }
         }
-        if (resultCode == RESULT_OK && requestCode == editNackNameActivity.TYPE_ID_CARD) {
+        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_ID_CARD) {
             if (data != null) {
                 String name = data.getStringExtra("nickname");
                 etIdCountry.setText(name);
@@ -345,6 +357,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etInterest.setText("");
             }
         }
+
     }
 
 
@@ -361,22 +374,22 @@ public class EditPersonInforActivity extends SimpleActivity {
                 Log.d(TAG, "onDraw: " + Thread.currentThread().getId());
                 break;
             case R.id.rl_nickname:
-                Intent intent = new Intent(this, editNackNameActivity.class);
-                intent.putExtra("type", editNackNameActivity.TYPE_NICKNAME);
+                Intent intent = new Intent(this, EditNackNameActivity.class);
+                intent.putExtra("type", EditNackNameActivity.TYPE_NICKNAME);
                 intent.putExtra("content", etNickname.getText().toString().trim());
-                startActivityForResult(intent, editNackNameActivity.TYPE_NICKNAME);
+                startActivityForResult(intent, EditNackNameActivity.TYPE_NICKNAME);
                 break;
             case R.id.rl_name:
-                Intent intent2 = new Intent(this, editNackNameActivity.class);
-                intent2.putExtra("type", editNackNameActivity.TYPE_NAME);
+                Intent intent2 = new Intent(this, EditNackNameActivity.class);
+                intent2.putExtra("type", EditNackNameActivity.TYPE_NAME);
                 intent2.putExtra("content", etName.getText().toString().trim());
-                startActivityForResult(intent2, editNackNameActivity.TYPE_NAME);
+                startActivityForResult(intent2, EditNackNameActivity.TYPE_NAME);
                 break;
             case R.id.rl_id_country:
-                Intent intent3 = new Intent(this, editNackNameActivity.class);
-                intent3.putExtra("type", editNackNameActivity.TYPE_ID_CARD);
+                Intent intent3 = new Intent(this, EditNackNameActivity.class);
+                intent3.putExtra("type", EditNackNameActivity.TYPE_ID_CARD);
                 intent3.putExtra("content", etIdCountry.getText().toString().trim());
-                startActivityForResult(intent3, editNackNameActivity.TYPE_ID_CARD);
+                startActivityForResult(intent3, EditNackNameActivity.TYPE_ID_CARD);
                 break;
             case R.id.rl_gender:
                 new MaterialDialog.Builder(this)

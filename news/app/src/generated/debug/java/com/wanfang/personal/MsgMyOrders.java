@@ -39,16 +39,18 @@ public final class MsgMyOrders {
   static {
     java.lang.String[] descriptorData = {
       "\n\"personalCenter/msg_my_orders.proto\022\010pe" +
-      "rsonal\"J\n\017MyOrdersRequest\022\017\n\007user_id\030\001 \001" +
-      "(\t\022\023\n\013page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001" +
-      "(\005\"\213\002\n\020MyOrdersResponse\0222\n\007results\030\001 \003(\013" +
-      "2!.personal.MyOrdersResponse.Result\022\023\n\013t" +
-      "otal_count\030\002 \001(\005\022\020\n\010has_more\030\003 \001(\010\032\233\001\n\006R" +
-      "esult\022\020\n\010order_id\030\001 \001(\t\022\023\n\013create_time\030\002" +
-      " \001(\t\022\023\n\013order_money\030\003 \001(\t\022\032\n\022order_produ" +
-      "ct_type\030\005 \001(\t\022\023\n\013order_state\030\006 \001(\005\022\023\n\013or" +
-      "der_title\030\007 \001(\t\022\017\n\007pay_way\030\010 \001(\tB\037\n\024com.",
-      "wanfang.personalP\001\242\002\004WFPRb\006proto3"
+      "rsonal\032\032grpcCommon/msg_error.proto\"J\n\017My" +
+      "OrdersRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_n" +
+      "umber\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\261\002\n\020MyOrd" +
+      "ersResponse\0222\n\007results\030\001 \003(\0132!.personal." +
+      "MyOrdersResponse.Result\022\023\n\013total_count\030\002" +
+      " \001(\005\022\020\n\010has_more\030\003 \001(\010\022$\n\005error\030\004 \001(\0132\025." +
+      "grpcCommon.GrpcError\032\233\001\n\006Result\022\020\n\010order" +
+      "_id\030\001 \001(\t\022\023\n\013create_time\030\002 \001(\t\022\023\n\013order_" +
+      "money\030\003 \001(\t\022\032\n\022order_product_type\030\005 \001(\t\022",
+      "\023\n\013order_state\030\006 \001(\005\022\023\n\013order_title\030\007 \001(" +
+      "\t\022\017\n\007pay_way\030\010 \001(\tB\037\n\024com.wanfang.person" +
+      "alP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -61,6 +63,7 @@ public final class MsgMyOrders {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_MyOrdersRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -73,13 +76,14 @@ public final class MsgMyOrders {
     internal_static_personal_MyOrdersResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyOrdersResponse_descriptor,
-        new java.lang.String[] { "Results", "TotalCount", "HasMore", });
+        new java.lang.String[] { "Results", "TotalCount", "HasMore", "Error", });
     internal_static_personal_MyOrdersResponse_Result_descriptor =
       internal_static_personal_MyOrdersResponse_descriptor.getNestedTypes().get(0);
     internal_static_personal_MyOrdersResponse_Result_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_MyOrdersResponse_Result_descriptor,
         new java.lang.String[] { "OrderId", "CreateTime", "OrderMoney", "OrderProductType", "OrderState", "OrderTitle", "PayWay", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

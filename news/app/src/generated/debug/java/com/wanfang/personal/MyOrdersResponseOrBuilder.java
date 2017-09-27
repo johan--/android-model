@@ -44,4 +44,17 @@ public interface MyOrdersResponseOrBuilder extends
    * <code>optional bool has_more = 3;</code>
    */
   boolean getHasMore();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 4;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 4;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 4;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

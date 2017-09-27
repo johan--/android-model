@@ -235,6 +235,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         mdialog.dismiss();
         if (response == null) {
             ToastUtil.show("访问失败");
+            PreferencesHelper.setLoginState(true);
+            finish();
         } else {
             ToastUtil.show("登录成功");
             PreferencesHelper.setLoginState(true);

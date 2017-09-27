@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {
@@ -285,6 +286,15 @@ class UnifiedorderResponse : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_sign();
   void set_allocated_sign(::std::string* sign);
 
+  // optional .grpcCommon.GrpcError error = 8;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 8;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
   // @@protoc_insertion_point(class_scope:personal.UnifiedorderResponse)
  private:
 
@@ -296,6 +306,7 @@ class UnifiedorderResponse : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::internal::ArenaStringPtr noncestr_;
   ::google::protobuf::internal::ArenaStringPtr time_stamp_;
   ::google::protobuf::internal::ArenaStringPtr sign_;
+  ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
   friend void  protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl();
@@ -715,6 +726,45 @@ inline void UnifiedorderResponse::set_allocated_sign(::std::string* sign) {
   }
   sign_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sign);
   // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.sign)
+}
+
+// optional .grpcCommon.GrpcError error = 8;
+inline bool UnifiedorderResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void UnifiedorderResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& UnifiedorderResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* UnifiedorderResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* UnifiedorderResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void UnifiedorderResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.error)
 }
 
 inline const UnifiedorderResponse* UnifiedorderResponse::internal_default_instance() {

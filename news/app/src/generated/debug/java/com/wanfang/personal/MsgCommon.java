@@ -59,20 +59,22 @@ public final class MsgCommon {
   static {
     java.lang.String[] descriptorData = {
       "\n\037personalCenter/msg_common.proto\022\010perso" +
-      "nal\"$\n\023PhoneCaptchaRequest\022\r\n\005phone\030\001 \001(" +
-      "\t\"<\n\024PhoneCaptchaResponse\022\025\n\rphone_captc" +
-      "ha\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\"\243\001\n\014FileMetaData" +
-      "\0222\n\006labels\030\001 \003(\0132\".personal.FileMetaData" +
-      ".LabelsEntry\022\014\n\004type\030\002 \001(\t\022\r\n\005owner\030\003 \001(" +
-      "\t\022\023\n\013login_token\030\004 \001(\t\032-\n\013LabelsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"Q\n\021UploadF" +
-      "ileRequest\022)\n\tmeta_data\030\001 \001(\0132\026.personal" +
-      ".FileMetaData\022\021\n\tfile_data\030\002 \001(\014\"\212\001\n\022Upl",
-      "oadFileResponse\022A\n\013upload_urls\030\001 \003(\0132,.p" +
-      "ersonal.UploadFileResponse.UploadUrlsEnt" +
-      "ry\0321\n\017UploadUrlsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001B\037\n\024com.wanfang.personalP\001\242" +
-      "\002\004WFPRb\006proto3"
+      "nal\032\032grpcCommon/msg_error.proto\"$\n\023Phone" +
+      "CaptchaRequest\022\r\n\005phone\030\001 \001(\t\"b\n\024PhoneCa" +
+      "ptchaResponse\022\025\n\rphone_captcha\030\001 \001(\t\022\r\n\005" +
+      "token\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon." +
+      "GrpcError\"\243\001\n\014FileMetaData\0222\n\006labels\030\001 \003" +
+      "(\0132\".personal.FileMetaData.LabelsEntry\022\014" +
+      "\n\004type\030\002 \001(\t\022\r\n\005owner\030\003 \001(\t\022\023\n\013login_tok" +
+      "en\030\004 \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"Q\n\021UploadFileRequest\022)\n\t",
+      "meta_data\030\001 \001(\0132\026.personal.FileMetaData\022" +
+      "\021\n\tfile_data\030\002 \001(\014\"\260\001\n\022UploadFileRespons" +
+      "e\022A\n\013upload_urls\030\001 \003(\0132,.personal.Upload" +
+      "FileResponse.UploadUrlsEntry\022$\n\005error\030\002 " +
+      "\001(\0132\025.grpcCommon.GrpcError\0321\n\017UploadUrls" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\037\n" +
+      "\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -85,6 +87,7 @@ public final class MsgCommon {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
     internal_static_personal_PhoneCaptchaRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -97,7 +100,7 @@ public final class MsgCommon {
     internal_static_personal_PhoneCaptchaResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PhoneCaptchaResponse_descriptor,
-        new java.lang.String[] { "PhoneCaptcha", "Token", });
+        new java.lang.String[] { "PhoneCaptcha", "Token", "Error", });
     internal_static_personal_FileMetaData_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_personal_FileMetaData_fieldAccessorTable = new
@@ -121,13 +124,14 @@ public final class MsgCommon {
     internal_static_personal_UploadFileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_UploadFileResponse_descriptor,
-        new java.lang.String[] { "UploadUrls", });
+        new java.lang.String[] { "UploadUrls", "Error", });
     internal_static_personal_UploadFileResponse_UploadUrlsEntry_descriptor =
       internal_static_personal_UploadFileResponse_descriptor.getNestedTypes().get(0);
     internal_static_personal_UploadFileResponse_UploadUrlsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_UploadFileResponse_UploadUrlsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

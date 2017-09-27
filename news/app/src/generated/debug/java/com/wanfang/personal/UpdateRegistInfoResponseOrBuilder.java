@@ -6,4 +6,17 @@ package com.wanfang.personal;
 public interface UpdateRegistInfoResponseOrBuilder extends
     // @@protoc_insertion_point(interface_extends:personal.UpdateRegistInfoResponse)
     com.google.protobuf.MessageOrBuilder {
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 1;</code>
+   */
+  boolean hasError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 1;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcError getError();
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 1;</code>
+   */
+  com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }
