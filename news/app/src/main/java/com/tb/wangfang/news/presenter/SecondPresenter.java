@@ -5,8 +5,9 @@ import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.model.db.RealmHelper;
-import com.wanfang.main.HomePageServiceGrpc;
-import com.wanfang.main.HotSearchWord;
+import com.wanfang.search.HotThemesRequest;
+import com.wanfang.search.HotThemesResponse;
+import com.wanfang.search.SearchServiceGrpc;
 
 import java.util.ArrayList;
 
@@ -62,19 +63,18 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
     @Override
     public void getHotDoc() {
 
-        Single.create(new SingleOnSubscribe<HotSearchWord.HotSearchWordReply>() {
+        Single.create(new SingleOnSubscribe<HotThemesResponse>() {
             @Override
-            public void subscribe(SingleEmitter<HotSearchWord.HotSearchWordReply> e) throws Exception {
-                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-                HotSearchWord.HotSearchWordRequest request = HotSearchWord.HotSearchWordRequest.newBuilder().setUserId("tb").build();
-                HotSearchWord.HotSearchWordReply reply = stub.getHotSearchWord(request);
-                e.onSuccess(reply);
-
+            public void subscribe(SingleEmitter<HotThemesResponse> e) throws Exception {
+                SearchServiceGrpc.SearchServiceBlockingStub stub = SearchServiceGrpc.newBlockingStub(managedChannel);
+                HotThemesRequest request = HotThemesRequest.newBuilder().setPageSize(10).setPageNumber(1).build();
+                HotThemesResponse hotThemesResponse = stub.hotThemes(request);
+                e.onSuccess(hotThemesResponse);
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<HotSearchWord.HotSearchWordReply>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<HotThemesResponse>() {
             @Override
-            public void onSuccess(HotSearchWord.HotSearchWordReply hotSearchWordReply) {
-                mView.showHotSearchWord(hotSearchWordReply.getHotWordList());
+            public void onSuccess(HotThemesResponse hotThemesResponse) {
+                mView.showHotSearchWord(hotThemesResponse.getThemesTitleList());
             }
 
             @Override

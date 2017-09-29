@@ -1,11 +1,12 @@
 syntax = "proto3";
 
 import "grpcCommon/msg_error.proto"; // 错误码
-package personal;
+package trade;
 option java_multiple_files = true;
 option java_package = "com.wanfang.trade";
 option objc_class_prefix = "WFPR";
 
+// 统一下单
 message UnifiedorderRequest  {
     string user_id = 1;
     string safe_transaction_string = 2; // 统一下单需要的参数
@@ -20,4 +21,27 @@ message UnifiedorderResponse {
     string time_stamp = 6;
     string sign = 7;
     grpcCommon.GrpcError error = 8;
+}
+
+// 获取我的订单列表数据
+message MyOrdersRequest {
+    string user_id = 1; // 用户id
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+message MyOrdersResponse {
+    message Result {
+        string order_id = 1; // 订单ID
+        string create_time = 2; // 创建日期
+        string order_money = 3; // 订单金额
+        string order_product_type = 5; // 产品类型
+        int32 order_state = 6; // 订单状态
+        string order_title = 7; // 订单内容标题
+
+        string pay_way = 8; // 支付方式 采取contains判断 Weixin=微信支付 Alipay=支付宝 Person=账户余额 WFChargeCard=万方卡 Group=其他 UnionPay=银联支付
+    }
+    repeated Result results = 1;
+    int32 total_count = 2; // 命中数
+    bool has_more = 3;
+    grpcCommon.GrpcError error = 4;
 }

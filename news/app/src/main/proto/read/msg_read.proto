@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "grpcCommon/msg_error.proto"; // 错误码
 
-package personal;
+package read;
 option java_multiple_files = true;
 option java_package = "com.wanfang.read";
 option objc_class_prefix = "WFPR";

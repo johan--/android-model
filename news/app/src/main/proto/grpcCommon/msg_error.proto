@@ -17,6 +17,8 @@ enum ErrorCode {
      COMMON_ERROR = 6; // 异常错误
 
      USER_IS_LOGIN = 7; // 用户已登录
+
+     IAP_PRICE_ERROR = 8; // 内购支付价格错误
 }
 
 message GrpcError {

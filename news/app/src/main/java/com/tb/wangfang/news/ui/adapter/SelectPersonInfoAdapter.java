@@ -9,16 +9,6 @@ import com.tb.wangfang.news.model.bean.MapMessage;
 
 import java.util.List;
 
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_EDUCATION;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_GRADUATE_SCHOOL;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_GRADUATE_SCHOOL_DEPARTMENT;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_JOB_TITLE;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_SUBJECT;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_SUBJECT_ONE;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_SUBJECT_TWO;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_UNIT;
-import static com.tb.wangfang.news.ui.activity.PersonEditListActivity.TYPE_UNIT_DEPARTMENT;
-
 /**
  * Created by tangbin on 2017/8/28.
  */
@@ -34,13 +24,17 @@ public class SelectPersonInfoAdapter extends BaseQuickAdapter<MapMessage, BaseVi
     @Override
     protected void convert(BaseViewHolder helper, MapMessage item) {
 
-        if (type == TYPE_JOB_TITLE || type == TYPE_UNIT_DEPARTMENT || type == TYPE_EDUCATION || type == TYPE_GRADUATE_SCHOOL_DEPARTMENT ||
-                type == TYPE_SUBJECT_TWO) {
-            helper.setText(R.id.tv_name, item.getValue()).setVisible(R.id.iv_step, false);
-
-        } else if (type == TYPE_UNIT || type == TYPE_GRADUATE_SCHOOL || type == TYPE_SUBJECT || type == TYPE_SUBJECT_ONE) {
+//        if (type == TYPE_JOB_TITLE || type == TYPE_UNIT_DEPARTMENT || type == TYPE_EDUCATION || type == TYPE_GRADUATE_SCHOOL_DEPARTMENT ||
+//                type == TYPE_SUBJECT_TWO) {
+//            helper.setText(R.id.tv_name, item.getValue()).setVisible(R.id.iv_step, false);
+//
+//        } else if (type == TYPE_UNIT || type == TYPE_GRADUATE_SCHOOL || type == TYPE_SUBJECT || type == TYPE_SUBJECT_ONE) {
+//            helper.setText(R.id.tv_name, item.getValue()).setVisible(R.id.iv_step, true);
+//        }
+        if (item.isHasNext()) {
             helper.setText(R.id.tv_name, item.getValue()).setVisible(R.id.iv_step, true);
+        } else {
+            helper.setText(R.id.tv_name, item.getValue()).setVisible(R.id.iv_step, false);
         }
-
     }
 }

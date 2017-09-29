@@ -30,7 +30,7 @@
 #include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace read {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_read_2fmsg_5fread_2eproto();
@@ -43,7 +43,7 @@ class ReadResponse;
 
 // ===================================================================
 
-class ReadRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.ReadRequest) */ {
+class ReadRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:read.ReadRequest) */ {
  public:
   ReadRequest();
   virtual ~ReadRequest();
@@ -183,7 +183,7 @@ class ReadRequest : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::std::string* release_login_token();
   void set_allocated_login_token(::std::string* login_token);
 
-  // @@protoc_insertion_point(class_scope:personal.ReadRequest)
+  // @@protoc_insertion_point(class_scope:read.ReadRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -206,7 +206,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<ReadRequest> ReadRequ
 
 // -------------------------------------------------------------------
 
-class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.ReadResponse) */ {
+class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:read.ReadResponse) */ {
  public:
   ReadResponse();
   virtual ~ReadResponse();
@@ -328,7 +328,7 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::grpcCommon::GrpcError* release_error();
   void set_allocated_error(::grpcCommon::GrpcError* error);
 
-  // @@protoc_insertion_point(class_scope:personal.ReadResponse)
+  // @@protoc_insertion_point(class_scope:read.ReadResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -361,32 +361,32 @@ inline void ReadRequest::clear_user_id() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::user_id() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.user_id)
   return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_user_id(const ::std::string& value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.user_id)
 }
 inline void ReadRequest::set_user_id(const char* value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.user_id)
 }
 inline void ReadRequest::set_user_id(const char* value, size_t size) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.user_id)
 }
 inline ::std::string* ReadRequest::mutable_user_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.user_id)
   return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_user_id() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.user_id)
   
   return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -397,7 +397,7 @@ inline void ReadRequest::set_allocated_user_id(::std::string* user_id) {
     
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.user_id)
 }
 
 // optional string language = 2;
@@ -405,32 +405,32 @@ inline void ReadRequest::clear_language() {
   language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::language() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.language)
   return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_language(const ::std::string& value) {
   
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.language)
 }
 inline void ReadRequest::set_language(const char* value) {
   
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.language)
 }
 inline void ReadRequest::set_language(const char* value, size_t size) {
   
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.language)
 }
 inline ::std::string* ReadRequest::mutable_language() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.language)
   return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_language() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.language)
   
   return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -441,7 +441,7 @@ inline void ReadRequest::set_allocated_language(::std::string* language) {
     
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.language)
 }
 
 // optional string resource_type = 3;
@@ -449,32 +449,32 @@ inline void ReadRequest::clear_resource_type() {
   resource_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::resource_type() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.resource_type)
   return resource_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_resource_type(const ::std::string& value) {
   
   resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.resource_type)
 }
 inline void ReadRequest::set_resource_type(const char* value) {
   
   resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.resource_type)
 }
 inline void ReadRequest::set_resource_type(const char* value, size_t size) {
   
   resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.resource_type)
 }
 inline ::std::string* ReadRequest::mutable_resource_type() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.resource_type)
   return resource_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_resource_type() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.resource_type)
   
   return resource_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -485,7 +485,7 @@ inline void ReadRequest::set_allocated_resource_type(::std::string* resource_typ
     
   }
   resource_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_type);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.resource_type)
 }
 
 // optional string source = 4;
@@ -493,32 +493,32 @@ inline void ReadRequest::clear_source() {
   source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::source() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.source)
   return source_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_source(const ::std::string& value) {
   
   source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.source)
 }
 inline void ReadRequest::set_source(const char* value) {
   
   source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.source)
 }
 inline void ReadRequest::set_source(const char* value, size_t size) {
   
   source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.source)
 }
 inline ::std::string* ReadRequest::mutable_source() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.source)
   return source_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_source() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.source)
   
   return source_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -529,7 +529,7 @@ inline void ReadRequest::set_allocated_source(::std::string* source) {
     
   }
   source_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), source);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.source)
 }
 
 // optional string resource_title = 5;
@@ -537,32 +537,32 @@ inline void ReadRequest::clear_resource_title() {
   resource_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::resource_title() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.resource_title)
   return resource_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_resource_title(const ::std::string& value) {
   
   resource_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.resource_title)
 }
 inline void ReadRequest::set_resource_title(const char* value) {
   
   resource_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.resource_title)
 }
 inline void ReadRequest::set_resource_title(const char* value, size_t size) {
   
   resource_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.resource_title)
 }
 inline ::std::string* ReadRequest::mutable_resource_title() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.resource_title)
   return resource_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_resource_title() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.resource_title)
   
   return resource_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -573,7 +573,7 @@ inline void ReadRequest::set_allocated_resource_title(::std::string* resource_ti
     
   }
   resource_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_title);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.resource_title)
 }
 
 // optional string resource_id = 6;
@@ -581,32 +581,32 @@ inline void ReadRequest::clear_resource_id() {
   resource_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::resource_id() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.resource_id)
   return resource_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_resource_id(const ::std::string& value) {
   
   resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.resource_id)
 }
 inline void ReadRequest::set_resource_id(const char* value) {
   
   resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.resource_id)
 }
 inline void ReadRequest::set_resource_id(const char* value, size_t size) {
   
   resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.resource_id)
 }
 inline ::std::string* ReadRequest::mutable_resource_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.resource_id)
   return resource_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_resource_id() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.resource_id)
   
   return resource_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -617,7 +617,7 @@ inline void ReadRequest::set_allocated_resource_id(::std::string* resource_id) {
     
   }
   resource_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.resource_id)
 }
 
 // optional string login_token = 7;
@@ -625,32 +625,32 @@ inline void ReadRequest::clear_login_token() {
   login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadRequest::login_token() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.login_token)
   return login_token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadRequest::set_login_token(const ::std::string& value) {
   
   login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.login_token)
 }
 inline void ReadRequest::set_login_token(const char* value) {
   
   login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.login_token)
 }
 inline void ReadRequest::set_login_token(const char* value, size_t size) {
   
   login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.login_token)
 }
 inline ::std::string* ReadRequest::mutable_login_token() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.login_token)
   return login_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadRequest::release_login_token() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.login_token)
   
   return login_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -661,7 +661,7 @@ inline void ReadRequest::set_allocated_login_token(::std::string* login_token) {
     
   }
   login_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_token);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.login_token)
 }
 
 inline const ReadRequest* ReadRequest::internal_default_instance() {
@@ -676,32 +676,32 @@ inline void ReadResponse::clear_price() {
   price_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadResponse::price() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.price)
   return price_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadResponse::set_price(const ::std::string& value) {
   
   price_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.price)
 }
 inline void ReadResponse::set_price(const char* value) {
   
   price_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.price)
 }
 inline void ReadResponse::set_price(const char* value, size_t size) {
   
   price_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.price)
 }
 inline ::std::string* ReadResponse::mutable_price() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.price)
   return price_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadResponse::release_price() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.price)
   
   return price_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -712,7 +712,7 @@ inline void ReadResponse::set_allocated_price(::std::string* price) {
     
   }
   price_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), price);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.price)
 }
 
 // optional string title = 2;
@@ -720,32 +720,32 @@ inline void ReadResponse::clear_title() {
   title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadResponse::title() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.title)
   return title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadResponse::set_title(const ::std::string& value) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.title)
 }
 inline void ReadResponse::set_title(const char* value) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.title)
 }
 inline void ReadResponse::set_title(const char* value, size_t size) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.title)
 }
 inline ::std::string* ReadResponse::mutable_title() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.title)
   return title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadResponse::release_title() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.title)
   
   return title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -756,7 +756,7 @@ inline void ReadResponse::set_allocated_title(::std::string* title) {
     
   }
   title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), title);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.title)
 }
 
 // optional string description = 3;
@@ -764,32 +764,32 @@ inline void ReadResponse::clear_description() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadResponse::description() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.description)
   return description_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadResponse::set_description(const ::std::string& value) {
   
   description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.description)
 }
 inline void ReadResponse::set_description(const char* value) {
   
   description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.description)
 }
 inline void ReadResponse::set_description(const char* value, size_t size) {
   
   description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.description)
 }
 inline ::std::string* ReadResponse::mutable_description() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.description)
   return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadResponse::release_description() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.description)
   
   return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -800,7 +800,7 @@ inline void ReadResponse::set_allocated_description(::std::string* description) 
     
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.description)
 }
 
 // optional string safe_transaction_string = 4;
@@ -808,32 +808,32 @@ inline void ReadResponse::clear_safe_transaction_string() {
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ReadResponse::safe_transaction_string() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.safe_transaction_string)
   return safe_transaction_string_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ReadResponse::set_safe_transaction_string(const ::std::string& value) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.safe_transaction_string)
 }
 inline void ReadResponse::set_safe_transaction_string(const char* value) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.safe_transaction_string)
 }
 inline void ReadResponse::set_safe_transaction_string(const char* value, size_t size) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.safe_transaction_string)
 }
 inline ::std::string* ReadResponse::mutable_safe_transaction_string() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.safe_transaction_string)
   return safe_transaction_string_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ReadResponse::release_safe_transaction_string() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.safe_transaction_string)
   
   return safe_transaction_string_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -844,7 +844,7 @@ inline void ReadResponse::set_allocated_safe_transaction_string(::std::string* s
     
   }
   safe_transaction_string_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), safe_transaction_string);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.safe_transaction_string)
 }
 
 // optional bool has_trade_power = 5;
@@ -852,13 +852,13 @@ inline void ReadResponse::clear_has_trade_power() {
   has_trade_power_ = false;
 }
 inline bool ReadResponse::has_trade_power() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.has_trade_power)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.has_trade_power)
   return has_trade_power_;
 }
 inline void ReadResponse::set_has_trade_power(bool value) {
   
   has_trade_power_ = value;
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.has_trade_power)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.has_trade_power)
 }
 
 // optional .grpcCommon.GrpcError error = 6;
@@ -870,7 +870,7 @@ inline void ReadResponse::clear_error() {
   error_ = NULL;
 }
 inline const ::grpcCommon::GrpcError& ReadResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -879,11 +879,11 @@ inline ::grpcCommon::GrpcError* ReadResponse::mutable_error() {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.error)
   return error_;
 }
 inline ::grpcCommon::GrpcError* ReadResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -897,7 +897,7 @@ inline void ReadResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.error)
 }
 
 inline const ReadResponse* ReadResponse::internal_default_instance() {
@@ -909,7 +909,7 @@ inline const ReadResponse* ReadResponse::internal_default_instance() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace read
 
 // @@protoc_insertion_point(global_scope)
 

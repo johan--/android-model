@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace search {
 
 namespace {
 
@@ -169,17 +169,17 @@ void protobuf_AddDesc_search_2fmsg_5fsearch_2eproto_impl() {
 
   protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027search/msg_search.proto\022\010personal\032\031goo"
-    "gle/protobuf/any.proto\032\032grpcCommon/msg_e"
-    "rror.proto\":\n\020HotThemesRequest\022\023\n\013page_n"
-    "umber\030\001 \001(\005\022\021\n\tpage_size\030\002 \001(\005\"O\n\021HotThe"
-    "mesResponse\022\024\n\014themes_title\030\001 \003(\t\022$\n\005err"
-    "or\030\002 \001(\0132\025.grpcCommon.GrpcError\"O\n\024Searc"
-    "hHistoryRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page"
-    "_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"T\n\025Sear"
-    "chHistoryResponse\022\025\n\rhistory_title\030\001 \003(\t"
-    "\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\035"
-    "\n\022com.wanfang.searchP\001\242\002\004WFPRb\006proto3", 437);
+    "\n\027search/msg_search.proto\022\006search\032\031googl"
+    "e/protobuf/any.proto\032\032grpcCommon/msg_err"
+    "or.proto\":\n\020HotThemesRequest\022\023\n\013page_num"
+    "ber\030\001 \001(\005\022\021\n\tpage_size\030\002 \001(\005\"O\n\021HotTheme"
+    "sResponse\022\024\n\014themes_title\030\001 \003(\t\022$\n\005error"
+    "\030\002 \001(\0132\025.grpcCommon.GrpcError\"O\n\024SearchH"
+    "istoryRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_n"
+    "umber\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"T\n\025Search"
+    "HistoryResponse\022\025\n\rhistory_title\030\001 \003(\t\022$"
+    "\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\035\n\022"
+    "com.wanfang.searchP\001\242\002\004WFPRb\006proto3", 435);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "search/msg_search.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -220,7 +220,7 @@ HotThemesRequest::HotThemesRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.HotThemesRequest)
+  // @@protoc_insertion_point(constructor:search.HotThemesRequest)
 }
 
 void HotThemesRequest::InitAsDefaultInstance() {
@@ -231,7 +231,7 @@ HotThemesRequest::HotThemesRequest(const HotThemesRequest& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.HotThemesRequest)
+  // @@protoc_insertion_point(copy_constructor:search.HotThemesRequest)
 }
 
 void HotThemesRequest::SharedCtor() {
@@ -241,7 +241,7 @@ void HotThemesRequest::SharedCtor() {
 }
 
 HotThemesRequest::~HotThemesRequest() {
-  // @@protoc_insertion_point(destructor:personal.HotThemesRequest)
+  // @@protoc_insertion_point(destructor:search.HotThemesRequest)
   SharedDtor();
 }
 
@@ -274,7 +274,7 @@ HotThemesRequest* HotThemesRequest::New(::google::protobuf::Arena* arena) const 
 }
 
 void HotThemesRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.HotThemesRequest)
+// @@protoc_insertion_point(message_clear_start:search.HotThemesRequest)
 #if defined(__clang__)
 #define ZR_HELPER_(f) \
   _Pragma("clang diagnostic push") \
@@ -302,7 +302,7 @@ bool HotThemesRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.HotThemesRequest)
+  // @@protoc_insertion_point(parse_start:search.HotThemesRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -350,17 +350,17 @@ bool HotThemesRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:personal.HotThemesRequest)
+  // @@protoc_insertion_point(parse_success:search.HotThemesRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:personal.HotThemesRequest)
+  // @@protoc_insertion_point(parse_failure:search.HotThemesRequest)
   return false;
 #undef DO_
 }
 
 void HotThemesRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.HotThemesRequest)
+  // @@protoc_insertion_point(serialize_start:search.HotThemesRequest)
   // optional int32 page_number = 1;
   if (this->page_number() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->page_number(), output);
@@ -371,13 +371,13 @@ void HotThemesRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->page_size(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:personal.HotThemesRequest)
+  // @@protoc_insertion_point(serialize_end:search.HotThemesRequest)
 }
 
 ::google::protobuf::uint8* HotThemesRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.HotThemesRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:search.HotThemesRequest)
   // optional int32 page_number = 1;
   if (this->page_number() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->page_number(), target);
@@ -388,12 +388,12 @@ void HotThemesRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->page_size(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:personal.HotThemesRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:search.HotThemesRequest)
   return target;
 }
 
 size_t HotThemesRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.HotThemesRequest)
+// @@protoc_insertion_point(message_byte_size_start:search.HotThemesRequest)
   size_t total_size = 0;
 
   // optional int32 page_number = 1;
@@ -418,22 +418,22 @@ size_t HotThemesRequest::ByteSizeLong() const {
 }
 
 void HotThemesRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.HotThemesRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:search.HotThemesRequest)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const HotThemesRequest* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const HotThemesRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.HotThemesRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:search.HotThemesRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.HotThemesRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:search.HotThemesRequest)
     UnsafeMergeFrom(*source);
   }
 }
 
 void HotThemesRequest::MergeFrom(const HotThemesRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.HotThemesRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:search.HotThemesRequest)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -452,14 +452,14 @@ void HotThemesRequest::UnsafeMergeFrom(const HotThemesRequest& from) {
 }
 
 void HotThemesRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.HotThemesRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:search.HotThemesRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void HotThemesRequest::CopyFrom(const HotThemesRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.HotThemesRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:search.HotThemesRequest)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -497,13 +497,13 @@ void HotThemesRequest::clear_page_number() {
   page_number_ = 0;
 }
 ::google::protobuf::int32 HotThemesRequest::page_number() const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesRequest.page_number)
+  // @@protoc_insertion_point(field_get:search.HotThemesRequest.page_number)
   return page_number_;
 }
 void HotThemesRequest::set_page_number(::google::protobuf::int32 value) {
   
   page_number_ = value;
-  // @@protoc_insertion_point(field_set:personal.HotThemesRequest.page_number)
+  // @@protoc_insertion_point(field_set:search.HotThemesRequest.page_number)
 }
 
 // optional int32 page_size = 2;
@@ -511,13 +511,13 @@ void HotThemesRequest::clear_page_size() {
   page_size_ = 0;
 }
 ::google::protobuf::int32 HotThemesRequest::page_size() const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesRequest.page_size)
+  // @@protoc_insertion_point(field_get:search.HotThemesRequest.page_size)
   return page_size_;
 }
 void HotThemesRequest::set_page_size(::google::protobuf::int32 value) {
   
   page_size_ = value;
-  // @@protoc_insertion_point(field_set:personal.HotThemesRequest.page_size)
+  // @@protoc_insertion_point(field_set:search.HotThemesRequest.page_size)
 }
 
 inline const HotThemesRequest* HotThemesRequest::internal_default_instance() {
@@ -536,7 +536,7 @@ HotThemesResponse::HotThemesResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.HotThemesResponse)
+  // @@protoc_insertion_point(constructor:search.HotThemesResponse)
 }
 
 void HotThemesResponse::InitAsDefaultInstance() {
@@ -549,7 +549,7 @@ HotThemesResponse::HotThemesResponse(const HotThemesResponse& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.HotThemesResponse)
+  // @@protoc_insertion_point(copy_constructor:search.HotThemesResponse)
 }
 
 void HotThemesResponse::SharedCtor() {
@@ -558,7 +558,7 @@ void HotThemesResponse::SharedCtor() {
 }
 
 HotThemesResponse::~HotThemesResponse() {
-  // @@protoc_insertion_point(destructor:personal.HotThemesResponse)
+  // @@protoc_insertion_point(destructor:search.HotThemesResponse)
   SharedDtor();
 }
 
@@ -594,7 +594,7 @@ HotThemesResponse* HotThemesResponse::New(::google::protobuf::Arena* arena) cons
 }
 
 void HotThemesResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.HotThemesResponse)
+// @@protoc_insertion_point(message_clear_start:search.HotThemesResponse)
   if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
   error_ = NULL;
   themes_title_.Clear();
@@ -604,7 +604,7 @@ bool HotThemesResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.HotThemesResponse)
+  // @@protoc_insertion_point(parse_start:search.HotThemesResponse)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -620,7 +620,7 @@ bool HotThemesResponse::MergePartialFromCodedStream(
             this->themes_title(this->themes_title_size() - 1).data(),
             this->themes_title(this->themes_title_size() - 1).length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.HotThemesResponse.themes_title"));
+            "search.HotThemesResponse.themes_title"));
         } else {
           goto handle_unusual;
         }
@@ -655,23 +655,23 @@ bool HotThemesResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:personal.HotThemesResponse)
+  // @@protoc_insertion_point(parse_success:search.HotThemesResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:personal.HotThemesResponse)
+  // @@protoc_insertion_point(parse_failure:search.HotThemesResponse)
   return false;
 #undef DO_
 }
 
 void HotThemesResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.HotThemesResponse)
+  // @@protoc_insertion_point(serialize_start:search.HotThemesResponse)
   // repeated string themes_title = 1;
   for (int i = 0; i < this->themes_title_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->themes_title(i).data(), this->themes_title(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.HotThemesResponse.themes_title");
+      "search.HotThemesResponse.themes_title");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->themes_title(i), output);
   }
@@ -682,19 +682,19 @@ void HotThemesResponse::SerializeWithCachedSizes(
       2, *this->error_, output);
   }
 
-  // @@protoc_insertion_point(serialize_end:personal.HotThemesResponse)
+  // @@protoc_insertion_point(serialize_end:search.HotThemesResponse)
 }
 
 ::google::protobuf::uint8* HotThemesResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.HotThemesResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:search.HotThemesResponse)
   // repeated string themes_title = 1;
   for (int i = 0; i < this->themes_title_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->themes_title(i).data(), this->themes_title(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.HotThemesResponse.themes_title");
+      "search.HotThemesResponse.themes_title");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->themes_title(i), target);
   }
@@ -706,12 +706,12 @@ void HotThemesResponse::SerializeWithCachedSizes(
         2, *this->error_, false, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:personal.HotThemesResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:search.HotThemesResponse)
   return target;
 }
 
 size_t HotThemesResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.HotThemesResponse)
+// @@protoc_insertion_point(message_byte_size_start:search.HotThemesResponse)
   size_t total_size = 0;
 
   // optional .grpcCommon.GrpcError error = 2;
@@ -737,22 +737,22 @@ size_t HotThemesResponse::ByteSizeLong() const {
 }
 
 void HotThemesResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.HotThemesResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:search.HotThemesResponse)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const HotThemesResponse* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const HotThemesResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.HotThemesResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:search.HotThemesResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.HotThemesResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:search.HotThemesResponse)
     UnsafeMergeFrom(*source);
   }
 }
 
 void HotThemesResponse::MergeFrom(const HotThemesResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.HotThemesResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:search.HotThemesResponse)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -769,14 +769,14 @@ void HotThemesResponse::UnsafeMergeFrom(const HotThemesResponse& from) {
 }
 
 void HotThemesResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.HotThemesResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:search.HotThemesResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void HotThemesResponse::CopyFrom(const HotThemesResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.HotThemesResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:search.HotThemesResponse)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -817,50 +817,50 @@ void HotThemesResponse::clear_themes_title() {
   themes_title_.Clear();
 }
 const ::std::string& HotThemesResponse::themes_title(int index) const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_get:search.HotThemesResponse.themes_title)
   return themes_title_.Get(index);
 }
 ::std::string* HotThemesResponse::mutable_themes_title(int index) {
-  // @@protoc_insertion_point(field_mutable:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_mutable:search.HotThemesResponse.themes_title)
   return themes_title_.Mutable(index);
 }
 void HotThemesResponse::set_themes_title(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_set:search.HotThemesResponse.themes_title)
   themes_title_.Mutable(index)->assign(value);
 }
 void HotThemesResponse::set_themes_title(int index, const char* value) {
   themes_title_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_set_char:search.HotThemesResponse.themes_title)
 }
 void HotThemesResponse::set_themes_title(int index, const char* value, size_t size) {
   themes_title_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_set_pointer:search.HotThemesResponse.themes_title)
 }
 ::std::string* HotThemesResponse::add_themes_title() {
-  // @@protoc_insertion_point(field_add_mutable:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add_mutable:search.HotThemesResponse.themes_title)
   return themes_title_.Add();
 }
 void HotThemesResponse::add_themes_title(const ::std::string& value) {
   themes_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add:search.HotThemesResponse.themes_title)
 }
 void HotThemesResponse::add_themes_title(const char* value) {
   themes_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add_char:search.HotThemesResponse.themes_title)
 }
 void HotThemesResponse::add_themes_title(const char* value, size_t size) {
   themes_title_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add_pointer:search.HotThemesResponse.themes_title)
 }
 const ::google::protobuf::RepeatedPtrField< ::std::string>&
 HotThemesResponse::themes_title() const {
-  // @@protoc_insertion_point(field_list:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_list:search.HotThemesResponse.themes_title)
   return themes_title_;
 }
 ::google::protobuf::RepeatedPtrField< ::std::string>*
 HotThemesResponse::mutable_themes_title() {
-  // @@protoc_insertion_point(field_mutable_list:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_mutable_list:search.HotThemesResponse.themes_title)
   return &themes_title_;
 }
 
@@ -873,7 +873,7 @@ void HotThemesResponse::clear_error() {
   error_ = NULL;
 }
 const ::grpcCommon::GrpcError& HotThemesResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_get:search.HotThemesResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -882,11 +882,11 @@ const ::grpcCommon::GrpcError& HotThemesResponse::error() const {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_mutable:search.HotThemesResponse.error)
   return error_;
 }
 ::grpcCommon::GrpcError* HotThemesResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_release:search.HotThemesResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -900,7 +900,7 @@ void HotThemesResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:search.HotThemesResponse.error)
 }
 
 inline const HotThemesResponse* HotThemesResponse::internal_default_instance() {
@@ -920,7 +920,7 @@ SearchHistoryRequest::SearchHistoryRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(constructor:search.SearchHistoryRequest)
 }
 
 void SearchHistoryRequest::InitAsDefaultInstance() {
@@ -931,7 +931,7 @@ SearchHistoryRequest::SearchHistoryRequest(const SearchHistoryRequest& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(copy_constructor:search.SearchHistoryRequest)
 }
 
 void SearchHistoryRequest::SharedCtor() {
@@ -942,7 +942,7 @@ void SearchHistoryRequest::SharedCtor() {
 }
 
 SearchHistoryRequest::~SearchHistoryRequest() {
-  // @@protoc_insertion_point(destructor:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(destructor:search.SearchHistoryRequest)
   SharedDtor();
 }
 
@@ -976,7 +976,7 @@ SearchHistoryRequest* SearchHistoryRequest::New(::google::protobuf::Arena* arena
 }
 
 void SearchHistoryRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.SearchHistoryRequest)
+// @@protoc_insertion_point(message_clear_start:search.SearchHistoryRequest)
 #if defined(__clang__)
 #define ZR_HELPER_(f) \
   _Pragma("clang diagnostic push") \
@@ -1005,7 +1005,7 @@ bool SearchHistoryRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(parse_start:search.SearchHistoryRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1019,7 +1019,7 @@ bool SearchHistoryRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->user_id().data(), this->user_id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.SearchHistoryRequest.user_id"));
+            "search.SearchHistoryRequest.user_id"));
         } else {
           goto handle_unusual;
         }
@@ -1070,23 +1070,23 @@ bool SearchHistoryRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(parse_success:search.SearchHistoryRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(parse_failure:search.SearchHistoryRequest)
   return false;
 #undef DO_
 }
 
 void SearchHistoryRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(serialize_start:search.SearchHistoryRequest)
   // optional string user_id = 1;
   if (this->user_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->user_id().data(), this->user_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.SearchHistoryRequest.user_id");
+      "search.SearchHistoryRequest.user_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->user_id(), output);
   }
@@ -1101,19 +1101,19 @@ void SearchHistoryRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->page_size(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(serialize_end:search.SearchHistoryRequest)
 }
 
 ::google::protobuf::uint8* SearchHistoryRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:search.SearchHistoryRequest)
   // optional string user_id = 1;
   if (this->user_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->user_id().data(), this->user_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.SearchHistoryRequest.user_id");
+      "search.SearchHistoryRequest.user_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->user_id(), target);
@@ -1129,12 +1129,12 @@ void SearchHistoryRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->page_size(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:search.SearchHistoryRequest)
   return target;
 }
 
 size_t SearchHistoryRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.SearchHistoryRequest)
+// @@protoc_insertion_point(message_byte_size_start:search.SearchHistoryRequest)
   size_t total_size = 0;
 
   // optional string user_id = 1;
@@ -1166,22 +1166,22 @@ size_t SearchHistoryRequest::ByteSizeLong() const {
 }
 
 void SearchHistoryRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.SearchHistoryRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:search.SearchHistoryRequest)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const SearchHistoryRequest* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SearchHistoryRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:search.SearchHistoryRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:search.SearchHistoryRequest)
     UnsafeMergeFrom(*source);
   }
 }
 
 void SearchHistoryRequest::MergeFrom(const SearchHistoryRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.SearchHistoryRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:search.SearchHistoryRequest)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1204,14 +1204,14 @@ void SearchHistoryRequest::UnsafeMergeFrom(const SearchHistoryRequest& from) {
 }
 
 void SearchHistoryRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.SearchHistoryRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:search.SearchHistoryRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SearchHistoryRequest::CopyFrom(const SearchHistoryRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.SearchHistoryRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:search.SearchHistoryRequest)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1250,32 +1250,32 @@ void SearchHistoryRequest::clear_user_id() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& SearchHistoryRequest::user_id() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryRequest.user_id)
   return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void SearchHistoryRequest::set_user_id(const ::std::string& value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryRequest.user_id)
 }
 void SearchHistoryRequest::set_user_id(const char* value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set_char:search.SearchHistoryRequest.user_id)
 }
 void SearchHistoryRequest::set_user_id(const char* value, size_t size) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set_pointer:search.SearchHistoryRequest.user_id)
 }
 ::std::string* SearchHistoryRequest::mutable_user_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_mutable:search.SearchHistoryRequest.user_id)
   return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* SearchHistoryRequest::release_user_id() {
-  // @@protoc_insertion_point(field_release:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_release:search.SearchHistoryRequest.user_id)
   
   return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1286,7 +1286,7 @@ void SearchHistoryRequest::set_allocated_user_id(::std::string* user_id) {
     
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set_allocated:search.SearchHistoryRequest.user_id)
 }
 
 // optional int32 page_number = 2;
@@ -1294,13 +1294,13 @@ void SearchHistoryRequest::clear_page_number() {
   page_number_ = 0;
 }
 ::google::protobuf::int32 SearchHistoryRequest::page_number() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryRequest.page_number)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryRequest.page_number)
   return page_number_;
 }
 void SearchHistoryRequest::set_page_number(::google::protobuf::int32 value) {
   
   page_number_ = value;
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryRequest.page_number)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryRequest.page_number)
 }
 
 // optional int32 page_size = 3;
@@ -1308,13 +1308,13 @@ void SearchHistoryRequest::clear_page_size() {
   page_size_ = 0;
 }
 ::google::protobuf::int32 SearchHistoryRequest::page_size() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryRequest.page_size)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryRequest.page_size)
   return page_size_;
 }
 void SearchHistoryRequest::set_page_size(::google::protobuf::int32 value) {
   
   page_size_ = value;
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryRequest.page_size)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryRequest.page_size)
 }
 
 inline const SearchHistoryRequest* SearchHistoryRequest::internal_default_instance() {
@@ -1333,7 +1333,7 @@ SearchHistoryResponse::SearchHistoryResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(constructor:search.SearchHistoryResponse)
 }
 
 void SearchHistoryResponse::InitAsDefaultInstance() {
@@ -1346,7 +1346,7 @@ SearchHistoryResponse::SearchHistoryResponse(const SearchHistoryResponse& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(copy_constructor:search.SearchHistoryResponse)
 }
 
 void SearchHistoryResponse::SharedCtor() {
@@ -1355,7 +1355,7 @@ void SearchHistoryResponse::SharedCtor() {
 }
 
 SearchHistoryResponse::~SearchHistoryResponse() {
-  // @@protoc_insertion_point(destructor:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(destructor:search.SearchHistoryResponse)
   SharedDtor();
 }
 
@@ -1391,7 +1391,7 @@ SearchHistoryResponse* SearchHistoryResponse::New(::google::protobuf::Arena* are
 }
 
 void SearchHistoryResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.SearchHistoryResponse)
+// @@protoc_insertion_point(message_clear_start:search.SearchHistoryResponse)
   if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
   error_ = NULL;
   history_title_.Clear();
@@ -1401,7 +1401,7 @@ bool SearchHistoryResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(parse_start:search.SearchHistoryResponse)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1417,7 +1417,7 @@ bool SearchHistoryResponse::MergePartialFromCodedStream(
             this->history_title(this->history_title_size() - 1).data(),
             this->history_title(this->history_title_size() - 1).length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.SearchHistoryResponse.history_title"));
+            "search.SearchHistoryResponse.history_title"));
         } else {
           goto handle_unusual;
         }
@@ -1452,23 +1452,23 @@ bool SearchHistoryResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(parse_success:search.SearchHistoryResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(parse_failure:search.SearchHistoryResponse)
   return false;
 #undef DO_
 }
 
 void SearchHistoryResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(serialize_start:search.SearchHistoryResponse)
   // repeated string history_title = 1;
   for (int i = 0; i < this->history_title_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->history_title(i).data(), this->history_title(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.SearchHistoryResponse.history_title");
+      "search.SearchHistoryResponse.history_title");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->history_title(i), output);
   }
@@ -1479,19 +1479,19 @@ void SearchHistoryResponse::SerializeWithCachedSizes(
       2, *this->error_, output);
   }
 
-  // @@protoc_insertion_point(serialize_end:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(serialize_end:search.SearchHistoryResponse)
 }
 
 ::google::protobuf::uint8* SearchHistoryResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:search.SearchHistoryResponse)
   // repeated string history_title = 1;
   for (int i = 0; i < this->history_title_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->history_title(i).data(), this->history_title(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.SearchHistoryResponse.history_title");
+      "search.SearchHistoryResponse.history_title");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->history_title(i), target);
   }
@@ -1503,12 +1503,12 @@ void SearchHistoryResponse::SerializeWithCachedSizes(
         2, *this->error_, false, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:search.SearchHistoryResponse)
   return target;
 }
 
 size_t SearchHistoryResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.SearchHistoryResponse)
+// @@protoc_insertion_point(message_byte_size_start:search.SearchHistoryResponse)
   size_t total_size = 0;
 
   // optional .grpcCommon.GrpcError error = 2;
@@ -1534,22 +1534,22 @@ size_t SearchHistoryResponse::ByteSizeLong() const {
 }
 
 void SearchHistoryResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.SearchHistoryResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:search.SearchHistoryResponse)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const SearchHistoryResponse* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SearchHistoryResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:search.SearchHistoryResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:search.SearchHistoryResponse)
     UnsafeMergeFrom(*source);
   }
 }
 
 void SearchHistoryResponse::MergeFrom(const SearchHistoryResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.SearchHistoryResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:search.SearchHistoryResponse)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1566,14 +1566,14 @@ void SearchHistoryResponse::UnsafeMergeFrom(const SearchHistoryResponse& from) {
 }
 
 void SearchHistoryResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.SearchHistoryResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:search.SearchHistoryResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SearchHistoryResponse::CopyFrom(const SearchHistoryResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.SearchHistoryResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:search.SearchHistoryResponse)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1614,50 +1614,50 @@ void SearchHistoryResponse::clear_history_title() {
   history_title_.Clear();
 }
 const ::std::string& SearchHistoryResponse::history_title(int index) const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryResponse.history_title)
   return history_title_.Get(index);
 }
 ::std::string* SearchHistoryResponse::mutable_history_title(int index) {
-  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_mutable:search.SearchHistoryResponse.history_title)
   return history_title_.Mutable(index);
 }
 void SearchHistoryResponse::set_history_title(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryResponse.history_title)
   history_title_.Mutable(index)->assign(value);
 }
 void SearchHistoryResponse::set_history_title(int index, const char* value) {
   history_title_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_set_char:search.SearchHistoryResponse.history_title)
 }
 void SearchHistoryResponse::set_history_title(int index, const char* value, size_t size) {
   history_title_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_set_pointer:search.SearchHistoryResponse.history_title)
 }
 ::std::string* SearchHistoryResponse::add_history_title() {
-  // @@protoc_insertion_point(field_add_mutable:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add_mutable:search.SearchHistoryResponse.history_title)
   return history_title_.Add();
 }
 void SearchHistoryResponse::add_history_title(const ::std::string& value) {
   history_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add:search.SearchHistoryResponse.history_title)
 }
 void SearchHistoryResponse::add_history_title(const char* value) {
   history_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add_char:search.SearchHistoryResponse.history_title)
 }
 void SearchHistoryResponse::add_history_title(const char* value, size_t size) {
   history_title_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add_pointer:search.SearchHistoryResponse.history_title)
 }
 const ::google::protobuf::RepeatedPtrField< ::std::string>&
 SearchHistoryResponse::history_title() const {
-  // @@protoc_insertion_point(field_list:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_list:search.SearchHistoryResponse.history_title)
   return history_title_;
 }
 ::google::protobuf::RepeatedPtrField< ::std::string>*
 SearchHistoryResponse::mutable_history_title() {
-  // @@protoc_insertion_point(field_mutable_list:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_mutable_list:search.SearchHistoryResponse.history_title)
   return &history_title_;
 }
 
@@ -1670,7 +1670,7 @@ void SearchHistoryResponse::clear_error() {
   error_ = NULL;
 }
 const ::grpcCommon::GrpcError& SearchHistoryResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -1679,11 +1679,11 @@ const ::grpcCommon::GrpcError& SearchHistoryResponse::error() const {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_mutable:search.SearchHistoryResponse.error)
   return error_;
 }
 ::grpcCommon::GrpcError* SearchHistoryResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_release:search.SearchHistoryResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -1697,7 +1697,7 @@ void SearchHistoryResponse::set_allocated_error(::grpcCommon::GrpcError* error) 
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:search.SearchHistoryResponse.error)
 }
 
 inline const SearchHistoryResponse* SearchHistoryResponse::internal_default_instance() {
@@ -1707,6 +1707,6 @@ inline const SearchHistoryResponse* SearchHistoryResponse::internal_default_inst
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace search
 
 // @@protoc_insertion_point(global_scope)

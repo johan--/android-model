@@ -24,7 +24,7 @@ public final class ReadServiceGrpc {
 
   private ReadServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "personal.ReadService";
+  public static final String SERVICE_NAME = "read.ReadService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -33,7 +33,7 @@ public final class ReadServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.read.ReadRequest, com.wanfang.read.ReadResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.ReadService", "Read"))
+              "read.ReadService", "Read"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.read.ReadRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(

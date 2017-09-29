@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+
+import "google/protobuf/any.proto";
+import "subscribe/msg_subscribe_keyword.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package subscribe;
+option java_multiple_files = true;
+option java_package = "com.wanfang.subscribe";
+option objc_class_prefix = "WFPR";
+
+// 根据关键词获取对应文献列表
+message SubscribeDocListRequest {
+    SubscribeKeywordMessage subscribe_keyword = 1;
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+message SubscribeDocListResponse {
+    message SubscribeDocMessage {
+        string doc_id = 1; // 文献id
+        string subscribe_id = 2; // 订阅号
+        string docu_type = 3; // 文献类型
+        string docu_title = 4; // 文献标题
+        string docu_author = 5; // 文献作者
+        string publish_time = 6; // 出版日期
+        string is_buy = 7; // 是否已经购买
+    }
+    repeated SubscribeDocMessage subscribe_doc = 1;
+    grpcCommon.GrpcError error = 2;
+    bool has_more = 3;
+}

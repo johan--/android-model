@@ -15,25 +15,25 @@ public final class MsgSearch {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_personal_HotThemesRequest_descriptor;
+    internal_static_search_HotThemesRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_personal_HotThemesRequest_fieldAccessorTable;
+      internal_static_search_HotThemesRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_personal_HotThemesResponse_descriptor;
+    internal_static_search_HotThemesResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_personal_HotThemesResponse_fieldAccessorTable;
+      internal_static_search_HotThemesResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_personal_SearchHistoryRequest_descriptor;
+    internal_static_search_SearchHistoryRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_personal_SearchHistoryRequest_fieldAccessorTable;
+      internal_static_search_SearchHistoryRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_personal_SearchHistoryResponse_descriptor;
+    internal_static_search_SearchHistoryResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_personal_SearchHistoryResponse_fieldAccessorTable;
+      internal_static_search_SearchHistoryResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,17 +43,17 @@ public final class MsgSearch {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027search/msg_search.proto\022\010personal\032\031goo" +
-      "gle/protobuf/any.proto\032\032grpcCommon/msg_e" +
-      "rror.proto\":\n\020HotThemesRequest\022\023\n\013page_n" +
-      "umber\030\001 \001(\005\022\021\n\tpage_size\030\002 \001(\005\"O\n\021HotThe" +
-      "mesResponse\022\024\n\014themes_title\030\001 \003(\t\022$\n\005err" +
-      "or\030\002 \001(\0132\025.grpcCommon.GrpcError\"O\n\024Searc" +
-      "hHistoryRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page" +
-      "_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"T\n\025Sear" +
-      "chHistoryResponse\022\025\n\rhistory_title\030\001 \003(\t" +
-      "\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\035",
-      "\n\022com.wanfang.searchP\001\242\002\004WFPRb\006proto3"
+      "\n\027search/msg_search.proto\022\006search\032\031googl" +
+      "e/protobuf/any.proto\032\032grpcCommon/msg_err" +
+      "or.proto\":\n\020HotThemesRequest\022\023\n\013page_num" +
+      "ber\030\001 \001(\005\022\021\n\tpage_size\030\002 \001(\005\"O\n\021HotTheme" +
+      "sResponse\022\024\n\014themes_title\030\001 \003(\t\022$\n\005error" +
+      "\030\002 \001(\0132\025.grpcCommon.GrpcError\"O\n\024SearchH" +
+      "istoryRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_n" +
+      "umber\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"T\n\025Search" +
+      "HistoryResponse\022\025\n\rhistory_title\030\001 \003(\t\022$" +
+      "\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\035\n\022",
+      "com.wanfang.searchP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -69,29 +69,29 @@ public final class MsgSearch {
           com.google.protobuf.AnyProto.getDescriptor(),
           com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
-    internal_static_personal_HotThemesRequest_descriptor =
+    internal_static_search_HotThemesRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_personal_HotThemesRequest_fieldAccessorTable = new
+    internal_static_search_HotThemesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_personal_HotThemesRequest_descriptor,
+        internal_static_search_HotThemesRequest_descriptor,
         new java.lang.String[] { "PageNumber", "PageSize", });
-    internal_static_personal_HotThemesResponse_descriptor =
+    internal_static_search_HotThemesResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_personal_HotThemesResponse_fieldAccessorTable = new
+    internal_static_search_HotThemesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_personal_HotThemesResponse_descriptor,
+        internal_static_search_HotThemesResponse_descriptor,
         new java.lang.String[] { "ThemesTitle", "Error", });
-    internal_static_personal_SearchHistoryRequest_descriptor =
+    internal_static_search_SearchHistoryRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_personal_SearchHistoryRequest_fieldAccessorTable = new
+    internal_static_search_SearchHistoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_personal_SearchHistoryRequest_descriptor,
+        internal_static_search_SearchHistoryRequest_descriptor,
         new java.lang.String[] { "UserId", "PageNumber", "PageSize", });
-    internal_static_personal_SearchHistoryResponse_descriptor =
+    internal_static_search_SearchHistoryResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_personal_SearchHistoryResponse_fieldAccessorTable = new
+    internal_static_search_SearchHistoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_personal_SearchHistoryResponse_descriptor,
+        internal_static_search_SearchHistoryResponse_descriptor,
         new java.lang.String[] { "HistoryTitle", "Error", });
     com.google.protobuf.AnyProto.getDescriptor();
     com.wanfang.grpcCommon.MsgError.getDescriptor();

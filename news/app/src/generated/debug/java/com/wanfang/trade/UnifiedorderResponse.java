@@ -4,11 +4,11 @@
 package com.wanfang.trade;
 
 /**
- * Protobuf type {@code personal.UnifiedorderResponse}
+ * Protobuf type {@code trade.UnifiedorderResponse}
  */
 public  final class UnifiedorderResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:personal.UnifiedorderResponse)
+    // @@protoc_insertion_point(message_implements:trade.UnifiedorderResponse)
     UnifiedorderResponseOrBuilder {
   // Use UnifiedorderResponse.newBuilder() to construct.
   private UnifiedorderResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -117,12 +117,12 @@ public  final class UnifiedorderResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderResponse_descriptor;
+    return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderResponse_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderResponse_fieldAccessorTable
+    return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.wanfang.trade.UnifiedorderResponse.class, com.wanfang.trade.UnifiedorderResponse.Builder.class);
   }
@@ -600,20 +600,20 @@ public  final class UnifiedorderResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code personal.UnifiedorderResponse}
+   * Protobuf type {@code trade.UnifiedorderResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:personal.UnifiedorderResponse)
+      // @@protoc_insertion_point(builder_implements:trade.UnifiedorderResponse)
       com.wanfang.trade.UnifiedorderResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderResponse_descriptor;
+      return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderResponse_fieldAccessorTable
+      return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.wanfang.trade.UnifiedorderResponse.class, com.wanfang.trade.UnifiedorderResponse.Builder.class);
     }
@@ -660,7 +660,7 @@ public  final class UnifiedorderResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderResponse_descriptor;
+      return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderResponse_descriptor;
     }
 
     public com.wanfang.trade.UnifiedorderResponse getDefaultInstanceForType() {
@@ -1397,10 +1397,10 @@ public  final class UnifiedorderResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:personal.UnifiedorderResponse)
+    // @@protoc_insertion_point(builder_scope:trade.UnifiedorderResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:personal.UnifiedorderResponse)
+  // @@protoc_insertion_point(class_scope:trade.UnifiedorderResponse)
   private static final com.wanfang.trade.UnifiedorderResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.wanfang.trade.UnifiedorderResponse();

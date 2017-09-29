@@ -24,7 +24,7 @@ public final class SearchServiceGrpc {
 
   private SearchServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "personal.SearchService";
+  public static final String SERVICE_NAME = "search.SearchService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -33,7 +33,7 @@ public final class SearchServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.search.HotThemesRequest, com.wanfang.search.HotThemesResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.SearchService", "HotThemes"))
+              "search.SearchService", "HotThemes"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.search.HotThemesRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
@@ -45,7 +45,7 @@ public final class SearchServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.search.SearchHistoryRequest, com.wanfang.search.SearchHistoryResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.SearchService", "SearchHistory"))
+              "search.SearchService", "SearchHistory"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.search.SearchHistoryRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(

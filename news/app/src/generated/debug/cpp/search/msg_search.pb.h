@@ -31,7 +31,7 @@
 #include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace search {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_search_2fmsg_5fsearch_2eproto();
@@ -46,7 +46,7 @@ class SearchHistoryResponse;
 
 // ===================================================================
 
-class HotThemesRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.HotThemesRequest) */ {
+class HotThemesRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:search.HotThemesRequest) */ {
  public:
   HotThemesRequest();
   virtual ~HotThemesRequest();
@@ -121,7 +121,7 @@ class HotThemesRequest : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::int32 page_size() const;
   void set_page_size(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:personal.HotThemesRequest)
+  // @@protoc_insertion_point(class_scope:search.HotThemesRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -139,7 +139,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<HotThemesRequest> Hot
 
 // -------------------------------------------------------------------
 
-class HotThemesResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.HotThemesResponse) */ {
+class HotThemesResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:search.HotThemesResponse) */ {
  public:
   HotThemesResponse();
   virtual ~HotThemesResponse();
@@ -227,7 +227,7 @@ class HotThemesResponse : public ::google::protobuf::Message /* @@protoc_inserti
   ::grpcCommon::GrpcError* release_error();
   void set_allocated_error(::grpcCommon::GrpcError* error);
 
-  // @@protoc_insertion_point(class_scope:personal.HotThemesResponse)
+  // @@protoc_insertion_point(class_scope:search.HotThemesResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -245,7 +245,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<HotThemesResponse> Ho
 
 // -------------------------------------------------------------------
 
-class SearchHistoryRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SearchHistoryRequest) */ {
+class SearchHistoryRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:search.SearchHistoryRequest) */ {
  public:
   SearchHistoryRequest();
   virtual ~SearchHistoryRequest();
@@ -331,7 +331,7 @@ class SearchHistoryRequest : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::int32 page_size() const;
   void set_page_size(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:personal.SearchHistoryRequest)
+  // @@protoc_insertion_point(class_scope:search.SearchHistoryRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -350,7 +350,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<SearchHistoryRequest>
 
 // -------------------------------------------------------------------
 
-class SearchHistoryResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SearchHistoryResponse) */ {
+class SearchHistoryResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:search.SearchHistoryResponse) */ {
  public:
   SearchHistoryResponse();
   virtual ~SearchHistoryResponse();
@@ -438,7 +438,7 @@ class SearchHistoryResponse : public ::google::protobuf::Message /* @@protoc_ins
   ::grpcCommon::GrpcError* release_error();
   void set_allocated_error(::grpcCommon::GrpcError* error);
 
-  // @@protoc_insertion_point(class_scope:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(class_scope:search.SearchHistoryResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -467,13 +467,13 @@ inline void HotThemesRequest::clear_page_number() {
   page_number_ = 0;
 }
 inline ::google::protobuf::int32 HotThemesRequest::page_number() const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesRequest.page_number)
+  // @@protoc_insertion_point(field_get:search.HotThemesRequest.page_number)
   return page_number_;
 }
 inline void HotThemesRequest::set_page_number(::google::protobuf::int32 value) {
   
   page_number_ = value;
-  // @@protoc_insertion_point(field_set:personal.HotThemesRequest.page_number)
+  // @@protoc_insertion_point(field_set:search.HotThemesRequest.page_number)
 }
 
 // optional int32 page_size = 2;
@@ -481,13 +481,13 @@ inline void HotThemesRequest::clear_page_size() {
   page_size_ = 0;
 }
 inline ::google::protobuf::int32 HotThemesRequest::page_size() const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesRequest.page_size)
+  // @@protoc_insertion_point(field_get:search.HotThemesRequest.page_size)
   return page_size_;
 }
 inline void HotThemesRequest::set_page_size(::google::protobuf::int32 value) {
   
   page_size_ = value;
-  // @@protoc_insertion_point(field_set:personal.HotThemesRequest.page_size)
+  // @@protoc_insertion_point(field_set:search.HotThemesRequest.page_size)
 }
 
 inline const HotThemesRequest* HotThemesRequest::internal_default_instance() {
@@ -505,50 +505,50 @@ inline void HotThemesResponse::clear_themes_title() {
   themes_title_.Clear();
 }
 inline const ::std::string& HotThemesResponse::themes_title(int index) const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_get:search.HotThemesResponse.themes_title)
   return themes_title_.Get(index);
 }
 inline ::std::string* HotThemesResponse::mutable_themes_title(int index) {
-  // @@protoc_insertion_point(field_mutable:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_mutable:search.HotThemesResponse.themes_title)
   return themes_title_.Mutable(index);
 }
 inline void HotThemesResponse::set_themes_title(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_set:search.HotThemesResponse.themes_title)
   themes_title_.Mutable(index)->assign(value);
 }
 inline void HotThemesResponse::set_themes_title(int index, const char* value) {
   themes_title_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_set_char:search.HotThemesResponse.themes_title)
 }
 inline void HotThemesResponse::set_themes_title(int index, const char* value, size_t size) {
   themes_title_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_set_pointer:search.HotThemesResponse.themes_title)
 }
 inline ::std::string* HotThemesResponse::add_themes_title() {
-  // @@protoc_insertion_point(field_add_mutable:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add_mutable:search.HotThemesResponse.themes_title)
   return themes_title_.Add();
 }
 inline void HotThemesResponse::add_themes_title(const ::std::string& value) {
   themes_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add:search.HotThemesResponse.themes_title)
 }
 inline void HotThemesResponse::add_themes_title(const char* value) {
   themes_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add_char:search.HotThemesResponse.themes_title)
 }
 inline void HotThemesResponse::add_themes_title(const char* value, size_t size) {
   themes_title_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_add_pointer:search.HotThemesResponse.themes_title)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 HotThemesResponse::themes_title() const {
-  // @@protoc_insertion_point(field_list:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_list:search.HotThemesResponse.themes_title)
   return themes_title_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 HotThemesResponse::mutable_themes_title() {
-  // @@protoc_insertion_point(field_mutable_list:personal.HotThemesResponse.themes_title)
+  // @@protoc_insertion_point(field_mutable_list:search.HotThemesResponse.themes_title)
   return &themes_title_;
 }
 
@@ -561,7 +561,7 @@ inline void HotThemesResponse::clear_error() {
   error_ = NULL;
 }
 inline const ::grpcCommon::GrpcError& HotThemesResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_get:search.HotThemesResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -570,11 +570,11 @@ inline ::grpcCommon::GrpcError* HotThemesResponse::mutable_error() {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_mutable:search.HotThemesResponse.error)
   return error_;
 }
 inline ::grpcCommon::GrpcError* HotThemesResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_release:search.HotThemesResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -588,7 +588,7 @@ inline void HotThemesResponse::set_allocated_error(::grpcCommon::GrpcError* erro
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.HotThemesResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:search.HotThemesResponse.error)
 }
 
 inline const HotThemesResponse* HotThemesResponse::internal_default_instance() {
@@ -603,32 +603,32 @@ inline void SearchHistoryRequest::clear_user_id() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& SearchHistoryRequest::user_id() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryRequest.user_id)
   return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void SearchHistoryRequest::set_user_id(const ::std::string& value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryRequest.user_id)
 }
 inline void SearchHistoryRequest::set_user_id(const char* value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set_char:search.SearchHistoryRequest.user_id)
 }
 inline void SearchHistoryRequest::set_user_id(const char* value, size_t size) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set_pointer:search.SearchHistoryRequest.user_id)
 }
 inline ::std::string* SearchHistoryRequest::mutable_user_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_mutable:search.SearchHistoryRequest.user_id)
   return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* SearchHistoryRequest::release_user_id() {
-  // @@protoc_insertion_point(field_release:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_release:search.SearchHistoryRequest.user_id)
   
   return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -639,7 +639,7 @@ inline void SearchHistoryRequest::set_allocated_user_id(::std::string* user_id) 
     
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.SearchHistoryRequest.user_id)
+  // @@protoc_insertion_point(field_set_allocated:search.SearchHistoryRequest.user_id)
 }
 
 // optional int32 page_number = 2;
@@ -647,13 +647,13 @@ inline void SearchHistoryRequest::clear_page_number() {
   page_number_ = 0;
 }
 inline ::google::protobuf::int32 SearchHistoryRequest::page_number() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryRequest.page_number)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryRequest.page_number)
   return page_number_;
 }
 inline void SearchHistoryRequest::set_page_number(::google::protobuf::int32 value) {
   
   page_number_ = value;
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryRequest.page_number)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryRequest.page_number)
 }
 
 // optional int32 page_size = 3;
@@ -661,13 +661,13 @@ inline void SearchHistoryRequest::clear_page_size() {
   page_size_ = 0;
 }
 inline ::google::protobuf::int32 SearchHistoryRequest::page_size() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryRequest.page_size)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryRequest.page_size)
   return page_size_;
 }
 inline void SearchHistoryRequest::set_page_size(::google::protobuf::int32 value) {
   
   page_size_ = value;
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryRequest.page_size)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryRequest.page_size)
 }
 
 inline const SearchHistoryRequest* SearchHistoryRequest::internal_default_instance() {
@@ -685,50 +685,50 @@ inline void SearchHistoryResponse::clear_history_title() {
   history_title_.Clear();
 }
 inline const ::std::string& SearchHistoryResponse::history_title(int index) const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryResponse.history_title)
   return history_title_.Get(index);
 }
 inline ::std::string* SearchHistoryResponse::mutable_history_title(int index) {
-  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_mutable:search.SearchHistoryResponse.history_title)
   return history_title_.Mutable(index);
 }
 inline void SearchHistoryResponse::set_history_title(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_set:search.SearchHistoryResponse.history_title)
   history_title_.Mutable(index)->assign(value);
 }
 inline void SearchHistoryResponse::set_history_title(int index, const char* value) {
   history_title_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_set_char:search.SearchHistoryResponse.history_title)
 }
 inline void SearchHistoryResponse::set_history_title(int index, const char* value, size_t size) {
   history_title_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_set_pointer:search.SearchHistoryResponse.history_title)
 }
 inline ::std::string* SearchHistoryResponse::add_history_title() {
-  // @@protoc_insertion_point(field_add_mutable:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add_mutable:search.SearchHistoryResponse.history_title)
   return history_title_.Add();
 }
 inline void SearchHistoryResponse::add_history_title(const ::std::string& value) {
   history_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add:search.SearchHistoryResponse.history_title)
 }
 inline void SearchHistoryResponse::add_history_title(const char* value) {
   history_title_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add_char:search.SearchHistoryResponse.history_title)
 }
 inline void SearchHistoryResponse::add_history_title(const char* value, size_t size) {
   history_title_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_add_pointer:search.SearchHistoryResponse.history_title)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 SearchHistoryResponse::history_title() const {
-  // @@protoc_insertion_point(field_list:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_list:search.SearchHistoryResponse.history_title)
   return history_title_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 SearchHistoryResponse::mutable_history_title() {
-  // @@protoc_insertion_point(field_mutable_list:personal.SearchHistoryResponse.history_title)
+  // @@protoc_insertion_point(field_mutable_list:search.SearchHistoryResponse.history_title)
   return &history_title_;
 }
 
@@ -741,7 +741,7 @@ inline void SearchHistoryResponse::clear_error() {
   error_ = NULL;
 }
 inline const ::grpcCommon::GrpcError& SearchHistoryResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_get:search.SearchHistoryResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -750,11 +750,11 @@ inline ::grpcCommon::GrpcError* SearchHistoryResponse::mutable_error() {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_mutable:search.SearchHistoryResponse.error)
   return error_;
 }
 inline ::grpcCommon::GrpcError* SearchHistoryResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_release:search.SearchHistoryResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -768,7 +768,7 @@ inline void SearchHistoryResponse::set_allocated_error(::grpcCommon::GrpcError* 
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.SearchHistoryResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:search.SearchHistoryResponse.error)
 }
 
 inline const SearchHistoryResponse* SearchHistoryResponse::internal_default_instance() {
@@ -784,7 +784,7 @@ inline const SearchHistoryResponse* SearchHistoryResponse::internal_default_inst
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace search
 
 // @@protoc_insertion_point(global_scope)
 

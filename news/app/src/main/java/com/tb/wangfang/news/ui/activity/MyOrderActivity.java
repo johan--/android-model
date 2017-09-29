@@ -12,9 +12,9 @@ import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.ui.adapter.MyOrderAdapter;
-import com.wanfang.personal.MyOrdersRequest;
-import com.wanfang.personal.MyOrdersResponse;
-import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.trade.MyOrdersRequest;
+import com.wanfang.trade.MyOrdersResponse;
+import com.wanfang.trade.TradeServiceGrpc;
 
 import javax.inject.Inject;
 
@@ -58,9 +58,10 @@ public class MyOrderActivity extends SimpleActivity {
         Single.create(new SingleOnSubscribe<MyOrdersResponse>() {
             @Override
             public void subscribe(SingleEmitter<MyOrdersResponse> e) throws Exception {
-                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                TradeServiceGrpc.TradeServiceBlockingStub stub = TradeServiceGrpc.newBlockingStub(managedChannel);
              MyOrdersRequest request = MyOrdersRequest.newBuilder().setUserId("tb").build();
               MyOrdersResponse response = stub.getMyOrders(request);
+
                 Any any=Any.newBuilder().build();
 
                 e.onSuccess(response);

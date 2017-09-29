@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tb.wangfang.news.R;
-import com.wanfang.personal.MyOrdersResponse;
+import com.wanfang.trade.MyOrdersResponse;
 
 import java.util.List;
 

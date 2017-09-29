@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace trade {
 
 namespace {
 
@@ -55,7 +55,7 @@ void protobuf_ShutdownFile_trade_2fser_5ftrade_2eproto() {
 void protobuf_InitDefaults_trade_2fser_5ftrade_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::personal::protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
+  ::trade::protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_trade_2fser_5ftrade_2eproto_once_);
@@ -68,14 +68,16 @@ void protobuf_AddDesc_trade_2fser_5ftrade_2eproto_impl() {
 
   protobuf_InitDefaults_trade_2fser_5ftrade_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025trade/ser_trade.proto\022\010personal\032\025trade"
-    "/msg_trade.proto2]\n\014TradeService\022M\n\014Unif"
-    "iedorder\022\035.personal.UnifiedorderRequest\032"
-    "\036.personal.UnifiedorderResponseB\034\n\021com.w"
-    "anfang.tradeP\001\242\002\004WFPRb\006proto3", 189);
+    "\n\025trade/ser_trade.proto\022\005trade\032\025trade/ms"
+    "g_trade.proto2\227\001\n\014TradeService\022G\n\014Unifie"
+    "dorder\022\032.trade.UnifiedorderRequest\032\033.tra"
+    "de.UnifiedorderResponse\022>\n\013GetMyOrders\022\026"
+    ".trade.MyOrdersRequest\032\027.trade.MyOrdersR"
+    "esponseB\034\n\021com.wanfang.tradeP\001\242\002\004WFPRb\006p"
+    "roto3", 245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "trade/ser_trade.proto", &protobuf_RegisterTypes);
-  ::personal::protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto();
+  ::trade::protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_trade_2fser_5ftrade_2eproto);
 }
 
@@ -93,6 +95,6 @@ struct StaticDescriptorInitializer_trade_2fser_5ftrade_2eproto {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace trade
 
 // @@protoc_insertion_point(global_scope)

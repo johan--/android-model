@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace search {
 
 namespace {
 
@@ -55,7 +55,7 @@ void protobuf_ShutdownFile_search_2fser_5fsearch_2eproto() {
 void protobuf_InitDefaults_search_2fser_5fsearch_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::personal::protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
+  ::search::protobuf_InitDefaults_search_2fmsg_5fsearch_2eproto();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_search_2fser_5fsearch_2eproto_once_);
@@ -68,16 +68,16 @@ void protobuf_AddDesc_search_2fser_5fsearch_2eproto_impl() {
 
   protobuf_InitDefaults_search_2fser_5fsearch_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027search/ser_search.proto\022\010personal\032\027sea"
-    "rch/msg_search.proto2\247\001\n\rSearchService\022D"
-    "\n\tHotThemes\022\032.personal.HotThemesRequest\032"
-    "\033.personal.HotThemesResponse\022P\n\rSearchHi"
-    "story\022\036.personal.SearchHistoryRequest\032\037."
-    "personal.SearchHistoryResponseB\035\n\022com.wa"
-    "nfang.searchP\001\242\002\004WFPRb\006proto3", 269);
+    "\n\027search/ser_search.proto\022\006search\032\027searc"
+    "h/msg_search.proto2\237\001\n\rSearchService\022@\n\t"
+    "HotThemes\022\030.search.HotThemesRequest\032\031.se"
+    "arch.HotThemesResponse\022L\n\rSearchHistory\022"
+    "\034.search.SearchHistoryRequest\032\035.search.S"
+    "earchHistoryResponseB\035\n\022com.wanfang.sear"
+    "chP\001\242\002\004WFPRb\006proto3", 259);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "search/ser_search.proto", &protobuf_RegisterTypes);
-  ::personal::protobuf_AddDesc_search_2fmsg_5fsearch_2eproto();
+  ::search::protobuf_AddDesc_search_2fmsg_5fsearch_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_search_2fser_5fsearch_2eproto);
 }
 
@@ -95,6 +95,6 @@ struct StaticDescriptorInitializer_search_2fser_5fsearch_2eproto {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace search
 
 // @@protoc_insertion_point(global_scope)

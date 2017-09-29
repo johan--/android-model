@@ -23,13 +23,13 @@ public final class SerSearch {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027search/ser_search.proto\022\010personal\032\027sea" +
-      "rch/msg_search.proto2\247\001\n\rSearchService\022D" +
-      "\n\tHotThemes\022\032.personal.HotThemesRequest\032" +
-      "\033.personal.HotThemesResponse\022P\n\rSearchHi" +
-      "story\022\036.personal.SearchHistoryRequest\032\037." +
-      "personal.SearchHistoryResponseB\035\n\022com.wa" +
-      "nfang.searchP\001\242\002\004WFPRb\006proto3"
+      "\n\027search/ser_search.proto\022\006search\032\027searc" +
+      "h/msg_search.proto2\237\001\n\rSearchService\022@\n\t" +
+      "HotThemes\022\030.search.HotThemesRequest\032\031.se" +
+      "arch.HotThemesResponse\022L\n\rSearchHistory\022" +
+      "\034.search.SearchHistoryRequest\032\035.search.S" +
+      "earchHistoryResponseB\035\n\022com.wanfang.sear" +
+      "chP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

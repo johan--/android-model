@@ -30,7 +30,7 @@
 #include "grpcCommon/msg_error.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace trade {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto();
@@ -38,12 +38,15 @@ void protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
 void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto();
 void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto();
 
+class MyOrdersRequest;
+class MyOrdersResponse;
+class MyOrdersResponse_Result;
 class UnifiedorderRequest;
 class UnifiedorderResponse;
 
 // ===================================================================
 
-class UnifiedorderRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UnifiedorderRequest) */ {
+class UnifiedorderRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.UnifiedorderRequest) */ {
  public:
   UnifiedorderRequest();
   virtual ~UnifiedorderRequest();
@@ -128,7 +131,7 @@ class UnifiedorderRequest : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_safe_transaction_string();
   void set_allocated_safe_transaction_string(::std::string* safe_transaction_string);
 
-  // @@protoc_insertion_point(class_scope:personal.UnifiedorderRequest)
+  // @@protoc_insertion_point(class_scope:trade.UnifiedorderRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -146,7 +149,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<UnifiedorderRequest> 
 
 // -------------------------------------------------------------------
 
-class UnifiedorderResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UnifiedorderResponse) */ {
+class UnifiedorderResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.UnifiedorderResponse) */ {
  public:
   UnifiedorderResponse();
   virtual ~UnifiedorderResponse();
@@ -295,7 +298,7 @@ class UnifiedorderResponse : public ::google::protobuf::Message /* @@protoc_inse
   ::grpcCommon::GrpcError* release_error();
   void set_allocated_error(::grpcCommon::GrpcError* error);
 
-  // @@protoc_insertion_point(class_scope:personal.UnifiedorderResponse)
+  // @@protoc_insertion_point(class_scope:trade.UnifiedorderResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -317,6 +320,387 @@ class UnifiedorderResponse : public ::google::protobuf::Message /* @@protoc_inse
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<UnifiedorderResponse> UnifiedorderResponse_default_instance_;
 
+// -------------------------------------------------------------------
+
+class MyOrdersRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.MyOrdersRequest) */ {
+ public:
+  MyOrdersRequest();
+  virtual ~MyOrdersRequest();
+
+  MyOrdersRequest(const MyOrdersRequest& from);
+
+  inline MyOrdersRequest& operator=(const MyOrdersRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MyOrdersRequest& default_instance();
+
+  static const MyOrdersRequest* internal_default_instance();
+
+  void Swap(MyOrdersRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MyOrdersRequest* New() const { return New(NULL); }
+
+  MyOrdersRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MyOrdersRequest& from);
+  void MergeFrom(const MyOrdersRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MyOrdersRequest* other);
+  void UnsafeMergeFrom(const MyOrdersRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string user_id = 1;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // optional int32 page_number = 2;
+  void clear_page_number();
+  static const int kPageNumberFieldNumber = 2;
+  ::google::protobuf::int32 page_number() const;
+  void set_page_number(::google::protobuf::int32 value);
+
+  // optional int32 page_size = 3;
+  void clear_page_size();
+  static const int kPageSizeFieldNumber = 3;
+  ::google::protobuf::int32 page_size() const;
+  void set_page_size(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:trade.MyOrdersRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::google::protobuf::int32 page_number_;
+  ::google::protobuf::int32 page_size_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void  protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto();
+  friend void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<MyOrdersRequest> MyOrdersRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class MyOrdersResponse_Result : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.MyOrdersResponse.Result) */ {
+ public:
+  MyOrdersResponse_Result();
+  virtual ~MyOrdersResponse_Result();
+
+  MyOrdersResponse_Result(const MyOrdersResponse_Result& from);
+
+  inline MyOrdersResponse_Result& operator=(const MyOrdersResponse_Result& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MyOrdersResponse_Result& default_instance();
+
+  static const MyOrdersResponse_Result* internal_default_instance();
+
+  void Swap(MyOrdersResponse_Result* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MyOrdersResponse_Result* New() const { return New(NULL); }
+
+  MyOrdersResponse_Result* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MyOrdersResponse_Result& from);
+  void MergeFrom(const MyOrdersResponse_Result& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MyOrdersResponse_Result* other);
+  void UnsafeMergeFrom(const MyOrdersResponse_Result& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string order_id = 1;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 1;
+  const ::std::string& order_id() const;
+  void set_order_id(const ::std::string& value);
+  void set_order_id(const char* value);
+  void set_order_id(const char* value, size_t size);
+  ::std::string* mutable_order_id();
+  ::std::string* release_order_id();
+  void set_allocated_order_id(::std::string* order_id);
+
+  // optional string create_time = 2;
+  void clear_create_time();
+  static const int kCreateTimeFieldNumber = 2;
+  const ::std::string& create_time() const;
+  void set_create_time(const ::std::string& value);
+  void set_create_time(const char* value);
+  void set_create_time(const char* value, size_t size);
+  ::std::string* mutable_create_time();
+  ::std::string* release_create_time();
+  void set_allocated_create_time(::std::string* create_time);
+
+  // optional string order_money = 3;
+  void clear_order_money();
+  static const int kOrderMoneyFieldNumber = 3;
+  const ::std::string& order_money() const;
+  void set_order_money(const ::std::string& value);
+  void set_order_money(const char* value);
+  void set_order_money(const char* value, size_t size);
+  ::std::string* mutable_order_money();
+  ::std::string* release_order_money();
+  void set_allocated_order_money(::std::string* order_money);
+
+  // optional string order_product_type = 5;
+  void clear_order_product_type();
+  static const int kOrderProductTypeFieldNumber = 5;
+  const ::std::string& order_product_type() const;
+  void set_order_product_type(const ::std::string& value);
+  void set_order_product_type(const char* value);
+  void set_order_product_type(const char* value, size_t size);
+  ::std::string* mutable_order_product_type();
+  ::std::string* release_order_product_type();
+  void set_allocated_order_product_type(::std::string* order_product_type);
+
+  // optional int32 order_state = 6;
+  void clear_order_state();
+  static const int kOrderStateFieldNumber = 6;
+  ::google::protobuf::int32 order_state() const;
+  void set_order_state(::google::protobuf::int32 value);
+
+  // optional string order_title = 7;
+  void clear_order_title();
+  static const int kOrderTitleFieldNumber = 7;
+  const ::std::string& order_title() const;
+  void set_order_title(const ::std::string& value);
+  void set_order_title(const char* value);
+  void set_order_title(const char* value, size_t size);
+  ::std::string* mutable_order_title();
+  ::std::string* release_order_title();
+  void set_allocated_order_title(::std::string* order_title);
+
+  // optional string pay_way = 8;
+  void clear_pay_way();
+  static const int kPayWayFieldNumber = 8;
+  const ::std::string& pay_way() const;
+  void set_pay_way(const ::std::string& value);
+  void set_pay_way(const char* value);
+  void set_pay_way(const char* value, size_t size);
+  ::std::string* mutable_pay_way();
+  ::std::string* release_pay_way();
+  void set_allocated_pay_way(::std::string* pay_way);
+
+  // @@protoc_insertion_point(class_scope:trade.MyOrdersResponse.Result)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr order_id_;
+  ::google::protobuf::internal::ArenaStringPtr create_time_;
+  ::google::protobuf::internal::ArenaStringPtr order_money_;
+  ::google::protobuf::internal::ArenaStringPtr order_product_type_;
+  ::google::protobuf::internal::ArenaStringPtr order_title_;
+  ::google::protobuf::internal::ArenaStringPtr pay_way_;
+  ::google::protobuf::int32 order_state_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void  protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto();
+  friend void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<MyOrdersResponse_Result> MyOrdersResponse_Result_default_instance_;
+
+// -------------------------------------------------------------------
+
+class MyOrdersResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.MyOrdersResponse) */ {
+ public:
+  MyOrdersResponse();
+  virtual ~MyOrdersResponse();
+
+  MyOrdersResponse(const MyOrdersResponse& from);
+
+  inline MyOrdersResponse& operator=(const MyOrdersResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MyOrdersResponse& default_instance();
+
+  static const MyOrdersResponse* internal_default_instance();
+
+  void Swap(MyOrdersResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MyOrdersResponse* New() const { return New(NULL); }
+
+  MyOrdersResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MyOrdersResponse& from);
+  void MergeFrom(const MyOrdersResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MyOrdersResponse* other);
+  void UnsafeMergeFrom(const MyOrdersResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef MyOrdersResponse_Result Result;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .trade.MyOrdersResponse.Result results = 1;
+  int results_size() const;
+  void clear_results();
+  static const int kResultsFieldNumber = 1;
+  const ::trade::MyOrdersResponse_Result& results(int index) const;
+  ::trade::MyOrdersResponse_Result* mutable_results(int index);
+  ::trade::MyOrdersResponse_Result* add_results();
+  ::google::protobuf::RepeatedPtrField< ::trade::MyOrdersResponse_Result >*
+      mutable_results();
+  const ::google::protobuf::RepeatedPtrField< ::trade::MyOrdersResponse_Result >&
+      results() const;
+
+  // optional int32 total_count = 2;
+  void clear_total_count();
+  static const int kTotalCountFieldNumber = 2;
+  ::google::protobuf::int32 total_count() const;
+  void set_total_count(::google::protobuf::int32 value);
+
+  // optional bool has_more = 3;
+  void clear_has_more();
+  static const int kHasMoreFieldNumber = 3;
+  bool has_more() const;
+  void set_has_more(bool value);
+
+  // optional .grpcCommon.GrpcError error = 4;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 4;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:trade.MyOrdersResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::trade::MyOrdersResponse_Result > results_;
+  ::grpcCommon::GrpcError* error_;
+  ::google::protobuf::int32 total_count_;
+  bool has_more_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void  protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto();
+  friend void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<MyOrdersResponse> MyOrdersResponse_default_instance_;
+
 // ===================================================================
 
 
@@ -330,32 +714,32 @@ inline void UnifiedorderRequest::clear_user_id() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderRequest::user_id() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderRequest.user_id)
   return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderRequest::set_user_id(const ::std::string& value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderRequest.user_id)
 }
 inline void UnifiedorderRequest::set_user_id(const char* value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderRequest.user_id)
 }
 inline void UnifiedorderRequest::set_user_id(const char* value, size_t size) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderRequest.user_id)
 }
 inline ::std::string* UnifiedorderRequest::mutable_user_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderRequest.user_id)
   return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderRequest::release_user_id() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderRequest.user_id)
   
   return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -366,7 +750,7 @@ inline void UnifiedorderRequest::set_allocated_user_id(::std::string* user_id) {
     
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderRequest.user_id)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderRequest.user_id)
 }
 
 // optional string safe_transaction_string = 2;
@@ -374,32 +758,32 @@ inline void UnifiedorderRequest::clear_safe_transaction_string() {
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderRequest::safe_transaction_string() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderRequest.safe_transaction_string)
   return safe_transaction_string_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderRequest::set_safe_transaction_string(const ::std::string& value) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderRequest.safe_transaction_string)
 }
 inline void UnifiedorderRequest::set_safe_transaction_string(const char* value) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderRequest.safe_transaction_string)
 }
 inline void UnifiedorderRequest::set_safe_transaction_string(const char* value, size_t size) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderRequest.safe_transaction_string)
 }
 inline ::std::string* UnifiedorderRequest::mutable_safe_transaction_string() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderRequest.safe_transaction_string)
   return safe_transaction_string_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderRequest::release_safe_transaction_string() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderRequest.safe_transaction_string)
   
   return safe_transaction_string_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -410,7 +794,7 @@ inline void UnifiedorderRequest::set_allocated_safe_transaction_string(::std::st
     
   }
   safe_transaction_string_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), safe_transaction_string);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderRequest.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderRequest.safe_transaction_string)
 }
 
 inline const UnifiedorderRequest* UnifiedorderRequest::internal_default_instance() {
@@ -425,32 +809,32 @@ inline void UnifiedorderResponse::clear_app_id() {
   app_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::app_id() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.app_id)
   return app_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_app_id(const ::std::string& value) {
   
   app_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.app_id)
 }
 inline void UnifiedorderResponse::set_app_id(const char* value) {
   
   app_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.app_id)
 }
 inline void UnifiedorderResponse::set_app_id(const char* value, size_t size) {
   
   app_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.app_id)
 }
 inline ::std::string* UnifiedorderResponse::mutable_app_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.app_id)
   return app_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_app_id() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.app_id)
   
   return app_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -461,7 +845,7 @@ inline void UnifiedorderResponse::set_allocated_app_id(::std::string* app_id) {
     
   }
   app_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), app_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.app_id)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.app_id)
 }
 
 // optional string partner_id = 2;
@@ -469,32 +853,32 @@ inline void UnifiedorderResponse::clear_partner_id() {
   partner_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::partner_id() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.partner_id)
   return partner_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_partner_id(const ::std::string& value) {
   
   partner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.partner_id)
 }
 inline void UnifiedorderResponse::set_partner_id(const char* value) {
   
   partner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.partner_id)
 }
 inline void UnifiedorderResponse::set_partner_id(const char* value, size_t size) {
   
   partner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.partner_id)
 }
 inline ::std::string* UnifiedorderResponse::mutable_partner_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.partner_id)
   return partner_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_partner_id() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.partner_id)
   
   return partner_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -505,7 +889,7 @@ inline void UnifiedorderResponse::set_allocated_partner_id(::std::string* partne
     
   }
   partner_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), partner_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.partner_id)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.partner_id)
 }
 
 // optional string prepay_id = 3;
@@ -513,32 +897,32 @@ inline void UnifiedorderResponse::clear_prepay_id() {
   prepay_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::prepay_id() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.prepay_id)
   return prepay_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_prepay_id(const ::std::string& value) {
   
   prepay_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.prepay_id)
 }
 inline void UnifiedorderResponse::set_prepay_id(const char* value) {
   
   prepay_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.prepay_id)
 }
 inline void UnifiedorderResponse::set_prepay_id(const char* value, size_t size) {
   
   prepay_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.prepay_id)
 }
 inline ::std::string* UnifiedorderResponse::mutable_prepay_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.prepay_id)
   return prepay_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_prepay_id() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.prepay_id)
   
   return prepay_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -549,7 +933,7 @@ inline void UnifiedorderResponse::set_allocated_prepay_id(::std::string* prepay_
     
   }
   prepay_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), prepay_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.prepay_id)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.prepay_id)
 }
 
 // optional string package = 4;
@@ -557,32 +941,32 @@ inline void UnifiedorderResponse::clear_package() {
   package_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::package() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.package)
   return package_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_package(const ::std::string& value) {
   
   package_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.package)
 }
 inline void UnifiedorderResponse::set_package(const char* value) {
   
   package_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.package)
 }
 inline void UnifiedorderResponse::set_package(const char* value, size_t size) {
   
   package_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.package)
 }
 inline ::std::string* UnifiedorderResponse::mutable_package() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.package)
   return package_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_package() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.package)
   
   return package_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -593,7 +977,7 @@ inline void UnifiedorderResponse::set_allocated_package(::std::string* package) 
     
   }
   package_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), package);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.package)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.package)
 }
 
 // optional string noncestr = 5;
@@ -601,32 +985,32 @@ inline void UnifiedorderResponse::clear_noncestr() {
   noncestr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::noncestr() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.noncestr)
   return noncestr_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_noncestr(const ::std::string& value) {
   
   noncestr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.noncestr)
 }
 inline void UnifiedorderResponse::set_noncestr(const char* value) {
   
   noncestr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.noncestr)
 }
 inline void UnifiedorderResponse::set_noncestr(const char* value, size_t size) {
   
   noncestr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.noncestr)
 }
 inline ::std::string* UnifiedorderResponse::mutable_noncestr() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.noncestr)
   return noncestr_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_noncestr() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.noncestr)
   
   return noncestr_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -637,7 +1021,7 @@ inline void UnifiedorderResponse::set_allocated_noncestr(::std::string* noncestr
     
   }
   noncestr_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), noncestr);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.noncestr)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.noncestr)
 }
 
 // optional string time_stamp = 6;
@@ -645,32 +1029,32 @@ inline void UnifiedorderResponse::clear_time_stamp() {
   time_stamp_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::time_stamp() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.time_stamp)
   return time_stamp_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_time_stamp(const ::std::string& value) {
   
   time_stamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.time_stamp)
 }
 inline void UnifiedorderResponse::set_time_stamp(const char* value) {
   
   time_stamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.time_stamp)
 }
 inline void UnifiedorderResponse::set_time_stamp(const char* value, size_t size) {
   
   time_stamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.time_stamp)
 }
 inline ::std::string* UnifiedorderResponse::mutable_time_stamp() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.time_stamp)
   return time_stamp_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_time_stamp() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.time_stamp)
   
   return time_stamp_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -681,7 +1065,7 @@ inline void UnifiedorderResponse::set_allocated_time_stamp(::std::string* time_s
     
   }
   time_stamp_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), time_stamp);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.time_stamp)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.time_stamp)
 }
 
 // optional string sign = 7;
@@ -689,32 +1073,32 @@ inline void UnifiedorderResponse::clear_sign() {
   sign_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& UnifiedorderResponse::sign() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.sign)
   return sign_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UnifiedorderResponse::set_sign(const ::std::string& value) {
   
   sign_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_set:trade.UnifiedorderResponse.sign)
 }
 inline void UnifiedorderResponse::set_sign(const char* value) {
   
   sign_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_set_char:trade.UnifiedorderResponse.sign)
 }
 inline void UnifiedorderResponse::set_sign(const char* value, size_t size) {
   
   sign_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_set_pointer:trade.UnifiedorderResponse.sign)
 }
 inline ::std::string* UnifiedorderResponse::mutable_sign() {
   
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.sign)
   return sign_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UnifiedorderResponse::release_sign() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.sign)
   
   return sign_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -725,7 +1109,7 @@ inline void UnifiedorderResponse::set_allocated_sign(::std::string* sign) {
     
   }
   sign_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sign);
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.sign)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.sign)
 }
 
 // optional .grpcCommon.GrpcError error = 8;
@@ -737,7 +1121,7 @@ inline void UnifiedorderResponse::clear_error() {
   error_ = NULL;
 }
 inline const ::grpcCommon::GrpcError& UnifiedorderResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.UnifiedorderResponse.error)
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -746,11 +1130,11 @@ inline ::grpcCommon::GrpcError* UnifiedorderResponse::mutable_error() {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.UnifiedorderResponse.error)
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderResponse.error)
   return error_;
 }
 inline ::grpcCommon::GrpcError* UnifiedorderResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.UnifiedorderResponse.error)
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -764,19 +1148,493 @@ inline void UnifiedorderResponse::set_allocated_error(::grpcCommon::GrpcError* e
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.UnifiedorderResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderResponse.error)
 }
 
 inline const UnifiedorderResponse* UnifiedorderResponse::internal_default_instance() {
   return &UnifiedorderResponse_default_instance_.get();
 }
+// -------------------------------------------------------------------
+
+// MyOrdersRequest
+
+// optional string user_id = 1;
+inline void MyOrdersRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersRequest.user_id)
+}
+inline void MyOrdersRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersRequest.user_id)
+}
+inline void MyOrdersRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersRequest.user_id)
+}
+inline ::std::string* MyOrdersRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersRequest.user_id)
+}
+
+// optional int32 page_number = 2;
+inline void MyOrdersRequest::clear_page_number() {
+  page_number_ = 0;
+}
+inline ::google::protobuf::int32 MyOrdersRequest::page_number() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersRequest.page_number)
+  return page_number_;
+}
+inline void MyOrdersRequest::set_page_number(::google::protobuf::int32 value) {
+  
+  page_number_ = value;
+  // @@protoc_insertion_point(field_set:trade.MyOrdersRequest.page_number)
+}
+
+// optional int32 page_size = 3;
+inline void MyOrdersRequest::clear_page_size() {
+  page_size_ = 0;
+}
+inline ::google::protobuf::int32 MyOrdersRequest::page_size() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersRequest.page_size)
+  return page_size_;
+}
+inline void MyOrdersRequest::set_page_size(::google::protobuf::int32 value) {
+  
+  page_size_ = value;
+  // @@protoc_insertion_point(field_set:trade.MyOrdersRequest.page_size)
+}
+
+inline const MyOrdersRequest* MyOrdersRequest::internal_default_instance() {
+  return &MyOrdersRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// MyOrdersResponse_Result
+
+// optional string order_id = 1;
+inline void MyOrdersResponse_Result::clear_order_id() {
+  order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::order_id() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.order_id)
+  return order_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_order_id(const ::std::string& value) {
+  
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.order_id)
+}
+inline void MyOrdersResponse_Result::set_order_id(const char* value) {
+  
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.order_id)
+}
+inline void MyOrdersResponse_Result::set_order_id(const char* value, size_t size) {
+  
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.order_id)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_order_id() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.order_id)
+  return order_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_order_id() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.order_id)
+  
+  return order_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_order_id(::std::string* order_id) {
+  if (order_id != NULL) {
+    
+  } else {
+    
+  }
+  order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.order_id)
+}
+
+// optional string create_time = 2;
+inline void MyOrdersResponse_Result::clear_create_time() {
+  create_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::create_time() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.create_time)
+  return create_time_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_create_time(const ::std::string& value) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.create_time)
+}
+inline void MyOrdersResponse_Result::set_create_time(const char* value) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.create_time)
+}
+inline void MyOrdersResponse_Result::set_create_time(const char* value, size_t size) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.create_time)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_create_time() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.create_time)
+  return create_time_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_create_time() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.create_time)
+  
+  return create_time_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_create_time(::std::string* create_time) {
+  if (create_time != NULL) {
+    
+  } else {
+    
+  }
+  create_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), create_time);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.create_time)
+}
+
+// optional string order_money = 3;
+inline void MyOrdersResponse_Result::clear_order_money() {
+  order_money_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::order_money() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.order_money)
+  return order_money_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_order_money(const ::std::string& value) {
+  
+  order_money_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.order_money)
+}
+inline void MyOrdersResponse_Result::set_order_money(const char* value) {
+  
+  order_money_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.order_money)
+}
+inline void MyOrdersResponse_Result::set_order_money(const char* value, size_t size) {
+  
+  order_money_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.order_money)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_order_money() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.order_money)
+  return order_money_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_order_money() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.order_money)
+  
+  return order_money_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_order_money(::std::string* order_money) {
+  if (order_money != NULL) {
+    
+  } else {
+    
+  }
+  order_money_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_money);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.order_money)
+}
+
+// optional string order_product_type = 5;
+inline void MyOrdersResponse_Result::clear_order_product_type() {
+  order_product_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::order_product_type() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.order_product_type)
+  return order_product_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_order_product_type(const ::std::string& value) {
+  
+  order_product_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.order_product_type)
+}
+inline void MyOrdersResponse_Result::set_order_product_type(const char* value) {
+  
+  order_product_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.order_product_type)
+}
+inline void MyOrdersResponse_Result::set_order_product_type(const char* value, size_t size) {
+  
+  order_product_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.order_product_type)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_order_product_type() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.order_product_type)
+  return order_product_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_order_product_type() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.order_product_type)
+  
+  return order_product_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_order_product_type(::std::string* order_product_type) {
+  if (order_product_type != NULL) {
+    
+  } else {
+    
+  }
+  order_product_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_product_type);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.order_product_type)
+}
+
+// optional int32 order_state = 6;
+inline void MyOrdersResponse_Result::clear_order_state() {
+  order_state_ = 0;
+}
+inline ::google::protobuf::int32 MyOrdersResponse_Result::order_state() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.order_state)
+  return order_state_;
+}
+inline void MyOrdersResponse_Result::set_order_state(::google::protobuf::int32 value) {
+  
+  order_state_ = value;
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.order_state)
+}
+
+// optional string order_title = 7;
+inline void MyOrdersResponse_Result::clear_order_title() {
+  order_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::order_title() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.order_title)
+  return order_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_order_title(const ::std::string& value) {
+  
+  order_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.order_title)
+}
+inline void MyOrdersResponse_Result::set_order_title(const char* value) {
+  
+  order_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.order_title)
+}
+inline void MyOrdersResponse_Result::set_order_title(const char* value, size_t size) {
+  
+  order_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.order_title)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_order_title() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.order_title)
+  return order_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_order_title() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.order_title)
+  
+  return order_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_order_title(::std::string* order_title) {
+  if (order_title != NULL) {
+    
+  } else {
+    
+  }
+  order_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_title);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.order_title)
+}
+
+// optional string pay_way = 8;
+inline void MyOrdersResponse_Result::clear_pay_way() {
+  pay_way_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::pay_way() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.pay_way)
+  return pay_way_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_pay_way(const ::std::string& value) {
+  
+  pay_way_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.pay_way)
+}
+inline void MyOrdersResponse_Result::set_pay_way(const char* value) {
+  
+  pay_way_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.pay_way)
+}
+inline void MyOrdersResponse_Result::set_pay_way(const char* value, size_t size) {
+  
+  pay_way_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.pay_way)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_pay_way() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.pay_way)
+  return pay_way_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_pay_way() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.pay_way)
+  
+  return pay_way_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_pay_way(::std::string* pay_way) {
+  if (pay_way != NULL) {
+    
+  } else {
+    
+  }
+  pay_way_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pay_way);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.pay_way)
+}
+
+inline const MyOrdersResponse_Result* MyOrdersResponse_Result::internal_default_instance() {
+  return &MyOrdersResponse_Result_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// MyOrdersResponse
+
+// repeated .trade.MyOrdersResponse.Result results = 1;
+inline int MyOrdersResponse::results_size() const {
+  return results_.size();
+}
+inline void MyOrdersResponse::clear_results() {
+  results_.Clear();
+}
+inline const ::trade::MyOrdersResponse_Result& MyOrdersResponse::results(int index) const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.results)
+  return results_.Get(index);
+}
+inline ::trade::MyOrdersResponse_Result* MyOrdersResponse::mutable_results(int index) {
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.results)
+  return results_.Mutable(index);
+}
+inline ::trade::MyOrdersResponse_Result* MyOrdersResponse::add_results() {
+  // @@protoc_insertion_point(field_add:trade.MyOrdersResponse.results)
+  return results_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::trade::MyOrdersResponse_Result >*
+MyOrdersResponse::mutable_results() {
+  // @@protoc_insertion_point(field_mutable_list:trade.MyOrdersResponse.results)
+  return &results_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::trade::MyOrdersResponse_Result >&
+MyOrdersResponse::results() const {
+  // @@protoc_insertion_point(field_list:trade.MyOrdersResponse.results)
+  return results_;
+}
+
+// optional int32 total_count = 2;
+inline void MyOrdersResponse::clear_total_count() {
+  total_count_ = 0;
+}
+inline ::google::protobuf::int32 MyOrdersResponse::total_count() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.total_count)
+  return total_count_;
+}
+inline void MyOrdersResponse::set_total_count(::google::protobuf::int32 value) {
+  
+  total_count_ = value;
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.total_count)
+}
+
+// optional bool has_more = 3;
+inline void MyOrdersResponse::clear_has_more() {
+  has_more_ = false;
+}
+inline bool MyOrdersResponse::has_more() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.has_more)
+  return has_more_;
+}
+inline void MyOrdersResponse::set_has_more(bool value) {
+  
+  has_more_ = value;
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.has_more)
+}
+
+// optional .grpcCommon.GrpcError error = 4;
+inline bool MyOrdersResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void MyOrdersResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& MyOrdersResponse::error() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* MyOrdersResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* MyOrdersResponse::release_error() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void MyOrdersResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.error)
+}
+
+inline const MyOrdersResponse* MyOrdersResponse::internal_default_instance() {
+  return &MyOrdersResponse_default_instance_.get();
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace trade
 
 // @@protoc_insertion_point(global_scope)
 

@@ -8,14 +8,29 @@ public interface SubjectListResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string subject_list = 1;</code>
+   * <pre>
+   * 学科列表
+   * </pre>
+   *
+   * <code>optional .personal.SubjectMessage subject_list = 1;</code>
    */
-  java.lang.String getSubjectList();
+  boolean hasSubjectList();
   /**
-   * <code>optional string subject_list = 1;</code>
+   * <pre>
+   * 学科列表
+   * </pre>
+   *
+   * <code>optional .personal.SubjectMessage subject_list = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getSubjectListBytes();
+  com.wanfang.personal.SubjectMessage getSubjectList();
+  /**
+   * <pre>
+   * 学科列表
+   * </pre>
+   *
+   * <code>optional .personal.SubjectMessage subject_list = 1;</code>
+   */
+  com.wanfang.personal.SubjectMessageOrBuilder getSubjectListOrBuilder();
 
   /**
    * <code>optional .grpcCommon.GrpcError error = 2;</code>

@@ -17,6 +17,7 @@ message UserRolesListResponse {
     string list_version = 2; // 版本号，如果不同则更新app本地文件，否则直接加载
     grpcCommon.GrpcError error = 3;
 }
+
 // 学历对照表
 message EducationLevelListRequest {
 
@@ -31,8 +32,15 @@ message SubjectListRequest {
 
 }
 message SubjectListResponse {
-    string subject_list = 1;
+    SubjectMessage subject_list = 1; // 学科列表
     grpcCommon.GrpcError error = 2;
+
+
+}
+message SubjectMessage {
+    string subject_title = 1; // 学科标题
+    repeated SubjectMessage sub_subject = 2; // 子学科
+    bool has_sub_subject = 3;
 }
 
 // 获取个人信息

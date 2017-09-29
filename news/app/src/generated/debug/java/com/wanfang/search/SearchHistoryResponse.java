@@ -4,11 +4,11 @@
 package com.wanfang.search;
 
 /**
- * Protobuf type {@code personal.SearchHistoryResponse}
+ * Protobuf type {@code search.SearchHistoryResponse}
  */
 public  final class SearchHistoryResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:personal.SearchHistoryResponse)
+    // @@protoc_insertion_point(message_implements:search.SearchHistoryResponse)
     SearchHistoryResponseOrBuilder {
   // Use SearchHistoryResponse.newBuilder() to construct.
   private SearchHistoryResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -81,12 +81,12 @@ public  final class SearchHistoryResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wanfang.search.MsgSearch.internal_static_personal_SearchHistoryResponse_descriptor;
+    return com.wanfang.search.MsgSearch.internal_static_search_SearchHistoryResponse_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wanfang.search.MsgSearch.internal_static_personal_SearchHistoryResponse_fieldAccessorTable
+    return com.wanfang.search.MsgSearch.internal_static_search_SearchHistoryResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.wanfang.search.SearchHistoryResponse.class, com.wanfang.search.SearchHistoryResponse.Builder.class);
   }
@@ -303,20 +303,20 @@ public  final class SearchHistoryResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code personal.SearchHistoryResponse}
+   * Protobuf type {@code search.SearchHistoryResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:personal.SearchHistoryResponse)
+      // @@protoc_insertion_point(builder_implements:search.SearchHistoryResponse)
       com.wanfang.search.SearchHistoryResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wanfang.search.MsgSearch.internal_static_personal_SearchHistoryResponse_descriptor;
+      return com.wanfang.search.MsgSearch.internal_static_search_SearchHistoryResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wanfang.search.MsgSearch.internal_static_personal_SearchHistoryResponse_fieldAccessorTable
+      return com.wanfang.search.MsgSearch.internal_static_search_SearchHistoryResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.wanfang.search.SearchHistoryResponse.class, com.wanfang.search.SearchHistoryResponse.Builder.class);
     }
@@ -351,7 +351,7 @@ public  final class SearchHistoryResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wanfang.search.MsgSearch.internal_static_personal_SearchHistoryResponse_descriptor;
+      return com.wanfang.search.MsgSearch.internal_static_search_SearchHistoryResponse_descriptor;
     }
 
     public com.wanfang.search.SearchHistoryResponse getDefaultInstanceForType() {
@@ -683,10 +683,10 @@ public  final class SearchHistoryResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:personal.SearchHistoryResponse)
+    // @@protoc_insertion_point(builder_scope:search.SearchHistoryResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:personal.SearchHistoryResponse)
+  // @@protoc_insertion_point(class_scope:search.SearchHistoryResponse)
   private static final com.wanfang.search.SearchHistoryResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.wanfang.search.SearchHistoryResponse();

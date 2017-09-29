@@ -4,11 +4,11 @@
 package com.wanfang.read;
 
 /**
- * Protobuf type {@code personal.ReadResponse}
+ * Protobuf type {@code read.ReadResponse}
  */
 public  final class ReadResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:personal.ReadResponse)
+    // @@protoc_insertion_point(message_implements:read.ReadResponse)
     ReadResponseOrBuilder {
   // Use ReadResponse.newBuilder() to construct.
   private ReadResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -102,12 +102,12 @@ public  final class ReadResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wanfang.read.MsgRead.internal_static_personal_ReadResponse_descriptor;
+    return com.wanfang.read.MsgRead.internal_static_read_ReadResponse_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wanfang.read.MsgRead.internal_static_personal_ReadResponse_fieldAccessorTable
+    return com.wanfang.read.MsgRead.internal_static_read_ReadResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.wanfang.read.ReadResponse.class, com.wanfang.read.ReadResponse.Builder.class);
   }
@@ -486,20 +486,20 @@ public  final class ReadResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code personal.ReadResponse}
+   * Protobuf type {@code read.ReadResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:personal.ReadResponse)
+      // @@protoc_insertion_point(builder_implements:read.ReadResponse)
       com.wanfang.read.ReadResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wanfang.read.MsgRead.internal_static_personal_ReadResponse_descriptor;
+      return com.wanfang.read.MsgRead.internal_static_read_ReadResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wanfang.read.MsgRead.internal_static_personal_ReadResponse_fieldAccessorTable
+      return com.wanfang.read.MsgRead.internal_static_read_ReadResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.wanfang.read.ReadResponse.class, com.wanfang.read.ReadResponse.Builder.class);
     }
@@ -542,7 +542,7 @@ public  final class ReadResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wanfang.read.MsgRead.internal_static_personal_ReadResponse_descriptor;
+      return com.wanfang.read.MsgRead.internal_static_read_ReadResponse_descriptor;
     }
 
     public com.wanfang.read.ReadResponse getDefaultInstanceForType() {
@@ -1119,10 +1119,10 @@ public  final class ReadResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:personal.ReadResponse)
+    // @@protoc_insertion_point(builder_scope:read.ReadResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:personal.ReadResponse)
+  // @@protoc_insertion_point(class_scope:read.ReadResponse)
   private static final com.wanfang.read.ReadResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.wanfang.read.ReadResponse();

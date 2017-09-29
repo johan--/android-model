@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+
+import "google/protobuf/any.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package subscribe;
+option java_multiple_files = true;
+option java_package = "com.wanfang.subscribe";
+option objc_class_prefix = "WFPR";
+
+
+// 推送邮箱
+message SubscribePushEmailRequest {
+    string user_id = 1;
+}
+message SubscribePushEmailResponse {
+    string email = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+// 订阅关键词选取的文献类型列表
+message SubscribeDocTypeListRequest {
+
+}
+message SubscribeDocTypeListResponse {
+    repeated DocType doc_type = 1;
+}
+
+// 订阅关键词选取的来源类别列表
+message SubscribeSourceTypeListRequest {
+
+}
+message SubscribeSourceTypeListResponse {
+    repeated SourceType source_type = 1;
+}
+
+
+// 订阅关键词
+message SubscribeKeywordRequest {
+    string user_id = 1;
+    string keyword = 2; // 要订阅的关键词
+    repeated DocType doc_type = 3; // 订阅关键词选取的文献类型
+    repeated SourceType source_type = 4; // 订阅关键词选取的来源类别
+    string email = 5; // 邮箱地址 nullable
+    bool should_update_email = 6;
+}
+message SubscribeKeywordResponse {
+    bool subscribe_success = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+// 获取关键词订阅列表(已订阅关键词列表)
+message SubscribeKeywordListRequest {
+    string user_id = 1;
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+message SubscribeKeywordListResponse {
+    repeated SubscribeKeywordMessage subscribe_keyword = 1; // 关键词
+    bool has_more = 2;
+    grpcCommon.GrpcError error = 3;
+}
+
+
+message SubscribeKeywordMessage {
+    string user_id = 1;
+    string subscribe_id = 2;
+    string docu_type = 3;
+    string add_time = 4;
+}
+
+message DocType {
+    string ch_name = 1;
+    string en_name = 2;
+}
+message SourceType {
+    string ch_name = 1;
+    string en_name = 2;
+}

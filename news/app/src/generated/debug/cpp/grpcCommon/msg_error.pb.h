@@ -50,12 +50,13 @@ enum ErrorCode {
   RESULT_NULL = 5,
   COMMON_ERROR = 6,
   USER_IS_LOGIN = 7,
+  IAP_PRICE_ERROR = 8,
   ErrorCode_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ErrorCode_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ErrorCode_IsValid(int value);
 const ErrorCode ErrorCode_MIN = PASS_ERROR;
-const ErrorCode ErrorCode_MAX = USER_IS_LOGIN;
+const ErrorCode ErrorCode_MAX = IAP_PRICE_ERROR;
 const int ErrorCode_ARRAYSIZE = ErrorCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ErrorCode_descriptor();

@@ -15,7 +15,6 @@ public  final class SubjectListResponse extends
     super(builder);
   }
   private SubjectListResponse() {
-    subjectList_ = "";
   }
 
   @java.lang.Override
@@ -44,9 +43,16 @@ public  final class SubjectListResponse extends
             break;
           }
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.wanfang.personal.SubjectMessage.Builder subBuilder = null;
+            if (subjectList_ != null) {
+              subBuilder = subjectList_.toBuilder();
+            }
+            subjectList_ = input.readMessage(com.wanfang.personal.SubjectMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(subjectList_);
+              subjectList_ = subBuilder.buildPartial();
+            }
 
-            subjectList_ = s;
             break;
           }
           case 18: {
@@ -86,37 +92,36 @@ public  final class SubjectListResponse extends
   }
 
   public static final int SUBJECT_LIST_FIELD_NUMBER = 1;
-  private volatile java.lang.Object subjectList_;
+  private com.wanfang.personal.SubjectMessage subjectList_;
   /**
-   * <code>optional string subject_list = 1;</code>
+   * <pre>
+   * 学科列表
+   * </pre>
+   *
+   * <code>optional .personal.SubjectMessage subject_list = 1;</code>
    */
-  public java.lang.String getSubjectList() {
-    java.lang.Object ref = subjectList_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      subjectList_ = s;
-      return s;
-    }
+  public boolean hasSubjectList() {
+    return subjectList_ != null;
   }
   /**
-   * <code>optional string subject_list = 1;</code>
+   * <pre>
+   * 学科列表
+   * </pre>
+   *
+   * <code>optional .personal.SubjectMessage subject_list = 1;</code>
    */
-  public com.google.protobuf.ByteString
-      getSubjectListBytes() {
-    java.lang.Object ref = subjectList_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      subjectList_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.wanfang.personal.SubjectMessage getSubjectList() {
+    return subjectList_ == null ? com.wanfang.personal.SubjectMessage.getDefaultInstance() : subjectList_;
+  }
+  /**
+   * <pre>
+   * 学科列表
+   * </pre>
+   *
+   * <code>optional .personal.SubjectMessage subject_list = 1;</code>
+   */
+  public com.wanfang.personal.SubjectMessageOrBuilder getSubjectListOrBuilder() {
+    return getSubjectList();
   }
 
   public static final int ERROR_FIELD_NUMBER = 2;
@@ -152,8 +157,8 @@ public  final class SubjectListResponse extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getSubjectListBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, subjectList_);
+    if (subjectList_ != null) {
+      output.writeMessage(1, getSubjectList());
     }
     if (error_ != null) {
       output.writeMessage(2, getError());
@@ -165,8 +170,9 @@ public  final class SubjectListResponse extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getSubjectListBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, subjectList_);
+    if (subjectList_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getSubjectList());
     }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -188,8 +194,11 @@ public  final class SubjectListResponse extends
     com.wanfang.personal.SubjectListResponse other = (com.wanfang.personal.SubjectListResponse) obj;
 
     boolean result = true;
-    result = result && getSubjectList()
-        .equals(other.getSubjectList());
+    result = result && (hasSubjectList() == other.hasSubjectList());
+    if (hasSubjectList()) {
+      result = result && getSubjectList()
+          .equals(other.getSubjectList());
+    }
     result = result && (hasError() == other.hasError());
     if (hasError()) {
       result = result && getError()
@@ -205,8 +214,10 @@ public  final class SubjectListResponse extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + SUBJECT_LIST_FIELD_NUMBER;
-    hash = (53 * hash) + getSubjectList().hashCode();
+    if (hasSubjectList()) {
+      hash = (37 * hash) + SUBJECT_LIST_FIELD_NUMBER;
+      hash = (53 * hash) + getSubjectList().hashCode();
+    }
     if (hasError()) {
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
@@ -329,8 +340,12 @@ public  final class SubjectListResponse extends
     }
     public Builder clear() {
       super.clear();
-      subjectList_ = "";
-
+      if (subjectListBuilder_ == null) {
+        subjectList_ = null;
+      } else {
+        subjectList_ = null;
+        subjectListBuilder_ = null;
+      }
       if (errorBuilder_ == null) {
         error_ = null;
       } else {
@@ -359,7 +374,11 @@ public  final class SubjectListResponse extends
 
     public com.wanfang.personal.SubjectListResponse buildPartial() {
       com.wanfang.personal.SubjectListResponse result = new com.wanfang.personal.SubjectListResponse(this);
-      result.subjectList_ = subjectList_;
+      if (subjectListBuilder_ == null) {
+        result.subjectList_ = subjectList_;
+      } else {
+        result.subjectList_ = subjectListBuilder_.build();
+      }
       if (errorBuilder_ == null) {
         result.error_ = error_;
       } else {
@@ -406,9 +425,8 @@ public  final class SubjectListResponse extends
 
     public Builder mergeFrom(com.wanfang.personal.SubjectListResponse other) {
       if (other == com.wanfang.personal.SubjectListResponse.getDefaultInstance()) return this;
-      if (!other.getSubjectList().isEmpty()) {
-        subjectList_ = other.subjectList_;
-        onChanged();
+      if (other.hasSubjectList()) {
+        mergeSubjectList(other.getSubjectList());
       }
       if (other.hasError()) {
         mergeError(other.getError());
@@ -439,73 +457,157 @@ public  final class SubjectListResponse extends
       return this;
     }
 
-    private java.lang.Object subjectList_ = "";
+    private com.wanfang.personal.SubjectMessage subjectList_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.personal.SubjectMessage, com.wanfang.personal.SubjectMessage.Builder, com.wanfang.personal.SubjectMessageOrBuilder> subjectListBuilder_;
     /**
-     * <code>optional string subject_list = 1;</code>
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
      */
-    public java.lang.String getSubjectList() {
-      java.lang.Object ref = subjectList_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        subjectList_ = s;
-        return s;
+    public boolean hasSubjectList() {
+      return subjectListBuilder_ != null || subjectList_ != null;
+    }
+    /**
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
+     */
+    public com.wanfang.personal.SubjectMessage getSubjectList() {
+      if (subjectListBuilder_ == null) {
+        return subjectList_ == null ? com.wanfang.personal.SubjectMessage.getDefaultInstance() : subjectList_;
       } else {
-        return (java.lang.String) ref;
+        return subjectListBuilder_.getMessage();
       }
     }
     /**
-     * <code>optional string subject_list = 1;</code>
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getSubjectListBytes() {
-      java.lang.Object ref = subjectList_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        subjectList_ = b;
-        return b;
+    public Builder setSubjectList(com.wanfang.personal.SubjectMessage value) {
+      if (subjectListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        subjectList_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        subjectListBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>optional string subject_list = 1;</code>
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
      */
     public Builder setSubjectList(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      subjectList_ = value;
-      onChanged();
+        com.wanfang.personal.SubjectMessage.Builder builderForValue) {
+      if (subjectListBuilder_ == null) {
+        subjectList_ = builderForValue.build();
+        onChanged();
+      } else {
+        subjectListBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>optional string subject_list = 1;</code>
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
+     */
+    public Builder mergeSubjectList(com.wanfang.personal.SubjectMessage value) {
+      if (subjectListBuilder_ == null) {
+        if (subjectList_ != null) {
+          subjectList_ =
+            com.wanfang.personal.SubjectMessage.newBuilder(subjectList_).mergeFrom(value).buildPartial();
+        } else {
+          subjectList_ = value;
+        }
+        onChanged();
+      } else {
+        subjectListBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
      */
     public Builder clearSubjectList() {
-      
-      subjectList_ = getDefaultInstance().getSubjectList();
-      onChanged();
+      if (subjectListBuilder_ == null) {
+        subjectList_ = null;
+        onChanged();
+      } else {
+        subjectList_ = null;
+        subjectListBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>optional string subject_list = 1;</code>
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
      */
-    public Builder setSubjectListBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.wanfang.personal.SubjectMessage.Builder getSubjectListBuilder() {
       
-      subjectList_ = value;
       onChanged();
-      return this;
+      return getSubjectListFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
+     */
+    public com.wanfang.personal.SubjectMessageOrBuilder getSubjectListOrBuilder() {
+      if (subjectListBuilder_ != null) {
+        return subjectListBuilder_.getMessageOrBuilder();
+      } else {
+        return subjectList_ == null ?
+            com.wanfang.personal.SubjectMessage.getDefaultInstance() : subjectList_;
+      }
+    }
+    /**
+     * <pre>
+     * 学科列表
+     * </pre>
+     *
+     * <code>optional .personal.SubjectMessage subject_list = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.personal.SubjectMessage, com.wanfang.personal.SubjectMessage.Builder, com.wanfang.personal.SubjectMessageOrBuilder> 
+        getSubjectListFieldBuilder() {
+      if (subjectListBuilder_ == null) {
+        subjectListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.personal.SubjectMessage, com.wanfang.personal.SubjectMessage.Builder, com.wanfang.personal.SubjectMessageOrBuilder>(
+                getSubjectList(),
+                getParentForChildren(),
+                isClean());
+        subjectList_ = null;
+      }
+      return subjectListBuilder_;
     }
 
     private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;

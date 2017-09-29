@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -31,10 +30,12 @@ import com.wanfang.personal.MyInfoUpdateResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 import com.wanfang.personal.SubjectListRequest;
 import com.wanfang.personal.SubjectListResponse;
+import com.wanfang.personal.SubjectMessage;
 import com.wanfang.personal.UserRolesListRequest;
 import com.wanfang.personal.UserRolesListResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -49,6 +50,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.tb.wangfang.news.R.id.et_search;
+
 public class PersonEditListActivity extends SimpleActivity {
     @Inject
     ManagedChannel managedChannel;
@@ -56,7 +59,7 @@ public class PersonEditListActivity extends SimpleActivity {
     ImplPreferencesHelper preferencesHelper;
     @BindView(R.id.tv_page_title)
     TextView tvPageTitle;
-    @BindView(R.id.et_search)
+    @BindView(et_search)
     SearchEditText etSearch;
     @BindView(R.id.rv)
     RecyclerView rv;
@@ -127,7 +130,7 @@ public class PersonEditListActivity extends SimpleActivity {
                     startActivityForResult(intent, TYPE_GRADUATE_SCHOOL);
                 }
                 if (type == TYPE_SUBJECT) {
-                    intent.putExtra("item", (String) adapter.getData().get(position));
+                    intent.putExtra("item", (MapMessage) adapter.getData().get(position));
                     intent.putExtra("type", TYPE_SUBJECT_ONE);
                     startActivityForResult(intent, TYPE_SUBJECT);
                 }
@@ -246,8 +249,16 @@ public class PersonEditListActivity extends SimpleActivity {
                             @Override
                             public void onSuccess(SubjectListResponse subjectListResponse) {
                                 arrayList.clear();
-                                String json = subjectListResponse.getSubjectList();
-                                Log.d(TAG, "onSuccess: " + json);
+                                List<SubjectMessage> subjectMessages = subjectListResponse.getSubjectList().getSubSubjectList();
+//                                SubJectBean bean = gson.fromJson(json, SubJectBean.class);
+                                for (int i = 0; i < subjectMessages.size(); i++) {
+                                    MapMessage message = new MapMessage();
+                                    message.setValue(subjectMessages.get(i).getSubjectTitle());
+                                    message.setKey("");
+                                    message.setHasNext(subjectMessages.get(i).getHasSubSubject());
+                                    arrayList.add(message);
+                                }
+                                adapter.setNewData(arrayList);
 
                             }
 
@@ -256,17 +267,7 @@ public class PersonEditListActivity extends SimpleActivity {
                                 ToastUtil.show("网络出错");
                             }
                         });
-//                arrayList.add("哲学");
-//                arrayList.add("经济学");
-//                arrayList.add("法学");
-//                arrayList.add("文学");
-//                arrayList.add("心理学");
-//                arrayList.add("工学");
-//                arrayList.add("管理学");
-//                arrayList.add("医学");
-//                arrayList.add("艺术学");
-//                arrayList.add("生物学");
-//                arrayList.add("其他专业");
+
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_SUBJECT);
                 break;
             case TYPE_UNIT:

@@ -4,7 +4,7 @@
 package com.wanfang.search;
 
 public interface SearchHistoryRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:personal.SearchHistoryRequest)
+    // @@protoc_insertion_point(interface_extends:search.SearchHistoryRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

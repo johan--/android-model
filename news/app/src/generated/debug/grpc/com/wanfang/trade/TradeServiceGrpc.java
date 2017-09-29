@@ -24,7 +24,7 @@ public final class TradeServiceGrpc {
 
   private TradeServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "personal.TradeService";
+  public static final String SERVICE_NAME = "trade.TradeService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -33,11 +33,23 @@ public final class TradeServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.trade.UnifiedorderRequest, com.wanfang.trade.UnifiedorderResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.TradeService", "Unifiedorder"))
+              "trade.TradeService", "Unifiedorder"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.trade.UnifiedorderRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.trade.UnifiedorderResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.trade.MyOrdersRequest,
+      com.wanfang.trade.MyOrdersResponse> METHOD_GET_MY_ORDERS =
+      io.grpc.MethodDescriptor.<com.wanfang.trade.MyOrdersRequest, com.wanfang.trade.MyOrdersResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "trade.TradeService", "GetMyOrders"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.trade.MyOrdersRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.trade.MyOrdersResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -77,6 +89,16 @@ public final class TradeServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_UNIFIEDORDER, responseObserver);
     }
 
+    /**
+     * <pre>
+     * 获取我的订单数据
+     * </pre>
+     */
+    public void getMyOrders(com.wanfang.trade.MyOrdersRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.trade.MyOrdersResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_MY_ORDERS, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -86,6 +108,13 @@ public final class TradeServiceGrpc {
                 com.wanfang.trade.UnifiedorderRequest,
                 com.wanfang.trade.UnifiedorderResponse>(
                   this, METHODID_UNIFIEDORDER)))
+          .addMethod(
+            METHOD_GET_MY_ORDERS,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.trade.MyOrdersRequest,
+                com.wanfang.trade.MyOrdersResponse>(
+                  this, METHODID_GET_MY_ORDERS)))
           .build();
     }
   }
@@ -118,6 +147,17 @@ public final class TradeServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_UNIFIEDORDER, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 获取我的订单数据
+     * </pre>
+     */
+    public void getMyOrders(com.wanfang.trade.MyOrdersRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.trade.MyOrdersResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_MY_ORDERS, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -146,6 +186,16 @@ public final class TradeServiceGrpc {
     public com.wanfang.trade.UnifiedorderResponse unifiedorder(com.wanfang.trade.UnifiedorderRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_UNIFIEDORDER, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 获取我的订单数据
+     * </pre>
+     */
+    public com.wanfang.trade.MyOrdersResponse getMyOrders(com.wanfang.trade.MyOrdersRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_MY_ORDERS, getCallOptions(), request);
     }
   }
 
@@ -177,9 +227,21 @@ public final class TradeServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_UNIFIEDORDER, getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * 获取我的订单数据
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.trade.MyOrdersResponse> getMyOrders(
+        com.wanfang.trade.MyOrdersRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_MY_ORDERS, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_UNIFIEDORDER = 0;
+  private static final int METHODID_GET_MY_ORDERS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -201,6 +263,10 @@ public final class TradeServiceGrpc {
         case METHODID_UNIFIEDORDER:
           serviceImpl.unifiedorder((com.wanfang.trade.UnifiedorderRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.trade.UnifiedorderResponse>) responseObserver);
+          break;
+        case METHODID_GET_MY_ORDERS:
+          serviceImpl.getMyOrders((com.wanfang.trade.MyOrdersRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.trade.MyOrdersResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -228,6 +294,7 @@ public final class TradeServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .addMethod(METHOD_UNIFIEDORDER)
+              .addMethod(METHOD_GET_MY_ORDERS)
               .build();
         }
       }

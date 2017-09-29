@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "grpcCommon/msg_error.proto"; // 错误码
+package trade;
+option java_multiple_files = true;
+option java_package = "com.wanfang.trade";
+option objc_class_prefix = "WFPR";
+
+// 价目表
+message IAPPriceListRequest {
+    string user_id = 1; //
+}
+
+message IAPPriceListResponse {
+    repeated IAPPrice iap_price = 1;
+}
+
+message IAPPrice {
+    string price = 1;  // 人民币价格
+    string virtual_price = 2; // 对应虚拟币价格
+    string product_id = 3; // 产品id
+}

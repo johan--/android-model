@@ -4,7 +4,7 @@
 package com.wanfang.search;
 
 public interface HotThemesResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:personal.HotThemesResponse)
+    // @@protoc_insertion_point(interface_extends:search.HotThemesResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

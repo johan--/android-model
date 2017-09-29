@@ -4,11 +4,15 @@
 package com.wanfang.trade;
 
 /**
- * Protobuf type {@code personal.UnifiedorderRequest}
+ * <pre>
+ * 统一下单
+ * </pre>
+ *
+ * Protobuf type {@code trade.UnifiedorderRequest}
  */
 public  final class UnifiedorderRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:personal.UnifiedorderRequest)
+    // @@protoc_insertion_point(message_implements:trade.UnifiedorderRequest)
     UnifiedorderRequestOrBuilder {
   // Use UnifiedorderRequest.newBuilder() to construct.
   private UnifiedorderRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -69,12 +73,12 @@ public  final class UnifiedorderRequest extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderRequest_descriptor;
+    return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderRequest_fieldAccessorTable
+    return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.wanfang.trade.UnifiedorderRequest.class, com.wanfang.trade.UnifiedorderRequest.Builder.class);
   }
@@ -303,20 +307,24 @@ public  final class UnifiedorderRequest extends
     return builder;
   }
   /**
-   * Protobuf type {@code personal.UnifiedorderRequest}
+   * <pre>
+   * 统一下单
+   * </pre>
+   *
+   * Protobuf type {@code trade.UnifiedorderRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:personal.UnifiedorderRequest)
+      // @@protoc_insertion_point(builder_implements:trade.UnifiedorderRequest)
       com.wanfang.trade.UnifiedorderRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderRequest_descriptor;
+      return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderRequest_fieldAccessorTable
+      return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.wanfang.trade.UnifiedorderRequest.class, com.wanfang.trade.UnifiedorderRequest.Builder.class);
     }
@@ -347,7 +355,7 @@ public  final class UnifiedorderRequest extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wanfang.trade.MsgTrade.internal_static_personal_UnifiedorderRequest_descriptor;
+      return com.wanfang.trade.MsgTrade.internal_static_trade_UnifiedorderRequest_descriptor;
     }
 
     public com.wanfang.trade.UnifiedorderRequest getDefaultInstanceForType() {
@@ -609,10 +617,10 @@ public  final class UnifiedorderRequest extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:personal.UnifiedorderRequest)
+    // @@protoc_insertion_point(builder_scope:trade.UnifiedorderRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:personal.UnifiedorderRequest)
+  // @@protoc_insertion_point(class_scope:trade.UnifiedorderRequest)
   private static final com.wanfang.trade.UnifiedorderRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.wanfang.trade.UnifiedorderRequest();

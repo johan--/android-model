@@ -262,8 +262,11 @@ public class EditPersonInforActivity extends SimpleActivity {
                 ArrayList<String> photos =
                         data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
                 Log.d(TAG, "onActivityResult: " + photos.get(0));
-                destination = Uri.fromFile(new File(getCacheDir(), "cropped"));
-                Uri source = Uri.parse(photos.get(0));
+                String imgUrl = photos.get(0);
+                String imgName = imgUrl.substring(imgUrl.lastIndexOf("/") + 1);
+                File file = new File(getCacheDir(), imgName);
+                destination = Uri.fromFile(file);
+                Uri source = Uri.parse("file://" + photos.get(0));
                 Crop.of(source, destination).asSquare().start(this);
             }
         }

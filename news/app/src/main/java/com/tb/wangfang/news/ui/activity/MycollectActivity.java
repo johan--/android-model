@@ -11,9 +11,9 @@ import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.MyCollectAdapter;
-import com.wanfang.personal.MyCollectRequest;
-import com.wanfang.personal.MyCollectResponse;
-import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.collect.CollectServiceGrpc;
+import com.wanfang.collect.MyCollectRequest;
+import com.wanfang.collect.MyCollectResponse;
 
 import java.util.ArrayList;
 
@@ -53,7 +53,7 @@ public class MycollectActivity extends SimpleActivity {
         Single.create(new SingleOnSubscribe<MyCollectResponse>() {
             @Override
             public void subscribe(SingleEmitter<MyCollectResponse> e) throws Exception {
-                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                CollectServiceGrpc.CollectServiceBlockingStub stub = CollectServiceGrpc.newBlockingStub(managedChannel);
                 MyCollectRequest request = MyCollectRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPageNumber(1).setPageSize(20).build();
                 MyCollectResponse response = stub.getMyCollect(request);
                 e.onSuccess(response);

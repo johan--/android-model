@@ -148,30 +148,6 @@ public final class PersonalCenterServiceGrpc {
               com.wanfang.personal.MyWalletResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.MyOrdersRequest,
-      com.wanfang.personal.MyOrdersResponse> METHOD_GET_MY_ORDERS =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.MyOrdersRequest, com.wanfang.personal.MyOrdersResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "GetMyOrders"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.MyOrdersRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.MyOrdersResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.MyCollectRequest,
-      com.wanfang.personal.MyCollectResponse> METHOD_GET_MY_COLLECT =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.MyCollectRequest, com.wanfang.personal.MyCollectResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "GetMyCollect"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.MyCollectRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.MyCollectResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.PhoneCaptchaRequest,
       com.wanfang.personal.PhoneCaptchaResponse> METHOD_GET_PHONE_CAPTCHA =
       io.grpc.MethodDescriptor.<com.wanfang.personal.PhoneCaptchaRequest, com.wanfang.personal.PhoneCaptchaResponse>newBuilder()
@@ -278,18 +254,6 @@ public final class PersonalCenterServiceGrpc {
               com.wanfang.personal.SubjectListRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.SubjectListResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.MyCollectDetailRequest,
-      com.wanfang.personal.MyCollectDetailResponse> METHOD_GET_DOC_DETAIL =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.MyCollectDetailRequest, com.wanfang.personal.MyCollectDetailResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "getDocDetail"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.MyCollectDetailRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.MyCollectDetailResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -421,26 +385,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取我的订单数据
-     * </pre>
-     */
-    public void getMyOrders(com.wanfang.personal.MyOrdersRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.MyOrdersResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_GET_MY_ORDERS, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 获取我的收藏
-     * </pre>
-     */
-    public void getMyCollect(com.wanfang.personal.MyCollectRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.MyCollectResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_GET_MY_COLLECT, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 获取验证码
      * </pre>
      */
@@ -529,16 +473,6 @@ public final class PersonalCenterServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_GET_SUBJECT_LIST, responseObserver);
     }
 
-    /**
-     * <pre>
-     * 收藏列表详情
-     * </pre>
-     */
-    public void getDocDetail(com.wanfang.personal.MyCollectDetailRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.MyCollectDetailResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_GET_DOC_DETAIL, responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -612,20 +546,6 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.MyWalletResponse>(
                   this, METHODID_GET_MY_WALLET)))
           .addMethod(
-            METHOD_GET_MY_ORDERS,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.MyOrdersRequest,
-                com.wanfang.personal.MyOrdersResponse>(
-                  this, METHODID_GET_MY_ORDERS)))
-          .addMethod(
-            METHOD_GET_MY_COLLECT,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.MyCollectRequest,
-                com.wanfang.personal.MyCollectResponse>(
-                  this, METHODID_GET_MY_COLLECT)))
-          .addMethod(
             METHOD_GET_PHONE_CAPTCHA,
             asyncUnaryCall(
               new MethodHandlers<
@@ -688,13 +608,6 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.SubjectListRequest,
                 com.wanfang.personal.SubjectListResponse>(
                   this, METHODID_GET_SUBJECT_LIST)))
-          .addMethod(
-            METHOD_GET_DOC_DETAIL,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.MyCollectDetailRequest,
-                com.wanfang.personal.MyCollectDetailResponse>(
-                  this, METHODID_GET_DOC_DETAIL)))
           .build();
     }
   }
@@ -829,28 +742,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取我的订单数据
-     * </pre>
-     */
-    public void getMyOrders(com.wanfang.personal.MyOrdersRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.MyOrdersResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_GET_MY_ORDERS, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 获取我的收藏
-     * </pre>
-     */
-    public void getMyCollect(com.wanfang.personal.MyCollectRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.MyCollectResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_GET_MY_COLLECT, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 获取验证码
      * </pre>
      */
@@ -946,17 +837,6 @@ public final class PersonalCenterServiceGrpc {
         io.grpc.stub.StreamObserver<com.wanfang.personal.SubjectListResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_SUBJECT_LIST, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 收藏列表详情
-     * </pre>
-     */
-    public void getDocDetail(com.wanfang.personal.MyCollectDetailRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.MyCollectDetailResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_GET_DOC_DETAIL, getCallOptions()), request, responseObserver);
     }
   }
 
@@ -1080,26 +960,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取我的订单数据
-     * </pre>
-     */
-    public com.wanfang.personal.MyOrdersResponse getMyOrders(com.wanfang.personal.MyOrdersRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_GET_MY_ORDERS, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * 获取我的收藏
-     * </pre>
-     */
-    public com.wanfang.personal.MyCollectResponse getMyCollect(com.wanfang.personal.MyCollectRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_GET_MY_COLLECT, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
      * 获取验证码
      * </pre>
      */
@@ -1186,16 +1046,6 @@ public final class PersonalCenterServiceGrpc {
     public com.wanfang.personal.SubjectListResponse getSubjectList(com.wanfang.personal.SubjectListRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_SUBJECT_LIST, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * 收藏列表详情
-     * </pre>
-     */
-    public com.wanfang.personal.MyCollectDetailResponse getDocDetail(com.wanfang.personal.MyCollectDetailRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_GET_DOC_DETAIL, getCallOptions(), request);
     }
   }
 
@@ -1329,28 +1179,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取我的订单数据
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.MyOrdersResponse> getMyOrders(
-        com.wanfang.personal.MyOrdersRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_GET_MY_ORDERS, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
-     * 获取我的收藏
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.MyCollectResponse> getMyCollect(
-        com.wanfang.personal.MyCollectRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_GET_MY_COLLECT, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * 获取验证码
      * </pre>
      */
@@ -1447,17 +1275,6 @@ public final class PersonalCenterServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_SUBJECT_LIST, getCallOptions()), request);
     }
-
-    /**
-     * <pre>
-     * 收藏列表详情
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.MyCollectDetailResponse> getDocDetail(
-        com.wanfang.personal.MyCollectDetailRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_GET_DOC_DETAIL, getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_LOGIN = 0;
@@ -1470,18 +1287,15 @@ public final class PersonalCenterServiceGrpc {
   private static final int METHODID_PASSWORD_VERIFY = 7;
   private static final int METHODID_UPDATE_PASSWORD = 8;
   private static final int METHODID_GET_MY_WALLET = 9;
-  private static final int METHODID_GET_MY_ORDERS = 10;
-  private static final int METHODID_GET_MY_COLLECT = 11;
-  private static final int METHODID_GET_PHONE_CAPTCHA = 12;
-  private static final int METHODID_UPLOAD_FILE = 13;
-  private static final int METHODID_UPLOAD_AVATAR = 14;
-  private static final int METHODID_GET_INTEREST_SUBJECT = 15;
-  private static final int METHODID_GET_USER_INFO = 16;
-  private static final int METHODID_UPDATE_USER_INFO = 17;
-  private static final int METHODID_GET_ROLES_LIST = 18;
-  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 19;
-  private static final int METHODID_GET_SUBJECT_LIST = 20;
-  private static final int METHODID_GET_DOC_DETAIL = 21;
+  private static final int METHODID_GET_PHONE_CAPTCHA = 10;
+  private static final int METHODID_UPLOAD_FILE = 11;
+  private static final int METHODID_UPLOAD_AVATAR = 12;
+  private static final int METHODID_GET_INTEREST_SUBJECT = 13;
+  private static final int METHODID_GET_USER_INFO = 14;
+  private static final int METHODID_UPDATE_USER_INFO = 15;
+  private static final int METHODID_GET_ROLES_LIST = 16;
+  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 17;
+  private static final int METHODID_GET_SUBJECT_LIST = 18;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1540,14 +1354,6 @@ public final class PersonalCenterServiceGrpc {
           serviceImpl.getMyWallet((com.wanfang.personal.MyWalletRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.MyWalletResponse>) responseObserver);
           break;
-        case METHODID_GET_MY_ORDERS:
-          serviceImpl.getMyOrders((com.wanfang.personal.MyOrdersRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.MyOrdersResponse>) responseObserver);
-          break;
-        case METHODID_GET_MY_COLLECT:
-          serviceImpl.getMyCollect((com.wanfang.personal.MyCollectRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.MyCollectResponse>) responseObserver);
-          break;
         case METHODID_GET_PHONE_CAPTCHA:
           serviceImpl.getPhoneCaptcha((com.wanfang.personal.PhoneCaptchaRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.PhoneCaptchaResponse>) responseObserver);
@@ -1584,10 +1390,6 @@ public final class PersonalCenterServiceGrpc {
           serviceImpl.getSubjectList((com.wanfang.personal.SubjectListRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.SubjectListResponse>) responseObserver);
           break;
-        case METHODID_GET_DOC_DETAIL:
-          serviceImpl.getDocDetail((com.wanfang.personal.MyCollectDetailRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.MyCollectDetailResponse>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -1623,8 +1425,6 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_PASSWORD_VERIFY)
               .addMethod(METHOD_UPDATE_PASSWORD)
               .addMethod(METHOD_GET_MY_WALLET)
-              .addMethod(METHOD_GET_MY_ORDERS)
-              .addMethod(METHOD_GET_MY_COLLECT)
               .addMethod(METHOD_GET_PHONE_CAPTCHA)
               .addMethod(METHOD_UPLOAD_FILE)
               .addMethod(METHOD_UPLOAD_AVATAR)
@@ -1634,7 +1434,6 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_GET_ROLES_LIST)
               .addMethod(METHOD_GET_EDUCATION_LEVEL_LIST)
               .addMethod(METHOD_GET_SUBJECT_LIST)
-              .addMethod(METHOD_GET_DOC_DETAIL)
               .build();
         }
       }

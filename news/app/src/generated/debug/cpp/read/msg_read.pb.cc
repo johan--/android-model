@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace read {
 
 namespace {
 
@@ -127,17 +127,17 @@ void protobuf_AddDesc_read_2fmsg_5fread_2eproto_impl() {
 
   protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023read/msg_read.proto\022\010personal\032\032grpcCom"
-    "mon/msg_error.proto\"\231\001\n\013ReadRequest\022\017\n\007u"
-    "ser_id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresour"
-    "ce_type\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resourc"
-    "e_title\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013lo"
-    "gin_token\030\007 \001(\t\"\241\001\n\014ReadResponse\022\r\n\005pric"
-    "e\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 "
-    "\001(\t\022\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017"
-    "has_trade_power\030\005 \001(\010\022$\n\005error\030\006 \001(\0132\025.g"
-    "rpcCommon.GrpcErrorB\033\n\020com.wanfang.readP"
-    "\001\242\002\004WFPRb\006proto3", 416);
+    "\n\023read/msg_read.proto\022\004read\032\032grpcCommon/"
+    "msg_error.proto\"\231\001\n\013ReadRequest\022\017\n\007user_"
+    "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresource_t"
+    "ype\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resource_ti"
+    "tle\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013login_"
+    "token\030\007 \001(\t\"\241\001\n\014ReadResponse\022\r\n\005price\030\001 "
+    "\001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022"
+    "\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017has_"
+    "trade_power\030\005 \001(\010\022$\n\005error\030\006 \001(\0132\025.grpcC"
+    "ommon.GrpcErrorB\033\n\020com.wanfang.readP\001\242\002\004"
+    "WFPRb\006proto3", 412);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "read/msg_read.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -182,7 +182,7 @@ ReadRequest::ReadRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.ReadRequest)
+  // @@protoc_insertion_point(constructor:read.ReadRequest)
 }
 
 void ReadRequest::InitAsDefaultInstance() {
@@ -193,7 +193,7 @@ ReadRequest::ReadRequest(const ReadRequest& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.ReadRequest)
+  // @@protoc_insertion_point(copy_constructor:read.ReadRequest)
 }
 
 void ReadRequest::SharedCtor() {
@@ -208,7 +208,7 @@ void ReadRequest::SharedCtor() {
 }
 
 ReadRequest::~ReadRequest() {
-  // @@protoc_insertion_point(destructor:personal.ReadRequest)
+  // @@protoc_insertion_point(destructor:read.ReadRequest)
   SharedDtor();
 }
 
@@ -248,7 +248,7 @@ ReadRequest* ReadRequest::New(::google::protobuf::Arena* arena) const {
 }
 
 void ReadRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.ReadRequest)
+// @@protoc_insertion_point(message_clear_start:read.ReadRequest)
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   resource_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -262,7 +262,7 @@ bool ReadRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.ReadRequest)
+  // @@protoc_insertion_point(parse_start:read.ReadRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -276,7 +276,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->user_id().data(), this->user_id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.user_id"));
+            "read.ReadRequest.user_id"));
         } else {
           goto handle_unusual;
         }
@@ -293,7 +293,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->language().data(), this->language().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.language"));
+            "read.ReadRequest.language"));
         } else {
           goto handle_unusual;
         }
@@ -310,7 +310,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->resource_type().data(), this->resource_type().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.resource_type"));
+            "read.ReadRequest.resource_type"));
         } else {
           goto handle_unusual;
         }
@@ -327,7 +327,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->source().data(), this->source().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.source"));
+            "read.ReadRequest.source"));
         } else {
           goto handle_unusual;
         }
@@ -344,7 +344,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->resource_title().data(), this->resource_title().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.resource_title"));
+            "read.ReadRequest.resource_title"));
         } else {
           goto handle_unusual;
         }
@@ -361,7 +361,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->resource_id().data(), this->resource_id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.resource_id"));
+            "read.ReadRequest.resource_id"));
         } else {
           goto handle_unusual;
         }
@@ -378,7 +378,7 @@ bool ReadRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->login_token().data(), this->login_token().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadRequest.login_token"));
+            "read.ReadRequest.login_token"));
         } else {
           goto handle_unusual;
         }
@@ -399,23 +399,23 @@ bool ReadRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:personal.ReadRequest)
+  // @@protoc_insertion_point(parse_success:read.ReadRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:personal.ReadRequest)
+  // @@protoc_insertion_point(parse_failure:read.ReadRequest)
   return false;
 #undef DO_
 }
 
 void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.ReadRequest)
+  // @@protoc_insertion_point(serialize_start:read.ReadRequest)
   // optional string user_id = 1;
   if (this->user_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->user_id().data(), this->user_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.user_id");
+      "read.ReadRequest.user_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->user_id(), output);
   }
@@ -425,7 +425,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->language().data(), this->language().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.language");
+      "read.ReadRequest.language");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->language(), output);
   }
@@ -435,7 +435,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->resource_type().data(), this->resource_type().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.resource_type");
+      "read.ReadRequest.resource_type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->resource_type(), output);
   }
@@ -445,7 +445,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->source().data(), this->source().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.source");
+      "read.ReadRequest.source");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->source(), output);
   }
@@ -455,7 +455,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->resource_title().data(), this->resource_title().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.resource_title");
+      "read.ReadRequest.resource_title");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->resource_title(), output);
   }
@@ -465,7 +465,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->resource_id().data(), this->resource_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.resource_id");
+      "read.ReadRequest.resource_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       6, this->resource_id(), output);
   }
@@ -475,24 +475,24 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->login_token().data(), this->login_token().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.login_token");
+      "read.ReadRequest.login_token");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       7, this->login_token(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:personal.ReadRequest)
+  // @@protoc_insertion_point(serialize_end:read.ReadRequest)
 }
 
 ::google::protobuf::uint8* ReadRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.ReadRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:read.ReadRequest)
   // optional string user_id = 1;
   if (this->user_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->user_id().data(), this->user_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.user_id");
+      "read.ReadRequest.user_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->user_id(), target);
@@ -503,7 +503,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->language().data(), this->language().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.language");
+      "read.ReadRequest.language");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->language(), target);
@@ -514,7 +514,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->resource_type().data(), this->resource_type().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.resource_type");
+      "read.ReadRequest.resource_type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->resource_type(), target);
@@ -525,7 +525,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->source().data(), this->source().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.source");
+      "read.ReadRequest.source");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->source(), target);
@@ -536,7 +536,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->resource_title().data(), this->resource_title().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.resource_title");
+      "read.ReadRequest.resource_title");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->resource_title(), target);
@@ -547,7 +547,7 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->resource_id().data(), this->resource_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.resource_id");
+      "read.ReadRequest.resource_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         6, this->resource_id(), target);
@@ -558,18 +558,18 @@ void ReadRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->login_token().data(), this->login_token().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadRequest.login_token");
+      "read.ReadRequest.login_token");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         7, this->login_token(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:personal.ReadRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:read.ReadRequest)
   return target;
 }
 
 size_t ReadRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.ReadRequest)
+// @@protoc_insertion_point(message_byte_size_start:read.ReadRequest)
   size_t total_size = 0;
 
   // optional string user_id = 1;
@@ -629,22 +629,22 @@ size_t ReadRequest::ByteSizeLong() const {
 }
 
 void ReadRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.ReadRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:read.ReadRequest)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const ReadRequest* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ReadRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.ReadRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:read.ReadRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.ReadRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:read.ReadRequest)
     UnsafeMergeFrom(*source);
   }
 }
 
 void ReadRequest::MergeFrom(const ReadRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.ReadRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:read.ReadRequest)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -685,14 +685,14 @@ void ReadRequest::UnsafeMergeFrom(const ReadRequest& from) {
 }
 
 void ReadRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.ReadRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:read.ReadRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ReadRequest::CopyFrom(const ReadRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.ReadRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:read.ReadRequest)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -735,32 +735,32 @@ void ReadRequest::clear_user_id() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::user_id() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.user_id)
   return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_user_id(const ::std::string& value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.user_id)
 }
 void ReadRequest::set_user_id(const char* value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.user_id)
 }
 void ReadRequest::set_user_id(const char* value, size_t size) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.user_id)
 }
 ::std::string* ReadRequest::mutable_user_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.user_id)
   return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_user_id() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.user_id)
   
   return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -771,7 +771,7 @@ void ReadRequest::set_allocated_user_id(::std::string* user_id) {
     
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.user_id)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.user_id)
 }
 
 // optional string language = 2;
@@ -779,32 +779,32 @@ void ReadRequest::clear_language() {
   language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::language() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.language)
   return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_language(const ::std::string& value) {
   
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.language)
 }
 void ReadRequest::set_language(const char* value) {
   
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.language)
 }
 void ReadRequest::set_language(const char* value, size_t size) {
   
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.language)
 }
 ::std::string* ReadRequest::mutable_language() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.language)
   return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_language() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.language)
   
   return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -815,7 +815,7 @@ void ReadRequest::set_allocated_language(::std::string* language) {
     
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.language)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.language)
 }
 
 // optional string resource_type = 3;
@@ -823,32 +823,32 @@ void ReadRequest::clear_resource_type() {
   resource_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::resource_type() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.resource_type)
   return resource_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_resource_type(const ::std::string& value) {
   
   resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.resource_type)
 }
 void ReadRequest::set_resource_type(const char* value) {
   
   resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.resource_type)
 }
 void ReadRequest::set_resource_type(const char* value, size_t size) {
   
   resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.resource_type)
 }
 ::std::string* ReadRequest::mutable_resource_type() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.resource_type)
   return resource_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_resource_type() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.resource_type)
   
   return resource_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -859,7 +859,7 @@ void ReadRequest::set_allocated_resource_type(::std::string* resource_type) {
     
   }
   resource_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_type);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.resource_type)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.resource_type)
 }
 
 // optional string source = 4;
@@ -867,32 +867,32 @@ void ReadRequest::clear_source() {
   source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::source() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.source)
   return source_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_source(const ::std::string& value) {
   
   source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.source)
 }
 void ReadRequest::set_source(const char* value) {
   
   source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.source)
 }
 void ReadRequest::set_source(const char* value, size_t size) {
   
   source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.source)
 }
 ::std::string* ReadRequest::mutable_source() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.source)
   return source_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_source() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.source)
   
   return source_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -903,7 +903,7 @@ void ReadRequest::set_allocated_source(::std::string* source) {
     
   }
   source_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), source);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.source)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.source)
 }
 
 // optional string resource_title = 5;
@@ -911,32 +911,32 @@ void ReadRequest::clear_resource_title() {
   resource_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::resource_title() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.resource_title)
   return resource_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_resource_title(const ::std::string& value) {
   
   resource_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.resource_title)
 }
 void ReadRequest::set_resource_title(const char* value) {
   
   resource_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.resource_title)
 }
 void ReadRequest::set_resource_title(const char* value, size_t size) {
   
   resource_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.resource_title)
 }
 ::std::string* ReadRequest::mutable_resource_title() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.resource_title)
   return resource_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_resource_title() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.resource_title)
   
   return resource_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -947,7 +947,7 @@ void ReadRequest::set_allocated_resource_title(::std::string* resource_title) {
     
   }
   resource_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_title);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.resource_title)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.resource_title)
 }
 
 // optional string resource_id = 6;
@@ -955,32 +955,32 @@ void ReadRequest::clear_resource_id() {
   resource_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::resource_id() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.resource_id)
   return resource_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_resource_id(const ::std::string& value) {
   
   resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.resource_id)
 }
 void ReadRequest::set_resource_id(const char* value) {
   
   resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.resource_id)
 }
 void ReadRequest::set_resource_id(const char* value, size_t size) {
   
   resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.resource_id)
 }
 ::std::string* ReadRequest::mutable_resource_id() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.resource_id)
   return resource_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_resource_id() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.resource_id)
   
   return resource_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -991,7 +991,7 @@ void ReadRequest::set_allocated_resource_id(::std::string* resource_id) {
     
   }
   resource_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.resource_id)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.resource_id)
 }
 
 // optional string login_token = 7;
@@ -999,32 +999,32 @@ void ReadRequest::clear_login_token() {
   login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadRequest::login_token() const {
-  // @@protoc_insertion_point(field_get:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_get:read.ReadRequest.login_token)
   return login_token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadRequest::set_login_token(const ::std::string& value) {
   
   login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set:read.ReadRequest.login_token)
 }
 void ReadRequest::set_login_token(const char* value) {
   
   login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set_char:read.ReadRequest.login_token)
 }
 void ReadRequest::set_login_token(const char* value, size_t size) {
   
   login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadRequest.login_token)
 }
 ::std::string* ReadRequest::mutable_login_token() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_mutable:read.ReadRequest.login_token)
   return login_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadRequest::release_login_token() {
-  // @@protoc_insertion_point(field_release:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_release:read.ReadRequest.login_token)
   
   return login_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1035,7 +1035,7 @@ void ReadRequest::set_allocated_login_token(::std::string* login_token) {
     
   }
   login_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_token);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadRequest.login_token)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadRequest.login_token)
 }
 
 inline const ReadRequest* ReadRequest::internal_default_instance() {
@@ -1058,7 +1058,7 @@ ReadResponse::ReadResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.ReadResponse)
+  // @@protoc_insertion_point(constructor:read.ReadResponse)
 }
 
 void ReadResponse::InitAsDefaultInstance() {
@@ -1071,7 +1071,7 @@ ReadResponse::ReadResponse(const ReadResponse& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.ReadResponse)
+  // @@protoc_insertion_point(copy_constructor:read.ReadResponse)
 }
 
 void ReadResponse::SharedCtor() {
@@ -1085,7 +1085,7 @@ void ReadResponse::SharedCtor() {
 }
 
 ReadResponse::~ReadResponse() {
-  // @@protoc_insertion_point(destructor:personal.ReadResponse)
+  // @@protoc_insertion_point(destructor:read.ReadResponse)
   SharedDtor();
 }
 
@@ -1125,7 +1125,7 @@ ReadResponse* ReadResponse::New(::google::protobuf::Arena* arena) const {
 }
 
 void ReadResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.ReadResponse)
+// @@protoc_insertion_point(message_clear_start:read.ReadResponse)
   price_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1139,7 +1139,7 @@ bool ReadResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.ReadResponse)
+  // @@protoc_insertion_point(parse_start:read.ReadResponse)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1153,7 +1153,7 @@ bool ReadResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->price().data(), this->price().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadResponse.price"));
+            "read.ReadResponse.price"));
         } else {
           goto handle_unusual;
         }
@@ -1170,7 +1170,7 @@ bool ReadResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->title().data(), this->title().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadResponse.title"));
+            "read.ReadResponse.title"));
         } else {
           goto handle_unusual;
         }
@@ -1187,7 +1187,7 @@ bool ReadResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->description().data(), this->description().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadResponse.description"));
+            "read.ReadResponse.description"));
         } else {
           goto handle_unusual;
         }
@@ -1204,7 +1204,7 @@ bool ReadResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->safe_transaction_string().data(), this->safe_transaction_string().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.ReadResponse.safe_transaction_string"));
+            "read.ReadResponse.safe_transaction_string"));
         } else {
           goto handle_unusual;
         }
@@ -1253,23 +1253,23 @@ bool ReadResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:personal.ReadResponse)
+  // @@protoc_insertion_point(parse_success:read.ReadResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:personal.ReadResponse)
+  // @@protoc_insertion_point(parse_failure:read.ReadResponse)
   return false;
 #undef DO_
 }
 
 void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.ReadResponse)
+  // @@protoc_insertion_point(serialize_start:read.ReadResponse)
   // optional string price = 1;
   if (this->price().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->price().data(), this->price().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.price");
+      "read.ReadResponse.price");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->price(), output);
   }
@@ -1279,7 +1279,7 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->title().data(), this->title().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.title");
+      "read.ReadResponse.title");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->title(), output);
   }
@@ -1289,7 +1289,7 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->description().data(), this->description().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.description");
+      "read.ReadResponse.description");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->description(), output);
   }
@@ -1299,7 +1299,7 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->safe_transaction_string().data(), this->safe_transaction_string().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.safe_transaction_string");
+      "read.ReadResponse.safe_transaction_string");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->safe_transaction_string(), output);
   }
@@ -1315,19 +1315,19 @@ void ReadResponse::SerializeWithCachedSizes(
       6, *this->error_, output);
   }
 
-  // @@protoc_insertion_point(serialize_end:personal.ReadResponse)
+  // @@protoc_insertion_point(serialize_end:read.ReadResponse)
 }
 
 ::google::protobuf::uint8* ReadResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.ReadResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:read.ReadResponse)
   // optional string price = 1;
   if (this->price().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->price().data(), this->price().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.price");
+      "read.ReadResponse.price");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->price(), target);
@@ -1338,7 +1338,7 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->title().data(), this->title().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.title");
+      "read.ReadResponse.title");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->title(), target);
@@ -1349,7 +1349,7 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->description().data(), this->description().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.description");
+      "read.ReadResponse.description");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->description(), target);
@@ -1360,7 +1360,7 @@ void ReadResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->safe_transaction_string().data(), this->safe_transaction_string().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.ReadResponse.safe_transaction_string");
+      "read.ReadResponse.safe_transaction_string");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->safe_transaction_string(), target);
@@ -1378,12 +1378,12 @@ void ReadResponse::SerializeWithCachedSizes(
         6, *this->error_, false, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:personal.ReadResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:read.ReadResponse)
   return target;
 }
 
 size_t ReadResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.ReadResponse)
+// @@protoc_insertion_point(message_byte_size_start:read.ReadResponse)
   size_t total_size = 0;
 
   // optional string price = 1;
@@ -1434,22 +1434,22 @@ size_t ReadResponse::ByteSizeLong() const {
 }
 
 void ReadResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.ReadResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:read.ReadResponse)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const ReadResponse* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ReadResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.ReadResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:read.ReadResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.ReadResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:read.ReadResponse)
     UnsafeMergeFrom(*source);
   }
 }
 
 void ReadResponse::MergeFrom(const ReadResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.ReadResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:read.ReadResponse)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1484,14 +1484,14 @@ void ReadResponse::UnsafeMergeFrom(const ReadResponse& from) {
 }
 
 void ReadResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.ReadResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:read.ReadResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ReadResponse::CopyFrom(const ReadResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.ReadResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:read.ReadResponse)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1533,32 +1533,32 @@ void ReadResponse::clear_price() {
   price_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadResponse::price() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.price)
   return price_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadResponse::set_price(const ::std::string& value) {
   
   price_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.price)
 }
 void ReadResponse::set_price(const char* value) {
   
   price_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.price)
 }
 void ReadResponse::set_price(const char* value, size_t size) {
   
   price_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.price)
 }
 ::std::string* ReadResponse::mutable_price() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.price)
   return price_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadResponse::release_price() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.price)
   
   return price_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1569,7 +1569,7 @@ void ReadResponse::set_allocated_price(::std::string* price) {
     
   }
   price_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), price);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.price)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.price)
 }
 
 // optional string title = 2;
@@ -1577,32 +1577,32 @@ void ReadResponse::clear_title() {
   title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadResponse::title() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.title)
   return title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadResponse::set_title(const ::std::string& value) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.title)
 }
 void ReadResponse::set_title(const char* value) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.title)
 }
 void ReadResponse::set_title(const char* value, size_t size) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.title)
 }
 ::std::string* ReadResponse::mutable_title() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.title)
   return title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadResponse::release_title() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.title)
   
   return title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1613,7 +1613,7 @@ void ReadResponse::set_allocated_title(::std::string* title) {
     
   }
   title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), title);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.title)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.title)
 }
 
 // optional string description = 3;
@@ -1621,32 +1621,32 @@ void ReadResponse::clear_description() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadResponse::description() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.description)
   return description_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadResponse::set_description(const ::std::string& value) {
   
   description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.description)
 }
 void ReadResponse::set_description(const char* value) {
   
   description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.description)
 }
 void ReadResponse::set_description(const char* value, size_t size) {
   
   description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.description)
 }
 ::std::string* ReadResponse::mutable_description() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.description)
   return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadResponse::release_description() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.description)
   
   return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1657,7 +1657,7 @@ void ReadResponse::set_allocated_description(::std::string* description) {
     
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.description)
 }
 
 // optional string safe_transaction_string = 4;
@@ -1665,32 +1665,32 @@ void ReadResponse::clear_safe_transaction_string() {
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& ReadResponse::safe_transaction_string() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.safe_transaction_string)
   return safe_transaction_string_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void ReadResponse::set_safe_transaction_string(const ::std::string& value) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.safe_transaction_string)
 }
 void ReadResponse::set_safe_transaction_string(const char* value) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.safe_transaction_string)
 }
 void ReadResponse::set_safe_transaction_string(const char* value, size_t size) {
   
   safe_transaction_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.safe_transaction_string)
 }
 ::std::string* ReadResponse::mutable_safe_transaction_string() {
   
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.safe_transaction_string)
   return safe_transaction_string_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* ReadResponse::release_safe_transaction_string() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.safe_transaction_string)
   
   return safe_transaction_string_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1701,7 +1701,7 @@ void ReadResponse::set_allocated_safe_transaction_string(::std::string* safe_tra
     
   }
   safe_transaction_string_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), safe_transaction_string);
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.safe_transaction_string)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.safe_transaction_string)
 }
 
 // optional bool has_trade_power = 5;
@@ -1709,13 +1709,13 @@ void ReadResponse::clear_has_trade_power() {
   has_trade_power_ = false;
 }
 bool ReadResponse::has_trade_power() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.has_trade_power)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.has_trade_power)
   return has_trade_power_;
 }
 void ReadResponse::set_has_trade_power(bool value) {
   
   has_trade_power_ = value;
-  // @@protoc_insertion_point(field_set:personal.ReadResponse.has_trade_power)
+  // @@protoc_insertion_point(field_set:read.ReadResponse.has_trade_power)
 }
 
 // optional .grpcCommon.GrpcError error = 6;
@@ -1727,7 +1727,7 @@ void ReadResponse::clear_error() {
   error_ = NULL;
 }
 const ::grpcCommon::GrpcError& ReadResponse::error() const {
-  // @@protoc_insertion_point(field_get:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_get:read.ReadResponse.error)
   return error_ != NULL ? *error_
                          : *::grpcCommon::GrpcError::internal_default_instance();
 }
@@ -1736,11 +1736,11 @@ const ::grpcCommon::GrpcError& ReadResponse::error() const {
   if (error_ == NULL) {
     error_ = new ::grpcCommon::GrpcError;
   }
-  // @@protoc_insertion_point(field_mutable:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.error)
   return error_;
 }
 ::grpcCommon::GrpcError* ReadResponse::release_error() {
-  // @@protoc_insertion_point(field_release:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_release:read.ReadResponse.error)
   
   ::grpcCommon::GrpcError* temp = error_;
   error_ = NULL;
@@ -1754,7 +1754,7 @@ void ReadResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:personal.ReadResponse.error)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.error)
 }
 
 inline const ReadResponse* ReadResponse::internal_default_instance() {
@@ -1764,6 +1764,6 @@ inline const ReadResponse* ReadResponse::internal_default_instance() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace read
 
 // @@protoc_insertion_point(global_scope)

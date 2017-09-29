@@ -83,6 +83,14 @@ public final class MsgError {
      * <code>USER_IS_LOGIN = 7;</code>
      */
     USER_IS_LOGIN(7),
+    /**
+     * <pre>
+     * 内购支付价格错误
+     * </pre>
+     *
+     * <code>IAP_PRICE_ERROR = 8;</code>
+     */
+    IAP_PRICE_ERROR(8),
     UNRECOGNIZED(-1),
     ;
 
@@ -150,6 +158,14 @@ public final class MsgError {
      * <code>USER_IS_LOGIN = 7;</code>
      */
     public static final int USER_IS_LOGIN_VALUE = 7;
+    /**
+     * <pre>
+     * 内购支付价格错误
+     * </pre>
+     *
+     * <code>IAP_PRICE_ERROR = 8;</code>
+     */
+    public static final int IAP_PRICE_ERROR_VALUE = 8;
 
 
     public final int getNumber() {
@@ -178,6 +194,7 @@ public final class MsgError {
         case 5: return RESULT_NULL;
         case 6: return COMMON_ERROR;
         case 7: return USER_IS_LOGIN;
+        case 8: return IAP_PRICE_ERROR;
         default: return null;
       }
     }
@@ -1546,11 +1563,12 @@ public final class MsgError {
       "rpcCommon.ErrorMessage\"j\n\014ErrorMessage\022)" +
       "\n\nerror_code\030\001 \001(\0162\025.grpcCommon.ErrorCod" +
       "e\022\024\n\014error_reason\030\002 \001(\t\022\031\n\021error_descrip" +
-      "tion\030\003 \001(\t*\231\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
+      "tion\030\003 \001(\t*\256\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
       "\022\r\n\tNO_REGIST\020\001\022\016\n\nUSER_EXIST\020\002\022\016\n\nNEED_" +
       "FIELD\020\003\022\027\n\023UNKNOWN_FILELD_TYPE\020\004\022\017\n\013RESU" +
       "LT_NULL\020\005\022\020\n\014COMMON_ERROR\020\006\022\021\n\rUSER_IS_L" +
-      "OGIN\020\007B\030\n\026com.wanfang.grpcCommonb\006proto3"
+      "OGIN\020\007\022\023\n\017IAP_PRICE_ERROR\020\010B\030\n\026com.wanfa",
+      "ng.grpcCommonb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

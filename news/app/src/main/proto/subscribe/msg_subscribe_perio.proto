@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+
+import "google/protobuf/any.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package subscribe;
+option java_multiple_files = true;
+option java_package = "com.wanfang.subscribe";
+option objc_class_prefix = "WFPR";
+
+
+// 订阅期刊
+message SubscribePerioRequest {
+    string user_id = 1;
+    string perio_id = 2; // 要订阅的期刊id
+}
+message SubscribePerioResponse {
+    bool subscribe_success = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+// 获取已订阅期刊列表
+message SubscribePerioListRequest {
+    string user_id = 1;
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+message SubscribePerioListResponse {
+    message SubscribePerioMessage {
+        string perio_id = 1; // 期刊id
+        string perio_name = 2; // 期刊名
+        string perio_cover = 3; // 期刊封面
+        string perio_society = 4; // 期刊主办单位
+        string add_time = 5; // 添加日期
+    }
+    repeated SubscribePerioMessage subscribe_perio = 1;
+    grpcCommon.GrpcError error = 2;
+    bool has_more = 3;
+}

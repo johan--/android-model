@@ -4,7 +4,7 @@
 package com.wanfang.read;
 
 public interface ReadResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:personal.ReadResponse)
+    // @@protoc_insertion_point(interface_extends:read.ReadResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

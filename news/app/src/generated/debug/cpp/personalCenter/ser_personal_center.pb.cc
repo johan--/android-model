@@ -59,8 +59,6 @@ void protobuf_InitDefaults_personalCenter_2fser_5fpersonal_5fcenter_2eproto_impl
   ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
   ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto();
   ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fwallet_2eproto();
-  ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5forders_2eproto();
-  ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
   ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fcommon_2eproto();
   ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5fupload_5favatar_2eproto();
   ::personal::protobuf_InitDefaults_personalCenter_2fmsg_5finterest_5fword_2eproto();
@@ -81,65 +79,55 @@ void protobuf_AddDesc_personalCenter_2fser_5fpersonal_5fcenter_2eproto_impl() {
     "to\022\010personal\032\036personalCenter/msg_login.p"
     "roto\032\037personalCenter/msg_regist.proto\032!p"
     "ersonalCenter/msg_password.proto\032\"person"
-    "alCenter/msg_my_wallet.proto\032\"personalCe"
-    "nter/msg_my_orders.proto\032#personalCenter"
-    "/msg_my_collect.proto\032\037personalCenter/ms"
-    "g_common.proto\032&personalCenter/msg_uploa"
-    "d_avatar.proto\032&personalCenter/msg_inter"
-    "est_word.proto\032#personalCenter/msg_perso"
-    "nInfo.proto2\273\r\n\025PersonalCenterService\0228\n"
-    "\005Login\022\026.personal.LoginRequest\032\027.persona"
-    "l.LoginResponse\022A\n\010LoginOut\022\031.personal.L"
-    "oginOutRequest\032\032.personal.LoginOutRespon"
-    "se\022B\n\nQuickLogin\022\033.personal.QuickLoginRe"
-    "quest\032\027.personal.LoginResponse\022N\n\020BindEx"
-    "istAccount\022!.personal.BindExistAccountRe"
-    "quest\032\027.personal.LoginResponse\022I\n\rBindNe"
-    "wRegist\022\036.personal.BindNewRegistRequest\032"
-    "\030.personal.RegistResponse\022;\n\006Regist\022\027.pe"
-    "rsonal.RegistRequest\032\030.personal.RegistRe"
-    "sponse\022Y\n\022GetPasswordByPhone\022 .personal."
-    "PasswordByPhoneRequest\032!.personal.Passwo"
-    "rdByPhoneResponse\022S\n\016PasswordVerify\022\037.pe"
-    "rsonal.PasswordVerifyRequest\032 .personal."
-    "PasswordVerifyResponse\022S\n\016UpdatePassword"
-    "\022\037.personal.PasswordUpdateRequest\032 .pers"
-    "onal.PasswordUpdateResponse\022D\n\013GetMyWall"
-    "et\022\031.personal.MyWalletRequest\032\032.personal"
-    ".MyWalletResponse\022D\n\013GetMyOrders\022\031.perso"
-    "nal.MyOrdersRequest\032\032.personal.MyOrdersR"
-    "esponse\022G\n\014GetMyCollect\022\032.personal.MyCol"
-    "lectRequest\032\033.personal.MyCollectResponse"
-    "\022P\n\017GetPhoneCaptcha\022\035.personal.PhoneCapt"
-    "chaRequest\032\036.personal.PhoneCaptchaRespon"
-    "se\022G\n\nUploadFile\022\033.personal.UploadFileRe"
-    "quest\032\034.personal.UploadFileResponse\022M\n\014U"
-    "ploadAvatar\022\035.personal.UploadAvatarReque"
-    "st\032\036.personal.UploadAvatarResponse\022Y\n\022Ge"
-    "tInterestSubject\022 .personal.InterestSubj"
-    "ectRequest\032!.personal.InterestSubjectRes"
-    "ponse\022@\n\013GetUserInfo\022\027.personal.MyInfoRe"
-    "quest\032\030.personal.MyInfoResponse\022O\n\016Updat"
-    "eUserInfo\022\035.personal.MyInfoUpdateRequest"
-    "\032\036.personal.MyInfoUpdateResponse\022O\n\014GetR"
-    "olesList\022\036.personal.UserRolesListRequest"
-    "\032\037.personal.UserRolesListResponse\022b\n\025get"
-    "EducationLevelList\022#.personal.EducationL"
-    "evelListRequest\032$.personal.EducationLeve"
-    "lListResponse\022M\n\016getSubjectList\022\034.person"
-    "al.SubjectListRequest\032\035.personal.Subject"
-    "ListResponse\022S\n\014getDocDetail\022 .personal."
-    "MyCollectDetailRequest\032!.personal.MyColl"
-    "ectDetailResponseB\037\n\024com.wanfang.persona"
-    "lP\001\242\002\004WFPRb\006proto3", 2178);
+    "alCenter/msg_my_wallet.proto\032\037personalCe"
+    "nter/msg_common.proto\032&personalCenter/ms"
+    "g_upload_avatar.proto\032&personalCenter/ms"
+    "g_interest_word.proto\032#personalCenter/ms"
+    "g_personInfo.proto2\327\013\n\025PersonalCenterSer"
+    "vice\0228\n\005Login\022\026.personal.LoginRequest\032\027."
+    "personal.LoginResponse\022A\n\010LoginOut\022\031.per"
+    "sonal.LoginOutRequest\032\032.personal.LoginOu"
+    "tResponse\022B\n\nQuickLogin\022\033.personal.Quick"
+    "LoginRequest\032\027.personal.LoginResponse\022N\n"
+    "\020BindExistAccount\022!.personal.BindExistAc"
+    "countRequest\032\027.personal.LoginResponse\022I\n"
+    "\rBindNewRegist\022\036.personal.BindNewRegistR"
+    "equest\032\030.personal.RegistResponse\022;\n\006Regi"
+    "st\022\027.personal.RegistRequest\032\030.personal.R"
+    "egistResponse\022Y\n\022GetPasswordByPhone\022 .pe"
+    "rsonal.PasswordByPhoneRequest\032!.personal"
+    ".PasswordByPhoneResponse\022S\n\016PasswordVeri"
+    "fy\022\037.personal.PasswordVerifyRequest\032 .pe"
+    "rsonal.PasswordVerifyResponse\022S\n\016UpdateP"
+    "assword\022\037.personal.PasswordUpdateRequest"
+    "\032 .personal.PasswordUpdateResponse\022D\n\013Ge"
+    "tMyWallet\022\031.personal.MyWalletRequest\032\032.p"
+    "ersonal.MyWalletResponse\022P\n\017GetPhoneCapt"
+    "cha\022\035.personal.PhoneCaptchaRequest\032\036.per"
+    "sonal.PhoneCaptchaResponse\022G\n\nUploadFile"
+    "\022\033.personal.UploadFileRequest\032\034.personal"
+    ".UploadFileResponse\022M\n\014UploadAvatar\022\035.pe"
+    "rsonal.UploadAvatarRequest\032\036.personal.Up"
+    "loadAvatarResponse\022Y\n\022GetInterestSubject"
+    "\022 .personal.InterestSubjectRequest\032!.per"
+    "sonal.InterestSubjectResponse\022@\n\013GetUser"
+    "Info\022\027.personal.MyInfoRequest\032\030.personal"
+    ".MyInfoResponse\022O\n\016UpdateUserInfo\022\035.pers"
+    "onal.MyInfoUpdateRequest\032\036.personal.MyIn"
+    "foUpdateResponse\022O\n\014GetRolesList\022\036.perso"
+    "nal.UserRolesListRequest\032\037.personal.User"
+    "RolesListResponse\022b\n\025getEducationLevelLi"
+    "st\022#.personal.EducationLevelListRequest\032"
+    "$.personal.EducationLevelListResponse\022M\n"
+    "\016getSubjectList\022\034.personal.SubjectListRe"
+    "quest\032\035.personal.SubjectListResponseB\037\n\024"
+    "com.wanfang.personalP\001\242\002\004WFPRb\006proto3", 1877);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/ser_personal_center.proto", &protobuf_RegisterTypes);
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto();
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto();
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto();
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fmy_5fwallet_2eproto();
-  ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fmy_5forders_2eproto();
-  ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fmy_5fcollect_2eproto();
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fcommon_2eproto();
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5fupload_5favatar_2eproto();
   ::personal::protobuf_AddDesc_personalCenter_2fmsg_5finterest_5fword_2eproto();

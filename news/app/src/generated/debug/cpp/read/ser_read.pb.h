@@ -28,7 +28,7 @@
 #include "read/msg_read.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace read {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_read_2fser_5fread_2eproto();
@@ -50,7 +50,7 @@ void protobuf_ShutdownFile_read_2fser_5fread_2eproto();
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace read
 
 // @@protoc_insertion_point(global_scope)
 

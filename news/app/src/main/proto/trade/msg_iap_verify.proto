@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "grpcCommon/msg_error.proto"; // 错误码
+package trade;
+option java_multiple_files = true;
+option java_package = "com.wanfang.trade";
+option objc_class_prefix = "WFPR";
+
+message IAPVerifyRequest {
+    string user_id = 1;
+    string receipt = 2;
+    string iap_order_number = 3;
+}
+message IAPVerifyResponse {
+    bool verify_success = 1; // 验证成功
+    grpcCommon.GrpcError error = 2;
+}

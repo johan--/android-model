@@ -29,8 +29,6 @@
 #include "personalCenter/msg_regist.pb.h"
 #include "personalCenter/msg_password.pb.h"
 #include "personalCenter/msg_my_wallet.pb.h"
-#include "personalCenter/msg_my_orders.pb.h"
-#include "personalCenter/msg_my_collect.pb.h"
 #include "personalCenter/msg_common.pb.h"
 #include "personalCenter/msg_upload_avatar.pb.h"
 #include "personalCenter/msg_interest_word.pb.h"

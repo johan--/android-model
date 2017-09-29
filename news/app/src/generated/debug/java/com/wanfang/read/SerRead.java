@@ -23,10 +23,10 @@ public final class SerRead {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023read/ser_read.proto\022\010personal\032\023read/ms" +
-      "g_read.proto2D\n\013ReadService\0225\n\004Read\022\025.pe" +
-      "rsonal.ReadRequest\032\026.personal.ReadRespon" +
-      "seB\033\n\020com.wanfang.readP\001\242\002\004WFPRb\006proto3"
+      "\n\023read/ser_read.proto\022\004read\032\023read/msg_re" +
+      "ad.proto2<\n\013ReadService\022-\n\004Read\022\021.read.R" +
+      "eadRequest\032\022.read.ReadResponseB\033\n\020com.wa" +
+      "nfang.readP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

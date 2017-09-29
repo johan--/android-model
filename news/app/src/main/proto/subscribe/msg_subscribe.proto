@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+import "google/protobuf/any.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package subscribe;
+option java_multiple_files = true;
+option java_package = "com.wanfang.subscribe";
+option objc_class_prefix = "WFPR";
+
+
+enum CancelSubscribeType {
+    DeleteKeyWord = 0; // 删除关键词订阅
+    DeletePerio = 1; // 删除期刊订阅
+}
+
+// 取消订阅message
+message CancelSubscribeRequest {
+    string subscribe_id = 1;
+    CancelSubscribeType cancel_type = 2;
+}
+message CancelSubscribeResponse {
+    bool cancel_subscribe_success = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+message UpdateSubscribePushEmailRequest {
+    string user_id = 1;
+    string email = 2;
+    bool should_update_email = 3; // 是否是更新邮箱，第一次设置邮箱则为false，后台调用insert
+}
+message UpdateSubscribePushEmailResponse {
+    bool update_success = 1;
+    grpcCommon.GrpcError error = 2;
+}

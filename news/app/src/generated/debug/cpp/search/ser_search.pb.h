@@ -28,7 +28,7 @@
 #include "search/msg_search.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace search {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_search_2fser_5fsearch_2eproto();
@@ -50,7 +50,7 @@ void protobuf_ShutdownFile_search_2fser_5fsearch_2eproto();
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace search
 
 // @@protoc_insertion_point(global_scope)
 

@@ -63,6 +63,7 @@ class MyInfoUpdateRequest;
 class MyInfoUpdateResponse;
 class SubjectListRequest;
 class SubjectListResponse;
+class SubjectMessage;
 class UserRolesListRequest;
 class UserRolesListResponse;
 
@@ -612,16 +613,14 @@ class SubjectListResponse : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // optional string subject_list = 1;
+  // optional .personal.SubjectMessage subject_list = 1;
+  bool has_subject_list() const;
   void clear_subject_list();
   static const int kSubjectListFieldNumber = 1;
-  const ::std::string& subject_list() const;
-  void set_subject_list(const ::std::string& value);
-  void set_subject_list(const char* value);
-  void set_subject_list(const char* value, size_t size);
-  ::std::string* mutable_subject_list();
-  ::std::string* release_subject_list();
-  void set_allocated_subject_list(::std::string* subject_list);
+  const ::personal::SubjectMessage& subject_list() const;
+  ::personal::SubjectMessage* mutable_subject_list();
+  ::personal::SubjectMessage* release_subject_list();
+  void set_allocated_subject_list(::personal::SubjectMessage* subject_list);
 
   // optional .grpcCommon.GrpcError error = 2;
   bool has_error() const;
@@ -636,7 +635,7 @@ class SubjectListResponse : public ::google::protobuf::Message /* @@protoc_inser
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr subject_list_;
+  ::personal::SubjectMessage* subject_list_;
   ::grpcCommon::GrpcError* error_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
@@ -647,6 +646,117 @@ class SubjectListResponse : public ::google::protobuf::Message /* @@protoc_inser
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<SubjectListResponse> SubjectListResponse_default_instance_;
+
+// -------------------------------------------------------------------
+
+class SubjectMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SubjectMessage) */ {
+ public:
+  SubjectMessage();
+  virtual ~SubjectMessage();
+
+  SubjectMessage(const SubjectMessage& from);
+
+  inline SubjectMessage& operator=(const SubjectMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SubjectMessage& default_instance();
+
+  static const SubjectMessage* internal_default_instance();
+
+  void Swap(SubjectMessage* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SubjectMessage* New() const { return New(NULL); }
+
+  SubjectMessage* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SubjectMessage& from);
+  void MergeFrom(const SubjectMessage& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(SubjectMessage* other);
+  void UnsafeMergeFrom(const SubjectMessage& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string subject_title = 1;
+  void clear_subject_title();
+  static const int kSubjectTitleFieldNumber = 1;
+  const ::std::string& subject_title() const;
+  void set_subject_title(const ::std::string& value);
+  void set_subject_title(const char* value);
+  void set_subject_title(const char* value, size_t size);
+  ::std::string* mutable_subject_title();
+  ::std::string* release_subject_title();
+  void set_allocated_subject_title(::std::string* subject_title);
+
+  // repeated .personal.SubjectMessage sub_subject = 2;
+  int sub_subject_size() const;
+  void clear_sub_subject();
+  static const int kSubSubjectFieldNumber = 2;
+  const ::personal::SubjectMessage& sub_subject(int index) const;
+  ::personal::SubjectMessage* mutable_sub_subject(int index);
+  ::personal::SubjectMessage* add_sub_subject();
+  ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage >*
+      mutable_sub_subject();
+  const ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage >&
+      sub_subject() const;
+
+  // optional bool has_sub_subject = 3;
+  void clear_has_sub_subject();
+  static const int kHasSubSubjectFieldNumber = 3;
+  bool has_sub_subject() const;
+  void set_has_sub_subject(bool value);
+
+  // @@protoc_insertion_point(class_scope:personal.SubjectMessage)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage > sub_subject_;
+  ::google::protobuf::internal::ArenaStringPtr subject_title_;
+  bool has_sub_subject_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<SubjectMessage> SubjectMessage_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -2680,47 +2790,42 @@ inline const SubjectListRequest* SubjectListRequest::internal_default_instance()
 
 // SubjectListResponse
 
-// optional string subject_list = 1;
+// optional .personal.SubjectMessage subject_list = 1;
+inline bool SubjectListResponse::has_subject_list() const {
+  return this != internal_default_instance() && subject_list_ != NULL;
+}
 inline void SubjectListResponse::clear_subject_list() {
-  subject_list_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && subject_list_ != NULL) delete subject_list_;
+  subject_list_ = NULL;
 }
-inline const ::std::string& SubjectListResponse::subject_list() const {
+inline const ::personal::SubjectMessage& SubjectListResponse::subject_list() const {
   // @@protoc_insertion_point(field_get:personal.SubjectListResponse.subject_list)
-  return subject_list_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return subject_list_ != NULL ? *subject_list_
+                         : *::personal::SubjectMessage::internal_default_instance();
 }
-inline void SubjectListResponse::set_subject_list(const ::std::string& value) {
+inline ::personal::SubjectMessage* SubjectListResponse::mutable_subject_list() {
   
-  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.SubjectListResponse.subject_list)
-}
-inline void SubjectListResponse::set_subject_list(const char* value) {
-  
-  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.SubjectListResponse.subject_list)
-}
-inline void SubjectListResponse::set_subject_list(const char* value, size_t size) {
-  
-  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.SubjectListResponse.subject_list)
-}
-inline ::std::string* SubjectListResponse::mutable_subject_list() {
-  
+  if (subject_list_ == NULL) {
+    subject_list_ = new ::personal::SubjectMessage;
+  }
   // @@protoc_insertion_point(field_mutable:personal.SubjectListResponse.subject_list)
-  return subject_list_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return subject_list_;
 }
-inline ::std::string* SubjectListResponse::release_subject_list() {
+inline ::personal::SubjectMessage* SubjectListResponse::release_subject_list() {
   // @@protoc_insertion_point(field_release:personal.SubjectListResponse.subject_list)
   
-  return subject_list_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::personal::SubjectMessage* temp = subject_list_;
+  subject_list_ = NULL;
+  return temp;
 }
-inline void SubjectListResponse::set_allocated_subject_list(::std::string* subject_list) {
-  if (subject_list != NULL) {
+inline void SubjectListResponse::set_allocated_subject_list(::personal::SubjectMessage* subject_list) {
+  delete subject_list_;
+  subject_list_ = subject_list;
+  if (subject_list) {
     
   } else {
     
   }
-  subject_list_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_list);
   // @@protoc_insertion_point(field_set_allocated:personal.SubjectListResponse.subject_list)
 }
 
@@ -2765,6 +2870,101 @@ inline void SubjectListResponse::set_allocated_error(::grpcCommon::GrpcError* er
 
 inline const SubjectListResponse* SubjectListResponse::internal_default_instance() {
   return &SubjectListResponse_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// SubjectMessage
+
+// optional string subject_title = 1;
+inline void SubjectMessage::clear_subject_title() {
+  subject_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubjectMessage::subject_title() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.subject_title)
+  return subject_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubjectMessage::set_subject_title(const ::std::string& value) {
+  
+  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.SubjectMessage.subject_title)
+}
+inline void SubjectMessage::set_subject_title(const char* value) {
+  
+  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.SubjectMessage.subject_title)
+}
+inline void SubjectMessage::set_subject_title(const char* value, size_t size) {
+  
+  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.SubjectMessage.subject_title)
+}
+inline ::std::string* SubjectMessage::mutable_subject_title() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.SubjectMessage.subject_title)
+  return subject_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubjectMessage::release_subject_title() {
+  // @@protoc_insertion_point(field_release:personal.SubjectMessage.subject_title)
+  
+  return subject_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubjectMessage::set_allocated_subject_title(::std::string* subject_title) {
+  if (subject_title != NULL) {
+    
+  } else {
+    
+  }
+  subject_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_title);
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectMessage.subject_title)
+}
+
+// repeated .personal.SubjectMessage sub_subject = 2;
+inline int SubjectMessage::sub_subject_size() const {
+  return sub_subject_.size();
+}
+inline void SubjectMessage::clear_sub_subject() {
+  sub_subject_.Clear();
+}
+inline const ::personal::SubjectMessage& SubjectMessage::sub_subject(int index) const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.sub_subject)
+  return sub_subject_.Get(index);
+}
+inline ::personal::SubjectMessage* SubjectMessage::mutable_sub_subject(int index) {
+  // @@protoc_insertion_point(field_mutable:personal.SubjectMessage.sub_subject)
+  return sub_subject_.Mutable(index);
+}
+inline ::personal::SubjectMessage* SubjectMessage::add_sub_subject() {
+  // @@protoc_insertion_point(field_add:personal.SubjectMessage.sub_subject)
+  return sub_subject_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage >*
+SubjectMessage::mutable_sub_subject() {
+  // @@protoc_insertion_point(field_mutable_list:personal.SubjectMessage.sub_subject)
+  return &sub_subject_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage >&
+SubjectMessage::sub_subject() const {
+  // @@protoc_insertion_point(field_list:personal.SubjectMessage.sub_subject)
+  return sub_subject_;
+}
+
+// optional bool has_sub_subject = 3;
+inline void SubjectMessage::clear_has_sub_subject() {
+  has_sub_subject_ = false;
+}
+inline bool SubjectMessage::has_sub_subject() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.has_sub_subject)
+  return has_sub_subject_;
+}
+inline void SubjectMessage::set_has_sub_subject(bool value) {
+  
+  has_sub_subject_ = value;
+  // @@protoc_insertion_point(field_set:personal.SubjectMessage.has_sub_subject)
+}
+
+inline const SubjectMessage* SubjectMessage::internal_default_instance() {
+  return &SubjectMessage_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -4251,6 +4451,8 @@ inline const InfoAvatar* InfoAvatar::internal_default_instance() {
   return &InfoAvatar_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

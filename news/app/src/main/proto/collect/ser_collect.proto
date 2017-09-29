@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "collect/msg_collect.proto"; // 搜索
+
+package collect;
+option java_multiple_files = true;
+option java_package = "com.wanfang.collect";
+option objc_class_prefix = "WFPR";
+
+service CollectService {
+    // 收藏列表详情
+    rpc getDocDetail (MyCollectDetailRequest) returns (MyCollectDetailResponse);
+
+    // 获取我的收藏
+    rpc GetMyCollect (MyCollectRequest) returns (MyCollectResponse);
+
+    // 收藏文献
+    rpc Collect (CollectRequest) returns (CollectResponse);
+}

@@ -17,7 +17,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace read {
 
 namespace {
 
@@ -55,7 +55,7 @@ void protobuf_ShutdownFile_read_2fser_5fread_2eproto() {
 void protobuf_InitDefaults_read_2fser_5fread_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::personal::protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
+  ::read::protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_read_2fser_5fread_2eproto_once_);
@@ -68,13 +68,13 @@ void protobuf_AddDesc_read_2fser_5fread_2eproto_impl() {
 
   protobuf_InitDefaults_read_2fser_5fread_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023read/ser_read.proto\022\010personal\032\023read/ms"
-    "g_read.proto2D\n\013ReadService\0225\n\004Read\022\025.pe"
-    "rsonal.ReadRequest\032\026.personal.ReadRespon"
-    "seB\033\n\020com.wanfang.readP\001\242\002\004WFPRb\006proto3", 159);
+    "\n\023read/ser_read.proto\022\004read\032\023read/msg_re"
+    "ad.proto2<\n\013ReadService\022-\n\004Read\022\021.read.R"
+    "eadRequest\032\022.read.ReadResponseB\033\n\020com.wa"
+    "nfang.readP\001\242\002\004WFPRb\006proto3", 147);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "read/ser_read.proto", &protobuf_RegisterTypes);
-  ::personal::protobuf_AddDesc_read_2fmsg_5fread_2eproto();
+  ::read::protobuf_AddDesc_read_2fmsg_5fread_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_read_2fser_5fread_2eproto);
 }
 
@@ -92,6 +92,6 @@ struct StaticDescriptorInitializer_read_2fser_5fread_2eproto {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace read
 
 // @@protoc_insertion_point(global_scope)

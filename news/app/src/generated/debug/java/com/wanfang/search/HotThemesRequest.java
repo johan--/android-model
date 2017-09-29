@@ -8,11 +8,11 @@ package com.wanfang.search;
  * 获取热搜词
  * </pre>
  *
- * Protobuf type {@code personal.HotThemesRequest}
+ * Protobuf type {@code search.HotThemesRequest}
  */
 public  final class HotThemesRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:personal.HotThemesRequest)
+    // @@protoc_insertion_point(message_implements:search.HotThemesRequest)
     HotThemesRequestOrBuilder {
   // Use HotThemesRequest.newBuilder() to construct.
   private HotThemesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -71,12 +71,12 @@ public  final class HotThemesRequest extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wanfang.search.MsgSearch.internal_static_personal_HotThemesRequest_descriptor;
+    return com.wanfang.search.MsgSearch.internal_static_search_HotThemesRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wanfang.search.MsgSearch.internal_static_personal_HotThemesRequest_fieldAccessorTable
+    return com.wanfang.search.MsgSearch.internal_static_search_HotThemesRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.wanfang.search.HotThemesRequest.class, com.wanfang.search.HotThemesRequest.Builder.class);
   }
@@ -253,20 +253,20 @@ public  final class HotThemesRequest extends
    * 获取热搜词
    * </pre>
    *
-   * Protobuf type {@code personal.HotThemesRequest}
+   * Protobuf type {@code search.HotThemesRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:personal.HotThemesRequest)
+      // @@protoc_insertion_point(builder_implements:search.HotThemesRequest)
       com.wanfang.search.HotThemesRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wanfang.search.MsgSearch.internal_static_personal_HotThemesRequest_descriptor;
+      return com.wanfang.search.MsgSearch.internal_static_search_HotThemesRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wanfang.search.MsgSearch.internal_static_personal_HotThemesRequest_fieldAccessorTable
+      return com.wanfang.search.MsgSearch.internal_static_search_HotThemesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.wanfang.search.HotThemesRequest.class, com.wanfang.search.HotThemesRequest.Builder.class);
     }
@@ -297,7 +297,7 @@ public  final class HotThemesRequest extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wanfang.search.MsgSearch.internal_static_personal_HotThemesRequest_descriptor;
+      return com.wanfang.search.MsgSearch.internal_static_search_HotThemesRequest_descriptor;
     }
 
     public com.wanfang.search.HotThemesRequest getDefaultInstanceForType() {
@@ -451,10 +451,10 @@ public  final class HotThemesRequest extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:personal.HotThemesRequest)
+    // @@protoc_insertion_point(builder_scope:search.HotThemesRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:personal.HotThemesRequest)
+  // @@protoc_insertion_point(class_scope:search.HotThemesRequest)
   private static final com.wanfang.search.HotThemesRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.wanfang.search.HotThemesRequest();

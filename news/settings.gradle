@@ -1,3 +1,3 @@
-include ':app', ':library', ':librarypdf', ':PhotoPicker', ':banner'
+include ':app', ':library', ':librarypdf', ':PhotoPicker', ':banner', ':lib'
 include ':hMSSdkBase'
 include ':hMSSdkPush'

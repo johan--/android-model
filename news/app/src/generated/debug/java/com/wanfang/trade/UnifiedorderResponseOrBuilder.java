@@ -4,7 +4,7 @@
 package com.wanfang.trade;
 
 public interface UnifiedorderResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:personal.UnifiedorderResponse)
+    // @@protoc_insertion_point(interface_extends:trade.UnifiedorderResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

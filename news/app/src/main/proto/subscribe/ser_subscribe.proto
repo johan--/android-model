@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "subscribe/msg_subscribe.proto"; // 订阅
+import "subscribe/msg_subscribe_doc.proto"; // 订阅文献
+import "subscribe/msg_subscribe_keyword.proto"; // 订阅关键词
+import "subscribe/msg_subscribe_perio.proto"; // 订阅期刊
+
+package subscribe;
+option java_multiple_files = true;
+option java_package = "com.wanfang.subscribe";
+option objc_class_prefix = "WFPR";
+
+service SubscribeService {
+    // 取消订阅
+    rpc CancelSubscribe (CancelSubscribeRequest) returns (CancelSubscribeResponse);
+
+    // 订阅关键词
+    rpc SubscribeKeyword (SubscribeKeywordRequest) returns (SubscribeKeywordResponse);
+
+    // 获取已订阅关键词列表
+    rpc GetSubscribeKeywordList (SubscribeKeywordListRequest) returns (SubscribeKeywordListResponse);
+
+    // 根据关键词获取对应已订阅文献列表
+    rpc GetSubscribeDocListByKeyword (SubscribeDocListRequest) returns (SubscribeDocListResponse);
+
+    // 订阅期刊
+    rpc SubscribePerio (SubscribePerioRequest) returns (SubscribePerioResponse);
+
+    // 获取已订阅期刊列表
+    rpc GetSubscribePerioList (SubscribePerioListRequest) returns (SubscribePerioListResponse);
+
+    // 获取添加关键词订阅时选取的文献类型列表
+    rpc GetSubscribeDocTypeList (SubscribeDocTypeListRequest) returns (SubscribeDocTypeListResponse);
+
+    // 获取添加关键词订阅时选取的来源类别列表
+    rpc GetSubscribeSourceTypeList (SubscribeSourceTypeListRequest) returns (SubscribeSourceTypeListResponse);
+
+    // 获取推送邮箱，如果邮箱地址不为空，在添加订阅关键词时，should_update_email为true
+    rpc GetSubscribePushEmail (SubscribePushEmailRequest) returns (SubscribePushEmailResponse);
+
+    // 更新推送邮箱
+    rpc UpdateSubscribePushEmail (UpdateSubscribePushEmailRequest) returns (UpdateSubscribePushEmailResponse);
+}

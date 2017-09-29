@@ -41,6 +41,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SubjectListResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SubjectListResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SubjectMessage_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SubjectMessage_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MyInfoRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MyInfoRequest_reflection_ = NULL;
@@ -194,7 +197,23 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(SubjectListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, _internal_metadata_));
-  MyInfoRequest_descriptor_ = file->message_type(6);
+  SubjectMessage_descriptor_ = file->message_type(6);
+  static const int SubjectMessage_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, subject_title_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, sub_subject_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, has_sub_subject_),
+  };
+  SubjectMessage_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      SubjectMessage_descriptor_,
+      SubjectMessage::internal_default_instance(),
+      SubjectMessage_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(SubjectMessage),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, _internal_metadata_));
+  MyInfoRequest_descriptor_ = file->message_type(7);
   static const int MyInfoRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoRequest, user_id_),
   };
@@ -208,7 +227,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoRequest, _internal_metadata_));
-  MyInfoResponse_descriptor_ = file->message_type(7);
+  MyInfoResponse_descriptor_ = file->message_type(8);
   static const int MyInfoResponse_offsets_[15] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, nick_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, real_name_),
@@ -236,7 +255,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, _internal_metadata_));
-  MyInfoUpdateRequest_descriptor_ = file->message_type(8);
+  MyInfoUpdateRequest_descriptor_ = file->message_type(9);
   static const int MyInfoUpdateRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, field_),
@@ -251,7 +270,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoUpdateRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, _internal_metadata_));
-  MyInfoUpdateResponse_descriptor_ = file->message_type(9);
+  MyInfoUpdateResponse_descriptor_ = file->message_type(10);
   static const int MyInfoUpdateResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateResponse, error_),
   };
@@ -265,7 +284,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoUpdateResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateResponse, _internal_metadata_));
-  InfoNickName_descriptor_ = file->message_type(10);
+  InfoNickName_descriptor_ = file->message_type(11);
   static const int InfoNickName_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoNickName, nick_name_),
   };
@@ -279,7 +298,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoNickName),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoNickName, _internal_metadata_));
-  InfoRealName_descriptor_ = file->message_type(11);
+  InfoRealName_descriptor_ = file->message_type(12);
   static const int InfoRealName_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoRealName, real_name_),
   };
@@ -293,7 +312,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoRealName),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoRealName, _internal_metadata_));
-  InfoIdNumber_descriptor_ = file->message_type(12);
+  InfoIdNumber_descriptor_ = file->message_type(13);
   static const int InfoIdNumber_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoIdNumber, id_number_),
   };
@@ -307,7 +326,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoIdNumber),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoIdNumber, _internal_metadata_));
-  InfoSex_descriptor_ = file->message_type(13);
+  InfoSex_descriptor_ = file->message_type(14);
   static const int InfoSex_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSex, sex_),
   };
@@ -321,7 +340,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoSex),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSex, _internal_metadata_));
-  InfoBirthday_descriptor_ = file->message_type(14);
+  InfoBirthday_descriptor_ = file->message_type(15);
   static const int InfoBirthday_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoBirthday, birthday_),
   };
@@ -335,7 +354,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoBirthday),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoBirthday, _internal_metadata_));
-  InfoUserRoles_descriptor_ = file->message_type(15);
+  InfoUserRoles_descriptor_ = file->message_type(16);
   static const int InfoUserRoles_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoUserRoles, user_roles_),
   };
@@ -349,7 +368,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoUserRoles),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoUserRoles, _internal_metadata_));
-  InfoWorkUnit_descriptor_ = file->message_type(16);
+  InfoWorkUnit_descriptor_ = file->message_type(17);
   static const int InfoWorkUnit_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoWorkUnit, workunit_),
   };
@@ -363,7 +382,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoWorkUnit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoWorkUnit, _internal_metadata_));
-  InfoEducationLevel_descriptor_ = file->message_type(17);
+  InfoEducationLevel_descriptor_ = file->message_type(18);
   static const int InfoEducationLevel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEducationLevel, educationlevel_),
   };
@@ -377,7 +396,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoEducationLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEducationLevel, _internal_metadata_));
-  InfoGraduatedSchool_descriptor_ = file->message_type(18);
+  InfoGraduatedSchool_descriptor_ = file->message_type(19);
   static const int InfoGraduatedSchool_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoGraduatedSchool, graduated_school_),
   };
@@ -391,7 +410,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoGraduatedSchool),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoGraduatedSchool, _internal_metadata_));
-  InfoAward_descriptor_ = file->message_type(19);
+  InfoAward_descriptor_ = file->message_type(20);
   static const int InfoAward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAward, award_),
   };
@@ -405,7 +424,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoAward),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAward, _internal_metadata_));
-  InfoSubject_descriptor_ = file->message_type(20);
+  InfoSubject_descriptor_ = file->message_type(21);
   static const int InfoSubject_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSubject, subject_),
   };
@@ -419,7 +438,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSubject, _internal_metadata_));
-  InfoInterestSubject_descriptor_ = file->message_type(21);
+  InfoInterestSubject_descriptor_ = file->message_type(22);
   static const int InfoInterestSubject_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoInterestSubject, interest_subject_),
   };
@@ -433,7 +452,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoInterestSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoInterestSubject, _internal_metadata_));
-  InfoEmail_descriptor_ = file->message_type(22);
+  InfoEmail_descriptor_ = file->message_type(23);
   static const int InfoEmail_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEmail, email_),
   };
@@ -447,7 +466,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoEmail),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEmail, _internal_metadata_));
-  InfoAvatar_descriptor_ = file->message_type(23);
+  InfoAvatar_descriptor_ = file->message_type(24);
   static const int InfoAvatar_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAvatar, avatar_url_),
   };
@@ -505,6 +524,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       SubjectListResponse_descriptor_, SubjectListResponse::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      SubjectMessage_descriptor_, SubjectMessage::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MyInfoRequest_descriptor_, MyInfoRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MyInfoResponse_descriptor_, MyInfoResponse::internal_default_instance());
@@ -557,6 +578,8 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto() {
   delete SubjectListRequest_reflection_;
   SubjectListResponse_default_instance_.Shutdown();
   delete SubjectListResponse_reflection_;
+  SubjectMessage_default_instance_.Shutdown();
+  delete SubjectMessage_reflection_;
   MyInfoRequest_default_instance_.Shutdown();
   delete MyInfoRequest_reflection_;
   MyInfoResponse_default_instance_.Shutdown();
@@ -607,10 +630,10 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   EducationLevelListRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   EducationLevelListResponse_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
   SubjectListRequest_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
   SubjectListResponse_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  SubjectMessage_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   MyInfoRequest_default_instance_.DefaultConstruct();
   MyInfoResponse_default_instance_.DefaultConstruct();
@@ -651,6 +674,7 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   EducationLevelListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   SubjectListRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   SubjectListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
+  SubjectMessage_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyInfoRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyInfoResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyInfoUpdateRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -696,43 +720,47 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
     "\001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon.GrpcErro"
     "r\0326\n\024EducationLevelsEntry\022\013\n\003key\030\001 \001(\t\022\r"
     "\n\005value\030\002 \001(\t:\0028\001\"\024\n\022SubjectListRequest\""
-    "Q\n\023SubjectListResponse\022\024\n\014subject_list\030\001"
-    " \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErr"
-    "or\" \n\rMyInfoRequest\022\017\n\007user_id\030\001 \001(\t\"\232\005\n"
-    "\016MyInfoResponse\022)\n\tnick_name\030\001 \001(\0132\026.per"
-    "sonal.InfoNickName\022)\n\treal_name\030\002 \001(\0132\026."
-    "personal.InfoRealName\022)\n\tid_number\030\003 \001(\013"
-    "2\026.personal.InfoIdNumber\022\036\n\003sex\030\004 \001(\0132\021."
-    "personal.InfoSex\022(\n\010birthday\030\005 \001(\0132\026.per"
-    "sonal.InfoBirthday\022+\n\nuser_roles\030\006 \001(\0132\027"
-    ".personal.InfoUserRoles\022(\n\010workUnit\030\007 \001("
-    "\0132\026.personal.InfoWorkUnit\0224\n\016educationLe"
-    "vel\030\010 \001(\0132\034.personal.InfoEducationLevel\022"
-    "7\n\020graduated_school\030\t \001(\0132\035.personal.Inf"
-    "oGraduatedSchool\022\"\n\005award\030\n \001(\0132\023.person"
-    "al.InfoAward\022&\n\007subject\030\013 \001(\0132\025.personal"
-    ".InfoSubject\0227\n\020interest_subject\030\014 \001(\0132\035"
-    ".personal.InfoInterestSubject\022\"\n\005email\030\r"
-    " \001(\0132\023.personal.InfoEmail\022(\n\navatar_url\030"
-    "\016 \001(\0132\024.personal.InfoAvatar\022$\n\005error\030\017 \001"
-    "(\0132\025.grpcCommon.GrpcError\"K\n\023MyInfoUpdat"
-    "eRequest\022\017\n\007user_id\030\001 \001(\t\022#\n\005field\030\002 \003(\013"
-    "2\024.google.protobuf.Any\"<\n\024MyInfoUpdateRe"
-    "sponse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcE"
-    "rror\"!\n\014InfoNickName\022\021\n\tnick_name\030\001 \001(\t\""
-    "!\n\014InfoRealName\022\021\n\treal_name\030\001 \001(\t\"!\n\014In"
-    "foIdNumber\022\021\n\tid_number\030\001 \001(\t\"\026\n\007InfoSex"
-    "\022\013\n\003sex\030\001 \001(\t\" \n\014InfoBirthday\022\020\n\010birthda"
-    "y\030\001 \001(\t\"#\n\rInfoUserRoles\022\022\n\nuser_roles\030\001"
-    " \001(\t\" \n\014InfoWorkUnit\022\020\n\010workUnit\030\001 \001(\t\","
-    "\n\022InfoEducationLevel\022\026\n\016educationLevel\030\001"
-    " \001(\t\"/\n\023InfoGraduatedSchool\022\030\n\020graduated"
-    "_school\030\001 \001(\t\"\032\n\tInfoAward\022\r\n\005award\030\001 \001("
-    "\t\"\036\n\013InfoSubject\022\017\n\007subject\030\001 \001(\t\"/\n\023Inf"
-    "oInterestSubject\022\030\n\020interest_subject\030\001 \001"
-    "(\t\"\032\n\tInfoEmail\022\r\n\005email\030\001 \001(\t\" \n\nInfoAv"
-    "atar\022\022\n\navatar_url\030\001 \001(\tB\037\n\024com.wanfang."
-    "personalP\001\242\002\004WFPRb\006proto3", 2065);
+    "k\n\023SubjectListResponse\022.\n\014subject_list\030\001"
+    " \001(\0132\030.personal.SubjectMessage\022$\n\005error\030"
+    "\002 \001(\0132\025.grpcCommon.GrpcError\"o\n\016SubjectM"
+    "essage\022\025\n\rsubject_title\030\001 \001(\t\022-\n\013sub_sub"
+    "ject\030\002 \003(\0132\030.personal.SubjectMessage\022\027\n\017"
+    "has_sub_subject\030\003 \001(\010\" \n\rMyInfoRequest\022\017"
+    "\n\007user_id\030\001 \001(\t\"\232\005\n\016MyInfoResponse\022)\n\tni"
+    "ck_name\030\001 \001(\0132\026.personal.InfoNickName\022)\n"
+    "\treal_name\030\002 \001(\0132\026.personal.InfoRealName"
+    "\022)\n\tid_number\030\003 \001(\0132\026.personal.InfoIdNum"
+    "ber\022\036\n\003sex\030\004 \001(\0132\021.personal.InfoSex\022(\n\010b"
+    "irthday\030\005 \001(\0132\026.personal.InfoBirthday\022+\n"
+    "\nuser_roles\030\006 \001(\0132\027.personal.InfoUserRol"
+    "es\022(\n\010workUnit\030\007 \001(\0132\026.personal.InfoWork"
+    "Unit\0224\n\016educationLevel\030\010 \001(\0132\034.personal."
+    "InfoEducationLevel\0227\n\020graduated_school\030\t"
+    " \001(\0132\035.personal.InfoGraduatedSchool\022\"\n\005a"
+    "ward\030\n \001(\0132\023.personal.InfoAward\022&\n\007subje"
+    "ct\030\013 \001(\0132\025.personal.InfoSubject\0227\n\020inter"
+    "est_subject\030\014 \001(\0132\035.personal.InfoInteres"
+    "tSubject\022\"\n\005email\030\r \001(\0132\023.personal.InfoE"
+    "mail\022(\n\navatar_url\030\016 \001(\0132\024.personal.Info"
+    "Avatar\022$\n\005error\030\017 \001(\0132\025.grpcCommon.GrpcE"
+    "rror\"K\n\023MyInfoUpdateRequest\022\017\n\007user_id\030\001"
+    " \001(\t\022#\n\005field\030\002 \003(\0132\024.google.protobuf.An"
+    "y\"<\n\024MyInfoUpdateResponse\022$\n\005error\030\001 \001(\013"
+    "2\025.grpcCommon.GrpcError\"!\n\014InfoNickName\022"
+    "\021\n\tnick_name\030\001 \001(\t\"!\n\014InfoRealName\022\021\n\tre"
+    "al_name\030\001 \001(\t\"!\n\014InfoIdNumber\022\021\n\tid_numb"
+    "er\030\001 \001(\t\"\026\n\007InfoSex\022\013\n\003sex\030\001 \001(\t\" \n\014Info"
+    "Birthday\022\020\n\010birthday\030\001 \001(\t\"#\n\rInfoUserRo"
+    "les\022\022\n\nuser_roles\030\001 \001(\t\" \n\014InfoWorkUnit\022"
+    "\020\n\010workUnit\030\001 \001(\t\",\n\022InfoEducationLevel\022"
+    "\026\n\016educationLevel\030\001 \001(\t\"/\n\023InfoGraduated"
+    "School\022\030\n\020graduated_school\030\001 \001(\t\"\032\n\tInfo"
+    "Award\022\r\n\005award\030\001 \001(\t\"\036\n\013InfoSubject\022\017\n\007s"
+    "ubject\030\001 \001(\t\"/\n\023InfoInterestSubject\022\030\n\020i"
+    "nterest_subject\030\001 \001(\t\"\032\n\tInfoEmail\022\r\n\005em"
+    "ail\030\001 \001(\t\" \n\nInfoAvatar\022\022\n\navatar_url\030\001 "
+    "\001(\tB\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006pr"
+    "oto3", 2204);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_personInfo.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -2448,6 +2476,8 @@ SubjectListResponse::SubjectListResponse()
 }
 
 void SubjectListResponse::InitAsDefaultInstance() {
+  subject_list_ = const_cast< ::personal::SubjectMessage*>(
+      ::personal::SubjectMessage::internal_default_instance());
   error_ = const_cast< ::grpcCommon::GrpcError*>(
       ::grpcCommon::GrpcError::internal_default_instance());
 }
@@ -2461,7 +2491,7 @@ SubjectListResponse::SubjectListResponse(const SubjectListResponse& from)
 }
 
 void SubjectListResponse::SharedCtor() {
-  subject_list_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_list_ = NULL;
   error_ = NULL;
   _cached_size_ = 0;
 }
@@ -2472,8 +2502,8 @@ SubjectListResponse::~SubjectListResponse() {
 }
 
 void SubjectListResponse::SharedDtor() {
-  subject_list_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != &SubjectListResponse_default_instance_.get()) {
+    delete subject_list_;
     delete error_;
   }
 }
@@ -2505,7 +2535,8 @@ SubjectListResponse* SubjectListResponse::New(::google::protobuf::Arena* arena) 
 
 void SubjectListResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.SubjectListResponse)
-  subject_list_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && subject_list_ != NULL) delete subject_list_;
+  subject_list_ = NULL;
   if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
   error_ = NULL;
 }
@@ -2520,15 +2551,11 @@ bool SubjectListResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string subject_list = 1;
+      // optional .personal.SubjectMessage subject_list = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_subject_list()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->subject_list().data(), this->subject_list().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.SubjectListResponse.subject_list"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_subject_list()));
         } else {
           goto handle_unusual;
         }
@@ -2573,14 +2600,10 @@ failure:
 void SubjectListResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.SubjectListResponse)
-  // optional string subject_list = 1;
-  if (this->subject_list().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->subject_list().data(), this->subject_list().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.SubjectListResponse.subject_list");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->subject_list(), output);
+  // optional .personal.SubjectMessage subject_list = 1;
+  if (this->has_subject_list()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->subject_list_, output);
   }
 
   // optional .grpcCommon.GrpcError error = 2;
@@ -2596,15 +2619,11 @@ void SubjectListResponse::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.SubjectListResponse)
-  // optional string subject_list = 1;
-  if (this->subject_list().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->subject_list().data(), this->subject_list().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.SubjectListResponse.subject_list");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->subject_list(), target);
+  // optional .personal.SubjectMessage subject_list = 1;
+  if (this->has_subject_list()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->subject_list_, false, target);
   }
 
   // optional .grpcCommon.GrpcError error = 2;
@@ -2622,11 +2641,11 @@ size_t SubjectListResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.SubjectListResponse)
   size_t total_size = 0;
 
-  // optional string subject_list = 1;
-  if (this->subject_list().size() > 0) {
+  // optional .personal.SubjectMessage subject_list = 1;
+  if (this->has_subject_list()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->subject_list());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->subject_list_);
   }
 
   // optional .grpcCommon.GrpcError error = 2;
@@ -2669,9 +2688,8 @@ void SubjectListResponse::MergeFrom(const SubjectListResponse& from) {
 
 void SubjectListResponse::UnsafeMergeFrom(const SubjectListResponse& from) {
   GOOGLE_DCHECK(&from != this);
-  if (from.subject_list().size() > 0) {
-
-    subject_list_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_list_);
+  if (from.has_subject_list()) {
+    mutable_subject_list()->::personal::SubjectMessage::MergeFrom(from.subject_list());
   }
   if (from.has_error()) {
     mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
@@ -2702,7 +2720,7 @@ void SubjectListResponse::Swap(SubjectListResponse* other) {
   InternalSwap(other);
 }
 void SubjectListResponse::InternalSwap(SubjectListResponse* other) {
-  subject_list_.Swap(&other->subject_list_);
+  std::swap(subject_list_, other->subject_list_);
   std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2719,47 +2737,42 @@ void SubjectListResponse::InternalSwap(SubjectListResponse* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SubjectListResponse
 
-// optional string subject_list = 1;
+// optional .personal.SubjectMessage subject_list = 1;
+bool SubjectListResponse::has_subject_list() const {
+  return this != internal_default_instance() && subject_list_ != NULL;
+}
 void SubjectListResponse::clear_subject_list() {
-  subject_list_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && subject_list_ != NULL) delete subject_list_;
+  subject_list_ = NULL;
 }
-const ::std::string& SubjectListResponse::subject_list() const {
+const ::personal::SubjectMessage& SubjectListResponse::subject_list() const {
   // @@protoc_insertion_point(field_get:personal.SubjectListResponse.subject_list)
-  return subject_list_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return subject_list_ != NULL ? *subject_list_
+                         : *::personal::SubjectMessage::internal_default_instance();
 }
-void SubjectListResponse::set_subject_list(const ::std::string& value) {
+::personal::SubjectMessage* SubjectListResponse::mutable_subject_list() {
   
-  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.SubjectListResponse.subject_list)
-}
-void SubjectListResponse::set_subject_list(const char* value) {
-  
-  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.SubjectListResponse.subject_list)
-}
-void SubjectListResponse::set_subject_list(const char* value, size_t size) {
-  
-  subject_list_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.SubjectListResponse.subject_list)
-}
-::std::string* SubjectListResponse::mutable_subject_list() {
-  
+  if (subject_list_ == NULL) {
+    subject_list_ = new ::personal::SubjectMessage;
+  }
   // @@protoc_insertion_point(field_mutable:personal.SubjectListResponse.subject_list)
-  return subject_list_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return subject_list_;
 }
-::std::string* SubjectListResponse::release_subject_list() {
+::personal::SubjectMessage* SubjectListResponse::release_subject_list() {
   // @@protoc_insertion_point(field_release:personal.SubjectListResponse.subject_list)
   
-  return subject_list_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::personal::SubjectMessage* temp = subject_list_;
+  subject_list_ = NULL;
+  return temp;
 }
-void SubjectListResponse::set_allocated_subject_list(::std::string* subject_list) {
-  if (subject_list != NULL) {
+void SubjectListResponse::set_allocated_subject_list(::personal::SubjectMessage* subject_list) {
+  delete subject_list_;
+  subject_list_ = subject_list;
+  if (subject_list) {
     
   } else {
     
   }
-  subject_list_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_list);
   // @@protoc_insertion_point(field_set_allocated:personal.SubjectListResponse.subject_list)
 }
 
@@ -2804,6 +2817,421 @@ void SubjectListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
 
 inline const SubjectListResponse* SubjectListResponse::internal_default_instance() {
   return &SubjectListResponse_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SubjectMessage::kSubjectTitleFieldNumber;
+const int SubjectMessage::kSubSubjectFieldNumber;
+const int SubjectMessage::kHasSubSubjectFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SubjectMessage::SubjectMessage()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.SubjectMessage)
+}
+
+void SubjectMessage::InitAsDefaultInstance() {
+}
+
+SubjectMessage::SubjectMessage(const SubjectMessage& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.SubjectMessage)
+}
+
+void SubjectMessage::SharedCtor() {
+  subject_title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  has_sub_subject_ = false;
+  _cached_size_ = 0;
+}
+
+SubjectMessage::~SubjectMessage() {
+  // @@protoc_insertion_point(destructor:personal.SubjectMessage)
+  SharedDtor();
+}
+
+void SubjectMessage::SharedDtor() {
+  subject_title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void SubjectMessage::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SubjectMessage::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SubjectMessage_descriptor_;
+}
+
+const SubjectMessage& SubjectMessage::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<SubjectMessage> SubjectMessage_default_instance_;
+
+SubjectMessage* SubjectMessage::New(::google::protobuf::Arena* arena) const {
+  SubjectMessage* n = new SubjectMessage;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SubjectMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.SubjectMessage)
+  subject_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  has_sub_subject_ = false;
+  sub_subject_.Clear();
+}
+
+bool SubjectMessage::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.SubjectMessage)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string subject_title = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_subject_title()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->subject_title().data(), this->subject_title().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.SubjectMessage.subject_title"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_sub_subject;
+        break;
+      }
+
+      // repeated .personal.SubjectMessage sub_subject = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_sub_subject:
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_sub_subject:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_sub_subject()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_loop_sub_subject;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(24)) goto parse_has_sub_subject;
+        break;
+      }
+
+      // optional bool has_sub_subject = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_has_sub_subject:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &has_sub_subject_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.SubjectMessage)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.SubjectMessage)
+  return false;
+#undef DO_
+}
+
+void SubjectMessage::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.SubjectMessage)
+  // optional string subject_title = 1;
+  if (this->subject_title().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject_title().data(), this->subject_title().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.SubjectMessage.subject_title");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->subject_title(), output);
+  }
+
+  // repeated .personal.SubjectMessage sub_subject = 2;
+  for (unsigned int i = 0, n = this->sub_subject_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->sub_subject(i), output);
+  }
+
+  // optional bool has_sub_subject = 3;
+  if (this->has_sub_subject() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->has_sub_subject(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.SubjectMessage)
+}
+
+::google::protobuf::uint8* SubjectMessage::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.SubjectMessage)
+  // optional string subject_title = 1;
+  if (this->subject_title().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject_title().data(), this->subject_title().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.SubjectMessage.subject_title");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->subject_title(), target);
+  }
+
+  // repeated .personal.SubjectMessage sub_subject = 2;
+  for (unsigned int i = 0, n = this->sub_subject_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->sub_subject(i), false, target);
+  }
+
+  // optional bool has_sub_subject = 3;
+  if (this->has_sub_subject() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->has_sub_subject(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.SubjectMessage)
+  return target;
+}
+
+size_t SubjectMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.SubjectMessage)
+  size_t total_size = 0;
+
+  // optional string subject_title = 1;
+  if (this->subject_title().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->subject_title());
+  }
+
+  // optional bool has_sub_subject = 3;
+  if (this->has_sub_subject() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // repeated .personal.SubjectMessage sub_subject = 2;
+  {
+    unsigned int count = this->sub_subject_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->sub_subject(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SubjectMessage::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.SubjectMessage)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const SubjectMessage* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SubjectMessage>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.SubjectMessage)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.SubjectMessage)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void SubjectMessage::MergeFrom(const SubjectMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.SubjectMessage)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void SubjectMessage::UnsafeMergeFrom(const SubjectMessage& from) {
+  GOOGLE_DCHECK(&from != this);
+  sub_subject_.MergeFrom(from.sub_subject_);
+  if (from.subject_title().size() > 0) {
+
+    subject_title_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_title_);
+  }
+  if (from.has_sub_subject() != 0) {
+    set_has_sub_subject(from.has_sub_subject());
+  }
+}
+
+void SubjectMessage::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.SubjectMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SubjectMessage::CopyFrom(const SubjectMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.SubjectMessage)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool SubjectMessage::IsInitialized() const {
+
+  return true;
+}
+
+void SubjectMessage::Swap(SubjectMessage* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SubjectMessage::InternalSwap(SubjectMessage* other) {
+  subject_title_.Swap(&other->subject_title_);
+  sub_subject_.UnsafeArenaSwap(&other->sub_subject_);
+  std::swap(has_sub_subject_, other->has_sub_subject_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SubjectMessage::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SubjectMessage_descriptor_;
+  metadata.reflection = SubjectMessage_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SubjectMessage
+
+// optional string subject_title = 1;
+void SubjectMessage::clear_subject_title() {
+  subject_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& SubjectMessage::subject_title() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.subject_title)
+  return subject_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubjectMessage::set_subject_title(const ::std::string& value) {
+  
+  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.SubjectMessage.subject_title)
+}
+void SubjectMessage::set_subject_title(const char* value) {
+  
+  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.SubjectMessage.subject_title)
+}
+void SubjectMessage::set_subject_title(const char* value, size_t size) {
+  
+  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.SubjectMessage.subject_title)
+}
+::std::string* SubjectMessage::mutable_subject_title() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.SubjectMessage.subject_title)
+  return subject_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SubjectMessage::release_subject_title() {
+  // @@protoc_insertion_point(field_release:personal.SubjectMessage.subject_title)
+  
+  return subject_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubjectMessage::set_allocated_subject_title(::std::string* subject_title) {
+  if (subject_title != NULL) {
+    
+  } else {
+    
+  }
+  subject_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_title);
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectMessage.subject_title)
+}
+
+// repeated .personal.SubjectMessage sub_subject = 2;
+int SubjectMessage::sub_subject_size() const {
+  return sub_subject_.size();
+}
+void SubjectMessage::clear_sub_subject() {
+  sub_subject_.Clear();
+}
+const ::personal::SubjectMessage& SubjectMessage::sub_subject(int index) const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.sub_subject)
+  return sub_subject_.Get(index);
+}
+::personal::SubjectMessage* SubjectMessage::mutable_sub_subject(int index) {
+  // @@protoc_insertion_point(field_mutable:personal.SubjectMessage.sub_subject)
+  return sub_subject_.Mutable(index);
+}
+::personal::SubjectMessage* SubjectMessage::add_sub_subject() {
+  // @@protoc_insertion_point(field_add:personal.SubjectMessage.sub_subject)
+  return sub_subject_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage >*
+SubjectMessage::mutable_sub_subject() {
+  // @@protoc_insertion_point(field_mutable_list:personal.SubjectMessage.sub_subject)
+  return &sub_subject_;
+}
+const ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage >&
+SubjectMessage::sub_subject() const {
+  // @@protoc_insertion_point(field_list:personal.SubjectMessage.sub_subject)
+  return sub_subject_;
+}
+
+// optional bool has_sub_subject = 3;
+void SubjectMessage::clear_has_sub_subject() {
+  has_sub_subject_ = false;
+}
+bool SubjectMessage::has_sub_subject() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.has_sub_subject)
+  return has_sub_subject_;
+}
+void SubjectMessage::set_has_sub_subject(bool value) {
+  
+  has_sub_subject_ = value;
+  // @@protoc_insertion_point(field_set:personal.SubjectMessage.has_sub_subject)
+}
+
+inline const SubjectMessage* SubjectMessage::internal_default_instance() {
+  return &SubjectMessage_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

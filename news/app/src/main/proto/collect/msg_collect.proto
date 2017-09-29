@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+
+import "google/protobuf/any.proto";
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package collect;
+option java_multiple_files = true;
+option java_package = "com.wanfang.collect";
+option objc_class_prefix = "WFPR";
+
+// 收藏文献
+message CollectRequest {
+    string user_id = 1;
+    string doc_id = 2;
+    string doc_type = 3;
+    string classify_id = 4;
+}
+message CollectResponse {
+    bool collect_success = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+// 获取我的收藏-(文献 期刊...)
+message MyCollectRequest {
+    string user_id = 1; // 用户id
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+message MyCollectResponse {
+    repeated google.protobuf.Any results = 1;
+    bool has_more = 2;
+    int32 total_count = 3; // 命中数
+    grpcCommon.GrpcError error = 4;
+}
+
+message CollectBody {
+    string docu_id = 1;
+    string docu_title = 2;
+    string add_time = 3;
+    int32 star_level = 4;
+    string docu_type = 5;
+}
+
+// 收藏列表详情页
+message MyCollectDetailRequest {
+    string artical_id = 1; // docu_id
+    string artical_type = 2;
+}
+message MyCollectDetailResponse {
+    grpcCommon.GrpcError error = 1;
+    string title = 2; // 标题
+    string summary = 3; // 摘要
+    string artical_id = 4;
+    string stand_num = 5; // 标准编号
+    string work_limit = 6; // 限制使用
+    string publish_place = 7; // 出版地
+    string subject_code = 8; // 中图分类号
+
+    //	string
+}

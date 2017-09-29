@@ -28,7 +28,7 @@
 #include "trade/msg_trade.pb.h"
 // @@protoc_insertion_point(includes)
 
-namespace personal {
+namespace trade {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_trade_2fser_5ftrade_2eproto();
@@ -50,7 +50,7 @@ void protobuf_ShutdownFile_trade_2fser_5ftrade_2eproto();
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace personal
+}  // namespace trade
 
 // @@protoc_insertion_point(global_scope)
 
