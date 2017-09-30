@@ -227,12 +227,7 @@ public class PersonEditListActivity extends SimpleActivity {
                         ToastUtil.show("网络出错");
                     }
                 });
-//                arrayList.add("正高级");
-//                arrayList.add("副高级");
-//                arrayList.add("中级");
-//                arrayList.add("初级");
-//                arrayList.add("其他");
-//                adapter = new SelectPersonInfoAdapter(arrayList, TYPE_JOB_TITLE);
+
                 break;
             case TYPE_SUBJECT:
                 tvPageTitle.setText("学科");

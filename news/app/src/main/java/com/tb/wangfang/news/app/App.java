@@ -20,6 +20,7 @@ import com.tb.wangfang.news.di.module.HttpModule;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.HashSet;
 import java.util.List;
@@ -59,7 +60,7 @@ public class App extends Application {
 
         //在子线程中完成其他初始化
         if (shouldInit()) {
-//            MiPushClient.registerPush(this, APP_ID, APP_KEY);
+            MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
         }
         //打开Log
         LoggerInterface newLogger = new LoggerInterface() {
