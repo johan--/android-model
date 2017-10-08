@@ -5,8 +5,8 @@ apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.google.protobuf'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion  25
+    buildToolsVersion  '25.0.2'
     defaultConfig {
         applicationId "com.tb.wangfang.news"
         versionCode 1
@@ -20,6 +20,16 @@ android {
                 cppFlags ""
             }
         }
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "5f5eecb63e042f246fd8b325", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     sourceSets {
         main {
@@ -72,6 +82,7 @@ android {
         daoPackage 'com.tb.greendao.gen'
         targetGenDir 'src/main/java'
     }
+
 
 }
 
@@ -231,6 +242,8 @@ dependencies {
     compile files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
     compile files('libs/libammsdk.jar')
     compile 'com.google.protobuf:protobuf-java:3.1.0'
+    compile 'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
 //    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
     //    compile 'com.google.protobuf.nano:protobuf-javanano:3.2.0rc2'
 

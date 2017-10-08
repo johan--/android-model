@@ -68,7 +68,7 @@ public class EvaluatePop extends PopupWindow {
         this.setBackgroundDrawable(dw);
         // mPopupWindow.setAnimationStyle(android.R.style.Animation_Dialog);
         // 设置SelectPicPopupWindow弹出窗体动画效果
-        this.setAnimationStyle(R.style.AnimationPreview);
+//        this.setAnimationStyle(R.style.AnimationPreview);
         RelativeLayout ll_bg = (RelativeLayout) conentView.findViewById(R.id.ll_bg);
         LinearLayout ll_g = (LinearLayout) conentView.findViewById(R.id.ll_grivity);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -76,15 +76,19 @@ public class EvaluatePop extends PopupWindow {
         if (type == TOP_CENTER) {
             ll_bg.setBackgroundResource(R.mipmap.top_center_main_pop);
             params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            this.setAnimationStyle(R.style.AnimationPreviewTC);
         } else if (type == TOP_RIGHT) {
             ll_bg.setBackgroundResource(R.mipmap.top_right_main_pop);
             params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            this.setAnimationStyle(R.style.AnimationPreviewTR);
         } else if (type == BOTTOM_CENTER) {
             ll_bg.setBackgroundResource(R.mipmap.bottom_center_main_pop);
             params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            this.setAnimationStyle(R.style.AnimationPreviewBC);
         } else {
             ll_bg.setBackgroundResource(R.mipmap.bottom_right_main_pop);
             params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            this.setAnimationStyle(R.style.AnimationPreviewBR);
         }
         ll_g.setLayoutParams(params);
         ImageView iv_delete = (ImageView) conentView.findViewById(R.id.iv_delete);
