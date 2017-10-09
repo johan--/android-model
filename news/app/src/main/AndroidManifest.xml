@@ -44,7 +44,7 @@
         <!-- 华为push-->
         <meta-data
             android:name="com.huawei.hms.client.appid"
-            android:value="appid"></meta-data>
+            android:value="100102237"></meta-data>
         <provider
             android:name="com.huawei.hms.update.provider.UpdateProvider"
             android:authorities="com.tb.wangfang.news.hms.update.provider"
@@ -64,7 +64,7 @@
                 android:value="androidhwext:style/Theme.Emui.Translucent" />
         </activity>
         <!-- xxx.xx.xx为CP自定义的广播名称，比如: com.huawei.hmssample. HuaweiPushRevicer -->
-        <receiver android:name="xxx.xx.xx" >
+        <receiver android:name="com.tb.wangfang.news.Receiver.HuaweiPushRevicer" >
             <intent-filter>
                 <!-- 必须,用于接收TOKEN -->
                 <action android:name="com.huawei.android.push.intent.REGISTRATION" />

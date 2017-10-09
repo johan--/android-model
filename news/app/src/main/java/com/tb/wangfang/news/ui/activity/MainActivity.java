@@ -1,18 +1,29 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huawei.hms.api.ConnectionResult;
+import com.huawei.hms.api.HuaweiApiAvailability;
+import com.huawei.hms.api.HuaweiApiClient;
+import com.huawei.hms.support.api.client.PendingResult;
+import com.huawei.hms.support.api.push.HuaweiPush;
+import com.huawei.hms.support.api.push.TokenResult;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.MainContract;
@@ -27,6 +38,8 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
+
+import static com.huawei.hms.activity.BridgeActivity.EXTRA_RESULT;
 
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
@@ -52,9 +65,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public static final int SECOND = 1;
     public static final int THIRD = 2;
     public static final int FOURTH = 3;
+    private static final int REQUEST_HMS_RESOLVE_ERROR = 1000;
     private SupportFragment[] mFragments = new SupportFragment[4];
 
     private String TAG = "MainActivity";
+    private HuaweiApiClient mClient;
 
     @Override
     protected int getLayout() {
@@ -64,7 +79,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initHuaweiPush(this);
 //            mPresenter.setNightModeState(false);
         mFragments[FIRST] = FirstFragment.newInstance();
         mFragments[SECOND] = SecondFragment.newInstance();
@@ -94,6 +109,85 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     private void initView() {
 
+    }
+
+    private void initHuaweiPush(Context context) {
+        mClient = new HuaweiApiClient.Builder(context)
+                .addApi(HuaweiPush.PUSH_API)
+                .addConnectionCallbacks(new HuaweiApiClient.ConnectionCallbacks() {
+                    @Override
+                    public void onConnected() {
+                        getTokenSync();
+                        Log.e(TAG, "HUAWEI onConnected, IsConnected: " + mClient.isConnected());
+
+                    }
+
+                    @Override
+                    public void onConnectionSuspended(final int i) {
+                        if (!MainActivity.this.isDestroyed() && !MainActivity.this.isFinishing()) {
+                            mClient.connect();
+                        }
+                        Log.e(TAG, "HUAWEI onConnectionSuspended, cause: " + i + ", IsConnected:" +
+                                " " +
+                                mClient.isConnected());
+                    }
+                })
+                .addOnConnectionFailedListener(new HuaweiApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull final ConnectionResult
+                                                           connectionResult) {
+
+                        Log.i(TAG, "HuaweiApiClient连接失败，错误码：" + connectionResult.getErrorCode());
+                        if (HuaweiApiAvailability.getInstance().isUserResolvableError(connectionResult.getErrorCode())) {
+                            final int errorCode = connectionResult.getErrorCode();
+                            new Handler(getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // 此方法必须在主线程调用
+                                    HuaweiApiAvailability.getInstance().resolveError(MainActivity.this, errorCode, REQUEST_HMS_RESOLVE_ERROR);
+                                }
+                            });
+                        } else {
+                            //其他错误码请参见开发指南或者API文档
+                        }
+                    }
+                })
+                .build();
+        mClient.connect();
+    }
+
+    /**
+     * 使用同步接口来获取pushtoken
+     * 结果通过广播的方式发送给应用，不通过标准接口的pendingResul返回
+     * CP可以自行处理获取到token
+     * 同步获取token和异步获取token的方法CP只要根据自身需要选取一种方式即可
+     */
+    private void getTokenSync() {
+        if (!mClient.isConnected()) {
+            Log.i(TAG, "获取token失败，原因：HuaweiApiClient未连接");
+            mClient.connect();
+            return;
+        }
+
+        //需要在子线程中调用函数
+        new Thread() {
+
+            public void run() {
+                Log.i(TAG, "同步接口获取push token");
+                PendingResult<TokenResult> tokenResult = HuaweiPush.HuaweiPushApi.getToken(mClient);
+                TokenResult result = tokenResult.await();
+                if (result.getTokenRes().getRetCode() == 0) {
+                    //当返回值为0的时候表明获取token结果调用成功
+                    Log.i(TAG, "获取push token 成功，等待广播");
+                }
+            }
+        }.start();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mClient.connect();
     }
 
     @Override
@@ -236,6 +330,29 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         if (mFragments[FOURTH] != null) {
             mFragments[FOURTH].onActivityResult(requestCode, resultCode, data);
         }
+        if(requestCode == REQUEST_HMS_RESOLVE_ERROR) {
+            if(resultCode == Activity.RESULT_OK) {
+
+                int result = data.getIntExtra(EXTRA_RESULT, 0);
+
+                if(result == ConnectionResult.SUCCESS) {
+                    Log.i(TAG, "错误成功解决");
+                    if (!mClient.isConnecting() && !mClient.isConnected()) {
+                        mClient.connect();
+                    }
+                } else if(result == ConnectionResult.CANCELED) {
+                    Log.i(TAG, "解决错误过程被用户取消");
+                } else if(result == ConnectionResult.INTERNAL_ERROR) {
+                    Log.i(TAG, "发生内部错误，重试可以解决");
+                    //CP可以在此处重试连接华为移动服务等操作，导致失败的原因可能是网络原因等
+                } else {
+                    Log.i(TAG, "未知返回码");
+                }
+            } else {
+                Log.i(TAG, "调用解决方案发生错误");
+            }
+        }
+
 
     }
 }
