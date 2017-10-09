@@ -26,6 +26,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import cn.jpush.android.api.JPushInterface;
+
 
 /**
  * Created by tangbin on 2017/5/4.
@@ -83,7 +85,8 @@ public class App extends Application {
         Logger.setLogger(this, newLogger);
         InitializeService.start(this);
         ZXingLibrary.initDisplayOpinion(this);
-
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
 
     }
 
