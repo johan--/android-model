@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
+import com.google.protobuf.Any;
 import com.soundcloud.android.crop.Crop;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
@@ -28,8 +29,12 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.GlideCircleTransform;
 import com.tb.wangfang.news.widget.WaveView;
 import com.tb.wangfang.news.widget.datapick.DatePicker;
+import com.wanfang.personal.InfoBirthday;
+import com.wanfang.personal.InfoSex;
 import com.wanfang.personal.MyInfoRequest;
 import com.wanfang.personal.MyInfoResponse;
+import com.wanfang.personal.MyInfoUpdateRequest;
+import com.wanfang.personal.MyInfoUpdateResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 
 import java.io.File;
@@ -48,6 +53,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import me.iwf.photopicker.PhotoPicker;
+
+import static com.tb.wangfang.news.ui.activity.EditNackNameActivity.TYPE_ID_CARD;
+import static com.tb.wangfang.news.ui.activity.EditNackNameActivity.TYPE_NAME;
 
 public class EditPersonInforActivity extends SimpleActivity {
     @Inject
@@ -279,7 +287,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etNickname.setText("");
             }
         }
-        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_NAME) {
+        if (resultCode == RESULT_OK && requestCode == TYPE_NAME) {
             if (data != null) {
                 String name = data.getStringExtra("nickname");
                 etName.setText(name);
@@ -288,7 +296,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etName.setText("");
             }
         }
-        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_ID_CARD) {
+        if (resultCode == RESULT_OK && requestCode == TYPE_ID_CARD) {
             if (data != null) {
                 String name = data.getStringExtra("nickname");
                 etIdCountry.setText(name);
@@ -384,15 +392,15 @@ public class EditPersonInforActivity extends SimpleActivity {
                 break;
             case R.id.rl_name:
                 Intent intent2 = new Intent(this, EditNackNameActivity.class);
-                intent2.putExtra("type", EditNackNameActivity.TYPE_NAME);
+                intent2.putExtra("type", TYPE_NAME);
                 intent2.putExtra("content", etName.getText().toString().trim());
-                startActivityForResult(intent2, EditNackNameActivity.TYPE_NAME);
+                startActivityForResult(intent2, TYPE_NAME);
                 break;
             case R.id.rl_id_country:
                 Intent intent3 = new Intent(this, EditNackNameActivity.class);
-                intent3.putExtra("type", EditNackNameActivity.TYPE_ID_CARD);
+                intent3.putExtra("type", TYPE_ID_CARD);
                 intent3.putExtra("content", etIdCountry.getText().toString().trim());
-                startActivityForResult(intent3, EditNackNameActivity.TYPE_ID_CARD);
+                startActivityForResult(intent3, TYPE_ID_CARD);
                 break;
             case R.id.rl_gender:
                 new MaterialDialog.Builder(this)
@@ -402,7 +410,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                                 2, new MaterialDialog.ListCallbackSingleChoice() {
                                     @Override
                                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                                        etGender.setText(text);
+                                        submitMale(text.toString());
                                         return true;
                                     }
                                 }
@@ -422,6 +430,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                 picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
                     @Override
                     public void onDatePicked(String year, String month, String day) {
+                        submitBirthDay(year + "-" + month + "-" + day);
                         ToastUtil.show(year + "-" + month + "-" + day);
                     }
                 });
@@ -479,6 +488,59 @@ public class EditPersonInforActivity extends SimpleActivity {
                 startActivityForResult(intent10, 9);
                 break;
         }
+    }
+
+    private void submitBirthDay(final String s) {
+        Single.create(new SingleOnSubscribe<MyInfoUpdateResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                Any any = null;
+
+                InfoBirthday infoBirthday = InfoBirthday.newBuilder().setBirthday(s).build();
+                any = Any.pack(infoBirthday);
+                MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();
+                MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoUpdateResponse>() {
+            @Override
+            public void onSuccess(MyInfoUpdateResponse myInfoUpdateResponse) {
+                etBirthday.setText(s);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("访问服务器错误");
+            }
+        });
+    }
+
+    private void submitMale(final String text) {
+        Single.create(new SingleOnSubscribe<MyInfoUpdateResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                Any any = null;
+
+                InfoSex infoSex = InfoSex.newBuilder().setSex(text).build();
+                any = Any.pack(infoSex);
+                MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();
+                MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoUpdateResponse>() {
+            @Override
+            public void onSuccess(MyInfoUpdateResponse myInfoUpdateResponse) {
+                etGender.setText(text);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("访问服务器错误");
+            }
+        });
+
     }
 
 

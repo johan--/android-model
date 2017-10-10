@@ -76,6 +76,8 @@ public class PersonEditListActivity extends SimpleActivity {
     private SelectPersonInfoAdapter adapter;
     private MaterialDialog mdialog;
     private String TAG = "PersonEdit";
+    private List<SubjectMessage> subjectMessages;
+    private SubjectMessage subjectMessage;
 
 
     @Override
@@ -103,7 +105,16 @@ public class PersonEditListActivity extends SimpleActivity {
             }
         });
         type = getIntent().getIntExtra("type", 0);
+        subjectMessage = (SubjectMessage) getIntent().getSerializableExtra("data");
         ArrayList<MapMessage> arrayList = new ArrayList<>();
+        if (null != subjectMessage) {
+            for (int i = 0; i < subjectMessage.getSubSubjectList().size(); i++) {
+                MapMessage message = new MapMessage();
+                message.setHasNext(subjectMessage.getSubSubjectList().get(i).getHasSubSubject());
+                message.setValue(subjectMessage.getSubSubjectList().get(i).getSubjectTitle());
+                arrayList.add(message);
+            }
+        }
 
         adapter = new SelectPersonInfoAdapter(arrayList, type);
         rv.setAdapter(adapter);
@@ -111,41 +122,66 @@ public class PersonEditListActivity extends SimpleActivity {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent();
-                if (type == TYPE_JOB_TITLE || type == TYPE_UNIT_DEPARTMENT || type == TYPE_EDUCATION || type == TYPE_GRADUATE_SCHOOL_DEPARTMENT ||
-                        type == TYPE_SUBJECT_TWO) {
-                    String index = ((MapMessage) adapter.getData().get(position)).getKey();
-                    submitSelectedPosition(type, index);
-                    return;
+                MapMessage mapMessage = (MapMessage) adapter.getData().get(position);
+                if (mapMessage.isHasNext()) {
+                    if (type == TYPE_SUBJECT) {
+                        Intent intent = new Intent(PersonEditListActivity.this, PersonEditListActivity.class);
+                        if (subjectMessage != null) {
+                            intent.putExtra("data", subjectMessage.getSubSubjectList().get(position));
+                        } else {
+                            intent.putExtra("data", subjectMessages.get(position));
+                        }
+                        intent.putExtra("type", type);
+                        startActivityForResult(intent, type);
+                    }
+
+                } else {
+
+                    submitSelectedPosition(type, mapMessage);
+
                 }
-                intent.setClass(PersonEditListActivity.this, PersonEditListActivity.class);
-                if (type == TYPE_UNIT) {
-                    intent.putExtra("item", (String) adapter.getData().get(position));
-                    intent.putExtra("type", TYPE_UNIT_DEPARTMENT);
-                    startActivityForResult(intent, TYPE_UNIT);
-                }
-                if (type == TYPE_GRADUATE_SCHOOL) {
-                    intent.putExtra("item", (String) adapter.getData().get(position));
-                    intent.putExtra("type", TYPE_GRADUATE_SCHOOL_DEPARTMENT);
-                    startActivityForResult(intent, TYPE_GRADUATE_SCHOOL);
-                }
-                if (type == TYPE_SUBJECT) {
-                    intent.putExtra("item", (MapMessage) adapter.getData().get(position));
-                    intent.putExtra("type", TYPE_SUBJECT_ONE);
-                    startActivityForResult(intent, TYPE_SUBJECT);
-                }
-                if (type == TYPE_SUBJECT_ONE) {
-                    intent.putExtra("item", (String) adapter.getData().get(position));
-                    intent.putExtra("type", TYPE_SUBJECT_TWO);
-                    startActivityForResult(intent, TYPE_SUBJECT_ONE);
-                }
+
+
+//                Intent intent = new Intent();
+//                if (type == TYPE_JOB_TITLE || type == TYPE_UNIT_DEPARTMENT || type == TYPE_EDUCATION || type == TYPE_GRADUATE_SCHOOL_DEPARTMENT ||
+//                        type == TYPE_SUBJECT_TWO) {
+//                    String index = ((MapMessage) adapter.getData().get(position)).getKey();
+////                    submitSelectedPosition(type, index);
+//                    return;
+//                }
+//                intent.setClass(PersonEditListActivity.this, PersonEditListActivity.class);
+//                if (type == TYPE_UNIT) {
+//                    intent.putExtra("item", (String) adapter.getData().get(position));
+//                    intent.putExtra("type", TYPE_UNIT_DEPARTMENT);
+//                    startActivityForResult(intent, TYPE_UNIT);
+//                }
+//                if (type == TYPE_GRADUATE_SCHOOL) {
+//                    intent.putExtra("item", (String) adapter.getData().get(position));
+//                    intent.putExtra("type", TYPE_GRADUATE_SCHOOL_DEPARTMENT);
+//                    startActivityForResult(intent, TYPE_GRADUATE_SCHOOL);
+//                }
+//                if (type == TYPE_SUBJECT) {
+//                    SubjectMessage subjectMessage = (SubjectMessage) adapter.getData().get(position);
+//                    if (subjectMessage.getHasSubSubject()) {
+//                        intent.putExtra("item", (MapMessage) adapter.getData().get(position));
+//                        intent.putExtra("type", TYPE_SUBJECT);
+//                        startActivityForResult(intent, TYPE_SUBJECT);
+//                    }
+//                }
+//                if (type == TYPE_SUBJECT_ONE) {
+//                    intent.putExtra("item", (String) adapter.getData().get(position));
+//                    intent.putExtra("type", TYPE_SUBJECT_TWO);
+//                    startActivityForResult(intent, TYPE_SUBJECT_ONE);
+//                }
 
             }
         });
-        addData(arrayList, type);
+        if (subjectMessage == null) {
+            addData(arrayList, type);
+        }
     }
 
-    private void submitSelectedPosition(int type, final String index) {
+    private void submitSelectedPosition(int type, final MapMessage mapMessage) {
         mdialog = new MaterialDialog.Builder(this)
                 .title("修改中")
                 .content("请等待")
@@ -156,7 +192,7 @@ public class PersonEditListActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                InfoUserRoles infoUserRoles = InfoUserRoles.newBuilder().setUserRoles(index).build();
+                InfoUserRoles infoUserRoles = InfoUserRoles.newBuilder().setUserRoles(mapMessage.getValue()).build();
                 MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(Any.pack(infoUserRoles)).build();
                 MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);
                 e.onSuccess(response);
@@ -166,7 +202,7 @@ public class PersonEditListActivity extends SimpleActivity {
             public void onSuccess(MyInfoUpdateResponse myInfoUpdateResponse) {
                 mdialog.dismiss();
                 Intent intent = new Intent();
-                intent.putExtra("item", adapter.getData().get(Integer.parseInt(index)).getValue());
+                intent.putExtra("item", mapMessage.getValue());
                 PersonEditListActivity.this.setResult(RESULT_OK, intent);
                 finish();
             }
@@ -188,8 +224,11 @@ public class PersonEditListActivity extends SimpleActivity {
             case TYPE_SUBJECT:
             case TYPE_GRADUATE_SCHOOL:
             case TYPE_SUBJECT_ONE:
-                setResult(RESULT_OK, data);
-                finish();
+                if(resultCode==RESULT_OK){
+                    setResult(RESULT_OK, data);
+                    finish();
+                }
+
                 break;
 
         }
@@ -217,6 +256,7 @@ public class PersonEditListActivity extends SimpleActivity {
                             MapMessage message = new MapMessage();
                             message.setKey(key);
                             message.setValue(map.get(key));
+                            message.setHasNext(false);
                             arrayList.add(message);
                         }
                         adapter.setNewData(arrayList);
@@ -244,8 +284,7 @@ public class PersonEditListActivity extends SimpleActivity {
                             @Override
                             public void onSuccess(SubjectListResponse subjectListResponse) {
                                 arrayList.clear();
-                                List<SubjectMessage> subjectMessages = subjectListResponse.getSubjectList().getSubSubjectList();
-//                                SubJectBean bean = gson.fromJson(json, SubJectBean.class);
+                                subjectMessages = subjectListResponse.getSubjectList().getSubSubjectList();
                                 for (int i = 0; i < subjectMessages.size(); i++) {
                                     MapMessage message = new MapMessage();
                                     message.setValue(subjectMessages.get(i).getSubjectTitle());
@@ -316,6 +355,7 @@ public class PersonEditListActivity extends SimpleActivity {
                             MapMessage message = new MapMessage();
                             message.setKey(key);
                             message.setValue(map.get(key));
+                            message.setHasNext(false);
                             arrayList.add(message);
                         }
                         adapter = new SelectPersonInfoAdapter(arrayList, TYPE_EDUCATION);

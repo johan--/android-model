@@ -46,7 +46,7 @@ public class EditNackNameActivity extends SimpleActivity {
     TextView tvPageTitle;
     @BindView(R.id.et_name)
     EditText etName;
-    final static int TYPE_NICKNAME = 0;
+    final static int TYPE_NICKNAME = 110;
     final static int TYPE_NAME = 1;
     final static int TYPE_ID_CARD = 2;
 

@@ -33,6 +33,7 @@ import com.tb.wangfang.news.ui.fragment.FirstFragment;
 import com.tb.wangfang.news.ui.fragment.FourthFragment;
 import com.tb.wangfang.news.ui.fragment.SecondFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
@@ -79,7 +80,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initHuaweiPush(this);
+        if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
+            initHuaweiPush(this);
+        }
+
 //            mPresenter.setNightModeState(false);
         mFragments[FIRST] = FirstFragment.newInstance();
         mFragments[SECOND] = SecondFragment.newInstance();
@@ -187,7 +191,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onStart() {
         super.onStart();
-        mClient.connect();
+        if(mClient!=null){
+            mClient.connect();
+        }
+
     }
 
     @Override
@@ -330,19 +337,19 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         if (mFragments[FOURTH] != null) {
             mFragments[FOURTH].onActivityResult(requestCode, resultCode, data);
         }
-        if(requestCode == REQUEST_HMS_RESOLVE_ERROR) {
-            if(resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_HMS_RESOLVE_ERROR) {
+            if (resultCode == Activity.RESULT_OK) {
 
                 int result = data.getIntExtra(EXTRA_RESULT, 0);
 
-                if(result == ConnectionResult.SUCCESS) {
+                if (result == ConnectionResult.SUCCESS) {
                     Log.i(TAG, "错误成功解决");
                     if (!mClient.isConnecting() && !mClient.isConnected()) {
                         mClient.connect();
                     }
-                } else if(result == ConnectionResult.CANCELED) {
+                } else if (result == ConnectionResult.CANCELED) {
                     Log.i(TAG, "解决错误过程被用户取消");
-                } else if(result == ConnectionResult.INTERNAL_ERROR) {
+                } else if (result == ConnectionResult.INTERNAL_ERROR) {
                     Log.i(TAG, "发生内部错误，重试可以解决");
                     //CP可以在此处重试连接华为移动服务等操作，导致失败的原因可能是网络原因等
                 } else {

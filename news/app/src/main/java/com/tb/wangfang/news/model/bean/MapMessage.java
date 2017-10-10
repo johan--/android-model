@@ -11,6 +11,27 @@ public class MapMessage implements Parcelable {
     String key;
     String value;
 
+    protected MapMessage(Parcel in) {
+        key = in.readString();
+        value = in.readString();
+        hasNext = in.readByte() != 0;
+    }
+
+    public MapMessage() {
+    }
+
+    public static final Creator<MapMessage> CREATOR = new Creator<MapMessage>() {
+        @Override
+        public MapMessage createFromParcel(Parcel in) {
+            return new MapMessage(in);
+        }
+
+        @Override
+        public MapMessage[] newArray(int size) {
+            return new MapMessage[size];
+        }
+    };
+
     public boolean isHasNext() {
         return hasNext;
     }
@@ -34,7 +55,7 @@ public class MapMessage implements Parcelable {
     }
 
     public void setValue(String value) {
-        value = value;
+        this.value = value;
     }
 
     @Override
