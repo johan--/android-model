@@ -49,6 +49,26 @@ public final class MsgCollect {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_collect_MyCollectDetailResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_MyCollectConfMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_MyCollectConfMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_MyCollectPerioMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_MyCollectPerioMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_MyCollectDegreeMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_MyCollectDegreeMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_MyCollectSimilarPaperMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_MyCollectSimilarPaperMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -74,13 +94,32 @@ public final class MsgCollect {
       "itle\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t\022\022\n\nstar_lev" +
       "el\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t\"B\n\026MyCollect" +
       "DetailRequest\022\022\n\nartical_id\030\001 \001(\t\022\024\n\014art" +
-      "ical_type\030\002 \001(\t\"\307\001\n\027MyCollectDetailRespo" +
+      "ical_type\030\002 \001(\t\"\213\003\n\027MyCollectDetailRespo" +
       "nse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErro" +
-      "r\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\022\n\nart" +
-      "ical_id\030\004 \001(\t\022\021\n\tstand_num\030\005 \001(\t\022\022\n\nwork",
-      "_limit\030\006 \001(\t\022\025\n\rpublish_place\030\007 \001(\t\022\024\n\014s" +
-      "ubject_code\030\010 \001(\tB\036\n\023com.wanfang.collect" +
-      "P\001\242\002\004WFPRb\006proto3"
+      "r\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\020\n\010key" +
+      "words\030\004 \001(\t\022\024\n\014authors_name\030\005 \001(\t\022\020\n\010cit",
+      "e_num\030\006 \001(\t\022\024\n\014download_num\030\007 \001(\t\022\034\n\024ful" +
+      "ltext_reading_num\030\010 \001(\t\022\034\n\024thirdparty_li" +
+      "nks_num\030\t \001(\t\022,\n\016collect_detail\030\n \001(\0132\024." +
+      "google.protobuf.Any\0221\n\013detail_type\030\013 \001(\016" +
+      "2\034.collect.MyCollectDetailType\022=\n\016simila" +
+      "r_papers\030\014 \003(\0132%.collect.MyCollectSimila" +
+      "rPaperMessage\"}\n\024MyCollectConfMessage\022\021\n" +
+      "\tconf_name\030\001 \001(\t\022\021\n\tconf_type\030\002 \001(\t\022\021\n\tc" +
+      "onf_year\030\003 \001(\t\022\025\n\rpublish_place\030\004 \001(\t\022\025\n" +
+      "\rhostunit_name\030\005 \001(\t\"\231\001\n\025MyCollectPerioM",
+      "essage\022\024\n\014authors_unit\030\001 \001(\t\022\023\n\013perio_ti" +
+      "tle\030\002 \001(\t\022\026\n\016perio_title_en\030\003 \001(\t\022\024\n\014pub" +
+      "lish_year\030\004 \001(\t\022\021\n\tissue_num\030\005 \001(\t\022\024\n\014ab" +
+      "st_webdate\030\006 \001(\t\"\201\001\n\026MyCollectDegreeMess" +
+      "age\022\023\n\013deunit_name\030\001 \001(\t\022\024\n\014degree_level" +
+      "\030\002 \001(\t\022\022\n\nmajor_name\030\003 \001(\t\022\022\n\ntutor_name" +
+      "\030\004 \001(\t\022\024\n\014publish_year\030\005 \001(\t\"W\n\034MyCollec" +
+      "tSimilarPaperMessage\022\022\n\nartical_id\030\001 \001(\t" +
+      "\022\024\n\014artical_type\030\002 \001(\t\022\r\n\005title\030\003 \001(\t*K\n" +
+      "\023MyCollectDetailType\022\017\n\013DEGREE_TYPE\020\000\022\023\n",
+      "\017CONFERENCE_TYPE\020\001\022\016\n\nPERIO_TYPE\020\002B\036\n\023co" +
+      "m.wanfang.collectP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -137,7 +176,31 @@ public final class MsgCollect {
     internal_static_collect_MyCollectDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectDetailResponse_descriptor,
-        new java.lang.String[] { "Error", "Title", "Summary", "ArticalId", "StandNum", "WorkLimit", "PublishPlace", "SubjectCode", });
+        new java.lang.String[] { "Error", "Title", "Summary", "Keywords", "AuthorsName", "CiteNum", "DownloadNum", "FulltextReadingNum", "ThirdpartyLinksNum", "CollectDetail", "DetailType", "SimilarPapers", });
+    internal_static_collect_MyCollectConfMessage_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_collect_MyCollectConfMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_MyCollectConfMessage_descriptor,
+        new java.lang.String[] { "ConfName", "ConfType", "ConfYear", "PublishPlace", "HostunitName", });
+    internal_static_collect_MyCollectPerioMessage_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_collect_MyCollectPerioMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_MyCollectPerioMessage_descriptor,
+        new java.lang.String[] { "AuthorsUnit", "PerioTitle", "PerioTitleEn", "PublishYear", "IssueNum", "AbstWebdate", });
+    internal_static_collect_MyCollectDegreeMessage_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_collect_MyCollectDegreeMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_MyCollectDegreeMessage_descriptor,
+        new java.lang.String[] { "DeunitName", "DegreeLevel", "MajorName", "TutorName", "PublishYear", });
+    internal_static_collect_MyCollectSimilarPaperMessage_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_collect_MyCollectSimilarPaperMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_MyCollectSimilarPaperMessage_descriptor,
+        new java.lang.String[] { "ArticalId", "ArticalType", "Title", });
     com.google.protobuf.AnyProto.getDescriptor();
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }

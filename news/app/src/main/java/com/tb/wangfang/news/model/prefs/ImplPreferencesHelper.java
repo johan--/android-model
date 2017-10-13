@@ -54,11 +54,26 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     @Override
     public void storeLoginInfo(LoginResponse response) {
         mSPrefs.edit().putString(Constants.USER_AVATAR, response.getUserAvatarUrl()).putString(Constants.USER_ID, response.getUserId())
-                .putString(Constants.USER_NAME, response.getUserName()).apply();
+                .putString(Constants.USER_NAME, response.getUserName()).putString(Constants.LOGIN_TOKEN, response.getLoginToken()).apply();
     }
 
     @Override
     public String getUserId() {
         return mSPrefs.getString(Constants.USER_ID, "");
+    }
+
+    @Override
+    public String getLoginToken() {
+        return mSPrefs.getString(Constants.LOGIN_TOKEN, "");
+    }
+
+    @Override
+    public String getUserAvatar() {
+        return mSPrefs.getString(Constants.USER_AVATAR, "");
+    }
+
+    @Override
+    public String getUserName() {
+        return mSPrefs.getString(Constants.USER_NAME, "");
     }
 }

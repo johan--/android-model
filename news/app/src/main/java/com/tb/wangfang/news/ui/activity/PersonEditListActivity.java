@@ -24,6 +24,8 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.SearchEditText;
 import com.wanfang.personal.EducationLevelListRequest;
 import com.wanfang.personal.EducationLevelListResponse;
+import com.wanfang.personal.InfoEducationLevel;
+import com.wanfang.personal.InfoSubject;
 import com.wanfang.personal.InfoUserRoles;
 import com.wanfang.personal.MyInfoUpdateRequest;
 import com.wanfang.personal.MyInfoUpdateResponse;
@@ -111,7 +113,8 @@ public class PersonEditListActivity extends SimpleActivity {
             for (int i = 0; i < subjectMessage.getSubSubjectList().size(); i++) {
                 MapMessage message = new MapMessage();
                 message.setHasNext(subjectMessage.getSubSubjectList().get(i).getHasSubSubject());
-                message.setValue(subjectMessage.getSubSubjectList().get(i).getSubjectTitle());
+                message.setValue(subjectMessage.getSubSubjectList().get(i).getSubjectField().getValue());
+                message.setKey(subjectMessage.getSubSubjectList().get(i).getSubjectField().getKey());
                 arrayList.add(message);
             }
         }
@@ -181,7 +184,7 @@ public class PersonEditListActivity extends SimpleActivity {
         }
     }
 
-    private void submitSelectedPosition(int type, final MapMessage mapMessage) {
+    private void submitSelectedPosition(final int type, final MapMessage mapMessage) {
         mdialog = new MaterialDialog.Builder(this)
                 .title("修改中")
                 .content("请等待")
@@ -192,8 +195,22 @@ public class PersonEditListActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                InfoUserRoles infoUserRoles = InfoUserRoles.newBuilder().setUserRoles(mapMessage.getValue()).build();
-                MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(Any.pack(infoUserRoles)).build();
+                Any any = null;
+                switch (type) {
+                    case TYPE_SUBJECT:
+                        InfoSubject infoSubject = InfoSubject.newBuilder().setSubject(mapMessage.getValue()).build();
+                        any = Any.pack(infoSubject);
+                        break;
+                    case TYPE_JOB_TITLE:
+                        InfoUserRoles infoUserRoles = InfoUserRoles.newBuilder().setUserRoles(mapMessage.getValue()).build();
+                        any = Any.pack(infoUserRoles);
+                        break;
+                    case TYPE_EDUCATION:
+                        InfoEducationLevel infoEducationLevel = InfoEducationLevel.newBuilder().setEducationLevel(mapMessage.getValue()).build();
+                        any = Any.pack(infoEducationLevel);
+                        break;
+                }
+                MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();
                 MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);
                 e.onSuccess(response);
             }
@@ -224,7 +241,7 @@ public class PersonEditListActivity extends SimpleActivity {
             case TYPE_SUBJECT:
             case TYPE_GRADUATE_SCHOOL:
             case TYPE_SUBJECT_ONE:
-                if(resultCode==RESULT_OK){
+                if (resultCode == RESULT_OK) {
                     setResult(RESULT_OK, data);
                     finish();
                 }
@@ -287,8 +304,8 @@ public class PersonEditListActivity extends SimpleActivity {
                                 subjectMessages = subjectListResponse.getSubjectList().getSubSubjectList();
                                 for (int i = 0; i < subjectMessages.size(); i++) {
                                     MapMessage message = new MapMessage();
-                                    message.setValue(subjectMessages.get(i).getSubjectTitle());
-                                    message.setKey("");
+                                    message.setValue(subjectMessages.get(i).getSubjectField().getValue());
+                                    message.setKey(subjectMessages.get(i).getSubjectField().getKey());
                                     message.setHasNext(subjectMessages.get(i).getHasSubSubject());
                                     arrayList.add(message);
                                 }

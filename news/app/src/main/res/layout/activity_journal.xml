@@ -40,7 +40,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="215dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -49,17 +49,17 @@
             android:layout_height="175dp"
             android:layout_marginLeft="16.5dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="20dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="215dp">
 
             <TextView
                 android:id="@+id/tv_journal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:text="农机化研究"
                 android:textColor="@color/black_text"
                 android:textSize="14sp" />
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/tv_journal_name"
 
                 android:background="@drawable/red_label"
@@ -78,54 +78,13 @@
                 android:textColor="@color/white"
                 android:textSize="10sp" />
 
-            <TextView
-                android:id="@+id/tv_sign_one"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_journal_name"
-                android:layout_marginTop="12.5dp"
-                android:text="中文名称 : "
-                android:textColor="@color/gray_text_6" />
-
-            <TextView
-                android:id="@+id/tv_chinese_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_journal_name"
-                android:layout_marginTop="12.5dp"
-                android:layout_toRightOf="@+id/tv_sign_one"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="农机化研究"
-                android:textColor="@color/wanfang_gray_text" />
-
-            <TextView
-                android:id="@+id/tv_sign_two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_one"
-                android:layout_marginTop="10dp"
-                android:text="外文名称 : "
-                android:textColor="@color/gray_text_6" />
-
-            <TextView
-                android:id="@+id/tv_en_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_one"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/tv_sign_two"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="农机化研究"
-                android:textColor="@color/wanfang_gray_text" />
 
             <TextView
                 android:id="@+id/tv_sign_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_two"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_journal_name"
+                android:layout_marginTop="15dp"
                 android:text="国际刊号 : "
                 android:textColor="@color/gray_text_6" />
 
@@ -133,8 +92,8 @@
                 android:id="@+id/tv_national_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_two"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_journal_name"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/tv_sign_three"
                 android:ellipsize="end"
                 android:lines="1"
@@ -146,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_sign_three"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12.5dp"
                 android:text="国内刊号 : "
                 android:textColor="@color/gray_text_6" />
 
@@ -155,40 +114,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_sign_three"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12.5dp"
                 android:layout_toRightOf="@+id/tv_sign_fourth"
                 android:ellipsize="end"
                 android:lines="1"
                 android:text="农机化研究"
                 android:textColor="@color/wanfang_gray_text" />
 
-            <TextView
-                android:id="@+id/tv_sign_five"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_fourth"
-                android:layout_marginTop="10dp"
-                android:text="致编辑部 : "
-                android:textColor="@color/gray_text_6" />
-
-            <TextView
-                android:id="@+id/tv_edit_aprtment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_fourth"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/tv_sign_five"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="农机化研究"
-                android:textColor="@color/wanfang_gray_text" />
 
             <TextView
                 android:id="@+id/tv_sign_six"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_five"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_sign_fourth"
+                android:layout_marginTop="12.5dp"
                 android:text="出版周期 : "
                 android:textColor="@color/gray_text_6" />
 
@@ -196,51 +135,53 @@
                 android:id="@+id/tv_period"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sign_five"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_sign_fourth"
+                android:layout_marginTop="12.5dp"
                 android:layout_toRightOf="@+id/tv_sign_six"
                 android:ellipsize="end"
                 android:lines="1"
                 android:text="月刊"
                 android:textColor="@color/wanfang_gray_text" />
+
+            <TextView
+                android:id="@+id/tv_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sign_six"
+                android:layout_marginTop="12.5dp"
+                android:text=">> 查看详情"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/tv_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:drawableLeft="@mipmap/order_blue_icon"
+                android:drawablePadding="7.5dp"
+                android:text="订阅"
+                android:textColor="#333"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="22.5dp"
+                android:layout_toRightOf="@+id/tv_order"
+                android:drawableLeft="@mipmap/share_blue_icon"
+                android:drawablePadding="7.5dp"
+                android:text="分享"
+                android:textColor="#333"
+                android:textSize="12sp"
+                android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="15dp">
-
-        <TextView
-            android:id="@+id/tv_order"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16.5dp"
-            android:background="@mipmap/bg_journal_btn"
-            android:drawableLeft="@mipmap/read_online"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="订阅"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tv_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17.5dp"
-            android:background="@mipmap/bg_journal_btn"
-            android:drawableLeft="@mipmap/share_icon"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="分享"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-    </LinearLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tl_time"

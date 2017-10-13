@@ -94,7 +94,7 @@ public class App extends Application {
             //华为手机
         } else if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
 
-//其他手机
+            //其他手机
         } else {
             JPushInterface.setDebugMode(true);
             JPushInterface.init(this);

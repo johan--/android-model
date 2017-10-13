@@ -7,12 +7,19 @@ import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.protobuf.Any;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.wanfang.collect.CollectServiceGrpc;
+import com.wanfang.collect.MyCollectDetailRequest;
+import com.wanfang.collect.MyCollectDetailResponse;
+import com.wanfang.collect.MyCollectPerioMessage;
 import com.wanfang.read.ReadRequest;
 import com.wanfang.read.ReadResponse;
 import com.wanfang.read.ReadServiceGrpc;
@@ -58,6 +65,7 @@ public class DocDetailActivity extends SimpleActivity {
     int i = 0;
     private String TAG = "DocDetailActivity";
 
+
     @Override
     protected int getLayout() {
         DaggerActivityComponent.builder()
@@ -69,28 +77,68 @@ public class DocDetailActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
-        initView(i);
+        String articleId = getIntent().getStringExtra(Constants.ARTICLE_ID);
+        String articleType = getIntent().getStringExtra(Constants.ARTICLE_TYPE);
+        getDocDetail(articleId, articleType);
 
     }
 
-    private void initView(int i) {
-        viewStub = ((ViewStub) findViewById(R.id.view_stub));
-        switch (i) {
-            case 0://普通
+    private void getDocDetail(final String articleId, final String articleType) {
+        Single.create(new SingleOnSubscribe<MyCollectDetailResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<MyCollectDetailResponse> e) throws Exception {
+                CollectServiceGrpc.CollectServiceBlockingStub stub = CollectServiceGrpc.newBlockingStub(managedChannel);
+                MyCollectDetailRequest request = MyCollectDetailRequest.newBuilder().setArticalId(articleId).setArticalType(articleType).build();
+                MyCollectDetailResponse response = stub.getDocDetail(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyCollectDetailResponse>() {
+            @Override
+            public void onSuccess(MyCollectDetailResponse myCollectDetailResponse) {
+                initView(myCollectDetailResponse.getDetailTypeValue(), myCollectDetailResponse);
+            }
 
-                viewStub.setLayoutResource(R.layout.frag_article_fruit);
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
+    }
+
+    private void initView(int detailTypeValue, MyCollectDetailResponse myCollectDetailResponse) {
+        viewStub = ((ViewStub) findViewById(R.id.view_stub));
+        switch (detailTypeValue) {
+            case 0://degree
+
+                viewStub.setLayoutResource(R.layout.frag_article_degree);
                 viewStub.inflate();
 //                TextView TvContent = (TextView) findViewById(R.id.tv_content);
 //                TvContent.setText(Html.fromHtml("<b>摘要:</b>！China真伟大2001年，互联网尚未在中国老百姓的生活中真正普及时候，28岁的陈天桥却执意要买下一款韩" +
 //                        "国的二线网游《传奇》的版权。盛大网络（由陈天桥创立）的投资方中华网惊呆了，认为他在讲一个商业笑话，于是与陈天桥一拍两散，撤回300万美元的风险投资。"));
 
                 break;
-            case 1://标准
-                viewStub.setLayoutResource(R.layout.frag_article_standard);
+            case 1://会议
+                viewStub.setLayoutResource(R.layout.frag_article_meeting);
                 viewStub.inflate();
 
                 break;
-            case 2://成果
+            case 2://PERIO_TYPE_VALUE
+                viewStub.setLayoutResource(R.layout.frag_article);
+                Any any = myCollectDetailResponse.getCollectDetail();
+                try {
+                    MyCollectPerioMessage myCollectPerioMessage = any.unpack(MyCollectPerioMessage.class);
+                    TextView tvKeyWord = (TextView) viewStub.findViewById(R.id.tv_title);
+                    TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_content);
+                    TextView tvMetting = (TextView) viewStub.findViewById(R.id.tv_author);
+                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_unit);
+                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_key_word);
+                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_magazine);
+                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_time);
+
+                } catch (InvalidProtocolBufferException e) {
+                    e.printStackTrace();
+                }
+                viewStub.inflate();
 
                 break;
             case 3:
@@ -101,6 +149,35 @@ public class DocDetailActivity extends SimpleActivity {
 
 
     }
+
+//    private void initView(int i) {
+//        viewStub = ((ViewStub) findViewById(R.id.view_stub));
+//        switch (i) {
+//            case MyCollectDetailType.PERIO_TYPE://普通
+//
+//                viewStub.setLayoutResource(R.layout.frag_article_fruit);
+//                viewStub.inflate();
+////                TextView TvContent = (TextView) findViewById(R.id.tv_content);
+////                TvContent.setText(Html.fromHtml("<b>摘要:</b>！China真伟大2001年，互联网尚未在中国老百姓的生活中真正普及时候，28岁的陈天桥却执意要买下一款韩" +
+////                        "国的二线网游《传奇》的版权。盛大网络（由陈天桥创立）的投资方中华网惊呆了，认为他在讲一个商业笑话，于是与陈天桥一拍两散，撤回300万美元的风险投资。"));
+//
+//                break;
+//            case 1://标准
+//                viewStub.setLayoutResource(R.layout.frag_article_standard);
+//                viewStub.inflate();
+//
+//                break;
+//            case 2://成果
+//
+//                break;
+//            case 3:
+//                break;
+//            case 4:
+//                break;
+//        }
+//
+//
+//    }
 
 
     @OnClick({R.id.tv_return, R.id.ll_read_online, R.id.ll_collect, R.id.ll_share})

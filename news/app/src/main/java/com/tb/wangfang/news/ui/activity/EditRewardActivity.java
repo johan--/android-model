@@ -8,15 +8,40 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.protobuf.Any;
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.di.component.DaggerActivityComponent;
+import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.personal.InfoEducationLevel;
+import com.wanfang.personal.InfoInterestSubject;
+import com.wanfang.personal.MyInfoUpdateRequest;
+import com.wanfang.personal.MyInfoUpdateResponse;
+import com.wanfang.personal.PersonalCenterServiceGrpc;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.grpc.ManagedChannel;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
+
 
 public class EditRewardActivity extends SimpleActivity {
 
+    @Inject
+    ManagedChannel managedChannel;
+    @Inject
+    ImplPreferencesHelper preferencesHelper;
 
     @BindView(R.id.tv_page_title)
     TextView tvPageTitle;
@@ -28,9 +53,14 @@ public class EditRewardActivity extends SimpleActivity {
     public final static int TYPE_REWARD = 8;
     public final static int TYPE_INTREST = 9;
     private int type;
+    private MaterialDialog mdialog;
 
     @Override
     protected int getLayout() {
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
         return R.layout.activity_edit_reward;
     }
 
@@ -89,12 +119,44 @@ public class EditRewardActivity extends SimpleActivity {
                 break;
             case R.id.tv_save:
                 if (!TextUtils.isEmpty(etExperience.getText().toString()) && !TextUtils.isEmpty(etExperience.getText().toString().trim())) {
-                    Intent intent = new Intent();
-                    intent.putExtra("experience", etExperience.getText().toString().trim());
-                    setResult(RESULT_OK, intent);
-                    finish();
+                    mdialog = new MaterialDialog.Builder(this)
+                            .title("修改中")
+                            .content("请等待")
+                            .progress(true, 0)
+                            .progressIndeterminateStyle(true)
+                            .show();
+                    Single.create(new SingleOnSubscribe<MyInfoUpdateResponse>() {
+                        @Override
+                        public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
+                            PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                            Any any = null;
+                            if (type == TYPE_REWARD) {
+                                InfoEducationLevel infoEducationLevel = InfoEducationLevel.newBuilder().setEducationLevel(etExperience.getText().toString().trim()).build();
+                                any = Any.pack(infoEducationLevel);
+                            } else if (type==TYPE_INTREST){
+                                InfoInterestSubject infoInterestSubject = InfoInterestSubject.newBuilder().setInterestSubject(etExperience.getText().toString().trim()).build();
+                                any = Any.pack(infoInterestSubject);
+                            }
+                            MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();
+                            MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);
+                            e.onSuccess(response);
+                        }
+                    }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoUpdateResponse>() {
+                        @Override
+                        public void onSuccess(MyInfoUpdateResponse myInfoUpdateResponse) {
+                            mdialog.dismiss();
+                            Intent intent = new Intent();
+                            intent.putExtra("experience", etExperience.getText().toString().trim());
+                            setResult(RESULT_OK, intent);
+                            finish();
+                        }
+                        @Override
+                        public void onError(Throwable e) {
+                            mdialog.dismiss();
+                            ToastUtil.show("访问错误");
+                        }
+                    });
                 } else {
-
                     ToastUtil.show("填写内容不能为空!");
                 }
                 break;

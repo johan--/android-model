@@ -17,11 +17,14 @@ public  final class MyCollectDetailResponse extends
   private MyCollectDetailResponse() {
     title_ = "";
     summary_ = "";
-    articalId_ = "";
-    standNum_ = "";
-    workLimit_ = "";
-    publishPlace_ = "";
-    subjectCode_ = "";
+    keywords_ = "";
+    authorsName_ = "";
+    citeNum_ = "";
+    downloadNum_ = "";
+    fulltextReadingNum_ = "";
+    thirdpartyLinksNum_ = "";
+    detailType_ = 0;
+    similarPapers_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -77,31 +80,65 @@ public  final class MyCollectDetailResponse extends
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            articalId_ = s;
+            keywords_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            standNum_ = s;
+            authorsName_ = s;
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            workLimit_ = s;
+            citeNum_ = s;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            publishPlace_ = s;
+            downloadNum_ = s;
             break;
           }
           case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            subjectCode_ = s;
+            fulltextReadingNum_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            thirdpartyLinksNum_ = s;
+            break;
+          }
+          case 82: {
+            com.google.protobuf.Any.Builder subBuilder = null;
+            if (collectDetail_ != null) {
+              subBuilder = collectDetail_.toBuilder();
+            }
+            collectDetail_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(collectDetail_);
+              collectDetail_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 88: {
+            int rawValue = input.readEnum();
+
+            detailType_ = rawValue;
+            break;
+          }
+          case 98: {
+            if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+              similarPapers_ = new java.util.ArrayList<com.wanfang.collect.MyCollectSimilarPaperMessage>();
+              mutable_bitField0_ |= 0x00000800;
+            }
+            similarPapers_.add(
+                input.readMessage(com.wanfang.collect.MyCollectSimilarPaperMessage.parser(), extensionRegistry));
             break;
           }
         }
@@ -112,6 +149,9 @@ public  final class MyCollectDetailResponse extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+        similarPapers_ = java.util.Collections.unmodifiableList(similarPapers_);
+      }
       makeExtensionsImmutable();
     }
   }
@@ -127,6 +167,7 @@ public  final class MyCollectDetailResponse extends
             com.wanfang.collect.MyCollectDetailResponse.class, com.wanfang.collect.MyCollectDetailResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ERROR_FIELD_NUMBER = 1;
   private com.wanfang.grpcCommon.MsgError.GrpcError error_;
   /**
@@ -232,206 +273,328 @@ public  final class MyCollectDetailResponse extends
     }
   }
 
-  public static final int ARTICAL_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object articalId_;
+  public static final int KEYWORDS_FIELD_NUMBER = 4;
+  private volatile java.lang.Object keywords_;
   /**
-   * <code>optional string artical_id = 4;</code>
+   * <pre>
+   * 关键词
+   * </pre>
+   *
+   * <code>optional string keywords = 4;</code>
    */
-  public java.lang.String getArticalId() {
-    java.lang.Object ref = articalId_;
+  public java.lang.String getKeywords() {
+    java.lang.Object ref = keywords_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      articalId_ = s;
+      keywords_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string artical_id = 4;</code>
+   * <pre>
+   * 关键词
+   * </pre>
+   *
+   * <code>optional string keywords = 4;</code>
    */
   public com.google.protobuf.ByteString
-      getArticalIdBytes() {
-    java.lang.Object ref = articalId_;
+      getKeywordsBytes() {
+    java.lang.Object ref = keywords_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      articalId_ = b;
+      keywords_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int STAND_NUM_FIELD_NUMBER = 5;
-  private volatile java.lang.Object standNum_;
+  public static final int AUTHORS_NAME_FIELD_NUMBER = 5;
+  private volatile java.lang.Object authorsName_;
   /**
    * <pre>
-   * 标准编号
+   * 作者
    * </pre>
    *
-   * <code>optional string stand_num = 5;</code>
+   * <code>optional string authors_name = 5;</code>
    */
-  public java.lang.String getStandNum() {
-    java.lang.Object ref = standNum_;
+  public java.lang.String getAuthorsName() {
+    java.lang.Object ref = authorsName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      standNum_ = s;
+      authorsName_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 标准编号
+   * 作者
    * </pre>
    *
-   * <code>optional string stand_num = 5;</code>
+   * <code>optional string authors_name = 5;</code>
    */
   public com.google.protobuf.ByteString
-      getStandNumBytes() {
-    java.lang.Object ref = standNum_;
+      getAuthorsNameBytes() {
+    java.lang.Object ref = authorsName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      standNum_ = b;
+      authorsName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int WORK_LIMIT_FIELD_NUMBER = 6;
-  private volatile java.lang.Object workLimit_;
+  public static final int CITE_NUM_FIELD_NUMBER = 6;
+  private volatile java.lang.Object citeNum_;
   /**
    * <pre>
-   * 限制使用
+   * 被引数
    * </pre>
    *
-   * <code>optional string work_limit = 6;</code>
+   * <code>optional string cite_num = 6;</code>
    */
-  public java.lang.String getWorkLimit() {
-    java.lang.Object ref = workLimit_;
+  public java.lang.String getCiteNum() {
+    java.lang.Object ref = citeNum_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      workLimit_ = s;
+      citeNum_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 限制使用
+   * 被引数
    * </pre>
    *
-   * <code>optional string work_limit = 6;</code>
+   * <code>optional string cite_num = 6;</code>
    */
   public com.google.protobuf.ByteString
-      getWorkLimitBytes() {
-    java.lang.Object ref = workLimit_;
+      getCiteNumBytes() {
+    java.lang.Object ref = citeNum_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      workLimit_ = b;
+      citeNum_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int PUBLISH_PLACE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object publishPlace_;
+  public static final int DOWNLOAD_NUM_FIELD_NUMBER = 7;
+  private volatile java.lang.Object downloadNum_;
   /**
    * <pre>
-   * 出版地
+   * 下载数
    * </pre>
    *
-   * <code>optional string publish_place = 7;</code>
+   * <code>optional string download_num = 7;</code>
    */
-  public java.lang.String getPublishPlace() {
-    java.lang.Object ref = publishPlace_;
+  public java.lang.String getDownloadNum() {
+    java.lang.Object ref = downloadNum_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      publishPlace_ = s;
+      downloadNum_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 出版地
+   * 下载数
    * </pre>
    *
-   * <code>optional string publish_place = 7;</code>
+   * <code>optional string download_num = 7;</code>
    */
   public com.google.protobuf.ByteString
-      getPublishPlaceBytes() {
-    java.lang.Object ref = publishPlace_;
+      getDownloadNumBytes() {
+    java.lang.Object ref = downloadNum_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      publishPlace_ = b;
+      downloadNum_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int SUBJECT_CODE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object subjectCode_;
+  public static final int FULLTEXT_READING_NUM_FIELD_NUMBER = 8;
+  private volatile java.lang.Object fulltextReadingNum_;
   /**
    * <pre>
-   * 中图分类号
+   * 阅读数
    * </pre>
    *
-   * <code>optional string subject_code = 8;</code>
+   * <code>optional string fulltext_reading_num = 8;</code>
    */
-  public java.lang.String getSubjectCode() {
-    java.lang.Object ref = subjectCode_;
+  public java.lang.String getFulltextReadingNum() {
+    java.lang.Object ref = fulltextReadingNum_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      subjectCode_ = s;
+      fulltextReadingNum_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 中图分类号
+   * 阅读数
    * </pre>
    *
-   * <code>optional string subject_code = 8;</code>
+   * <code>optional string fulltext_reading_num = 8;</code>
    */
   public com.google.protobuf.ByteString
-      getSubjectCodeBytes() {
-    java.lang.Object ref = subjectCode_;
+      getFulltextReadingNumBytes() {
+    java.lang.Object ref = fulltextReadingNum_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      subjectCode_ = b;
+      fulltextReadingNum_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int THIRDPARTY_LINKS_NUM_FIELD_NUMBER = 9;
+  private volatile java.lang.Object thirdpartyLinksNum_;
+  /**
+   * <pre>
+   * 第三方链接次数 (可能不存在此字段)
+   * </pre>
+   *
+   * <code>optional string thirdparty_links_num = 9;</code>
+   */
+  public java.lang.String getThirdpartyLinksNum() {
+    java.lang.Object ref = thirdpartyLinksNum_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      thirdpartyLinksNum_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 第三方链接次数 (可能不存在此字段)
+   * </pre>
+   *
+   * <code>optional string thirdparty_links_num = 9;</code>
+   */
+  public com.google.protobuf.ByteString
+      getThirdpartyLinksNumBytes() {
+    java.lang.Object ref = thirdpartyLinksNum_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      thirdpartyLinksNum_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int COLLECT_DETAIL_FIELD_NUMBER = 10;
+  private com.google.protobuf.Any collectDetail_;
+  /**
+   * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+   */
+  public boolean hasCollectDetail() {
+    return collectDetail_ != null;
+  }
+  /**
+   * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+   */
+  public com.google.protobuf.Any getCollectDetail() {
+    return collectDetail_ == null ? com.google.protobuf.Any.getDefaultInstance() : collectDetail_;
+  }
+  /**
+   * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+   */
+  public com.google.protobuf.AnyOrBuilder getCollectDetailOrBuilder() {
+    return getCollectDetail();
+  }
+
+  public static final int DETAIL_TYPE_FIELD_NUMBER = 11;
+  private int detailType_;
+  /**
+   * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+   */
+  public int getDetailTypeValue() {
+    return detailType_;
+  }
+  /**
+   * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+   */
+  public com.wanfang.collect.MyCollectDetailType getDetailType() {
+    com.wanfang.collect.MyCollectDetailType result = com.wanfang.collect.MyCollectDetailType.valueOf(detailType_);
+    return result == null ? com.wanfang.collect.MyCollectDetailType.UNRECOGNIZED : result;
+  }
+
+  public static final int SIMILAR_PAPERS_FIELD_NUMBER = 12;
+  private java.util.List<com.wanfang.collect.MyCollectSimilarPaperMessage> similarPapers_;
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  public java.util.List<com.wanfang.collect.MyCollectSimilarPaperMessage> getSimilarPapersList() {
+    return similarPapers_;
+  }
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  public java.util.List<? extends com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder> 
+      getSimilarPapersOrBuilderList() {
+    return similarPapers_;
+  }
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  public int getSimilarPapersCount() {
+    return similarPapers_.size();
+  }
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  public com.wanfang.collect.MyCollectSimilarPaperMessage getSimilarPapers(int index) {
+    return similarPapers_.get(index);
+  }
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  public com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder getSimilarPapersOrBuilder(
+      int index) {
+    return similarPapers_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -455,20 +618,32 @@ public  final class MyCollectDetailResponse extends
     if (!getSummaryBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, summary_);
     }
-    if (!getArticalIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, articalId_);
+    if (!getKeywordsBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, keywords_);
     }
-    if (!getStandNumBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, standNum_);
+    if (!getAuthorsNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, authorsName_);
     }
-    if (!getWorkLimitBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, workLimit_);
+    if (!getCiteNumBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, citeNum_);
     }
-    if (!getPublishPlaceBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, publishPlace_);
+    if (!getDownloadNumBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, downloadNum_);
     }
-    if (!getSubjectCodeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, subjectCode_);
+    if (!getFulltextReadingNumBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, fulltextReadingNum_);
+    }
+    if (!getThirdpartyLinksNumBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, thirdpartyLinksNum_);
+    }
+    if (collectDetail_ != null) {
+      output.writeMessage(10, getCollectDetail());
+    }
+    if (detailType_ != com.wanfang.collect.MyCollectDetailType.DEGREE_TYPE.getNumber()) {
+      output.writeEnum(11, detailType_);
+    }
+    for (int i = 0; i < similarPapers_.size(); i++) {
+      output.writeMessage(12, similarPapers_.get(i));
     }
   }
 
@@ -487,20 +662,35 @@ public  final class MyCollectDetailResponse extends
     if (!getSummaryBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, summary_);
     }
-    if (!getArticalIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, articalId_);
+    if (!getKeywordsBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, keywords_);
     }
-    if (!getStandNumBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, standNum_);
+    if (!getAuthorsNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, authorsName_);
     }
-    if (!getWorkLimitBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, workLimit_);
+    if (!getCiteNumBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, citeNum_);
     }
-    if (!getPublishPlaceBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, publishPlace_);
+    if (!getDownloadNumBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, downloadNum_);
     }
-    if (!getSubjectCodeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, subjectCode_);
+    if (!getFulltextReadingNumBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, fulltextReadingNum_);
+    }
+    if (!getThirdpartyLinksNumBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, thirdpartyLinksNum_);
+    }
+    if (collectDetail_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getCollectDetail());
+    }
+    if (detailType_ != com.wanfang.collect.MyCollectDetailType.DEGREE_TYPE.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(11, detailType_);
+    }
+    for (int i = 0; i < similarPapers_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, similarPapers_.get(i));
     }
     memoizedSize = size;
     return size;
@@ -527,16 +717,26 @@ public  final class MyCollectDetailResponse extends
         .equals(other.getTitle());
     result = result && getSummary()
         .equals(other.getSummary());
-    result = result && getArticalId()
-        .equals(other.getArticalId());
-    result = result && getStandNum()
-        .equals(other.getStandNum());
-    result = result && getWorkLimit()
-        .equals(other.getWorkLimit());
-    result = result && getPublishPlace()
-        .equals(other.getPublishPlace());
-    result = result && getSubjectCode()
-        .equals(other.getSubjectCode());
+    result = result && getKeywords()
+        .equals(other.getKeywords());
+    result = result && getAuthorsName()
+        .equals(other.getAuthorsName());
+    result = result && getCiteNum()
+        .equals(other.getCiteNum());
+    result = result && getDownloadNum()
+        .equals(other.getDownloadNum());
+    result = result && getFulltextReadingNum()
+        .equals(other.getFulltextReadingNum());
+    result = result && getThirdpartyLinksNum()
+        .equals(other.getThirdpartyLinksNum());
+    result = result && (hasCollectDetail() == other.hasCollectDetail());
+    if (hasCollectDetail()) {
+      result = result && getCollectDetail()
+          .equals(other.getCollectDetail());
+    }
+    result = result && detailType_ == other.detailType_;
+    result = result && getSimilarPapersList()
+        .equals(other.getSimilarPapersList());
     return result;
   }
 
@@ -555,16 +755,28 @@ public  final class MyCollectDetailResponse extends
     hash = (53 * hash) + getTitle().hashCode();
     hash = (37 * hash) + SUMMARY_FIELD_NUMBER;
     hash = (53 * hash) + getSummary().hashCode();
-    hash = (37 * hash) + ARTICAL_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getArticalId().hashCode();
-    hash = (37 * hash) + STAND_NUM_FIELD_NUMBER;
-    hash = (53 * hash) + getStandNum().hashCode();
-    hash = (37 * hash) + WORK_LIMIT_FIELD_NUMBER;
-    hash = (53 * hash) + getWorkLimit().hashCode();
-    hash = (37 * hash) + PUBLISH_PLACE_FIELD_NUMBER;
-    hash = (53 * hash) + getPublishPlace().hashCode();
-    hash = (37 * hash) + SUBJECT_CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getSubjectCode().hashCode();
+    hash = (37 * hash) + KEYWORDS_FIELD_NUMBER;
+    hash = (53 * hash) + getKeywords().hashCode();
+    hash = (37 * hash) + AUTHORS_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getAuthorsName().hashCode();
+    hash = (37 * hash) + CITE_NUM_FIELD_NUMBER;
+    hash = (53 * hash) + getCiteNum().hashCode();
+    hash = (37 * hash) + DOWNLOAD_NUM_FIELD_NUMBER;
+    hash = (53 * hash) + getDownloadNum().hashCode();
+    hash = (37 * hash) + FULLTEXT_READING_NUM_FIELD_NUMBER;
+    hash = (53 * hash) + getFulltextReadingNum().hashCode();
+    hash = (37 * hash) + THIRDPARTY_LINKS_NUM_FIELD_NUMBER;
+    hash = (53 * hash) + getThirdpartyLinksNum().hashCode();
+    if (hasCollectDetail()) {
+      hash = (37 * hash) + COLLECT_DETAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getCollectDetail().hashCode();
+    }
+    hash = (37 * hash) + DETAIL_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + detailType_;
+    if (getSimilarPapersCount() > 0) {
+      hash = (37 * hash) + SIMILAR_PAPERS_FIELD_NUMBER;
+      hash = (53 * hash) + getSimilarPapersList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -679,6 +891,7 @@ public  final class MyCollectDetailResponse extends
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getSimilarPapersFieldBuilder();
       }
     }
     public Builder clear() {
@@ -693,16 +906,32 @@ public  final class MyCollectDetailResponse extends
 
       summary_ = "";
 
-      articalId_ = "";
+      keywords_ = "";
 
-      standNum_ = "";
+      authorsName_ = "";
 
-      workLimit_ = "";
+      citeNum_ = "";
 
-      publishPlace_ = "";
+      downloadNum_ = "";
 
-      subjectCode_ = "";
+      fulltextReadingNum_ = "";
 
+      thirdpartyLinksNum_ = "";
+
+      if (collectDetailBuilder_ == null) {
+        collectDetail_ = null;
+      } else {
+        collectDetail_ = null;
+        collectDetailBuilder_ = null;
+      }
+      detailType_ = 0;
+
+      if (similarPapersBuilder_ == null) {
+        similarPapers_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000800);
+      } else {
+        similarPapersBuilder_.clear();
+      }
       return this;
     }
 
@@ -725,6 +954,8 @@ public  final class MyCollectDetailResponse extends
 
     public com.wanfang.collect.MyCollectDetailResponse buildPartial() {
       com.wanfang.collect.MyCollectDetailResponse result = new com.wanfang.collect.MyCollectDetailResponse(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (errorBuilder_ == null) {
         result.error_ = error_;
       } else {
@@ -732,11 +963,28 @@ public  final class MyCollectDetailResponse extends
       }
       result.title_ = title_;
       result.summary_ = summary_;
-      result.articalId_ = articalId_;
-      result.standNum_ = standNum_;
-      result.workLimit_ = workLimit_;
-      result.publishPlace_ = publishPlace_;
-      result.subjectCode_ = subjectCode_;
+      result.keywords_ = keywords_;
+      result.authorsName_ = authorsName_;
+      result.citeNum_ = citeNum_;
+      result.downloadNum_ = downloadNum_;
+      result.fulltextReadingNum_ = fulltextReadingNum_;
+      result.thirdpartyLinksNum_ = thirdpartyLinksNum_;
+      if (collectDetailBuilder_ == null) {
+        result.collectDetail_ = collectDetail_;
+      } else {
+        result.collectDetail_ = collectDetailBuilder_.build();
+      }
+      result.detailType_ = detailType_;
+      if (similarPapersBuilder_ == null) {
+        if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          similarPapers_ = java.util.Collections.unmodifiableList(similarPapers_);
+          bitField0_ = (bitField0_ & ~0x00000800);
+        }
+        result.similarPapers_ = similarPapers_;
+      } else {
+        result.similarPapers_ = similarPapersBuilder_.build();
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -789,25 +1037,61 @@ public  final class MyCollectDetailResponse extends
         summary_ = other.summary_;
         onChanged();
       }
-      if (!other.getArticalId().isEmpty()) {
-        articalId_ = other.articalId_;
+      if (!other.getKeywords().isEmpty()) {
+        keywords_ = other.keywords_;
         onChanged();
       }
-      if (!other.getStandNum().isEmpty()) {
-        standNum_ = other.standNum_;
+      if (!other.getAuthorsName().isEmpty()) {
+        authorsName_ = other.authorsName_;
         onChanged();
       }
-      if (!other.getWorkLimit().isEmpty()) {
-        workLimit_ = other.workLimit_;
+      if (!other.getCiteNum().isEmpty()) {
+        citeNum_ = other.citeNum_;
         onChanged();
       }
-      if (!other.getPublishPlace().isEmpty()) {
-        publishPlace_ = other.publishPlace_;
+      if (!other.getDownloadNum().isEmpty()) {
+        downloadNum_ = other.downloadNum_;
         onChanged();
       }
-      if (!other.getSubjectCode().isEmpty()) {
-        subjectCode_ = other.subjectCode_;
+      if (!other.getFulltextReadingNum().isEmpty()) {
+        fulltextReadingNum_ = other.fulltextReadingNum_;
         onChanged();
+      }
+      if (!other.getThirdpartyLinksNum().isEmpty()) {
+        thirdpartyLinksNum_ = other.thirdpartyLinksNum_;
+        onChanged();
+      }
+      if (other.hasCollectDetail()) {
+        mergeCollectDetail(other.getCollectDetail());
+      }
+      if (other.detailType_ != 0) {
+        setDetailTypeValue(other.getDetailTypeValue());
+      }
+      if (similarPapersBuilder_ == null) {
+        if (!other.similarPapers_.isEmpty()) {
+          if (similarPapers_.isEmpty()) {
+            similarPapers_ = other.similarPapers_;
+            bitField0_ = (bitField0_ & ~0x00000800);
+          } else {
+            ensureSimilarPapersIsMutable();
+            similarPapers_.addAll(other.similarPapers_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.similarPapers_.isEmpty()) {
+          if (similarPapersBuilder_.isEmpty()) {
+            similarPapersBuilder_.dispose();
+            similarPapersBuilder_ = null;
+            similarPapers_ = other.similarPapers_;
+            bitField0_ = (bitField0_ & ~0x00000800);
+            similarPapersBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSimilarPapersFieldBuilder() : null;
+          } else {
+            similarPapersBuilder_.addAllMessages(other.similarPapers_);
+          }
+        }
       }
       onChanged();
       return this;
@@ -834,6 +1118,7 @@ public  final class MyCollectDetailResponse extends
       }
       return this;
     }
+    private int bitField0_;
 
     private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1130,90 +1415,110 @@ public  final class MyCollectDetailResponse extends
       return this;
     }
 
-    private java.lang.Object articalId_ = "";
+    private java.lang.Object keywords_ = "";
     /**
-     * <code>optional string artical_id = 4;</code>
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keywords = 4;</code>
      */
-    public java.lang.String getArticalId() {
-      java.lang.Object ref = articalId_;
+    public java.lang.String getKeywords() {
+      java.lang.Object ref = keywords_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        articalId_ = s;
+        keywords_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string artical_id = 4;</code>
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keywords = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getArticalIdBytes() {
-      java.lang.Object ref = articalId_;
+        getKeywordsBytes() {
+      java.lang.Object ref = keywords_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        articalId_ = b;
+        keywords_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>optional string artical_id = 4;</code>
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keywords = 4;</code>
      */
-    public Builder setArticalId(
+    public Builder setKeywords(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      articalId_ = value;
+      keywords_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string artical_id = 4;</code>
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keywords = 4;</code>
      */
-    public Builder clearArticalId() {
+    public Builder clearKeywords() {
       
-      articalId_ = getDefaultInstance().getArticalId();
+      keywords_ = getDefaultInstance().getKeywords();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string artical_id = 4;</code>
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keywords = 4;</code>
      */
-    public Builder setArticalIdBytes(
+    public Builder setKeywordsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      articalId_ = value;
+      keywords_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object standNum_ = "";
+    private java.lang.Object authorsName_ = "";
     /**
      * <pre>
-     * 标准编号
+     * 作者
      * </pre>
      *
-     * <code>optional string stand_num = 5;</code>
+     * <code>optional string authors_name = 5;</code>
      */
-    public java.lang.String getStandNum() {
-      java.lang.Object ref = standNum_;
+    public java.lang.String getAuthorsName() {
+      java.lang.Object ref = authorsName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        standNum_ = s;
+        authorsName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1221,19 +1526,19 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 标准编号
+     * 作者
      * </pre>
      *
-     * <code>optional string stand_num = 5;</code>
+     * <code>optional string authors_name = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getStandNumBytes() {
-      java.lang.Object ref = standNum_;
+        getAuthorsNameBytes() {
+      java.lang.Object ref = authorsName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        standNum_ = b;
+        authorsName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1241,68 +1546,68 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 标准编号
+     * 作者
      * </pre>
      *
-     * <code>optional string stand_num = 5;</code>
+     * <code>optional string authors_name = 5;</code>
      */
-    public Builder setStandNum(
+    public Builder setAuthorsName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      standNum_ = value;
+      authorsName_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 标准编号
+     * 作者
      * </pre>
      *
-     * <code>optional string stand_num = 5;</code>
+     * <code>optional string authors_name = 5;</code>
      */
-    public Builder clearStandNum() {
+    public Builder clearAuthorsName() {
       
-      standNum_ = getDefaultInstance().getStandNum();
+      authorsName_ = getDefaultInstance().getAuthorsName();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 标准编号
+     * 作者
      * </pre>
      *
-     * <code>optional string stand_num = 5;</code>
+     * <code>optional string authors_name = 5;</code>
      */
-    public Builder setStandNumBytes(
+    public Builder setAuthorsNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      standNum_ = value;
+      authorsName_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object workLimit_ = "";
+    private java.lang.Object citeNum_ = "";
     /**
      * <pre>
-     * 限制使用
+     * 被引数
      * </pre>
      *
-     * <code>optional string work_limit = 6;</code>
+     * <code>optional string cite_num = 6;</code>
      */
-    public java.lang.String getWorkLimit() {
-      java.lang.Object ref = workLimit_;
+    public java.lang.String getCiteNum() {
+      java.lang.Object ref = citeNum_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        workLimit_ = s;
+        citeNum_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1310,19 +1615,19 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 限制使用
+     * 被引数
      * </pre>
      *
-     * <code>optional string work_limit = 6;</code>
+     * <code>optional string cite_num = 6;</code>
      */
     public com.google.protobuf.ByteString
-        getWorkLimitBytes() {
-      java.lang.Object ref = workLimit_;
+        getCiteNumBytes() {
+      java.lang.Object ref = citeNum_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        workLimit_ = b;
+        citeNum_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1330,68 +1635,68 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 限制使用
+     * 被引数
      * </pre>
      *
-     * <code>optional string work_limit = 6;</code>
+     * <code>optional string cite_num = 6;</code>
      */
-    public Builder setWorkLimit(
+    public Builder setCiteNum(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      workLimit_ = value;
+      citeNum_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 限制使用
+     * 被引数
      * </pre>
      *
-     * <code>optional string work_limit = 6;</code>
+     * <code>optional string cite_num = 6;</code>
      */
-    public Builder clearWorkLimit() {
+    public Builder clearCiteNum() {
       
-      workLimit_ = getDefaultInstance().getWorkLimit();
+      citeNum_ = getDefaultInstance().getCiteNum();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 限制使用
+     * 被引数
      * </pre>
      *
-     * <code>optional string work_limit = 6;</code>
+     * <code>optional string cite_num = 6;</code>
      */
-    public Builder setWorkLimitBytes(
+    public Builder setCiteNumBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      workLimit_ = value;
+      citeNum_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object publishPlace_ = "";
+    private java.lang.Object downloadNum_ = "";
     /**
      * <pre>
-     * 出版地
+     * 下载数
      * </pre>
      *
-     * <code>optional string publish_place = 7;</code>
+     * <code>optional string download_num = 7;</code>
      */
-    public java.lang.String getPublishPlace() {
-      java.lang.Object ref = publishPlace_;
+    public java.lang.String getDownloadNum() {
+      java.lang.Object ref = downloadNum_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        publishPlace_ = s;
+        downloadNum_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1399,19 +1704,19 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 出版地
+     * 下载数
      * </pre>
      *
-     * <code>optional string publish_place = 7;</code>
+     * <code>optional string download_num = 7;</code>
      */
     public com.google.protobuf.ByteString
-        getPublishPlaceBytes() {
-      java.lang.Object ref = publishPlace_;
+        getDownloadNumBytes() {
+      java.lang.Object ref = downloadNum_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        publishPlace_ = b;
+        downloadNum_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1419,68 +1724,68 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 出版地
+     * 下载数
      * </pre>
      *
-     * <code>optional string publish_place = 7;</code>
+     * <code>optional string download_num = 7;</code>
      */
-    public Builder setPublishPlace(
+    public Builder setDownloadNum(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      publishPlace_ = value;
+      downloadNum_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 出版地
+     * 下载数
      * </pre>
      *
-     * <code>optional string publish_place = 7;</code>
+     * <code>optional string download_num = 7;</code>
      */
-    public Builder clearPublishPlace() {
+    public Builder clearDownloadNum() {
       
-      publishPlace_ = getDefaultInstance().getPublishPlace();
+      downloadNum_ = getDefaultInstance().getDownloadNum();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 出版地
+     * 下载数
      * </pre>
      *
-     * <code>optional string publish_place = 7;</code>
+     * <code>optional string download_num = 7;</code>
      */
-    public Builder setPublishPlaceBytes(
+    public Builder setDownloadNumBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      publishPlace_ = value;
+      downloadNum_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object subjectCode_ = "";
+    private java.lang.Object fulltextReadingNum_ = "";
     /**
      * <pre>
-     * 中图分类号
+     * 阅读数
      * </pre>
      *
-     * <code>optional string subject_code = 8;</code>
+     * <code>optional string fulltext_reading_num = 8;</code>
      */
-    public java.lang.String getSubjectCode() {
-      java.lang.Object ref = subjectCode_;
+    public java.lang.String getFulltextReadingNum() {
+      java.lang.Object ref = fulltextReadingNum_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        subjectCode_ = s;
+        fulltextReadingNum_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1488,19 +1793,19 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 中图分类号
+     * 阅读数
      * </pre>
      *
-     * <code>optional string subject_code = 8;</code>
+     * <code>optional string fulltext_reading_num = 8;</code>
      */
     public com.google.protobuf.ByteString
-        getSubjectCodeBytes() {
-      java.lang.Object ref = subjectCode_;
+        getFulltextReadingNumBytes() {
+      java.lang.Object ref = fulltextReadingNum_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        subjectCode_ = b;
+        fulltextReadingNum_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1508,51 +1813,541 @@ public  final class MyCollectDetailResponse extends
     }
     /**
      * <pre>
-     * 中图分类号
+     * 阅读数
      * </pre>
      *
-     * <code>optional string subject_code = 8;</code>
+     * <code>optional string fulltext_reading_num = 8;</code>
      */
-    public Builder setSubjectCode(
+    public Builder setFulltextReadingNum(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      subjectCode_ = value;
+      fulltextReadingNum_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 中图分类号
+     * 阅读数
      * </pre>
      *
-     * <code>optional string subject_code = 8;</code>
+     * <code>optional string fulltext_reading_num = 8;</code>
      */
-    public Builder clearSubjectCode() {
+    public Builder clearFulltextReadingNum() {
       
-      subjectCode_ = getDefaultInstance().getSubjectCode();
+      fulltextReadingNum_ = getDefaultInstance().getFulltextReadingNum();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 中图分类号
+     * 阅读数
      * </pre>
      *
-     * <code>optional string subject_code = 8;</code>
+     * <code>optional string fulltext_reading_num = 8;</code>
      */
-    public Builder setSubjectCodeBytes(
+    public Builder setFulltextReadingNumBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      subjectCode_ = value;
+      fulltextReadingNum_ = value;
       onChanged();
       return this;
+    }
+
+    private java.lang.Object thirdpartyLinksNum_ = "";
+    /**
+     * <pre>
+     * 第三方链接次数 (可能不存在此字段)
+     * </pre>
+     *
+     * <code>optional string thirdparty_links_num = 9;</code>
+     */
+    public java.lang.String getThirdpartyLinksNum() {
+      java.lang.Object ref = thirdpartyLinksNum_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        thirdpartyLinksNum_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 第三方链接次数 (可能不存在此字段)
+     * </pre>
+     *
+     * <code>optional string thirdparty_links_num = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getThirdpartyLinksNumBytes() {
+      java.lang.Object ref = thirdpartyLinksNum_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        thirdpartyLinksNum_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 第三方链接次数 (可能不存在此字段)
+     * </pre>
+     *
+     * <code>optional string thirdparty_links_num = 9;</code>
+     */
+    public Builder setThirdpartyLinksNum(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      thirdpartyLinksNum_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 第三方链接次数 (可能不存在此字段)
+     * </pre>
+     *
+     * <code>optional string thirdparty_links_num = 9;</code>
+     */
+    public Builder clearThirdpartyLinksNum() {
+      
+      thirdpartyLinksNum_ = getDefaultInstance().getThirdpartyLinksNum();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 第三方链接次数 (可能不存在此字段)
+     * </pre>
+     *
+     * <code>optional string thirdparty_links_num = 9;</code>
+     */
+    public Builder setThirdpartyLinksNumBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      thirdpartyLinksNum_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Any collectDetail_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> collectDetailBuilder_;
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public boolean hasCollectDetail() {
+      return collectDetailBuilder_ != null || collectDetail_ != null;
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public com.google.protobuf.Any getCollectDetail() {
+      if (collectDetailBuilder_ == null) {
+        return collectDetail_ == null ? com.google.protobuf.Any.getDefaultInstance() : collectDetail_;
+      } else {
+        return collectDetailBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public Builder setCollectDetail(com.google.protobuf.Any value) {
+      if (collectDetailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        collectDetail_ = value;
+        onChanged();
+      } else {
+        collectDetailBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public Builder setCollectDetail(
+        com.google.protobuf.Any.Builder builderForValue) {
+      if (collectDetailBuilder_ == null) {
+        collectDetail_ = builderForValue.build();
+        onChanged();
+      } else {
+        collectDetailBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public Builder mergeCollectDetail(com.google.protobuf.Any value) {
+      if (collectDetailBuilder_ == null) {
+        if (collectDetail_ != null) {
+          collectDetail_ =
+            com.google.protobuf.Any.newBuilder(collectDetail_).mergeFrom(value).buildPartial();
+        } else {
+          collectDetail_ = value;
+        }
+        onChanged();
+      } else {
+        collectDetailBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public Builder clearCollectDetail() {
+      if (collectDetailBuilder_ == null) {
+        collectDetail_ = null;
+        onChanged();
+      } else {
+        collectDetail_ = null;
+        collectDetailBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public com.google.protobuf.Any.Builder getCollectDetailBuilder() {
+      
+      onChanged();
+      return getCollectDetailFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    public com.google.protobuf.AnyOrBuilder getCollectDetailOrBuilder() {
+      if (collectDetailBuilder_ != null) {
+        return collectDetailBuilder_.getMessageOrBuilder();
+      } else {
+        return collectDetail_ == null ?
+            com.google.protobuf.Any.getDefaultInstance() : collectDetail_;
+      }
+    }
+    /**
+     * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+        getCollectDetailFieldBuilder() {
+      if (collectDetailBuilder_ == null) {
+        collectDetailBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                getCollectDetail(),
+                getParentForChildren(),
+                isClean());
+        collectDetail_ = null;
+      }
+      return collectDetailBuilder_;
+    }
+
+    private int detailType_ = 0;
+    /**
+     * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+     */
+    public int getDetailTypeValue() {
+      return detailType_;
+    }
+    /**
+     * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+     */
+    public Builder setDetailTypeValue(int value) {
+      detailType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+     */
+    public com.wanfang.collect.MyCollectDetailType getDetailType() {
+      com.wanfang.collect.MyCollectDetailType result = com.wanfang.collect.MyCollectDetailType.valueOf(detailType_);
+      return result == null ? com.wanfang.collect.MyCollectDetailType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+     */
+    public Builder setDetailType(com.wanfang.collect.MyCollectDetailType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      detailType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+     */
+    public Builder clearDetailType() {
+      
+      detailType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.wanfang.collect.MyCollectSimilarPaperMessage> similarPapers_ =
+      java.util.Collections.emptyList();
+    private void ensureSimilarPapersIsMutable() {
+      if (!((bitField0_ & 0x00000800) == 0x00000800)) {
+        similarPapers_ = new java.util.ArrayList<com.wanfang.collect.MyCollectSimilarPaperMessage>(similarPapers_);
+        bitField0_ |= 0x00000800;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.wanfang.collect.MyCollectSimilarPaperMessage, com.wanfang.collect.MyCollectSimilarPaperMessage.Builder, com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder> similarPapersBuilder_;
+
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public java.util.List<com.wanfang.collect.MyCollectSimilarPaperMessage> getSimilarPapersList() {
+      if (similarPapersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(similarPapers_);
+      } else {
+        return similarPapersBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public int getSimilarPapersCount() {
+      if (similarPapersBuilder_ == null) {
+        return similarPapers_.size();
+      } else {
+        return similarPapersBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public com.wanfang.collect.MyCollectSimilarPaperMessage getSimilarPapers(int index) {
+      if (similarPapersBuilder_ == null) {
+        return similarPapers_.get(index);
+      } else {
+        return similarPapersBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder setSimilarPapers(
+        int index, com.wanfang.collect.MyCollectSimilarPaperMessage value) {
+      if (similarPapersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSimilarPapersIsMutable();
+        similarPapers_.set(index, value);
+        onChanged();
+      } else {
+        similarPapersBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder setSimilarPapers(
+        int index, com.wanfang.collect.MyCollectSimilarPaperMessage.Builder builderForValue) {
+      if (similarPapersBuilder_ == null) {
+        ensureSimilarPapersIsMutable();
+        similarPapers_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        similarPapersBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder addSimilarPapers(com.wanfang.collect.MyCollectSimilarPaperMessage value) {
+      if (similarPapersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSimilarPapersIsMutable();
+        similarPapers_.add(value);
+        onChanged();
+      } else {
+        similarPapersBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder addSimilarPapers(
+        int index, com.wanfang.collect.MyCollectSimilarPaperMessage value) {
+      if (similarPapersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSimilarPapersIsMutable();
+        similarPapers_.add(index, value);
+        onChanged();
+      } else {
+        similarPapersBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder addSimilarPapers(
+        com.wanfang.collect.MyCollectSimilarPaperMessage.Builder builderForValue) {
+      if (similarPapersBuilder_ == null) {
+        ensureSimilarPapersIsMutable();
+        similarPapers_.add(builderForValue.build());
+        onChanged();
+      } else {
+        similarPapersBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder addSimilarPapers(
+        int index, com.wanfang.collect.MyCollectSimilarPaperMessage.Builder builderForValue) {
+      if (similarPapersBuilder_ == null) {
+        ensureSimilarPapersIsMutable();
+        similarPapers_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        similarPapersBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder addAllSimilarPapers(
+        java.lang.Iterable<? extends com.wanfang.collect.MyCollectSimilarPaperMessage> values) {
+      if (similarPapersBuilder_ == null) {
+        ensureSimilarPapersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, similarPapers_);
+        onChanged();
+      } else {
+        similarPapersBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder clearSimilarPapers() {
+      if (similarPapersBuilder_ == null) {
+        similarPapers_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+      } else {
+        similarPapersBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public Builder removeSimilarPapers(int index) {
+      if (similarPapersBuilder_ == null) {
+        ensureSimilarPapersIsMutable();
+        similarPapers_.remove(index);
+        onChanged();
+      } else {
+        similarPapersBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public com.wanfang.collect.MyCollectSimilarPaperMessage.Builder getSimilarPapersBuilder(
+        int index) {
+      return getSimilarPapersFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder getSimilarPapersOrBuilder(
+        int index) {
+      if (similarPapersBuilder_ == null) {
+        return similarPapers_.get(index);  } else {
+        return similarPapersBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public java.util.List<? extends com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder> 
+         getSimilarPapersOrBuilderList() {
+      if (similarPapersBuilder_ != null) {
+        return similarPapersBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(similarPapers_);
+      }
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public com.wanfang.collect.MyCollectSimilarPaperMessage.Builder addSimilarPapersBuilder() {
+      return getSimilarPapersFieldBuilder().addBuilder(
+          com.wanfang.collect.MyCollectSimilarPaperMessage.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public com.wanfang.collect.MyCollectSimilarPaperMessage.Builder addSimilarPapersBuilder(
+        int index) {
+      return getSimilarPapersFieldBuilder().addBuilder(
+          index, com.wanfang.collect.MyCollectSimilarPaperMessage.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+     */
+    public java.util.List<com.wanfang.collect.MyCollectSimilarPaperMessage.Builder> 
+         getSimilarPapersBuilderList() {
+      return getSimilarPapersFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.wanfang.collect.MyCollectSimilarPaperMessage, com.wanfang.collect.MyCollectSimilarPaperMessage.Builder, com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder> 
+        getSimilarPapersFieldBuilder() {
+      if (similarPapersBuilder_ == null) {
+        similarPapersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.wanfang.collect.MyCollectSimilarPaperMessage, com.wanfang.collect.MyCollectSimilarPaperMessage.Builder, com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder>(
+                similarPapers_,
+                ((bitField0_ & 0x00000800) == 0x00000800),
+                getParentForChildren(),
+                isClean());
+        similarPapers_ = null;
+      }
+      return similarPapersBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

@@ -22,5 +22,11 @@ public interface PreferencesHelper {
 
     String getUserId();
 
+    String getLoginToken();
+
+    String getUserAvatar();
+
+    String getUserName();
+
 
 }

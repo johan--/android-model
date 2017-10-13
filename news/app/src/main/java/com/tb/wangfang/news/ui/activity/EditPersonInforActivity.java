@@ -211,7 +211,8 @@ public class EditPersonInforActivity extends SimpleActivity {
                 String interestSubject = myInfoResponse.getInterestSubject().getInterestSubject();
                 String infoEmail = myInfoResponse.getEmail().getEmail();
                 if (!TextUtils.isEmpty(avatarUrl)) {
-                    Glide.with(EditPersonInforActivity.this).load(avatarUrl).into(ivUserIcon);
+                    Glide.with(EditPersonInforActivity.this).load(avatarUrl)
+                            .transform(new GlideCircleTransform(EditPersonInforActivity.this)).into(ivUserIcon);
                 }
                 if (!TextUtils.isEmpty(nickName)) {
                     etNickname.setText(nickName);
@@ -241,10 +242,10 @@ public class EditPersonInforActivity extends SimpleActivity {
                     etGraduateSchool.setText(graduatedSchool);
                 }
                 if (!TextUtils.isEmpty(award)) {
-                    tvReward.setText(award);
+                    etReward.setText(award);
                 }
                 if (!TextUtils.isEmpty(subject)) {
-                    tvSubject.setText(subject);
+                    etSubject.setText(subject);
                 }
                 if (!TextUtils.isEmpty(interestSubject)) {
                     etInterest.setText(interestSubject);
@@ -496,7 +497,6 @@ public class EditPersonInforActivity extends SimpleActivity {
             public void subscribe(SingleEmitter<MyInfoUpdateResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
                 Any any = null;
-
                 InfoBirthday infoBirthday = InfoBirthday.newBuilder().setBirthday(s).build();
                 any = Any.pack(infoBirthday);
                 MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();

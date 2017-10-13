@@ -15,7 +15,6 @@ public  final class SubjectMessage extends
     super(builder);
   }
   private SubjectMessage() {
-    subjectTitle_ = "";
     subSubject_ = java.util.Collections.emptyList();
     hasSubSubject_ = false;
   }
@@ -46,9 +45,16 @@ public  final class SubjectMessage extends
             break;
           }
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.wanfang.personal.SubjectFieldMap.Builder subBuilder = null;
+            if (subjectField_ != null) {
+              subBuilder = subjectField_.toBuilder();
+            }
+            subjectField_ = input.readMessage(com.wanfang.personal.SubjectFieldMap.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(subjectField_);
+              subjectField_ = subBuilder.buildPartial();
+            }
 
-            subjectTitle_ = s;
             break;
           }
           case 18: {
@@ -92,46 +98,37 @@ public  final class SubjectMessage extends
   }
 
   private int bitField0_;
-  public static final int SUBJECT_TITLE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object subjectTitle_;
+  public static final int SUBJECT_FIELD_FIELD_NUMBER = 1;
+  private com.wanfang.personal.SubjectFieldMap subjectField_;
   /**
    * <pre>
    * 学科标题
    * </pre>
    *
-   * <code>optional string subject_title = 1;</code>
+   * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
    */
-  public java.lang.String getSubjectTitle() {
-    java.lang.Object ref = subjectTitle_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      subjectTitle_ = s;
-      return s;
-    }
+  public boolean hasSubjectField() {
+    return subjectField_ != null;
   }
   /**
    * <pre>
    * 学科标题
    * </pre>
    *
-   * <code>optional string subject_title = 1;</code>
+   * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
    */
-  public com.google.protobuf.ByteString
-      getSubjectTitleBytes() {
-    java.lang.Object ref = subjectTitle_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      subjectTitle_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.wanfang.personal.SubjectFieldMap getSubjectField() {
+    return subjectField_ == null ? com.wanfang.personal.SubjectFieldMap.getDefaultInstance() : subjectField_;
+  }
+  /**
+   * <pre>
+   * 学科标题
+   * </pre>
+   *
+   * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+   */
+  public com.wanfang.personal.SubjectFieldMapOrBuilder getSubjectFieldOrBuilder() {
+    return getSubjectField();
   }
 
   public static final int SUB_SUBJECT_FIELD_NUMBER = 2;
@@ -210,8 +207,8 @@ public  final class SubjectMessage extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getSubjectTitleBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, subjectTitle_);
+    if (subjectField_ != null) {
+      output.writeMessage(1, getSubjectField());
     }
     for (int i = 0; i < subSubject_.size(); i++) {
       output.writeMessage(2, subSubject_.get(i));
@@ -226,8 +223,9 @@ public  final class SubjectMessage extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getSubjectTitleBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, subjectTitle_);
+    if (subjectField_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getSubjectField());
     }
     for (int i = 0; i < subSubject_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -253,8 +251,11 @@ public  final class SubjectMessage extends
     com.wanfang.personal.SubjectMessage other = (com.wanfang.personal.SubjectMessage) obj;
 
     boolean result = true;
-    result = result && getSubjectTitle()
-        .equals(other.getSubjectTitle());
+    result = result && (hasSubjectField() == other.hasSubjectField());
+    if (hasSubjectField()) {
+      result = result && getSubjectField()
+          .equals(other.getSubjectField());
+    }
     result = result && getSubSubjectList()
         .equals(other.getSubSubjectList());
     result = result && (getHasSubSubject()
@@ -269,8 +270,10 @@ public  final class SubjectMessage extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + SUBJECT_TITLE_FIELD_NUMBER;
-    hash = (53 * hash) + getSubjectTitle().hashCode();
+    if (hasSubjectField()) {
+      hash = (37 * hash) + SUBJECT_FIELD_FIELD_NUMBER;
+      hash = (53 * hash) + getSubjectField().hashCode();
+    }
     if (getSubSubjectCount() > 0) {
       hash = (37 * hash) + SUB_SUBJECT_FIELD_NUMBER;
       hash = (53 * hash) + getSubSubjectList().hashCode();
@@ -397,8 +400,12 @@ public  final class SubjectMessage extends
     }
     public Builder clear() {
       super.clear();
-      subjectTitle_ = "";
-
+      if (subjectFieldBuilder_ == null) {
+        subjectField_ = null;
+      } else {
+        subjectField_ = null;
+        subjectFieldBuilder_ = null;
+      }
       if (subSubjectBuilder_ == null) {
         subSubject_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -431,7 +438,11 @@ public  final class SubjectMessage extends
       com.wanfang.personal.SubjectMessage result = new com.wanfang.personal.SubjectMessage(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      result.subjectTitle_ = subjectTitle_;
+      if (subjectFieldBuilder_ == null) {
+        result.subjectField_ = subjectField_;
+      } else {
+        result.subjectField_ = subjectFieldBuilder_.build();
+      }
       if (subSubjectBuilder_ == null) {
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           subSubject_ = java.util.Collections.unmodifiableList(subSubject_);
@@ -484,9 +495,8 @@ public  final class SubjectMessage extends
 
     public Builder mergeFrom(com.wanfang.personal.SubjectMessage other) {
       if (other == com.wanfang.personal.SubjectMessage.getDefaultInstance()) return this;
-      if (!other.getSubjectTitle().isEmpty()) {
-        subjectTitle_ = other.subjectTitle_;
-        onChanged();
+      if (other.hasSubjectField()) {
+        mergeSubjectField(other.getSubjectField());
       }
       if (subSubjectBuilder_ == null) {
         if (!other.subSubject_.isEmpty()) {
@@ -544,24 +554,31 @@ public  final class SubjectMessage extends
     }
     private int bitField0_;
 
-    private java.lang.Object subjectTitle_ = "";
+    private com.wanfang.personal.SubjectFieldMap subjectField_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.personal.SubjectFieldMap, com.wanfang.personal.SubjectFieldMap.Builder, com.wanfang.personal.SubjectFieldMapOrBuilder> subjectFieldBuilder_;
     /**
      * <pre>
      * 学科标题
      * </pre>
      *
-     * <code>optional string subject_title = 1;</code>
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
      */
-    public java.lang.String getSubjectTitle() {
-      java.lang.Object ref = subjectTitle_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        subjectTitle_ = s;
-        return s;
+    public boolean hasSubjectField() {
+      return subjectFieldBuilder_ != null || subjectField_ != null;
+    }
+    /**
+     * <pre>
+     * 学科标题
+     * </pre>
+     *
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+     */
+    public com.wanfang.personal.SubjectFieldMap getSubjectField() {
+      if (subjectFieldBuilder_ == null) {
+        return subjectField_ == null ? com.wanfang.personal.SubjectFieldMap.getDefaultInstance() : subjectField_;
       } else {
-        return (java.lang.String) ref;
+        return subjectFieldBuilder_.getMessage();
       }
     }
     /**
@@ -569,19 +586,104 @@ public  final class SubjectMessage extends
      * 学科标题
      * </pre>
      *
-     * <code>optional string subject_title = 1;</code>
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getSubjectTitleBytes() {
-      java.lang.Object ref = subjectTitle_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        subjectTitle_ = b;
-        return b;
+    public Builder setSubjectField(com.wanfang.personal.SubjectFieldMap value) {
+      if (subjectFieldBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        subjectField_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        subjectFieldBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 学科标题
+     * </pre>
+     *
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+     */
+    public Builder setSubjectField(
+        com.wanfang.personal.SubjectFieldMap.Builder builderForValue) {
+      if (subjectFieldBuilder_ == null) {
+        subjectField_ = builderForValue.build();
+        onChanged();
+      } else {
+        subjectFieldBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 学科标题
+     * </pre>
+     *
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+     */
+    public Builder mergeSubjectField(com.wanfang.personal.SubjectFieldMap value) {
+      if (subjectFieldBuilder_ == null) {
+        if (subjectField_ != null) {
+          subjectField_ =
+            com.wanfang.personal.SubjectFieldMap.newBuilder(subjectField_).mergeFrom(value).buildPartial();
+        } else {
+          subjectField_ = value;
+        }
+        onChanged();
+      } else {
+        subjectFieldBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 学科标题
+     * </pre>
+     *
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+     */
+    public Builder clearSubjectField() {
+      if (subjectFieldBuilder_ == null) {
+        subjectField_ = null;
+        onChanged();
+      } else {
+        subjectField_ = null;
+        subjectFieldBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 学科标题
+     * </pre>
+     *
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+     */
+    public com.wanfang.personal.SubjectFieldMap.Builder getSubjectFieldBuilder() {
+      
+      onChanged();
+      return getSubjectFieldFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 学科标题
+     * </pre>
+     *
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+     */
+    public com.wanfang.personal.SubjectFieldMapOrBuilder getSubjectFieldOrBuilder() {
+      if (subjectFieldBuilder_ != null) {
+        return subjectFieldBuilder_.getMessageOrBuilder();
+      } else {
+        return subjectField_ == null ?
+            com.wanfang.personal.SubjectFieldMap.getDefaultInstance() : subjectField_;
       }
     }
     /**
@@ -589,48 +691,20 @@ public  final class SubjectMessage extends
      * 学科标题
      * </pre>
      *
-     * <code>optional string subject_title = 1;</code>
+     * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
      */
-    public Builder setSubjectTitle(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      subjectTitle_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 学科标题
-     * </pre>
-     *
-     * <code>optional string subject_title = 1;</code>
-     */
-    public Builder clearSubjectTitle() {
-      
-      subjectTitle_ = getDefaultInstance().getSubjectTitle();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 学科标题
-     * </pre>
-     *
-     * <code>optional string subject_title = 1;</code>
-     */
-    public Builder setSubjectTitleBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      subjectTitle_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.personal.SubjectFieldMap, com.wanfang.personal.SubjectFieldMap.Builder, com.wanfang.personal.SubjectFieldMapOrBuilder> 
+        getSubjectFieldFieldBuilder() {
+      if (subjectFieldBuilder_ == null) {
+        subjectFieldBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.personal.SubjectFieldMap, com.wanfang.personal.SubjectFieldMap.Builder, com.wanfang.personal.SubjectFieldMapOrBuilder>(
+                getSubjectField(),
+                getParentForChildren(),
+                isClean());
+        subjectField_ = null;
+      }
+      return subjectFieldBuilder_;
     }
 
     private java.util.List<com.wanfang.personal.SubjectMessage> subSubject_ =

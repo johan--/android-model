@@ -61,6 +61,7 @@ class MyInfoRequest;
 class MyInfoResponse;
 class MyInfoUpdateRequest;
 class MyInfoUpdateResponse;
+class SubjectFieldMap;
 class SubjectListRequest;
 class SubjectListResponse;
 class SubjectMessage;
@@ -649,6 +650,109 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<SubjectListResponse> 
 
 // -------------------------------------------------------------------
 
+class SubjectFieldMap : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SubjectFieldMap) */ {
+ public:
+  SubjectFieldMap();
+  virtual ~SubjectFieldMap();
+
+  SubjectFieldMap(const SubjectFieldMap& from);
+
+  inline SubjectFieldMap& operator=(const SubjectFieldMap& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SubjectFieldMap& default_instance();
+
+  static const SubjectFieldMap* internal_default_instance();
+
+  void Swap(SubjectFieldMap* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SubjectFieldMap* New() const { return New(NULL); }
+
+  SubjectFieldMap* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SubjectFieldMap& from);
+  void MergeFrom(const SubjectFieldMap& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(SubjectFieldMap* other);
+  void UnsafeMergeFrom(const SubjectFieldMap& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string value = 2;
+  void clear_value();
+  static const int kValueFieldNumber = 2;
+  const ::std::string& value() const;
+  void set_value(const ::std::string& value);
+  void set_value(const char* value);
+  void set_value(const char* value, size_t size);
+  ::std::string* mutable_value();
+  ::std::string* release_value();
+  void set_allocated_value(::std::string* value);
+
+  // @@protoc_insertion_point(class_scope:personal.SubjectFieldMap)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr value_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<SubjectFieldMap> SubjectFieldMap_default_instance_;
+
+// -------------------------------------------------------------------
+
 class SubjectMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.SubjectMessage) */ {
  public:
   SubjectMessage();
@@ -712,16 +816,14 @@ class SubjectMessage : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // optional string subject_title = 1;
-  void clear_subject_title();
-  static const int kSubjectTitleFieldNumber = 1;
-  const ::std::string& subject_title() const;
-  void set_subject_title(const ::std::string& value);
-  void set_subject_title(const char* value);
-  void set_subject_title(const char* value, size_t size);
-  ::std::string* mutable_subject_title();
-  ::std::string* release_subject_title();
-  void set_allocated_subject_title(::std::string* subject_title);
+  // optional .personal.SubjectFieldMap subject_field = 1;
+  bool has_subject_field() const;
+  void clear_subject_field();
+  static const int kSubjectFieldFieldNumber = 1;
+  const ::personal::SubjectFieldMap& subject_field() const;
+  ::personal::SubjectFieldMap* mutable_subject_field();
+  ::personal::SubjectFieldMap* release_subject_field();
+  void set_allocated_subject_field(::personal::SubjectFieldMap* subject_field);
 
   // repeated .personal.SubjectMessage sub_subject = 2;
   int sub_subject_size() const;
@@ -746,7 +848,7 @@ class SubjectMessage : public ::google::protobuf::Message /* @@protoc_insertion_
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::personal::SubjectMessage > sub_subject_;
-  ::google::protobuf::internal::ArenaStringPtr subject_title_;
+  ::personal::SubjectFieldMap* subject_field_;
   bool has_sub_subject_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
@@ -2873,50 +2975,140 @@ inline const SubjectListResponse* SubjectListResponse::internal_default_instance
 }
 // -------------------------------------------------------------------
 
-// SubjectMessage
+// SubjectFieldMap
 
-// optional string subject_title = 1;
-inline void SubjectMessage::clear_subject_title() {
-  subject_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string key = 1;
+inline void SubjectFieldMap::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& SubjectMessage::subject_title() const {
-  // @@protoc_insertion_point(field_get:personal.SubjectMessage.subject_title)
-  return subject_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& SubjectFieldMap::key() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectFieldMap.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SubjectMessage::set_subject_title(const ::std::string& value) {
+inline void SubjectFieldMap::set_key(const ::std::string& value) {
   
-  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.SubjectMessage.subject_title)
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.SubjectFieldMap.key)
 }
-inline void SubjectMessage::set_subject_title(const char* value) {
+inline void SubjectFieldMap::set_key(const char* value) {
   
-  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.SubjectMessage.subject_title)
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.SubjectFieldMap.key)
 }
-inline void SubjectMessage::set_subject_title(const char* value, size_t size) {
+inline void SubjectFieldMap::set_key(const char* value, size_t size) {
   
-  subject_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.SubjectMessage.subject_title)
+  // @@protoc_insertion_point(field_set_pointer:personal.SubjectFieldMap.key)
 }
-inline ::std::string* SubjectMessage::mutable_subject_title() {
+inline ::std::string* SubjectFieldMap::mutable_key() {
   
-  // @@protoc_insertion_point(field_mutable:personal.SubjectMessage.subject_title)
-  return subject_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:personal.SubjectFieldMap.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* SubjectMessage::release_subject_title() {
-  // @@protoc_insertion_point(field_release:personal.SubjectMessage.subject_title)
+inline ::std::string* SubjectFieldMap::release_key() {
+  // @@protoc_insertion_point(field_release:personal.SubjectFieldMap.key)
   
-  return subject_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SubjectMessage::set_allocated_subject_title(::std::string* subject_title) {
-  if (subject_title != NULL) {
+inline void SubjectFieldMap::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
     
   } else {
     
   }
-  subject_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject_title);
-  // @@protoc_insertion_point(field_set_allocated:personal.SubjectMessage.subject_title)
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectFieldMap.key)
+}
+
+// optional string value = 2;
+inline void SubjectFieldMap::clear_value() {
+  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubjectFieldMap::value() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectFieldMap.value)
+  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubjectFieldMap::set_value(const ::std::string& value) {
+  
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.SubjectFieldMap.value)
+}
+inline void SubjectFieldMap::set_value(const char* value) {
+  
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.SubjectFieldMap.value)
+}
+inline void SubjectFieldMap::set_value(const char* value, size_t size) {
+  
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.SubjectFieldMap.value)
+}
+inline ::std::string* SubjectFieldMap::mutable_value() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.SubjectFieldMap.value)
+  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubjectFieldMap::release_value() {
+  // @@protoc_insertion_point(field_release:personal.SubjectFieldMap.value)
+  
+  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubjectFieldMap::set_allocated_value(::std::string* value) {
+  if (value != NULL) {
+    
+  } else {
+    
+  }
+  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectFieldMap.value)
+}
+
+inline const SubjectFieldMap* SubjectFieldMap::internal_default_instance() {
+  return &SubjectFieldMap_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// SubjectMessage
+
+// optional .personal.SubjectFieldMap subject_field = 1;
+inline bool SubjectMessage::has_subject_field() const {
+  return this != internal_default_instance() && subject_field_ != NULL;
+}
+inline void SubjectMessage::clear_subject_field() {
+  if (GetArenaNoVirtual() == NULL && subject_field_ != NULL) delete subject_field_;
+  subject_field_ = NULL;
+}
+inline const ::personal::SubjectFieldMap& SubjectMessage::subject_field() const {
+  // @@protoc_insertion_point(field_get:personal.SubjectMessage.subject_field)
+  return subject_field_ != NULL ? *subject_field_
+                         : *::personal::SubjectFieldMap::internal_default_instance();
+}
+inline ::personal::SubjectFieldMap* SubjectMessage::mutable_subject_field() {
+  
+  if (subject_field_ == NULL) {
+    subject_field_ = new ::personal::SubjectFieldMap;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.SubjectMessage.subject_field)
+  return subject_field_;
+}
+inline ::personal::SubjectFieldMap* SubjectMessage::release_subject_field() {
+  // @@protoc_insertion_point(field_release:personal.SubjectMessage.subject_field)
+  
+  ::personal::SubjectFieldMap* temp = subject_field_;
+  subject_field_ = NULL;
+  return temp;
+}
+inline void SubjectMessage::set_allocated_subject_field(::personal::SubjectFieldMap* subject_field) {
+  delete subject_field_;
+  subject_field_ = subject_field;
+  if (subject_field) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.SubjectMessage.subject_field)
 }
 
 // repeated .personal.SubjectMessage sub_subject = 2;
@@ -4451,6 +4643,8 @@ inline const InfoAvatar* InfoAvatar::internal_default_instance() {
   return &InfoAvatar_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

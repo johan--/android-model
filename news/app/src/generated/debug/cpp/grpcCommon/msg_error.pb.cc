@@ -123,12 +123,13 @@ void protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto_impl() {
     "rpcCommon.ErrorMessage\"j\n\014ErrorMessage\022)"
     "\n\nerror_code\030\001 \001(\0162\025.grpcCommon.ErrorCod"
     "e\022\024\n\014error_reason\030\002 \001(\t\022\031\n\021error_descrip"
-    "tion\030\003 \001(\t*\256\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000"
+    "tion\030\003 \001(\t*\311\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000"
     "\022\r\n\tNO_REGIST\020\001\022\016\n\nUSER_EXIST\020\002\022\016\n\nNEED_"
     "FIELD\020\003\022\027\n\023UNKNOWN_FILELD_TYPE\020\004\022\017\n\013RESU"
     "LT_NULL\020\005\022\020\n\014COMMON_ERROR\020\006\022\021\n\rUSER_IS_L"
-    "OGIN\020\007\022\023\n\017IAP_PRICE_ERROR\020\010B\030\n\026com.wanfa"
-    "ng.grpcCommonb\006proto3", 421);
+    "OGIN\020\007\022\023\n\017IAP_PRICE_ERROR\020\010\022\031\n\025IAP_CREAT"
+    "EORDER_ERROR\020\tB\030\n\026com.wanfang.grpcCommon"
+    "b\006proto3", 448);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "grpcCommon/msg_error.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_grpcCommon_2fmsg_5ferror_2eproto);
@@ -160,6 +161,7 @@ bool ErrorCode_IsValid(int value) {
     case 6:
     case 7:
     case 8:
+    case 9:
       return true;
     default:
       return false;

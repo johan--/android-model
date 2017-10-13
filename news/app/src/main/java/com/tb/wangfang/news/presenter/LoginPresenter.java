@@ -19,8 +19,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * Created by tangbin on 2017/8/3.
  */
@@ -28,6 +26,7 @@ import static android.content.ContentValues.TAG;
 public class LoginPresenter extends RxPresenter<LoginContract.View> implements LoginContract.Presenter {
     private ManagedChannel managedChannel;
     private ImplPreferencesHelper preferencesHelps;
+    private String TAG = "loginActivity";
 
     @Inject
     public LoginPresenter(ManagedChannel managedChannel, ImplPreferencesHelper preferencesHelps) {

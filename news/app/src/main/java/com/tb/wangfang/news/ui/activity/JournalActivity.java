@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
@@ -28,16 +31,10 @@ public class JournalActivity extends SimpleActivity {
     TextView tvJournalName;
     @BindView(R.id.tv_label)
     TextView tvLabel;
-    @BindView(R.id.tv_chinese_name)
-    TextView tvChineseName;
-    @BindView(R.id.tv_en_name)
-    TextView tvEnName;
     @BindView(R.id.tv_national_num)
     TextView tvNationalNum;
     @BindView(R.id.tv_china_num)
     TextView tvChinaNum;
-    @BindView(R.id.tv_edit_aprtment)
-    TextView tvEditAprtment;
     @BindView(R.id.tv_sign_six)
     TextView tvSignSix;
     @BindView(R.id.tv_period)
@@ -46,8 +43,11 @@ public class JournalActivity extends SimpleActivity {
     TabLayout tlTime;
     @BindView(R.id.vp_period)
     ViewPager vpPeriod;
+    @BindView(R.id.tv_more)
+    TextView tvMore;
     JournalPeriodFragment[] yearFragment;
     String[] mTabTitle;
+    private MaterialDialog dialog;
 
     @Override
     protected int getLayout() {
@@ -79,7 +79,7 @@ public class JournalActivity extends SimpleActivity {
 
     }
 
-    @OnClick({R.id.tv_return, R.id.tv_order, R.id.tv_share})
+    @OnClick({R.id.tv_return, R.id.tv_order, R.id.tv_share, R.id.tv_more})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
@@ -88,6 +88,21 @@ public class JournalActivity extends SimpleActivity {
             case R.id.tv_order:
                 break;
             case R.id.tv_share:
+                break;
+            case R.id.tv_more:
+                dialog = new MaterialDialog.Builder(this)
+                        .customView(R.layout.journal_article_dialog, true)
+                        .positiveText("关闭")
+
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                        @Override
+                                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                            dialog.dismiss();
+                                        }
+                                    }
+                        )
+                        .build();
+                dialog.show();
                 break;
         }
     }

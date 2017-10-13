@@ -7,6 +7,7 @@ import com.tb.wangfang.news.di.scope.ActivityScope;
 import com.tb.wangfang.news.ui.activity.DocDetailActivity;
 import com.tb.wangfang.news.ui.activity.EditNackNameActivity;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
+import com.tb.wangfang.news.ui.activity.EditRewardActivity;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MainActivity;
@@ -54,5 +55,7 @@ public interface ActivityComponent {
     void inject(EditPersonInforActivity editPersonInforActivity);
 
     void inject(EditNackNameActivity editNackNameActivity);
+
+    void inject(EditRewardActivity editRewardActivity);
 
 }
