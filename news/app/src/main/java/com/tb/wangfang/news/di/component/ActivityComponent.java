@@ -12,6 +12,7 @@ import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MainActivity;
 import com.tb.wangfang.news.ui.activity.MainDetailActivity;
+import com.tb.wangfang.news.ui.activity.MessageActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.PayOrderActivity;
@@ -57,5 +58,7 @@ public interface ActivityComponent {
     void inject(EditNackNameActivity editNackNameActivity);
 
     void inject(EditRewardActivity editRewardActivity);
+
+    void inject(MessageActivity messageActivity);
 
 }

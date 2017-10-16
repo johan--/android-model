@@ -9,8 +9,13 @@ import com.wanfang.personal.LoginRequest;
 import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 
+import java.io.File;
+
 import javax.inject.Inject;
 
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.model.UserInfo;
+import cn.jpush.im.api.BasicCallback;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -54,14 +59,49 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             @Override
             public void onSuccess(LoginResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
+                JMessageLogin(response);
                 preferencesHelps.storeLoginInfo(response);
-                mView.loginSuccess(response);
+
             }
+
 
             @Override
             public void onError(Throwable e) {
                 mView.loginSuccess(null);
 
+            }
+        });
+    }
+
+    private void JMessageLogin(final LoginResponse response) {
+
+//        JMessageClient.updateUserAvatar(new File(uri.getPath()), new BasicCallback() {
+//            @Override
+//            public void gotResult(int responseCode, String responseMessage) {
+//                jiguang.chat.utils.dialog.LoadDialog.dismiss(context);
+//                if (responseCode == 0) {
+//                    ToastUtil.shortToast(mContext, "更新成功");
+//                }else {
+//                    ToastUtil.shortToast(mContext, "更新失败" + responseMessage);
+//                }
+//            }
+//        });
+        JMessageClient.login(response.getUserId(), "123456", new BasicCallback() {
+            @Override
+            public void gotResult(int responseCode, String responseMessage) {
+                if (responseCode == 0) {
+                    UserInfo myInfo = JMessageClient.getMyInfo();
+                    File avatarFile = myInfo.getAvatarFile();
+                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
+                    if (avatarFile != null) {
+                        preferencesHelps.setUserAvatar(avatarFile.getAbsolutePath());
+                    } else {
+                        preferencesHelps.setUserAvatar(null);
+                    }
+                    mView.loginSuccess(response);
+                } else {
+                    mView.loginSuccess(null);
+                }
             }
         });
     }

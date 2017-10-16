@@ -8,8 +8,8 @@ option java_package = "com.wanfang.search";
 option objc_class_prefix = "WFPR";
 
 service SearchService {
-    // 获取热搜词
-    rpc HotThemes (HotThemesRequest) returns (HotThemesResponse);
-    // 获取搜索历史
-    rpc SearchHistory (SearchHistoryRequest) returns (SearchHistoryResponse);
+     // 获取热搜词
+     rpc HotThemes (HotThemesRequest) returns (HotThemesResponse);
+     // 获取搜索历史
+     rpc SearchHistory (SearchHistoryRequest) returns (SearchHistoryResponse);
 }

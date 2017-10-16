@@ -11,8 +11,8 @@ import com.tb.wangfang.news.base.contract.FourthContract;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.presenter.FourthPresenter;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
-import com.tb.wangfang.news.ui.activity.HelpActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
+import com.tb.wangfang.news.ui.activity.MessageActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.SettingActivity;
@@ -94,7 +94,8 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
                 startActivity(intent3);
                 break;
             case R.id.rl_help:
-                Intent intent4 = new Intent(getActivity(), HelpActivity.class);
+//                Intent intent4 = new Intent(getActivity(), HelpActivity.class);
+                Intent intent4 = new Intent(getActivity(), MessageActivity.class);
                 startActivity(intent4);
                 break;
             case R.id.rl_setting:

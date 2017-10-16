@@ -127,13 +127,13 @@ public class DocDetailActivity extends SimpleActivity {
                 Any any = myCollectDetailResponse.getCollectDetail();
                 try {
                     MyCollectPerioMessage myCollectPerioMessage = any.unpack(MyCollectPerioMessage.class);
-                    TextView tvKeyWord = (TextView) viewStub.findViewById(R.id.tv_title);
-                    TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_content);
-                    TextView tvMetting = (TextView) viewStub.findViewById(R.id.tv_author);
-                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_unit);
-                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_key_word);
-                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_magazine);
-                    TextView tvMettingSite = (TextView) viewStub.findViewById(R.id.tv_time);
+                    TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+                    TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+                    TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
+                    TextView tvUnit = (TextView) viewStub.findViewById(R.id.tv_unit);
+                    TextView tvKeyWord = (TextView) viewStub.findViewById(R.id.tv_key_word);
+                    TextView tvMagazine = (TextView) viewStub.findViewById(R.id.tv_magazine);
+                    TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
 
                 } catch (InvalidProtocolBufferException e) {
                     e.printStackTrace();

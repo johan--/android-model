@@ -20,18 +20,17 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--小米推送 -->
+    <!-- 小米推送 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <permission
         android:name="com.tb.wangfang.news.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature" />
-    <!--这里com.xiaomi.mipushdemo改成app的包名-->
+    <!-- 这里com.xiaomi.mipushdemo改成app的包名 -->
     <uses-permission android:name="com.tb.wangfang.news.permission.MIPUSH_RECEIVE" />
-    <!--这里com.xiaomi.mipushdemo改成app的包名-->
 
-
+    <!-- 这里com.xiaomi.mipushdemo改成app的包名 -->
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -39,18 +38,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:replace="android:icon, android:theme"
-        android:theme="@style/AppTheme.NoActionBar">
-        <!-- 华为push-->
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:replace="android:icon, android:theme">
+
+        <!-- 华为push -->
         <meta-data
             android:name="com.huawei.hms.client.appid"
-            android:value="100102237"></meta-data>
+            android:value="100102237" />
+
         <provider
             android:name="com.huawei.hms.update.provider.UpdateProvider"
             android:authorities="com.tb.wangfang.news.hms.update.provider"
             android:exported="false"
-            android:grantUriPermissions="true"></provider>
-
+            android:grantUriPermissions="true" />
 
         <activity
             android:name="com.huawei.hms.activity.BridgeActivity"
@@ -64,8 +64,9 @@
                 android:value="androidhwext:style/Theme.Emui.Translucent" />
         </activity>
         <!-- xxx.xx.xx为CP自定义的广播名称，比如: com.huawei.hmssample. HuaweiPushRevicer -->
-        <receiver android:name="com.tb.wangfang.news.Receiver.HuaweiPushRevicer" >
+        <receiver android:name=".Receiver.HuaweiPushRevicer">
             <intent-filter>
+
                 <!-- 必须,用于接收TOKEN -->
                 <action android:name="com.huawei.android.push.intent.REGISTRATION" />
                 <!-- 必须，用于接收消息 -->
@@ -76,14 +77,14 @@
                 <action android:name="com.huawei.intent.action.PUSH_STATE" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver" >
+        <receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver">
             <intent-filter>
+
                 <!-- 接收通道发来的通知栏消息，兼容老版本PUSH -->
                 <action android:name="com.huawei.intent.action.PUSH" />
             </intent-filter>
         </receiver>
-        <!-- -->
+        <!--  -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.tb.wangfang.news.fileProvider"
@@ -184,14 +185,14 @@
         <activity android:name=".ui.activity.EditNackNameActivity" />
         <activity android:name=".ui.activity.PersonEditListActivity" />
         <activity android:name=".ui.activity.EditRewardActivity" />
-        <activity android:name=".ui.activity.MainDetailActivity"></activity>
+        <activity android:name=".ui.activity.MainDetailActivity" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-        <!--微信支付 -->
+        <!-- 微信支付 -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
-        <!--小米推送-->
+        <!-- 小米推送 -->
         <service
             android:name="com.xiaomi.push.service.XMPushService"
             android:enabled="true"
@@ -202,7 +203,7 @@
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:process=":pushservice" />
-        <!--注：此service必须在3.0.1版本以后（包括3.0.1版本）加入-->
+        <!-- 注：此service必须在3.0.1版本以后（包括3.0.1版本）加入 -->
         <service
             android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
             android:enabled="true"
@@ -210,12 +211,13 @@
         <service
             android:name="com.xiaomi.mipush.sdk.MessageHandleService"
             android:enabled="true" />
-        <!--注：此service必须在2.2.5版本以后（包括2.2.5版本）加入-->
+        <!-- 注：此service必须在2.2.5版本以后（包括2.2.5版本）加入 -->
         <receiver
             android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
@@ -227,11 +229,11 @@
                 <action android:name="com.xiaomi.push.PING_TIMER" />
             </intent-filter>
         </receiver>
-
         <receiver
-            android:name="com.tb.wangfang.news.Receiver.XiaomiMessageReceiver"
+            android:name=".Receiver.XiaomiMessageReceiver"
             android:exported="true">
-            <!--这里com.xiaomi.mipushdemo.DemoMessageRreceiver改成app中定义的完整类名-->
+
+            <!-- 这里com.xiaomi.mipushdemo.DemoMessageRreceiver改成app中定义的完整类名 -->
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
             </intent-filter>
@@ -242,6 +244,8 @@
                 <action android:name="com.xiaomi.mipush.ERROR" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ui.activity.MessageActivity"></activity>
     </application>
 
 </manifest>

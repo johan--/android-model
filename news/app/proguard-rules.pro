@@ -65,7 +65,7 @@
 -keepattributes Signature
 -keepattributes SourceFile,LineNumberTable
 -keep class com.huawei.hms.**{*;}
-# 极光推送
+# 极光推送&IM
 -dontoptimize
 -dontpreverify
 
@@ -75,3 +75,17 @@
 
 -dontwarn cn.jiguang.**
 -keep class cn.jiguang.** { *; }
+
+-dontoptimize
+-dontpreverify
+-keepattributes  EnclosingMethod,Signature
+
+ -keepclassmembers class ** {
+     public void onEvent*(**);
+ }
+#========================gson================================
+-dontwarn com.google.**
+-keep class com.google.gson.** {*;}
+
+#========================protobuf================================
+-keep class com.google.protobuf.** {*;}

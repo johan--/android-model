@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
+import cn.jpush.im.android.api.JMessageClient;
 
 
 /**
@@ -99,6 +100,8 @@ public class App extends Application {
             JPushInterface.setDebugMode(true);
             JPushInterface.init(this);
         }
+        JMessageClient.setDebugMode(true);
+        JMessageClient.init(this);
     }
 
     protected void attachBaseContext(Context base) {

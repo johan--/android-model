@@ -28,5 +28,7 @@ public interface PreferencesHelper {
 
     String getUserName();
 
+    void setUserAvatar(String url);
+
 
 }

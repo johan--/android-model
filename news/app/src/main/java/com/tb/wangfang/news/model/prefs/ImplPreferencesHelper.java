@@ -76,4 +76,9 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     public String getUserName() {
         return mSPrefs.getString(Constants.USER_NAME, "");
     }
+
+    @Override
+    public void setUserAvatar(String url) {
+        mSPrefs.edit().putString(Constants.USER_AVATAR, url).apply();
+    }
 }
