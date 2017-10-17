@@ -11,9 +11,11 @@ import com.tb.wangfang.news.base.contract.FourthContract;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.presenter.FourthPresenter;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
+import com.tb.wangfang.news.ui.activity.HelpActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MessageActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
+import com.tb.wangfang.news.ui.activity.MySubscribeActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.SettingActivity;
 
@@ -74,7 +76,7 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
     }
 
 
-    @OnClick({R.id.tv_edit_personnal, R.id.tv_register, R.id.rl_mycollect, R.id.rl_myorder, R.id.rl_help, R.id.rl_setting})
+    @OnClick({R.id.tv_edit_personnal, R.id.tv_register, R.id.rl_mycollect, R.id.rl_myorder, R.id.rl_help, R.id.rl_setting, R.id.rl_my_subscibe, R.id.rl_message_center})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_edit_personnal:
@@ -94,13 +96,21 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
                 startActivity(intent3);
                 break;
             case R.id.rl_help:
-//                Intent intent4 = new Intent(getActivity(), HelpActivity.class);
-                Intent intent4 = new Intent(getActivity(), MessageActivity.class);
+                Intent intent4 = new Intent(getActivity(), HelpActivity.class);
+
                 startActivity(intent4);
                 break;
             case R.id.rl_setting:
                 Intent intent1 = new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.rl_my_subscibe:
+                Intent intent6 = new Intent(getActivity(), MySubscribeActivity.class);
+                startActivity(intent6);
+                break;
+            case R.id.rl_message_center:
+                Intent intent7 = new Intent(getActivity(), MessageActivity.class);
+                startActivity(intent7);
                 break;
         }
     }

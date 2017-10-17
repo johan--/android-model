@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.fragment.MyJournalFragment">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#dfdfdf" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4.5dp"
+        android:background="@color/divide" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_journal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

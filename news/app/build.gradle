@@ -141,8 +141,6 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Core-3.0.2.jar')
     compile files('libs/ShareSDK-Wechat-Favorite-3.0.2.jar')
     compile files('libs/ShareSDK-Wechat-Moments-3.0.2.jar')
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'io.grpc:grpc-okhttp:1.4.0'
     compile files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
     // 此处以JPush 3.0.9 版本为例。
     // 此处以JCore 1.1.7 版本为例。
@@ -153,6 +151,8 @@ dependencies {
     compile project(':lib')
     compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'

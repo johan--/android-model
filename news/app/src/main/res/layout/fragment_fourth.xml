@@ -63,17 +63,16 @@
                 android:layout_height="wrap_content"
                 android:text="查看或编辑个人主页"
                 android:textColor="#666"
-                android:textSize="12sp"
-               />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:textSize="12sp"
                 android:background="@mipmap/register_button"
-                android:textColor="#417dc9" />
+                android:textColor="#417dc9"
+                android:textSize="12sp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -101,6 +100,40 @@
             android:drawablePadding="16dp"
             android:gravity="center_vertical"
             android:text="我的收藏"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="16dp"
+            android:src="@mipmap/step_arrow_icon" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <RelativeLayout
+        android:id="@+id/rl_my_subscibe"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@mipmap/my_collect_icon"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:text="我的订阅"
             android:textColor="#333"
             android:textSize="14sp" />
 
@@ -154,6 +187,41 @@
         android:background="@color/divide">
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_message_center"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:drawableLeft="@mipmap/help_icon"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:text="消息中心"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="16dp"
+            android:src="@mipmap/step_arrow_icon" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
 
     <RelativeLayout
         android:id="@+id/rl_help"

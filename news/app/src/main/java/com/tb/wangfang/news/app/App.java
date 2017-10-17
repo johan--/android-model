@@ -101,7 +101,7 @@ public class App extends Application {
             JPushInterface.init(this);
         }
         JMessageClient.setDebugMode(true);
-        JMessageClient.init(this);
+        JMessageClient.init(this,true);
     }
 
     protected void attachBaseContext(Context base) {

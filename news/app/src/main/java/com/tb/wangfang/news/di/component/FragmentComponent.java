@@ -9,6 +9,7 @@ import com.tb.wangfang.news.ui.fragment.HotFragment;
 import com.tb.wangfang.news.ui.fragment.OtherFragment;
 import com.tb.wangfang.news.ui.fragment.QuickSeeFragment;
 import com.tb.wangfang.news.ui.fragment.SecondFragment;
+import com.tb.wangfang.news.ui.fragment.SubscribeKeyFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
 
 import dagger.Component;
@@ -36,7 +37,7 @@ public interface FragmentComponent {
 
     void inject(OtherFragment otherFragment);
 
-
+    void inject(SubscribeKeyFragment subscribeKeyFragment);
 
 
 }
