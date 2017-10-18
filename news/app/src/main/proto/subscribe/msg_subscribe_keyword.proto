@@ -64,10 +64,11 @@ message SubscribeKeywordListResponse {
 
 
 message SubscribeKeywordMessage {
-    string user_id = 1;
-    string subscribe_id = 2;
-    string docu_type = 3;
-    string add_time = 4;
+    string user_id = 1; // 关键词订阅用户
+    string subscribe_id = 2; // 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+    string docu_type = 3; // 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+    string add_time = 4; // 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+    string keyword = 5; // 关键词
 }
 
 message DocType {

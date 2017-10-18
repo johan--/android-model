@@ -209,4 +209,76 @@ public interface MyCollectDetailResponseOrBuilder extends
    */
   com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder getSimilarPapersOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 开始阅读相关
+   * </pre>
+   *
+   * <code>optional string resource_id = 13;</code>
+   */
+  java.lang.String getResourceId();
+  /**
+   * <pre>
+   * 开始阅读相关
+   * </pre>
+   *
+   * <code>optional string resource_id = 13;</code>
+   */
+  com.google.protobuf.ByteString
+      getResourceIdBytes();
+
+  /**
+   * <pre>
+   * source_db
+   * </pre>
+   *
+   * <code>optional string resource_db = 14;</code>
+   */
+  java.lang.String getResourceDb();
+  /**
+   * <pre>
+   * source_db
+   * </pre>
+   *
+   * <code>optional string resource_db = 14;</code>
+   */
+  com.google.protobuf.ByteString
+      getResourceDbBytes();
+
+  /**
+   * <pre>
+   * language
+   * </pre>
+   *
+   * <code>optional string language = 15;</code>
+   */
+  java.lang.String getLanguage();
+  /**
+   * <pre>
+   * language
+   * </pre>
+   *
+   * <code>optional string language = 15;</code>
+   */
+  com.google.protobuf.ByteString
+      getLanguageBytes();
+
+  /**
+   * <pre>
+   * resourceType
+   * </pre>
+   *
+   * <code>optional string class_type = 16;</code>
+   */
+  java.lang.String getClassType();
+  /**
+   * <pre>
+   * resourceType
+   * </pre>
+   *
+   * <code>optional string class_type = 16;</code>
+   */
+  com.google.protobuf.ByteString
+      getClassTypeBytes();
 }

@@ -63,10 +63,45 @@ public interface BindExistAccountRequestOrBuilder extends
 
   /**
    * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  java.lang.String getDeviceId();
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getDeviceIdBytes();
+
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  int getDeviceTypeValue();
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  com.wanfang.personal.LoginDeviceType getDeviceType();
+
+  /**
+   * <pre>
    * 第三方登录类型
    * </pre>
    *
-   * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+   * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
    */
   int getThirdPartyTypeValue();
   /**
@@ -74,7 +109,7 @@ public interface BindExistAccountRequestOrBuilder extends
    * 第三方登录类型
    * </pre>
    *
-   * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+   * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
    */
   com.wanfang.personal.ThirdPartyType getThirdPartyType();
 }

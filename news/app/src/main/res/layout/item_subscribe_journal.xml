@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_conver"
+        android:layout_width="75dp"
+        android:layout_height="105dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_meun" />
+
+    <TextView
+        android:id="@+id/tv_journal_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/iv_conver"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="《电子技术与软件工程》"
+        android:textColor="@color/black_text"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_journal_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_journal_name"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="12.5dp"
+        android:layout_toRightOf="@id/iv_conver"
+        android:text="半月刊"
+        android:textColor="#999"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/tv_journal_type"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:layout_below="@id/tv_journal_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12.5dp"
+        android:layout_toRightOf="@id/tv_journal_period"
+        android:background="@mipmap/pku_icon" />
+
+    <TextView
+        android:id="@+id/tv_hold_unit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_journal_period"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="12.5dp"
+        android:layout_toRightOf="@id/iv_conver"
+        android:lines="1"
+        android:text="主办单位 : 中国电子学会"
+        android:textColor="#999"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_hold_unit"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="12.5dp"
+        android:layout_toRightOf="@id/iv_conver"
+        android:lines="1"
+        android:text="2017年第15期"
+        android:textColor="#999"
+        android:textSize="12sp" />
+</RelativeLayout>

@@ -6,6 +6,7 @@ import com.tb.wangfang.news.di.scope.FragmentScope;
 import com.tb.wangfang.news.ui.fragment.FirstFragment;
 import com.tb.wangfang.news.ui.fragment.FourthFragment;
 import com.tb.wangfang.news.ui.fragment.HotFragment;
+import com.tb.wangfang.news.ui.fragment.MyJournalFragment;
 import com.tb.wangfang.news.ui.fragment.OtherFragment;
 import com.tb.wangfang.news.ui.fragment.QuickSeeFragment;
 import com.tb.wangfang.news.ui.fragment.SecondFragment;
@@ -38,6 +39,8 @@ public interface FragmentComponent {
     void inject(OtherFragment otherFragment);
 
     void inject(SubscribeKeyFragment subscribeKeyFragment);
+
+    void inject(MyJournalFragment myJournalFragment);
 
 
 }

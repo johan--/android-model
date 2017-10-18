@@ -221,11 +221,12 @@ void protobuf_AssignDesc_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto() {
       sizeof(SubscribeKeywordListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeKeywordListResponse, _internal_metadata_));
   SubscribeKeywordMessage_descriptor_ = file->message_type(10);
-  static const int SubscribeKeywordMessage_offsets_[4] = {
+  static const int SubscribeKeywordMessage_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeKeywordMessage, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeKeywordMessage, subscribe_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeKeywordMessage, docu_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeKeywordMessage, add_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeKeywordMessage, keyword_),
   };
   SubscribeKeywordMessage_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -413,13 +414,13 @@ void protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto_impl() {
     "stResponse\022=\n\021subscribe_keyword\030\001 \003(\0132\"."
     "subscribe.SubscribeKeywordMessage\022\020\n\010has"
     "_more\030\002 \001(\010\022$\n\005error\030\003 \001(\0132\025.grpcCommon."
-    "GrpcError\"e\n\027SubscribeKeywordMessage\022\017\n\007"
+    "GrpcError\"v\n\027SubscribeKeywordMessage\022\017\n\007"
     "user_id\030\001 \001(\t\022\024\n\014subscribe_id\030\002 \001(\t\022\021\n\td"
-    "ocu_type\030\003 \001(\t\022\020\n\010add_time\030\004 \001(\t\"+\n\007DocT"
-    "ype\022\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030\002 \001(\t\".\n"
-    "\nSourceType\022\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030"
-    "\002 \001(\tB \n\025com.wanfang.subscribeP\001\242\002\004WFPRb"
-    "\006proto3", 1207);
+    "ocu_type\030\003 \001(\t\022\020\n\010add_time\030\004 \001(\t\022\017\n\007keyw"
+    "ord\030\005 \001(\t\"+\n\007DocType\022\017\n\007ch_name\030\001 \001(\t\022\017\n"
+    "\007en_name\030\002 \001(\t\".\n\nSourceType\022\017\n\007ch_name\030"
+    "\001 \001(\t\022\017\n\007en_name\030\002 \001(\tB \n\025com.wanfang.su"
+    "bscribeP\001\242\002\004WFPRb\006proto3", 1224);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "subscribe/msg_subscribe_keyword.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -3853,6 +3854,7 @@ const int SubscribeKeywordMessage::kUserIdFieldNumber;
 const int SubscribeKeywordMessage::kSubscribeIdFieldNumber;
 const int SubscribeKeywordMessage::kDocuTypeFieldNumber;
 const int SubscribeKeywordMessage::kAddTimeFieldNumber;
+const int SubscribeKeywordMessage::kKeywordFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SubscribeKeywordMessage::SubscribeKeywordMessage()
@@ -3878,6 +3880,7 @@ void SubscribeKeywordMessage::SharedCtor() {
   subscribe_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   docu_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   add_time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  keyword_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -3891,6 +3894,7 @@ void SubscribeKeywordMessage::SharedDtor() {
   subscribe_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   docu_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   add_time_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  keyword_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void SubscribeKeywordMessage::SetCachedSize(int size) const {
@@ -3924,6 +3928,7 @@ void SubscribeKeywordMessage::Clear() {
   subscribe_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   docu_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   add_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  keyword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool SubscribeKeywordMessage::MergePartialFromCodedStream(
@@ -3999,6 +4004,23 @@ bool SubscribeKeywordMessage::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_keyword;
+        break;
+      }
+
+      // optional string keyword = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_keyword:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_keyword()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->keyword().data(), this->keyword().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "subscribe.SubscribeKeywordMessage.keyword"));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -4067,6 +4089,16 @@ void SubscribeKeywordMessage::SerializeWithCachedSizes(
       4, this->add_time(), output);
   }
 
+  // optional string keyword = 5;
+  if (this->keyword().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->keyword().data(), this->keyword().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeKeywordMessage.keyword");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->keyword(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:subscribe.SubscribeKeywordMessage)
 }
 
@@ -4118,6 +4150,17 @@ void SubscribeKeywordMessage::SerializeWithCachedSizes(
         4, this->add_time(), target);
   }
 
+  // optional string keyword = 5;
+  if (this->keyword().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->keyword().data(), this->keyword().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeKeywordMessage.keyword");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->keyword(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:subscribe.SubscribeKeywordMessage)
   return target;
 }
@@ -4152,6 +4195,13 @@ size_t SubscribeKeywordMessage::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->add_time());
+  }
+
+  // optional string keyword = 5;
+  if (this->keyword().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->keyword());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -4203,6 +4253,10 @@ void SubscribeKeywordMessage::UnsafeMergeFrom(const SubscribeKeywordMessage& fro
 
     add_time_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.add_time_);
   }
+  if (from.keyword().size() > 0) {
+
+    keyword_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.keyword_);
+  }
 }
 
 void SubscribeKeywordMessage::CopyFrom(const ::google::protobuf::Message& from) {
@@ -4233,6 +4287,7 @@ void SubscribeKeywordMessage::InternalSwap(SubscribeKeywordMessage* other) {
   subscribe_id_.Swap(&other->subscribe_id_);
   docu_type_.Swap(&other->docu_type_);
   add_time_.Swap(&other->add_time_);
+  keyword_.Swap(&other->keyword_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4422,6 +4477,50 @@ void SubscribeKeywordMessage::set_allocated_add_time(::std::string* add_time) {
   }
   add_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), add_time);
   // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeKeywordMessage.add_time)
+}
+
+// optional string keyword = 5;
+void SubscribeKeywordMessage::clear_keyword() {
+  keyword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& SubscribeKeywordMessage::keyword() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeKeywordMessage.keyword)
+  return keyword_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeKeywordMessage::set_keyword(const ::std::string& value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeKeywordMessage.keyword)
+}
+void SubscribeKeywordMessage::set_keyword(const char* value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeKeywordMessage.keyword)
+}
+void SubscribeKeywordMessage::set_keyword(const char* value, size_t size) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeKeywordMessage.keyword)
+}
+::std::string* SubscribeKeywordMessage::mutable_keyword() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeKeywordMessage.keyword)
+  return keyword_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SubscribeKeywordMessage::release_keyword() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeKeywordMessage.keyword)
+  
+  return keyword_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeKeywordMessage::set_allocated_keyword(::std::string* keyword) {
+  if (keyword != NULL) {
+    
+  } else {
+    
+  }
+  keyword_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), keyword);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeKeywordMessage.keyword)
 }
 
 inline const SubscribeKeywordMessage* SubscribeKeywordMessage::internal_default_instance() {

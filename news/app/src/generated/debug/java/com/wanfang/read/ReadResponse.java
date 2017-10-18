@@ -17,8 +17,10 @@ public  final class ReadResponse extends
   private ReadResponse() {
     price_ = "";
     title_ = "";
-    description_ = "";
+    displayInfo_ = "";
     safeTransactionString_ = "";
+    alreadyBuy_ = false;
+    readUrl_ = "";
     hasTradePower_ = false;
   }
 
@@ -62,7 +64,7 @@ public  final class ReadResponse extends
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            description_ = s;
+            displayInfo_ = s;
             break;
           }
           case 34: {
@@ -73,10 +75,21 @@ public  final class ReadResponse extends
           }
           case 40: {
 
-            hasTradePower_ = input.readBool();
+            alreadyBuy_ = input.readBool();
             break;
           }
           case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            readUrl_ = s;
+            break;
+          }
+          case 56: {
+
+            hasTradePower_ = input.readBool();
+            break;
+          }
+          case 66: {
             com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
             if (error_ != null) {
               subBuilder = error_.toBuilder();
@@ -180,34 +193,42 @@ public  final class ReadResponse extends
     }
   }
 
-  public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  public static final int DISPLAY_INFO_FIELD_NUMBER = 3;
+  private volatile java.lang.Object displayInfo_;
   /**
-   * <code>optional string description = 3;</code>
+   * <pre>
+   * 描述信息
+   * </pre>
+   *
+   * <code>optional string display_info = 3;</code>
    */
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
+  public java.lang.String getDisplayInfo() {
+    java.lang.Object ref = displayInfo_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      description_ = s;
+      displayInfo_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string description = 3;</code>
+   * <pre>
+   * 描述信息
+   * </pre>
+   *
+   * <code>optional string display_info = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getDescriptionBytes() {
-    java.lang.Object ref = description_;
+      getDisplayInfoBytes() {
+    java.lang.Object ref = displayInfo_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      description_ = b;
+      displayInfo_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -256,35 +277,90 @@ public  final class ReadResponse extends
     }
   }
 
-  public static final int HAS_TRADE_POWER_FIELD_NUMBER = 5;
+  public static final int ALREADY_BUY_FIELD_NUMBER = 5;
+  private boolean alreadyBuy_;
+  /**
+   * <pre>
+   * 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
+   * </pre>
+   *
+   * <code>optional bool already_buy = 5;</code>
+   */
+  public boolean getAlreadyBuy() {
+    return alreadyBuy_;
+  }
+
+  public static final int READ_URL_FIELD_NUMBER = 6;
+  private volatile java.lang.Object readUrl_;
+  /**
+   * <pre>
+   * 阅读地址
+   * </pre>
+   *
+   * <code>optional string read_url = 6;</code>
+   */
+  public java.lang.String getReadUrl() {
+    java.lang.Object ref = readUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      readUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 阅读地址
+   * </pre>
+   *
+   * <code>optional string read_url = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getReadUrlBytes() {
+    java.lang.Object ref = readUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      readUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int HAS_TRADE_POWER_FIELD_NUMBER = 7;
   private boolean hasTradePower_;
   /**
    * <pre>
-   * 是否可以支付
+   * 是否可以支付 先判断
    * </pre>
    *
-   * <code>optional bool has_trade_power = 5;</code>
+   * <code>optional bool has_trade_power = 7;</code>
    */
   public boolean getHasTradePower() {
     return hasTradePower_;
   }
 
-  public static final int ERROR_FIELD_NUMBER = 6;
+  public static final int ERROR_FIELD_NUMBER = 8;
   private com.wanfang.grpcCommon.MsgError.GrpcError error_;
   /**
-   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
    */
   public boolean hasError() {
     return error_ != null;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
     return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
     return getError();
@@ -308,17 +384,23 @@ public  final class ReadResponse extends
     if (!getTitleBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
     }
-    if (!getDescriptionBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+    if (!getDisplayInfoBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayInfo_);
     }
     if (!getSafeTransactionStringBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, safeTransactionString_);
     }
+    if (alreadyBuy_ != false) {
+      output.writeBool(5, alreadyBuy_);
+    }
+    if (!getReadUrlBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, readUrl_);
+    }
     if (hasTradePower_ != false) {
-      output.writeBool(5, hasTradePower_);
+      output.writeBool(7, hasTradePower_);
     }
     if (error_ != null) {
-      output.writeMessage(6, getError());
+      output.writeMessage(8, getError());
     }
   }
 
@@ -333,19 +415,26 @@ public  final class ReadResponse extends
     if (!getTitleBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
     }
-    if (!getDescriptionBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+    if (!getDisplayInfoBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, displayInfo_);
     }
     if (!getSafeTransactionStringBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, safeTransactionString_);
     }
+    if (alreadyBuy_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, alreadyBuy_);
+    }
+    if (!getReadUrlBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, readUrl_);
+    }
     if (hasTradePower_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, hasTradePower_);
+        .computeBoolSize(7, hasTradePower_);
     }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getError());
+        .computeMessageSize(8, getError());
     }
     memoizedSize = size;
     return size;
@@ -367,10 +456,14 @@ public  final class ReadResponse extends
         .equals(other.getPrice());
     result = result && getTitle()
         .equals(other.getTitle());
-    result = result && getDescription()
-        .equals(other.getDescription());
+    result = result && getDisplayInfo()
+        .equals(other.getDisplayInfo());
     result = result && getSafeTransactionString()
         .equals(other.getSafeTransactionString());
+    result = result && (getAlreadyBuy()
+        == other.getAlreadyBuy());
+    result = result && getReadUrl()
+        .equals(other.getReadUrl());
     result = result && (getHasTradePower()
         == other.getHasTradePower());
     result = result && (hasError() == other.hasError());
@@ -392,10 +485,15 @@ public  final class ReadResponse extends
     hash = (53 * hash) + getPrice().hashCode();
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
-    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-    hash = (53 * hash) + getDescription().hashCode();
+    hash = (37 * hash) + DISPLAY_INFO_FIELD_NUMBER;
+    hash = (53 * hash) + getDisplayInfo().hashCode();
     hash = (37 * hash) + SAFE_TRANSACTION_STRING_FIELD_NUMBER;
     hash = (53 * hash) + getSafeTransactionString().hashCode();
+    hash = (37 * hash) + ALREADY_BUY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getAlreadyBuy());
+    hash = (37 * hash) + READ_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getReadUrl().hashCode();
     hash = (37 * hash) + HAS_TRADE_POWER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHasTradePower());
@@ -525,9 +623,13 @@ public  final class ReadResponse extends
 
       title_ = "";
 
-      description_ = "";
+      displayInfo_ = "";
 
       safeTransactionString_ = "";
+
+      alreadyBuy_ = false;
+
+      readUrl_ = "";
 
       hasTradePower_ = false;
 
@@ -561,8 +663,10 @@ public  final class ReadResponse extends
       com.wanfang.read.ReadResponse result = new com.wanfang.read.ReadResponse(this);
       result.price_ = price_;
       result.title_ = title_;
-      result.description_ = description_;
+      result.displayInfo_ = displayInfo_;
       result.safeTransactionString_ = safeTransactionString_;
+      result.alreadyBuy_ = alreadyBuy_;
+      result.readUrl_ = readUrl_;
       result.hasTradePower_ = hasTradePower_;
       if (errorBuilder_ == null) {
         result.error_ = error_;
@@ -618,12 +722,19 @@ public  final class ReadResponse extends
         title_ = other.title_;
         onChanged();
       }
-      if (!other.getDescription().isEmpty()) {
-        description_ = other.description_;
+      if (!other.getDisplayInfo().isEmpty()) {
+        displayInfo_ = other.displayInfo_;
         onChanged();
       }
       if (!other.getSafeTransactionString().isEmpty()) {
         safeTransactionString_ = other.safeTransactionString_;
+        onChanged();
+      }
+      if (other.getAlreadyBuy() != false) {
+        setAlreadyBuy(other.getAlreadyBuy());
+      }
+      if (!other.getReadUrl().isEmpty()) {
+        readUrl_ = other.readUrl_;
         onChanged();
       }
       if (other.getHasTradePower() != false) {
@@ -796,71 +907,91 @@ public  final class ReadResponse extends
       return this;
     }
 
-    private java.lang.Object description_ = "";
+    private java.lang.Object displayInfo_ = "";
     /**
-     * <code>optional string description = 3;</code>
+     * <pre>
+     * 描述信息
+     * </pre>
+     *
+     * <code>optional string display_info = 3;</code>
      */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
+    public java.lang.String getDisplayInfo() {
+      java.lang.Object ref = displayInfo_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        description_ = s;
+        displayInfo_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string description = 3;</code>
+     * <pre>
+     * 描述信息
+     * </pre>
+     *
+     * <code>optional string display_info = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
+        getDisplayInfoBytes() {
+      java.lang.Object ref = displayInfo_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        description_ = b;
+        displayInfo_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>optional string description = 3;</code>
+     * <pre>
+     * 描述信息
+     * </pre>
+     *
+     * <code>optional string display_info = 3;</code>
      */
-    public Builder setDescription(
+    public Builder setDisplayInfo(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      description_ = value;
+      displayInfo_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string description = 3;</code>
+     * <pre>
+     * 描述信息
+     * </pre>
+     *
+     * <code>optional string display_info = 3;</code>
      */
-    public Builder clearDescription() {
+    public Builder clearDisplayInfo() {
       
-      description_ = getDefaultInstance().getDescription();
+      displayInfo_ = getDefaultInstance().getDisplayInfo();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string description = 3;</code>
+     * <pre>
+     * 描述信息
+     * </pre>
+     *
+     * <code>optional string display_info = 3;</code>
      */
-    public Builder setDescriptionBytes(
+    public Builder setDisplayInfoBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      description_ = value;
+      displayInfo_ = value;
       onChanged();
       return this;
     }
@@ -954,23 +1085,150 @@ public  final class ReadResponse extends
       return this;
     }
 
+    private boolean alreadyBuy_ ;
+    /**
+     * <pre>
+     * 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
+     * </pre>
+     *
+     * <code>optional bool already_buy = 5;</code>
+     */
+    public boolean getAlreadyBuy() {
+      return alreadyBuy_;
+    }
+    /**
+     * <pre>
+     * 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
+     * </pre>
+     *
+     * <code>optional bool already_buy = 5;</code>
+     */
+    public Builder setAlreadyBuy(boolean value) {
+      
+      alreadyBuy_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
+     * </pre>
+     *
+     * <code>optional bool already_buy = 5;</code>
+     */
+    public Builder clearAlreadyBuy() {
+      
+      alreadyBuy_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object readUrl_ = "";
+    /**
+     * <pre>
+     * 阅读地址
+     * </pre>
+     *
+     * <code>optional string read_url = 6;</code>
+     */
+    public java.lang.String getReadUrl() {
+      java.lang.Object ref = readUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        readUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 阅读地址
+     * </pre>
+     *
+     * <code>optional string read_url = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReadUrlBytes() {
+      java.lang.Object ref = readUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        readUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 阅读地址
+     * </pre>
+     *
+     * <code>optional string read_url = 6;</code>
+     */
+    public Builder setReadUrl(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      readUrl_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 阅读地址
+     * </pre>
+     *
+     * <code>optional string read_url = 6;</code>
+     */
+    public Builder clearReadUrl() {
+      
+      readUrl_ = getDefaultInstance().getReadUrl();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 阅读地址
+     * </pre>
+     *
+     * <code>optional string read_url = 6;</code>
+     */
+    public Builder setReadUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      readUrl_ = value;
+      onChanged();
+      return this;
+    }
+
     private boolean hasTradePower_ ;
     /**
      * <pre>
-     * 是否可以支付
+     * 是否可以支付 先判断
      * </pre>
      *
-     * <code>optional bool has_trade_power = 5;</code>
+     * <code>optional bool has_trade_power = 7;</code>
      */
     public boolean getHasTradePower() {
       return hasTradePower_;
     }
     /**
      * <pre>
-     * 是否可以支付
+     * 是否可以支付 先判断
      * </pre>
      *
-     * <code>optional bool has_trade_power = 5;</code>
+     * <code>optional bool has_trade_power = 7;</code>
      */
     public Builder setHasTradePower(boolean value) {
       
@@ -980,10 +1238,10 @@ public  final class ReadResponse extends
     }
     /**
      * <pre>
-     * 是否可以支付
+     * 是否可以支付 先判断
      * </pre>
      *
-     * <code>optional bool has_trade_power = 5;</code>
+     * <code>optional bool has_trade_power = 7;</code>
      */
     public Builder clearHasTradePower() {
       
@@ -996,13 +1254,13 @@ public  final class ReadResponse extends
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public boolean hasError() {
       return errorBuilder_ != null || error_ != null;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
       if (errorBuilder_ == null) {
@@ -1012,7 +1270,7 @@ public  final class ReadResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1028,7 +1286,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public Builder setError(
         com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
@@ -1042,7 +1300,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1060,7 +1318,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public Builder clearError() {
       if (errorBuilder_ == null) {
@@ -1074,7 +1332,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
       
@@ -1082,7 +1340,7 @@ public  final class ReadResponse extends
       return getErrorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
       if (errorBuilder_ != null) {
@@ -1093,7 +1351,7 @@ public  final class ReadResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 6;</code>
+     * <code>optional .grpcCommon.GrpcError error = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 

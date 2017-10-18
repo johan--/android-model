@@ -94,7 +94,7 @@ public final class MsgCollect {
       "itle\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t\022\022\n\nstar_lev" +
       "el\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t\"B\n\026MyCollect" +
       "DetailRequest\022\022\n\nartical_id\030\001 \001(\t\022\024\n\014art" +
-      "ical_type\030\002 \001(\t\"\213\003\n\027MyCollectDetailRespo" +
+      "ical_type\030\002 \001(\t\"\333\003\n\027MyCollectDetailRespo" +
       "nse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErro" +
       "r\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\020\n\010key" +
       "words\030\004 \001(\t\022\024\n\014authors_name\030\005 \001(\t\022\020\n\010cit",
@@ -104,10 +104,12 @@ public final class MsgCollect {
       "google.protobuf.Any\0221\n\013detail_type\030\013 \001(\016" +
       "2\034.collect.MyCollectDetailType\022=\n\016simila" +
       "r_papers\030\014 \003(\0132%.collect.MyCollectSimila" +
-      "rPaperMessage\"}\n\024MyCollectConfMessage\022\021\n" +
-      "\tconf_name\030\001 \001(\t\022\021\n\tconf_type\030\002 \001(\t\022\021\n\tc" +
+      "rPaperMessage\022\023\n\013resource_id\030\r \001(\t\022\023\n\013re" +
+      "source_db\030\016 \001(\t\022\020\n\010language\030\017 \001(\t\022\022\n\ncla" +
+      "ss_type\030\020 \001(\t\"}\n\024MyCollectConfMessage\022\021\n" +
+      "\tconf_name\030\001 \001(\t\022\021\n\tconf_type\030\002 \001(\t\022\021\n\tc",
       "onf_year\030\003 \001(\t\022\025\n\rpublish_place\030\004 \001(\t\022\025\n" +
-      "\rhostunit_name\030\005 \001(\t\"\231\001\n\025MyCollectPerioM",
+      "\rhostunit_name\030\005 \001(\t\"\231\001\n\025MyCollectPerioM" +
       "essage\022\024\n\014authors_unit\030\001 \001(\t\022\023\n\013perio_ti" +
       "tle\030\002 \001(\t\022\026\n\016perio_title_en\030\003 \001(\t\022\024\n\014pub" +
       "lish_year\030\004 \001(\t\022\021\n\tissue_num\030\005 \001(\t\022\024\n\014ab" +
@@ -115,9 +117,9 @@ public final class MsgCollect {
       "age\022\023\n\013deunit_name\030\001 \001(\t\022\024\n\014degree_level" +
       "\030\002 \001(\t\022\022\n\nmajor_name\030\003 \001(\t\022\022\n\ntutor_name" +
       "\030\004 \001(\t\022\024\n\014publish_year\030\005 \001(\t\"W\n\034MyCollec" +
-      "tSimilarPaperMessage\022\022\n\nartical_id\030\001 \001(\t" +
+      "tSimilarPaperMessage\022\022\n\nartical_id\030\001 \001(\t",
       "\022\024\n\014artical_type\030\002 \001(\t\022\r\n\005title\030\003 \001(\t*K\n" +
-      "\023MyCollectDetailType\022\017\n\013DEGREE_TYPE\020\000\022\023\n",
+      "\023MyCollectDetailType\022\017\n\013DEGREE_TYPE\020\000\022\023\n" +
       "\017CONFERENCE_TYPE\020\001\022\016\n\nPERIO_TYPE\020\002B\036\n\023co" +
       "m.wanfang.collectP\001\242\002\004WFPRb\006proto3"
     };
@@ -176,7 +178,7 @@ public final class MsgCollect {
     internal_static_collect_MyCollectDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectDetailResponse_descriptor,
-        new java.lang.String[] { "Error", "Title", "Summary", "Keywords", "AuthorsName", "CiteNum", "DownloadNum", "FulltextReadingNum", "ThirdpartyLinksNum", "CollectDetail", "DetailType", "SimilarPapers", });
+        new java.lang.String[] { "Error", "Title", "Summary", "Keywords", "AuthorsName", "CiteNum", "DownloadNum", "FulltextReadingNum", "ThirdpartyLinksNum", "CollectDetail", "DetailType", "SimilarPapers", "ResourceId", "ResourceDb", "Language", "ClassType", });
     internal_static_collect_MyCollectConfMessage_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_collect_MyCollectConfMessage_fieldAccessorTable = new

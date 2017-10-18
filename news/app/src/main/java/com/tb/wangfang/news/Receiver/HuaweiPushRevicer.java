@@ -38,8 +38,9 @@ public class HuaweiPushRevicer extends PushReceiver {
         Intent intent = new Intent();  
         intent.setAction(ACTION_UPDATEUI);
         intent.putExtra("type", 1);  
-        intent.putExtra("token", token);  
-        context.sendBroadcast(intent);  
+        intent.putExtra("token", token);
+        context.sendBroadcast(intent);
+
     }
 
     @Override

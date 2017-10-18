@@ -25,6 +25,10 @@ public  final class MyCollectDetailResponse extends
     thirdpartyLinksNum_ = "";
     detailType_ = 0;
     similarPapers_ = java.util.Collections.emptyList();
+    resourceId_ = "";
+    resourceDb_ = "";
+    language_ = "";
+    classType_ = "";
   }
 
   @java.lang.Override
@@ -139,6 +143,30 @@ public  final class MyCollectDetailResponse extends
             }
             similarPapers_.add(
                 input.readMessage(com.wanfang.collect.MyCollectSimilarPaperMessage.parser(), extensionRegistry));
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            resourceId_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            resourceDb_ = s;
+            break;
+          }
+          case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            language_ = s;
+            break;
+          }
+          case 130: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            classType_ = s;
             break;
           }
         }
@@ -597,6 +625,174 @@ public  final class MyCollectDetailResponse extends
     return similarPapers_.get(index);
   }
 
+  public static final int RESOURCE_ID_FIELD_NUMBER = 13;
+  private volatile java.lang.Object resourceId_;
+  /**
+   * <pre>
+   * 开始阅读相关
+   * </pre>
+   *
+   * <code>optional string resource_id = 13;</code>
+   */
+  public java.lang.String getResourceId() {
+    java.lang.Object ref = resourceId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      resourceId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 开始阅读相关
+   * </pre>
+   *
+   * <code>optional string resource_id = 13;</code>
+   */
+  public com.google.protobuf.ByteString
+      getResourceIdBytes() {
+    java.lang.Object ref = resourceId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      resourceId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int RESOURCE_DB_FIELD_NUMBER = 14;
+  private volatile java.lang.Object resourceDb_;
+  /**
+   * <pre>
+   * source_db
+   * </pre>
+   *
+   * <code>optional string resource_db = 14;</code>
+   */
+  public java.lang.String getResourceDb() {
+    java.lang.Object ref = resourceDb_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      resourceDb_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * source_db
+   * </pre>
+   *
+   * <code>optional string resource_db = 14;</code>
+   */
+  public com.google.protobuf.ByteString
+      getResourceDbBytes() {
+    java.lang.Object ref = resourceDb_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      resourceDb_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LANGUAGE_FIELD_NUMBER = 15;
+  private volatile java.lang.Object language_;
+  /**
+   * <pre>
+   * language
+   * </pre>
+   *
+   * <code>optional string language = 15;</code>
+   */
+  public java.lang.String getLanguage() {
+    java.lang.Object ref = language_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      language_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * language
+   * </pre>
+   *
+   * <code>optional string language = 15;</code>
+   */
+  public com.google.protobuf.ByteString
+      getLanguageBytes() {
+    java.lang.Object ref = language_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      language_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CLASS_TYPE_FIELD_NUMBER = 16;
+  private volatile java.lang.Object classType_;
+  /**
+   * <pre>
+   * resourceType
+   * </pre>
+   *
+   * <code>optional string class_type = 16;</code>
+   */
+  public java.lang.String getClassType() {
+    java.lang.Object ref = classType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      classType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * resourceType
+   * </pre>
+   *
+   * <code>optional string class_type = 16;</code>
+   */
+  public com.google.protobuf.ByteString
+      getClassTypeBytes() {
+    java.lang.Object ref = classType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      classType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -645,6 +841,18 @@ public  final class MyCollectDetailResponse extends
     for (int i = 0; i < similarPapers_.size(); i++) {
       output.writeMessage(12, similarPapers_.get(i));
     }
+    if (!getResourceIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, resourceId_);
+    }
+    if (!getResourceDbBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, resourceDb_);
+    }
+    if (!getLanguageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, language_);
+    }
+    if (!getClassTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, classType_);
+    }
   }
 
   public int getSerializedSize() {
@@ -692,6 +900,18 @@ public  final class MyCollectDetailResponse extends
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, similarPapers_.get(i));
     }
+    if (!getResourceIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, resourceId_);
+    }
+    if (!getResourceDbBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, resourceDb_);
+    }
+    if (!getLanguageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, language_);
+    }
+    if (!getClassTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, classType_);
+    }
     memoizedSize = size;
     return size;
   }
@@ -737,6 +957,14 @@ public  final class MyCollectDetailResponse extends
     result = result && detailType_ == other.detailType_;
     result = result && getSimilarPapersList()
         .equals(other.getSimilarPapersList());
+    result = result && getResourceId()
+        .equals(other.getResourceId());
+    result = result && getResourceDb()
+        .equals(other.getResourceDb());
+    result = result && getLanguage()
+        .equals(other.getLanguage());
+    result = result && getClassType()
+        .equals(other.getClassType());
     return result;
   }
 
@@ -777,6 +1005,14 @@ public  final class MyCollectDetailResponse extends
       hash = (37 * hash) + SIMILAR_PAPERS_FIELD_NUMBER;
       hash = (53 * hash) + getSimilarPapersList().hashCode();
     }
+    hash = (37 * hash) + RESOURCE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getResourceId().hashCode();
+    hash = (37 * hash) + RESOURCE_DB_FIELD_NUMBER;
+    hash = (53 * hash) + getResourceDb().hashCode();
+    hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getLanguage().hashCode();
+    hash = (37 * hash) + CLASS_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getClassType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -932,6 +1168,14 @@ public  final class MyCollectDetailResponse extends
       } else {
         similarPapersBuilder_.clear();
       }
+      resourceId_ = "";
+
+      resourceDb_ = "";
+
+      language_ = "";
+
+      classType_ = "";
+
       return this;
     }
 
@@ -984,6 +1228,10 @@ public  final class MyCollectDetailResponse extends
       } else {
         result.similarPapers_ = similarPapersBuilder_.build();
       }
+      result.resourceId_ = resourceId_;
+      result.resourceDb_ = resourceDb_;
+      result.language_ = language_;
+      result.classType_ = classType_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -1092,6 +1340,22 @@ public  final class MyCollectDetailResponse extends
             similarPapersBuilder_.addAllMessages(other.similarPapers_);
           }
         }
+      }
+      if (!other.getResourceId().isEmpty()) {
+        resourceId_ = other.resourceId_;
+        onChanged();
+      }
+      if (!other.getResourceDb().isEmpty()) {
+        resourceDb_ = other.resourceDb_;
+        onChanged();
+      }
+      if (!other.getLanguage().isEmpty()) {
+        language_ = other.language_;
+        onChanged();
+      }
+      if (!other.getClassType().isEmpty()) {
+        classType_ = other.classType_;
+        onChanged();
       }
       onChanged();
       return this;
@@ -2348,6 +2612,362 @@ public  final class MyCollectDetailResponse extends
         similarPapers_ = null;
       }
       return similarPapersBuilder_;
+    }
+
+    private java.lang.Object resourceId_ = "";
+    /**
+     * <pre>
+     * 开始阅读相关
+     * </pre>
+     *
+     * <code>optional string resource_id = 13;</code>
+     */
+    public java.lang.String getResourceId() {
+      java.lang.Object ref = resourceId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        resourceId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 开始阅读相关
+     * </pre>
+     *
+     * <code>optional string resource_id = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getResourceIdBytes() {
+      java.lang.Object ref = resourceId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        resourceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 开始阅读相关
+     * </pre>
+     *
+     * <code>optional string resource_id = 13;</code>
+     */
+    public Builder setResourceId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      resourceId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 开始阅读相关
+     * </pre>
+     *
+     * <code>optional string resource_id = 13;</code>
+     */
+    public Builder clearResourceId() {
+      
+      resourceId_ = getDefaultInstance().getResourceId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 开始阅读相关
+     * </pre>
+     *
+     * <code>optional string resource_id = 13;</code>
+     */
+    public Builder setResourceIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      resourceId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object resourceDb_ = "";
+    /**
+     * <pre>
+     * source_db
+     * </pre>
+     *
+     * <code>optional string resource_db = 14;</code>
+     */
+    public java.lang.String getResourceDb() {
+      java.lang.Object ref = resourceDb_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        resourceDb_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * source_db
+     * </pre>
+     *
+     * <code>optional string resource_db = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getResourceDbBytes() {
+      java.lang.Object ref = resourceDb_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        resourceDb_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * source_db
+     * </pre>
+     *
+     * <code>optional string resource_db = 14;</code>
+     */
+    public Builder setResourceDb(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      resourceDb_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * source_db
+     * </pre>
+     *
+     * <code>optional string resource_db = 14;</code>
+     */
+    public Builder clearResourceDb() {
+      
+      resourceDb_ = getDefaultInstance().getResourceDb();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * source_db
+     * </pre>
+     *
+     * <code>optional string resource_db = 14;</code>
+     */
+    public Builder setResourceDbBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      resourceDb_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object language_ = "";
+    /**
+     * <pre>
+     * language
+     * </pre>
+     *
+     * <code>optional string language = 15;</code>
+     */
+    public java.lang.String getLanguage() {
+      java.lang.Object ref = language_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        language_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * language
+     * </pre>
+     *
+     * <code>optional string language = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLanguageBytes() {
+      java.lang.Object ref = language_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        language_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * language
+     * </pre>
+     *
+     * <code>optional string language = 15;</code>
+     */
+    public Builder setLanguage(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      language_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * language
+     * </pre>
+     *
+     * <code>optional string language = 15;</code>
+     */
+    public Builder clearLanguage() {
+      
+      language_ = getDefaultInstance().getLanguage();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * language
+     * </pre>
+     *
+     * <code>optional string language = 15;</code>
+     */
+    public Builder setLanguageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      language_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object classType_ = "";
+    /**
+     * <pre>
+     * resourceType
+     * </pre>
+     *
+     * <code>optional string class_type = 16;</code>
+     */
+    public java.lang.String getClassType() {
+      java.lang.Object ref = classType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        classType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * resourceType
+     * </pre>
+     *
+     * <code>optional string class_type = 16;</code>
+     */
+    public com.google.protobuf.ByteString
+        getClassTypeBytes() {
+      java.lang.Object ref = classType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        classType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * resourceType
+     * </pre>
+     *
+     * <code>optional string class_type = 16;</code>
+     */
+    public Builder setClassType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      classType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * resourceType
+     * </pre>
+     *
+     * <code>optional string class_type = 16;</code>
+     */
+    public Builder clearClassType() {
+      
+      classType_ = getDefaultInstance().getClassType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * resourceType
+     * </pre>
+     *
+     * <code>optional string class_type = 16;</code>
+     */
+    public Builder setClassTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      classType_ = value;
+      onChanged();
+      return this;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

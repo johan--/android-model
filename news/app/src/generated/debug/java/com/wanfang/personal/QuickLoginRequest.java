@@ -22,6 +22,8 @@ public  final class QuickLoginRequest extends
     phone_ = "";
     token_ = "";
     captcha_ = "";
+    deviceId_ = "";
+    deviceType_ = 0;
   }
 
   @java.lang.Override
@@ -65,6 +67,18 @@ public  final class QuickLoginRequest extends
             java.lang.String s = input.readStringRequireUtf8();
 
             captcha_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            deviceId_ = s;
+            break;
+          }
+          case 40: {
+            int rawValue = input.readEnum();
+
+            deviceType_ = rawValue;
             break;
           }
         }
@@ -192,6 +206,72 @@ public  final class QuickLoginRequest extends
     }
   }
 
+  public static final int DEVICE_ID_FIELD_NUMBER = 4;
+  private volatile java.lang.Object deviceId_;
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  public java.lang.String getDeviceId() {
+    java.lang.Object ref = deviceId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      deviceId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDeviceIdBytes() {
+    java.lang.Object ref = deviceId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      deviceId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DEVICE_TYPE_FIELD_NUMBER = 5;
+  private int deviceType_;
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  public int getDeviceTypeValue() {
+    return deviceType_;
+  }
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  public com.wanfang.personal.LoginDeviceType getDeviceType() {
+    com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
+    return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -213,6 +293,12 @@ public  final class QuickLoginRequest extends
     if (!getCaptchaBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, captcha_);
     }
+    if (!getDeviceIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, deviceId_);
+    }
+    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
+      output.writeEnum(5, deviceType_);
+    }
   }
 
   public int getSerializedSize() {
@@ -228,6 +314,13 @@ public  final class QuickLoginRequest extends
     }
     if (!getCaptchaBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, captcha_);
+    }
+    if (!getDeviceIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, deviceId_);
+    }
+    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, deviceType_);
     }
     memoizedSize = size;
     return size;
@@ -251,6 +344,9 @@ public  final class QuickLoginRequest extends
         .equals(other.getToken());
     result = result && getCaptcha()
         .equals(other.getCaptcha());
+    result = result && getDeviceId()
+        .equals(other.getDeviceId());
+    result = result && deviceType_ == other.deviceType_;
     return result;
   }
 
@@ -267,6 +363,10 @@ public  final class QuickLoginRequest extends
     hash = (53 * hash) + getToken().hashCode();
     hash = (37 * hash) + CAPTCHA_FIELD_NUMBER;
     hash = (53 * hash) + getCaptcha().hashCode();
+    hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDeviceId().hashCode();
+    hash = (37 * hash) + DEVICE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + deviceType_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -395,6 +495,10 @@ public  final class QuickLoginRequest extends
 
       captcha_ = "";
 
+      deviceId_ = "";
+
+      deviceType_ = 0;
+
       return this;
     }
 
@@ -420,6 +524,8 @@ public  final class QuickLoginRequest extends
       result.phone_ = phone_;
       result.token_ = token_;
       result.captcha_ = captcha_;
+      result.deviceId_ = deviceId_;
+      result.deviceType_ = deviceType_;
       onBuilt();
       return result;
     }
@@ -472,6 +578,13 @@ public  final class QuickLoginRequest extends
       if (!other.getCaptcha().isEmpty()) {
         captcha_ = other.captcha_;
         onChanged();
+      }
+      if (!other.getDeviceId().isEmpty()) {
+        deviceId_ = other.deviceId_;
+        onChanged();
+      }
+      if (other.deviceType_ != 0) {
+        setDeviceTypeValue(other.getDeviceTypeValue());
       }
       onChanged();
       return this;
@@ -702,6 +815,159 @@ public  final class QuickLoginRequest extends
   checkByteStringIsUtf8(value);
       
       captcha_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object deviceId_ = "";
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public java.lang.String getDeviceId() {
+      java.lang.Object ref = deviceId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        deviceId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDeviceIdBytes() {
+      java.lang.Object ref = deviceId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        deviceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public Builder setDeviceId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      deviceId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public Builder clearDeviceId() {
+      
+      deviceId_ = getDefaultInstance().getDeviceId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public Builder setDeviceIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      deviceId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int deviceType_ = 0;
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public int getDeviceTypeValue() {
+      return deviceType_;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public Builder setDeviceTypeValue(int value) {
+      deviceType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public com.wanfang.personal.LoginDeviceType getDeviceType() {
+      com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
+      return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public Builder setDeviceType(com.wanfang.personal.LoginDeviceType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      deviceType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public Builder clearDeviceType() {
+      
+      deviceType_ = 0;
       onChanged();
       return this;
     }

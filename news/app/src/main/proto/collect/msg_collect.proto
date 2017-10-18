@@ -76,6 +76,12 @@ message MyCollectDetailResponse {
     // MyCollectDegreeMessage degree_message = 13; // 学位信息 DEGREE_TYPE
 
     repeated MyCollectSimilarPaperMessage similar_papers = 12;
+
+    // 开始阅读相关
+    string resource_id = 13; // article_id
+    string resource_db = 14; // source_db
+    string language = 15; // language
+    string class_type = 16; // resourceType
 }
 // 收藏详情/文献详情 会议详情信息
 message MyCollectConfMessage {

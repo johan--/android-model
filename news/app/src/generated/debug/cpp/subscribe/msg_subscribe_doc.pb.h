@@ -289,6 +289,39 @@ class SubscribeDocListResponse_SubscribeDocMessage : public ::google::protobuf::
   ::std::string* release_is_buy();
   void set_allocated_is_buy(::std::string* is_buy);
 
+  // optional string add_time = 8;
+  void clear_add_time();
+  static const int kAddTimeFieldNumber = 8;
+  const ::std::string& add_time() const;
+  void set_add_time(const ::std::string& value);
+  void set_add_time(const char* value);
+  void set_add_time(const char* value, size_t size);
+  ::std::string* mutable_add_time();
+  ::std::string* release_add_time();
+  void set_allocated_add_time(::std::string* add_time);
+
+  // optional string doc_source = 9;
+  void clear_doc_source();
+  static const int kDocSourceFieldNumber = 9;
+  const ::std::string& doc_source() const;
+  void set_doc_source(const ::std::string& value);
+  void set_doc_source(const char* value);
+  void set_doc_source(const char* value, size_t size);
+  ::std::string* mutable_doc_source();
+  ::std::string* release_doc_source();
+  void set_allocated_doc_source(::std::string* doc_source);
+
+  // optional string keyword = 10;
+  void clear_keyword();
+  static const int kKeywordFieldNumber = 10;
+  const ::std::string& keyword() const;
+  void set_keyword(const ::std::string& value);
+  void set_keyword(const char* value);
+  void set_keyword(const char* value, size_t size);
+  ::std::string* mutable_keyword();
+  ::std::string* release_keyword();
+  void set_allocated_keyword(::std::string* keyword);
+
   // @@protoc_insertion_point(class_scope:subscribe.SubscribeDocListResponse.SubscribeDocMessage)
  private:
 
@@ -300,6 +333,9 @@ class SubscribeDocListResponse_SubscribeDocMessage : public ::google::protobuf::
   ::google::protobuf::internal::ArenaStringPtr docu_author_;
   ::google::protobuf::internal::ArenaStringPtr publish_time_;
   ::google::protobuf::internal::ArenaStringPtr is_buy_;
+  ::google::protobuf::internal::ArenaStringPtr add_time_;
+  ::google::protobuf::internal::ArenaStringPtr doc_source_;
+  ::google::protobuf::internal::ArenaStringPtr keyword_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_subscribe_2fmsg_5fsubscribe_5fdoc_2eproto_impl();
   friend void  protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_5fdoc_2eproto_impl();
@@ -809,6 +845,138 @@ inline void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_is_buy(:
   }
   is_buy_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), is_buy);
   // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.is_buy)
+}
+
+// optional string add_time = 8;
+inline void SubscribeDocListResponse_SubscribeDocMessage::clear_add_time() {
+  add_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscribeDocListResponse_SubscribeDocMessage::add_time() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+  return add_time_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_add_time(const ::std::string& value) {
+  
+  add_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_add_time(const char* value) {
+  
+  add_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_add_time(const char* value, size_t size) {
+  
+  add_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+inline ::std::string* SubscribeDocListResponse_SubscribeDocMessage::mutable_add_time() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+  return add_time_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscribeDocListResponse_SubscribeDocMessage::release_add_time() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+  
+  return add_time_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_add_time(::std::string* add_time) {
+  if (add_time != NULL) {
+    
+  } else {
+    
+  }
+  add_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), add_time);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+
+// optional string doc_source = 9;
+inline void SubscribeDocListResponse_SubscribeDocMessage::clear_doc_source() {
+  doc_source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscribeDocListResponse_SubscribeDocMessage::doc_source() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+  return doc_source_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_doc_source(const ::std::string& value) {
+  
+  doc_source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_doc_source(const char* value) {
+  
+  doc_source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_doc_source(const char* value, size_t size) {
+  
+  doc_source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+inline ::std::string* SubscribeDocListResponse_SubscribeDocMessage::mutable_doc_source() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+  return doc_source_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscribeDocListResponse_SubscribeDocMessage::release_doc_source() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+  
+  return doc_source_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_doc_source(::std::string* doc_source) {
+  if (doc_source != NULL) {
+    
+  } else {
+    
+  }
+  doc_source_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), doc_source);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+
+// optional string keyword = 10;
+inline void SubscribeDocListResponse_SubscribeDocMessage::clear_keyword() {
+  keyword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscribeDocListResponse_SubscribeDocMessage::keyword() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+  return keyword_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_keyword(const ::std::string& value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_keyword(const char* value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_keyword(const char* value, size_t size) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+}
+inline ::std::string* SubscribeDocListResponse_SubscribeDocMessage::mutable_keyword() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+  return keyword_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscribeDocListResponse_SubscribeDocMessage::release_keyword() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+  
+  return keyword_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_keyword(::std::string* keyword) {
+  if (keyword != NULL) {
+    
+  } else {
+    
+  }
+  keyword_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), keyword);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
 }
 
 inline const SubscribeDocListResponse_SubscribeDocMessage* SubscribeDocListResponse_SubscribeDocMessage::internal_default_instance() {

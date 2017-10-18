@@ -25,6 +25,9 @@ message SubscribeDocListResponse {
         string docu_author = 5; // 文献作者
         string publish_time = 6; // 出版日期
         string is_buy = 7; // 是否已经购买
+        string add_time = 8; // 添加日期
+        string doc_source = 9; // 文献来源
+        string keyword = 10; // 关键词
     }
     repeated SubscribeDocMessage subscribe_doc = 1;
     grpcCommon.GrpcError error = 2;

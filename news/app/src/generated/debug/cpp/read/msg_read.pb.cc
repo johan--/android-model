@@ -59,11 +59,13 @@ void protobuf_AssignDesc_read_2fmsg_5fread_2eproto() {
       sizeof(ReadRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadRequest, _internal_metadata_));
   ReadResponse_descriptor_ = file->message_type(1);
-  static const int ReadResponse_offsets_[6] = {
+  static const int ReadResponse_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, price_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, title_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, description_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, display_info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, safe_transaction_string_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, already_buy_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, read_url_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, has_trade_power_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadResponse, error_),
   };
@@ -132,12 +134,13 @@ void protobuf_AddDesc_read_2fmsg_5fread_2eproto_impl() {
     "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresource_t"
     "ype\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resource_ti"
     "tle\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013login_"
-    "token\030\007 \001(\t\"\241\001\n\014ReadResponse\022\r\n\005price\030\001 "
-    "\001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022"
-    "\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017has_"
-    "trade_power\030\005 \001(\010\022$\n\005error\030\006 \001(\0132\025.grpcC"
+    "token\030\007 \001(\t\"\311\001\n\014ReadResponse\022\r\n\005price\030\001 "
+    "\001(\t\022\r\n\005title\030\002 \001(\t\022\024\n\014display_info\030\003 \001(\t"
+    "\022\037\n\027safe_transaction_string\030\004 \001(\t\022\023\n\013alr"
+    "eady_buy\030\005 \001(\010\022\020\n\010read_url\030\006 \001(\t\022\027\n\017has_"
+    "trade_power\030\007 \001(\010\022$\n\005error\030\010 \001(\0132\025.grpcC"
     "ommon.GrpcErrorB\033\n\020com.wanfang.readP\001\242\002\004"
-    "WFPRb\006proto3", 412);
+    "WFPRb\006proto3", 452);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "read/msg_read.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -1048,8 +1051,10 @@ inline const ReadRequest* ReadRequest::internal_default_instance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ReadResponse::kPriceFieldNumber;
 const int ReadResponse::kTitleFieldNumber;
-const int ReadResponse::kDescriptionFieldNumber;
+const int ReadResponse::kDisplayInfoFieldNumber;
 const int ReadResponse::kSafeTransactionStringFieldNumber;
+const int ReadResponse::kAlreadyBuyFieldNumber;
+const int ReadResponse::kReadUrlFieldNumber;
 const int ReadResponse::kHasTradePowerFieldNumber;
 const int ReadResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -1077,10 +1082,12 @@ ReadResponse::ReadResponse(const ReadResponse& from)
 void ReadResponse::SharedCtor() {
   price_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  display_info_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  read_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   error_ = NULL;
-  has_trade_power_ = false;
+  ::memset(&already_buy_, 0, reinterpret_cast<char*>(&has_trade_power_) -
+    reinterpret_cast<char*>(&already_buy_) + sizeof(has_trade_power_));
   _cached_size_ = 0;
 }
 
@@ -1092,8 +1099,9 @@ ReadResponse::~ReadResponse() {
 void ReadResponse::SharedDtor() {
   price_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  display_info_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  read_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != &ReadResponse_default_instance_.get()) {
     delete error_;
   }
@@ -1126,13 +1134,34 @@ ReadResponse* ReadResponse::New(::google::protobuf::Arena* arena) const {
 
 void ReadResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:read.ReadResponse)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(ReadResponse, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<ReadResponse*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(already_buy_, has_trade_power_);
   price_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  display_info_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  has_trade_power_ = false;
+  read_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
   error_ = NULL;
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool ReadResponse::MergePartialFromCodedStream(
@@ -1174,20 +1203,20 @@ bool ReadResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_description;
+        if (input->ExpectTag(26)) goto parse_display_info;
         break;
       }
 
-      // optional string description = 3;
+      // optional string display_info = 3;
       case 3: {
         if (tag == 26) {
-         parse_description:
+         parse_display_info:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_description()));
+                input, this->mutable_display_info()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->description().data(), this->description().length(),
+            this->display_info().data(), this->display_info().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "read.ReadResponse.description"));
+            "read.ReadResponse.display_info"));
         } else {
           goto handle_unusual;
         }
@@ -1208,13 +1237,45 @@ bool ReadResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_has_trade_power;
+        if (input->ExpectTag(40)) goto parse_already_buy;
         break;
       }
 
-      // optional bool has_trade_power = 5;
+      // optional bool already_buy = 5;
       case 5: {
         if (tag == 40) {
+         parse_already_buy:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &already_buy_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_read_url;
+        break;
+      }
+
+      // optional string read_url = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_read_url:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_read_url()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->read_url().data(), this->read_url().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "read.ReadResponse.read_url"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_has_trade_power;
+        break;
+      }
+
+      // optional bool has_trade_power = 7;
+      case 7: {
+        if (tag == 56) {
          parse_has_trade_power:
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -1223,13 +1284,13 @@ bool ReadResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_error;
+        if (input->ExpectTag(66)) goto parse_error;
         break;
       }
 
-      // optional .grpcCommon.GrpcError error = 6;
-      case 6: {
-        if (tag == 50) {
+      // optional .grpcCommon.GrpcError error = 8;
+      case 8: {
+        if (tag == 66) {
          parse_error:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_error()));
@@ -1284,14 +1345,14 @@ void ReadResponse::SerializeWithCachedSizes(
       2, this->title(), output);
   }
 
-  // optional string description = 3;
-  if (this->description().size() > 0) {
+  // optional string display_info = 3;
+  if (this->display_info().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->description().data(), this->description().length(),
+      this->display_info().data(), this->display_info().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "read.ReadResponse.description");
+      "read.ReadResponse.display_info");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->description(), output);
+      3, this->display_info(), output);
   }
 
   // optional string safe_transaction_string = 4;
@@ -1304,15 +1365,30 @@ void ReadResponse::SerializeWithCachedSizes(
       4, this->safe_transaction_string(), output);
   }
 
-  // optional bool has_trade_power = 5;
-  if (this->has_trade_power() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->has_trade_power(), output);
+  // optional bool already_buy = 5;
+  if (this->already_buy() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->already_buy(), output);
   }
 
-  // optional .grpcCommon.GrpcError error = 6;
+  // optional string read_url = 6;
+  if (this->read_url().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->read_url().data(), this->read_url().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "read.ReadResponse.read_url");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->read_url(), output);
+  }
+
+  // optional bool has_trade_power = 7;
+  if (this->has_trade_power() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->has_trade_power(), output);
+  }
+
+  // optional .grpcCommon.GrpcError error = 8;
   if (this->has_error()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *this->error_, output);
+      8, *this->error_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:read.ReadResponse)
@@ -1344,15 +1420,15 @@ void ReadResponse::SerializeWithCachedSizes(
         2, this->title(), target);
   }
 
-  // optional string description = 3;
-  if (this->description().size() > 0) {
+  // optional string display_info = 3;
+  if (this->display_info().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->description().data(), this->description().length(),
+      this->display_info().data(), this->display_info().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "read.ReadResponse.description");
+      "read.ReadResponse.display_info");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->description(), target);
+        3, this->display_info(), target);
   }
 
   // optional string safe_transaction_string = 4;
@@ -1366,16 +1442,32 @@ void ReadResponse::SerializeWithCachedSizes(
         4, this->safe_transaction_string(), target);
   }
 
-  // optional bool has_trade_power = 5;
-  if (this->has_trade_power() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->has_trade_power(), target);
+  // optional bool already_buy = 5;
+  if (this->already_buy() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->already_buy(), target);
   }
 
-  // optional .grpcCommon.GrpcError error = 6;
+  // optional string read_url = 6;
+  if (this->read_url().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->read_url().data(), this->read_url().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "read.ReadResponse.read_url");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->read_url(), target);
+  }
+
+  // optional bool has_trade_power = 7;
+  if (this->has_trade_power() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->has_trade_power(), target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 8;
   if (this->has_error()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        6, *this->error_, false, target);
+        8, *this->error_, false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:read.ReadResponse)
@@ -1400,11 +1492,11 @@ size_t ReadResponse::ByteSizeLong() const {
         this->title());
   }
 
-  // optional string description = 3;
-  if (this->description().size() > 0) {
+  // optional string display_info = 3;
+  if (this->display_info().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->description());
+        this->display_info());
   }
 
   // optional string safe_transaction_string = 4;
@@ -1414,12 +1506,24 @@ size_t ReadResponse::ByteSizeLong() const {
         this->safe_transaction_string());
   }
 
-  // optional bool has_trade_power = 5;
+  // optional bool already_buy = 5;
+  if (this->already_buy() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // optional string read_url = 6;
+  if (this->read_url().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->read_url());
+  }
+
+  // optional bool has_trade_power = 7;
   if (this->has_trade_power() != 0) {
     total_size += 1 + 1;
   }
 
-  // optional .grpcCommon.GrpcError error = 6;
+  // optional .grpcCommon.GrpcError error = 8;
   if (this->has_error()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1467,13 +1571,20 @@ void ReadResponse::UnsafeMergeFrom(const ReadResponse& from) {
 
     title_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.title_);
   }
-  if (from.description().size() > 0) {
+  if (from.display_info().size() > 0) {
 
-    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
+    display_info_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.display_info_);
   }
   if (from.safe_transaction_string().size() > 0) {
 
     safe_transaction_string_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.safe_transaction_string_);
+  }
+  if (from.already_buy() != 0) {
+    set_already_buy(from.already_buy());
+  }
+  if (from.read_url().size() > 0) {
+
+    read_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.read_url_);
   }
   if (from.has_trade_power() != 0) {
     set_has_trade_power(from.has_trade_power());
@@ -1509,8 +1620,10 @@ void ReadResponse::Swap(ReadResponse* other) {
 void ReadResponse::InternalSwap(ReadResponse* other) {
   price_.Swap(&other->price_);
   title_.Swap(&other->title_);
-  description_.Swap(&other->description_);
+  display_info_.Swap(&other->display_info_);
   safe_transaction_string_.Swap(&other->safe_transaction_string_);
+  std::swap(already_buy_, other->already_buy_);
+  read_url_.Swap(&other->read_url_);
   std::swap(has_trade_power_, other->has_trade_power_);
   std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -1616,48 +1729,48 @@ void ReadResponse::set_allocated_title(::std::string* title) {
   // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.title)
 }
 
-// optional string description = 3;
-void ReadResponse::clear_description() {
-  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string display_info = 3;
+void ReadResponse::clear_display_info() {
+  display_info_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& ReadResponse::description() const {
-  // @@protoc_insertion_point(field_get:read.ReadResponse.description)
-  return description_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+const ::std::string& ReadResponse::display_info() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.display_info)
+  return display_info_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void ReadResponse::set_description(const ::std::string& value) {
+void ReadResponse::set_display_info(const ::std::string& value) {
   
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:read.ReadResponse.description)
+  display_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ReadResponse.display_info)
 }
-void ReadResponse::set_description(const char* value) {
+void ReadResponse::set_display_info(const char* value) {
   
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:read.ReadResponse.description)
+  display_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.display_info)
 }
-void ReadResponse::set_description(const char* value, size_t size) {
+void ReadResponse::set_display_info(const char* value, size_t size) {
   
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  display_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.display_info)
 }
-::std::string* ReadResponse::mutable_description() {
+::std::string* ReadResponse::mutable_display_info() {
   
-  // @@protoc_insertion_point(field_mutable:read.ReadResponse.description)
-  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.display_info)
+  return display_info_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* ReadResponse::release_description() {
-  // @@protoc_insertion_point(field_release:read.ReadResponse.description)
+::std::string* ReadResponse::release_display_info() {
+  // @@protoc_insertion_point(field_release:read.ReadResponse.display_info)
   
-  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return display_info_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void ReadResponse::set_allocated_description(::std::string* description) {
-  if (description != NULL) {
+void ReadResponse::set_allocated_display_info(::std::string* display_info) {
+  if (display_info != NULL) {
     
   } else {
     
   }
-  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
-  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.description)
+  display_info_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), display_info);
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.display_info)
 }
 
 // optional string safe_transaction_string = 4;
@@ -1704,7 +1817,65 @@ void ReadResponse::set_allocated_safe_transaction_string(::std::string* safe_tra
   // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.safe_transaction_string)
 }
 
-// optional bool has_trade_power = 5;
+// optional bool already_buy = 5;
+void ReadResponse::clear_already_buy() {
+  already_buy_ = false;
+}
+bool ReadResponse::already_buy() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.already_buy)
+  return already_buy_;
+}
+void ReadResponse::set_already_buy(bool value) {
+  
+  already_buy_ = value;
+  // @@protoc_insertion_point(field_set:read.ReadResponse.already_buy)
+}
+
+// optional string read_url = 6;
+void ReadResponse::clear_read_url() {
+  read_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& ReadResponse::read_url() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.read_url)
+  return read_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void ReadResponse::set_read_url(const ::std::string& value) {
+  
+  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ReadResponse.read_url)
+}
+void ReadResponse::set_read_url(const char* value) {
+  
+  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.read_url)
+}
+void ReadResponse::set_read_url(const char* value, size_t size) {
+  
+  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.read_url)
+}
+::std::string* ReadResponse::mutable_read_url() {
+  
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.read_url)
+  return read_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* ReadResponse::release_read_url() {
+  // @@protoc_insertion_point(field_release:read.ReadResponse.read_url)
+  
+  return read_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void ReadResponse::set_allocated_read_url(::std::string* read_url) {
+  if (read_url != NULL) {
+    
+  } else {
+    
+  }
+  read_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), read_url);
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.read_url)
+}
+
+// optional bool has_trade_power = 7;
 void ReadResponse::clear_has_trade_power() {
   has_trade_power_ = false;
 }
@@ -1718,7 +1889,7 @@ void ReadResponse::set_has_trade_power(bool value) {
   // @@protoc_insertion_point(field_set:read.ReadResponse.has_trade_power)
 }
 
-// optional .grpcCommon.GrpcError error = 6;
+// optional .grpcCommon.GrpcError error = 8;
 bool ReadResponse::has_error() const {
   return this != internal_default_instance() && error_ != NULL;
 }

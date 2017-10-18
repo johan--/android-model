@@ -1154,6 +1154,17 @@ class SubscribeKeywordMessage : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_add_time();
   void set_allocated_add_time(::std::string* add_time);
 
+  // optional string keyword = 5;
+  void clear_keyword();
+  static const int kKeywordFieldNumber = 5;
+  const ::std::string& keyword() const;
+  void set_keyword(const ::std::string& value);
+  void set_keyword(const char* value);
+  void set_keyword(const char* value, size_t size);
+  ::std::string* mutable_keyword();
+  ::std::string* release_keyword();
+  void set_allocated_keyword(::std::string* keyword);
+
   // @@protoc_insertion_point(class_scope:subscribe.SubscribeKeywordMessage)
  private:
 
@@ -1162,6 +1173,7 @@ class SubscribeKeywordMessage : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::internal::ArenaStringPtr subscribe_id_;
   ::google::protobuf::internal::ArenaStringPtr docu_type_;
   ::google::protobuf::internal::ArenaStringPtr add_time_;
+  ::google::protobuf::internal::ArenaStringPtr keyword_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto_impl();
   friend void  protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto_impl();
@@ -2231,6 +2243,50 @@ inline void SubscribeKeywordMessage::set_allocated_add_time(::std::string* add_t
   }
   add_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), add_time);
   // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeKeywordMessage.add_time)
+}
+
+// optional string keyword = 5;
+inline void SubscribeKeywordMessage::clear_keyword() {
+  keyword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscribeKeywordMessage::keyword() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeKeywordMessage.keyword)
+  return keyword_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeKeywordMessage::set_keyword(const ::std::string& value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeKeywordMessage.keyword)
+}
+inline void SubscribeKeywordMessage::set_keyword(const char* value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeKeywordMessage.keyword)
+}
+inline void SubscribeKeywordMessage::set_keyword(const char* value, size_t size) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeKeywordMessage.keyword)
+}
+inline ::std::string* SubscribeKeywordMessage::mutable_keyword() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeKeywordMessage.keyword)
+  return keyword_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscribeKeywordMessage::release_keyword() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeKeywordMessage.keyword)
+  
+  return keyword_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscribeKeywordMessage::set_allocated_keyword(::std::string* keyword) {
+  if (keyword != NULL) {
+    
+  } else {
+    
+  }
+  keyword_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), keyword);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeKeywordMessage.keyword)
 }
 
 inline const SubscribeKeywordMessage* SubscribeKeywordMessage::internal_default_instance() {

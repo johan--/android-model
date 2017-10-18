@@ -21,9 +21,10 @@ message ReadRequest {
 message ReadResponse {
     string price = 1;
     string title = 2;
-    string description = 3;
+    string display_info = 3; // 描述信息
     string safe_transaction_string = 4; // 统一下单需要的参数
-
-    bool has_trade_power = 5; // 是否可以支付
-    grpcCommon.GrpcError error = 6;
+    bool already_buy = 5; // 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
+    string read_url = 6; // 阅读地址
+    bool has_trade_power = 7; // 是否可以支付 先判断
+    grpcCommon.GrpcError error = 8;
 }

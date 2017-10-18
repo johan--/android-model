@@ -44,16 +44,18 @@ public final class MsgSubscribeDoc {
       "mmon/msg_error.proto\"\200\001\n\027SubscribeDocLis" +
       "tRequest\022=\n\021subscribe_keyword\030\001 \001(\0132\".su" +
       "bscribe.SubscribeKeywordMessage\022\023\n\013page_" +
-      "number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\302\002\n\030Subs" +
+      "number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\371\002\n\030Subs" +
       "cribeDocListResponse\022N\n\rsubscribe_doc\030\001 " +
       "\003(\01327.subscribe.SubscribeDocListResponse" +
       ".SubscribeDocMessage\022$\n\005error\030\002 \001(\0132\025.gr",
-      "pcCommon.GrpcError\022\020\n\010has_more\030\003 \001(\010\032\235\001\n" +
+      "pcCommon.GrpcError\022\020\n\010has_more\030\003 \001(\010\032\324\001\n" +
       "\023SubscribeDocMessage\022\016\n\006doc_id\030\001 \001(\t\022\024\n\014" +
       "subscribe_id\030\002 \001(\t\022\021\n\tdocu_type\030\003 \001(\t\022\022\n" +
       "\ndocu_title\030\004 \001(\t\022\023\n\013docu_author\030\005 \001(\t\022\024" +
-      "\n\014publish_time\030\006 \001(\t\022\016\n\006is_buy\030\007 \001(\tB \n\025" +
-      "com.wanfang.subscribeP\001\242\002\004WFPRb\006proto3"
+      "\n\014publish_time\030\006 \001(\t\022\016\n\006is_buy\030\007 \001(\t\022\020\n\010" +
+      "add_time\030\010 \001(\t\022\022\n\ndoc_source\030\t \001(\t\022\017\n\007ke" +
+      "yword\030\n \001(\tB \n\025com.wanfang.subscribeP\001\242\002" +
+      "\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -87,7 +89,7 @@ public final class MsgSubscribeDoc {
     internal_static_subscribe_SubscribeDocListResponse_SubscribeDocMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscribe_SubscribeDocListResponse_SubscribeDocMessage_descriptor,
-        new java.lang.String[] { "DocId", "SubscribeId", "DocuType", "DocuTitle", "DocuAuthor", "PublishTime", "IsBuy", });
+        new java.lang.String[] { "DocId", "SubscribeId", "DocuType", "DocuTitle", "DocuAuthor", "PublishTime", "IsBuy", "AddTime", "DocSource", "Keyword", });
     com.google.protobuf.AnyProto.getDescriptor();
     com.wanfang.subscribe.MsgSubscribeKeyword.getDescriptor();
     com.wanfang.grpcCommon.MsgError.getDescriptor();

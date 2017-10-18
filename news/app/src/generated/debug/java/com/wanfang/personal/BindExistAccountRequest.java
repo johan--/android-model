@@ -22,6 +22,8 @@ public  final class BindExistAccountRequest extends
     uid_ = "";
     userName_ = "";
     password_ = "";
+    deviceId_ = "";
+    deviceType_ = 0;
     thirdPartyType_ = 0;
   }
 
@@ -68,7 +70,19 @@ public  final class BindExistAccountRequest extends
             password_ = s;
             break;
           }
-          case 32: {
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            deviceId_ = s;
+            break;
+          }
+          case 40: {
+            int rawValue = input.readEnum();
+
+            deviceType_ = rawValue;
+            break;
+          }
+          case 48: {
             int rawValue = input.readEnum();
 
             thirdPartyType_ = rawValue;
@@ -223,14 +237,80 @@ public  final class BindExistAccountRequest extends
     }
   }
 
-  public static final int THIRD_PARTY_TYPE_FIELD_NUMBER = 4;
+  public static final int DEVICE_ID_FIELD_NUMBER = 4;
+  private volatile java.lang.Object deviceId_;
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  public java.lang.String getDeviceId() {
+    java.lang.Object ref = deviceId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      deviceId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDeviceIdBytes() {
+    java.lang.Object ref = deviceId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      deviceId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DEVICE_TYPE_FIELD_NUMBER = 5;
+  private int deviceType_;
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  public int getDeviceTypeValue() {
+    return deviceType_;
+  }
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  public com.wanfang.personal.LoginDeviceType getDeviceType() {
+    com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
+    return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
+  }
+
+  public static final int THIRD_PARTY_TYPE_FIELD_NUMBER = 6;
   private int thirdPartyType_;
   /**
    * <pre>
    * 第三方登录类型
    * </pre>
    *
-   * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+   * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
    */
   public int getThirdPartyTypeValue() {
     return thirdPartyType_;
@@ -240,7 +320,7 @@ public  final class BindExistAccountRequest extends
    * 第三方登录类型
    * </pre>
    *
-   * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+   * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
    */
   public com.wanfang.personal.ThirdPartyType getThirdPartyType() {
     com.wanfang.personal.ThirdPartyType result = com.wanfang.personal.ThirdPartyType.valueOf(thirdPartyType_);
@@ -268,8 +348,14 @@ public  final class BindExistAccountRequest extends
     if (!getPasswordBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
     }
+    if (!getDeviceIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, deviceId_);
+    }
+    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
+      output.writeEnum(5, deviceType_);
+    }
     if (thirdPartyType_ != com.wanfang.personal.ThirdPartyType.WECHAT.getNumber()) {
-      output.writeEnum(4, thirdPartyType_);
+      output.writeEnum(6, thirdPartyType_);
     }
   }
 
@@ -287,9 +373,16 @@ public  final class BindExistAccountRequest extends
     if (!getPasswordBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
     }
+    if (!getDeviceIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, deviceId_);
+    }
+    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, deviceType_);
+    }
     if (thirdPartyType_ != com.wanfang.personal.ThirdPartyType.WECHAT.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(4, thirdPartyType_);
+        .computeEnumSize(6, thirdPartyType_);
     }
     memoizedSize = size;
     return size;
@@ -313,6 +406,9 @@ public  final class BindExistAccountRequest extends
         .equals(other.getUserName());
     result = result && getPassword()
         .equals(other.getPassword());
+    result = result && getDeviceId()
+        .equals(other.getDeviceId());
+    result = result && deviceType_ == other.deviceType_;
     result = result && thirdPartyType_ == other.thirdPartyType_;
     return result;
   }
@@ -330,6 +426,10 @@ public  final class BindExistAccountRequest extends
     hash = (53 * hash) + getUserName().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
+    hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDeviceId().hashCode();
+    hash = (37 * hash) + DEVICE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + deviceType_;
     hash = (37 * hash) + THIRD_PARTY_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + thirdPartyType_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -460,6 +560,10 @@ public  final class BindExistAccountRequest extends
 
       password_ = "";
 
+      deviceId_ = "";
+
+      deviceType_ = 0;
+
       thirdPartyType_ = 0;
 
       return this;
@@ -487,6 +591,8 @@ public  final class BindExistAccountRequest extends
       result.uid_ = uid_;
       result.userName_ = userName_;
       result.password_ = password_;
+      result.deviceId_ = deviceId_;
+      result.deviceType_ = deviceType_;
       result.thirdPartyType_ = thirdPartyType_;
       onBuilt();
       return result;
@@ -540,6 +646,13 @@ public  final class BindExistAccountRequest extends
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
         onChanged();
+      }
+      if (!other.getDeviceId().isEmpty()) {
+        deviceId_ = other.deviceId_;
+        onChanged();
+      }
+      if (other.deviceType_ != 0) {
+        setDeviceTypeValue(other.getDeviceTypeValue());
       }
       if (other.thirdPartyType_ != 0) {
         setThirdPartyTypeValue(other.getThirdPartyTypeValue());
@@ -837,13 +950,166 @@ public  final class BindExistAccountRequest extends
       return this;
     }
 
+    private java.lang.Object deviceId_ = "";
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public java.lang.String getDeviceId() {
+      java.lang.Object ref = deviceId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        deviceId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDeviceIdBytes() {
+      java.lang.Object ref = deviceId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        deviceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public Builder setDeviceId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      deviceId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public Builder clearDeviceId() {
+      
+      deviceId_ = getDefaultInstance().getDeviceId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 4;</code>
+     */
+    public Builder setDeviceIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      deviceId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int deviceType_ = 0;
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public int getDeviceTypeValue() {
+      return deviceType_;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public Builder setDeviceTypeValue(int value) {
+      deviceType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public com.wanfang.personal.LoginDeviceType getDeviceType() {
+      com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
+      return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public Builder setDeviceType(com.wanfang.personal.LoginDeviceType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      deviceType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     */
+    public Builder clearDeviceType() {
+      
+      deviceType_ = 0;
+      onChanged();
+      return this;
+    }
+
     private int thirdPartyType_ = 0;
     /**
      * <pre>
      * 第三方登录类型
      * </pre>
      *
-     * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+     * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
      */
     public int getThirdPartyTypeValue() {
       return thirdPartyType_;
@@ -853,7 +1119,7 @@ public  final class BindExistAccountRequest extends
      * 第三方登录类型
      * </pre>
      *
-     * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+     * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
      */
     public Builder setThirdPartyTypeValue(int value) {
       thirdPartyType_ = value;
@@ -865,7 +1131,7 @@ public  final class BindExistAccountRequest extends
      * 第三方登录类型
      * </pre>
      *
-     * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+     * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
      */
     public com.wanfang.personal.ThirdPartyType getThirdPartyType() {
       com.wanfang.personal.ThirdPartyType result = com.wanfang.personal.ThirdPartyType.valueOf(thirdPartyType_);
@@ -876,7 +1142,7 @@ public  final class BindExistAccountRequest extends
      * 第三方登录类型
      * </pre>
      *
-     * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+     * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
      */
     public Builder setThirdPartyType(com.wanfang.personal.ThirdPartyType value) {
       if (value == null) {
@@ -892,7 +1158,7 @@ public  final class BindExistAccountRequest extends
      * 第三方登录类型
      * </pre>
      *
-     * <code>optional .personal.ThirdPartyType third_party_type = 4;</code>
+     * <code>optional .personal.ThirdPartyType third_party_type = 6;</code>
      */
     public Builder clearThirdPartyType() {
       

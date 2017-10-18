@@ -226,6 +226,60 @@ public  final class SubscribeDocListResponse extends
      */
     com.google.protobuf.ByteString
         getIsBuyBytes();
+
+    /**
+     * <pre>
+     * 添加日期
+     * </pre>
+     *
+     * <code>optional string add_time = 8;</code>
+     */
+    java.lang.String getAddTime();
+    /**
+     * <pre>
+     * 添加日期
+     * </pre>
+     *
+     * <code>optional string add_time = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getAddTimeBytes();
+
+    /**
+     * <pre>
+     * 文献来源
+     * </pre>
+     *
+     * <code>optional string doc_source = 9;</code>
+     */
+    java.lang.String getDocSource();
+    /**
+     * <pre>
+     * 文献来源
+     * </pre>
+     *
+     * <code>optional string doc_source = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getDocSourceBytes();
+
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 10;</code>
+     */
+    java.lang.String getKeyword();
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeywordBytes();
   }
   /**
    * Protobuf type {@code subscribe.SubscribeDocListResponse.SubscribeDocMessage}
@@ -246,6 +300,9 @@ public  final class SubscribeDocListResponse extends
       docuAuthor_ = "";
       publishTime_ = "";
       isBuy_ = "";
+      addTime_ = "";
+      docSource_ = "";
+      keyword_ = "";
     }
 
     @java.lang.Override
@@ -313,6 +370,24 @@ public  final class SubscribeDocListResponse extends
               java.lang.String s = input.readStringRequireUtf8();
 
               isBuy_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              addTime_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              docSource_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyword_ = s;
               break;
             }
           }
@@ -632,6 +707,132 @@ public  final class SubscribeDocListResponse extends
       }
     }
 
+    public static final int ADD_TIME_FIELD_NUMBER = 8;
+    private volatile java.lang.Object addTime_;
+    /**
+     * <pre>
+     * 添加日期
+     * </pre>
+     *
+     * <code>optional string add_time = 8;</code>
+     */
+    public java.lang.String getAddTime() {
+      java.lang.Object ref = addTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        addTime_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 添加日期
+     * </pre>
+     *
+     * <code>optional string add_time = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAddTimeBytes() {
+      java.lang.Object ref = addTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        addTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DOC_SOURCE_FIELD_NUMBER = 9;
+    private volatile java.lang.Object docSource_;
+    /**
+     * <pre>
+     * 文献来源
+     * </pre>
+     *
+     * <code>optional string doc_source = 9;</code>
+     */
+    public java.lang.String getDocSource() {
+      java.lang.Object ref = docSource_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        docSource_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 文献来源
+     * </pre>
+     *
+     * <code>optional string doc_source = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDocSourceBytes() {
+      java.lang.Object ref = docSource_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        docSource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int KEYWORD_FIELD_NUMBER = 10;
+    private volatile java.lang.Object keyword_;
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 10;</code>
+     */
+    public java.lang.String getKeyword() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeywordBytes() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -665,6 +866,15 @@ public  final class SubscribeDocListResponse extends
       if (!getIsBuyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, isBuy_);
       }
+      if (!getAddTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, addTime_);
+      }
+      if (!getDocSourceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, docSource_);
+      }
+      if (!getKeywordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, keyword_);
+      }
     }
 
     public int getSerializedSize() {
@@ -692,6 +902,15 @@ public  final class SubscribeDocListResponse extends
       }
       if (!getIsBuyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, isBuy_);
+      }
+      if (!getAddTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, addTime_);
+      }
+      if (!getDocSourceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, docSource_);
+      }
+      if (!getKeywordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, keyword_);
       }
       memoizedSize = size;
       return size;
@@ -723,6 +942,12 @@ public  final class SubscribeDocListResponse extends
           .equals(other.getPublishTime());
       result = result && getIsBuy()
           .equals(other.getIsBuy());
+      result = result && getAddTime()
+          .equals(other.getAddTime());
+      result = result && getDocSource()
+          .equals(other.getDocSource());
+      result = result && getKeyword()
+          .equals(other.getKeyword());
       return result;
     }
 
@@ -747,6 +972,12 @@ public  final class SubscribeDocListResponse extends
       hash = (53 * hash) + getPublishTime().hashCode();
       hash = (37 * hash) + IS_BUY_FIELD_NUMBER;
       hash = (53 * hash) + getIsBuy().hashCode();
+      hash = (37 * hash) + ADD_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getAddTime().hashCode();
+      hash = (37 * hash) + DOC_SOURCE_FIELD_NUMBER;
+      hash = (53 * hash) + getDocSource().hashCode();
+      hash = (37 * hash) + KEYWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyword().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -879,6 +1110,12 @@ public  final class SubscribeDocListResponse extends
 
         isBuy_ = "";
 
+        addTime_ = "";
+
+        docSource_ = "";
+
+        keyword_ = "";
+
         return this;
       }
 
@@ -908,6 +1145,9 @@ public  final class SubscribeDocListResponse extends
         result.docuAuthor_ = docuAuthor_;
         result.publishTime_ = publishTime_;
         result.isBuy_ = isBuy_;
+        result.addTime_ = addTime_;
+        result.docSource_ = docSource_;
+        result.keyword_ = keyword_;
         onBuilt();
         return result;
       }
@@ -975,6 +1215,18 @@ public  final class SubscribeDocListResponse extends
         }
         if (!other.getIsBuy().isEmpty()) {
           isBuy_ = other.isBuy_;
+          onChanged();
+        }
+        if (!other.getAddTime().isEmpty()) {
+          addTime_ = other.addTime_;
+          onChanged();
+        }
+        if (!other.getDocSource().isEmpty()) {
+          docSource_ = other.docSource_;
+          onChanged();
+        }
+        if (!other.getKeyword().isEmpty()) {
+          keyword_ = other.keyword_;
           onChanged();
         }
         onChanged();
@@ -1622,6 +1874,273 @@ public  final class SubscribeDocListResponse extends
   checkByteStringIsUtf8(value);
         
         isBuy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object addTime_ = "";
+      /**
+       * <pre>
+       * 添加日期
+       * </pre>
+       *
+       * <code>optional string add_time = 8;</code>
+       */
+      public java.lang.String getAddTime() {
+        java.lang.Object ref = addTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          addTime_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 添加日期
+       * </pre>
+       *
+       * <code>optional string add_time = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAddTimeBytes() {
+        java.lang.Object ref = addTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          addTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 添加日期
+       * </pre>
+       *
+       * <code>optional string add_time = 8;</code>
+       */
+      public Builder setAddTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        addTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 添加日期
+       * </pre>
+       *
+       * <code>optional string add_time = 8;</code>
+       */
+      public Builder clearAddTime() {
+        
+        addTime_ = getDefaultInstance().getAddTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 添加日期
+       * </pre>
+       *
+       * <code>optional string add_time = 8;</code>
+       */
+      public Builder setAddTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        addTime_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object docSource_ = "";
+      /**
+       * <pre>
+       * 文献来源
+       * </pre>
+       *
+       * <code>optional string doc_source = 9;</code>
+       */
+      public java.lang.String getDocSource() {
+        java.lang.Object ref = docSource_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          docSource_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 文献来源
+       * </pre>
+       *
+       * <code>optional string doc_source = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDocSourceBytes() {
+        java.lang.Object ref = docSource_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          docSource_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 文献来源
+       * </pre>
+       *
+       * <code>optional string doc_source = 9;</code>
+       */
+      public Builder setDocSource(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        docSource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文献来源
+       * </pre>
+       *
+       * <code>optional string doc_source = 9;</code>
+       */
+      public Builder clearDocSource() {
+        
+        docSource_ = getDefaultInstance().getDocSource();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文献来源
+       * </pre>
+       *
+       * <code>optional string doc_source = 9;</code>
+       */
+      public Builder setDocSourceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        docSource_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object keyword_ = "";
+      /**
+       * <pre>
+       * 关键词
+       * </pre>
+       *
+       * <code>optional string keyword = 10;</code>
+       */
+      public java.lang.String getKeyword() {
+        java.lang.Object ref = keyword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 关键词
+       * </pre>
+       *
+       * <code>optional string keyword = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeywordBytes() {
+        java.lang.Object ref = keyword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 关键词
+       * </pre>
+       *
+       * <code>optional string keyword = 10;</code>
+       */
+      public Builder setKeyword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 关键词
+       * </pre>
+       *
+       * <code>optional string keyword = 10;</code>
+       */
+      public Builder clearKeyword() {
+        
+        keyword_ = getDefaultInstance().getKeyword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 关键词
+       * </pre>
+       *
+       * <code>optional string keyword = 10;</code>
+       */
+      public Builder setKeywordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyword_ = value;
         onChanged();
         return this;
       }
