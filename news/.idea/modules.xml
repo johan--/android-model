@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/librarypdf/librarypdf.iml" filepath="$PROJECT_DIR$/librarypdf/librarypdf.iml" />
       <module fileurl="file://$PROJECT_DIR$/news.iml" filepath="$PROJECT_DIR$/news.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spinner/spinner.iml" filepath="$PROJECT_DIR$/spinner/spinner.iml" />
     </modules>
   </component>
 </project>

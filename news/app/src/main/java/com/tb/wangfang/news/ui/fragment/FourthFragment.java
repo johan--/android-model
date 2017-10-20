@@ -76,9 +76,13 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
     }
 
 
-    @OnClick({R.id.tv_edit_personnal, R.id.tv_register, R.id.rl_mycollect, R.id.rl_myorder, R.id.rl_help, R.id.rl_setting, R.id.rl_my_subscibe, R.id.rl_message_center})
+    @OnClick({R.id.tv_edit_personnal, R.id.tv_register, R.id.rl_mycollect, R.id.rl_myorder, R.id.rl_help, R.id.rl_setting, R.id.rl_my_subscibe, R.id.rl_message_center,R.id.rl_my_wallet})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.rl_my_wallet:
+
+                break;
+
             case R.id.tv_edit_personnal:
                 Intent intent2 = new Intent(getActivity(), EditPersonInforActivity.class);
                 startActivity(intent2);

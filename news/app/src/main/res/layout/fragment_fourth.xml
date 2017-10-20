@@ -87,6 +87,40 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_my_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@mipmap/my_collect_icon"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:text="我的钱包"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="16dp"
+            android:src="@mipmap/step_arrow_icon" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <RelativeLayout
         android:id="@+id/rl_mycollect"
         android:layout_width="match_parent"
         android:layout_height="44dp"

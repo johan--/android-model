@@ -1,12 +1,18 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
@@ -16,6 +22,8 @@ import com.tb.wangfang.news.di.module.FragmentModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.KeyWordArticleAdapter;
 import com.tb.wangfang.news.ui.adapter.SubscribeLineWordAdapter;
+import com.tb.wangfang.news.utils.SystemUtil;
+import com.tb.wangfang.news.widget.FlowLayout;
 import com.wanfang.subscribe.SubscribeDocListRequest;
 import com.wanfang.subscribe.SubscribeDocListResponse;
 import com.wanfang.subscribe.SubscribeKeywordListRequest;
@@ -29,6 +37,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -36,7 +46,6 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-
 
 
 public class SubscribeKeyFragment extends SimpleFragment {
@@ -52,11 +61,14 @@ public class SubscribeKeyFragment extends SimpleFragment {
     @BindView(R.id.rv_doc)
     RecyclerView rvDoc;
     String TAG = "SubscribeKeyFragment";
+    Unbinder unbinder;
     private int pageNum = 1;
     private List<SubscribeKeywordMessage> keyWords;
     private List<SubscribeDocListResponse.SubscribeDocMessage> DocLists;
     private SubscribeLineWordAdapter adapter;
     private KeyWordArticleAdapter docAdapter;
+    private MaterialDialog dialog;
+    private TextView[] flowTvs;
 
     public SubscribeKeyFragment() {
         // Required empty public constructor
@@ -124,14 +136,13 @@ public class SubscribeKeyFragment extends SimpleFragment {
     }
 
 
-
     private void getKeyWord() {
         Single.create(new SingleOnSubscribe<SubscribeKeywordListResponse>() {
             @Override
             public void subscribe(SingleEmitter<SubscribeKeywordListResponse> e) throws Exception {
                 SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
 
-                SubscribeKeywordListRequest request = SubscribeKeywordListRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPageSize(20).setPageNumber(1).build();
+                SubscribeKeywordListRequest request = SubscribeKeywordListRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPageNumber(1).build();
                 SubscribeKeywordListResponse response = stub.getSubscribeKeywordList(request);
                 e.onSuccess(response);
             }
@@ -151,4 +162,68 @@ public class SubscribeKeyFragment extends SimpleFragment {
     }
 
 
+    @OnClick(R.id.iv_spread_item)
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_spread_item:
+                dialog = new MaterialDialog.Builder(getActivity())
+                        .title("全部关键词订阅")
+                        .customView(R.layout.item_flow_layout, true)
+                        .positiveText("确定")
+                        .negativeText("取消")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                            }
+                        }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        }).onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .build();
+                FlowLayout flContent = (FlowLayout) dialog.getCustomView().findViewById(R.id.fl_content);
+                flowTvs = new TextView[keyWords.size() + 1];
+                for (int i = 0; i < keyWords.size() + 1; i++) {
+                    TextView textView = new TextView(getActivity());
+                    textView.setTextSize(12);
+                    textView.setGravity(Gravity.CENTER);
+                    if (i == 0) {
+                        textView.setText("全部");
+                    } else {
+                        textView.setText(keyWords.get(i - 1).getKeyword());
+                    }
+                    ViewGroup.LayoutParams vglp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(vglp);
+                    params.setMargins(SystemUtil.dp2px(getActivity(), 8), SystemUtil.dp2px(8), SystemUtil.dp2px(8), SystemUtil.dp2px(8));
+                    textView.setBackgroundResource(R.drawable.item_flow_gray_frame);
+                    textView.setTextColor(getResources().getColor(R.color.gray_text_6));
+                    textView.setLayoutParams(params);
+                    final int finalI = i;
+                    textView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            for (int j = 0; j < flowTvs.length; j++) {
+                                TextView itemTv = flowTvs[j];
+                                itemTv.setBackgroundResource(R.drawable.item_flow_gray_frame);
+                                itemTv.setTextColor(getResources().getColor(R.color.gray_text_6));
+                            }
+                            v.setBackgroundResource(R.drawable.itme_flow_blue_frame);
+                            ((TextView) v).setTextColor(getResources().getColor(R.color.white));
+                            getDocList(keyWords.get(finalI - 1));
+                        }
+                    });
+                    flowTvs[i] = textView;
+                    flContent.addView(textView);
+                }
+                dialog.show();
+                break;
+        }
+    }
 }

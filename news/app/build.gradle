@@ -143,16 +143,21 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Moments-3.0.2.jar')
     compile files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
     // 此处以JPush 3.0.9 版本为例。
+
     // 此处以JCore 1.1.7 版本为例。
+
     // 此处以JMessage 2.2.1 版本为例。
     compile files('libs/MiPush_SDK_Client_3_4_5.jar')
     compile project(':hMSSdkBase')
     compile project(':hMSSdkPush')
     compile project(':lib')
+    //    compile 'com.jaredrummler:material-spinner:1.1.0'
+
+
+    compile project(':spinner')
+    compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
@@ -174,7 +179,6 @@ dependencies {
     compile 'io.grpc:grpc-stub:1.4.0'
     compile 'javax.annotation:javax.annotation-api:1.2'
     compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
-    compile 'com.jaredrummler:material-spinner:1.1.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.gelitenight.waveview:waveview:1.0.0'

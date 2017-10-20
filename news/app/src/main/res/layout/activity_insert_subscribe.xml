@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tb.wangfang.news.ui.activity.MySubscribeActivity">
+    tools:context="com.tb.wangfang.news.ui.activity.InsertSubscribeActivity">
 
     <RelativeLayout
-        android:id="@+id/rl_titlebar"
+        android:id="@+id/rl_sign_one"
         android:layout_width="match_parent"
         android:layout_height="54dp"
+
         android:background="@color/colorPrimaryDark">
 
         <ImageView
-            android:id="@+id/iv_go_back"
+            android:id="@+id/tv_return"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
@@ -23,30 +25,26 @@
             android:src="@mipmap/return_icon" />
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_page_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:ellipsize="end"
             android:gravity="center"
-            android:lines="1"
-            android:maxEms="13"
-            android:text="我的订阅"
+            android:text="添加订阅"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/iv_menu"
+        <TextView
+            android:id="@+id/tv_cancel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingLeft="38dp"
-            android:paddingRight="25dp"
-          android:paddingTop="17dp"
-            android:paddingBottom="17dp"
-            android:src="@mipmap/meun_icon" />
-
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="16sp"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -76,5 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"></android.support.v4.view.ViewPager>
+
+
 
 </LinearLayout>

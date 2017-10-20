@@ -1,80 +1,68 @@
 package com.tb.wangfang.news.ui.activity;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
-import com.tb.wangfang.news.ui.fragment.MyJournalFragment;
-import com.tb.wangfang.news.ui.fragment.SubscribeKeyFragment;
-import com.tb.wangfang.news.widget.PopSubscribe;
+import com.tb.wangfang.news.di.component.DaggerActivityComponent;
+import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.ui.fragment.InsertJournalFragment;
+import com.tb.wangfang.news.ui.fragment.InsertKeywordFragment;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.grpc.ManagedChannel;
 
-public class MySubscribeActivity extends SimpleActivity {
-
-
+public class InsertSubscribeActivity extends SimpleActivity {
+    @Inject
+    ManagedChannel managedChannel;
+    @Inject
+    ImplPreferencesHelper preferencesHelper;
     @BindView(R.id.tl_project)
     TabLayout tlProject;
     @BindView(R.id.vp_item)
     ViewPager vpItem;
-    @BindView(R.id.rl_titlebar)
-    RelativeLayout rlTitleBar;
-    @BindView(R.id.iv_menu)
-    ImageView ivMenu;
     Fragment[] fragments = new Fragment[2];
     String[] tabTitle = new String[]{"关键词", "期刊订阅"};
 
     @Override
     protected int getLayout() {
-        return R.layout.activity_my_subscribe;
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
+        return R.layout.activity_insert_subscribe;
     }
 
     @Override
     protected void initEventAndData() {
         tlProject.addTab(tlProject.newTab().setText(tabTitle[0]));
         tlProject.addTab(tlProject.newTab().setText(tabTitle[1]));
-        fragments[0] = new SubscribeKeyFragment();
-        fragments[1] = new MyJournalFragment();
+        fragments[0] = new InsertKeywordFragment();
+        fragments[1] = new InsertJournalFragment();
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), fragments);
         tlProject.setTabMode(TabLayout.MODE_FIXED);
         vpItem.setAdapter(viewPageAdapter);
         tlProject.setupWithViewPager(vpItem);
         vpItem.setCurrentItem(0);
-
     }
 
-    @OnClick({R.id.iv_go_back, R.id.iv_menu})
+
+    @OnClick({R.id.tv_return, R.id.tv_cancel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.iv_go_back:
-                finish();
+            case R.id.tv_return:
                 break;
-            case R.id.iv_menu:
-                final PopSubscribe popSubscribe = new PopSubscribe(this);
-                popSubscribe.showPopupWindow(ivMenu);
-                popSubscribe.getContentView().findViewById(R.id.tv_insert_subscribe).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MySubscribeActivity.this, InsertSubscribeActivity.class);
-                        startActivity(intent);
-                        popSubscribe.dismiss();
-                    }
-                });
-                popSubscribe.getContentView().findViewById(R.id.tv_manage_subscribe).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popSubscribe.dismiss();
-                    }
-                });
+            case R.id.tv_cancel:
                 break;
         }
     }

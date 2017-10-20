@@ -246,7 +246,8 @@
         </receiver>
 
         <activity android:name=".ui.activity.MessageActivity" />
-        <activity android:name=".ui.activity.MySubscribeActivity"></activity>
+        <activity android:name=".ui.activity.MySubscribeActivity" />
+        <activity android:name=".ui.activity.InsertSubscribeActivity"></activity>
     </application>
 
 </manifest>

@@ -42,7 +42,10 @@ public class MianSearchActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
-
+        HistoryDocItem docItem = new HistoryDocItem();
+        docItem.setText("计算机");
+        docItem.setTime(System.currentTimeMillis() / 1000);
+        realmHelper.save(docItem);
         etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

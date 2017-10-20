@@ -15,22 +15,32 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
     <style name="AnimationPreviewBC">
         <item name="android:windowEnterAnimation">@anim/bc_fade_in</item>
         <item name="android:windowExitAnimation">@anim/bc_fade_out</item>
     </style>
+
     <style name="AnimationPreviewBR">
         <item name="android:windowEnterAnimation">@anim/bottom_right_fade_in</item>
         <item name="android:windowExitAnimation">@anim/bottom_right_fade_out</item>
     </style>
+
     <style name="AnimationPreviewTC">
         <item name="android:windowEnterAnimation">@anim/tc_fade_in</item>
         <item name="android:windowExitAnimation">@anim/tc_fade_out</item>
     </style>
+
     <style name="AnimationPreviewTR">
         <item name="android:windowEnterAnimation">@anim/top_right_fade_in</item>
         <item name="android:windowExitAnimation">@anim/top_right_fade_out</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -38,6 +48,7 @@
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="actionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
 
@@ -49,10 +60,15 @@
 
         <item name="colorPrimaryDark">#CCa500</item>
     </style>
+
     <declare-styleable name="CircleImageView">
         <attr name="civ_border_width" format="dimension" />
         <attr name="civ_border_color" format="color" />
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout">
+        <attr name="lineSpacing" format="dimension" />
+        <attr name="maxLine" format="integer" />
     </declare-styleable>
 </resources>

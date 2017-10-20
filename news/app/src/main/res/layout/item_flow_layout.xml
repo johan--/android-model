@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tb.wangfang.news.widget.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/fl_content" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</com.tb.wangfang.news.widget.FlowLayout>

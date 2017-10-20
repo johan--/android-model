@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/librarypdf" />
+            <option value="$PROJECT_DIR$/spinner" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
