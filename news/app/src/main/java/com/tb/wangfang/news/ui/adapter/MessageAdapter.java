@@ -9,6 +9,7 @@ import com.tb.wangfang.news.R;
 
 import java.util.List;
 
+import cn.jpush.im.android.api.content.TextContent;
 import cn.jpush.im.android.api.model.Message;
 
 /**
@@ -25,8 +26,6 @@ public class MessageAdapter extends BaseQuickAdapter<Message, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, Message item) {
-        helper.setText(R.id.tv_title, item.getContent().getStringExtra("1"));
-
-
+        helper.setText(R.id.tv_title, ((TextContent) item.getContent()).getText());
     }
 }

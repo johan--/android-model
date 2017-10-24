@@ -16,6 +16,7 @@ import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MessageActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.MySubscribeActivity;
+import com.tb.wangfang.news.ui.activity.MyWalletActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.SettingActivity;
 
@@ -76,11 +77,12 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
     }
 
 
-    @OnClick({R.id.tv_edit_personnal, R.id.tv_register, R.id.rl_mycollect, R.id.rl_myorder, R.id.rl_help, R.id.rl_setting, R.id.rl_my_subscibe, R.id.rl_message_center,R.id.rl_my_wallet})
+    @OnClick({R.id.tv_edit_personnal, R.id.tv_register, R.id.rl_mycollect, R.id.rl_myorder, R.id.rl_help, R.id.rl_setting, R.id.rl_my_subscibe, R.id.rl_message_center, R.id.rl_my_wallet})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_my_wallet:
-
+                Intent intent8 = new Intent(getActivity(), MyWalletActivity.class);
+                startActivity(intent8);
                 break;
 
             case R.id.tv_edit_personnal:

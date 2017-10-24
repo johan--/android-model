@@ -72,6 +72,8 @@ public class MySubscribeActivity extends SimpleActivity {
                 popSubscribe.getContentView().findViewById(R.id.tv_manage_subscribe).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent intent = new Intent(MySubscribeActivity.this, ManageSubscribeActivity.class);
+                        startActivity(intent);
                         popSubscribe.dismiss();
                     }
                 });

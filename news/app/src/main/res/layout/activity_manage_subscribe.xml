@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.ManageSubscribeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/return_icon" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="管理订阅"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/divide"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="关键词"
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+
+            <com.tb.wangfang.news.widget.FlowLayout
+                android:id="@+id/fl_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.tb.wangfang.news.widget.FlowLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/divide"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="期刊"
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+
+            <com.tb.wangfang.news.widget.FlowLayout
+                android:id="@+id/fl_journal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.tb.wangfang.news.widget.FlowLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/divide"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+                android:text="邮箱地址"
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16.5dp"
+
+                android:textColor="@color/gray_text_6"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

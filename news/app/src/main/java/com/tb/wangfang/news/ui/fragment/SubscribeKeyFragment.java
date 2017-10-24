@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +21,7 @@ import com.tb.wangfang.news.base.SimpleFragment;
 import com.tb.wangfang.news.di.component.DaggerFragmentComponent;
 import com.tb.wangfang.news.di.module.FragmentModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.ui.activity.InsertSubscribeActivity;
 import com.tb.wangfang.news.ui.adapter.KeyWordArticleAdapter;
 import com.tb.wangfang.news.ui.adapter.SubscribeLineWordAdapter;
 import com.tb.wangfang.news.utils.SystemUtil;
@@ -62,6 +64,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
     RecyclerView rvDoc;
     String TAG = "SubscribeKeyFragment";
     Unbinder unbinder;
+    Unbinder unbinder1;
     private int pageNum = 1;
     private List<SubscribeKeywordMessage> keyWords;
     private List<SubscribeDocListResponse.SubscribeDocMessage> DocLists;
@@ -99,10 +102,23 @@ public class SubscribeKeyFragment extends SimpleFragment {
                 getDocList(adapter.getData().get(position));
             }
         });
+
         rvKeyWord.setAdapter(adapter);
         rvDoc.setLayoutManager(new LinearLayoutManager(getActivity()));
         DocLists = new ArrayList<>();
         docAdapter = new KeyWordArticleAdapter(DocLists);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.foot_get_more, (ViewGroup) rvKeyWord.getParent(), false);
+        TextView tvGetMore = (TextView) view.findViewById(R.id.tv_get_more);
+        tvGetMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InsertSubscribeActivity.class);
+                startActivity(intent);
+            }
+        });
+        docAdapter.addFooterView(view);
+
+
         rvDoc.setAdapter(docAdapter);
         getKeyWord();
 
@@ -162,7 +178,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
     }
 
 
-    @OnClick(R.id.iv_spread_item)
+    @OnClick({R.id.iv_spread_item})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_spread_item:
@@ -224,6 +240,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
                 }
                 dialog.show();
                 break;
+
         }
     }
 }

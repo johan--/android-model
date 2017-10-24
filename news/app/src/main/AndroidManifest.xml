@@ -247,7 +247,9 @@
 
         <activity android:name=".ui.activity.MessageActivity" />
         <activity android:name=".ui.activity.MySubscribeActivity" />
-        <activity android:name=".ui.activity.InsertSubscribeActivity"></activity>
+        <activity android:name=".ui.activity.InsertSubscribeActivity" />
+        <activity android:name=".ui.activity.ManageSubscribeActivity" />
+        <activity android:name=".ui.activity.MyWalletActivity"></activity>
     </application>
 
 </manifest>

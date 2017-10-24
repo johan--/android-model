@@ -90,18 +90,22 @@ public class App extends Application {
         if (SystemUtil.getSystem().equals(SystemUtil.SYS_MIUI)) {
             if (shouldInit()) {
                 MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
+
+
             }
 
             //华为手机
         } else if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
-
+            if (shouldInit()) {
+                MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
+            }
             //其他手机
         } else {
             JPushInterface.setDebugMode(true);
             JPushInterface.init(this);
         }
         JMessageClient.setDebugMode(true);
-        JMessageClient.init(this,true);
+        JMessageClient.init(this, true);
     }
 
     protected void attachBaseContext(Context base) {

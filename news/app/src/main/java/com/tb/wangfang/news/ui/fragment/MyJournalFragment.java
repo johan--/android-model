@@ -1,10 +1,14 @@
 package com.tb.wangfang.news.ui.fragment;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
@@ -12,6 +16,7 @@ import com.tb.wangfang.news.base.SimpleFragment;
 import com.tb.wangfang.news.di.component.DaggerFragmentComponent;
 import com.tb.wangfang.news.di.module.FragmentModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.ui.activity.InsertSubscribeActivity;
 import com.tb.wangfang.news.ui.adapter.MyJournalAdapter;
 import com.wanfang.subscribe.SubscribePerioListRequest;
 import com.wanfang.subscribe.SubscribePerioListResponse;
@@ -44,6 +49,7 @@ public class MyJournalFragment extends SimpleFragment {
     private List<SubscribePerioListResponse.SubscribePerioMessage> journalLists;
     private MyJournalAdapter adapter;
     private String TAG = "MyJournalFragment";
+    public static final String JOURNAL_TYPE = "journal";
 
     public MyJournalFragment() {
         // Required empty public constructor
@@ -63,10 +69,19 @@ public class MyJournalFragment extends SimpleFragment {
         journalLists = new ArrayList<>();
         rvJournal.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new MyJournalAdapter(getActivity(), journalLists);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.foot_get_more, (ViewGroup) rvJournal.getParent(), false);
+        TextView tvGetMore = (TextView) view.findViewById(R.id.tv_get_more);
+        tvGetMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InsertSubscribeActivity.class);
+                intent.putExtra("type", JOURNAL_TYPE);
+                startActivity(intent);
+            }
+        });
+        adapter.addFooterView(view);
         rvJournal.setAdapter(adapter);
-
         getMyJournal();
-
     }
 
     private void getMyJournal() {

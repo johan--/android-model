@@ -1,13 +1,53 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/divide"
+    android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.fragment.InsertJournalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/rl_sign_one"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.tb.wangfang.news.widget.SearchEditText
+            android:id="@+id/et_search"
+            inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/tv_cancel"
+            android:background="@drawable/miansearch_white_frame"
+            android:drawableLeft="@mipmap/blue_search_icon"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="请输入旗杆名称或拼音"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:textColor="@color/black_text"
+            android:textColorHint="#ccc"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_menu"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"></android.support.v7.widget.RecyclerView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@color/white"></android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</LinearLayout>

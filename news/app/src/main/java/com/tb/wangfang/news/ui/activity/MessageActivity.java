@@ -54,7 +54,7 @@ public class MessageActivity extends SimpleActivity {
                 .appComponent(App.getAppComponent())
                 .activityModule(new ActivityModule(this))
                 .build().inject(this);
-        cov = JMessageClient.getSingleConversation("bintang", "");
+        cov = JMessageClient.getSingleConversation("admin", "");
         List<Message> messages;
         if (cov != null) {
             messages = cov.getAllMessage();

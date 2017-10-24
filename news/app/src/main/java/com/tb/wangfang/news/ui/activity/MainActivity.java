@@ -35,6 +35,7 @@ import com.tb.wangfang.news.ui.fragment.SecondFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -124,6 +125,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
             }
         });
+        //test
+        MiPushClient.setAlias(this,"tangbin", null);
     }
 
     private void initView() {

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.tb.wangfang.news.R;
@@ -15,6 +16,7 @@ import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.fragment.InsertJournalFragment;
 import com.tb.wangfang.news.ui.fragment.InsertKeywordFragment;
+import com.tb.wangfang.news.ui.fragment.MyJournalFragment;
 
 import javax.inject.Inject;
 
@@ -33,6 +35,7 @@ public class InsertSubscribeActivity extends SimpleActivity {
     ViewPager vpItem;
     Fragment[] fragments = new Fragment[2];
     String[] tabTitle = new String[]{"关键词", "期刊订阅"};
+    private String TAG = "InsertSubscribeActivity";
 
     @Override
     protected int getLayout() {
@@ -54,15 +57,26 @@ public class InsertSubscribeActivity extends SimpleActivity {
         vpItem.setAdapter(viewPageAdapter);
         tlProject.setupWithViewPager(vpItem);
         vpItem.setCurrentItem(0);
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("type")) && getIntent().getStringExtra("type").equals(MyJournalFragment.JOURNAL_TYPE)) {
+            vpItem.setCurrentItem(1);
+        }
+
+    }
 
     @OnClick({R.id.tv_return, R.id.tv_cancel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
+                finish();
                 break;
             case R.id.tv_cancel:
+                finish();
                 break;
         }
     }

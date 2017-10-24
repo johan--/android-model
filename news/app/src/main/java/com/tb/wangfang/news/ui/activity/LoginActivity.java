@@ -25,6 +25,7 @@ import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
 import com.wanfang.personal.LoginResponse;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import javax.inject.Inject;
 
@@ -239,6 +240,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             finish();
         } else {
             ToastUtil.show("登录成功");
+            MiPushClient.setUserAccount(this, response.getUserId(), null);
             PreferencesHelper.setLoginState(true);
             finish();
         }
