@@ -129,6 +129,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
         Single.create(new SingleOnSubscribe<SubscribeDocListResponse>() {
             @Override
             public void subscribe(SingleEmitter<SubscribeDocListResponse> e) throws Exception {
+
                 SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
 
                 SubscribeDocListRequest request = SubscribeDocListRequest.newBuilder().setPageSize(20).setPageNumber(pageNum).setSubscribeKeyword(subscribeKeywordMessage).build();
@@ -167,6 +168,8 @@ public class SubscribeKeyFragment extends SimpleFragment {
             public void onSuccess(SubscribeKeywordListResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 keyWords = response.getSubscribeKeywordList();
+                SubscribeKeywordMessage subscribeKeywordMessageAll = SubscribeKeywordMessage.newBuilder().setUserId(preferencesHelper.getUserId()).setKeyword("全部").build();
+                keyWords.add(0, subscribeKeywordMessageAll);
                 adapter.setNewData(keyWords);
             }
 

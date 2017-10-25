@@ -62,12 +62,12 @@ public class MessageActivity extends SimpleActivity {
             messages = new ArrayList<>();
         }
         adapter = new MessageAdapter(this, messages);
-        rvMessage.setLayoutManager(new LinearLayoutManager(this));
+        rvMessage.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
         rvMessage.setAdapter(adapter);
     }
 
     public void onEvent(MessageEvent event) {
-        Log.d(TAG, "onEvent: " + event.getMessage().getContent().getStringExtras().get("1"));
+
         List<Message> messages = cov.getAllMessage();
         adapter.setNewData(messages);
 
@@ -81,7 +81,7 @@ public class MessageActivity extends SimpleActivity {
         //获取事件发生的会话对象
         Log.d(TAG, "onEvent: 同步离线");
         Conversation conversation = event.getConversation();
-//        List<Message> newMessageList = event.getOfflineMessageList();//获取此次离线期间会话收到的新消息列表
+
         List<Message> messages = conversation.getAllMessage();
         adapter.setNewData(messages);
 //        System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到%d条来自%s的离线消息。\n", newMessageList.size(), conversation.getTargetId()));
