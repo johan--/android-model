@@ -129,9 +129,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
         Single.create(new SingleOnSubscribe<SubscribeDocListResponse>() {
             @Override
             public void subscribe(SingleEmitter<SubscribeDocListResponse> e) throws Exception {
-
                 SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
-
                 SubscribeDocListRequest request = SubscribeDocListRequest.newBuilder().setPageSize(20).setPageNumber(pageNum).setSubscribeKeyword(subscribeKeywordMessage).build();
                 SubscribeDocListResponse response = stub.getSubscribeDocListByKeyword(request);
                 e.onSuccess(response);
@@ -142,7 +140,6 @@ public class SubscribeKeyFragment extends SimpleFragment {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 DocLists = response.getSubscribeDocList();
                 docAdapter.setNewData(DocLists);
-
             }
 
             @Override
@@ -167,10 +164,14 @@ public class SubscribeKeyFragment extends SimpleFragment {
             @Override
             public void onSuccess(SubscribeKeywordListResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
-                keyWords = response.getSubscribeKeywordList();
+                keyWords.clear();
+                for (int i = 0; i < response.getSubscribeKeywordList().size(); i++) {
+                    keyWords.add(response.getSubscribeKeywordList().get(i));
+                }
                 SubscribeKeywordMessage subscribeKeywordMessageAll = SubscribeKeywordMessage.newBuilder().setUserId(preferencesHelper.getUserId()).setKeyword("全部").build();
                 keyWords.add(0, subscribeKeywordMessageAll);
                 adapter.setNewData(keyWords);
+                getDocList(subscribeKeywordMessageAll);
             }
 
             @Override
@@ -193,7 +194,6 @@ public class SubscribeKeyFragment extends SimpleFragment {
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-
                             }
                         }).onNegative(new MaterialDialog.SingleButtonCallback() {
                             @Override
@@ -208,16 +208,14 @@ public class SubscribeKeyFragment extends SimpleFragment {
                         })
                         .build();
                 FlowLayout flContent = (FlowLayout) dialog.getCustomView().findViewById(R.id.fl_content);
-                flowTvs = new TextView[keyWords.size() + 1];
-                for (int i = 0; i < keyWords.size() + 1; i++) {
+                flowTvs = new TextView[keyWords.size()];
+                for (int i = 0; i < keyWords.size(); i++) {
                     TextView textView = new TextView(getActivity());
                     textView.setTextSize(12);
                     textView.setGravity(Gravity.CENTER);
-                    if (i == 0) {
-                        textView.setText("全部");
-                    } else {
-                        textView.setText(keyWords.get(i - 1).getKeyword());
-                    }
+
+                    textView.setText(keyWords.get(i).getKeyword());
+
                     ViewGroup.LayoutParams vglp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(vglp);
                     params.setMargins(SystemUtil.dp2px(getActivity(), 8), SystemUtil.dp2px(8), SystemUtil.dp2px(8), SystemUtil.dp2px(8));
@@ -235,7 +233,8 @@ public class SubscribeKeyFragment extends SimpleFragment {
                             }
                             v.setBackgroundResource(R.drawable.itme_flow_blue_frame);
                             ((TextView) v).setTextColor(getResources().getColor(R.color.white));
-                            getDocList(keyWords.get(finalI - 1));
+                            getDocList(keyWords.get(finalI));
+                            adapter.setSelectedPosition(finalI);
                         }
                     });
                     flowTvs[i] = textView;

@@ -20,6 +20,11 @@ public class Constants {
     public static final String MI_PUSH_KEY = "5241762212332";
     public static final String ARTICLE_TYPE = "article_type";
     public static final String ARTICLE_ID = "article_id";
+    //极光管理员账号配置
+    public static final String JMESSAGE_FRUIT_ACCOUNT = "admin";
+    public static final String JMESSAGE_ORDER_ACCOUNT = "tangbin";
+    public static final String JMESSAGE_FOCUS_ACCOUNT = "article_type";
+    public static final String JMESSAGE_SYSTEM_ACCOUNT = "article_id";
 
 
 }

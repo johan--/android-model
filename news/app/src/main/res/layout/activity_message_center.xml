@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tb.wangfang.news.ui.activity.MessageCenterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/iv_go_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/return_icon" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:maxEms="13"
+            android:text="消息中心"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16.5dp"
+            android:padding="5dp"
+            android:paddingLeft="16.5dp"
+            android:paddingRight="16.5dp"
+            android:src="@mipmap/message_all_read" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_dynamic"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.5dp">
+
+            <ImageView
+
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/fruit_dynamic_icon" />
+
+            <com.tb.wangfang.news.widget.InvisibleTextView
+                android:id="@+id/tv_fruit_unread"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/little_red_point"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_icon"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon"
+            android:text="成功动态"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_dynamic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_icon"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon"
+            android:text="你的成果有新的被引"
+            android:textColor="#999"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <RelativeLayout
+        android:id="@+id/rl_order"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_icon2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.5dp">
+
+            <ImageView
+
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/message_order_icon" />
+
+            <com.tb.wangfang.news.widget.InvisibleTextView
+                android:id="@+id/tv_order_unread"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/little_red_point"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_icon2"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon2"
+            android:text="订阅消息"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_order_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_icon2"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon2"
+            android:text="您的订阅有新的动态"
+            android:textColor="#999"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <RelativeLayout
+        android:id="@+id/rl_focus"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_icon3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.5dp">
+
+            <ImageView
+
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/message_focus_icon" />
+
+            <com.tb.wangfang.news.widget.InvisibleTextView
+                android:id="@+id/tv_focus_unread"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/little_red_point"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_icon3"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon3"
+            android:text="关注动态"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_icon3"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon3"
+            android:text="您有新的关注者"
+            android:textColor="#999"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+
+    <RelativeLayout
+        android:id="@+id/rl_system"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_icon4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.5dp">
+
+            <ImageView
+
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/fruit_dynamic_icon" />
+
+            <com.tb.wangfang.news.widget.InvisibleTextView
+                android:id="@+id/tv_system_unread"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/little_red_point"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_icon4"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon4"
+            android:text="系统消息"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_icon4"
+            android:layout_marginLeft="17.5dp"
+            android:layout_toRightOf="@id/rl_icon4"
+            android:text="您的订单已退款"
+            android:textColor="#999"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
+        android:background="@color/divide" />
+</LinearLayout>

@@ -13,7 +13,7 @@ import com.tb.wangfang.news.presenter.FourthPresenter;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
 import com.tb.wangfang.news.ui.activity.HelpActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
-import com.tb.wangfang.news.ui.activity.MessageActivity;
+import com.tb.wangfang.news.ui.activity.MessageCenterActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.MySubscribeActivity;
 import com.tb.wangfang.news.ui.activity.MyWalletActivity;
@@ -115,7 +115,7 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
                 startActivity(intent6);
                 break;
             case R.id.rl_message_center:
-                Intent intent7 = new Intent(getActivity(), MessageActivity.class);
+                Intent intent7 = new Intent(getActivity(), MessageCenterActivity.class);
                 startActivity(intent7);
                 break;
         }

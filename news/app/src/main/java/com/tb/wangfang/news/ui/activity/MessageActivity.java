@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
@@ -40,37 +41,60 @@ public class MessageActivity extends SimpleActivity {
     private String TAG = "MessageActivity";
     private Conversation cov;
     private MessageAdapter adapter;
-
+    public static final String TYPE_DYNAMIC = "dynamic";
+    public static final String TYPE_ORDER = "order";
+    public static final String TYPE_FOCUS = "focus";
+    public static final String TYPE_SYSTEM = "system";
+    private String type;
+    private List<Message> messages;
 
     @Override
     protected int getLayout() {
         JMessageClient.registerEventReceiver(this);
+        DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(new ActivityModule(this))
+                .build().inject(this);
         return R.layout.activity_message;
     }
 
     @Override
     protected void initEventAndData() {
-        DaggerActivityComponent.builder()
-                .appComponent(App.getAppComponent())
-                .activityModule(new ActivityModule(this))
-                .build().inject(this);
-        cov = JMessageClient.getSingleConversation("admin", "");
-        List<Message> messages;
+        type = getIntent().getStringExtra("type");
+        if (type.equals(TYPE_DYNAMIC)) {
+            cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_FRUIT_ACCOUNT, "");
+
+        } else if (type.equals(TYPE_ORDER)) {
+            cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_ORDER_ACCOUNT, "");
+
+        } else if (type.equals(TYPE_FOCUS)) {
+            cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_FOCUS_ACCOUNT, "");
+
+        } else if (type.equals(TYPE_SYSTEM)) {
+            cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_SYSTEM_ACCOUNT, "");
+
+        }
+
         if (cov != null) {
             messages = cov.getAllMessage();
+            cov.resetUnreadCount();
         } else {
             messages = new ArrayList<>();
         }
+//        FocusMessageAdapter focusMessageAdapter=new FocusMessageAdapter()
         adapter = new MessageAdapter(this, messages);
-        rvMessage.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
+        rvMessage.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvMessage.setAdapter(adapter);
     }
 
     public void onEvent(MessageEvent event) {
+        if (cov != null) {
+            messages = cov.getAllMessage();
+            adapter.setNewData(messages);
+            cov.resetUnreadCount();
+        } else {
 
-        List<Message> messages = cov.getAllMessage();
-        adapter.setNewData(messages);
-
+        }
     }
 
     /**
@@ -80,10 +104,14 @@ public class MessageActivity extends SimpleActivity {
     public void onEvent(OfflineMessageEvent event) {
         //获取事件发生的会话对象
         Log.d(TAG, "onEvent: 同步离线");
-        Conversation conversation = event.getConversation();
+        if (cov != null) {
+            messages = cov.getAllMessage();
+            adapter.setNewData(messages);
+            cov.resetUnreadCount();
+        } else {
 
-        List<Message> messages = conversation.getAllMessage();
-        adapter.setNewData(messages);
+        }
+
 //        System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到%d条来自%s的离线消息。\n", newMessageList.size(), conversation.getTargetId()));
     }
 
@@ -93,12 +121,14 @@ public class MessageActivity extends SimpleActivity {
      * sdk会发送此事件通知上层。
      **/
     public void onEvent(ConversationRefreshEvent event) {
-        //获取事件发生的会话对象
-//        Conversation conversation = event.getConversation();
+        if (cov != null) {
+            messages = cov.getAllMessage();
+            adapter.setNewData(messages);
+            cov.resetUnreadCount();
+            Log.d(TAG, "onEvent: 同步漫游" + messages.size());
+        } else {
 
-        List<Message> messages = cov.getAllMessage();
-        Log.d(TAG, "onEvent: 同步漫游" + messages.size());
-        adapter.setNewData(messages);
+        }
 
 //        //获取事件发生的原因，对于漫游完成触发的事件，此处的reason应该是
 //        //MSG_ROAMING_COMPLETE

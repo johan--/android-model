@@ -20,7 +20,7 @@ public class KeyWordArticleAdapter extends BaseQuickAdapter<SubscribeDocListResp
 
     @Override
     protected void convert(BaseViewHolder helper, SubscribeDocListResponse.SubscribeDocMessage item) {
-        helper.setText(R.id.tv_title, item.getDocuTitle()).setText(R.id.tv_journal, item.getDocuAuthor() + "-<<" + item.getDocSource() + ">>-" + item.getPublishTime())
+        helper.setText(R.id.tv_title, item.getDocuTitle()).setText(R.id.tv_journal, item.getDocuAuthor() + "- <<" + item.getDocSource() + ">> -" + item.getPublishTime())
                 .setText(R.id.tv_key_word, item.getKeyword()).setText(R.id.tv_time, item.getAddTime());
     }
 }

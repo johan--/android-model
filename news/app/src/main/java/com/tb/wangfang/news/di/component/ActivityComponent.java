@@ -15,6 +15,7 @@ import com.tb.wangfang.news.ui.activity.MainActivity;
 import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.ManageSubscribeActivity;
 import com.tb.wangfang.news.ui.activity.MessageActivity;
+import com.tb.wangfang.news.ui.activity.MessageCenterActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.PayOrderActivity;
@@ -66,5 +67,7 @@ public interface ActivityComponent {
     void inject(InsertSubscribeActivity insertSubscribeActivity);
 
     void inject(ManageSubscribeActivity manageSubscribeActivity);
+
+    void inject(MessageCenterActivity messageCenterActivity);
 
 }

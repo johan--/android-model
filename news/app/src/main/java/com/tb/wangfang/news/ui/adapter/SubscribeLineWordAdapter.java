@@ -33,7 +33,7 @@ public class SubscribeLineWordAdapter extends BaseQuickAdapter<SubscribeKeywordM
     @Override
     protected void convert(BaseViewHolder helper, SubscribeKeywordMessage item) {
         TextView tvName = helper.getView(R.id.tv_name);
-        if (!TextUtils.isEmpty(item.getAddTime())) {
+        if (!TextUtils.isEmpty(item.getKeyword())) {
             helper.setText(R.id.tv_name, item.getKeyword());
         }
         if (helper.getAdapterPosition() == selectedPosition) {
