@@ -38,7 +38,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -64,7 +63,7 @@ public class InsertKeywordFragment extends SimpleFragment {
     @BindView(R.id.et_email)
     EditText etEmail;
     int num = 20;
-    Unbinder unbinder;
+
     private String TAG = "InsertKeywordFragment";
     private ShourceTypeAdapter adapter;
     private List<DocType> docTypes;
@@ -218,6 +217,7 @@ public class InsertKeywordFragment extends SimpleFragment {
                     request = builder.build();
                 } else {
                     request = builder.build();
+                    builder.setShouldUpdateEmail(false);
                 }
                 SubscribeKeywordResponse response = stub.subscribeKeyword(request);
                 e.onSuccess(response);

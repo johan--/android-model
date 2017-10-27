@@ -38,15 +38,15 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ViewStub
+            <LinearLayout
                 android:id="@+id/view_stub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout="@layout/frag_article" />
+                android:orientation="horizontal" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -137,8 +137,8 @@
                         android:layout_height="wrap_content"
                         android:drawableLeft="@mipmap/read_online"
                         android:drawablePadding="8dp"
-                        android:text="在线阅读"
                         android:gravity="center"
+                        android:text="在线阅读"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -156,8 +156,8 @@
                         android:layout_height="wrap_content"
                         android:drawableLeft="@mipmap/collect_icon"
                         android:drawablePadding="8dp"
-                        android:text="收藏"
                         android:gravity="center"
+                        android:text="收藏"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -192,106 +192,11 @@
                 android:text="相似论文"
                 android:textColor="@color/gray_text_6" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12.5dp"
-                android:layout_marginLeft="16.5dp"
-                android:layout_marginTop="15dp">
-
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="22.5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/blue_circle" />
-
-                <TextView
-                    android:id="@+id/tv_similarity_one"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:ellipsize="end"
-                    android:lines="1"
-                    android:text="基于PLC的一种霸星材料放松放松"
-                    android:textColor="@color/gray_text_6" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12.5dp"
-                android:layout_marginLeft="16.5dp">
-
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="22.5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/blue_circle" />
-
-                <TextView
-                    android:id="@+id/tv_similarity_two"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:ellipsize="end"
-                    android:lines="1"
-                    android:text="基于PLC的一种霸星材料放松放松"
-                    android:textColor="@color/gray_text_6" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12.5dp"
-                android:layout_marginLeft="16.5dp">
-
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="22.5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/blue_circle" />
-
-                <TextView
-                    android:id="@+id/tv_similarity_three"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:ellipsize="end"
-                    android:lines="1"
-                    android:text="基于PLC的一种霸星材料放松放松"
-                    android:textColor="@color/gray_text_6" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12.5dp"
-                android:layout_marginLeft="16.5dp">
-
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="22.5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/blue_circle" />
-
-                <TextView
-                    android:id="@+id/tv_similarity_four"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:ellipsize="end"
-                    android:lines="1"
-                    android:text="基于PLC的一种霸星材料放松放松"
-                    android:textColor="@color/gray_text_6" />
-            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_similar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"></android.support.v7.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
 

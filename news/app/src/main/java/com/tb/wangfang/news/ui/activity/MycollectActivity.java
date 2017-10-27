@@ -100,7 +100,6 @@ public class MycollectActivity extends SimpleActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 CollectBody collectBody = (CollectBody) adapter.getData().get(position);
-
                 Intent intent = new Intent(MycollectActivity.this, DocDetailActivity.class);
                 intent.putExtra(Constants.ARTICLE_TYPE, collectBody.getDocuType());
                 intent.putExtra(Constants.ARTICLE_ID, collectBody.getDocuId());

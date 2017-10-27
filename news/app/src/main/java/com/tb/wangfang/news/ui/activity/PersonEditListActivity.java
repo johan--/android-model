@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -300,6 +301,7 @@ public class PersonEditListActivity extends SimpleActivity {
                         .subscribeWith(new DisposableSingleObserver<SubjectListResponse>() {
                             @Override
                             public void onSuccess(SubjectListResponse subjectListResponse) {
+                                Log.d(TAG, "onSuccess: " + subjectListResponse.getSubjectList().toString());
                                 arrayList.clear();
                                 subjectMessages = subjectListResponse.getSubjectList().getSubSubjectList();
                                 for (int i = 0; i < subjectMessages.size(); i++) {
@@ -310,46 +312,24 @@ public class PersonEditListActivity extends SimpleActivity {
                                     arrayList.add(message);
                                 }
                                 adapter.setNewData(arrayList);
-
                             }
-
                             @Override
                             public void onError(Throwable e) {
                                 ToastUtil.show("网络出错");
                             }
                         });
-
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_SUBJECT);
                 break;
             case TYPE_UNIT:
                 tvPageTitle.setText("当前单位/院校");
-//                arrayList.add("清华大学");
-//                arrayList.add("北京大学");
-//                arrayList.add("人民大学");
-//                arrayList.add("北京师范大学");
-//                arrayList.add("北京电影学院");
-//                arrayList.add("北京理工大学");
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_UNIT);
                 break;
             case TYPE_UNIT_DEPARTMENT:
-
                 tvPageTitle.setText("所在院系");
-//                arrayList.add("信息工程学院");
-//                arrayList.add("政法学院");
-//                arrayList.add("数学科学学院");
-//                arrayList.add("生命科学学院");
-//                arrayList.add("艺术设计学院");
-//                arrayList.add("计算机学院");
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_UNIT_DEPARTMENT);
                 break;
             case TYPE_GRADUATE_SCHOOL_DEPARTMENT:
                 tvPageTitle.setText("所在院系");
-//                arrayList.add("信息工程学院");
-//                arrayList.add("政法学院");
-//                arrayList.add("数学科学学院");
-//                arrayList.add("生命科学学院");
-//                arrayList.add("艺术设计学院");
-//                arrayList.add("计算机学院");
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_UNIT_DEPARTMENT);
                 break;
             case TYPE_EDUCATION:
@@ -361,7 +341,6 @@ public class PersonEditListActivity extends SimpleActivity {
                         EducationLevelListRequest request = EducationLevelListRequest.newBuilder().build();
                         EducationLevelListResponse response = stub.getEducationLevelList(request);
                         e.onSuccess(response);
-
                     }
                 }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<EducationLevelListResponse>() {
                     @Override
@@ -377,41 +356,22 @@ public class PersonEditListActivity extends SimpleActivity {
                         }
                         adapter = new SelectPersonInfoAdapter(arrayList, TYPE_EDUCATION);
                     }
-
                     @Override
                     public void onError(Throwable e) {
                         ToastUtil.show("网络出错");
                     }
                 });
-//                arrayList.add("博士研究生");
-//                arrayList.add("硕士研究生");
-//                arrayList.add("本科");
-//                arrayList.add("大专");
-//                arrayList.add("其他");
-//                adapter = new SelectPersonInfoAdapter(arrayList, TYPE_EDUCATION);
                 break;
             case TYPE_GRADUATE_SCHOOL:
                 tvPageTitle.setText("毕业院校");
-//                arrayList.add("清华大学");
-//                arrayList.add("北京大学");
-//                arrayList.add("人民大学");
-//                arrayList.add("北京师范大学");
-//                arrayList.add("北京电影学院");
-//                arrayList.add("北京理工大学");
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_GRADUATE_SCHOOL);
                 break;
             case TYPE_SUBJECT_ONE:
                 tvPageTitle.setText("学科");
-//                arrayList.add("马克思’恩格斯");
-//                arrayList.add("列林著作");
-
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_SUBJECT_ONE);
                 break;
             case TYPE_SUBJECT_TWO:
                 tvPageTitle.setText("学科");
-//                arrayList.add("选集");
-//                arrayList.add("单行著作");
-
                 adapter = new SelectPersonInfoAdapter(arrayList, TYPE_SUBJECT_TWO);
                 break;
         }
