@@ -89,7 +89,7 @@ public class MycollectActivity extends SimpleActivity {
 
             @Override
             public void onError(Throwable e) {
-
+                Log.d(TAG, "onError: "+e.getMessage());
             }
         });
         arrayList = new ArrayList<>();

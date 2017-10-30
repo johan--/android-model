@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/divide"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.activity.MessageActivity">
 
@@ -52,6 +52,20 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_message"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:visibility="gone"></android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/tv_blank_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
+        android:background="@color/white"
+        android:drawablePadding="30dp"
+        android:drawableTop="@mipmap/blank_page_bell"
+        android:gravity="center_horizontal"
+        android:text="还没有成果动态"
+        android:textColor="#333"
+        android:textSize="14sp" />
 
 </LinearLayout>

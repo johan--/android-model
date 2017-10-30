@@ -17,10 +17,12 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleFragment;
 import com.tb.wangfang.news.di.component.DaggerFragmentComponent;
 import com.tb.wangfang.news.di.module.FragmentModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.ui.activity.DocDetailActivity;
 import com.tb.wangfang.news.ui.activity.InsertSubscribeActivity;
 import com.tb.wangfang.news.ui.adapter.KeyWordArticleAdapter;
 import com.tb.wangfang.news.ui.adapter.SubscribeLineWordAdapter;
@@ -117,7 +119,15 @@ public class SubscribeKeyFragment extends SimpleFragment {
             }
         });
         docAdapter.addFooterView(view);
-
+        docAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(getActivity(), DocDetailActivity.class);
+                intent.putExtra(Constants.ARTICLE_TYPE, DocLists.get(position).getDocuType());
+                intent.putExtra(Constants.ARTICLE_ID, DocLists.get(position).getDocId());
+                startActivity(intent);
+            }
+        });
 
         rvDoc.setAdapter(docAdapter);
         getKeyWord();

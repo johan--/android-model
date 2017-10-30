@@ -8,42 +8,56 @@ public interface CollectRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   java.lang.String getUserId();
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   com.google.protobuf.ByteString
       getUserIdBytes();
 
   /**
+   * <pre>
+   * 资源id
+   * </pre>
+   *
    * <code>optional string doc_id = 2;</code>
    */
   java.lang.String getDocId();
   /**
+   * <pre>
+   * 资源id
+   * </pre>
+   *
    * <code>optional string doc_id = 2;</code>
    */
   com.google.protobuf.ByteString
       getDocIdBytes();
 
   /**
+   * <pre>
+   * 资源类型
+   * </pre>
+   *
    * <code>optional string doc_type = 3;</code>
    */
   java.lang.String getDocType();
   /**
+   * <pre>
+   * 资源类型
+   * </pre>
+   *
    * <code>optional string doc_type = 3;</code>
    */
   com.google.protobuf.ByteString
       getDocTypeBytes();
-
-  /**
-   * <code>optional string classify_id = 4;</code>
-   */
-  java.lang.String getClassifyId();
-  /**
-   * <code>optional string classify_id = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getClassifyIdBytes();
 }

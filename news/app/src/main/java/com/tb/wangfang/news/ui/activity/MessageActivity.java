@@ -3,6 +3,7 @@ package com.tb.wangfang.news.ui.activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,6 +39,9 @@ public class MessageActivity extends SimpleActivity {
     TextView tvTitle;
     @BindView(R.id.iv_menu)
     ImageView ivMenu;
+    @BindView(R.id.tv_blank_content)
+    TextView tvBlankContent;
+
     private String TAG = "MessageActivity";
     private Conversation cov;
     private MessageAdapter adapter;
@@ -63,16 +67,20 @@ public class MessageActivity extends SimpleActivity {
         type = getIntent().getStringExtra("type");
         if (type.equals(TYPE_DYNAMIC)) {
             cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_FRUIT_ACCOUNT, "");
-
+            tvBlankContent.setText("你还没有成果动态");
+            tvTitle.setText("成果动态");
         } else if (type.equals(TYPE_ORDER)) {
             cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_ORDER_ACCOUNT, "");
-
+            tvBlankContent.setText("你还没有订阅消息");
+            tvTitle.setText("订阅消息");
         } else if (type.equals(TYPE_FOCUS)) {
             cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_FOCUS_ACCOUNT, "");
-
+            tvBlankContent.setText("你还没有新增关注");
+            tvTitle.setText("关注");
         } else if (type.equals(TYPE_SYSTEM)) {
             cov = JMessageClient.getSingleConversation(Constants.JMESSAGE_SYSTEM_ACCOUNT, "");
-
+            tvBlankContent.setText("你还没有系统通知");
+            tvTitle.setText("系统通知");
         }
 
         if (cov != null) {
@@ -85,6 +93,15 @@ public class MessageActivity extends SimpleActivity {
         adapter = new MessageAdapter(this, messages);
         rvMessage.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvMessage.setAdapter(adapter);
+        notifyView(adapter);
+    }
+
+    private void notifyView(MessageAdapter adapter) {
+        if (adapter.getData().size() == 0) {
+            rvMessage.setVisibility(View.GONE);
+        } else {
+            rvMessage.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onEvent(MessageEvent event) {
@@ -92,6 +109,7 @@ public class MessageActivity extends SimpleActivity {
             messages = cov.getAllMessage();
             adapter.setNewData(messages);
             cov.resetUnreadCount();
+            notifyView(adapter);
         } else {
 
         }
@@ -108,6 +126,7 @@ public class MessageActivity extends SimpleActivity {
             messages = cov.getAllMessage();
             adapter.setNewData(messages);
             cov.resetUnreadCount();
+            notifyView(adapter);
         } else {
 
         }
@@ -125,6 +144,7 @@ public class MessageActivity extends SimpleActivity {
             messages = cov.getAllMessage();
             adapter.setNewData(messages);
             cov.resetUnreadCount();
+            notifyView(adapter);
             Log.d(TAG, "onEvent: 同步漫游" + messages.size());
         } else {
 

@@ -67,11 +67,10 @@ void protobuf_AssignDesc_collect_2fmsg_5fcollect_2eproto() {
       "collect/msg_collect.proto");
   GOOGLE_CHECK(file != NULL);
   CollectRequest_descriptor_ = file->message_type(0);
-  static const int CollectRequest_offsets_[4] = {
+  static const int CollectRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectRequest, doc_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectRequest, doc_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CollectRequest, classify_id_),
   };
   CollectRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -379,48 +378,48 @@ void protobuf_AddDesc_collect_2fmsg_5fcollect_2eproto_impl() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\031collect/msg_collect.proto\022\007collect\032\031go"
     "ogle/protobuf/any.proto\032\032grpcCommon/msg_"
-    "error.proto\"X\n\016CollectRequest\022\017\n\007user_id"
+    "error.proto\"C\n\016CollectRequest\022\017\n\007user_id"
     "\030\001 \001(\t\022\016\n\006doc_id\030\002 \001(\t\022\020\n\010doc_type\030\003 \001(\t"
-    "\022\023\n\013classify_id\030\004 \001(\t\"P\n\017CollectResponse"
-    "\022\027\n\017collect_success\030\001 \001(\010\022$\n\005error\030\002 \001(\013"
-    "2\025.grpcCommon.GrpcError\"K\n\020MyCollectRequ"
-    "est\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_number\030\002 \001("
-    "\005\022\021\n\tpage_size\030\003 \001(\005\"\207\001\n\021MyCollectRespon"
-    "se\022%\n\007results\030\001 \003(\0132\024.google.protobuf.An"
-    "y\022\020\n\010has_more\030\002 \001(\010\022\023\n\013total_count\030\003 \001(\005"
-    "\022$\n\005error\030\004 \001(\0132\025.grpcCommon.GrpcError\"k"
-    "\n\013CollectBody\022\017\n\007docu_id\030\001 \001(\t\022\022\n\ndocu_t"
-    "itle\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t\022\022\n\nstar_lev"
-    "el\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t\"B\n\026MyCollect"
-    "DetailRequest\022\022\n\nartical_id\030\001 \001(\t\022\024\n\014art"
-    "ical_type\030\002 \001(\t\"\333\003\n\027MyCollectDetailRespo"
-    "nse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErro"
-    "r\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\020\n\010key"
-    "words\030\004 \001(\t\022\024\n\014authors_name\030\005 \001(\t\022\020\n\010cit"
-    "e_num\030\006 \001(\t\022\024\n\014download_num\030\007 \001(\t\022\034\n\024ful"
-    "ltext_reading_num\030\010 \001(\t\022\034\n\024thirdparty_li"
-    "nks_num\030\t \001(\t\022,\n\016collect_detail\030\n \001(\0132\024."
-    "google.protobuf.Any\0221\n\013detail_type\030\013 \001(\016"
-    "2\034.collect.MyCollectDetailType\022=\n\016simila"
-    "r_papers\030\014 \003(\0132%.collect.MyCollectSimila"
-    "rPaperMessage\022\023\n\013resource_id\030\r \001(\t\022\023\n\013re"
-    "source_db\030\016 \001(\t\022\020\n\010language\030\017 \001(\t\022\022\n\ncla"
-    "ss_type\030\020 \001(\t\"}\n\024MyCollectConfMessage\022\021\n"
-    "\tconf_name\030\001 \001(\t\022\021\n\tconf_type\030\002 \001(\t\022\021\n\tc"
-    "onf_year\030\003 \001(\t\022\025\n\rpublish_place\030\004 \001(\t\022\025\n"
-    "\rhostunit_name\030\005 \001(\t\"\231\001\n\025MyCollectPerioM"
-    "essage\022\024\n\014authors_unit\030\001 \001(\t\022\023\n\013perio_ti"
-    "tle\030\002 \001(\t\022\026\n\016perio_title_en\030\003 \001(\t\022\024\n\014pub"
-    "lish_year\030\004 \001(\t\022\021\n\tissue_num\030\005 \001(\t\022\024\n\014ab"
-    "st_webdate\030\006 \001(\t\"\201\001\n\026MyCollectDegreeMess"
-    "age\022\023\n\013deunit_name\030\001 \001(\t\022\024\n\014degree_level"
-    "\030\002 \001(\t\022\022\n\nmajor_name\030\003 \001(\t\022\022\n\ntutor_name"
-    "\030\004 \001(\t\022\024\n\014publish_year\030\005 \001(\t\"W\n\034MyCollec"
-    "tSimilarPaperMessage\022\022\n\nartical_id\030\001 \001(\t"
-    "\022\024\n\014artical_type\030\002 \001(\t\022\r\n\005title\030\003 \001(\t*K\n"
-    "\023MyCollectDetailType\022\017\n\013DEGREE_TYPE\020\000\022\023\n"
-    "\017CONFERENCE_TYPE\020\001\022\016\n\nPERIO_TYPE\020\002B\036\n\023co"
-    "m.wanfang.collectP\001\242\002\004WFPRb\006proto3", 1754);
+    "\"P\n\017CollectResponse\022\027\n\017collect_success\030\001"
+    " \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErr"
+    "or\"K\n\020MyCollectRequest\022\017\n\007user_id\030\001 \001(\t\022"
+    "\023\n\013page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\""
+    "\207\001\n\021MyCollectResponse\022%\n\007results\030\001 \003(\0132\024"
+    ".google.protobuf.Any\022\020\n\010has_more\030\002 \001(\010\022\023"
+    "\n\013total_count\030\003 \001(\005\022$\n\005error\030\004 \001(\0132\025.grp"
+    "cCommon.GrpcError\"k\n\013CollectBody\022\017\n\007docu"
+    "_id\030\001 \001(\t\022\022\n\ndocu_title\030\002 \001(\t\022\020\n\010add_tim"
+    "e\030\003 \001(\t\022\022\n\nstar_level\030\004 \001(\005\022\021\n\tdocu_type"
+    "\030\005 \001(\t\"B\n\026MyCollectDetailRequest\022\022\n\narti"
+    "cal_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(\t\"\333\003\n\027M"
+    "yCollectDetailResponse\022$\n\005error\030\001 \001(\0132\025."
+    "grpcCommon.GrpcError\022\r\n\005title\030\002 \001(\t\022\017\n\007s"
+    "ummary\030\003 \001(\t\022\020\n\010keywords\030\004 \001(\t\022\024\n\014author"
+    "s_name\030\005 \001(\t\022\020\n\010cite_num\030\006 \001(\t\022\024\n\014downlo"
+    "ad_num\030\007 \001(\t\022\034\n\024fulltext_reading_num\030\010 \001"
+    "(\t\022\034\n\024thirdparty_links_num\030\t \001(\t\022,\n\016coll"
+    "ect_detail\030\n \001(\0132\024.google.protobuf.Any\0221"
+    "\n\013detail_type\030\013 \001(\0162\034.collect.MyCollectD"
+    "etailType\022=\n\016similar_papers\030\014 \003(\0132%.coll"
+    "ect.MyCollectSimilarPaperMessage\022\023\n\013reso"
+    "urce_id\030\r \001(\t\022\023\n\013resource_db\030\016 \001(\t\022\020\n\010la"
+    "nguage\030\017 \001(\t\022\022\n\nclass_type\030\020 \001(\t\"}\n\024MyCo"
+    "llectConfMessage\022\021\n\tconf_name\030\001 \001(\t\022\021\n\tc"
+    "onf_type\030\002 \001(\t\022\021\n\tconf_year\030\003 \001(\t\022\025\n\rpub"
+    "lish_place\030\004 \001(\t\022\025\n\rhostunit_name\030\005 \001(\t\""
+    "\231\001\n\025MyCollectPerioMessage\022\024\n\014authors_uni"
+    "t\030\001 \001(\t\022\023\n\013perio_title\030\002 \001(\t\022\026\n\016perio_ti"
+    "tle_en\030\003 \001(\t\022\024\n\014publish_year\030\004 \001(\t\022\021\n\tis"
+    "sue_num\030\005 \001(\t\022\024\n\014abst_webdate\030\006 \001(\t\"\201\001\n\026"
+    "MyCollectDegreeMessage\022\023\n\013deunit_name\030\001 "
+    "\001(\t\022\024\n\014degree_level\030\002 \001(\t\022\022\n\nmajor_name\030"
+    "\003 \001(\t\022\022\n\ntutor_name\030\004 \001(\t\022\024\n\014publish_yea"
+    "r\030\005 \001(\t\"W\n\034MyCollectSimilarPaperMessage\022"
+    "\022\n\nartical_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001("
+    "\t\022\r\n\005title\030\003 \001(\t*K\n\023MyCollectDetailType\022"
+    "\017\n\013DEGREE_TYPE\020\000\022\023\n\017CONFERENCE_TYPE\020\001\022\016\n"
+    "\nPERIO_TYPE\020\002B\036\n\023com.wanfang.collectP\001\242\002"
+    "\004WFPRb\006proto3", 1733);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "collect/msg_collect.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -471,7 +470,6 @@ static void MergeFromFail(int line) {
 const int CollectRequest::kUserIdFieldNumber;
 const int CollectRequest::kDocIdFieldNumber;
 const int CollectRequest::kDocTypeFieldNumber;
-const int CollectRequest::kClassifyIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CollectRequest::CollectRequest()
@@ -496,7 +494,6 @@ void CollectRequest::SharedCtor() {
   user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   doc_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   doc_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  classify_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -509,7 +506,6 @@ void CollectRequest::SharedDtor() {
   user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   doc_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   doc_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  classify_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void CollectRequest::SetCachedSize(int size) const {
@@ -542,7 +538,6 @@ void CollectRequest::Clear() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   doc_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   doc_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  classify_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool CollectRequest::MergePartialFromCodedStream(
@@ -598,23 +593,6 @@ bool CollectRequest::MergePartialFromCodedStream(
             this->doc_type().data(), this->doc_type().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "collect.CollectRequest.doc_type"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_classify_id;
-        break;
-      }
-
-      // optional string classify_id = 4;
-      case 4: {
-        if (tag == 34) {
-         parse_classify_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_classify_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->classify_id().data(), this->classify_id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "collect.CollectRequest.classify_id"));
         } else {
           goto handle_unusual;
         }
@@ -676,16 +654,6 @@ void CollectRequest::SerializeWithCachedSizes(
       3, this->doc_type(), output);
   }
 
-  // optional string classify_id = 4;
-  if (this->classify_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->classify_id().data(), this->classify_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "collect.CollectRequest.classify_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->classify_id(), output);
-  }
-
   // @@protoc_insertion_point(serialize_end:collect.CollectRequest)
 }
 
@@ -726,17 +694,6 @@ void CollectRequest::SerializeWithCachedSizes(
         3, this->doc_type(), target);
   }
 
-  // optional string classify_id = 4;
-  if (this->classify_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->classify_id().data(), this->classify_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "collect.CollectRequest.classify_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->classify_id(), target);
-  }
-
   // @@protoc_insertion_point(serialize_to_array_end:collect.CollectRequest)
   return target;
 }
@@ -764,13 +721,6 @@ size_t CollectRequest::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->doc_type());
-  }
-
-  // optional string classify_id = 4;
-  if (this->classify_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->classify_id());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -818,10 +768,6 @@ void CollectRequest::UnsafeMergeFrom(const CollectRequest& from) {
 
     doc_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.doc_type_);
   }
-  if (from.classify_id().size() > 0) {
-
-    classify_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.classify_id_);
-  }
 }
 
 void CollectRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -851,7 +797,6 @@ void CollectRequest::InternalSwap(CollectRequest* other) {
   user_id_.Swap(&other->user_id_);
   doc_id_.Swap(&other->doc_id_);
   doc_type_.Swap(&other->doc_type_);
-  classify_id_.Swap(&other->classify_id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -997,50 +942,6 @@ void CollectRequest::set_allocated_doc_type(::std::string* doc_type) {
   }
   doc_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), doc_type);
   // @@protoc_insertion_point(field_set_allocated:collect.CollectRequest.doc_type)
-}
-
-// optional string classify_id = 4;
-void CollectRequest::clear_classify_id() {
-  classify_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& CollectRequest::classify_id() const {
-  // @@protoc_insertion_point(field_get:collect.CollectRequest.classify_id)
-  return classify_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void CollectRequest::set_classify_id(const ::std::string& value) {
-  
-  classify_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:collect.CollectRequest.classify_id)
-}
-void CollectRequest::set_classify_id(const char* value) {
-  
-  classify_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:collect.CollectRequest.classify_id)
-}
-void CollectRequest::set_classify_id(const char* value, size_t size) {
-  
-  classify_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:collect.CollectRequest.classify_id)
-}
-::std::string* CollectRequest::mutable_classify_id() {
-  
-  // @@protoc_insertion_point(field_mutable:collect.CollectRequest.classify_id)
-  return classify_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* CollectRequest::release_classify_id() {
-  // @@protoc_insertion_point(field_release:collect.CollectRequest.classify_id)
-  
-  return classify_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void CollectRequest::set_allocated_classify_id(::std::string* classify_id) {
-  if (classify_id != NULL) {
-    
-  } else {
-    
-  }
-  classify_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), classify_id);
-  // @@protoc_insertion_point(field_set_allocated:collect.CollectRequest.classify_id)
 }
 
 inline const CollectRequest* CollectRequest::internal_default_instance() {

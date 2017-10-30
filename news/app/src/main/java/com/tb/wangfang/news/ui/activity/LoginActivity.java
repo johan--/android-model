@@ -146,8 +146,20 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 startActivityForResult(intent, 0);
                 break;
             case R.id.tv_get_code:
+                String phone = editPhonenum.getText().toString();
+                if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
+                    phone = phone.trim();
+                    if (!SystemUtil.isMobileNO(phone)) {
+                        mPresenter.getPhoneCaptcha(phone);
+                    }
+                } else {
+                    ToastUtil.show("手机号码不能为空");
+                }
                 break;
             case R.id.ll_quick:
+
+                String DynamicCode = editSecurity.getText().toString();
+
                 break;
             case R.id.btn_login:
                 String account = editAccount.getText().toString();
@@ -236,13 +248,23 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         mdialog.dismiss();
         if (response == null) {
             ToastUtil.show("访问失败");
-            PreferencesHelper.setLoginState(true);
-            finish();
+//            PreferencesHelper.setLoginState(true);
+//            finish();
         } else {
             ToastUtil.show("登录成功");
             MiPushClient.setUserAccount(this, response.getUserId(), null);
             PreferencesHelper.setLoginState(true);
             finish();
+        }
+    }
+
+    @Override
+    public void showCountDown(int num) {
+        if (num > 0) {
+            tvGetCode.setText(num + "s");
+        } else {
+            tvGetCode.setText("获取验证码");
+            mPresenter.setCountDown(60);
         }
     }
 }

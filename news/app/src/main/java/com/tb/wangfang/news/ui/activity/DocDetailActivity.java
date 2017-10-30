@@ -33,6 +33,9 @@ import com.wanfang.collect.MyCollectSimilarPaperMessage;
 import com.wanfang.read.ReadRequest;
 import com.wanfang.read.ReadResponse;
 import com.wanfang.read.ReadServiceGrpc;
+import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageRequest;
+import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageResponse;
+import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageServiceGrpc;
 
 import java.util.List;
 
@@ -42,6 +45,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.SingleOnSubscribe;
@@ -77,6 +81,7 @@ public class DocDetailActivity extends SimpleActivity {
     private List<MyCollectSimilarPaperMessage> similarPages;
     private String articleId;
     private String articleType;
+    private ManagedChannel mChannelSever;
 
 
     @Override
@@ -85,6 +90,9 @@ public class DocDetailActivity extends SimpleActivity {
                 .appComponent(App.getAppComponent())
                 .activityModule(new ActivityModule(this))
                 .build().inject(this);
+        mChannelSever = ManagedChannelBuilder.forAddress("10.20.13.179", 8081)
+                .usePlaintext(true)
+                .build();
         return R.layout.activity_doc_detail;
     }
 
@@ -108,7 +116,7 @@ public class DocDetailActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyCollectDetailResponse>() {
             @Override
             public void onSuccess(MyCollectDetailResponse myCollectDetailResponse) {
-                detailResponse=myCollectDetailResponse;
+                detailResponse = myCollectDetailResponse;
                 initView(myCollectDetailResponse.getDetailTypeValue(), myCollectDetailResponse);
                 initSimilarPage(myCollectDetailResponse);
             }
@@ -228,16 +236,39 @@ public class DocDetailActivity extends SimpleActivity {
                 break;
             case R.id.ll_read_online:
                 goRead();
-                Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
-                startActivity(intent);
                 break;
             case R.id.ll_collect:
                 collectPro();
                 break;
             case R.id.ll_share:
+                sendJPush();
                 showShare();
                 break;
         }
+    }
+
+    private void sendJPush() {
+        Single.create(new SingleOnSubscribe<SendTextMessageResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<SendTextMessageResponse> e) throws Exception {
+                SendTextMessageServiceGrpc.SendTextMessageServiceBlockingStub stub = SendTextMessageServiceGrpc.newBlockingStub(mChannelSever);
+                SendTextMessageRequest request = SendTextMessageRequest.newBuilder().setAppKey("5f5eecb63e042f246fd8b325").setMasterSecret("0406eaf9209b361eab1f19f6").setText("nihao").setTargetType("single").setTargetId("tangbin")
+                        .setFromType("admin").setFromId("admin").setNoNotification(true).build();
+                SendTextMessageResponse response = stub.sendTextMessageByTargetId(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<SendTextMessageResponse>() {
+            @Override
+            public void onSuccess(SendTextMessageResponse sendTextMessageResponse) {
+                Log.d(TAG, "onSuccess: " + sendTextMessageResponse.toString());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
+
     }
 
     private void collectPro() {
@@ -245,7 +276,7 @@ public class DocDetailActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<CollectResponse> e) throws Exception {
                 CollectServiceGrpc.CollectServiceBlockingStub stub = CollectServiceGrpc.newBlockingStub(managedChannel);
-                CollectRequest collectRequest = CollectRequest.newBuilder().setDocId(articleId).setDocType(articleType).setClassifyId("1").setUserId(preferencesHelper.getUserId()).build();
+                CollectRequest collectRequest = CollectRequest.newBuilder().setDocId(articleId).setDocType(articleType).setUserId(preferencesHelper.getUserId()).build();
                 CollectResponse response = stub.collect(collectRequest);
                 e.onSuccess(response);
             }
@@ -284,6 +315,7 @@ public class DocDetailActivity extends SimpleActivity {
             public void onSuccess(ReadResponse readResponse) {
                 Log.d(TAG, "onSuccess: " + readResponse.toString());
                 Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
+                intent.putExtra("response", readResponse);
                 startActivity(intent);
             }
 

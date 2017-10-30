@@ -1,5 +1,7 @@
 package com.tb.wangfang.news.presenter;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import com.tb.wangfang.news.base.RxPresenter;
@@ -8,6 +10,8 @@ import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.wanfang.personal.LoginRequest;
 import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.personal.PhoneCaptchaRequest;
+import com.wanfang.personal.PhoneCaptchaResponse;
 
 import java.io.File;
 
@@ -33,6 +37,33 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
     private ImplPreferencesHelper preferencesHelps;
     private String TAG = "loginActivity";
 
+    public int getCountDown() {
+        return countDown;
+    }
+
+    public void setCountDown(int countDown) {
+        this.countDown = countDown;
+    }
+
+    private int countDown = 60;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 0) {
+                if (countDown > 0) {
+                    countDown--;
+                    Message message = new Message();
+                    message.what = 0;
+                    handler.sendMessageDelayed(message, 1000);
+                    mView.showCountDown(countDown);
+                } else {
+                    mView.showCountDown(countDown);
+                }
+            }
+        }
+    };
+
     @Inject
     public LoginPresenter(ManagedChannel managedChannel, ImplPreferencesHelper preferencesHelps) {
         this.managedChannel = managedChannel;
@@ -41,12 +72,6 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     @Override
     public void AccountLogin(final String account, final String passWord) {
-        try {
-            Thread.sleep(3000);
-            mView.loginSuccess(null);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Single.create(new SingleOnSubscribe<LoginResponse>() {
             @Override
             public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
@@ -64,6 +89,34 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
             }
 
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                mView.loginSuccess(null);
+
+            }
+        });
+    }
+
+    @Override
+    public void getPhoneCaptcha(final String phone) {
+        Single.create(new SingleOnSubscribe<PhoneCaptchaResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<PhoneCaptchaResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                PhoneCaptchaRequest request = PhoneCaptchaRequest.newBuilder().setPhone(phone).build();
+                PhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<PhoneCaptchaResponse>() {
+            @Override
+            public void onSuccess(PhoneCaptchaResponse response) {
+                Message msg = new Message();
+                msg.what = 0;
+                handler.sendMessage(msg);
+
+            }
 
             @Override
             public void onError(Throwable e) {

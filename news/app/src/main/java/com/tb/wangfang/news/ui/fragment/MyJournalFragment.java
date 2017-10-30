@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleFragment;
@@ -17,6 +18,7 @@ import com.tb.wangfang.news.di.component.DaggerFragmentComponent;
 import com.tb.wangfang.news.di.module.FragmentModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.activity.InsertSubscribeActivity;
+import com.tb.wangfang.news.ui.activity.JournalActivity;
 import com.tb.wangfang.news.ui.adapter.MyJournalAdapter;
 import com.wanfang.subscribe.SubscribePerioListRequest;
 import com.wanfang.subscribe.SubscribePerioListResponse;
@@ -81,6 +83,13 @@ public class MyJournalFragment extends SimpleFragment {
         });
         adapter.addFooterView(view);
         rvJournal.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(getActivity(), JournalActivity.class);
+                startActivity(intent);
+            }
+        });
         getMyJournal();
     }
 

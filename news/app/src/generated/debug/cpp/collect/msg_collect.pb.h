@@ -172,17 +172,6 @@ class CollectRequest : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_doc_type();
   void set_allocated_doc_type(::std::string* doc_type);
 
-  // optional string classify_id = 4;
-  void clear_classify_id();
-  static const int kClassifyIdFieldNumber = 4;
-  const ::std::string& classify_id() const;
-  void set_classify_id(const ::std::string& value);
-  void set_classify_id(const char* value);
-  void set_classify_id(const char* value, size_t size);
-  ::std::string* mutable_classify_id();
-  ::std::string* release_classify_id();
-  void set_allocated_classify_id(::std::string* classify_id);
-
   // @@protoc_insertion_point(class_scope:collect.CollectRequest)
  private:
 
@@ -190,7 +179,6 @@ class CollectRequest : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::internal::ArenaStringPtr user_id_;
   ::google::protobuf::internal::ArenaStringPtr doc_id_;
   ::google::protobuf::internal::ArenaStringPtr doc_type_;
-  ::google::protobuf::internal::ArenaStringPtr classify_id_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_collect_2fmsg_5fcollect_2eproto_impl();
   friend void  protobuf_AddDesc_collect_2fmsg_5fcollect_2eproto_impl();
@@ -1700,50 +1688,6 @@ inline void CollectRequest::set_allocated_doc_type(::std::string* doc_type) {
   }
   doc_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), doc_type);
   // @@protoc_insertion_point(field_set_allocated:collect.CollectRequest.doc_type)
-}
-
-// optional string classify_id = 4;
-inline void CollectRequest::clear_classify_id() {
-  classify_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& CollectRequest::classify_id() const {
-  // @@protoc_insertion_point(field_get:collect.CollectRequest.classify_id)
-  return classify_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void CollectRequest::set_classify_id(const ::std::string& value) {
-  
-  classify_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:collect.CollectRequest.classify_id)
-}
-inline void CollectRequest::set_classify_id(const char* value) {
-  
-  classify_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:collect.CollectRequest.classify_id)
-}
-inline void CollectRequest::set_classify_id(const char* value, size_t size) {
-  
-  classify_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:collect.CollectRequest.classify_id)
-}
-inline ::std::string* CollectRequest::mutable_classify_id() {
-  
-  // @@protoc_insertion_point(field_mutable:collect.CollectRequest.classify_id)
-  return classify_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* CollectRequest::release_classify_id() {
-  // @@protoc_insertion_point(field_release:collect.CollectRequest.classify_id)
-  
-  return classify_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void CollectRequest::set_allocated_classify_id(::std::string* classify_id) {
-  if (classify_id != NULL) {
-    
-  } else {
-    
-  }
-  classify_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), classify_id);
-  // @@protoc_insertion_point(field_set_allocated:collect.CollectRequest.classify_id)
 }
 
 inline const CollectRequest* CollectRequest::internal_default_instance() {

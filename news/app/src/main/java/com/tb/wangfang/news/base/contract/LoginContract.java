@@ -12,11 +12,13 @@ public interface LoginContract {
     interface View extends BaseView {
         void loginSuccess(LoginResponse response);
 
+        void showCountDown(int num);
+
     }
 
     interface Presenter extends BasePresenter<View> {
         void AccountLogin(String account, String passWord);
 
-
+        void getPhoneCaptcha(String phone);
     }
 }

@@ -80,48 +80,48 @@ public final class MsgCollect {
     java.lang.String[] descriptorData = {
       "\n\031collect/msg_collect.proto\022\007collect\032\031go" +
       "ogle/protobuf/any.proto\032\032grpcCommon/msg_" +
-      "error.proto\"X\n\016CollectRequest\022\017\n\007user_id" +
+      "error.proto\"C\n\016CollectRequest\022\017\n\007user_id" +
       "\030\001 \001(\t\022\016\n\006doc_id\030\002 \001(\t\022\020\n\010doc_type\030\003 \001(\t" +
-      "\022\023\n\013classify_id\030\004 \001(\t\"P\n\017CollectResponse" +
-      "\022\027\n\017collect_success\030\001 \001(\010\022$\n\005error\030\002 \001(\013" +
-      "2\025.grpcCommon.GrpcError\"K\n\020MyCollectRequ" +
-      "est\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_number\030\002 \001(" +
-      "\005\022\021\n\tpage_size\030\003 \001(\005\"\207\001\n\021MyCollectRespon" +
-      "se\022%\n\007results\030\001 \003(\0132\024.google.protobuf.An",
-      "y\022\020\n\010has_more\030\002 \001(\010\022\023\n\013total_count\030\003 \001(\005" +
-      "\022$\n\005error\030\004 \001(\0132\025.grpcCommon.GrpcError\"k" +
-      "\n\013CollectBody\022\017\n\007docu_id\030\001 \001(\t\022\022\n\ndocu_t" +
-      "itle\030\002 \001(\t\022\020\n\010add_time\030\003 \001(\t\022\022\n\nstar_lev" +
-      "el\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t\"B\n\026MyCollect" +
-      "DetailRequest\022\022\n\nartical_id\030\001 \001(\t\022\024\n\014art" +
-      "ical_type\030\002 \001(\t\"\333\003\n\027MyCollectDetailRespo" +
-      "nse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErro" +
-      "r\022\r\n\005title\030\002 \001(\t\022\017\n\007summary\030\003 \001(\t\022\020\n\010key" +
-      "words\030\004 \001(\t\022\024\n\014authors_name\030\005 \001(\t\022\020\n\010cit",
-      "e_num\030\006 \001(\t\022\024\n\014download_num\030\007 \001(\t\022\034\n\024ful" +
-      "ltext_reading_num\030\010 \001(\t\022\034\n\024thirdparty_li" +
-      "nks_num\030\t \001(\t\022,\n\016collect_detail\030\n \001(\0132\024." +
-      "google.protobuf.Any\0221\n\013detail_type\030\013 \001(\016" +
-      "2\034.collect.MyCollectDetailType\022=\n\016simila" +
-      "r_papers\030\014 \003(\0132%.collect.MyCollectSimila" +
-      "rPaperMessage\022\023\n\013resource_id\030\r \001(\t\022\023\n\013re" +
-      "source_db\030\016 \001(\t\022\020\n\010language\030\017 \001(\t\022\022\n\ncla" +
-      "ss_type\030\020 \001(\t\"}\n\024MyCollectConfMessage\022\021\n" +
-      "\tconf_name\030\001 \001(\t\022\021\n\tconf_type\030\002 \001(\t\022\021\n\tc",
-      "onf_year\030\003 \001(\t\022\025\n\rpublish_place\030\004 \001(\t\022\025\n" +
-      "\rhostunit_name\030\005 \001(\t\"\231\001\n\025MyCollectPerioM" +
-      "essage\022\024\n\014authors_unit\030\001 \001(\t\022\023\n\013perio_ti" +
-      "tle\030\002 \001(\t\022\026\n\016perio_title_en\030\003 \001(\t\022\024\n\014pub" +
-      "lish_year\030\004 \001(\t\022\021\n\tissue_num\030\005 \001(\t\022\024\n\014ab" +
-      "st_webdate\030\006 \001(\t\"\201\001\n\026MyCollectDegreeMess" +
-      "age\022\023\n\013deunit_name\030\001 \001(\t\022\024\n\014degree_level" +
-      "\030\002 \001(\t\022\022\n\nmajor_name\030\003 \001(\t\022\022\n\ntutor_name" +
-      "\030\004 \001(\t\022\024\n\014publish_year\030\005 \001(\t\"W\n\034MyCollec" +
-      "tSimilarPaperMessage\022\022\n\nartical_id\030\001 \001(\t",
-      "\022\024\n\014artical_type\030\002 \001(\t\022\r\n\005title\030\003 \001(\t*K\n" +
-      "\023MyCollectDetailType\022\017\n\013DEGREE_TYPE\020\000\022\023\n" +
-      "\017CONFERENCE_TYPE\020\001\022\016\n\nPERIO_TYPE\020\002B\036\n\023co" +
-      "m.wanfang.collectP\001\242\002\004WFPRb\006proto3"
+      "\"P\n\017CollectResponse\022\027\n\017collect_success\030\001" +
+      " \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErr" +
+      "or\"K\n\020MyCollectRequest\022\017\n\007user_id\030\001 \001(\t\022" +
+      "\023\n\013page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"" +
+      "\207\001\n\021MyCollectResponse\022%\n\007results\030\001 \003(\0132\024" +
+      ".google.protobuf.Any\022\020\n\010has_more\030\002 \001(\010\022\023",
+      "\n\013total_count\030\003 \001(\005\022$\n\005error\030\004 \001(\0132\025.grp" +
+      "cCommon.GrpcError\"k\n\013CollectBody\022\017\n\007docu" +
+      "_id\030\001 \001(\t\022\022\n\ndocu_title\030\002 \001(\t\022\020\n\010add_tim" +
+      "e\030\003 \001(\t\022\022\n\nstar_level\030\004 \001(\005\022\021\n\tdocu_type" +
+      "\030\005 \001(\t\"B\n\026MyCollectDetailRequest\022\022\n\narti" +
+      "cal_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(\t\"\333\003\n\027M" +
+      "yCollectDetailResponse\022$\n\005error\030\001 \001(\0132\025." +
+      "grpcCommon.GrpcError\022\r\n\005title\030\002 \001(\t\022\017\n\007s" +
+      "ummary\030\003 \001(\t\022\020\n\010keywords\030\004 \001(\t\022\024\n\014author" +
+      "s_name\030\005 \001(\t\022\020\n\010cite_num\030\006 \001(\t\022\024\n\014downlo",
+      "ad_num\030\007 \001(\t\022\034\n\024fulltext_reading_num\030\010 \001" +
+      "(\t\022\034\n\024thirdparty_links_num\030\t \001(\t\022,\n\016coll" +
+      "ect_detail\030\n \001(\0132\024.google.protobuf.Any\0221" +
+      "\n\013detail_type\030\013 \001(\0162\034.collect.MyCollectD" +
+      "etailType\022=\n\016similar_papers\030\014 \003(\0132%.coll" +
+      "ect.MyCollectSimilarPaperMessage\022\023\n\013reso" +
+      "urce_id\030\r \001(\t\022\023\n\013resource_db\030\016 \001(\t\022\020\n\010la" +
+      "nguage\030\017 \001(\t\022\022\n\nclass_type\030\020 \001(\t\"}\n\024MyCo" +
+      "llectConfMessage\022\021\n\tconf_name\030\001 \001(\t\022\021\n\tc" +
+      "onf_type\030\002 \001(\t\022\021\n\tconf_year\030\003 \001(\t\022\025\n\rpub",
+      "lish_place\030\004 \001(\t\022\025\n\rhostunit_name\030\005 \001(\t\"" +
+      "\231\001\n\025MyCollectPerioMessage\022\024\n\014authors_uni" +
+      "t\030\001 \001(\t\022\023\n\013perio_title\030\002 \001(\t\022\026\n\016perio_ti" +
+      "tle_en\030\003 \001(\t\022\024\n\014publish_year\030\004 \001(\t\022\021\n\tis" +
+      "sue_num\030\005 \001(\t\022\024\n\014abst_webdate\030\006 \001(\t\"\201\001\n\026" +
+      "MyCollectDegreeMessage\022\023\n\013deunit_name\030\001 " +
+      "\001(\t\022\024\n\014degree_level\030\002 \001(\t\022\022\n\nmajor_name\030" +
+      "\003 \001(\t\022\022\n\ntutor_name\030\004 \001(\t\022\024\n\014publish_yea" +
+      "r\030\005 \001(\t\"W\n\034MyCollectSimilarPaperMessage\022" +
+      "\022\n\nartical_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(",
+      "\t\022\r\n\005title\030\003 \001(\t*K\n\023MyCollectDetailType\022" +
+      "\017\n\013DEGREE_TYPE\020\000\022\023\n\017CONFERENCE_TYPE\020\001\022\016\n" +
+      "\nPERIO_TYPE\020\002B\036\n\023com.wanfang.collectP\001\242\002" +
+      "\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -142,7 +142,7 @@ public final class MsgCollect {
     internal_static_collect_CollectRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_CollectRequest_descriptor,
-        new java.lang.String[] { "UserId", "DocId", "DocType", "ClassifyId", });
+        new java.lang.String[] { "UserId", "DocId", "DocType", });
     internal_static_collect_CollectResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_collect_CollectResponse_fieldAccessorTable = new

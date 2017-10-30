@@ -11,10 +11,9 @@ option objc_class_prefix = "WFPR";
 
 // 收藏文献
 message CollectRequest {
-    string user_id = 1;
-    string doc_id = 2;
-    string doc_type = 3;
-    string classify_id = 4;
+    string user_id = 1; // 用户id
+    string doc_id = 2; // 资源id
+    string doc_type = 3; // 资源类型
 }
 message CollectResponse {
     bool collect_success = 1;

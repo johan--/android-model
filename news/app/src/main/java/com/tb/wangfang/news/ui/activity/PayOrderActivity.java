@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.wanfang.read.ReadResponse;
 import com.wanfang.trade.TradeServiceGrpc;
 import com.wanfang.trade.UnifiedorderRequest;
 import com.wanfang.trade.UnifiedorderResponse;
@@ -48,6 +50,8 @@ public class PayOrderActivity extends SimpleActivity {
     @BindView(R.id.btn_pay)
     Button btnPay;
     private IWXAPI api;
+    private ReadResponse readResponse;
+    private final String TAG = "PayOrderActivity";
 
     @Override
     protected int getLayout() {
@@ -60,7 +64,9 @@ public class PayOrderActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
-
+        readResponse = (ReadResponse) getIntent().getSerializableExtra("response");
+        tvArticleTitle.setText(readResponse.getTitle());
+        tvPrice.setText(readResponse.getPrice());
     }
 
     @OnClick({R.id.tv_return, R.id.btn_pay})
@@ -79,13 +85,14 @@ public class PayOrderActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<UnifiedorderResponse> e) throws Exception {
                 TradeServiceGrpc.TradeServiceBlockingStub stub = TradeServiceGrpc.newBlockingStub(managedChannel);
-                UnifiedorderRequest request = UnifiedorderRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setSafeTransactionString("").build();
+                UnifiedorderRequest request = UnifiedorderRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setSafeTransactionString(readResponse.getSafeTransactionString()).build();
                 UnifiedorderResponse response = stub.unifiedorder(request);
                 e.onSuccess(response);
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<UnifiedorderResponse>() {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
+                Log.d(TAG, "onSuccess: ");
                 payByWeichat(unifiedorderResponse);
             }
 
@@ -98,7 +105,7 @@ public class PayOrderActivity extends SimpleActivity {
 
     private void payByWeichat(UnifiedorderResponse unifiedorderResponse) {
         btnPay.setEnabled(false);
-        api = WXAPIFactory.createWXAPI(this, "wxb4ba3c02aa476ea1");
+        api = WXAPIFactory.createWXAPI(this, unifiedorderResponse.getAppId());
         PayReq req = new PayReq();
         //req.appId = "wxf8b4f85f3a794e77";  // 测试用appId
         req.appId = unifiedorderResponse.getAppId();

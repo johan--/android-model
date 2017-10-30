@@ -59,11 +59,9 @@ public class MyOrderActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<MyOrdersResponse> e) throws Exception {
                 TradeServiceGrpc.TradeServiceBlockingStub stub = TradeServiceGrpc.newBlockingStub(managedChannel);
-             MyOrdersRequest request = MyOrdersRequest.newBuilder().setUserId("tb").build();
-              MyOrdersResponse response = stub.getMyOrders(request);
-
-                Any any=Any.newBuilder().build();
-
+                MyOrdersRequest request = MyOrdersRequest.newBuilder().setUserId("tb").build();
+                MyOrdersResponse response = stub.getMyOrders(request);
+                Any any = Any.newBuilder().build();
                 e.onSuccess(response);
 
             }
