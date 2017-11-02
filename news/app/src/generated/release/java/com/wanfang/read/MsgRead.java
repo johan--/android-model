@@ -38,11 +38,12 @@ public final class MsgRead {
       "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresource_t" +
       "ype\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resource_ti" +
       "tle\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013login_" +
-      "token\030\007 \001(\t\"\241\001\n\014ReadResponse\022\r\n\005price\030\001 " +
-      "\001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022" +
-      "\037\n\027safe_transaction_string\030\004 \001(\t\022\027\n\017has_" +
-      "trade_power\030\005 \001(\010\022$\n\005error\030\006 \001(\0132\025.grpcC" +
-      "ommon.GrpcErrorB\033\n\020com.wanfang.readP\001\242\002\004",
+      "token\030\007 \001(\t\"\311\001\n\014ReadResponse\022\r\n\005price\030\001 " +
+      "\001(\t\022\r\n\005title\030\002 \001(\t\022\024\n\014display_info\030\003 \001(\t" +
+      "\022\037\n\027safe_transaction_string\030\004 \001(\t\022\023\n\013alr" +
+      "eady_buy\030\005 \001(\010\022\020\n\010read_url\030\006 \001(\t\022\027\n\017has_" +
+      "trade_power\030\007 \001(\010\022$\n\005error\030\010 \001(\0132\025.grpcC",
+      "ommon.GrpcErrorB\033\n\020com.wanfang.readP\001\242\002\004" +
       "WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -69,7 +70,7 @@ public final class MsgRead {
     internal_static_read_ReadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_read_ReadResponse_descriptor,
-        new java.lang.String[] { "Price", "Title", "Description", "SafeTransactionString", "HasTradePower", "Error", });
+        new java.lang.String[] { "Price", "Title", "DisplayInfo", "SafeTransactionString", "AlreadyBuy", "ReadUrl", "HasTradePower", "Error", });
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 

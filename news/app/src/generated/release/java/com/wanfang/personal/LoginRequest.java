@@ -21,6 +21,8 @@ public  final class LoginRequest extends
   private LoginRequest() {
     password_ = "";
     userName_ = "";
+    deviceId_ = "";
+    deviceType_ = 0;
   }
 
   @java.lang.Override
@@ -58,6 +60,18 @@ public  final class LoginRequest extends
             java.lang.String s = input.readStringRequireUtf8();
 
             userName_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            deviceId_ = s;
+            break;
+          }
+          case 32: {
+            int rawValue = input.readEnum();
+
+            deviceType_ = rawValue;
             break;
           }
         }
@@ -129,7 +143,7 @@ public  final class LoginRequest extends
   private volatile java.lang.Object userName_;
   /**
    * <pre>
-   * 登录用户名  
+   * 登录用户名
    * </pre>
    *
    * <code>optional string user_name = 2;</code>
@@ -148,7 +162,7 @@ public  final class LoginRequest extends
   }
   /**
    * <pre>
-   * 登录用户名  
+   * 登录用户名
    * </pre>
    *
    * <code>optional string user_name = 2;</code>
@@ -165,6 +179,72 @@ public  final class LoginRequest extends
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int DEVICE_ID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object deviceId_;
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 3;</code>
+   */
+  public java.lang.String getDeviceId() {
+    java.lang.Object ref = deviceId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      deviceId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDeviceIdBytes() {
+    java.lang.Object ref = deviceId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      deviceId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DEVICE_TYPE_FIELD_NUMBER = 4;
+  private int deviceType_;
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+   */
+  public int getDeviceTypeValue() {
+    return deviceType_;
+  }
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+   */
+  public com.wanfang.personal.LoginDeviceType getDeviceType() {
+    com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
+    return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -185,6 +265,12 @@ public  final class LoginRequest extends
     if (!getUserNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
     }
+    if (!getDeviceIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, deviceId_);
+    }
+    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
+      output.writeEnum(4, deviceType_);
+    }
   }
 
   public int getSerializedSize() {
@@ -197,6 +283,13 @@ public  final class LoginRequest extends
     }
     if (!getUserNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
+    }
+    if (!getDeviceIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, deviceId_);
+    }
+    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, deviceType_);
     }
     memoizedSize = size;
     return size;
@@ -218,6 +311,9 @@ public  final class LoginRequest extends
         .equals(other.getPassword());
     result = result && getUserName()
         .equals(other.getUserName());
+    result = result && getDeviceId()
+        .equals(other.getDeviceId());
+    result = result && deviceType_ == other.deviceType_;
     return result;
   }
 
@@ -232,6 +328,10 @@ public  final class LoginRequest extends
     hash = (53 * hash) + getPassword().hashCode();
     hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getUserName().hashCode();
+    hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDeviceId().hashCode();
+    hash = (37 * hash) + DEVICE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + deviceType_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -358,6 +458,10 @@ public  final class LoginRequest extends
 
       userName_ = "";
 
+      deviceId_ = "";
+
+      deviceType_ = 0;
+
       return this;
     }
 
@@ -382,6 +486,8 @@ public  final class LoginRequest extends
       com.wanfang.personal.LoginRequest result = new com.wanfang.personal.LoginRequest(this);
       result.password_ = password_;
       result.userName_ = userName_;
+      result.deviceId_ = deviceId_;
+      result.deviceType_ = deviceType_;
       onBuilt();
       return result;
     }
@@ -430,6 +536,13 @@ public  final class LoginRequest extends
       if (!other.getUserName().isEmpty()) {
         userName_ = other.userName_;
         onChanged();
+      }
+      if (!other.getDeviceId().isEmpty()) {
+        deviceId_ = other.deviceId_;
+        onChanged();
+      }
+      if (other.deviceType_ != 0) {
+        setDeviceTypeValue(other.getDeviceTypeValue());
       }
       onChanged();
       return this;
@@ -549,7 +662,7 @@ public  final class LoginRequest extends
     private java.lang.Object userName_ = "";
     /**
      * <pre>
-     * 登录用户名  
+     * 登录用户名
      * </pre>
      *
      * <code>optional string user_name = 2;</code>
@@ -568,7 +681,7 @@ public  final class LoginRequest extends
     }
     /**
      * <pre>
-     * 登录用户名  
+     * 登录用户名
      * </pre>
      *
      * <code>optional string user_name = 2;</code>
@@ -588,7 +701,7 @@ public  final class LoginRequest extends
     }
     /**
      * <pre>
-     * 登录用户名  
+     * 登录用户名
      * </pre>
      *
      * <code>optional string user_name = 2;</code>
@@ -605,7 +718,7 @@ public  final class LoginRequest extends
     }
     /**
      * <pre>
-     * 登录用户名  
+     * 登录用户名
      * </pre>
      *
      * <code>optional string user_name = 2;</code>
@@ -618,7 +731,7 @@ public  final class LoginRequest extends
     }
     /**
      * <pre>
-     * 登录用户名  
+     * 登录用户名
      * </pre>
      *
      * <code>optional string user_name = 2;</code>
@@ -631,6 +744,159 @@ public  final class LoginRequest extends
   checkByteStringIsUtf8(value);
       
       userName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object deviceId_ = "";
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 3;</code>
+     */
+    public java.lang.String getDeviceId() {
+      java.lang.Object ref = deviceId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        deviceId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDeviceIdBytes() {
+      java.lang.Object ref = deviceId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        deviceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 3;</code>
+     */
+    public Builder setDeviceId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      deviceId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 3;</code>
+     */
+    public Builder clearDeviceId() {
+      
+      deviceId_ = getDefaultInstance().getDeviceId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 设备号
+     * </pre>
+     *
+     * <code>optional string device_id = 3;</code>
+     */
+    public Builder setDeviceIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      deviceId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int deviceType_ = 0;
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+     */
+    public int getDeviceTypeValue() {
+      return deviceType_;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+     */
+    public Builder setDeviceTypeValue(int value) {
+      deviceType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+     */
+    public com.wanfang.personal.LoginDeviceType getDeviceType() {
+      com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
+      return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+     */
+    public Builder setDeviceType(com.wanfang.personal.LoginDeviceType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      deviceType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 登录设备类型
+     * </pre>
+     *
+     * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+     */
+    public Builder clearDeviceType() {
+      
+      deviceType_ = 0;
       onChanged();
       return this;
     }

@@ -69,6 +69,27 @@ inline bool ThirdPartyType_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<ThirdPartyType>(
     ThirdPartyType_descriptor(), name, value);
 }
+enum LoginDeviceType {
+  ANDROID = 0,
+  IOS = 1,
+  LoginDeviceType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  LoginDeviceType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool LoginDeviceType_IsValid(int value);
+const LoginDeviceType LoginDeviceType_MIN = ANDROID;
+const LoginDeviceType LoginDeviceType_MAX = IOS;
+const int LoginDeviceType_ARRAYSIZE = LoginDeviceType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* LoginDeviceType_descriptor();
+inline const ::std::string& LoginDeviceType_Name(LoginDeviceType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LoginDeviceType_descriptor(), value);
+}
+inline bool LoginDeviceType_Parse(
+    const ::std::string& name, LoginDeviceType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LoginDeviceType>(
+    LoginDeviceType_descriptor(), name, value);
+}
 // ===================================================================
 
 class LoginOutRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.LoginOutRequest) */ {
@@ -348,12 +369,31 @@ class LoginRequest : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_user_name();
   void set_allocated_user_name(::std::string* user_name);
 
+  // optional string device_id = 3;
+  void clear_device_id();
+  static const int kDeviceIdFieldNumber = 3;
+  const ::std::string& device_id() const;
+  void set_device_id(const ::std::string& value);
+  void set_device_id(const char* value);
+  void set_device_id(const char* value, size_t size);
+  ::std::string* mutable_device_id();
+  ::std::string* release_device_id();
+  void set_allocated_device_id(::std::string* device_id);
+
+  // optional .personal.LoginDeviceType device_type = 4;
+  void clear_device_type();
+  static const int kDeviceTypeFieldNumber = 4;
+  ::personal::LoginDeviceType device_type() const;
+  void set_device_type(::personal::LoginDeviceType value);
+
   // @@protoc_insertion_point(class_scope:personal.LoginRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::internal::ArenaStringPtr user_name_;
+  ::google::protobuf::internal::ArenaStringPtr device_id_;
+  int device_type_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
@@ -599,6 +639,23 @@ class QuickLoginRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::std::string* release_captcha();
   void set_allocated_captcha(::std::string* captcha);
 
+  // optional string device_id = 4;
+  void clear_device_id();
+  static const int kDeviceIdFieldNumber = 4;
+  const ::std::string& device_id() const;
+  void set_device_id(const ::std::string& value);
+  void set_device_id(const char* value);
+  void set_device_id(const char* value, size_t size);
+  ::std::string* mutable_device_id();
+  ::std::string* release_device_id();
+  void set_allocated_device_id(::std::string* device_id);
+
+  // optional .personal.LoginDeviceType device_type = 5;
+  void clear_device_type();
+  static const int kDeviceTypeFieldNumber = 5;
+  ::personal::LoginDeviceType device_type() const;
+  void set_device_type(::personal::LoginDeviceType value);
+
   // @@protoc_insertion_point(class_scope:personal.QuickLoginRequest)
  private:
 
@@ -606,6 +663,8 @@ class QuickLoginRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::internal::ArenaStringPtr phone_;
   ::google::protobuf::internal::ArenaStringPtr token_;
   ::google::protobuf::internal::ArenaStringPtr captcha_;
+  ::google::protobuf::internal::ArenaStringPtr device_id_;
+  int device_type_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
@@ -714,9 +773,26 @@ class BindExistAccountRequest : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // optional .personal.ThirdPartyType third_party_type = 4;
+  // optional string device_id = 4;
+  void clear_device_id();
+  static const int kDeviceIdFieldNumber = 4;
+  const ::std::string& device_id() const;
+  void set_device_id(const ::std::string& value);
+  void set_device_id(const char* value);
+  void set_device_id(const char* value, size_t size);
+  ::std::string* mutable_device_id();
+  ::std::string* release_device_id();
+  void set_allocated_device_id(::std::string* device_id);
+
+  // optional .personal.LoginDeviceType device_type = 5;
+  void clear_device_type();
+  static const int kDeviceTypeFieldNumber = 5;
+  ::personal::LoginDeviceType device_type() const;
+  void set_device_type(::personal::LoginDeviceType value);
+
+  // optional .personal.ThirdPartyType third_party_type = 6;
   void clear_third_party_type();
-  static const int kThirdPartyTypeFieldNumber = 4;
+  static const int kThirdPartyTypeFieldNumber = 6;
   ::personal::ThirdPartyType third_party_type() const;
   void set_third_party_type(::personal::ThirdPartyType value);
 
@@ -727,6 +803,8 @@ class BindExistAccountRequest : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::internal::ArenaStringPtr uid_;
   ::google::protobuf::internal::ArenaStringPtr user_name_;
   ::google::protobuf::internal::ArenaStringPtr password_;
+  ::google::protobuf::internal::ArenaStringPtr device_id_;
+  int device_type_;
   int third_party_type_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
@@ -1097,6 +1175,64 @@ inline void LoginRequest::set_allocated_user_name(::std::string* user_name) {
   // @@protoc_insertion_point(field_set_allocated:personal.LoginRequest.user_name)
 }
 
+// optional string device_id = 3;
+inline void LoginRequest::clear_device_id() {
+  device_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoginRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:personal.LoginRequest.device_id)
+  return device_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginRequest::set_device_id(const ::std::string& value) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.LoginRequest.device_id)
+}
+inline void LoginRequest::set_device_id(const char* value) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.LoginRequest.device_id)
+}
+inline void LoginRequest::set_device_id(const char* value, size_t size) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.LoginRequest.device_id)
+}
+inline ::std::string* LoginRequest::mutable_device_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.LoginRequest.device_id)
+  return device_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoginRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:personal.LoginRequest.device_id)
+  
+  return device_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginRequest::set_allocated_device_id(::std::string* device_id) {
+  if (device_id != NULL) {
+    
+  } else {
+    
+  }
+  device_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginRequest.device_id)
+}
+
+// optional .personal.LoginDeviceType device_type = 4;
+inline void LoginRequest::clear_device_type() {
+  device_type_ = 0;
+}
+inline ::personal::LoginDeviceType LoginRequest::device_type() const {
+  // @@protoc_insertion_point(field_get:personal.LoginRequest.device_type)
+  return static_cast< ::personal::LoginDeviceType >(device_type_);
+}
+inline void LoginRequest::set_device_type(::personal::LoginDeviceType value) {
+  
+  device_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.LoginRequest.device_type)
+}
+
 inline const LoginRequest* LoginRequest::internal_default_instance() {
   return &LoginRequest_default_instance_.get();
 }
@@ -1458,6 +1594,64 @@ inline void QuickLoginRequest::set_allocated_captcha(::std::string* captcha) {
   // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.captcha)
 }
 
+// optional string device_id = 4;
+inline void QuickLoginRequest::clear_device_id() {
+  device_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& QuickLoginRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.device_id)
+  return device_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void QuickLoginRequest::set_device_id(const ::std::string& value) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.device_id)
+}
+inline void QuickLoginRequest::set_device_id(const char* value) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.device_id)
+}
+inline void QuickLoginRequest::set_device_id(const char* value, size_t size) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.device_id)
+}
+inline ::std::string* QuickLoginRequest::mutable_device_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.device_id)
+  return device_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* QuickLoginRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.device_id)
+  
+  return device_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void QuickLoginRequest::set_allocated_device_id(::std::string* device_id) {
+  if (device_id != NULL) {
+    
+  } else {
+    
+  }
+  device_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.device_id)
+}
+
+// optional .personal.LoginDeviceType device_type = 5;
+inline void QuickLoginRequest::clear_device_type() {
+  device_type_ = 0;
+}
+inline ::personal::LoginDeviceType QuickLoginRequest::device_type() const {
+  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.device_type)
+  return static_cast< ::personal::LoginDeviceType >(device_type_);
+}
+inline void QuickLoginRequest::set_device_type(::personal::LoginDeviceType value) {
+  
+  device_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.device_type)
+}
+
 inline const QuickLoginRequest* QuickLoginRequest::internal_default_instance() {
   return &QuickLoginRequest_default_instance_.get();
 }
@@ -1597,7 +1791,65 @@ inline void BindExistAccountRequest::set_allocated_password(::std::string* passw
   // @@protoc_insertion_point(field_set_allocated:personal.BindExistAccountRequest.password)
 }
 
-// optional .personal.ThirdPartyType third_party_type = 4;
+// optional string device_id = 4;
+inline void BindExistAccountRequest::clear_device_id() {
+  device_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BindExistAccountRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.device_id)
+  return device_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BindExistAccountRequest::set_device_id(const ::std::string& value) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.device_id)
+}
+inline void BindExistAccountRequest::set_device_id(const char* value) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.BindExistAccountRequest.device_id)
+}
+inline void BindExistAccountRequest::set_device_id(const char* value, size_t size) {
+  
+  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.BindExistAccountRequest.device_id)
+}
+inline ::std::string* BindExistAccountRequest::mutable_device_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.BindExistAccountRequest.device_id)
+  return device_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BindExistAccountRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:personal.BindExistAccountRequest.device_id)
+  
+  return device_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BindExistAccountRequest::set_allocated_device_id(::std::string* device_id) {
+  if (device_id != NULL) {
+    
+  } else {
+    
+  }
+  device_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.BindExistAccountRequest.device_id)
+}
+
+// optional .personal.LoginDeviceType device_type = 5;
+inline void BindExistAccountRequest::clear_device_type() {
+  device_type_ = 0;
+}
+inline ::personal::LoginDeviceType BindExistAccountRequest::device_type() const {
+  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.device_type)
+  return static_cast< ::personal::LoginDeviceType >(device_type_);
+}
+inline void BindExistAccountRequest::set_device_type(::personal::LoginDeviceType value) {
+  
+  device_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.device_type)
+}
+
+// optional .personal.ThirdPartyType third_party_type = 6;
 inline void BindExistAccountRequest::clear_third_party_type() {
   third_party_type_ = 0;
 }
@@ -1793,6 +2045,11 @@ template <> struct is_proto_enum< ::personal::ThirdPartyType> : ::google::protob
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::personal::ThirdPartyType>() {
   return ::personal::ThirdPartyType_descriptor();
+}
+template <> struct is_proto_enum< ::personal::LoginDeviceType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::personal::LoginDeviceType>() {
+  return ::personal::LoginDeviceType_descriptor();
 }
 
 }  // namespace protobuf

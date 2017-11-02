@@ -24,7 +24,7 @@ import com.tb.wangfang.news.utils.SystemUtil;
  */
 public abstract class ConfirmPopup<V extends View> extends BasicPopup<View> {
     protected boolean topLineVisible = true;
-    protected int topLineColor = 0xFF33B5E5;
+    protected int topLineColor = 0x417dc9;
     protected int topLineHeightPixels = 1;//px
     protected int topBackgroundColor = Color.WHITE;
     protected int topHeight = 40;//dp
@@ -33,10 +33,10 @@ public abstract class ConfirmPopup<V extends View> extends BasicPopup<View> {
     protected CharSequence cancelText = "";
     protected CharSequence submitText = "";
     protected CharSequence titleText = "";
-    protected int cancelTextColor = 0xFF33B5E5;
-    protected int submitTextColor = 0xFF33B5E5;
+    protected int cancelTextColor = 0x417dc9;
+    protected int submitTextColor = 0x417dc9;
     protected int titleTextColor = Color.BLACK;
-    protected int pressedTextColor = 0XFF0288CE;
+    protected int pressedTextColor = 0X3F51B5;
     protected int cancelTextSize = 0;
     protected int submitTextSize = 0;
     protected int titleTextSize = 0;

@@ -74,7 +74,7 @@ void protobuf_AssignDesc_subscribe_2fmsg_5fsubscribe_5fdoc_2eproto() {
       sizeof(SubscribeDocListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse, _internal_metadata_));
   SubscribeDocListResponse_SubscribeDocMessage_descriptor_ = SubscribeDocListResponse_descriptor_->nested_type(0);
-  static const int SubscribeDocListResponse_SubscribeDocMessage_offsets_[7] = {
+  static const int SubscribeDocListResponse_SubscribeDocMessage_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, doc_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, subscribe_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, docu_type_),
@@ -82,6 +82,9 @@ void protobuf_AssignDesc_subscribe_2fmsg_5fsubscribe_5fdoc_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, docu_author_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, publish_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, is_buy_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, add_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, doc_source_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribeDocListResponse_SubscribeDocMessage, keyword_),
   };
   SubscribeDocListResponse_SubscribeDocMessage_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -156,16 +159,18 @@ void protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_5fdoc_2eproto_impl() {
     "mmon/msg_error.proto\"\200\001\n\027SubscribeDocLis"
     "tRequest\022=\n\021subscribe_keyword\030\001 \001(\0132\".su"
     "bscribe.SubscribeKeywordMessage\022\023\n\013page_"
-    "number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\302\002\n\030Subs"
+    "number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\371\002\n\030Subs"
     "cribeDocListResponse\022N\n\rsubscribe_doc\030\001 "
     "\003(\01327.subscribe.SubscribeDocListResponse"
     ".SubscribeDocMessage\022$\n\005error\030\002 \001(\0132\025.gr"
-    "pcCommon.GrpcError\022\020\n\010has_more\030\003 \001(\010\032\235\001\n"
+    "pcCommon.GrpcError\022\020\n\010has_more\030\003 \001(\010\032\324\001\n"
     "\023SubscribeDocMessage\022\016\n\006doc_id\030\001 \001(\t\022\024\n\014"
     "subscribe_id\030\002 \001(\t\022\021\n\tdocu_type\030\003 \001(\t\022\022\n"
     "\ndocu_title\030\004 \001(\t\022\023\n\013docu_author\030\005 \001(\t\022\024"
-    "\n\014publish_time\030\006 \001(\t\022\016\n\006is_buy\030\007 \001(\tB \n\025"
-    "com.wanfang.subscribeP\001\242\002\004WFPRb\006proto3", 638);
+    "\n\014publish_time\030\006 \001(\t\022\016\n\006is_buy\030\007 \001(\t\022\020\n\010"
+    "add_time\030\010 \001(\t\022\022\n\ndoc_source\030\t \001(\t\022\017\n\007ke"
+    "yword\030\n \001(\tB \n\025com.wanfang.subscribeP\001\242\002"
+    "\004WFPRb\006proto3", 693);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "subscribe/msg_subscribe_doc.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -607,6 +612,9 @@ const int SubscribeDocListResponse_SubscribeDocMessage::kDocuTitleFieldNumber;
 const int SubscribeDocListResponse_SubscribeDocMessage::kDocuAuthorFieldNumber;
 const int SubscribeDocListResponse_SubscribeDocMessage::kPublishTimeFieldNumber;
 const int SubscribeDocListResponse_SubscribeDocMessage::kIsBuyFieldNumber;
+const int SubscribeDocListResponse_SubscribeDocMessage::kAddTimeFieldNumber;
+const int SubscribeDocListResponse_SubscribeDocMessage::kDocSourceFieldNumber;
+const int SubscribeDocListResponse_SubscribeDocMessage::kKeywordFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SubscribeDocListResponse_SubscribeDocMessage::SubscribeDocListResponse_SubscribeDocMessage()
@@ -635,6 +643,9 @@ void SubscribeDocListResponse_SubscribeDocMessage::SharedCtor() {
   docu_author_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   publish_time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   is_buy_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  add_time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  doc_source_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  keyword_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -651,6 +662,9 @@ void SubscribeDocListResponse_SubscribeDocMessage::SharedDtor() {
   docu_author_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   publish_time_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   is_buy_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  add_time_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  doc_source_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  keyword_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void SubscribeDocListResponse_SubscribeDocMessage::SetCachedSize(int size) const {
@@ -687,6 +701,9 @@ void SubscribeDocListResponse_SubscribeDocMessage::Clear() {
   docu_author_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   publish_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   is_buy_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  add_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  doc_source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  keyword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool SubscribeDocListResponse_SubscribeDocMessage::MergePartialFromCodedStream(
@@ -813,6 +830,57 @@ bool SubscribeDocListResponse_SubscribeDocMessage::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(66)) goto parse_add_time;
+        break;
+      }
+
+      // optional string add_time = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_add_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_add_time()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->add_time().data(), this->add_time().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(74)) goto parse_doc_source;
+        break;
+      }
+
+      // optional string doc_source = 9;
+      case 9: {
+        if (tag == 74) {
+         parse_doc_source:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_doc_source()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->doc_source().data(), this->doc_source().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(82)) goto parse_keyword;
+        break;
+      }
+
+      // optional string keyword = 10;
+      case 10: {
+        if (tag == 82) {
+         parse_keyword:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_keyword()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->keyword().data(), this->keyword().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword"));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -911,6 +979,36 @@ void SubscribeDocListResponse_SubscribeDocMessage::SerializeWithCachedSizes(
       7, this->is_buy(), output);
   }
 
+  // optional string add_time = 8;
+  if (this->add_time().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->add_time().data(), this->add_time().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->add_time(), output);
+  }
+
+  // optional string doc_source = 9;
+  if (this->doc_source().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->doc_source().data(), this->doc_source().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      9, this->doc_source(), output);
+  }
+
+  // optional string keyword = 10;
+  if (this->keyword().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->keyword().data(), this->keyword().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      10, this->keyword(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:subscribe.SubscribeDocListResponse.SubscribeDocMessage)
 }
 
@@ -995,6 +1093,39 @@ void SubscribeDocListResponse_SubscribeDocMessage::SerializeWithCachedSizes(
         7, this->is_buy(), target);
   }
 
+  // optional string add_time = 8;
+  if (this->add_time().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->add_time().data(), this->add_time().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->add_time(), target);
+  }
+
+  // optional string doc_source = 9;
+  if (this->doc_source().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->doc_source().data(), this->doc_source().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        9, this->doc_source(), target);
+  }
+
+  // optional string keyword = 10;
+  if (this->keyword().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->keyword().data(), this->keyword().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->keyword(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:subscribe.SubscribeDocListResponse.SubscribeDocMessage)
   return target;
 }
@@ -1050,6 +1181,27 @@ size_t SubscribeDocListResponse_SubscribeDocMessage::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->is_buy());
+  }
+
+  // optional string add_time = 8;
+  if (this->add_time().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->add_time());
+  }
+
+  // optional string doc_source = 9;
+  if (this->doc_source().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->doc_source());
+  }
+
+  // optional string keyword = 10;
+  if (this->keyword().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->keyword());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1113,6 +1265,18 @@ void SubscribeDocListResponse_SubscribeDocMessage::UnsafeMergeFrom(const Subscri
 
     is_buy_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.is_buy_);
   }
+  if (from.add_time().size() > 0) {
+
+    add_time_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.add_time_);
+  }
+  if (from.doc_source().size() > 0) {
+
+    doc_source_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.doc_source_);
+  }
+  if (from.keyword().size() > 0) {
+
+    keyword_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.keyword_);
+  }
 }
 
 void SubscribeDocListResponse_SubscribeDocMessage::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1146,6 +1310,9 @@ void SubscribeDocListResponse_SubscribeDocMessage::InternalSwap(SubscribeDocList
   docu_author_.Swap(&other->docu_author_);
   publish_time_.Swap(&other->publish_time_);
   is_buy_.Swap(&other->is_buy_);
+  add_time_.Swap(&other->add_time_);
+  doc_source_.Swap(&other->doc_source_);
+  keyword_.Swap(&other->keyword_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1779,6 +1946,138 @@ void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_is_buy(::std::s
   }
   is_buy_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), is_buy);
   // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.is_buy)
+}
+
+// optional string add_time = 8;
+void SubscribeDocListResponse_SubscribeDocMessage::clear_add_time() {
+  add_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& SubscribeDocListResponse_SubscribeDocMessage::add_time() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+  return add_time_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_add_time(const ::std::string& value) {
+  
+  add_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_add_time(const char* value) {
+  
+  add_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_add_time(const char* value, size_t size) {
+  
+  add_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+::std::string* SubscribeDocListResponse_SubscribeDocMessage::mutable_add_time() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+  return add_time_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SubscribeDocListResponse_SubscribeDocMessage::release_add_time() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+  
+  return add_time_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_add_time(::std::string* add_time) {
+  if (add_time != NULL) {
+    
+  } else {
+    
+  }
+  add_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), add_time);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.add_time)
+}
+
+// optional string doc_source = 9;
+void SubscribeDocListResponse_SubscribeDocMessage::clear_doc_source() {
+  doc_source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& SubscribeDocListResponse_SubscribeDocMessage::doc_source() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+  return doc_source_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_doc_source(const ::std::string& value) {
+  
+  doc_source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_doc_source(const char* value) {
+  
+  doc_source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_doc_source(const char* value, size_t size) {
+  
+  doc_source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+::std::string* SubscribeDocListResponse_SubscribeDocMessage::mutable_doc_source() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+  return doc_source_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SubscribeDocListResponse_SubscribeDocMessage::release_doc_source() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+  
+  return doc_source_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_doc_source(::std::string* doc_source) {
+  if (doc_source != NULL) {
+    
+  } else {
+    
+  }
+  doc_source_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), doc_source);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.doc_source)
+}
+
+// optional string keyword = 10;
+void SubscribeDocListResponse_SubscribeDocMessage::clear_keyword() {
+  keyword_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& SubscribeDocListResponse_SubscribeDocMessage::keyword() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+  return keyword_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_keyword(const ::std::string& value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_keyword(const char* value) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_keyword(const char* value, size_t size) {
+  
+  keyword_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+}
+::std::string* SubscribeDocListResponse_SubscribeDocMessage::mutable_keyword() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+  return keyword_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SubscribeDocListResponse_SubscribeDocMessage::release_keyword() {
+  // @@protoc_insertion_point(field_release:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
+  
+  return keyword_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SubscribeDocListResponse_SubscribeDocMessage::set_allocated_keyword(::std::string* keyword) {
+  if (keyword != NULL) {
+    
+  } else {
+    
+  }
+  keyword_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), keyword);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribeDocListResponse.SubscribeDocMessage.keyword)
 }
 
 inline const SubscribeDocListResponse_SubscribeDocMessage* SubscribeDocListResponse_SubscribeDocMessage::internal_default_instance() {

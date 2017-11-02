@@ -57,84 +57,228 @@ public interface MyCollectDetailResponseOrBuilder extends
       getSummaryBytes();
 
   /**
-   * <code>optional string artical_id = 4;</code>
+   * <pre>
+   * 关键词
+   * </pre>
+   *
+   * <code>optional string keywords = 4;</code>
    */
-  java.lang.String getArticalId();
+  java.lang.String getKeywords();
   /**
-   * <code>optional string artical_id = 4;</code>
+   * <pre>
+   * 关键词
+   * </pre>
+   *
+   * <code>optional string keywords = 4;</code>
    */
   com.google.protobuf.ByteString
-      getArticalIdBytes();
+      getKeywordsBytes();
 
   /**
    * <pre>
-   * 标准编号
+   * 作者
    * </pre>
    *
-   * <code>optional string stand_num = 5;</code>
+   * <code>optional string authors_name = 5;</code>
    */
-  java.lang.String getStandNum();
+  java.lang.String getAuthorsName();
   /**
    * <pre>
-   * 标准编号
+   * 作者
    * </pre>
    *
-   * <code>optional string stand_num = 5;</code>
+   * <code>optional string authors_name = 5;</code>
    */
   com.google.protobuf.ByteString
-      getStandNumBytes();
+      getAuthorsNameBytes();
 
   /**
    * <pre>
-   * 限制使用
+   * 被引数
    * </pre>
    *
-   * <code>optional string work_limit = 6;</code>
+   * <code>optional string cite_num = 6;</code>
    */
-  java.lang.String getWorkLimit();
+  java.lang.String getCiteNum();
   /**
    * <pre>
-   * 限制使用
+   * 被引数
    * </pre>
    *
-   * <code>optional string work_limit = 6;</code>
+   * <code>optional string cite_num = 6;</code>
    */
   com.google.protobuf.ByteString
-      getWorkLimitBytes();
+      getCiteNumBytes();
 
   /**
    * <pre>
-   * 出版地
+   * 下载数
    * </pre>
    *
-   * <code>optional string publish_place = 7;</code>
+   * <code>optional string download_num = 7;</code>
    */
-  java.lang.String getPublishPlace();
+  java.lang.String getDownloadNum();
   /**
    * <pre>
-   * 出版地
+   * 下载数
    * </pre>
    *
-   * <code>optional string publish_place = 7;</code>
+   * <code>optional string download_num = 7;</code>
    */
   com.google.protobuf.ByteString
-      getPublishPlaceBytes();
+      getDownloadNumBytes();
 
   /**
    * <pre>
-   * 中图分类号
+   * 阅读数
    * </pre>
    *
-   * <code>optional string subject_code = 8;</code>
+   * <code>optional string fulltext_reading_num = 8;</code>
    */
-  java.lang.String getSubjectCode();
+  java.lang.String getFulltextReadingNum();
   /**
    * <pre>
-   * 中图分类号
+   * 阅读数
    * </pre>
    *
-   * <code>optional string subject_code = 8;</code>
+   * <code>optional string fulltext_reading_num = 8;</code>
    */
   com.google.protobuf.ByteString
-      getSubjectCodeBytes();
+      getFulltextReadingNumBytes();
+
+  /**
+   * <pre>
+   * 第三方链接次数 (可能不存在此字段)
+   * </pre>
+   *
+   * <code>optional string thirdparty_links_num = 9;</code>
+   */
+  java.lang.String getThirdpartyLinksNum();
+  /**
+   * <pre>
+   * 第三方链接次数 (可能不存在此字段)
+   * </pre>
+   *
+   * <code>optional string thirdparty_links_num = 9;</code>
+   */
+  com.google.protobuf.ByteString
+      getThirdpartyLinksNumBytes();
+
+  /**
+   * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+   */
+  boolean hasCollectDetail();
+  /**
+   * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+   */
+  com.google.protobuf.Any getCollectDetail();
+  /**
+   * <code>optional .google.protobuf.Any collect_detail = 10;</code>
+   */
+  com.google.protobuf.AnyOrBuilder getCollectDetailOrBuilder();
+
+  /**
+   * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+   */
+  int getDetailTypeValue();
+  /**
+   * <code>optional .collect.MyCollectDetailType detail_type = 11;</code>
+   */
+  com.wanfang.collect.MyCollectDetailType getDetailType();
+
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  java.util.List<com.wanfang.collect.MyCollectSimilarPaperMessage> 
+      getSimilarPapersList();
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  com.wanfang.collect.MyCollectSimilarPaperMessage getSimilarPapers(int index);
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  int getSimilarPapersCount();
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  java.util.List<? extends com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder> 
+      getSimilarPapersOrBuilderList();
+  /**
+   * <code>repeated .collect.MyCollectSimilarPaperMessage similar_papers = 12;</code>
+   */
+  com.wanfang.collect.MyCollectSimilarPaperMessageOrBuilder getSimilarPapersOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * 开始阅读相关
+   * </pre>
+   *
+   * <code>optional string resource_id = 13;</code>
+   */
+  java.lang.String getResourceId();
+  /**
+   * <pre>
+   * 开始阅读相关
+   * </pre>
+   *
+   * <code>optional string resource_id = 13;</code>
+   */
+  com.google.protobuf.ByteString
+      getResourceIdBytes();
+
+  /**
+   * <pre>
+   * source_db
+   * </pre>
+   *
+   * <code>optional string resource_db = 14;</code>
+   */
+  java.lang.String getResourceDb();
+  /**
+   * <pre>
+   * source_db
+   * </pre>
+   *
+   * <code>optional string resource_db = 14;</code>
+   */
+  com.google.protobuf.ByteString
+      getResourceDbBytes();
+
+  /**
+   * <pre>
+   * language
+   * </pre>
+   *
+   * <code>optional string language = 15;</code>
+   */
+  java.lang.String getLanguage();
+  /**
+   * <pre>
+   * language
+   * </pre>
+   *
+   * <code>optional string language = 15;</code>
+   */
+  com.google.protobuf.ByteString
+      getLanguageBytes();
+
+  /**
+   * <pre>
+   * resourceType
+   * </pre>
+   *
+   * <code>optional string class_type = 16;</code>
+   */
+  java.lang.String getClassType();
+  /**
+   * <pre>
+   * resourceType
+   * </pre>
+   *
+   * <code>optional string class_type = 16;</code>
+   */
+  com.google.protobuf.ByteString
+      getClassTypeBytes();
 }

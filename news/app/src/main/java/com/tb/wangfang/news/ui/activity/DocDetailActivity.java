@@ -3,6 +3,8 @@ package com.tb.wangfang.news.ui.activity;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -248,11 +250,13 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void sendJPush() {
+        final byte[] appkey = Base64.encode(Constants.JMESSAGE_APP_KEY.getBytes(), Base64.DEFAULT);
+        final byte[] masterSecret = Base64.encode(Constants.JMESSAGE_MASTER_SECRET.getBytes(), Base64.DEFAULT);
         Single.create(new SingleOnSubscribe<SendTextMessageResponse>() {
             @Override
             public void subscribe(SingleEmitter<SendTextMessageResponse> e) throws Exception {
                 SendTextMessageServiceGrpc.SendTextMessageServiceBlockingStub stub = SendTextMessageServiceGrpc.newBlockingStub(mChannelSever);
-                SendTextMessageRequest request = SendTextMessageRequest.newBuilder().setAppKey("5f5eecb63e042f246fd8b325").setMasterSecret("0406eaf9209b361eab1f19f6").setText("nihao").setTargetType("single").setTargetId("tangbin")
+                SendTextMessageRequest request = SendTextMessageRequest.newBuilder().setAppKey(new String(appkey)).setMasterSecret(new String(masterSecret)).setText("nihao").setTargetType("single").setTargetId("tangbin")
                         .setFromType("admin").setFromId("admin").setNoNotification(true).build();
                 SendTextMessageResponse response = stub.sendTextMessageByTargetId(request);
                 e.onSuccess(response);
@@ -261,6 +265,11 @@ public class DocDetailActivity extends SimpleActivity {
             @Override
             public void onSuccess(SendTextMessageResponse sendTextMessageResponse) {
                 Log.d(TAG, "onSuccess: " + sendTextMessageResponse.toString());
+                if (!TextUtils.isEmpty(sendTextMessageResponse.getMessageId())) {
+                    Log.d(TAG, "onSuccess: 分享推送成功");
+                } else {
+                    Log.d(TAG, "onSuccess: 分享推送失败");
+                }
             }
 
             @Override

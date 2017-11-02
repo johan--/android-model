@@ -6,6 +6,8 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +31,8 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.GlideCircleTransform;
 import com.tb.wangfang.news.widget.WaveView;
 import com.tb.wangfang.news.widget.datapick.DatePicker;
+import com.wanfang.personal.EducationLevelListRequest;
+import com.wanfang.personal.EducationLevelListResponse;
 import com.wanfang.personal.InfoBirthday;
 import com.wanfang.personal.InfoSex;
 import com.wanfang.personal.MyInfoRequest;
@@ -36,10 +40,17 @@ import com.wanfang.personal.MyInfoResponse;
 import com.wanfang.personal.MyInfoUpdateRequest;
 import com.wanfang.personal.MyInfoUpdateResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.personal.SubjectListRequest;
+import com.wanfang.personal.SubjectListResponse;
+import com.wanfang.personal.SubjectMessage;
+import com.wanfang.personal.UserRolesListRequest;
+import com.wanfang.personal.UserRolesListResponse;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -142,6 +153,18 @@ public class EditPersonInforActivity extends SimpleActivity {
     private String TAG = "EditPersonInforActivity";
     String[] s = new String[]{"男", "女"};
     private Uri destination;
+    private int UnifolderNum = 0;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            UnifolderNum++;
+            if (UnifolderNum == 3) {
+                loadData();
+            }
+        }
+    };
+
 
     @Override
     protected int getLayout() {
@@ -185,6 +208,16 @@ public class EditPersonInforActivity extends SimpleActivity {
         if (mAnimatorSet != null) {
             mAnimatorSet.start();
         }
+        if (preferencesHelper.getUserRolesMap() == null) {
+            loadMapTable();
+        } else {
+            loadData();
+        }
+
+
+    }
+
+    private void loadData() {
         Single.create(new SingleOnSubscribe<MyInfoResponse>() {
             @Override
             public void subscribe(SingleEmitter<MyInfoResponse> e) throws Exception {
@@ -196,6 +229,13 @@ public class EditPersonInforActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoResponse>() {
             @Override
             public void onSuccess(MyInfoResponse myInfoResponse) {
+                Map<String, String> rolemap = preferencesHelper.getUserRolesMap().getHashMap();
+                Map<String, String> educationMap = preferencesHelper.getEducationMap().getHashMap();
+                List<SubjectMessage> subjectList = preferencesHelper.getSubjectMap().getSubjectList().getSubSubjectList();
+                HashMap<String, String> subjectMap = new HashMap<String, String>();
+                CiclePushMap(subjectMap, subjectList);
+
+
                 String avatarUrl = myInfoResponse.getAvatarUrl().getAvatarUrl();
                 String award = myInfoResponse.getAward().getAward();
                 String birthday = myInfoResponse.getBirthday().getBirthday();
@@ -229,14 +269,15 @@ public class EditPersonInforActivity extends SimpleActivity {
                 if (!TextUtils.isEmpty(birthday)) {
                     etBirthday.setText(birthday);
                 }
-                if (!TextUtils.isEmpty(userRoles)) {
-                    etJobTitle.setText(userRoles);
+                if (!TextUtils.isEmpty(userRoles) && !TextUtils.isEmpty(rolemap.get(userRoles))) {
+
+                    etJobTitle.setText(rolemap.get(userRoles));
                 }
                 if (!TextUtils.isEmpty(workUnit)) {
                     etUnit.setText(workUnit);
                 }
-                if (!TextUtils.isEmpty(educationLevel)) {
-                    etEducation.setText(educationLevel);
+                if (!TextUtils.isEmpty(educationLevel) && !TextUtils.isEmpty(educationMap.get(educationLevel))) {
+                    etEducation.setText(educationMap.get(educationLevel));
                 }
                 if (!TextUtils.isEmpty(graduatedSchool)) {
                     etGraduateSchool.setText(graduatedSchool);
@@ -244,8 +285,8 @@ public class EditPersonInforActivity extends SimpleActivity {
                 if (!TextUtils.isEmpty(award)) {
                     etReward.setText(award);
                 }
-                if (!TextUtils.isEmpty(subject)) {
-                    etSubject.setText(subject);
+                if (!TextUtils.isEmpty(subject) && !TextUtils.isEmpty(subjectMap.get(subject))) {
+                    etSubject.setText(subjectMap.get(subject));
                 }
                 if (!TextUtils.isEmpty(interestSubject)) {
                     etInterest.setText(interestSubject);
@@ -255,6 +296,82 @@ public class EditPersonInforActivity extends SimpleActivity {
             @Override
             public void onError(Throwable e) {
                 Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
+    }
+
+    private void CiclePushMap(HashMap<String, String> subjectMap, List<SubjectMessage> subjectList) {
+        for (int i = 0; i < subjectList.size(); i++) {
+            if (subjectList.get(i).getHasSubSubject()) {
+                CiclePushMap(subjectMap, subjectList.get(i).getSubSubjectList());
+            }
+            subjectMap.put(subjectList.get(i).getSubjectField().getKey(), subjectList.get(i).getSubjectField().getValue());
+        }
+    }
+
+    private void loadMapTable() {
+        Single.create(new SingleOnSubscribe<UserRolesListResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<UserRolesListResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                UserRolesListRequest request = UserRolesListRequest.newBuilder().build();
+                UserRolesListResponse response = stub.getRolesList(request);
+                e.onSuccess(response);
+
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<UserRolesListResponse>() {
+            @Override
+            public void onSuccess(UserRolesListResponse userRolesListResponse) {
+                preferencesHelper.storeUserRolesMap(userRolesListResponse);
+                handler.sendMessage(new Message());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("网络出错");
+            }
+        });
+
+        Single.create(new SingleOnSubscribe<SubjectListResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<SubjectListResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                SubjectListRequest request = SubjectListRequest.newBuilder().build();
+                SubjectListResponse response = stub.getSubjectList(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<SubjectListResponse>() {
+                    @Override
+                    public void onSuccess(SubjectListResponse subjectListResponse) {
+                        preferencesHelper.storeSubjectMap(subjectListResponse);
+                        handler.sendMessage(new Message());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtil.show("网络出错");
+                    }
+                });
+
+        Single.create(new SingleOnSubscribe<EducationLevelListResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<EducationLevelListResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                EducationLevelListRequest request = EducationLevelListRequest.newBuilder().build();
+                EducationLevelListResponse response = stub.getEducationLevelList(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<EducationLevelListResponse>() {
+            @Override
+            public void onSuccess(EducationLevelListResponse educationLevelListResponse) {
+                preferencesHelper.storeEducationMap(educationLevelListResponse);
+                handler.sendMessage(new Message());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("网络出错");
             }
         });
     }
@@ -408,7 +525,7 @@ public class EditPersonInforActivity extends SimpleActivity {
                         .title("请选择性别")
                         .items(s)
                         .itemsCallbackSingleChoice(
-                                2, new MaterialDialog.ListCallbackSingleChoice() {
+                                etGender.getText().toString().equals("男") ? 0 : 1, new MaterialDialog.ListCallbackSingleChoice() {
                                     @Override
                                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                                         submitMale(text.toString());
@@ -451,6 +568,17 @@ public class EditPersonInforActivity extends SimpleActivity {
                         picker.setTitleText(picker.getSelectedYear() + "-" + picker.getSelectedMonth() + "-" + day);
                     }
                 });
+                picker.setCancelTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                picker.setSubmitTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                picker.setPressedTextColor(getResources().getColor(R.color.colorPrimary));
+                picker.setDividerColor(getResources().getColor(R.color.colorPrimaryDark));
+                picker.setTopLineColor(getResources().getColor(R.color.colorPrimaryDark));
+                picker.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                picker.setTitleTextColor(getResources().getColor(R.color.black_text));
+                picker.setTitleTextSize(16);
+                picker.setCancelTextSize(16);
+                picker.setSubmitTextSize(16);
+                picker.setSubmitTextSize(16);
                 picker.show();
                 break;
             case R.id.rl_job_title:

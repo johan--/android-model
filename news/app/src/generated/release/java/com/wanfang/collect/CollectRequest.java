@@ -22,7 +22,6 @@ public  final class CollectRequest extends
     userId_ = "";
     docId_ = "";
     docType_ = "";
-    classifyId_ = "";
   }
 
   @java.lang.Override
@@ -68,12 +67,6 @@ public  final class CollectRequest extends
             docType_ = s;
             break;
           }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            classifyId_ = s;
-            break;
-          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -100,6 +93,10 @@ public  final class CollectRequest extends
   public static final int USER_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userId_;
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   public java.lang.String getUserId() {
@@ -115,6 +112,10 @@ public  final class CollectRequest extends
     }
   }
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   public com.google.protobuf.ByteString
@@ -134,6 +135,10 @@ public  final class CollectRequest extends
   public static final int DOC_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object docId_;
   /**
+   * <pre>
+   * 资源id
+   * </pre>
+   *
    * <code>optional string doc_id = 2;</code>
    */
   public java.lang.String getDocId() {
@@ -149,6 +154,10 @@ public  final class CollectRequest extends
     }
   }
   /**
+   * <pre>
+   * 资源id
+   * </pre>
+   *
    * <code>optional string doc_id = 2;</code>
    */
   public com.google.protobuf.ByteString
@@ -168,6 +177,10 @@ public  final class CollectRequest extends
   public static final int DOC_TYPE_FIELD_NUMBER = 3;
   private volatile java.lang.Object docType_;
   /**
+   * <pre>
+   * 资源类型
+   * </pre>
+   *
    * <code>optional string doc_type = 3;</code>
    */
   public java.lang.String getDocType() {
@@ -183,6 +196,10 @@ public  final class CollectRequest extends
     }
   }
   /**
+   * <pre>
+   * 资源类型
+   * </pre>
+   *
    * <code>optional string doc_type = 3;</code>
    */
   public com.google.protobuf.ByteString
@@ -193,40 +210,6 @@ public  final class CollectRequest extends
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       docType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CLASSIFY_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object classifyId_;
-  /**
-   * <code>optional string classify_id = 4;</code>
-   */
-  public java.lang.String getClassifyId() {
-    java.lang.Object ref = classifyId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      classifyId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>optional string classify_id = 4;</code>
-   */
-  public com.google.protobuf.ByteString
-      getClassifyIdBytes() {
-    java.lang.Object ref = classifyId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      classifyId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -254,9 +237,6 @@ public  final class CollectRequest extends
     if (!getDocTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, docType_);
     }
-    if (!getClassifyIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, classifyId_);
-    }
   }
 
   public int getSerializedSize() {
@@ -272,9 +252,6 @@ public  final class CollectRequest extends
     }
     if (!getDocTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, docType_);
-    }
-    if (!getClassifyIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, classifyId_);
     }
     memoizedSize = size;
     return size;
@@ -298,8 +275,6 @@ public  final class CollectRequest extends
         .equals(other.getDocId());
     result = result && getDocType()
         .equals(other.getDocType());
-    result = result && getClassifyId()
-        .equals(other.getClassifyId());
     return result;
   }
 
@@ -316,8 +291,6 @@ public  final class CollectRequest extends
     hash = (53 * hash) + getDocId().hashCode();
     hash = (37 * hash) + DOC_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getDocType().hashCode();
-    hash = (37 * hash) + CLASSIFY_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getClassifyId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -446,8 +419,6 @@ public  final class CollectRequest extends
 
       docType_ = "";
 
-      classifyId_ = "";
-
       return this;
     }
 
@@ -473,7 +444,6 @@ public  final class CollectRequest extends
       result.userId_ = userId_;
       result.docId_ = docId_;
       result.docType_ = docType_;
-      result.classifyId_ = classifyId_;
       onBuilt();
       return result;
     }
@@ -527,10 +497,6 @@ public  final class CollectRequest extends
         docType_ = other.docType_;
         onChanged();
       }
-      if (!other.getClassifyId().isEmpty()) {
-        classifyId_ = other.classifyId_;
-        onChanged();
-      }
       onChanged();
       return this;
     }
@@ -559,6 +525,10 @@ public  final class CollectRequest extends
 
     private java.lang.Object userId_ = "";
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public java.lang.String getUserId() {
@@ -574,6 +544,10 @@ public  final class CollectRequest extends
       }
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -590,6 +564,10 @@ public  final class CollectRequest extends
       }
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder setUserId(
@@ -603,6 +581,10 @@ public  final class CollectRequest extends
       return this;
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder clearUserId() {
@@ -612,6 +594,10 @@ public  final class CollectRequest extends
       return this;
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder setUserIdBytes(
@@ -628,6 +614,10 @@ public  final class CollectRequest extends
 
     private java.lang.Object docId_ = "";
     /**
+     * <pre>
+     * 资源id
+     * </pre>
+     *
      * <code>optional string doc_id = 2;</code>
      */
     public java.lang.String getDocId() {
@@ -643,6 +633,10 @@ public  final class CollectRequest extends
       }
     }
     /**
+     * <pre>
+     * 资源id
+     * </pre>
+     *
      * <code>optional string doc_id = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -659,6 +653,10 @@ public  final class CollectRequest extends
       }
     }
     /**
+     * <pre>
+     * 资源id
+     * </pre>
+     *
      * <code>optional string doc_id = 2;</code>
      */
     public Builder setDocId(
@@ -672,6 +670,10 @@ public  final class CollectRequest extends
       return this;
     }
     /**
+     * <pre>
+     * 资源id
+     * </pre>
+     *
      * <code>optional string doc_id = 2;</code>
      */
     public Builder clearDocId() {
@@ -681,6 +683,10 @@ public  final class CollectRequest extends
       return this;
     }
     /**
+     * <pre>
+     * 资源id
+     * </pre>
+     *
      * <code>optional string doc_id = 2;</code>
      */
     public Builder setDocIdBytes(
@@ -697,6 +703,10 @@ public  final class CollectRequest extends
 
     private java.lang.Object docType_ = "";
     /**
+     * <pre>
+     * 资源类型
+     * </pre>
+     *
      * <code>optional string doc_type = 3;</code>
      */
     public java.lang.String getDocType() {
@@ -712,6 +722,10 @@ public  final class CollectRequest extends
       }
     }
     /**
+     * <pre>
+     * 资源类型
+     * </pre>
+     *
      * <code>optional string doc_type = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -728,6 +742,10 @@ public  final class CollectRequest extends
       }
     }
     /**
+     * <pre>
+     * 资源类型
+     * </pre>
+     *
      * <code>optional string doc_type = 3;</code>
      */
     public Builder setDocType(
@@ -741,6 +759,10 @@ public  final class CollectRequest extends
       return this;
     }
     /**
+     * <pre>
+     * 资源类型
+     * </pre>
+     *
      * <code>optional string doc_type = 3;</code>
      */
     public Builder clearDocType() {
@@ -750,6 +772,10 @@ public  final class CollectRequest extends
       return this;
     }
     /**
+     * <pre>
+     * 资源类型
+     * </pre>
+     *
      * <code>optional string doc_type = 3;</code>
      */
     public Builder setDocTypeBytes(
@@ -760,75 +786,6 @@ public  final class CollectRequest extends
   checkByteStringIsUtf8(value);
       
       docType_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object classifyId_ = "";
-    /**
-     * <code>optional string classify_id = 4;</code>
-     */
-    public java.lang.String getClassifyId() {
-      java.lang.Object ref = classifyId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        classifyId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>optional string classify_id = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getClassifyIdBytes() {
-      java.lang.Object ref = classifyId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        classifyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string classify_id = 4;</code>
-     */
-    public Builder setClassifyId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      classifyId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string classify_id = 4;</code>
-     */
-    public Builder clearClassifyId() {
-      
-      classifyId_ = getDefaultInstance().getClassifyId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string classify_id = 4;</code>
-     */
-    public Builder setClassifyIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      classifyId_ = value;
       onChanged();
       return this;
     }

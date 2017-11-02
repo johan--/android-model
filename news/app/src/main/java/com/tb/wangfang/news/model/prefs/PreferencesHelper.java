@@ -1,6 +1,10 @@
 package com.tb.wangfang.news.model.prefs;
 
+import com.tb.wangfang.news.model.bean.KeyValueListBean;
+import com.wanfang.personal.EducationLevelListResponse;
 import com.wanfang.personal.LoginResponse;
+import com.wanfang.personal.SubjectListResponse;
+import com.wanfang.personal.UserRolesListResponse;
 
 /**
  * @author: Est <codeest.dev@gmail.com>
@@ -30,5 +34,16 @@ public interface PreferencesHelper {
 
     void setUserAvatar(String url);
 
+    void storeUserRolesMap(UserRolesListResponse userRolesListResponse);
+
+    void storeSubjectMap(SubjectListResponse subjectListResponse);
+
+    void storeEducationMap(EducationLevelListResponse EducationLevelListResponse);
+
+    KeyValueListBean getUserRolesMap();
+
+    SubjectListResponse getSubjectMap();
+
+    KeyValueListBean getEducationMap();
 
 }

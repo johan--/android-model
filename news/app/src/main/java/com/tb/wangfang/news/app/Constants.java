@@ -25,6 +25,11 @@ public class Constants {
     public static final String JMESSAGE_ORDER_ACCOUNT = "tangbin";
     public static final String JMESSAGE_FOCUS_ACCOUNT = "article_type";
     public static final String JMESSAGE_SYSTEM_ACCOUNT = "article_id";
-
+    public static final String JMESSAGE_APP_KEY = "wanfangdata-5f5eecb63e042f246fd8b325";
+    public static final String JMESSAGE_MASTER_SECRET = "wanfangdata-0406eaf9209b361eab1f19f6";
+    //映射表存储key
+    public static final String USER_ROLES_MAP = "user_roles_map";
+    public static final String SUBJECT_MAP = "subject_map";
+    public static final String EDUCATION_MAP = "education_map";
 
 }

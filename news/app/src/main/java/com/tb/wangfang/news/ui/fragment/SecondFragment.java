@@ -18,7 +18,6 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.SecondContract;
@@ -43,7 +42,6 @@ import butterknife.Unbinder;
  */
 
 public class SecondFragment extends BaseFragment<SecondPresenter> implements SecondContract.View {
-
 
     @BindView(R.id.rv_history)
     RecyclerView rvHistory;
@@ -71,7 +69,6 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @Override
     protected int getLayoutId() {
-
         return R.layout.fragment_second;
     }
 
@@ -137,6 +134,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
                 return false;
             }
         });
+        mPresenter.getHotDoc();
     }
 
     @Override
@@ -218,7 +216,6 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
 
     @Override
     public void showHotSearchWord(List<String> hotSearchWord) {
-        hotDocArrayList.clear();
         hotAdapter.setNewData(hotSearchWord);
     }
 

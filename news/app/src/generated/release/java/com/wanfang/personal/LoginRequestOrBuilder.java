@@ -27,7 +27,7 @@ public interface LoginRequestOrBuilder extends
 
   /**
    * <pre>
-   * 登录用户名  
+   * 登录用户名
    * </pre>
    *
    * <code>optional string user_name = 2;</code>
@@ -35,11 +35,46 @@ public interface LoginRequestOrBuilder extends
   java.lang.String getUserName();
   /**
    * <pre>
-   * 登录用户名  
+   * 登录用户名
    * </pre>
    *
    * <code>optional string user_name = 2;</code>
    */
   com.google.protobuf.ByteString
       getUserNameBytes();
+
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 3;</code>
+   */
+  java.lang.String getDeviceId();
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getDeviceIdBytes();
+
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+   */
+  int getDeviceTypeValue();
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 4;</code>
+   */
+  com.wanfang.personal.LoginDeviceType getDeviceType();
 }

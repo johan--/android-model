@@ -19,6 +19,7 @@ public  final class SubscribeKeywordMessage extends
     subscribeId_ = "";
     docuType_ = "";
     addTime_ = "";
+    keyword_ = "";
   }
 
   @java.lang.Override
@@ -70,6 +71,12 @@ public  final class SubscribeKeywordMessage extends
             addTime_ = s;
             break;
           }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            keyword_ = s;
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -96,6 +103,10 @@ public  final class SubscribeKeywordMessage extends
   public static final int USER_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userId_;
   /**
+   * <pre>
+   * 关键词订阅用户
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   public java.lang.String getUserId() {
@@ -111,6 +122,10 @@ public  final class SubscribeKeywordMessage extends
     }
   }
   /**
+   * <pre>
+   * 关键词订阅用户
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   public com.google.protobuf.ByteString
@@ -130,6 +145,10 @@ public  final class SubscribeKeywordMessage extends
   public static final int SUBSCRIBE_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object subscribeId_;
   /**
+   * <pre>
+   * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+   * </pre>
+   *
    * <code>optional string subscribe_id = 2;</code>
    */
   public java.lang.String getSubscribeId() {
@@ -145,6 +164,10 @@ public  final class SubscribeKeywordMessage extends
     }
   }
   /**
+   * <pre>
+   * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+   * </pre>
+   *
    * <code>optional string subscribe_id = 2;</code>
    */
   public com.google.protobuf.ByteString
@@ -164,6 +187,10 @@ public  final class SubscribeKeywordMessage extends
   public static final int DOCU_TYPE_FIELD_NUMBER = 3;
   private volatile java.lang.Object docuType_;
   /**
+   * <pre>
+   * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+   * </pre>
+   *
    * <code>optional string docu_type = 3;</code>
    */
   public java.lang.String getDocuType() {
@@ -179,6 +206,10 @@ public  final class SubscribeKeywordMessage extends
     }
   }
   /**
+   * <pre>
+   * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+   * </pre>
+   *
    * <code>optional string docu_type = 3;</code>
    */
   public com.google.protobuf.ByteString
@@ -198,6 +229,10 @@ public  final class SubscribeKeywordMessage extends
   public static final int ADD_TIME_FIELD_NUMBER = 4;
   private volatile java.lang.Object addTime_;
   /**
+   * <pre>
+   * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+   * </pre>
+   *
    * <code>optional string add_time = 4;</code>
    */
   public java.lang.String getAddTime() {
@@ -213,6 +248,10 @@ public  final class SubscribeKeywordMessage extends
     }
   }
   /**
+   * <pre>
+   * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+   * </pre>
+   *
    * <code>optional string add_time = 4;</code>
    */
   public com.google.protobuf.ByteString
@@ -223,6 +262,48 @@ public  final class SubscribeKeywordMessage extends
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       addTime_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int KEYWORD_FIELD_NUMBER = 5;
+  private volatile java.lang.Object keyword_;
+  /**
+   * <pre>
+   * 关键词
+   * </pre>
+   *
+   * <code>optional string keyword = 5;</code>
+   */
+  public java.lang.String getKeyword() {
+    java.lang.Object ref = keyword_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      keyword_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 关键词
+   * </pre>
+   *
+   * <code>optional string keyword = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getKeywordBytes() {
+    java.lang.Object ref = keyword_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      keyword_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -253,6 +334,9 @@ public  final class SubscribeKeywordMessage extends
     if (!getAddTimeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, addTime_);
     }
+    if (!getKeywordBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, keyword_);
+    }
   }
 
   public int getSerializedSize() {
@@ -271,6 +355,9 @@ public  final class SubscribeKeywordMessage extends
     }
     if (!getAddTimeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, addTime_);
+    }
+    if (!getKeywordBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, keyword_);
     }
     memoizedSize = size;
     return size;
@@ -296,6 +383,8 @@ public  final class SubscribeKeywordMessage extends
         .equals(other.getDocuType());
     result = result && getAddTime()
         .equals(other.getAddTime());
+    result = result && getKeyword()
+        .equals(other.getKeyword());
     return result;
   }
 
@@ -314,6 +403,8 @@ public  final class SubscribeKeywordMessage extends
     hash = (53 * hash) + getDocuType().hashCode();
     hash = (37 * hash) + ADD_TIME_FIELD_NUMBER;
     hash = (53 * hash) + getAddTime().hashCode();
+    hash = (37 * hash) + KEYWORD_FIELD_NUMBER;
+    hash = (53 * hash) + getKeyword().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -440,6 +531,8 @@ public  final class SubscribeKeywordMessage extends
 
       addTime_ = "";
 
+      keyword_ = "";
+
       return this;
     }
 
@@ -466,6 +559,7 @@ public  final class SubscribeKeywordMessage extends
       result.subscribeId_ = subscribeId_;
       result.docuType_ = docuType_;
       result.addTime_ = addTime_;
+      result.keyword_ = keyword_;
       onBuilt();
       return result;
     }
@@ -523,6 +617,10 @@ public  final class SubscribeKeywordMessage extends
         addTime_ = other.addTime_;
         onChanged();
       }
+      if (!other.getKeyword().isEmpty()) {
+        keyword_ = other.keyword_;
+        onChanged();
+      }
       onChanged();
       return this;
     }
@@ -551,6 +649,10 @@ public  final class SubscribeKeywordMessage extends
 
     private java.lang.Object userId_ = "";
     /**
+     * <pre>
+     * 关键词订阅用户
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public java.lang.String getUserId() {
@@ -566,6 +668,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 关键词订阅用户
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -582,6 +688,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 关键词订阅用户
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder setUserId(
@@ -595,6 +705,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 关键词订阅用户
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder clearUserId() {
@@ -604,6 +718,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 关键词订阅用户
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder setUserIdBytes(
@@ -620,6 +738,10 @@ public  final class SubscribeKeywordMessage extends
 
     private java.lang.Object subscribeId_ = "";
     /**
+     * <pre>
+     * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string subscribe_id = 2;</code>
      */
     public java.lang.String getSubscribeId() {
@@ -635,6 +757,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string subscribe_id = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -651,6 +777,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string subscribe_id = 2;</code>
      */
     public Builder setSubscribeId(
@@ -664,6 +794,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string subscribe_id = 2;</code>
      */
     public Builder clearSubscribeId() {
@@ -673,6 +807,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 订阅id 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string subscribe_id = 2;</code>
      */
     public Builder setSubscribeIdBytes(
@@ -689,6 +827,10 @@ public  final class SubscribeKeywordMessage extends
 
     private java.lang.Object docuType_ = "";
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string docu_type = 3;</code>
      */
     public java.lang.String getDocuType() {
@@ -704,6 +846,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string docu_type = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -720,6 +866,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string docu_type = 3;</code>
      */
     public Builder setDocuType(
@@ -733,6 +883,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string docu_type = 3;</code>
      */
     public Builder clearDocuType() {
@@ -742,6 +896,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string docu_type = 3;</code>
      */
     public Builder setDocuTypeBytes(
@@ -758,6 +916,10 @@ public  final class SubscribeKeywordMessage extends
 
     private java.lang.Object addTime_ = "";
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string add_time = 4;</code>
      */
     public java.lang.String getAddTime() {
@@ -773,6 +935,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string add_time = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -789,6 +955,10 @@ public  final class SubscribeKeywordMessage extends
       }
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string add_time = 4;</code>
      */
     public Builder setAddTime(
@@ -802,6 +972,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string add_time = 4;</code>
      */
     public Builder clearAddTime() {
@@ -811,6 +985,10 @@ public  final class SubscribeKeywordMessage extends
       return this;
     }
     /**
+     * <pre>
+     * 获取订阅列表时，若获取全部数据(不根据指定关键词获取)，传递空即可
+     * </pre>
+     *
      * <code>optional string add_time = 4;</code>
      */
     public Builder setAddTimeBytes(
@@ -821,6 +999,95 @@ public  final class SubscribeKeywordMessage extends
   checkByteStringIsUtf8(value);
       
       addTime_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object keyword_ = "";
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 5;</code>
+     */
+    public java.lang.String getKeyword() {
+      java.lang.Object ref = keyword_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyword_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeywordBytes() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 5;</code>
+     */
+    public Builder setKeyword(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      keyword_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 5;</code>
+     */
+    public Builder clearKeyword() {
+      
+      keyword_ = getDefaultInstance().getKeyword();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 关键词
+     * </pre>
+     *
+     * <code>optional string keyword = 5;</code>
+     */
+    public Builder setKeywordBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      keyword_ = value;
       onChanged();
       return this;
     }

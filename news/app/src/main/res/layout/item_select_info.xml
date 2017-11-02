@@ -6,9 +6,10 @@
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="49.5dp"
         android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="40dp"
         android:gravity="center_vertical"
         android:text="哲学"
         android:textColor="@color/gray_text_6"

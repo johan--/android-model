@@ -28,14 +28,22 @@ public interface ReadResponseOrBuilder extends
       getTitleBytes();
 
   /**
-   * <code>optional string description = 3;</code>
+   * <pre>
+   * 描述信息
+   * </pre>
+   *
+   * <code>optional string display_info = 3;</code>
    */
-  java.lang.String getDescription();
+  java.lang.String getDisplayInfo();
   /**
-   * <code>optional string description = 3;</code>
+   * <pre>
+   * 描述信息
+   * </pre>
+   *
+   * <code>optional string display_info = 3;</code>
    */
   com.google.protobuf.ByteString
-      getDescriptionBytes();
+      getDisplayInfoBytes();
 
   /**
    * <pre>
@@ -57,23 +65,50 @@ public interface ReadResponseOrBuilder extends
 
   /**
    * <pre>
-   * 是否可以支付
+   * 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
    * </pre>
    *
-   * <code>optional bool has_trade_power = 5;</code>
+   * <code>optional bool already_buy = 5;</code>
+   */
+  boolean getAlreadyBuy();
+
+  /**
+   * <pre>
+   * 阅读地址
+   * </pre>
+   *
+   * <code>optional string read_url = 6;</code>
+   */
+  java.lang.String getReadUrl();
+  /**
+   * <pre>
+   * 阅读地址
+   * </pre>
+   *
+   * <code>optional string read_url = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getReadUrlBytes();
+
+  /**
+   * <pre>
+   * 是否可以支付 先判断
+   * </pre>
+   *
+   * <code>optional bool has_trade_power = 7;</code>
    */
   boolean getHasTradePower();
 
   /**
-   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
    */
   boolean hasError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcError getError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 6;</code>
+   * <code>optional .grpcCommon.GrpcError error = 8;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

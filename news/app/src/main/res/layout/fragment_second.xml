@@ -15,29 +15,6 @@
         android:layout_height="54dp"
         android:background="@color/colorPrimaryDark">
 
-        <!--<com.tb.wangfang.news.widget.SearchEditText-->
-        <!--android:id="@+id/filter_edit"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="45dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:layout_toLeftOf="@+id/btn_confirm"-->
-        <!--android:background="@drawable/shape_gray_bian"-->
-        <!--android:drawableRight="@drawable/delete_selected"-->
-        <!--android:hint="请输入患者姓名"-->
-        <!--android:maxLength="20"-->
-        <!--android:paddingLeft="15dp"-->
-        <!--android:paddingRight="15dp"-->
-        <!--android:singleLine="true"-->
-        <!--android:textColorHint="@color/text_hint"-->
-        <!--android:textSize="16sp" />-->
-
-        <!--<Button-->
-        <!--android:id="@+id/btn_confirm"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="45dp"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_marginRight="10dp"-->
-        <!--android:text="确定" />-->
         <com.tb.wangfang.news.widget.SearchEditText
             android:id="@+id/et_search"
             inputType="text"
@@ -52,12 +29,12 @@
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:hint="输入关键字"
-            android:paddingLeft="10dp"
-            android:textSize="12sp"
             android:imeOptions="actionSearch"
             android:maxLines="1"
+            android:paddingLeft="10dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textSize="12sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -97,8 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="vertical"
-       >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_title"
@@ -135,8 +111,8 @@
             android:drawablePadding="5dp"
             android:gravity="center"
             android:text="清楚搜索记录"
-            android:textSize="12sp"
-            android:textColor="@color/wanfang_gray_text" />
+            android:textColor="@color/wanfang_gray_text"
+            android:textSize="12sp" />
     </LinearLayout>
 
 

@@ -1,7 +1,9 @@
 package com.tb.wangfang.news.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -42,7 +44,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -52,21 +53,22 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class SubscribeKeyFragment extends SimpleFragment {
+public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
     @Inject
     ManagedChannel managedChannel;
     @Inject
     ImplPreferencesHelper preferencesHelper;
-
     @BindView(R.id.iv_spread_item)
     ImageView ivSpreadItem;
     @BindView(R.id.rv_key_word)
     RecyclerView rvKeyWord;
     @BindView(R.id.rv_doc)
     RecyclerView rvDoc;
+    @BindView(R.id.swipeLayout)
+    SwipeRefreshLayout swipeLayout;
+
     String TAG = "SubscribeKeyFragment";
-    Unbinder unbinder;
-    Unbinder unbinder1;
+
     private int pageNum = 1;
     private List<SubscribeKeywordMessage> keyWords;
     private List<SubscribeDocListResponse.SubscribeDocMessage> DocLists;
@@ -74,6 +76,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
     private KeyWordArticleAdapter docAdapter;
     private MaterialDialog dialog;
     private TextView[] flowTvs;
+    private SubscribeKeywordMessage currentKeywordMessage;
 
     public SubscribeKeyFragment() {
         // Required empty public constructor
@@ -91,6 +94,8 @@ public class SubscribeKeyFragment extends SimpleFragment {
 
     @Override
     protected void initEventAndData() {
+        swipeLayout.setOnRefreshListener(this);
+        swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         keyWords = new ArrayList<>();
         final StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         rvKeyWord.setLayoutManager(staggeredGridLayoutManager);
@@ -102,6 +107,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
                 adapter.notifyDataSetChanged();
                 staggeredGridLayoutManager.scrollToPosition(position);
                 getDocList(adapter.getData().get(position));
+                currentKeywordMessage = adapter.getData().get(position);
             }
         });
 
@@ -109,6 +115,9 @@ public class SubscribeKeyFragment extends SimpleFragment {
         rvDoc.setLayoutManager(new LinearLayoutManager(getActivity()));
         DocLists = new ArrayList<>();
         docAdapter = new KeyWordArticleAdapter(DocLists);
+        docAdapter.setOnLoadMoreListener(this, rvDoc);
+        docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        docAdapter.setPreLoadNumber(2);
         View view = getActivity().getLayoutInflater().inflate(R.layout.foot_get_more, (ViewGroup) rvKeyWord.getParent(), false);
         TextView tvGetMore = (TextView) view.findViewById(R.id.tv_get_more);
         tvGetMore.setOnClickListener(new View.OnClickListener() {
@@ -148,13 +157,26 @@ public class SubscribeKeyFragment extends SimpleFragment {
             @Override
             public void onSuccess(SubscribeDocListResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
+                Log.d(TAG, "onSuccess: " + response.getHasMore());
+                swipeLayout.setEnabled(true);
+                swipeLayout.setRefreshing(false);
+                docAdapter.setEnableLoadMore(true);
+
+                docAdapter.loadMoreComplete();
                 DocLists = response.getSubscribeDocList();
-                docAdapter.setNewData(DocLists);
+                docAdapter.addData(DocLists);
+                if (!response.getHasMore()) {
+                    docAdapter.loadMoreEnd(true);
+                }
             }
 
             @Override
             public void onError(Throwable e) {
                 Log.d(TAG, "onError: " + e.getMessage());
+                swipeLayout.setEnabled(true);
+                swipeLayout.setRefreshing(false);
+                docAdapter.setEnableLoadMore(true);
+                docAdapter.loadMoreComplete();
             }
         });
     }
@@ -182,6 +204,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
                 keyWords.add(0, subscribeKeywordMessageAll);
                 adapter.setNewData(keyWords);
                 getDocList(subscribeKeywordMessageAll);
+                currentKeywordMessage = subscribeKeywordMessageAll;
             }
 
             @Override
@@ -244,6 +267,7 @@ public class SubscribeKeyFragment extends SimpleFragment {
                             v.setBackgroundResource(R.drawable.itme_flow_blue_frame);
                             ((TextView) v).setTextColor(getResources().getColor(R.color.white));
                             getDocList(keyWords.get(finalI));
+                            currentKeywordMessage = keyWords.get(finalI);
                             adapter.setSelectedPosition(finalI);
                         }
                     });
@@ -254,5 +278,20 @@ public class SubscribeKeyFragment extends SimpleFragment {
                 break;
 
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        docAdapter.setEnableLoadMore(false);
+        pageNum = 1;
+        docAdapter.setNewData(null);
+        getDocList(currentKeywordMessage);
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        swipeLayout.setEnabled(false);
+        pageNum++;
+        getDocList(currentKeywordMessage);
     }
 }

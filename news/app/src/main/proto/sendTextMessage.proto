@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.wanfangdata.grpcservice.message.jmessage";
+option java_outer_classname = "SendTextMessageProto";
+
+message SendTextMessageRequest {
+    //极光app_key（必填）
+    string app_key = 1;
+    //极光master_secret（必填）
+    string master_secret = 2;
+    //通知标题（选填）
+    string title = 3;
+    //通知内容（选填）
+    string alert = 4;
+    //消息内容 （必填）
+    string text = 5;
+    //发送目标类型 single - 个人，group - 群组 （必填）
+    string target_type = 6;
+    //目标id single填username group 填Group id （必填）
+    string target_id = 7;
+    //发送消息者身份 当前只限admin用户，必须先注册admin用户 （必填）
+    string from_type = 8;
+    //发送者的username （必填）
+    string from_id = 9;
+    //消息是否在通知栏展示 true或者false，默认为false，表示在通知栏展示（选填）
+    bool no_notification = 10;
+}
+
+message SendTextMessageResponse {
+    //消息id(id不为null,则表明消息发送成功，否则失败)
+    string message_id = 1;
+    //0:成功
+    int64 code = 2;
+    //结果信息
+    string msg = 3;
+}
+
+service SendTextMessageService {
+    //极光IM推送纯文本消息（JMessage）
+    rpc sendTextMessageByTargetId (SendTextMessageRequest) returns (SendTextMessageResponse) {
+    }
+} 

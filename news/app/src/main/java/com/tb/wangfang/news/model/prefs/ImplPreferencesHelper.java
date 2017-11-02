@@ -2,10 +2,16 @@ package com.tb.wangfang.news.model.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
+import com.tb.wangfang.news.model.bean.KeyValueListBean;
+import com.wanfang.personal.EducationLevelListResponse;
 import com.wanfang.personal.LoginResponse;
+import com.wanfang.personal.SubjectListResponse;
+import com.wanfang.personal.UserRolesListResponse;
 
 import javax.inject.Inject;
 
@@ -80,5 +86,58 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     @Override
     public void setUserAvatar(String url) {
         mSPrefs.edit().putString(Constants.USER_AVATAR, url).apply();
+    }
+
+    @Override
+    public void storeUserRolesMap(UserRolesListResponse userRolesListResponse) {
+        Gson gson = new Gson();
+        KeyValueListBean bean = new KeyValueListBean();
+        bean.setHashMap(userRolesListResponse.getRolesMap());
+        mSPrefs.edit().putString(Constants.USER_ROLES_MAP, gson.toJson(bean)).apply();
+    }
+
+    @Override
+    public void storeSubjectMap(SubjectListResponse subjectListResponse) {
+        Gson gson = new Gson();
+
+        mSPrefs.edit().putString(Constants.SUBJECT_MAP, gson.toJson(subjectListResponse)).apply();
+    }
+
+    @Override
+    public void storeEducationMap(EducationLevelListResponse EducationLevelListResponse) {
+        Gson gson = new Gson();
+        KeyValueListBean bean = new KeyValueListBean();
+        bean.setHashMap(EducationLevelListResponse.getEducationLevelsMap());
+        mSPrefs.edit().putString(Constants.EDUCATION_MAP, gson.toJson(bean)).apply();
+    }
+
+    @Override
+    public KeyValueListBean getUserRolesMap() {
+        Gson gson = new Gson();
+        String json = mSPrefs.getString(Constants.USER_ROLES_MAP, "");
+        if (TextUtils.isEmpty(json)) {
+            return null;
+        }
+        return gson.fromJson(json, KeyValueListBean.class);
+    }
+
+    @Override
+    public SubjectListResponse getSubjectMap() {
+        Gson gson = new Gson();
+        String json = mSPrefs.getString(Constants.SUBJECT_MAP, "");
+        if (TextUtils.isEmpty(json)) {
+            return null;
+        }
+        return gson.fromJson(json, SubjectListResponse.class);
+    }
+
+    @Override
+    public KeyValueListBean getEducationMap() {
+        Gson gson = new Gson();
+        String json = mSPrefs.getString(Constants.EDUCATION_MAP, "");
+        if (TextUtils.isEmpty(json)) {
+            return null;
+        }
+        return gson.fromJson(json, KeyValueListBean.class);
     }
 }

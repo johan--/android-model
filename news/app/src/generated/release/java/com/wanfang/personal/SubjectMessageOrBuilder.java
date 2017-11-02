@@ -12,18 +12,25 @@ public interface SubjectMessageOrBuilder extends
    * 学科标题
    * </pre>
    *
-   * <code>optional string subject_title = 1;</code>
+   * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
    */
-  java.lang.String getSubjectTitle();
+  boolean hasSubjectField();
   /**
    * <pre>
    * 学科标题
    * </pre>
    *
-   * <code>optional string subject_title = 1;</code>
+   * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getSubjectTitleBytes();
+  com.wanfang.personal.SubjectFieldMap getSubjectField();
+  /**
+   * <pre>
+   * 学科标题
+   * </pre>
+   *
+   * <code>optional .personal.SubjectFieldMap subject_field = 1;</code>
+   */
+  com.wanfang.personal.SubjectFieldMapOrBuilder getSubjectFieldOrBuilder();
 
   /**
    * <pre>

@@ -1,9 +1,10 @@
 package com.tb.wangfang.news.presenter;
 
+import android.util.Log;
+
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
-import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.model.db.RealmHelper;
 import com.wanfang.search.HotThemesRequest;
 import com.wanfang.search.HotThemesResponse;
@@ -28,7 +29,7 @@ import io.reactivex.schedulers.Schedulers;
 public class SecondPresenter extends RxPresenter<SecondContract.View> implements SecondContract.Presenter {
     private final RealmHelper realmHelper;
     private ManagedChannel managedChannel;
-    private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
+    private String TAG = "SecondPresenter";
 
     @Inject
     public SecondPresenter(ManagedChannel managedChannel, RealmHelper realmHelper) {
@@ -74,12 +75,13 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<HotThemesResponse>() {
             @Override
             public void onSuccess(HotThemesResponse hotThemesResponse) {
+                Log.d(TAG, "onSuccess: " + hotThemesResponse.toString());
                 mView.showHotSearchWord(hotThemesResponse.getThemesTitleList());
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Log.d(TAG, "onError: " + e.getMessage());
             }
         });
     }

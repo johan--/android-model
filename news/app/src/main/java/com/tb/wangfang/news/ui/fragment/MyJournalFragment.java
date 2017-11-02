@@ -2,7 +2,9 @@ package com.tb.wangfang.news.ui.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -41,17 +43,20 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyJournalFragment extends SimpleFragment {
+public class MyJournalFragment extends SimpleFragment implements BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
     @Inject
     ManagedChannel managedChannel;
     @Inject
     ImplPreferencesHelper preferencesHelper;
     @BindView(R.id.rv_journal)
     RecyclerView rvJournal;
+    @BindView(R.id.swipeLayout)
+    SwipeRefreshLayout swipeLayout;
     private List<SubscribePerioListResponse.SubscribePerioMessage> journalLists;
     private MyJournalAdapter adapter;
     private String TAG = "MyJournalFragment";
     public static final String JOURNAL_TYPE = "journal";
+    private int page = 1;
 
     public MyJournalFragment() {
         // Required empty public constructor
@@ -68,9 +73,14 @@ public class MyJournalFragment extends SimpleFragment {
 
     @Override
     protected void initEventAndData() {
+        swipeLayout.setOnRefreshListener(this);
+        swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         journalLists = new ArrayList<>();
         rvJournal.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new MyJournalAdapter(getActivity(), journalLists);
+        adapter.setOnLoadMoreListener(this, rvJournal);
+        adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        adapter.setPreLoadNumber(2);
         View view = getActivity().getLayoutInflater().inflate(R.layout.foot_get_more, (ViewGroup) rvJournal.getParent(), false);
         TextView tvGetMore = (TextView) view.findViewById(R.id.tv_get_more);
         tvGetMore.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +109,7 @@ public class MyJournalFragment extends SimpleFragment {
             @Override
             public void subscribe(SingleEmitter<SubscribePerioListResponse> e) throws Exception {
                 SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
-                SubscribePerioListRequest request = SubscribePerioListRequest.newBuilder().setPageSize(20).setPageNumber(1).setUserId(preferencesHelper.getUserId()).build();
+                SubscribePerioListRequest request = SubscribePerioListRequest.newBuilder().setPageSize(20).setPageNumber(page).setUserId(preferencesHelper.getUserId()).build();
                 SubscribePerioListResponse response = stub.getSubscribePerioList(request);
                 e.onSuccess(response);
             }
@@ -108,16 +118,40 @@ public class MyJournalFragment extends SimpleFragment {
             public void onSuccess(SubscribePerioListResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 journalLists = response.getSubscribePerioList();
-                adapter.setNewData(journalLists);
-
+                adapter.addData(journalLists);
+                swipeLayout.setEnabled(true);
+                swipeLayout.setRefreshing(false);
+                adapter.setEnableLoadMore(true);
+                adapter.loadMoreComplete();
+                if (!response.getHasMore()) {
+                    adapter.loadMoreEnd(true);
+                }
             }
 
             @Override
             public void onError(Throwable e) {
+                swipeLayout.setEnabled(true);
+                adapter.setEnableLoadMore(true);
+                swipeLayout.setRefreshing(false);
+                adapter.loadMoreComplete();
                 Log.d(TAG, "onError: " + e.getMessage());
             }
         });
     }
 
 
+    @Override
+    public void onRefresh() {
+        adapter.setEnableLoadMore(false);
+        page = 1;
+        adapter.setNewData(null);
+        getMyJournal();
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        swipeLayout.setEnabled(false);
+        page++;
+        getMyJournal();
+    }
 }

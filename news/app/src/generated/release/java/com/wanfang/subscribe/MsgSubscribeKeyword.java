@@ -112,13 +112,13 @@ public final class MsgSubscribeKeyword {
       "stResponse\022=\n\021subscribe_keyword\030\001 \003(\0132\"." +
       "subscribe.SubscribeKeywordMessage\022\020\n\010has" +
       "_more\030\002 \001(\010\022$\n\005error\030\003 \001(\0132\025.grpcCommon." +
-      "GrpcError\"e\n\027SubscribeKeywordMessage\022\017\n\007" +
+      "GrpcError\"v\n\027SubscribeKeywordMessage\022\017\n\007" +
       "user_id\030\001 \001(\t\022\024\n\014subscribe_id\030\002 \001(\t\022\021\n\td" +
-      "ocu_type\030\003 \001(\t\022\020\n\010add_time\030\004 \001(\t\"+\n\007DocT" +
-      "ype\022\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030\002 \001(\t\".\n" +
-      "\nSourceType\022\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030" +
-      "\002 \001(\tB \n\025com.wanfang.subscribeP\001\242\002\004WFPRb",
-      "\006proto3"
+      "ocu_type\030\003 \001(\t\022\020\n\010add_time\030\004 \001(\t\022\017\n\007keyw" +
+      "ord\030\005 \001(\t\"+\n\007DocType\022\017\n\007ch_name\030\001 \001(\t\022\017\n" +
+      "\007en_name\030\002 \001(\t\".\n\nSourceType\022\017\n\007ch_name\030" +
+      "\001 \001(\t\022\017\n\007en_name\030\002 \001(\tB \n\025com.wanfang.su",
+      "bscribeP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -199,7 +199,7 @@ public final class MsgSubscribeKeyword {
     internal_static_subscribe_SubscribeKeywordMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscribe_SubscribeKeywordMessage_descriptor,
-        new java.lang.String[] { "UserId", "SubscribeId", "DocuType", "AddTime", });
+        new java.lang.String[] { "UserId", "SubscribeId", "DocuType", "AddTime", "Keyword", });
     internal_static_subscribe_DocType_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_subscribe_DocType_fieldAccessorTable = new

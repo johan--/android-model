@@ -49,7 +49,6 @@ import static com.huawei.hms.activity.BridgeActivity.EXTRA_RESULT;
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
     // Used to load the 'native-lib' library on application startup.
-
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
     @BindView(R.id.tv_home)
@@ -116,18 +115,20 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             @Override
             public void gotResult(int responseCode, String responseMessage) {
                 if (responseCode == 0) {
-                    Log.d(TAG, "gotResult: "+"jmessage登录成功");
+                    Log.d(TAG, "gotResult: " + "jmessage登录成功");
                     //登陆成功,如果用户有头像就把头像存起来,没有就设置null
 
                 } else {
-                    Log.d(TAG, "gotResult: "+"jmessage登录失败"+responseMessage);
+                    Log.d(TAG, "gotResult: " + "jmessage登录失败" + responseMessage);
                 }
 
             }
         });
         //test
-        MiPushClient.setAlias(this,"tangbin", null);
+        MiPushClient.setAlias(this, "tangbin", null);
+//        mPresenter.restorePersonnalMappingTable();
     }
+
 
     private void initView() {
 
@@ -209,7 +210,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onStart() {
         super.onStart();
-        if(mClient!=null){
+        if (mClient != null) {
             mClient.connect();
         }
 

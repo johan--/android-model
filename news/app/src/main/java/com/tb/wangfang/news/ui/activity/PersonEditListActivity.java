@@ -199,15 +199,15 @@ public class PersonEditListActivity extends SimpleActivity {
                 Any any = null;
                 switch (type) {
                     case TYPE_SUBJECT:
-                        InfoSubject infoSubject = InfoSubject.newBuilder().setSubject(mapMessage.getValue()).build();
+                        InfoSubject infoSubject = InfoSubject.newBuilder().setSubject(mapMessage.getKey()).build();
                         any = Any.pack(infoSubject);
                         break;
                     case TYPE_JOB_TITLE:
-                        InfoUserRoles infoUserRoles = InfoUserRoles.newBuilder().setUserRoles(mapMessage.getValue()).build();
+                        InfoUserRoles infoUserRoles = InfoUserRoles.newBuilder().setUserRoles(mapMessage.getKey()).build();
                         any = Any.pack(infoUserRoles);
                         break;
                     case TYPE_EDUCATION:
-                        InfoEducationLevel infoEducationLevel = InfoEducationLevel.newBuilder().setEducationLevel(mapMessage.getValue()).build();
+                        InfoEducationLevel infoEducationLevel = InfoEducationLevel.newBuilder().setEducationLevel(mapMessage.getKey()).build();
                         any = Any.pack(infoEducationLevel);
                         break;
                 }
@@ -312,13 +312,14 @@ public class PersonEditListActivity extends SimpleActivity {
                                     arrayList.add(message);
                                 }
                                 adapter.setNewData(arrayList);
+
                             }
+
                             @Override
                             public void onError(Throwable e) {
                                 ToastUtil.show("网络出错");
                             }
                         });
-                adapter = new SelectPersonInfoAdapter(arrayList, TYPE_SUBJECT);
                 break;
             case TYPE_UNIT:
                 tvPageTitle.setText("当前单位/院校");
@@ -356,6 +357,7 @@ public class PersonEditListActivity extends SimpleActivity {
                         }
                         adapter = new SelectPersonInfoAdapter(arrayList, TYPE_EDUCATION);
                     }
+
                     @Override
                     public void onError(Throwable e) {
                         ToastUtil.show("网络出错");

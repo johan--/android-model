@@ -36,4 +36,39 @@ public interface QuickLoginRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCaptchaBytes();
+
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  java.lang.String getDeviceId();
+  /**
+   * <pre>
+   * 设备号
+   * </pre>
+   *
+   * <code>optional string device_id = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getDeviceIdBytes();
+
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  int getDeviceTypeValue();
+  /**
+   * <pre>
+   * 登录设备类型
+   * </pre>
+   *
+   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+   */
+  com.wanfang.personal.LoginDeviceType getDeviceType();
 }

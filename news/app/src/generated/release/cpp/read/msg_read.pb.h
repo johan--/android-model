@@ -291,16 +291,16 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_title();
   void set_allocated_title(::std::string* title);
 
-  // optional string description = 3;
-  void clear_description();
-  static const int kDescriptionFieldNumber = 3;
-  const ::std::string& description() const;
-  void set_description(const ::std::string& value);
-  void set_description(const char* value);
-  void set_description(const char* value, size_t size);
-  ::std::string* mutable_description();
-  ::std::string* release_description();
-  void set_allocated_description(::std::string* description);
+  // optional string display_info = 3;
+  void clear_display_info();
+  static const int kDisplayInfoFieldNumber = 3;
+  const ::std::string& display_info() const;
+  void set_display_info(const ::std::string& value);
+  void set_display_info(const char* value);
+  void set_display_info(const char* value, size_t size);
+  ::std::string* mutable_display_info();
+  ::std::string* release_display_info();
+  void set_allocated_display_info(::std::string* display_info);
 
   // optional string safe_transaction_string = 4;
   void clear_safe_transaction_string();
@@ -313,16 +313,33 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_safe_transaction_string();
   void set_allocated_safe_transaction_string(::std::string* safe_transaction_string);
 
-  // optional bool has_trade_power = 5;
+  // optional bool already_buy = 5;
+  void clear_already_buy();
+  static const int kAlreadyBuyFieldNumber = 5;
+  bool already_buy() const;
+  void set_already_buy(bool value);
+
+  // optional string read_url = 6;
+  void clear_read_url();
+  static const int kReadUrlFieldNumber = 6;
+  const ::std::string& read_url() const;
+  void set_read_url(const ::std::string& value);
+  void set_read_url(const char* value);
+  void set_read_url(const char* value, size_t size);
+  ::std::string* mutable_read_url();
+  ::std::string* release_read_url();
+  void set_allocated_read_url(::std::string* read_url);
+
+  // optional bool has_trade_power = 7;
   void clear_has_trade_power();
-  static const int kHasTradePowerFieldNumber = 5;
+  static const int kHasTradePowerFieldNumber = 7;
   bool has_trade_power() const;
   void set_has_trade_power(bool value);
 
-  // optional .grpcCommon.GrpcError error = 6;
+  // optional .grpcCommon.GrpcError error = 8;
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 6;
+  static const int kErrorFieldNumber = 8;
   const ::grpcCommon::GrpcError& error() const;
   ::grpcCommon::GrpcError* mutable_error();
   ::grpcCommon::GrpcError* release_error();
@@ -334,9 +351,11 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr price_;
   ::google::protobuf::internal::ArenaStringPtr title_;
-  ::google::protobuf::internal::ArenaStringPtr description_;
+  ::google::protobuf::internal::ArenaStringPtr display_info_;
   ::google::protobuf::internal::ArenaStringPtr safe_transaction_string_;
+  ::google::protobuf::internal::ArenaStringPtr read_url_;
   ::grpcCommon::GrpcError* error_;
+  bool already_buy_;
   bool has_trade_power_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_read_2fmsg_5fread_2eproto_impl();
@@ -759,48 +778,48 @@ inline void ReadResponse::set_allocated_title(::std::string* title) {
   // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.title)
 }
 
-// optional string description = 3;
-inline void ReadResponse::clear_description() {
-  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string display_info = 3;
+inline void ReadResponse::clear_display_info() {
+  display_info_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ReadResponse::description() const {
-  // @@protoc_insertion_point(field_get:read.ReadResponse.description)
-  return description_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& ReadResponse::display_info() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.display_info)
+  return display_info_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ReadResponse::set_description(const ::std::string& value) {
+inline void ReadResponse::set_display_info(const ::std::string& value) {
   
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:read.ReadResponse.description)
+  display_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ReadResponse.display_info)
 }
-inline void ReadResponse::set_description(const char* value) {
+inline void ReadResponse::set_display_info(const char* value) {
   
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:read.ReadResponse.description)
+  display_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.display_info)
 }
-inline void ReadResponse::set_description(const char* value, size_t size) {
+inline void ReadResponse::set_display_info(const char* value, size_t size) {
   
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  display_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.description)
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.display_info)
 }
-inline ::std::string* ReadResponse::mutable_description() {
+inline ::std::string* ReadResponse::mutable_display_info() {
   
-  // @@protoc_insertion_point(field_mutable:read.ReadResponse.description)
-  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.display_info)
+  return display_info_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ReadResponse::release_description() {
-  // @@protoc_insertion_point(field_release:read.ReadResponse.description)
+inline ::std::string* ReadResponse::release_display_info() {
+  // @@protoc_insertion_point(field_release:read.ReadResponse.display_info)
   
-  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return display_info_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ReadResponse::set_allocated_description(::std::string* description) {
-  if (description != NULL) {
+inline void ReadResponse::set_allocated_display_info(::std::string* display_info) {
+  if (display_info != NULL) {
     
   } else {
     
   }
-  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
-  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.description)
+  display_info_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), display_info);
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.display_info)
 }
 
 // optional string safe_transaction_string = 4;
@@ -847,7 +866,65 @@ inline void ReadResponse::set_allocated_safe_transaction_string(::std::string* s
   // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.safe_transaction_string)
 }
 
-// optional bool has_trade_power = 5;
+// optional bool already_buy = 5;
+inline void ReadResponse::clear_already_buy() {
+  already_buy_ = false;
+}
+inline bool ReadResponse::already_buy() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.already_buy)
+  return already_buy_;
+}
+inline void ReadResponse::set_already_buy(bool value) {
+  
+  already_buy_ = value;
+  // @@protoc_insertion_point(field_set:read.ReadResponse.already_buy)
+}
+
+// optional string read_url = 6;
+inline void ReadResponse::clear_read_url() {
+  read_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ReadResponse::read_url() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.read_url)
+  return read_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ReadResponse::set_read_url(const ::std::string& value) {
+  
+  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ReadResponse.read_url)
+}
+inline void ReadResponse::set_read_url(const char* value) {
+  
+  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ReadResponse.read_url)
+}
+inline void ReadResponse::set_read_url(const char* value, size_t size) {
+  
+  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.read_url)
+}
+inline ::std::string* ReadResponse::mutable_read_url() {
+  
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.read_url)
+  return read_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ReadResponse::release_read_url() {
+  // @@protoc_insertion_point(field_release:read.ReadResponse.read_url)
+  
+  return read_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ReadResponse::set_allocated_read_url(::std::string* read_url) {
+  if (read_url != NULL) {
+    
+  } else {
+    
+  }
+  read_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), read_url);
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.read_url)
+}
+
+// optional bool has_trade_power = 7;
 inline void ReadResponse::clear_has_trade_power() {
   has_trade_power_ = false;
 }
@@ -861,7 +938,7 @@ inline void ReadResponse::set_has_trade_power(bool value) {
   // @@protoc_insertion_point(field_set:read.ReadResponse.has_trade_power)
 }
 
-// optional .grpcCommon.GrpcError error = 6;
+// optional .grpcCommon.GrpcError error = 8;
 inline bool ReadResponse::has_error() const {
   return this != internal_default_instance() && error_ != NULL;
 }

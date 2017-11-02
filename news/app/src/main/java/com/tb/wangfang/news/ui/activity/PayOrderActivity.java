@@ -92,7 +92,7 @@ public class PayOrderActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<UnifiedorderResponse>() {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
-                Log.d(TAG, "onSuccess: ");
+                Log.d(TAG, "onSuccess: " + unifiedorderResponse);
                 payByWeichat(unifiedorderResponse);
             }
 
