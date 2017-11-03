@@ -14,9 +14,9 @@ import com.wanfang.personal.UserRolesListResponse;
 
 public interface PreferencesHelper {
 
-    void setTextSizeState(String state);
+    void setTextSizeState(float state);
 
-    String getTextSizeState();
+    float getTextSizeState();
 
     void setLoginState(boolean state);
 

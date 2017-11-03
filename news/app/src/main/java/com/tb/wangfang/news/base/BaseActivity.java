@@ -76,5 +76,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends SimpleActivi
     public void stateMain() {
     }
 
+
     protected abstract void initInject();
 }

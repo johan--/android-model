@@ -15,6 +15,7 @@ public interface MainContract {
         void showUpdateDialog(String versionContent);
 
         void startDownloadService();
+        void restart();
     }
 
     interface Presenter extends BasePresenter<View> {

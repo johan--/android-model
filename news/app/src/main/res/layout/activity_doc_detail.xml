@@ -34,8 +34,11 @@
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/sv_all_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:visibility="invisible">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,0 +1,55 @@
+syntax = "proto3";
+message ContentRequest {
+   repeated string tag = 1;//限定标签名称，可为空
+   repeated string categories = 2;//限定分类名称，可为空
+   int32 page = 3;//可为空，默认为1
+   int32 page_size = 4;//可为空，默认为5
+   string query = 5;//限定检索词，可为空
+}
+
+//文章详细信息
+message ContentDetail {
+    string title = 1;
+    string url = 2;
+    string date = 3;
+    string id = 4;
+    string excerpt = 5;//摘要
+    repeated Category categories = 6;
+    repeated Tag tags = 7;
+    repeated ImageDetail images = 8;
+}
+
+message ImageDetail {
+    string title = 1;
+    int32 width = 2;
+    int32 height = 3;
+    string mime_type = 4;
+    string alt_text = 5;
+    map<string,ImageSize> sizes = 6;//thumbnail(截取150*150),medium,medium_large,large,full
+}
+
+message ImageSize {
+    int32 width = 1;
+    int32 height = 2;
+    string source_url = 3;
+    string mime_type = 4;
+}
+
+message Tag {
+    string id = 1;
+    string name = 2;
+    string count = 3;
+    string slug = 4;
+    string description = 5;
+    string url = 6;
+}
+
+message Category {
+    string id = 1;
+    string name = 2;
+    string count = 3;
+    string slug = 4;
+    string description = 5;
+    string url = 6;
+}
+

@@ -1,7 +1,8 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
-import android.support.v7.widget.LinearLayoutManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -9,8 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -23,6 +26,7 @@ import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.SimilarPageAdapter;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.tb.wangfang.news.widget.AutoLinearLayoutManager;
 import com.wanfang.collect.CollectRequest;
 import com.wanfang.collect.CollectResponse;
 import com.wanfang.collect.CollectServiceGrpc;
@@ -76,6 +80,8 @@ public class DocDetailActivity extends SimpleActivity {
     LinearLayout llNum;
     @BindView(R.id.rv_similar)
     RecyclerView rvSimilar;
+    @BindView(R.id.sv_all_content)
+    ScrollView scrollView;
     MyCollectDetailResponse detailResponse;
 
     int i = 0;
@@ -84,6 +90,7 @@ public class DocDetailActivity extends SimpleActivity {
     private String articleId;
     private String articleType;
     private ManagedChannel mChannelSever;
+    private MaterialDialog dialog;
 
 
     @Override
@@ -98,10 +105,15 @@ public class DocDetailActivity extends SimpleActivity {
         return R.layout.activity_doc_detail;
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void initEventAndData() {
+        scrollView.setNestedScrollingEnabled(false);
         articleId = getIntent().getStringExtra(Constants.ARTICLE_ID);
         articleType = getIntent().getStringExtra(Constants.ARTICLE_TYPE);
+        dialog = new MaterialDialog.Builder(this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
+        dialog.show();
         getDocDetail(articleId, articleType);
 
     }
@@ -121,24 +133,31 @@ public class DocDetailActivity extends SimpleActivity {
                 detailResponse = myCollectDetailResponse;
                 initView(myCollectDetailResponse.getDetailTypeValue(), myCollectDetailResponse);
                 initSimilarPage(myCollectDetailResponse);
+                scrollView.setVisibility(View.VISIBLE);
+                scrollView.smoothScrollTo(0, 0);
+                dialog.dismiss();
             }
 
             @Override
             public void onError(Throwable e) {
-
+                ToastUtil.show("服务器异常");
+                dialog.dismiss();
             }
         });
     }
 
     private void initSimilarPage(MyCollectDetailResponse myCollectDetailResponse) {
-        rvSimilar.setLayoutManager(new LinearLayoutManager(this));
+        rvSimilar.setLayoutManager(new AutoLinearLayoutManager(this));
         similarPages = myCollectDetailResponse.getSimilarPapersList();
-        SimilarPageAdapter adapter = new SimilarPageAdapter(similarPages);
-        rvSimilar.setAdapter(adapter);
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        final SimilarPageAdapter pageAdapter = new SimilarPageAdapter(similarPages);
+        rvSimilar.setAdapter(pageAdapter);
+        pageAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+                Intent intent = new Intent(DocDetailActivity.this, DocDetailActivity.class);
+                intent.putExtra(Constants.ARTICLE_TYPE, pageAdapter.getData().get(i).getArticalType());
+                intent.putExtra(Constants.ARTICLE_ID, pageAdapter.getData().get(i).getArticalId());
+                startActivity(intent);
             }
         });
 

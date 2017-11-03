@@ -10,7 +10,10 @@ public class Constants {
     public static final String PATH_DATA = App.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
 
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
-    public static final String TEXT_SIZE = "text_size";  //0 小号，1 中号，2 大号
+    public static final String TEXT_SIZE = "text_size";  //存储的字体大小的sp名称
+    public static final float TEXT_SMALL_SIZE = 0.8f;
+    public static final float TEXT_MID_SIZE = 1f;
+    public static final float TEXT_BIG_SIZE = 1.2f;
     public static final String LOGIN_STATE = "login_state"; // 0 未登录,1 已登录
     public static final String USER_ID = "user_id";
     public static final String USER_AVATAR = "user_avatar";
@@ -20,6 +23,7 @@ public class Constants {
     public static final String MI_PUSH_KEY = "5241762212332";
     public static final String ARTICLE_TYPE = "article_type";
     public static final String ARTICLE_ID = "article_id";
+    public static float TEXTVIEWSIXE = 1;
     //极光管理员账号配置
     public static final String JMESSAGE_FRUIT_ACCOUNT = "admin";
     public static final String JMESSAGE_ORDER_ACCOUNT = "tangbin";

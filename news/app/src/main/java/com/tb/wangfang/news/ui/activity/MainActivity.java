@@ -246,6 +246,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
     @Override
+    public void restart() {
+        recreate();
+    }
+
+    @Override
     protected void initInject() {
         getActivityComponent().inject(this);
     }
@@ -271,6 +276,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
                 break;
             case R.id.tv_find:
+
                 mainVp.setCurrentItem(1);
                 setState(1);
 

@@ -38,13 +38,13 @@ public class ImplPreferencesHelper implements PreferencesHelper {
 
 
     @Override
-    public void setTextSizeState(String state) {
-        mSPrefs.edit().putString(Constants.TEXT_SIZE, state).apply();
+    public void setTextSizeState(float state) {
+        mSPrefs.edit().putFloat(Constants.TEXT_SIZE, state).apply();
     }
 
     @Override
-    public String getTextSizeState() {
-        return mSPrefs.getString(Constants.TEXT_SIZE, "1");
+    public float getTextSizeState() {
+        return mSPrefs.getFloat(Constants.TEXT_SIZE, 1f);
     }
 
     @Override

@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "Content.proto";
+
+service ContentService {
+    rpc SearchContent(ContentRequest) returns (ContentResult);
+}
+
+message ContentResult {
+    repeated ContentDetail contents = 1;
+}

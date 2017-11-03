@@ -1,12 +1,15 @@
 package com.tb.wangfang.news.base;
 
 import android.app.Activity;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -57,6 +60,22 @@ public abstract class SimpleActivity extends SupportActivity {
         mUnBinder.unbind();
     }
 
+    @Override
+    public Resources getResources() {
+
+        Resources res = super.getResources();
+
+        Configuration config = res.getConfiguration();
+
+        config.fontScale = Constants.TEXTVIEWSIXE;//1 设置正常字体大小的倍数
+
+        res.updateConfiguration(config, res.getDisplayMetrics());
+
+        return res;
+
+    }
+
     protected abstract int getLayout();
+
     protected abstract void initEventAndData();
 }

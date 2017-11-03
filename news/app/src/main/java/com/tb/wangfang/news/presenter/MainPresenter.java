@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.MainContract;
+import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -28,6 +29,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
 
 
 /**
@@ -52,7 +54,23 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     }
 
     private void registerEvent() {
+        RxBus.getDefault().toFlowable(String.class).subscribeWith(new DisposableSubscriber<String>() {
+            @Override
+            public void onNext(String s) {
+                Log.d(TAG, "onNext: " + s);
+                mView.restart();
+            }
 
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     @Override

@@ -1,8 +1,11 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,7 +13,9 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
@@ -31,6 +36,9 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+
+import static com.tb.wangfang.news.app.Constants.TEXT_BIG_SIZE;
+import static com.tb.wangfang.news.app.Constants.TEXT_SMALL_SIZE;
 
 public class SettingActivity extends SimpleActivity {
 
@@ -66,22 +74,22 @@ public class SettingActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
-        String textState = PreferencesHelper.getTextSizeState();
+        float textState = PreferencesHelper.getTextSizeState();
         setUIState(textState);
 
     }
 
-    private void setUIState(String textState) {
+    private void setUIState(float textState) {
         ivSmallSize.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         ivSmallSize.setBackgroundResource(R.drawable.blue_small_frame);
         ivMidSize.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         ivMidSize.setBackgroundResource(R.drawable.blue_mid_frame);
         ivBigSize.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         ivBigSize.setBackgroundResource(R.drawable.blue_big_frame);
-        if (textState.equals("0")) {
+        if (textState == TEXT_SMALL_SIZE) {
             ivSmallSize.setTextColor(getResources().getColor(R.color.white));
             ivSmallSize.setBackgroundResource(R.drawable.blue_small_selected);
-        } else if (textState.equals("1")) {
+        } else if (textState == Constants.TEXT_MID_SIZE) {
             ivMidSize.setTextColor(getResources().getColor(R.color.white));
             ivMidSize.setBackgroundResource(R.drawable.blue_mid_selected);
         } else {
@@ -102,6 +110,17 @@ public class SettingActivity extends SimpleActivity {
 //            }
 //        }
 //    }
+    public void changeTextSize(Activity activity) {
+        Configuration configuration = activity.getResources().getConfiguration();
+        configuration.fontScale = Constants.TEXTVIEWSIXE; //1为标准字体，multiple为放大的倍数
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        displayMetrics.scaledDensity = configuration.fontScale * displayMetrics.density;
+        activity.getBaseContext().getResources().updateConfiguration(configuration, displayMetrics);
+        recreate();
+        RxBus.getDefault().post(Constants.TEXT_SIZE);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,16 +139,22 @@ public class SettingActivity extends SimpleActivity {
                 startActivity(intent);
                 break;
             case R.id.iv_small_size:
-                setUIState("0");
-                PreferencesHelper.setTextSizeState("0");
+                setUIState(TEXT_SMALL_SIZE);
+                PreferencesHelper.setTextSizeState(TEXT_SMALL_SIZE);
+                Constants.TEXTVIEWSIXE = TEXT_SMALL_SIZE;
+                changeTextSize(this);
                 break;
             case R.id.iv_mid_size:
-                setUIState("1");
-                PreferencesHelper.setTextSizeState("1");
+                setUIState(Constants.TEXT_MID_SIZE);
+                PreferencesHelper.setTextSizeState(Constants.TEXT_MID_SIZE);
+                Constants.TEXTVIEWSIXE = Constants.TEXT_MID_SIZE;
+                changeTextSize(this);
                 break;
             case R.id.iv_big_size:
-                setUIState("2");
-                PreferencesHelper.setTextSizeState("2");
+                setUIState(TEXT_BIG_SIZE);
+                PreferencesHelper.setTextSizeState(TEXT_BIG_SIZE);
+                Constants.TEXTVIEWSIXE = TEXT_BIG_SIZE;
+                changeTextSize(this);
                 break;
             case R.id.tv_update:
                 break;

@@ -132,6 +132,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
         editPassword.setInputType(InputType.TYPE_CLASS_TEXT
                 | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+        editGraphCode.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        editAccount.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+
     }
 
     @OnClick({R.id.tv_return, R.id.tv_pre_num, R.id.tv_get_code, R.id.ll_quick, R.id.btn_login, R.id.tv_find_password, R.id.tv_register, R.id.iv_qq_share,
@@ -171,7 +175,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                             if (graphCode.equals(CodeUtils.getInstance().getCode())) {
                                 mdialog = new MaterialDialog.Builder(this)
                                         .title("登录中")
-                                        .content("请等待")
                                         .progress(true, 0)
                                         .progressIndeterminateStyle(true)
                                         .show();
