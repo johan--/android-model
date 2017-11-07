@@ -65,6 +65,7 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
         myOrderAdapter.setOnLoadMoreListener(this, rvOrder);
         myOrderAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         myOrderAdapter.setPreLoadNumber(2);
+        myOrderAdapter.setEmptyView(R.layout.normal_empty_layout);
         rvOrder.setAdapter(myOrderAdapter);
         myOrderAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
@@ -73,8 +74,6 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
             }
         });
         getOrderData();
-
-
     }
 
     private void getOrderData() {

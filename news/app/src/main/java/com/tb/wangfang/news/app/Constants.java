@@ -35,5 +35,10 @@ public class Constants {
     public static final String USER_ROLES_MAP = "user_roles_map";
     public static final String SUBJECT_MAP = "subject_map";
     public static final String EDUCATION_MAP = "education_map";
+    //主页item的type
+    public static final int TYPE_BANNER_4 = 4;//banner
+    public static final int TYPE_INSERT_1 = 1;//一个大图
+    public static final int TYPE_INSERT_2 = 2;//一个小图
+    public static final int TYPE_INSERT_3 = 3;//三个小图
 
 }

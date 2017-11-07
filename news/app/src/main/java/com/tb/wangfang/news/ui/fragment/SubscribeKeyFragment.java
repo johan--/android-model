@@ -105,7 +105,8 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
             public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
                 adapter.setSelectedPosition(position);
                 adapter.notifyDataSetChanged();
-                staggeredGridLayoutManager.scrollToPosition(position);
+                rvKeyWord.smoothScrollToPosition(position);
+
                 getDocList(adapter.getData().get(position));
                 currentKeywordMessage = adapter.getData().get(position);
             }
@@ -118,6 +119,7 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
         docAdapter.setOnLoadMoreListener(this, rvDoc);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         docAdapter.setPreLoadNumber(2);
+        docAdapter.setEmptyView(R.layout.normal_empty_layout);
         View view = getActivity().getLayoutInflater().inflate(R.layout.foot_get_more, (ViewGroup) rvKeyWord.getParent(), false);
         TextView tvGetMore = (TextView) view.findViewById(R.id.tv_get_more);
         tvGetMore.setOnClickListener(new View.OnClickListener() {
@@ -269,6 +271,7 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
                             getDocList(keyWords.get(finalI));
                             currentKeywordMessage = keyWords.get(finalI);
                             adapter.setSelectedPosition(finalI);
+                            rvKeyWord.scrollToPosition(finalI);
                         }
                     });
                     flowTvs[i] = textView;

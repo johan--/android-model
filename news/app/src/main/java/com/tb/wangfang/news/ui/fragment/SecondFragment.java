@@ -113,6 +113,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         });
     }
 
+
     @Override
     protected void initEventAndData() {
         etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {

@@ -250,7 +250,8 @@
         <activity android:name=".ui.activity.InsertSubscribeActivity" />
         <activity android:name=".ui.activity.ManageSubscribeActivity" />
         <activity android:name=".ui.activity.MyWalletActivity" />
-        <activity android:name=".ui.activity.MessageCenterActivity"></activity>
+        <activity android:name=".ui.activity.MessageCenterActivity" />
+        <activity android:name=".ui.activity.WebViewActivity"></activity>
     </application>
 
 </manifest>

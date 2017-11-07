@@ -254,12 +254,15 @@ public class EditPersonInforActivity extends SimpleActivity {
                     Glide.with(EditPersonInforActivity.this).load(avatarUrl)
                             .transform(new GlideCircleTransform(EditPersonInforActivity.this)).into(ivUserIcon);
                 }
-                if (!TextUtils.isEmpty(nickName)) {
-                    etNickname.setText(nickName);
-                }
                 if (!TextUtils.isEmpty(realName)) {
                     etName.setText(realName);
+                    tvUserName.setText(realName);
                 }
+                if (!TextUtils.isEmpty(nickName)) {
+                    etNickname.setText(nickName);
+                    tvUserName.setText(nickName);
+                }
+
                 if (!TextUtils.isEmpty(idNumber)) {
                     etIdCountry.setText(idNumber);
                 }

@@ -41,6 +41,7 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     private ImplPreferencesHelper preferencesHelper;
     private String TAG = "MainPresenter";
 
+
     @Inject
     public MainPresenter(ManagedChannel managedChannel, ImplPreferencesHelper preferencesHelper) {
         this.managedChannel = managedChannel;
@@ -51,10 +52,11 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     public void attachView(MainContract.View view) {
         super.attachView(view);
         registerEvent();
+
     }
 
     private void registerEvent() {
-        RxBus.getDefault().toFlowable(String.class).subscribeWith(new DisposableSubscriber<String>() {
+        addSubscribe(RxBus.getDefault().toFlowable(String.class).subscribeWith(new DisposableSubscriber<String>() {
             @Override
             public void onNext(String s) {
                 Log.d(TAG, "onNext: " + s);
@@ -70,7 +72,8 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
             public void onComplete() {
 
             }
-        });
+        }));
+
     }
 
     @Override

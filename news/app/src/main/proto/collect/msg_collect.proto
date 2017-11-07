@@ -67,7 +67,7 @@ message MyCollectDetailResponse {
     google.protobuf.Any collect_detail = 10;
 
     MyCollectDetailType detail_type = 11;
-    
+
     // 根据type去unpack相应的message
 
     // MyCollectConfMessage conf_message = 11; // 会议信息   CONFERENCE_TYPE
@@ -109,7 +109,7 @@ message MyCollectDegreeMessage {
 }
 
 message MyCollectSimilarPaperMessage {
-	string artical_id = 1;
-	string artical_type = 2;
-	string title = 3;
+    string artical_id = 1;
+    string artical_type = 2;
+    string title = 3;
 }

@@ -42,6 +42,8 @@ public class MianSearchActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
+
+
         HistoryDocItem docItem = new HistoryDocItem();
         docItem.setText("计算机");
         docItem.setTime(System.currentTimeMillis() / 1000);

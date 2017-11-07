@@ -1,38 +1,39 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.FirstContract;
-import com.tb.wangfang.news.model.bean.MainPageData;
+import com.tb.wangfang.news.model.bean.ContentBean;
 import com.tb.wangfang.news.presenter.FirstPresenter;
 import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.MianSearchActivity;
+import com.tb.wangfang.news.ui.activity.WebViewActivity;
 import com.tb.wangfang.news.ui.adapter.MainCourseAdapter;
 import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
-import com.tb.wangfang.news.widget.EvaluatePop;
 import com.tb.wangfang.news.widget.VerticalTextview;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.wanfang.main.AllCource;
 import com.wanfang.main.AllLastNews;
+import com.wanfang.main.Content;
+import com.wanfang.main.SerMainContent;
 import com.youth.banner.Banner;
+import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ import static com.tb.wangfang.news.app.App.SCREEN_HEIGHT;
 import static me.iwf.photopicker.PhotoPicker.REQUEST_CODE;
 
 
-public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View, View.OnClickListener {
+public class FirstFragment extends BaseFragment<FirstPresenter> implements FirstContract.View, View.OnClickListener, BaseQuickAdapter.RequestLoadMoreListener {
 
     private static final String TAG = "FirstFragment";
 
@@ -65,7 +66,6 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     VerticalTextview tvLastNews;
 
     TextView tvLastNewsMore;
-    List<MultiItemEntity> datas = new ArrayList<>();
     int halfScreen = SCREEN_HEIGHT / 2;
     @BindView(R.id.iv_qc_code)
     ImageView ivQcCode;
@@ -74,6 +74,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     private ArrayList<AllCource.Course> coursetemArrayList = new ArrayList<>();
     private MainPageAdapter mainPageAdapter;
     private Banner banner;
+    private int page = 1;
 
 
     public static FirstFragment newInstance() {
@@ -104,65 +105,75 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvScience.setOnClickListener(this);
         tvMeeting.setOnClickListener(this);
         tvJournal.setOnClickListener(this);
-        for (int i = 0; i < 30; i++) {
-            MainPageData data = new MainPageData();
-            data.setImg1("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
-            data.setImg2("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
-            data.setImg3("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
-            data.setItemType(i % 3);
-            data.setSource("个玩热风发改委为");
-            data.setTitle("心有猛虎，细嗅蔷薇");
-            datas.add(data);
-        }
-        mainPageAdapter = new MainPageAdapter(getActivity(), datas);
+//        for (int i = 0; i < 30; i++) {
+//            MainPageData data = new MainPageData();
+//            data.setImg1("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+//            data.setImg2("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+//            data.setImg3("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+//            data.setItemType(i % 3);
+//            data.setSource("个玩热风发改委为");
+//            data.setTitle("心有猛虎，细嗅蔷薇");
+//            datas.add(data);
+//        }
+        mainPageAdapter = new MainPageAdapter(getActivity(), null);
         mainPageAdapter.addHeaderView(view);
         recyclerCourse.setAdapter(mainPageAdapter);
         final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+//        mainPageAdapter.setEmptyView(R.layout.normal_empty_layout);
+        mainPageAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ContentBean contentBean = (ContentBean) adapter.getData().get(position);
+                WebViewActivity.startThisFromActivity(getActivity(), contentBean.getUrl(), contentBean.getTitle(), "0");
+
+            }
+        });
+
         mainPageAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, final View view, int position) {
-                final ImageView iv = (ImageView) view.findViewById(R.id.iv_delete);
-                int[] location = new int[2];
-                iv.getLocationOnScreen(location);
-                int l1 = location[0];
-                int l2 = location[1];
-                if (l1 == 0 || l2 == 0) {
-                    Rect rect = new Rect();
-                    iv.getGlobalVisibleRect(rect);
-                    l1 = rect.left;
-                    l2 = rect.top;
-                }
-                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-                lp.alpha = 0.7f;
-                getActivity().getWindow().setAttributes(lp);
-                MainPageData item = (MainPageData) adapter.getData().get(position);
-                EvaluatePop pop = null;
-                if (item.getItemType() == MainPageAdapter.TYPE_IMAGE_0) {
-                    if (l2 > halfScreen) {
-                        pop = new EvaluatePop(getActivity(), EvaluatePop.TOP_CENTER);
-                    } else {
-                        pop = new EvaluatePop(getActivity(), EvaluatePop.BOTTOM_CENTER);
-                    }
-                } else {
-                    if (l2 > halfScreen) {
-                        pop = new EvaluatePop(getActivity(), EvaluatePop.TOP_RIGHT);
-                    } else {
-                        pop = new EvaluatePop(getActivity(), EvaluatePop.BOTTOM_RIGHT);
-                    }
-                }
-
-                pop.showPopupWindow(iv);
-                Log.d(TAG, "onItemChildClick:  iv.getTop() " + l1);
-                Log.d(TAG, "onItemChildClick:  iv.getBottom() " + pop.getHeight());
-                pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
-
-                    @Override
-                    public void onDismiss() {
-                        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-                        lp.alpha = 1f;
-                        getActivity().getWindow().setAttributes(lp);
-                    }
-                });
+//                final ImageView iv = (ImageView) view.findViewById(R.id.iv_delete);
+//                int[] location = new int[2];
+//                iv.getLocationOnScreen(location);
+//                int l1 = location[0];
+//                int l2 = location[1];
+//                if (l1 == 0 || l2 == 0) {
+//                    Rect rect = new Rect();
+//                    iv.getGlobalVisibleRect(rect);
+//                    l1 = rect.left;
+//                    l2 = rect.top;
+//                }
+//                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+//                lp.alpha = 0.7f;
+//                getActivity().getWindow().setAttributes(lp);
+//                MainPageData item = (MainPageData) adapter.getData().get(position);
+//                EvaluatePop pop = null;
+//                if (item.getItemType() == Constants.TYPE_INSERT_1) {
+//                    if (l2 > halfScreen) {
+//                        pop = new EvaluatePop(getActivity(), EvaluatePop.TOP_CENTER);
+//                    } else {
+//                        pop = new EvaluatePop(getActivity(), EvaluatePop.BOTTOM_CENTER);
+//                    }
+//                } else {
+//                    if (l2 > halfScreen) {
+//                        pop = new EvaluatePop(getActivity(), EvaluatePop.TOP_RIGHT);
+//                    } else {
+//                        pop = new EvaluatePop(getActivity(), EvaluatePop.BOTTOM_RIGHT);
+//                    }
+//                }
+//
+//                pop.showPopupWindow(iv);
+//                Log.d(TAG, "onItemChildClick:  iv.getTop() " + l1);
+//                Log.d(TAG, "onItemChildClick:  iv.getBottom() " + pop.getHeight());
+//                pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+//
+//                    @Override
+//                    public void onDismiss() {
+//                        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+//                        lp.alpha = 1f;
+//                        getActivity().getWindow().setAttributes(lp);
+//                    }
+//                });
 
             }
         });
@@ -180,6 +191,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
         mPresenter.getBanner("tb");
         mPresenter.getLastNews();
+        mPresenter.getMianPage(page);
 
 
     }
@@ -205,6 +217,39 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvLastNews.startAutoScroll();
     }
 
+    @Override
+    public void showMainPage(SerMainContent.ContentResponse response) {
+        List<ContentBean> listContent = new ArrayList<>();
+
+        for (int i = 0; i < response.getContentsList().size(); i++) {
+            ContentBean bean = new ContentBean();
+            bean.setTitle(response.getContents(i).getTitle());
+//            for (int j = 0; j < response.getContents(i).getTagsList().size(); j++) {
+//                if ()
+//            }
+            bean.setTags(response.getContents(i).getTagsList());
+            bean.setId(response.getContents(i).getId() + "");
+            bean.setUrl(response.getContents(i).getUrl());
+            bean.setUrl(response.getContents(i).getDate() + "");
+            bean.setExcerpt(response.getContents(i).getExcerpt());
+            bean.setImages(response.getContents(i).getImagesList());
+            bean.setCategories(response.getContents(i).getCategoriesList());
+            bean.setItemType(response.getContents(i).getTags(0).getId());
+            if (bean.getItemType() == Constants.TYPE_INSERT_1 || bean.getItemType() == Constants.TYPE_INSERT_2 || bean.getItemType() == Constants.TYPE_INSERT_3) {
+                listContent.add(bean);
+            }
+
+        }
+
+        mainPageAdapter.addData(listContent);
+        mainPageAdapter.setEnableLoadMore(true);
+        mainPageAdapter.loadMoreComplete();
+        if (response.getNoMore()) {
+            mainPageAdapter.loadMoreEnd(false);
+        }
+
+    }
+
 
     @Override
     protected void initInject() {
@@ -213,8 +258,8 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
 
     @Override
-    public void showSpanner(List<com.wanfang.main.Banner.Baner> baners) {
-        banner.setImageLoader(mPresenter.getImageLoader());
+    public void showSpanner(List<Content.ContentDetail> baners) {
+        banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
         banner.setImages(baners);
         //banner设置方法全部调用完毕时最后调用
@@ -270,6 +315,49 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         }
     }
 
+    @Override
+    public void onLoadMoreRequested() {
+        page++;
+        mPresenter.getMianPage(page);
+
+    }
+
+    public class GlideImageLoader extends ImageLoader {
+        public GlideImageLoader() {
+        }
+
+        @Override
+        public void displayImage(final Context context, final Object path, ImageView imageView) {
+            /**
+             注意：
+             1.图片加载器由自己选择，这里不限制，只是提供几种使用方法
+             2.返回的图片路径为Object类型，由于不能确定你到底使用的那种图片加载器，
+             传输的到的是什么格式，那么这种就使用Object接收和返回，你只需要强转成你传输的类型就行，
+             切记不要胡乱强转！
+             */
+            //Glide 加载图片简单用法
+
+            Content.ContentDetail detail = (Content.ContentDetail) path;
+            String url = detail.getImages(0).getSizesMap().get("full").getSourceUrl();
+            final String title = detail.getTitle();
+            final String webUrl = detail.getUrl();
+            Glide.with(context).load(url).into(imageView);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    WebViewActivity.startThisFromActivity(getActivity(), webUrl, title, "");
+                }
+            });
+        }
+
+//        //提供createImageView 方法，如果不用可以不重写这个方法，主要是方便自定义ImageView的创建
+//        @Override
+//        public ImageView createImageView(Context context) {
+//            //使用fresco，需要创建它提供的ImageView，当然你也可以用自己自定义的具有图片加载功能的ImageView
+//            SimpleDraweeView simpleDraweeView = new SimpleDraweeView(context);
+//            return simpleDraweeView;
+//        }
+    }
 }
 
 

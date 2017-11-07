@@ -90,7 +90,7 @@
         android:id="@+id/rl_my_wallet"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
         android:id="@+id/rl_mycollect"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -158,7 +158,7 @@
         android:id="@+id/rl_my_subscibe"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -192,7 +192,7 @@
         android:id="@+id/rl_myorder"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -227,7 +227,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
 
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -262,7 +262,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
 
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -297,7 +297,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginBottom="1dp"
-        android:background="@color/white">
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:layout_width="wrap_content"

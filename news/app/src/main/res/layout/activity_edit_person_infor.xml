@@ -81,7 +81,7 @@
                 android:id="@+id/rl_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_nickname"
@@ -138,7 +138,7 @@
                 android:id="@+id/rl_name"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -198,7 +198,7 @@
                 android:id="@+id/rl_id_country"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_id_country"
@@ -251,7 +251,7 @@
                 android:id="@+id/rl_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_gender"
@@ -305,7 +305,7 @@
                 android:id="@+id/rl_birthday"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_birthday"
@@ -359,7 +359,7 @@
                 android:id="@+id/rl_job_title"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_job_title"
@@ -414,7 +414,7 @@
                 android:id="@+id/rl_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_unit"
@@ -468,7 +468,7 @@
                 android:id="@+id/rl_education"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_education"
@@ -522,7 +522,7 @@
                 android:id="@+id/rl_graduate_school"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_graduate_school"
@@ -576,7 +576,7 @@
                 android:id="@+id/rl_reward"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_reward"
@@ -633,7 +633,7 @@
                 android:id="@+id/rl_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_subject"
@@ -689,7 +689,7 @@
                 android:id="@+id/rl_interest"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:background="@color/white">
+                android:background="@drawable/ripple_white_bg">
 
                 <TextView
                     android:id="@+id/tv_interest"

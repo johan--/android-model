@@ -85,12 +85,19 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
             initHuaweiPush(this);
         }
-
+        if (savedInstanceState == null) {
+            mFragments[FIRST] = FirstFragment.newInstance();
+            mFragments[SECOND] = SecondFragment.newInstance();
+            mFragments[THIRD] = ThirdFragment.newInstance();
+            mFragments[FOURTH] = FourthFragment.newInstance();
+        } else {
+            mFragments[FIRST] = findFragment(FirstFragment.class);
+            mFragments[SECOND] = findFragment(SecondFragment.class);
+            mFragments[THIRD] = findFragment(ThirdFragment.class);
+            mFragments[FOURTH] = findFragment(FourthFragment.class);
+        }
 //            mPresenter.setNightModeState(false);
-        mFragments[FIRST] = FirstFragment.newInstance();
-        mFragments[SECOND] = SecondFragment.newInstance();
-        mFragments[THIRD] = ThirdFragment.newInstance();
-        mFragments[FOURTH] = FourthFragment.newInstance();
+
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
         mainVp.setAdapter(adapter);
         mainVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

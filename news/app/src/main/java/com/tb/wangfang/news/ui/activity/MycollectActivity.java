@@ -75,6 +75,7 @@ public class MycollectActivity extends SimpleActivity implements BaseQuickAdapte
         adapter.setPreLoadNumber(2);
         rvCollect.setLayoutManager(new LinearLayoutManager(this));
         rvCollect.setAdapter(adapter);
+        adapter.setEmptyView(R.layout.normal_empty_layout);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

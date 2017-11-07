@@ -86,6 +86,45 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
     @Override
     protected void initEventAndData() {
+//        //创建okHttpClient对象
+//        OkHttpClient mOkHttpClient = new OkHttpClient();
+//        //创建一个Request
+//        final Request request = new Request.Builder()
+//                .url("https://github.com/hongyangAndroid")
+//                .build();
+//        //new call
+//        Call call = mOkHttpClient.newCall(request);
+//        //请求加入调度
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Request request, IOException e) {
+//            }
+//
+//            @Override
+//            public void onResponse(final Response response) throws IOException {
+//                //String htmlStr =  response.body().string();
+//            }
+//        });
+//
+//
+//        FormEncodingBuilder builder = new FormEncodingBuilder();
+//        builder.add("username","张鸿洋");
+//
+//        Request request1 = new Request.Builder()
+//                .url(url)
+//                .post(builder.build())
+//                .build();
+//        mOkHttpClient.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Request request, IOException e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Response response) throws IOException {
+//
+//            }
+//        });
         //初始化搜索控件
         text = getIntent().getExtras().getString("text");
         msSeletOne.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");

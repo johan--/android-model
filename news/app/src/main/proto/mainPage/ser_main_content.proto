@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "mainPage/content.proto"; // 用户信息
+
+option java_package = "com.wanfang.main";
+option objc_class_prefix = "WFPR";
+
+service ContentService {
+    rpc searchContent (ContentRequest) returns (ContentResponse);
+}
+
+message ContentResponse {
+    repeated ContentDetail contents = 1;
+    bool no_more = 2;//是否有下一页
+}
