@@ -22,13 +22,17 @@ import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.log.LoggerInterceptor;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.im.android.api.JMessageClient;
+import okhttp3.OkHttpClient;
 
 
 /**
@@ -61,7 +65,14 @@ public class App extends Application {
         instance = this;
         //初始化屏幕宽高
         getScreenSize();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new LoggerInterceptor("okhttp"))
+                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
+                .readTimeout(10000L, TimeUnit.MILLISECONDS)
+                //其他配置
+                .build();
 
+        OkHttpUtils.initClient(okHttpClient);
         //在子线程中完成其他初始化
 
         //打开Log

@@ -22,6 +22,7 @@ import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
 import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
+import com.tb.wangfang.news.model.bean.HotSearchBean;
 import com.tb.wangfang.news.presenter.SecondPresenter;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.adapter.HistoryItemAdapter;
@@ -78,13 +79,13 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         //热门搜索词
         rvHot.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         rvHot.addItemDecoration(new DividerGridItemDecoration(getActivity()));
-        hotAdapter = new HotAdapter(hotDocArrayList);
+        hotAdapter = new HotAdapter(null);
         rvHot.setAdapter(hotAdapter);
         hotAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), FilterDocActivity.class);
-                intent.putExtra("text", hotAdapter.getData().get(position));
+                intent.putExtra("text", hotAdapter.getData().get(position).getTheme());
                 startActivity(intent);
             }
         });
@@ -216,8 +217,9 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     }
 
     @Override
-    public void showHotSearchWord(List<String> hotSearchWord) {
-        hotAdapter.setNewData(hotSearchWord);
+    public void showHotSearchWord(HotSearchBean hotSearchBean) {
+
+        hotAdapter.setNewData(hotSearchBean.getData());
     }
 
 

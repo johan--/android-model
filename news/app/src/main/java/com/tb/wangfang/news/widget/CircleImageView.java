@@ -43,7 +43,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-public class CircleImageView extends ImageView {
+public class CircleImageView extends android.support.v7.widget.AppCompatImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 
@@ -200,7 +200,6 @@ public class CircleImageView extends ImageView {
      * Return the color drawn behind the circle-shaped drawable.
      *
      * @return The color drawn behind the drawable
-     *
      * @deprecated Fill color support is going to be removed in the future
      */
     @Deprecated
@@ -213,7 +212,6 @@ public class CircleImageView extends ImageView {
      * this has no effect if the drawable is opaque or no drawable is set.
      *
      * @param fillColor The color to be drawn behind the drawable
-     *
      * @deprecated Fill color support is going to be removed in the future
      */
     @Deprecated
@@ -233,7 +231,6 @@ public class CircleImageView extends ImageView {
      *
      * @param fillColorRes The color resource to be resolved to a color and
      *                     drawn behind the drawable
-     *
      * @deprecated Fill color support is going to be removed in the future
      */
     @Deprecated
@@ -410,7 +407,7 @@ public class CircleImageView extends ImageView {
     }
 
     private RectF calculateBounds() {
-        int availableWidth  = getWidth() - getPaddingLeft() - getPaddingRight();
+        int availableWidth = getWidth() - getPaddingLeft() - getPaddingRight();
         int availableHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 
         int sideLength = Math.min(availableWidth, availableHeight);

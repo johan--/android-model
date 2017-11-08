@@ -2,25 +2,22 @@ package com.tb.wangfang.news.presenter;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.SecondContract;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
+import com.tb.wangfang.news.model.bean.HotSearchBean;
 import com.tb.wangfang.news.model.db.RealmHelper;
-import com.wanfang.search.HotThemesRequest;
-import com.wanfang.search.HotThemesResponse;
-import com.wanfang.search.SearchServiceGrpc;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 
 import javax.inject.Inject;
 
 import io.grpc.ManagedChannel;
-import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
-import io.reactivex.SingleOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
+
+import static com.tb.wangfang.news.app.Constants.HOT_SEARCH_WORDS;
 
 /**
  * Created by tangbin on 2017/5/9.
@@ -63,27 +60,26 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
 
     @Override
     public void getHotDoc() {
+        OkHttpUtils
+                .get()
+                .url(HOT_SEARCH_WORDS)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+                        Log.d(TAG, "onError: " + e.getMessage());
+                    }
 
-        Single.create(new SingleOnSubscribe<HotThemesResponse>() {
-            @Override
-            public void subscribe(SingleEmitter<HotThemesResponse> e) throws Exception {
-                SearchServiceGrpc.SearchServiceBlockingStub stub = SearchServiceGrpc.newBlockingStub(managedChannel);
-                HotThemesRequest request = HotThemesRequest.newBuilder().setPageSize(10).setPageNumber(1).build();
-                HotThemesResponse hotThemesResponse = stub.hotThemes(request);
-                e.onSuccess(hotThemesResponse);
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<HotThemesResponse>() {
-            @Override
-            public void onSuccess(HotThemesResponse hotThemesResponse) {
-                Log.d(TAG, "onSuccess: " + hotThemesResponse.toString());
-                mView.showHotSearchWord(hotThemesResponse.getThemesTitleList());
-            }
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d(TAG, "onResponse: " + response);
+                        Gson gson = new Gson();
+                        HotSearchBean searchBean = gson.fromJson(response, HotSearchBean.class);
+                        mView.showHotSearchWord(searchBean);
 
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
-            }
-        });
+                    }
+
+                });
     }
 }
 

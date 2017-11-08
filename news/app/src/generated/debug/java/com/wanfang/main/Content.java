@@ -23,35 +23,35 @@ public final class Content {
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
     java.util.List<java.lang.String>
-        getTagList();
+        getTagsList();
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
-    int getTagCount();
+    int getTagsCount();
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
-    java.lang.String getTag(int index);
+    java.lang.String getTags(int index);
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
     com.google.protobuf.ByteString
-        getTagBytes(int index);
+        getTagsBytes(int index);
 
     /**
      * <pre>
@@ -136,7 +136,7 @@ public final class Content {
       super(builder);
     }
     private ContentRequest() {
-      tag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       page_ = 0;
       pageSize_ = 0;
@@ -171,10 +171,10 @@ public final class Content {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                tag_ = new com.google.protobuf.LazyStringArrayList();
+                tags_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              tag_.add(s);
+              tags_.add(s);
               break;
             }
             case 18: {
@@ -211,7 +211,7 @@ public final class Content {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          tag_ = tag_.getUnmodifiableView();
+          tags_ = tags_.getUnmodifiableView();
         }
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           categories_ = categories_.getUnmodifiableView();
@@ -232,49 +232,49 @@ public final class Content {
     }
 
     private int bitField0_;
-    public static final int TAG_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList tag_;
+    public static final int TAGS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList tags_;
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
     public com.google.protobuf.ProtocolStringList
-        getTagList() {
-      return tag_;
+        getTagsList() {
+      return tags_;
     }
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
-    public int getTagCount() {
-      return tag_.size();
+    public int getTagsCount() {
+      return tags_.size();
     }
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
-    public java.lang.String getTag(int index) {
-      return tag_.get(index);
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
     }
     /**
      * <pre>
      *限定标签名称，可为空
      * </pre>
      *
-     * <code>repeated string tag = 1;</code>
+     * <code>repeated string tags = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getTagBytes(int index) {
-      return tag_.getByteString(index);
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
     }
 
     public static final int CATEGORIES_FIELD_NUMBER = 2;
@@ -402,8 +402,8 @@ public final class Content {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < tag_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tag_.getRaw(i));
+      for (int i = 0; i < tags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tags_.getRaw(i));
       }
       for (int i = 0; i < categories_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, categories_.getRaw(i));
@@ -426,11 +426,11 @@ public final class Content {
       size = 0;
       {
         int dataSize = 0;
-        for (int i = 0; i < tag_.size(); i++) {
-          dataSize += computeStringSizeNoTag(tag_.getRaw(i));
+        for (int i = 0; i < tags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tags_.getRaw(i));
         }
         size += dataSize;
-        size += 1 * getTagList().size();
+        size += 1 * getTagsList().size();
       }
       {
         int dataSize = 0;
@@ -467,8 +467,8 @@ public final class Content {
       com.wanfang.main.Content.ContentRequest other = (com.wanfang.main.Content.ContentRequest) obj;
 
       boolean result = true;
-      result = result && getTagList()
-          .equals(other.getTagList());
+      result = result && getTagsList()
+          .equals(other.getTagsList());
       result = result && getCategoriesList()
           .equals(other.getCategoriesList());
       result = result && (getPage()
@@ -487,9 +487,9 @@ public final class Content {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (getTagCount() > 0) {
-        hash = (37 * hash) + TAG_FIELD_NUMBER;
-        hash = (53 * hash) + getTagList().hashCode();
+      if (getTagsCount() > 0) {
+        hash = (37 * hash) + TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagsList().hashCode();
       }
       if (getCategoriesCount() > 0) {
         hash = (37 * hash) + CATEGORIES_FIELD_NUMBER;
@@ -619,7 +619,7 @@ public final class Content {
       }
       public Builder clear() {
         super.clear();
-        tag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -654,10 +654,10 @@ public final class Content {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          tag_ = tag_.getUnmodifiableView();
+          tags_ = tags_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.tag_ = tag_;
+        result.tags_ = tags_;
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           categories_ = categories_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -708,13 +708,13 @@ public final class Content {
 
       public Builder mergeFrom(com.wanfang.main.Content.ContentRequest other) {
         if (other == com.wanfang.main.Content.ContentRequest.getDefaultInstance()) return this;
-        if (!other.tag_.isEmpty()) {
-          if (tag_.isEmpty()) {
-            tag_ = other.tag_;
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureTagIsMutable();
-            tag_.addAll(other.tag_);
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
           }
           onChanged();
         }
@@ -765,10 +765,10 @@ public final class Content {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringList tag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureTagIsMutable() {
+      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          tag_ = new com.google.protobuf.LazyStringArrayList(tag_);
+          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
           bitField0_ |= 0x00000001;
          }
       }
@@ -777,57 +777,57 @@ public final class Content {
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
       public com.google.protobuf.ProtocolStringList
-          getTagList() {
-        return tag_.getUnmodifiableView();
+          getTagsList() {
+        return tags_.getUnmodifiableView();
       }
       /**
        * <pre>
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public int getTagCount() {
-        return tag_.size();
+      public int getTagsCount() {
+        return tags_.size();
       }
       /**
        * <pre>
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public java.lang.String getTag(int index) {
-        return tag_.get(index);
+      public java.lang.String getTags(int index) {
+        return tags_.get(index);
       }
       /**
        * <pre>
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getTagBytes(int index) {
-        return tag_.getByteString(index);
+          getTagsBytes(int index) {
+        return tags_.getByteString(index);
       }
       /**
        * <pre>
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public Builder setTag(
+      public Builder setTags(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureTagIsMutable();
-        tag_.set(index, value);
+  ensureTagsIsMutable();
+        tags_.set(index, value);
         onChanged();
         return this;
       }
@@ -836,15 +836,15 @@ public final class Content {
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public Builder addTag(
+      public Builder addTags(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureTagIsMutable();
-        tag_.add(value);
+  ensureTagsIsMutable();
+        tags_.add(value);
         onChanged();
         return this;
       }
@@ -853,13 +853,13 @@ public final class Content {
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public Builder addAllTag(
+      public Builder addAllTags(
           java.lang.Iterable<java.lang.String> values) {
-        ensureTagIsMutable();
+        ensureTagsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tag_);
+            values, tags_);
         onChanged();
         return this;
       }
@@ -868,10 +868,10 @@ public final class Content {
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public Builder clearTag() {
-        tag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      public Builder clearTags() {
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
@@ -881,16 +881,16 @@ public final class Content {
        *限定标签名称，可为空
        * </pre>
        *
-       * <code>repeated string tag = 1;</code>
+       * <code>repeated string tags = 1;</code>
        */
-      public Builder addTagBytes(
+      public Builder addTagsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensureTagIsMutable();
-        tag_.add(value);
+        ensureTagsIsMutable();
+        tags_.add(value);
         onChanged();
         return this;
       }
@@ -8621,26 +8621,26 @@ public final class Content {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\026mainPage/content.proto\"a\n\016ContentReque" +
-      "st\022\013\n\003tag\030\001 \003(\t\022\022\n\ncategories\030\002 \003(\t\022\014\n\004p" +
-      "age\030\003 \001(\005\022\021\n\tpage_size\030\004 \001(\005\022\r\n\005query\030\005 " +
-      "\001(\t\"\247\001\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005tit" +
-      "le\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\017\n\007e" +
-      "xcerpt\030\005 \001(\t\022\035\n\ncategories\030\006 \003(\0132\t.Categ" +
-      "ory\022\022\n\004tags\030\007 \003(\0132\004.Tag\022\034\n\006images\030\010 \003(\0132" +
-      "\014.ImageDetail\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014\n" +
-      "\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022\023" +
-      "\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003Ta",
-      "g\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t" +
-      "\022\014\n\004slug\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005c" +
-      "ount\030\006 \001(\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001(" +
-      "\t\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmime" +
-      "_type\030\004 \001(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030\006" +
-      " \003(\0132\027.ImageDetail.SizesEntry\0328\n\nSizesEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.ImageS" +
-      "ize:\0028\001\"Q\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006h" +
-      "eight\030\002 \001(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime_" +
-      "type\030\004 \001(\tB\022\n\020com.wanfang.mainb\006proto3"
+      "\n\026mainPage/content.proto\"b\n\016ContentReque" +
+      "st\022\014\n\004tags\030\001 \003(\t\022\022\n\ncategories\030\002 \003(\t\022\014\n\004" +
+      "page\030\003 \001(\005\022\021\n\tpage_size\030\004 \001(\005\022\r\n\005query\030\005" +
+      " \001(\t\"\247\001\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005ti" +
+      "tle\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\017\n\007" +
+      "excerpt\030\005 \001(\t\022\035\n\ncategories\030\006 \003(\0132\t.Cate" +
+      "gory\022\022\n\004tags\030\007 \003(\0132\004.Tag\022\034\n\006images\030\010 \003(\013" +
+      "2\014.ImageDetail\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014" +
+      "\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022" +
+      "\023\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003T",
+      "ag\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(" +
+      "\t\022\014\n\004slug\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005" +
+      "count\030\006 \001(\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001" +
+      "(\t\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmim" +
+      "e_type\030\004 \001(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030" +
+      "\006 \003(\0132\027.ImageDetail.SizesEntry\0328\n\nSizesE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.Image" +
+      "Size:\0028\001\"Q\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006" +
+      "height\030\002 \001(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime" +
+      "_type\030\004 \001(\tB\022\n\020com.wanfang.mainb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8659,7 +8659,7 @@ public final class Content {
     internal_static_ContentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ContentRequest_descriptor,
-        new java.lang.String[] { "Tag", "Categories", "Page", "PageSize", "Query", });
+        new java.lang.String[] { "Tags", "Categories", "Page", "PageSize", "Query", });
     internal_static_ContentDetail_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ContentDetail_fieldAccessorTable = new

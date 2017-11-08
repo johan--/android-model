@@ -3,6 +3,7 @@ package com.tb.wangfang.news.base.contract;
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
+import com.tb.wangfang.news.model.bean.HotSearchBean;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface SecondContract {
 
         void showHistoryItem(List<HistoryDocItem> historyDocItems);
 
-        void showHotSearchWord(List<String> hotSearchWord);
+        void showHotSearchWord(HotSearchBean hotSearchBean);
 
     }
 

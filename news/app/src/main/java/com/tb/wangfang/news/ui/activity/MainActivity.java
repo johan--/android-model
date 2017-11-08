@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     private String TAG = "MainActivity";
     private HuaweiApiClient mClient;
+    private int prePosition = 0;
 
     @Override
     protected int getLayout() {
@@ -90,6 +92,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             mFragments[SECOND] = SecondFragment.newInstance();
             mFragments[THIRD] = ThirdFragment.newInstance();
             mFragments[FOURTH] = FourthFragment.newInstance();
+//            loadMultipleRootFragment(R.id.fl_container, FIRST,
+//                    mFragments[FIRST],
+//                    mFragments[SECOND],
+//                    mFragments[THIRD],
+//                    mFragments[FOURTH]);
         } else {
             mFragments[FIRST] = findFragment(FirstFragment.class);
             mFragments[SECOND] = findFragment(SecondFragment.class);
@@ -97,6 +104,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             mFragments[FOURTH] = findFragment(FourthFragment.class);
         }
 //            mPresenter.setNightModeState(false);
+        // 可以监听该Activity下的所有Fragment的18个 生命周期方法
 
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
         mainVp.setAdapter(adapter);
@@ -139,6 +147,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     private void initView() {
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.d(TAG, "onTouchEvent: "+event.toString());
+        return super.onTouchEvent(event);
     }
 
     private void initHuaweiPush(Context context) {
@@ -280,23 +294,27 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             case R.id.tv_home:
                 mainVp.setCurrentItem(0);
                 setState(0);
-
+//                showHideFragment(mFragments[0], mFragments[prePosition]);
+//                prePosition = 0;
                 break;
             case R.id.tv_find:
 
                 mainVp.setCurrentItem(1);
                 setState(1);
-
+//                showHideFragment(mFragments[1], mFragments[prePosition]);
+//                prePosition = 1;
                 break;
             case R.id.tv_focus:
                 mainVp.setCurrentItem(2);
                 setState(2);
-
+//                showHideFragment(mFragments[2], mFragments[prePosition]);
+//                prePosition = 2;
                 break;
             case R.id.tv_me:
                 mainVp.setCurrentItem(3);
                 setState(3);
-
+//                showHideFragment(mFragments[3], mFragments[prePosition]);
+//                prePosition = 3;
                 break;
         }
     }

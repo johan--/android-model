@@ -4,7 +4,7 @@ syntax = "proto3";
 option java_package = "com.wanfang.main";
 
 message ContentRequest {
-   repeated string tag = 1;//限定标签名称，可为空
+   repeated string tags = 1;//限定标签名称，可为空
    repeated string categories = 2;//限定分类名称，可为空
    int32 page = 3;//可为空，默认为1
    int32 page_size = 4;//可为空，默认为5

@@ -109,21 +109,21 @@ class ContentRequest : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // repeated string tag = 1;
-  int tag_size() const;
-  void clear_tag();
-  static const int kTagFieldNumber = 1;
-  const ::std::string& tag(int index) const;
-  ::std::string* mutable_tag(int index);
-  void set_tag(int index, const ::std::string& value);
-  void set_tag(int index, const char* value);
-  void set_tag(int index, const char* value, size_t size);
-  ::std::string* add_tag();
-  void add_tag(const ::std::string& value);
-  void add_tag(const char* value);
-  void add_tag(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& tag() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_tag();
+  // repeated string tags = 1;
+  int tags_size() const;
+  void clear_tags();
+  static const int kTagsFieldNumber = 1;
+  const ::std::string& tags(int index) const;
+  ::std::string* mutable_tags(int index);
+  void set_tags(int index, const ::std::string& value);
+  void set_tags(int index, const char* value);
+  void set_tags(int index, const char* value, size_t size);
+  ::std::string* add_tags();
+  void add_tags(const ::std::string& value);
+  void add_tags(const char* value);
+  void add_tags(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& tags() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_tags();
 
   // repeated string categories = 2;
   int categories_size() const;
@@ -168,7 +168,7 @@ class ContentRequest : public ::google::protobuf::Message /* @@protoc_insertion_
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> tag_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> tags_;
   ::google::protobuf::RepeatedPtrField< ::std::string> categories_;
   ::google::protobuf::internal::ArenaStringPtr query_;
   ::google::protobuf::int32 page_;
@@ -913,59 +913,59 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<ImageSize> ImageSize_
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // ContentRequest
 
-// repeated string tag = 1;
-inline int ContentRequest::tag_size() const {
-  return tag_.size();
+// repeated string tags = 1;
+inline int ContentRequest::tags_size() const {
+  return tags_.size();
 }
-inline void ContentRequest::clear_tag() {
-  tag_.Clear();
+inline void ContentRequest::clear_tags() {
+  tags_.Clear();
 }
-inline const ::std::string& ContentRequest::tag(int index) const {
-  // @@protoc_insertion_point(field_get:ContentRequest.tag)
-  return tag_.Get(index);
+inline const ::std::string& ContentRequest::tags(int index) const {
+  // @@protoc_insertion_point(field_get:ContentRequest.tags)
+  return tags_.Get(index);
 }
-inline ::std::string* ContentRequest::mutable_tag(int index) {
-  // @@protoc_insertion_point(field_mutable:ContentRequest.tag)
-  return tag_.Mutable(index);
+inline ::std::string* ContentRequest::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:ContentRequest.tags)
+  return tags_.Mutable(index);
 }
-inline void ContentRequest::set_tag(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:ContentRequest.tag)
-  tag_.Mutable(index)->assign(value);
+inline void ContentRequest::set_tags(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ContentRequest.tags)
+  tags_.Mutable(index)->assign(value);
 }
-inline void ContentRequest::set_tag(int index, const char* value) {
-  tag_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ContentRequest.tag)
+inline void ContentRequest::set_tags(int index, const char* value) {
+  tags_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ContentRequest.tags)
 }
-inline void ContentRequest::set_tag(int index, const char* value, size_t size) {
-  tag_.Mutable(index)->assign(
+inline void ContentRequest::set_tags(int index, const char* value, size_t size) {
+  tags_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ContentRequest.tag)
+  // @@protoc_insertion_point(field_set_pointer:ContentRequest.tags)
 }
-inline ::std::string* ContentRequest::add_tag() {
-  // @@protoc_insertion_point(field_add_mutable:ContentRequest.tag)
-  return tag_.Add();
+inline ::std::string* ContentRequest::add_tags() {
+  // @@protoc_insertion_point(field_add_mutable:ContentRequest.tags)
+  return tags_.Add();
 }
-inline void ContentRequest::add_tag(const ::std::string& value) {
-  tag_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ContentRequest.tag)
+inline void ContentRequest::add_tags(const ::std::string& value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ContentRequest.tags)
 }
-inline void ContentRequest::add_tag(const char* value) {
-  tag_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ContentRequest.tag)
+inline void ContentRequest::add_tags(const char* value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ContentRequest.tags)
 }
-inline void ContentRequest::add_tag(const char* value, size_t size) {
-  tag_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ContentRequest.tag)
+inline void ContentRequest::add_tags(const char* value, size_t size) {
+  tags_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ContentRequest.tags)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-ContentRequest::tag() const {
-  // @@protoc_insertion_point(field_list:ContentRequest.tag)
-  return tag_;
+ContentRequest::tags() const {
+  // @@protoc_insertion_point(field_list:ContentRequest.tags)
+  return tags_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-ContentRequest::mutable_tag() {
-  // @@protoc_insertion_point(field_mutable_list:ContentRequest.tag)
-  return &tag_;
+ContentRequest::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:ContentRequest.tags)
+  return &tags_;
 }
 
 // repeated string categories = 2;

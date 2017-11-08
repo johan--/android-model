@@ -51,7 +51,7 @@ void protobuf_AssignDesc_mainPage_2fcontent_2eproto() {
   GOOGLE_CHECK(file != NULL);
   ContentRequest_descriptor_ = file->message_type(0);
   static const int ContentRequest_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentRequest, tag_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentRequest, tags_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentRequest, categories_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentRequest, page_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentRequest, page_size_),
@@ -250,26 +250,26 @@ void protobuf_AddDesc_mainPage_2fcontent_2eproto_impl() {
 
   protobuf_InitDefaults_mainPage_2fcontent_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\026mainPage/content.proto\"a\n\016ContentReque"
-    "st\022\013\n\003tag\030\001 \003(\t\022\022\n\ncategories\030\002 \003(\t\022\014\n\004p"
-    "age\030\003 \001(\005\022\021\n\tpage_size\030\004 \001(\005\022\r\n\005query\030\005 "
-    "\001(\t\"\247\001\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005tit"
-    "le\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\017\n\007e"
-    "xcerpt\030\005 \001(\t\022\035\n\ncategories\030\006 \003(\0132\t.Categ"
-    "ory\022\022\n\004tags\030\007 \003(\0132\004.Tag\022\034\n\006images\030\010 \003(\0132"
-    "\014.ImageDetail\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014\n"
-    "\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022\023"
-    "\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003Ta"
-    "g\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t"
-    "\022\014\n\004slug\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005c"
-    "ount\030\006 \001(\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001("
-    "\t\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmime"
-    "_type\030\004 \001(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030\006"
-    " \003(\0132\027.ImageDetail.SizesEntry\0328\n\nSizesEn"
-    "try\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.ImageS"
-    "ize:\0028\001\"Q\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006h"
-    "eight\030\002 \001(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime_"
-    "type\030\004 \001(\tB\022\n\020com.wanfang.mainb\006proto3", 798);
+    "\n\026mainPage/content.proto\"b\n\016ContentReque"
+    "st\022\014\n\004tags\030\001 \003(\t\022\022\n\ncategories\030\002 \003(\t\022\014\n\004"
+    "page\030\003 \001(\005\022\021\n\tpage_size\030\004 \001(\005\022\r\n\005query\030\005"
+    " \001(\t\"\247\001\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005ti"
+    "tle\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\017\n\007"
+    "excerpt\030\005 \001(\t\022\035\n\ncategories\030\006 \003(\0132\t.Cate"
+    "gory\022\022\n\004tags\030\007 \003(\0132\004.Tag\022\034\n\006images\030\010 \003(\013"
+    "2\014.ImageDetail\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014"
+    "\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022"
+    "\023\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003T"
+    "ag\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001("
+    "\t\022\014\n\004slug\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005"
+    "count\030\006 \001(\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001"
+    "(\t\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmim"
+    "e_type\030\004 \001(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030"
+    "\006 \003(\0132\027.ImageDetail.SizesEntry\0328\n\nSizesE"
+    "ntry\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.Image"
+    "Size:\0028\001\"Q\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006"
+    "height\030\002 \001(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime"
+    "_type\030\004 \001(\tB\022\n\020com.wanfang.mainb\006proto3", 799);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "mainPage/content.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_mainPage_2fcontent_2eproto);
@@ -300,7 +300,7 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ContentRequest::kTagFieldNumber;
+const int ContentRequest::kTagsFieldNumber;
 const int ContentRequest::kCategoriesFieldNumber;
 const int ContentRequest::kPageFieldNumber;
 const int ContentRequest::kPageSizeFieldNumber;
@@ -390,7 +390,7 @@ void ContentRequest::Clear() {
 #undef ZR_HELPER_
 #undef ZR_
 
-  tag_.Clear();
+  tags_.Clear();
   categories_.Clear();
 }
 
@@ -404,21 +404,21 @@ bool ContentRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated string tag = 1;
+      // repeated string tags = 1;
       case 1: {
         if (tag == 10) {
-         parse_tag:
+         parse_tags:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_tag()));
+                input, this->add_tags()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->tag(this->tag_size() - 1).data(),
-            this->tag(this->tag_size() - 1).length(),
+            this->tags(this->tags_size() - 1).data(),
+            this->tags(this->tags_size() - 1).length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ContentRequest.tag"));
+            "ContentRequest.tags"));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_tag;
+        if (input->ExpectTag(10)) goto parse_tags;
         if (input->ExpectTag(18)) goto parse_categories;
         break;
       }
@@ -513,14 +513,14 @@ failure:
 void ContentRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:ContentRequest)
-  // repeated string tag = 1;
-  for (int i = 0; i < this->tag_size(); i++) {
+  // repeated string tags = 1;
+  for (int i = 0; i < this->tags_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->tag(i).data(), this->tag(i).length(),
+      this->tags(i).data(), this->tags(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ContentRequest.tag");
+      "ContentRequest.tags");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->tag(i), output);
+      1, this->tags(i), output);
   }
 
   // repeated string categories = 2;
@@ -560,14 +560,14 @@ void ContentRequest::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:ContentRequest)
-  // repeated string tag = 1;
-  for (int i = 0; i < this->tag_size(); i++) {
+  // repeated string tags = 1;
+  for (int i = 0; i < this->tags_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->tag(i).data(), this->tag(i).length(),
+      this->tags(i).data(), this->tags(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ContentRequest.tag");
+      "ContentRequest.tags");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(1, this->tag(i), target);
+      WriteStringToArray(1, this->tags(i), target);
   }
 
   // repeated string categories = 2;
@@ -630,12 +630,12 @@ size_t ContentRequest::ByteSizeLong() const {
         this->query());
   }
 
-  // repeated string tag = 1;
+  // repeated string tags = 1;
   total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->tag_size());
-  for (int i = 0; i < this->tag_size(); i++) {
+      ::google::protobuf::internal::FromIntSize(this->tags_size());
+  for (int i = 0; i < this->tags_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->tag(i));
+      this->tags(i));
   }
 
   // repeated string categories = 2;
@@ -679,7 +679,7 @@ void ContentRequest::MergeFrom(const ContentRequest& from) {
 
 void ContentRequest::UnsafeMergeFrom(const ContentRequest& from) {
   GOOGLE_DCHECK(&from != this);
-  tag_.UnsafeMergeFrom(from.tag_);
+  tags_.UnsafeMergeFrom(from.tags_);
   categories_.UnsafeMergeFrom(from.categories_);
   if (from.page() != 0) {
     set_page(from.page());
@@ -717,7 +717,7 @@ void ContentRequest::Swap(ContentRequest* other) {
   InternalSwap(other);
 }
 void ContentRequest::InternalSwap(ContentRequest* other) {
-  tag_.UnsafeArenaSwap(&other->tag_);
+  tags_.UnsafeArenaSwap(&other->tags_);
   categories_.UnsafeArenaSwap(&other->categories_);
   std::swap(page_, other->page_);
   std::swap(page_size_, other->page_size_);
@@ -737,59 +737,59 @@ void ContentRequest::InternalSwap(ContentRequest* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ContentRequest
 
-// repeated string tag = 1;
-int ContentRequest::tag_size() const {
-  return tag_.size();
+// repeated string tags = 1;
+int ContentRequest::tags_size() const {
+  return tags_.size();
 }
-void ContentRequest::clear_tag() {
-  tag_.Clear();
+void ContentRequest::clear_tags() {
+  tags_.Clear();
 }
-const ::std::string& ContentRequest::tag(int index) const {
-  // @@protoc_insertion_point(field_get:ContentRequest.tag)
-  return tag_.Get(index);
+const ::std::string& ContentRequest::tags(int index) const {
+  // @@protoc_insertion_point(field_get:ContentRequest.tags)
+  return tags_.Get(index);
 }
-::std::string* ContentRequest::mutable_tag(int index) {
-  // @@protoc_insertion_point(field_mutable:ContentRequest.tag)
-  return tag_.Mutable(index);
+::std::string* ContentRequest::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:ContentRequest.tags)
+  return tags_.Mutable(index);
 }
-void ContentRequest::set_tag(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:ContentRequest.tag)
-  tag_.Mutable(index)->assign(value);
+void ContentRequest::set_tags(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ContentRequest.tags)
+  tags_.Mutable(index)->assign(value);
 }
-void ContentRequest::set_tag(int index, const char* value) {
-  tag_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ContentRequest.tag)
+void ContentRequest::set_tags(int index, const char* value) {
+  tags_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ContentRequest.tags)
 }
-void ContentRequest::set_tag(int index, const char* value, size_t size) {
-  tag_.Mutable(index)->assign(
+void ContentRequest::set_tags(int index, const char* value, size_t size) {
+  tags_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ContentRequest.tag)
+  // @@protoc_insertion_point(field_set_pointer:ContentRequest.tags)
 }
-::std::string* ContentRequest::add_tag() {
-  // @@protoc_insertion_point(field_add_mutable:ContentRequest.tag)
-  return tag_.Add();
+::std::string* ContentRequest::add_tags() {
+  // @@protoc_insertion_point(field_add_mutable:ContentRequest.tags)
+  return tags_.Add();
 }
-void ContentRequest::add_tag(const ::std::string& value) {
-  tag_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ContentRequest.tag)
+void ContentRequest::add_tags(const ::std::string& value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ContentRequest.tags)
 }
-void ContentRequest::add_tag(const char* value) {
-  tag_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ContentRequest.tag)
+void ContentRequest::add_tags(const char* value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ContentRequest.tags)
 }
-void ContentRequest::add_tag(const char* value, size_t size) {
-  tag_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ContentRequest.tag)
+void ContentRequest::add_tags(const char* value, size_t size) {
+  tags_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ContentRequest.tags)
 }
 const ::google::protobuf::RepeatedPtrField< ::std::string>&
-ContentRequest::tag() const {
-  // @@protoc_insertion_point(field_list:ContentRequest.tag)
-  return tag_;
+ContentRequest::tags() const {
+  // @@protoc_insertion_point(field_list:ContentRequest.tags)
+  return tags_;
 }
 ::google::protobuf::RepeatedPtrField< ::std::string>*
-ContentRequest::mutable_tag() {
-  // @@protoc_insertion_point(field_mutable_list:ContentRequest.tag)
-  return &tag_;
+ContentRequest::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:ContentRequest.tags)
+  return &tags_;
 }
 
 // repeated string categories = 2;

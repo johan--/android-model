@@ -66,7 +66,7 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
         switch (helper.getItemViewType()) {
             case TYPE_LEVEL_0:
                 final Level0 level0 = (Level0) item;
-                helper.setText(R.id.tv_title, level0.getText())
+                helper.setText(R.id.tv_title, level0.getShowName())
                         .setImageResource(R.id.iv_arraw, level0.isExpanded() ? R.mipmap.pull_down_icon : R.mipmap.step_arrow_icon);
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -104,7 +104,7 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
 
             case TYPE_LEVEL_1:
                 final Level1 lv1 = (Level1) item;
-                helper.setText(R.id.tv_name, lv1.text);
+                helper.setText(R.id.tv_name, lv1.getShowName());
                 if (lv1.isSelected()) {
                     helper.setBackgroundRes(R.id.tv_name, R.drawable.search_selected_bg);
                 } else {

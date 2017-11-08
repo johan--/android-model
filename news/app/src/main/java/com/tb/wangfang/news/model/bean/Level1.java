@@ -12,6 +12,69 @@ public class Level1 implements MultiItemEntity {
     int parentId = -1;
     int childId = -1;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public  void setName(String name) {
+        this.name = name;
+    }
+
+    public String getpId() {
+        return pId;
+    }
+
+    public void setpId(String pId) {
+        this.pId = pId;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getShowName() {
+        return showName;
+    }
+
+    public void setShowName(String showName) {
+        this.showName = showName;
+    }
+
+    public String getFacetField() {
+        return facetField;
+    }
+
+    public void setFacetField(String facetField) {
+        this.facetField = facetField;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public void setCount(String count) {
+        this.count = count;
+    }
+
+    String id;
+    String name;
+    String pId;
+    String value;
+    String showName;
+    String facetField;
+    String count;
     boolean isSelected = false;
 
     public int getParentId() {

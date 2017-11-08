@@ -187,6 +187,8 @@ dependencies {
     compile 'cn.jiguang.sdk:jpush:3.0.9'
     compile 'cn.jiguang.sdk:jcore:1.1.7'
     compile 'cn.jiguang.sdk:jmessage:2.2.1'
+//    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
     testCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'

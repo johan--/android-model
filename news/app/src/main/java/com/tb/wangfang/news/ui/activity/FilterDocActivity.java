@@ -2,7 +2,6 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -25,6 +24,8 @@ import com.tb.wangfang.news.model.bean.Level1;
 import com.tb.wangfang.news.model.bean.Level2;
 import com.tb.wangfang.news.model.bean.Level3;
 import com.tb.wangfang.news.model.bean.SearchDocItem;
+import com.tb.wangfang.news.model.bean.SearchFilterListBean;
+import com.tb.wangfang.news.model.bean.SearchReplyBean;
 import com.tb.wangfang.news.presenter.FilterDocPresenter;
 import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
@@ -32,10 +33,8 @@ import com.tb.wangfang.news.utils.SnackbarUtil;
 import com.tb.wangfang.news.widget.FlowLayout;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -86,45 +85,6 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
     @Override
     protected void initEventAndData() {
-//        //创建okHttpClient对象
-//        OkHttpClient mOkHttpClient = new OkHttpClient();
-//        //创建一个Request
-//        final Request request = new Request.Builder()
-//                .url("https://github.com/hongyangAndroid")
-//                .build();
-//        //new call
-//        Call call = mOkHttpClient.newCall(request);
-//        //请求加入调度
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Request request, IOException e) {
-//            }
-//
-//            @Override
-//            public void onResponse(final Response response) throws IOException {
-//                //String htmlStr =  response.body().string();
-//            }
-//        });
-//
-//
-//        FormEncodingBuilder builder = new FormEncodingBuilder();
-//        builder.add("username","张鸿洋");
-//
-//        Request request1 = new Request.Builder()
-//                .url(url)
-//                .post(builder.build())
-//                .build();
-//        mOkHttpClient.newCall(request).enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Request request, IOException e) {
-//
-//            }
-//
-//            @Override
-//            public void onResponse(Response response) throws IOException {
-//
-//            }
-//        });
         //初始化搜索控件
         text = getIntent().getExtras().getString("text");
         msSeletOne.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");
@@ -172,6 +132,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
             }
         });
         mPresenter.search(text, page);
+        mPresenter.searchNavigation(text, null, null, null);
     }
 
 
@@ -260,40 +221,38 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
     }
 
-    @Override
-    public void refreshView(List<SearchDocItem> searchDocItems) {
-
-        docAdapter.setNewData(searchDocItems);
-        swipeLayout.setRefreshing(false);
-        docAdapter.setEnableLoadMore(true);
-
-    }
 
     @Override
-    public void loadMoreView(List<SearchDocItem> searchDocItems) {
-        swipeLayout.setEnabled(false);
-        docAdapter.addData(searchDocItems);
-        docAdapter.loadMoreComplete();
-        swipeLayout.setEnabled(true);
-
-    }
-
-    @Override
-    public void loadFilterView(List<Level0> searchDocItems) {
+    public void loadFilterView(SearchFilterListBean searchFilterListBean) {
         multiItemEntityArrayList.clear();
-        for (int i = 0; i < 3; i++) {
-            Level0 level0 = new Level0();
-            level0.setText("氛围妇女节窝囊废" + i);
-            for (int j = 0; j < 3; j++) {
-                Level1 level1 = new Level1();
-                level1.setText(j + "蜂窝肺");
-                level1.setParentId(i);
-                level1.setChildId(j);
-                level0.addSubItem(level1);
+        for (int i = 0; i < searchFilterListBean.getData().size(); i++) {
+            SearchFilterListBean.DataBean dataBean = searchFilterListBean.getData().get(i);
+            if (searchFilterListBean.getData().get(i).getPId().equals("-1")) {
+                Level0 level0 = new Level0();
+                level0.setId(dataBean.getId());
+                level0.setName(dataBean.getName());
+                level0.setValue(dataBean.getValue());
+                level0.setShowName(dataBean.getShowName());
+                level0.setFacetField(dataBean.getFacetField());
+                multiItemEntityArrayList.add(level0);
             }
-
-            multiItemEntityArrayList.add(level0);
-
+        }
+        for (int i = 0; i < searchFilterListBean.getData().size(); i++) {
+            SearchFilterListBean.DataBean dataBean = searchFilterListBean.getData().get(i);
+            if (!searchFilterListBean.getData().get(i).getPId().equals("-1")) {
+                Level1 level1 = new Level1();
+                level1.setId(dataBean.getId());
+                level1.setName(dataBean.getName());
+                level1.setValue(dataBean.getValue());
+                level1.setShowName(dataBean.getShowName());
+                level1.setFacetField(dataBean.getFacetField());
+                level1.setpId(dataBean.getPId());
+                for (int j = 0; j < multiItemEntityArrayList.size(); j++) {
+                    if (level1.getpId().equals(((Level0) multiItemEntityArrayList.get(j)).getId())) {
+                        ((Level0) multiItemEntityArrayList.get(j)).addSubItem(level1);
+                    }
+                }
+            }
         }
         Level2 level2 = new Level2();
         level2.setText("年份");
@@ -301,6 +260,11 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         level2.addSubItem(level3);
         multiItemEntityArrayList.add(level2);
         expandAdapter.setNewData(multiItemEntityArrayList);
+
+    }
+
+    @Override
+    public void loadSearchContent(SearchReplyBean searchReplyBean) {
 
     }
 
@@ -331,10 +295,4 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

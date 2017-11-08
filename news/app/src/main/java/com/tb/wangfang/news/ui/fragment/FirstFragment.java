@@ -79,7 +79,6 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
     public static FirstFragment newInstance() {
         FirstFragment fragment = new FirstFragment();
-
         return fragment;
     }
 
@@ -116,6 +115,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 //            datas.add(data);
 //        }
         mainPageAdapter = new MainPageAdapter(getActivity(), null);
+        mainPageAdapter.setOnLoadMoreListener(this, recyclerCourse);
         mainPageAdapter.addHeaderView(view);
         recyclerCourse.setAdapter(mainPageAdapter);
         final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
@@ -275,7 +275,10 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     @Override
     public void onPause() {
         super.onPause();
-        tvLastNews.stopAutoScroll();
+        if (tvLastNews != null) {
+            tvLastNews.stopAutoScroll();
+        }
+
     }
 
     @Override
