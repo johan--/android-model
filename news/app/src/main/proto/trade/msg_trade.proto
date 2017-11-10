@@ -9,7 +9,14 @@ option objc_class_prefix = "WFPR";
 // 统一下单
 message UnifiedorderRequest  {
     string user_id = 1;
-    string safe_transaction_string = 2; // 统一下单需要的参数
+    AccountId transfer_out = 2;//支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+    string safe_transaction_string = 3; // 统一下单需要的参数，TransactionRequest Json
+}
+
+//toString后为Type.Key的形式
+message AccountId {
+    string Type = 1;//Weixin,AliPay,WFChargeCard,ApplePay，不可为空
+    string Key = 2;//Android,IOS,xxx(xxx为userid之类),可为空
 }
 
 message UnifiedorderResponse {
@@ -29,6 +36,7 @@ message MyOrdersRequest {
     int32 page_number = 2;
     int32 page_size = 3;
 }
+
 message MyOrdersResponse {
     message Result {
         string order_id = 1; // 订单ID

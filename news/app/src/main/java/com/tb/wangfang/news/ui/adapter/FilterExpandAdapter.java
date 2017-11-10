@@ -1,10 +1,10 @@
 package com.tb.wangfang.news.ui.adapter;
 
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -14,7 +14,7 @@ import com.tb.wangfang.news.model.bean.Level0;
 import com.tb.wangfang.news.model.bean.Level1;
 import com.tb.wangfang.news.model.bean.Level2;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -29,22 +29,15 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
 
     String TAG = "FilterExpandAdapter";
 
-
-    List<MultiItemEntity> level0s = new ArrayList<>();
     EditText etStartTime;
     EditText etStartEnd;
-    TextView tvPeriodOne;
-    TextView tvLastPeriodOne;
-    RelativeLayout rlLastOneYear;
-    TextView tvPeriodThree;
-    TextView tvLastPeriodThree;
-    RelativeLayout rlLastThreeYear;
-    TextView tvPeriodFive;
-    TextView tvLastPeriodFive;
-    RelativeLayout rlLastFiveYear;
-    TextView tvPeriodAll;
-    TextView tvLastPeriodAll;
-    RelativeLayout rlLastAllYear;
+
+    private int endyear;
+    private int startYear;
+    private RelativeLayout rlLastOneYear;
+    private RelativeLayout rlLastThreeYear;
+    private RelativeLayout rlLastFiveYear;
+    private RelativeLayout rlLastAllYear;
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
@@ -149,8 +142,80 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
                 });
                 break;
             case TYPE_LEVEL_3:
+                etStartTime = helper.getView(R.id.et_start_time);
+                etStartEnd = helper.getView(R.id.et_start_end);
+                rlLastOneYear = helper.getView(R.id.rl_last_one_year);
+                rlLastThreeYear = helper.getView(R.id.rl_last_three_year);
+                rlLastFiveYear = helper.getView(R.id.rl_last_five_year);
+                rlLastAllYear = helper.getView(R.id.rl_last_all_year);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+                String date = sdf.format(new java.util.Date());
+                endyear = Integer.parseInt(date);
+                rlLastOneYear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startYear = endyear - 1;
+                        SelectedTime(startYear + "", endyear + "", rlLastOneYear);
+                    }
+                });
+                rlLastThreeYear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startYear = endyear - 3;
+                        SelectedTime(startYear + "", endyear + "", rlLastThreeYear);
+                    }
+                });
+                rlLastFiveYear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startYear = endyear - 5;
+                        SelectedTime(startYear + "", endyear + "", rlLastFiveYear);
+                    }
+                });
+                rlLastAllYear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        SelectedTime("", "", rlLastAllYear);
+                    }
+                });
                 break;
         }
 
+    }
+
+    private void SelectedTime(String startYear, String endYear, RelativeLayout editText) {
+        rlLastOneYear.setBackgroundResource(R.drawable.white_corners_solide);
+        rlLastAllYear.setBackgroundResource(R.drawable.white_corners_solide);
+        rlLastFiveYear.setBackgroundResource(R.drawable.white_corners_solide);
+        rlLastThreeYear.setBackgroundResource(R.drawable.white_corners_solide);
+        editText.setBackgroundResource(R.drawable.search_selected_bg);
+        etStartEnd.setText(endYear + "");
+        etStartTime.setText(startYear + "");
+    }
+
+    public String getStartTime() {
+        if (etStartTime==null){
+            return null;
+        }
+        Editable s=etStartTime.getText();
+        if (s!=null){
+            return s.toString();
+        }else{
+            return null;
+        }
+
+    }
+
+    public String getEndTime() {
+        if (etStartEnd==null){
+            return null;
+        }
+        Editable s=etStartEnd.getText();
+        if (s!=null){
+            return s.toString();
+        }else{
+            return null;
+        }
     }
 }

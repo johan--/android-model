@@ -34,4 +34,22 @@ public interface IAPCreateOrderRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getProductPriceBytes();
+
+  /**
+   * <pre>
+   * 登录token
+   * </pre>
+   *
+   * <code>optional string login_token = 3;</code>
+   */
+  java.lang.String getLoginToken();
+  /**
+   * <pre>
+   * 登录token
+   * </pre>
+   *
+   * <code>optional string login_token = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getLoginTokenBytes();
 }

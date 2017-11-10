@@ -31,25 +31,18 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
 
     }
 
+
     @Override
-    public void search(final String text, final int page) {
-//        List<Level0> list = new ArrayList<>();
-//        for (int i = 0; i < 6; i++) {
-//            Level0 level0 = new Level0();
-//            level0.setText("服务交付给IE我" + i);
-//            for (int j = 0; j < 10; j++) {
-//                Level1 level1 = new Level1();
-//                level0.addSubItem(level1);
-//            }
-//            list.add(level0);
-//        }
-//        mView.loadFilterView(list);
-        //
+    public void search(String text, int page, String navigation, String startTime, String endTime, String sort) {
         OkHttpUtils
                 .get()
                 .url(SEARCH_LIST_CONTENT)
                 .addParams("params", "标题:" + text)
                 .addParams("page", String.valueOf(page)).addParams("pageSize", 20 + "")
+                .addParams("navigation", navigation)
+                .addParams("startDate", startTime)
+                .addParams("endDate", endTime)
+                .addParams("sortField", sort)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -59,14 +52,18 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d(TAG, "onResponse: " + response);
-                        Gson gson = new Gson();
-                        SearchReplyBean searchReplyBean = gson.fromJson(response, SearchReplyBean.class);
-                        mView.loadSearchContent(searchReplyBean);
+                        if ("{}".equals(response)) {
+                            mView.loadSearchContent(null);
+                        } else {
+                            Log.d(TAG, "onResponse: " + response);
+                            Gson gson = new Gson();
+                            SearchReplyBean searchReplyBean = gson.fromJson(response, SearchReplyBean.class);
+                            mView.loadSearchContent(searchReplyBean);
+                        }
+
                     }
 
                 });
-
     }
 
     @Override
@@ -85,10 +82,15 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d(TAG, "onResponse: " + response);
-                        Gson gson = new Gson();
-                        SearchFilterListBean searchFilterListBean = gson.fromJson(response, SearchFilterListBean.class);
-                        mView.loadFilterView(searchFilterListBean);
+                        if ("{}".equals(response)) {
+                            mView.loadFilterView(null);
+                        } else {
+                            Log.d(TAG, "onResponse: " + response);
+                            Gson gson = new Gson();
+                            SearchFilterListBean searchFilterListBean = gson.fromJson(response, SearchFilterListBean.class);
+                            mView.loadFilterView(searchFilterListBean);
+                        }
+
                     }
 
                 });

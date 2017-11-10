@@ -1,6 +1,7 @@
 package com.zhy.http.okhttp.builder;
 
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.zhy.http.okhttp.request.GetRequest;
 import com.zhy.http.okhttp.request.RequestCall;
@@ -49,7 +50,7 @@ public class GetBuilder extends OkHttpRequestBuilder<GetBuilder> implements HasP
         if (this.params == null) {
             params = new LinkedHashMap<>();
         }
-        if (val != null) {
+        if (!TextUtils.isEmpty(val)) {
             params.put(key, val);
         }
 

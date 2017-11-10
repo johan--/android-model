@@ -20,6 +20,11 @@ public final class MsgTrade {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_trade_UnifiedorderRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_trade_AccountId_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_trade_AccountId_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_trade_UnifiedorderResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -49,15 +54,17 @@ public final class MsgTrade {
   static {
     java.lang.String[] descriptorData = {
       "\n\025trade/msg_trade.proto\022\005trade\032\032grpcComm" +
-      "on/msg_error.proto\"G\n\023UnifiedorderReques" +
-      "t\022\017\n\007user_id\030\001 \001(\t\022\037\n\027safe_transaction_s" +
-      "tring\030\002 \001(\t\"\270\001\n\024UnifiedorderResponse\022\016\n\006" +
+      "on/msg_error.proto\"o\n\023UnifiedorderReques" +
+      "t\022\017\n\007user_id\030\001 \001(\t\022&\n\014transfer_out\030\002 \001(\013" +
+      "2\020.trade.AccountId\022\037\n\027safe_transaction_s" +
+      "tring\030\003 \001(\t\"&\n\tAccountId\022\014\n\004Type\030\001 \001(\t\022\013" +
+      "\n\003Key\030\002 \001(\t\"\270\001\n\024UnifiedorderResponse\022\016\n\006" +
       "app_id\030\001 \001(\t\022\022\n\npartner_id\030\002 \001(\t\022\021\n\tprep" +
       "ay_id\030\003 \001(\t\022\017\n\007package\030\004 \001(\t\022\020\n\010noncestr" +
       "\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(\t\022\014\n\004sign\030\007 \001(\t" +
-      "\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcError\"J" +
+      "\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcError\"J",
       "\n\017MyOrdersRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013pa" +
-      "ge_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\256\002\n\020M",
+      "ge_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\256\002\n\020M" +
       "yOrdersResponse\022/\n\007results\030\001 \003(\0132\036.trade" +
       ".MyOrdersResponse.Result\022\023\n\013total_count\030" +
       "\002 \001(\005\022\020\n\010has_more\030\003 \001(\010\022$\n\005error\030\004 \001(\0132\025" +
@@ -65,7 +72,7 @@ public final class MsgTrade {
       "r_id\030\001 \001(\t\022\023\n\013create_time\030\002 \001(\t\022\023\n\013order" +
       "_money\030\003 \001(\t\022\032\n\022order_product_type\030\005 \001(\t" +
       "\022\023\n\013order_state\030\006 \001(\005\022\023\n\013order_title\030\007 \001" +
-      "(\t\022\017\n\007pay_way\030\010 \001(\tB\034\n\021com.wanfang.trade" +
+      "(\t\022\017\n\007pay_way\030\010 \001(\tB\034\n\021com.wanfang.trade",
       "P\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -86,21 +93,27 @@ public final class MsgTrade {
     internal_static_trade_UnifiedorderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_trade_UnifiedorderRequest_descriptor,
-        new java.lang.String[] { "UserId", "SafeTransactionString", });
-    internal_static_trade_UnifiedorderResponse_descriptor =
+        new java.lang.String[] { "UserId", "TransferOut", "SafeTransactionString", });
+    internal_static_trade_AccountId_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_trade_AccountId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_trade_AccountId_descriptor,
+        new java.lang.String[] { "Type", "Key", });
+    internal_static_trade_UnifiedorderResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_trade_UnifiedorderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_trade_UnifiedorderResponse_descriptor,
         new java.lang.String[] { "AppId", "PartnerId", "PrepayId", "Package", "Noncestr", "TimeStamp", "Sign", "Error", });
     internal_static_trade_MyOrdersRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_trade_MyOrdersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_trade_MyOrdersRequest_descriptor,
         new java.lang.String[] { "UserId", "PageNumber", "PageSize", });
     internal_static_trade_MyOrdersResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_trade_MyOrdersResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_trade_MyOrdersResponse_descriptor,

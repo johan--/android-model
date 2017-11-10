@@ -9,6 +9,7 @@ option objc_class_prefix = "WFPR";
 message IAPCreateOrderRequest {
     string user_id = 1;
     string product_price = 2; // 产品价格
+    string login_token = 3; // 登录token
 }
 
 message IAPCreateOrderResponse {

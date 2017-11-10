@@ -2,15 +2,19 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -23,7 +27,6 @@ import com.tb.wangfang.news.model.bean.Level0;
 import com.tb.wangfang.news.model.bean.Level1;
 import com.tb.wangfang.news.model.bean.Level2;
 import com.tb.wangfang.news.model.bean.Level3;
-import com.tb.wangfang.news.model.bean.SearchDocItem;
 import com.tb.wangfang.news.model.bean.SearchFilterListBean;
 import com.tb.wangfang.news.model.bean.SearchReplyBean;
 import com.tb.wangfang.news.presenter.FilterDocPresenter;
@@ -35,6 +38,7 @@ import com.tb.wangfang.news.widget.FlowLayout;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -55,11 +59,13 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout swipeLayout;
     @BindView(R.id.ms_selet_one)
-    MaterialSpinner msSeletOne;
+    TextView msSeletOne;
     @BindView(R.id.ms_selet_two)
-    MaterialSpinner msSeletTwo;
+    TextView msSeletTwo;
     @BindView(R.id.ms_selet_three)
-    MaterialSpinner msSeletThree;
+    TextView msSeletThree;
+    @BindView(R.id.ms_selet_four)
+    TextView msSeletFour;
     @BindView(R.id.fl_condition)
     FlowLayout flCondition;
     @BindView(R.id.tv_sign_one)
@@ -70,13 +76,25 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     TextView tvComplete;
     @BindView(R.id.ll_sign_two)
     LinearLayout llSignTwo;
+    @BindView(R.id.rl_selet_one)
+    RelativeLayout rlSeletOne;
+    @BindView(R.id.rl_selet_two)
+    RelativeLayout rlSeletTwo;
+    @BindView(R.id.rl_selet_three)
+    RelativeLayout rlSeletThree;
+    @BindView(R.id.rl_selet_four)
+    RelativeLayout rlSeletFour;
     private SearchDocumentAdapter docAdapter;
-    private ArrayList<SearchDocItem> searchDocItemArrayList = new ArrayList<>();
     ArrayList<MultiItemEntity> multiItemEntityArrayList = new ArrayList<>();
     private int page = 1;
     private String text;
     private FilterExpandAdapter expandAdapter;
     private ArrayList<View> viewArrayList = new ArrayList<>();
+    private String navigation;
+    private String startDate;
+    private String endDate;
+    private String TAG = "FilterDocActivity";
+    private String sortField = "";
 
     @Override
     protected int getLayout() {
@@ -87,22 +105,18 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     protected void initEventAndData() {
         //初始化搜索控件
         text = getIntent().getExtras().getString("text");
-        msSeletOne.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");
-        msSeletOne.setOnItemSelectedListener(this);
+//        msSeletOne.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");
+//        msSeletOne.setOnItemSelectedListener(this);
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         rvContent.setLayoutManager(new LinearLayoutManager(this));
-        //假数据
-        for (int i = 0; i < 30; i++) {
-            SearchDocItem item = new SearchDocItem();
-            item.setDescription("违法科技为飞机无法访问广告位" + i);
-            searchDocItemArrayList.add(item);
-        }
-        docAdapter = new SearchDocumentAdapter(searchDocItemArrayList);
+
+        docAdapter = new SearchDocumentAdapter(null);
         docAdapter.setOnLoadMoreListener(this, rvContent);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         docAdapter.setPreLoadNumber(2);
         rvContent.setAdapter(docAdapter);
+        docAdapter.setEmptyView(R.layout.normal_empty_layout);
 
         //初始化筛选控件
         expandAdapter = new FilterExpandAdapter(multiItemEntityArrayList);
@@ -131,7 +145,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 startActivity(intent);
             }
         });
-        mPresenter.search(text, page);
+        mPresenter.search(text, page, "", "", "", "");
         mPresenter.searchNavigation(text, null, null, null);
     }
 
@@ -142,7 +156,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
 
-    @OnClick({R.id.iv_go_back, R.id.iv_menu, R.id.tv_reset, R.id.tv_complete})
+    @OnClick({R.id.iv_go_back, R.id.iv_menu, R.id.tv_reset, R.id.tv_complete, R.id.rl_selet_one, R.id.rl_selet_two, R.id.rl_selet_three, R.id.rl_selet_four})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_go_back:
@@ -156,21 +170,30 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
                 break;
             case R.id.tv_reset:
-                for (int i = 0; i < expandAdapter.getData().size(); i++) {
-                    if (expandAdapter.getData().get(i) instanceof Level0) {
-                        Level0 level0 = (Level0) expandAdapter.getData().get(i);
-                        level0.setSeletedPosition(-1);
-                        for (int j = 0; j < level0.getSubItems().size(); j++) {
-                            Level1 level1 = level0.getSubItem(j);
-                            level1.setSelected(false);
-                        }
-                    }
-                }
-                expandAdapter.notifyDataSetChanged();
+//                for (int i = 0; i < expandAdapter.getData().size(); i++) {
+//                    if (expandAdapter.getData().get(i) instanceof Level0) {
+//                        Level0 level0 = (Level0) expandAdapter.getData().get(i);
+//                        level0.setSeletedPosition(-1);
+//                        for (int j = 0; j < level0.getSubItems().size(); j++) {
+//                            Level1 level1 = level0.getSubItem(j);
+//                            level1.setSelected(false);
+//                        }
+//                    }
+//                }
+//                expandAdapter.notifyDataSetChanged();
+                mPresenter.search(text, page, "", "", "", "");
+                mPresenter.searchNavigation(text, null, null, null);
+                flCondition.removeAllViews();
+                viewArrayList.clear();
+                dlRight.closeDrawer(Gravity.RIGHT);
                 break;
             case R.id.tv_complete:
                 viewArrayList.clear();
+                page = 1;
+                docAdapter.setNewData(null);
                 flCondition.removeAllViews();
+
+                final ArrayList<String> stringArray = new ArrayList<>();
                 for (int i = 0; i < expandAdapter.getData().size(); i++) {
                     if (expandAdapter.getData().get(i) instanceof Level0) {
                         Level0 level0 = (Level0) expandAdapter.getData().get(i);
@@ -179,8 +202,9 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                             if (level1.isSelected()) {
                                 View view1 = getLayoutInflater().inflate(R.layout.item_search_condition, flCondition, false);
                                 TextView tvCondition = (TextView) view1.findViewById(R.id.tv_condition);
-                                tvCondition.setText(level1.getText());
+                                tvCondition.setText(level1.getShowName());
                                 viewArrayList.add(view1);
+                                stringArray.add(level0.getShowName().substring(0, 2) + ":" + level1.getValue());
                             }
                         }
                     }
@@ -191,14 +215,93 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                     ivDelete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            int position = flCondition.indexOfChild((View) ivDelete.getParent());
                             flCondition.removeView((View) ivDelete.getParent());
+                            stringArray.remove(position);
+                            navigation = "";
+                            for (int i = 0; i < stringArray.size(); i++) {
+                                if (i == 0) {
+                                    navigation += stringArray.get(i);
+                                } else {
+                                    navigation += "*" + stringArray.get(i);
+                                }
+                            }
+                            Log.d(TAG, "onViewClicked: navigation" + navigation);
+                            mPresenter.searchNavigation(text, navigation, startDate, endDate);
+
+                            mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                         }
                     });
                     flCondition.addView(view2);
                 }
+
+                navigation = "";
+                for (int i = 0; i < stringArray.size(); i++) {
+                    if (i == 0) {
+                        navigation += stringArray.get(i);
+                    } else {
+                        navigation += "*" + stringArray.get(i);
+                    }
+                }
+                Log.d(TAG, "onViewClicked: navigation" + navigation);
+                startDate = expandAdapter.getStartTime();
+                endDate = expandAdapter.getEndTime();
                 dlRight.closeDrawer(Gravity.RIGHT);
+                mPresenter.searchNavigation(text, navigation, startDate, endDate);
+                mPresenter.search(text, page, navigation, startDate, endDate, sortField);
+                break;
+            case R.id.rl_selet_one:
+                if (sortField.equals("相关度:desc")) {
+                    sortField = "相关度:asc";
+                    setDrabelRight(msSeletOne, R.mipmap.asc);
+                } else {
+                    sortField = "相关度:desc";
+                    setDrabelRight(msSeletOne, R.mipmap.desc);
+                }
+                mPresenter.search(text, page, navigation, startDate, endDate, sortField);
+                break;
+            case R.id.rl_selet_two:
+                if (sortField.equals("发表时间:desc")) {
+                    sortField = "发表时间:asc";
+                    setDrabelRight(msSeletTwo, R.mipmap.asc);
+                } else {
+                    sortField = "发表时间:desc";
+                    setDrabelRight(msSeletTwo, R.mipmap.desc);
+                }
+                mPresenter.search(text, page, navigation, startDate, endDate, sortField);
+                break;
+            case R.id.rl_selet_three:
+                if (sortField.equals("热度:desc")) {
+                    sortField = "热度:asc";
+                    setDrabelRight(msSeletThree, R.mipmap.asc);
+                } else {
+                    sortField = "热度:desc";
+                    setDrabelRight(msSeletThree, R.mipmap.desc);
+                }
+                mPresenter.search(text, page, navigation, startDate, endDate, sortField);
+                break;
+            case R.id.rl_selet_four:
+                if (sortField.equals("被引量:desc")) {
+                    sortField = "被引量:asc";
+                    setDrabelRight(msSeletFour, R.mipmap.asc);
+                } else {
+                    sortField = "被引量:desc";
+                    setDrabelRight(msSeletFour, R.mipmap.desc);
+                }
+                mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
         }
+    }
+
+    private void setDrabelRight(TextView msSeletOne, int ms_selet_four) {
+        this.msSeletOne.setCompoundDrawables(null, null, null, null);
+        msSeletTwo.setCompoundDrawables(null, null, null, null);
+        msSeletThree.setCompoundDrawables(null, null, null, null);
+        msSeletFour.setCompoundDrawables(null, null, null, null);
+        Drawable drawable = getResources().getDrawable(ms_selet_four);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        msSeletOne.setCompoundDrawables(null, null, drawable, null);
+
     }
 
     @Override
@@ -225,6 +328,11 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     @Override
     public void loadFilterView(SearchFilterListBean searchFilterListBean) {
         multiItemEntityArrayList.clear();
+        if (searchFilterListBean == null || searchFilterListBean.getData() == null) {
+            expandAdapter.setNewData(null);
+            return;
+        }
+
         for (int i = 0; i < searchFilterListBean.getData().size(); i++) {
             SearchFilterListBean.DataBean dataBean = searchFilterListBean.getData().get(i);
             if (searchFilterListBean.getData().get(i).getPId().equals("-1")) {
@@ -254,6 +362,15 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
             }
         }
+        //如果每一个选项只有一项默认选择;
+        for (int i = 0; i < multiItemEntityArrayList.size(); i++) {
+            Level0 level0 = (Level0) multiItemEntityArrayList.get(i);
+            if (level0.getSubItems().size() == 1) {
+                level0.getSubItems().get(0).setSelected(true);
+                level0.setExpanded(true);
+            }
+        }
+
         Level2 level2 = new Level2();
         level2.setText("年份");
         Level3 level3 = new Level3();
@@ -261,27 +378,43 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         multiItemEntityArrayList.add(level2);
         expandAdapter.setNewData(multiItemEntityArrayList);
 
+
     }
 
     @Override
     public void loadSearchContent(SearchReplyBean searchReplyBean) {
+        if (searchReplyBean != null && searchReplyBean.getData() != null) {
+            docAdapter.addData(searchReplyBean.getData());
+            if (searchReplyBean.getData().size() < 20) {
+                docAdapter.loadMoreEnd(false);
+            }
+        }
+        swipeLayout.setEnabled(true);
+        swipeLayout.setRefreshing(false);
+        docAdapter.setEnableLoadMore(true);
+        docAdapter.loadMoreComplete();
+
 
     }
 
 
     @Override
     public void onRefresh() {
-
-        page = 1;
         docAdapter.setEnableLoadMore(false);
-        mPresenter.search(text, page);
+        docAdapter.setNewData(null);
+        page = 1;
 
+
+        mPresenter.search(text, page, navigation, startDate, endDate, sortField);
+        mPresenter.searchNavigation(text, navigation, startDate, endDate);
 
     }
 
     @Override
     public void onLoadMoreRequested() {
-        mPresenter.search(text, ++page);
+        swipeLayout.setEnabled(false);
+        page++;
+        mPresenter.search(text, page, navigation, startDate, endDate, sortField);
     }
 
 
@@ -295,4 +428,10 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

@@ -16,33 +16,33 @@ public class SearchReplyBean {
      * message : success
      */
 
-    private int totalRow;
-    private int totalPage;
-    private int status;
+    private String totalRow;
+    private String totalPage;
+    private String status;
     private String message;
     private List<DataBean> data;
 
-    public int getTotalRow() {
+    public String getTotalRow() {
         return totalRow;
     }
 
-    public void setTotalRow(int totalRow) {
+    public void setTotalRow(String totalRow) {
         this.totalRow = totalRow;
     }
 
-    public int getTotalPage() {
+    public String getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(int totalPage) {
+    public void setTotalPage(String totalPage) {
         this.totalPage = totalPage;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -119,23 +119,23 @@ public class SearchReplyBean {
          */
 
         private String id;
-        private int data_sort;
-        private int page_cnt;
-        private int refdoc_cnt;
+        private String data_sort;
+        private String page_cnt;
+        private String refdoc_cnt;
         private Object title02;
         private Object prio_num;
-        private int tag_num;
+        private String tag_num;
         private Object pub_date;
-        private int abstract_reading_num;
+        private String abstract_reading_num;
         private Object disk_num;
         private Object app_date;
         private Object common_year;
         private Object app_num;
-        private int thirdparty_links_num;
+        private String thirdparty_links_num;
         private Object legal_status;
         private Object prio_date;
-        private int import_num;
-        private int share_num;
+        private String import_num;
+        private String share_num;
         private Object common_sort_time;
         private Object patent_id;
         private Object signory;
@@ -143,19 +143,19 @@ public class SearchReplyBean {
         private Object source_db;
         private Object agy_per_name;
         private Object app_date02;
-        private int collection_num;
+        private String collection_num;
         private Object priority;
         private Object applicant_name;
         private Object proposer_name;
         private Object issue_dir;
-        private int download_num;
+        private String download_num;
         private Object prio_ccode;
         private Object pub_num;
         private Object data_state;
         private Object app_address;
         private Object patent_type;
-        private int fulltext_reading_num;
-        private int note_num;
+        private String fulltext_reading_num;
+        private String note_num;
         private Object agy_org_name;
         private Object updatetime;
         private Object class_code;
@@ -179,27 +179,27 @@ public class SearchReplyBean {
             this.id = id;
         }
 
-        public int getData_sort() {
+        public String getData_sort() {
             return data_sort;
         }
 
-        public void setData_sort(int data_sort) {
+        public void setData_sort(String data_sort) {
             this.data_sort = data_sort;
         }
 
-        public int getPage_cnt() {
+        public String getPage_cnt() {
             return page_cnt;
         }
 
-        public void setPage_cnt(int page_cnt) {
+        public void setPage_cnt(String page_cnt) {
             this.page_cnt = page_cnt;
         }
 
-        public int getRefdoc_cnt() {
+        public String getRefdoc_cnt() {
             return refdoc_cnt;
         }
 
-        public void setRefdoc_cnt(int refdoc_cnt) {
+        public void setRefdoc_cnt(String refdoc_cnt) {
             this.refdoc_cnt = refdoc_cnt;
         }
 
@@ -219,11 +219,11 @@ public class SearchReplyBean {
             this.prio_num = prio_num;
         }
 
-        public int getTag_num() {
+        public String getTag_num() {
             return tag_num;
         }
 
-        public void setTag_num(int tag_num) {
+        public void setTag_num(String tag_num) {
             this.tag_num = tag_num;
         }
 
@@ -235,11 +235,11 @@ public class SearchReplyBean {
             this.pub_date = pub_date;
         }
 
-        public int getAbstract_reading_num() {
+        public String getAbstract_reading_num() {
             return abstract_reading_num;
         }
 
-        public void setAbstract_reading_num(int abstract_reading_num) {
+        public void setAbstract_reading_num(String abstract_reading_num) {
             this.abstract_reading_num = abstract_reading_num;
         }
 
@@ -275,11 +275,11 @@ public class SearchReplyBean {
             this.app_num = app_num;
         }
 
-        public int getThirdparty_links_num() {
+        public String getThirdparty_links_num() {
             return thirdparty_links_num;
         }
 
-        public void setThirdparty_links_num(int thirdparty_links_num) {
+        public void setThirdparty_links_num(String thirdparty_links_num) {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
@@ -299,19 +299,19 @@ public class SearchReplyBean {
             this.prio_date = prio_date;
         }
 
-        public int getImport_num() {
+        public String getImport_num() {
             return import_num;
         }
 
-        public void setImport_num(int import_num) {
+        public void setImport_num(String import_num) {
             this.import_num = import_num;
         }
 
-        public int getShare_num() {
+        public String getShare_num() {
             return share_num;
         }
 
-        public void setShare_num(int share_num) {
+        public void setShare_num(String share_num) {
             this.share_num = share_num;
         }
 
@@ -371,11 +371,11 @@ public class SearchReplyBean {
             this.app_date02 = app_date02;
         }
 
-        public int getCollection_num() {
+        public String getCollection_num() {
             return collection_num;
         }
 
-        public void setCollection_num(int collection_num) {
+        public void setCollection_num(String collection_num) {
             this.collection_num = collection_num;
         }
 
@@ -411,11 +411,11 @@ public class SearchReplyBean {
             this.issue_dir = issue_dir;
         }
 
-        public int getDownload_num() {
+        public String getDownload_num() {
             return download_num;
         }
 
-        public void setDownload_num(int download_num) {
+        public void setDownload_num(String download_num) {
             this.download_num = download_num;
         }
 
@@ -459,19 +459,19 @@ public class SearchReplyBean {
             this.patent_type = patent_type;
         }
 
-        public int getFulltext_reading_num() {
+        public String getFulltext_reading_num() {
             return fulltext_reading_num;
         }
 
-        public void setFulltext_reading_num(int fulltext_reading_num) {
+        public void setFulltext_reading_num(String fulltext_reading_num) {
             this.fulltext_reading_num = fulltext_reading_num;
         }
 
-        public int getNote_num() {
+        public String getNote_num() {
             return note_num;
         }
 
-        public void setNote_num(int note_num) {
+        public void setNote_num(String note_num) {
             this.note_num = note_num;
         }
 

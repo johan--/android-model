@@ -33,7 +33,6 @@ public abstract class SimpleFragment extends SupportFragment {
     }
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,10 +50,10 @@ public abstract class SimpleFragment extends SupportFragment {
                 initEventAndData();
             }
         } else {
-            if (!isSupportHidden()) {
-                isInited = true;
-                initEventAndData();
-            }
+
+            isInited = true;
+            initEventAndData();
+
         }
     }
 
@@ -74,5 +73,6 @@ public abstract class SimpleFragment extends SupportFragment {
     }
 
     protected abstract int getLayoutId();
+
     protected abstract void initEventAndData();
 }

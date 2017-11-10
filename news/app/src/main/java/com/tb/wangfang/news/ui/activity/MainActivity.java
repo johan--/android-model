@@ -9,9 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -60,9 +57,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     TextView tvFocus;
     @BindView(R.id.tv_me)
     TextView tvMe;
-    @BindView(R.id.main_vp)
-    ViewPager mainVp;
-
 
     private long TOUCH_TIME = 0;
     public static final int FIRST = 0;
@@ -92,38 +86,18 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             mFragments[SECOND] = SecondFragment.newInstance();
             mFragments[THIRD] = ThirdFragment.newInstance();
             mFragments[FOURTH] = FourthFragment.newInstance();
-//            loadMultipleRootFragment(R.id.fl_container, FIRST,
-//                    mFragments[FIRST],
-//                    mFragments[SECOND],
-//                    mFragments[THIRD],
-//                    mFragments[FOURTH]);
+            loadMultipleRootFragment(R.id.fl_container, FIRST,
+                    mFragments[FIRST],
+                    mFragments[SECOND],
+                    mFragments[THIRD],
+                    mFragments[FOURTH]);
         } else {
             mFragments[FIRST] = findFragment(FirstFragment.class);
             mFragments[SECOND] = findFragment(SecondFragment.class);
             mFragments[THIRD] = findFragment(ThirdFragment.class);
             mFragments[FOURTH] = findFragment(FourthFragment.class);
         }
-//            mPresenter.setNightModeState(false);
-        // 可以监听该Activity下的所有Fragment的18个 生命周期方法
 
-        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
-        mainVp.setAdapter(adapter);
-        mainVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                setState(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
 
         initView();
         JMessageClient.login("tangbin", "123456", new BasicCallback() {
@@ -292,29 +266,28 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_home:
-                mainVp.setCurrentItem(0);
+
                 setState(0);
-//                showHideFragment(mFragments[0], mFragments[prePosition]);
-//                prePosition = 0;
+                showHideFragment(mFragments[0], mFragments[prePosition]);
+                prePosition = 0;
                 break;
             case R.id.tv_find:
 
-                mainVp.setCurrentItem(1);
                 setState(1);
-//                showHideFragment(mFragments[1], mFragments[prePosition]);
-//                prePosition = 1;
+                showHideFragment(mFragments[1], mFragments[prePosition]);
+                prePosition = 1;
                 break;
             case R.id.tv_focus:
-                mainVp.setCurrentItem(2);
+
                 setState(2);
-//                showHideFragment(mFragments[2], mFragments[prePosition]);
-//                prePosition = 2;
+                showHideFragment(mFragments[2], mFragments[prePosition]);
+                prePosition = 2;
                 break;
             case R.id.tv_me:
-                mainVp.setCurrentItem(3);
+
                 setState(3);
-//                showHideFragment(mFragments[3], mFragments[prePosition]);
-//                prePosition = 3;
+                showHideFragment(mFragments[3], mFragments[prePosition]);
+                prePosition = 3;
                 break;
         }
     }
@@ -357,29 +330,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         }
     }
 
-    public class FragAdapter extends FragmentPagerAdapter {
 
-        private SupportFragment[] mFragments;
-
-        public FragAdapter(FragmentManager fm, SupportFragment[] fragments) {
-            super(fm);
-            // TODO Auto-generated constructor stub
-            mFragments = fragments;
-        }
-
-        @Override
-        public SupportFragment getItem(int arg0) {
-            // TODO Auto-generated method stub
-            return mFragments[arg0];
-        }
-
-        @Override
-        public int getCount() {
-            // TODO Auto-generated method stub
-            return mFragments.length;
-        }
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -128,12 +128,24 @@ class IAPCreateOrderRequest : public ::google::protobuf::Message /* @@protoc_ins
   ::std::string* release_product_price();
   void set_allocated_product_price(::std::string* product_price);
 
+  // optional string login_token = 3;
+  void clear_login_token();
+  static const int kLoginTokenFieldNumber = 3;
+  const ::std::string& login_token() const;
+  void set_login_token(const ::std::string& value);
+  void set_login_token(const char* value);
+  void set_login_token(const char* value, size_t size);
+  ::std::string* mutable_login_token();
+  ::std::string* release_login_token();
+  void set_allocated_login_token(::std::string* login_token);
+
   // @@protoc_insertion_point(class_scope:trade.IAPCreateOrderRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr user_id_;
   ::google::protobuf::internal::ArenaStringPtr product_price_;
+  ::google::protobuf::internal::ArenaStringPtr login_token_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trade_2fmsg_5fiap_5forder_2eproto_impl();
   friend void  protobuf_AddDesc_trade_2fmsg_5fiap_5forder_2eproto_impl();
@@ -351,6 +363,50 @@ inline void IAPCreateOrderRequest::set_allocated_product_price(::std::string* pr
   }
   product_price_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_price);
   // @@protoc_insertion_point(field_set_allocated:trade.IAPCreateOrderRequest.product_price)
+}
+
+// optional string login_token = 3;
+inline void IAPCreateOrderRequest::clear_login_token() {
+  login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& IAPCreateOrderRequest::login_token() const {
+  // @@protoc_insertion_point(field_get:trade.IAPCreateOrderRequest.login_token)
+  return login_token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void IAPCreateOrderRequest::set_login_token(const ::std::string& value) {
+  
+  login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.IAPCreateOrderRequest.login_token)
+}
+inline void IAPCreateOrderRequest::set_login_token(const char* value) {
+  
+  login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.IAPCreateOrderRequest.login_token)
+}
+inline void IAPCreateOrderRequest::set_login_token(const char* value, size_t size) {
+  
+  login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.IAPCreateOrderRequest.login_token)
+}
+inline ::std::string* IAPCreateOrderRequest::mutable_login_token() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.IAPCreateOrderRequest.login_token)
+  return login_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* IAPCreateOrderRequest::release_login_token() {
+  // @@protoc_insertion_point(field_release:trade.IAPCreateOrderRequest.login_token)
+  
+  return login_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void IAPCreateOrderRequest::set_allocated_login_token(::std::string* login_token) {
+  if (login_token != NULL) {
+    
+  } else {
+    
+  }
+  login_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_token);
+  // @@protoc_insertion_point(field_set_allocated:trade.IAPCreateOrderRequest.login_token)
 }
 
 inline const IAPCreateOrderRequest* IAPCreateOrderRequest::internal_default_instance() {

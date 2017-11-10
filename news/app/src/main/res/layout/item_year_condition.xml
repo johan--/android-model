@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp">
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
@@ -30,8 +30,11 @@
                 android:layout_height="35dp"
                 android:layout_marginRight="30dp"
                 android:background="@null"
+                android:digits="0123456789"
                 android:gravity="center_vertical"
-                android:inputType="number" />
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="4" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,7 +55,7 @@
             android:background="#FFCBCBCB" />
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
@@ -68,8 +71,11 @@
                 android:layout_height="35dp"
                 android:layout_marginRight="30dp"
                 android:background="@null"
+                android:digits="0123456789"
                 android:gravity="center_vertical"
-                android:inputType="number" />
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="4" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,8 +97,8 @@
 
         <RelativeLayout
             android:id="@+id/rl_last_one_year"
-            android:layout_width="0dp"
-            android:layout_height="62.5dp"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@drawable/white_corners_solide">
@@ -123,8 +129,8 @@
 
         <RelativeLayout
             android:id="@+id/rl_last_three_year"
-            android:layout_width="0dp"
-            android:layout_height="62.5dp"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/white_corners_solide">
 
@@ -162,8 +168,8 @@
 
         <RelativeLayout
             android:id="@+id/rl_last_five_year"
-            android:layout_width="0dp"
-            android:layout_height="62.5dp"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@drawable/white_corners_solide">
@@ -194,8 +200,8 @@
 
         <RelativeLayout
             android:id="@+id/rl_last_all_year"
-            android:layout_width="0dp"
-            android:layout_height="62.5dp"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/white_corners_solide">
 

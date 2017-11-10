@@ -66,35 +66,91 @@
                 android:layout_height="44dp"
                 android:orientation="horizontal">
 
-                <com.jaredrummler.materialspinner.MaterialSpinner
-                    android:id="@+id/ms_selet_one"
+                <RelativeLayout
+                    android:id="@+id/rl_selet_one"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/keyb_top"
-                    android:text="主题"></com.jaredrummler.materialspinner.MaterialSpinner>
+                    android:background="@drawable/ripple_white_bg">
 
-                <com.jaredrummler.materialspinner.MaterialSpinner
-                    android:id="@+id/ms_selet_two"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawableRight="@drawable/keyb_top"
-                    android:text="相关度"></com.jaredrummler.materialspinner.MaterialSpinner>
+                    <TextView
+                        android:id="@+id/ms_selet_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/desc"
+                        android:gravity="center"
+                        android:text="相关度"
+                        android:textColor="#aeaeae" />
+                </RelativeLayout>
 
-                <com.jaredrummler.materialspinner.MaterialSpinner
-                    android:id="@+id/ms_selet_three"
+                <RelativeLayout
+                    android:id="@+id/rl_selet_two"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/keyb_top"
-                    android:text="文件类型"></com.jaredrummler.materialspinner.MaterialSpinner>
+                    android:background="@drawable/ripple_white_bg">
+
+                    <TextView
+                        android:id="@+id/ms_selet_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/desc"
+                        android:gravity="center"
+                        android:text="发表时间"
+                        android:textColor="#aeaeae"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_selet_three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_white_bg">
+
+                    <TextView
+                        android:id="@+id/ms_selet_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/desc"
+                        android:gravity="center"
+                        android:text="热度"
+                        android:textColor="#aeaeae"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_selet_four"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_white_bg">
+
+                    <TextView
+                        android:id="@+id/ms_selet_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/desc"
+                        android:gravity="center"
+                        android:text="被引量"
+                        android:textColor="#aeaeae"></TextView>
+                </RelativeLayout>
+
+
             </LinearLayout>
 
             <com.tb.wangfang.news.widget.FlowLayout
                 android:id="@+id/fl_condition"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></com.tb.wangfang.news.widget.FlowLayout>
+                android:layout_height="wrap_content"
+                android:background="@color/white"></com.tb.wangfang.news.widget.FlowLayout>
 
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipeLayout"

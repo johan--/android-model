@@ -152,8 +152,6 @@ dependencies {
     compile project(':hMSSdkPush')
     compile project(':lib')
     //    compile 'com.jaredrummler:material-spinner:1.1.0'
-
-
     compile project(':spinner')
     compile 'io.grpc:grpc-okhttp:1.4.0'
     compile 'io.grpc:grpc-okhttp:1.4.0'
@@ -173,7 +171,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.orhanobut:logger:1.15'
-    compile 'me.yokeyword:fragmentation:0.7.9'
+    compile 'me.yokeyword:fragmentation:1.1.8'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'io.grpc:grpc-stub:1.4.0'
@@ -187,7 +185,7 @@ dependencies {
     compile 'cn.jiguang.sdk:jpush:3.0.9'
     compile 'cn.jiguang.sdk:jcore:1.1.7'
     compile 'cn.jiguang.sdk:jmessage:2.2.1'
-//    compile 'com.zhy:okhttputils:2.6.2'
+    //    compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
     testCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
@@ -197,4 +195,5 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile files('libs/alipaySdk-20170922.jar')
 }

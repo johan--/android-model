@@ -20,7 +20,7 @@ public interface FilterDocContract {
     }
 
     interface Presenter extends BasePresenter<View> {
-        void search(String text, int page);
+        void search(String text, int page, String navigation, String startTime, String endTime, String sort);
 
         void searchNavigation(String params, String navigation, String startDate, String endDate);
 

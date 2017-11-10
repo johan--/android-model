@@ -24,6 +24,9 @@ namespace {
 const ::google::protobuf::Descriptor* UnifiedorderRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   UnifiedorderRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* AccountId_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  AccountId_reflection_ = NULL;
 const ::google::protobuf::Descriptor* UnifiedorderResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   UnifiedorderResponse_reflection_ = NULL;
@@ -48,8 +51,9 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
       "trade/msg_trade.proto");
   GOOGLE_CHECK(file != NULL);
   UnifiedorderRequest_descriptor_ = file->message_type(0);
-  static const int UnifiedorderRequest_offsets_[2] = {
+  static const int UnifiedorderRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderRequest, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderRequest, transfer_out_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderRequest, safe_transaction_string_),
   };
   UnifiedorderRequest_reflection_ =
@@ -62,7 +66,22 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
       -1,
       sizeof(UnifiedorderRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderRequest, _internal_metadata_));
-  UnifiedorderResponse_descriptor_ = file->message_type(1);
+  AccountId_descriptor_ = file->message_type(1);
+  static const int AccountId_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccountId, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccountId, key_),
+  };
+  AccountId_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      AccountId_descriptor_,
+      AccountId::internal_default_instance(),
+      AccountId_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(AccountId),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccountId, _internal_metadata_));
+  UnifiedorderResponse_descriptor_ = file->message_type(2);
   static const int UnifiedorderResponse_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, app_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, partner_id_),
@@ -83,7 +102,7 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
       -1,
       sizeof(UnifiedorderResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnifiedorderResponse, _internal_metadata_));
-  MyOrdersRequest_descriptor_ = file->message_type(2);
+  MyOrdersRequest_descriptor_ = file->message_type(3);
   static const int MyOrdersRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersRequest, page_number_),
@@ -99,7 +118,7 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
       -1,
       sizeof(MyOrdersRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersRequest, _internal_metadata_));
-  MyOrdersResponse_descriptor_ = file->message_type(3);
+  MyOrdersResponse_descriptor_ = file->message_type(4);
   static const int MyOrdersResponse_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, results_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, total_count_),
@@ -152,6 +171,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       UnifiedorderRequest_descriptor_, UnifiedorderRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      AccountId_descriptor_, AccountId::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       UnifiedorderResponse_descriptor_, UnifiedorderResponse::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MyOrdersRequest_descriptor_, MyOrdersRequest::internal_default_instance());
@@ -166,6 +187,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto() {
   UnifiedorderRequest_default_instance_.Shutdown();
   delete UnifiedorderRequest_reflection_;
+  AccountId_default_instance_.Shutdown();
+  delete AccountId_reflection_;
   UnifiedorderResponse_default_instance_.Shutdown();
   delete UnifiedorderResponse_reflection_;
   MyOrdersRequest_default_instance_.Shutdown();
@@ -183,6 +206,8 @@ void protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   UnifiedorderRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  AccountId_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
   UnifiedorderResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   MyOrdersRequest_default_instance_.DefaultConstruct();
@@ -190,6 +215,7 @@ void protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   MyOrdersResponse_Result_default_instance_.DefaultConstruct();
   UnifiedorderRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  AccountId_default_instance_.get_mutable()->InitAsDefaultInstance();
   UnifiedorderResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyOrdersRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   MyOrdersResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -207,9 +233,11 @@ void protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl() {
   protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\025trade/msg_trade.proto\022\005trade\032\032grpcComm"
-    "on/msg_error.proto\"G\n\023UnifiedorderReques"
-    "t\022\017\n\007user_id\030\001 \001(\t\022\037\n\027safe_transaction_s"
-    "tring\030\002 \001(\t\"\270\001\n\024UnifiedorderResponse\022\016\n\006"
+    "on/msg_error.proto\"o\n\023UnifiedorderReques"
+    "t\022\017\n\007user_id\030\001 \001(\t\022&\n\014transfer_out\030\002 \001(\013"
+    "2\020.trade.AccountId\022\037\n\027safe_transaction_s"
+    "tring\030\003 \001(\t\"&\n\tAccountId\022\014\n\004Type\030\001 \001(\t\022\013"
+    "\n\003Key\030\002 \001(\t\"\270\001\n\024UnifiedorderResponse\022\016\n\006"
     "app_id\030\001 \001(\t\022\022\n\npartner_id\030\002 \001(\t\022\021\n\tprep"
     "ay_id\030\003 \001(\t\022\017\n\007package\030\004 \001(\t\022\020\n\010noncestr"
     "\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(\t\022\014\n\004sign\030\007 \001(\t"
@@ -224,7 +252,7 @@ void protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl() {
     "_money\030\003 \001(\t\022\032\n\022order_product_type\030\005 \001(\t"
     "\022\023\n\013order_state\030\006 \001(\005\022\023\n\013order_title\030\007 \001"
     "(\t\022\017\n\007pay_way\030\010 \001(\tB\034\n\021com.wanfang.trade"
-    "P\001\242\002\004WFPRb\006proto3", 737);
+    "P\001\242\002\004WFPRb\006proto3", 817);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "trade/msg_trade.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -257,6 +285,7 @@ static void MergeFromFail(int line) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int UnifiedorderRequest::kUserIdFieldNumber;
+const int UnifiedorderRequest::kTransferOutFieldNumber;
 const int UnifiedorderRequest::kSafeTransactionStringFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -268,6 +297,8 @@ UnifiedorderRequest::UnifiedorderRequest()
 }
 
 void UnifiedorderRequest::InitAsDefaultInstance() {
+  transfer_out_ = const_cast< ::trade::AccountId*>(
+      ::trade::AccountId::internal_default_instance());
 }
 
 UnifiedorderRequest::UnifiedorderRequest(const UnifiedorderRequest& from)
@@ -281,6 +312,7 @@ UnifiedorderRequest::UnifiedorderRequest(const UnifiedorderRequest& from)
 void UnifiedorderRequest::SharedCtor() {
   user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  transfer_out_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -292,6 +324,9 @@ UnifiedorderRequest::~UnifiedorderRequest() {
 void UnifiedorderRequest::SharedDtor() {
   user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   safe_transaction_string_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != &UnifiedorderRequest_default_instance_.get()) {
+    delete transfer_out_;
+  }
 }
 
 void UnifiedorderRequest::SetCachedSize(int size) const {
@@ -322,6 +357,8 @@ UnifiedorderRequest* UnifiedorderRequest::New(::google::protobuf::Arena* arena) 
 void UnifiedorderRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:trade.UnifiedorderRequest)
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && transfer_out_ != NULL) delete transfer_out_;
+  transfer_out_ = NULL;
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -347,13 +384,26 @@ bool UnifiedorderRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_safe_transaction_string;
+        if (input->ExpectTag(18)) goto parse_transfer_out;
         break;
       }
 
-      // optional string safe_transaction_string = 2;
+      // optional .trade.AccountId transfer_out = 2;
       case 2: {
         if (tag == 18) {
+         parse_transfer_out:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_transfer_out()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_safe_transaction_string;
+        break;
+      }
+
+      // optional string safe_transaction_string = 3;
+      case 3: {
+        if (tag == 26) {
          parse_safe_transaction_string:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_safe_transaction_string()));
@@ -402,14 +452,20 @@ void UnifiedorderRequest::SerializeWithCachedSizes(
       1, this->user_id(), output);
   }
 
-  // optional string safe_transaction_string = 2;
+  // optional .trade.AccountId transfer_out = 2;
+  if (this->has_transfer_out()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->transfer_out_, output);
+  }
+
+  // optional string safe_transaction_string = 3;
   if (this->safe_transaction_string().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->safe_transaction_string().data(), this->safe_transaction_string().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "trade.UnifiedorderRequest.safe_transaction_string");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->safe_transaction_string(), output);
+      3, this->safe_transaction_string(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:trade.UnifiedorderRequest)
@@ -430,7 +486,14 @@ void UnifiedorderRequest::SerializeWithCachedSizes(
         1, this->user_id(), target);
   }
 
-  // optional string safe_transaction_string = 2;
+  // optional .trade.AccountId transfer_out = 2;
+  if (this->has_transfer_out()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->transfer_out_, false, target);
+  }
+
+  // optional string safe_transaction_string = 3;
   if (this->safe_transaction_string().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->safe_transaction_string().data(), this->safe_transaction_string().length(),
@@ -438,7 +501,7 @@ void UnifiedorderRequest::SerializeWithCachedSizes(
       "trade.UnifiedorderRequest.safe_transaction_string");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->safe_transaction_string(), target);
+        3, this->safe_transaction_string(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:trade.UnifiedorderRequest)
@@ -456,7 +519,14 @@ size_t UnifiedorderRequest::ByteSizeLong() const {
         this->user_id());
   }
 
-  // optional string safe_transaction_string = 2;
+  // optional .trade.AccountId transfer_out = 2;
+  if (this->has_transfer_out()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->transfer_out_);
+  }
+
+  // optional string safe_transaction_string = 3;
   if (this->safe_transaction_string().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -500,6 +570,9 @@ void UnifiedorderRequest::UnsafeMergeFrom(const UnifiedorderRequest& from) {
 
     user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
   }
+  if (from.has_transfer_out()) {
+    mutable_transfer_out()->::trade::AccountId::MergeFrom(from.transfer_out());
+  }
   if (from.safe_transaction_string().size() > 0) {
 
     safe_transaction_string_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.safe_transaction_string_);
@@ -531,6 +604,7 @@ void UnifiedorderRequest::Swap(UnifiedorderRequest* other) {
 }
 void UnifiedorderRequest::InternalSwap(UnifiedorderRequest* other) {
   user_id_.Swap(&other->user_id_);
+  std::swap(transfer_out_, other->transfer_out_);
   safe_transaction_string_.Swap(&other->safe_transaction_string_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -591,7 +665,46 @@ void UnifiedorderRequest::set_allocated_user_id(::std::string* user_id) {
   // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderRequest.user_id)
 }
 
-// optional string safe_transaction_string = 2;
+// optional .trade.AccountId transfer_out = 2;
+bool UnifiedorderRequest::has_transfer_out() const {
+  return this != internal_default_instance() && transfer_out_ != NULL;
+}
+void UnifiedorderRequest::clear_transfer_out() {
+  if (GetArenaNoVirtual() == NULL && transfer_out_ != NULL) delete transfer_out_;
+  transfer_out_ = NULL;
+}
+const ::trade::AccountId& UnifiedorderRequest::transfer_out() const {
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderRequest.transfer_out)
+  return transfer_out_ != NULL ? *transfer_out_
+                         : *::trade::AccountId::internal_default_instance();
+}
+::trade::AccountId* UnifiedorderRequest::mutable_transfer_out() {
+  
+  if (transfer_out_ == NULL) {
+    transfer_out_ = new ::trade::AccountId;
+  }
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderRequest.transfer_out)
+  return transfer_out_;
+}
+::trade::AccountId* UnifiedorderRequest::release_transfer_out() {
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderRequest.transfer_out)
+  
+  ::trade::AccountId* temp = transfer_out_;
+  transfer_out_ = NULL;
+  return temp;
+}
+void UnifiedorderRequest::set_allocated_transfer_out(::trade::AccountId* transfer_out) {
+  delete transfer_out_;
+  transfer_out_ = transfer_out;
+  if (transfer_out) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderRequest.transfer_out)
+}
+
+// optional string safe_transaction_string = 3;
 void UnifiedorderRequest::clear_safe_transaction_string() {
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -637,6 +750,393 @@ void UnifiedorderRequest::set_allocated_safe_transaction_string(::std::string* s
 
 inline const UnifiedorderRequest* UnifiedorderRequest::internal_default_instance() {
   return &UnifiedorderRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AccountId::kTypeFieldNumber;
+const int AccountId::kKeyFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AccountId::AccountId()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:trade.AccountId)
+}
+
+void AccountId::InitAsDefaultInstance() {
+}
+
+AccountId::AccountId(const AccountId& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:trade.AccountId)
+}
+
+void AccountId::SharedCtor() {
+  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+AccountId::~AccountId() {
+  // @@protoc_insertion_point(destructor:trade.AccountId)
+  SharedDtor();
+}
+
+void AccountId::SharedDtor() {
+  type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void AccountId::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* AccountId::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AccountId_descriptor_;
+}
+
+const AccountId& AccountId::default_instance() {
+  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<AccountId> AccountId_default_instance_;
+
+AccountId* AccountId::New(::google::protobuf::Arena* arena) const {
+  AccountId* n = new AccountId;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void AccountId::Clear() {
+// @@protoc_insertion_point(message_clear_start:trade.AccountId)
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool AccountId::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:trade.AccountId)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string Type = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_type()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->type().data(), this->type().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "trade.AccountId.Type"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_Key;
+        break;
+      }
+
+      // optional string Key = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_Key:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "trade.AccountId.Key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:trade.AccountId)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:trade.AccountId)
+  return false;
+#undef DO_
+}
+
+void AccountId::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:trade.AccountId)
+  // optional string Type = 1;
+  if (this->type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.AccountId.Type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->type(), output);
+  }
+
+  // optional string Key = 2;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.AccountId.Key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->key(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:trade.AccountId)
+}
+
+::google::protobuf::uint8* AccountId::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:trade.AccountId)
+  // optional string Type = 1;
+  if (this->type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.AccountId.Type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->type(), target);
+  }
+
+  // optional string Key = 2;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.AccountId.Key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->key(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:trade.AccountId)
+  return target;
+}
+
+size_t AccountId::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:trade.AccountId)
+  size_t total_size = 0;
+
+  // optional string Type = 1;
+  if (this->type().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->type());
+  }
+
+  // optional string Key = 2;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void AccountId::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:trade.AccountId)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const AccountId* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AccountId>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:trade.AccountId)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:trade.AccountId)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void AccountId::MergeFrom(const AccountId& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:trade.AccountId)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void AccountId::UnsafeMergeFrom(const AccountId& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.type().size() > 0) {
+
+    type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+}
+
+void AccountId::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:trade.AccountId)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AccountId::CopyFrom(const AccountId& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:trade.AccountId)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool AccountId::IsInitialized() const {
+
+  return true;
+}
+
+void AccountId::Swap(AccountId* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AccountId::InternalSwap(AccountId* other) {
+  type_.Swap(&other->type_);
+  key_.Swap(&other->key_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata AccountId::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = AccountId_descriptor_;
+  metadata.reflection = AccountId_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// AccountId
+
+// optional string Type = 1;
+void AccountId::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& AccountId::type() const {
+  // @@protoc_insertion_point(field_get:trade.AccountId.Type)
+  return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void AccountId::set_type(const ::std::string& value) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.AccountId.Type)
+}
+void AccountId::set_type(const char* value) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.AccountId.Type)
+}
+void AccountId::set_type(const char* value, size_t size) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.AccountId.Type)
+}
+::std::string* AccountId::mutable_type() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.AccountId.Type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* AccountId::release_type() {
+  // @@protoc_insertion_point(field_release:trade.AccountId.Type)
+  
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void AccountId::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    
+  } else {
+    
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:trade.AccountId.Type)
+}
+
+// optional string Key = 2;
+void AccountId::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& AccountId::key() const {
+  // @@protoc_insertion_point(field_get:trade.AccountId.Key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void AccountId::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.AccountId.Key)
+}
+void AccountId::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.AccountId.Key)
+}
+void AccountId::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.AccountId.Key)
+}
+::std::string* AccountId::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.AccountId.Key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* AccountId::release_key() {
+  // @@protoc_insertion_point(field_release:trade.AccountId.Key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void AccountId::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:trade.AccountId.Key)
+}
+
+inline const AccountId* AccountId::internal_default_instance() {
+  return &AccountId_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
