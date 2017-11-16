@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -164,8 +165,12 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         docAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(FilterDocActivity.this, JournalActivity.class);
-                startActivity(intent);
+                if (!TextUtils.isEmpty(docAdapter.getData().get(position).getPerio_id())) {
+                    Intent intent = new Intent(FilterDocActivity.this, JournalActivity.class);
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPerio_id());
+                    startActivity(intent);
+                }
+
             }
         });
         mPresenter.search(text, page, "", "", "", "");

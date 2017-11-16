@@ -174,7 +174,7 @@ public class JournalActivity extends SimpleActivity {
         TextView tv_international_num = (TextView) dialog.findViewById(R.id.tv_international_num);
         TextView tv_china_num = (TextView) dialog.findViewById(R.id.tv_china_num);
         TextView tv_period = (TextView) dialog.findViewById(R.id.tv_period);
-        tv_chiness_name.setText(bean.getData().get(0).getPerio_title02());
+        tv_chiness_name.setText(bean.getData().get(0).getPerio_title02().toString());
         tv_english_name.setText(bean.getData().get(0).getPinyin_title());
         tv_edit_aprtment.setText(bean.getData().get(0).getEf_name());
         tv_international_num.setText(bean.getData().get(0).getIssn());
@@ -185,6 +185,7 @@ public class JournalActivity extends SimpleActivity {
     private void showDetail(JournalDetailBean bean) {
         String imgUrl = "http://new.wanfangdata.com.cn/images/PeriodicalImages/" + journalId + "/" + journalId + ".jpg";
         Glide.with(this).load(imgUrl).into(ivBook);
+
         tvJournalName.setText(bean.getData().get(0).getPerio_title02());
         tvNationalNum.setText(bean.getData().get(0).getIssn());
         tvChinaNum.setText(bean.getData().get(0).getCn());

@@ -72,7 +72,7 @@ public class MycollectActivity extends SimpleActivity implements BaseQuickAdapte
         adapter = new MyCollectAdapter(arrayList);
         adapter.setOnLoadMoreListener(this, rvCollect);
         adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-        adapter.setPreLoadNumber(2);
+        adapter.setPreLoadNumber(10);
         rvCollect.setLayoutManager(new LinearLayoutManager(this));
         rvCollect.setAdapter(adapter);
         adapter.setEmptyView(R.layout.normal_empty_layout);

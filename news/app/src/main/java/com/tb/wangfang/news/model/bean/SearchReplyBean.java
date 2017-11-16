@@ -172,6 +172,16 @@ public class SearchReplyBean {
         private Object inv_name;
         private Object main_classcode;
 
+        public String getPerio_id() {
+            return perio_id;
+        }
+
+        public void setPerio_id(String perio_id) {
+            this.perio_id = perio_id;
+        }
+
+        private String perio_id;
+
         public String getRe_pubdate() {
             return re_pubdate;
         }

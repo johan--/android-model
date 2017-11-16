@@ -492,6 +492,18 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
+     * add new data to the end of mData
+     *
+     * @param newData the new data collection
+     */
+    public void addDataPosition_1(@NonNull Collection<? extends T> newData) {
+        mData.addAll(newData);
+        notifyItemRangeInserted(mData.size() - newData.size() + getHeaderLayoutCount(), newData.size());
+        notifyItemRangeChanged(0, mData.size());
+        compatibilityDataSizeChanged(newData.size());
+    }
+
+    /**
      * compatible getLoadMoreViewCount and getEmptyViewCount may change
      *
      * @param size Need compatible data size
