@@ -27,34 +27,43 @@ public final class SerSubscribe {
       "be\032\035subscribe/msg_subscribe.proto\032!subsc" +
       "ribe/msg_subscribe_doc.proto\032%subscribe/" +
       "msg_subscribe_keyword.proto\032#subscribe/m" +
-      "sg_subscribe_perio.proto2\227\010\n\020SubscribeSe" +
+      "sg_subscribe_perio.proto2\366\n\n\020SubscribeSe" +
       "rvice\022X\n\017CancelSubscribe\022!.subscribe.Can" +
       "celSubscribeRequest\032\".subscribe.CancelSu" +
-      "bscribeResponse\022[\n\020SubscribeKeyword\022\".su" +
-      "bscribe.SubscribeKeywordRequest\032#.subscr" +
-      "ibe.SubscribeKeywordResponse\022j\n\027GetSubsc",
-      "ribeKeywordList\022&.subscribe.SubscribeKey" +
-      "wordListRequest\032\'.subscribe.SubscribeKey" +
-      "wordListResponse\022g\n\034GetSubscribeDocListB" +
-      "yKeyword\022\".subscribe.SubscribeDocListReq" +
-      "uest\032#.subscribe.SubscribeDocListRespons" +
-      "e\022U\n\016SubscribePerio\022 .subscribe.Subscrib" +
-      "ePerioRequest\032!.subscribe.SubscribePerio" +
-      "Response\022d\n\025GetSubscribePerioList\022$.subs" +
-      "cribe.SubscribePerioListRequest\032%.subscr" +
-      "ibe.SubscribePerioListResponse\022j\n\027GetSub",
-      "scribeDocTypeList\022&.subscribe.SubscribeD" +
-      "ocTypeListRequest\032\'.subscribe.SubscribeD" +
-      "ocTypeListResponse\022s\n\032GetSubscribeSource" +
-      "TypeList\022).subscribe.SubscribeSourceType" +
-      "ListRequest\032*.subscribe.SubscribeSourceT" +
-      "ypeListResponse\022d\n\025GetSubscribePushEmail" +
-      "\022$.subscribe.SubscribePushEmailRequest\032%" +
-      ".subscribe.SubscribePushEmailResponse\022s\n" +
-      "\030UpdateSubscribePushEmail\022*.subscribe.Up" +
-      "dateSubscribePushEmailRequest\032+.subscrib",
-      "e.UpdateSubscribePushEmailResponseB \n\025co" +
-      "m.wanfang.subscribeP\001\242\002\004WFPRb\006proto3"
+      "bscribeResponse\022g\n\021CheckIsSubscribed\022(.s" +
+      "ubscribe.CheckPerioISSubscribedRequest\032(" +
+      ".subscribe.CheckPerioISSubscribeResponse",
+      "\022[\n\020SubscribeKeyword\022\".subscribe.Subscri" +
+      "beKeywordRequest\032#.subscribe.SubscribeKe" +
+      "ywordResponse\022j\n\027GetSubscribeKeywordList" +
+      "\022&.subscribe.SubscribeKeywordListRequest" +
+      "\032\'.subscribe.SubscribeKeywordListRespons" +
+      "e\022g\n\034GetSubscribeDocListByKeyword\022\".subs" +
+      "cribe.SubscribeDocListRequest\032#.subscrib" +
+      "e.SubscribeDocListResponse\022U\n\016SubscribeP" +
+      "erio\022 .subscribe.SubscribePerioRequest\032!" +
+      ".subscribe.SubscribePerioResponse\022d\n\025Get",
+      "SubscribePerioList\022$.subscribe.Subscribe" +
+      "PerioListRequest\032%.subscribe.SubscribePe" +
+      "rioListResponse\022y\n\034GetAddSubscribePerioT" +
+      "reeList\022+.subscribe.AddSubscribePerioTre" +
+      "eListRequest\032,.subscribe.AddSubscribePer" +
+      "ioTreeListResponse\022y\n\036GetAddSubscribePer" +
+      "ioSearchList\022*.subscribe.SubscribePerioL" +
+      "istSearchRequest\032+.subscribe.SubscribePe" +
+      "rioListSearchResponse\022j\n\027GetSubscribeDoc" +
+      "TypeList\022&.subscribe.SubscribeDocTypeLis",
+      "tRequest\032\'.subscribe.SubscribeDocTypeLis" +
+      "tResponse\022s\n\032GetSubscribeSourceTypeList\022" +
+      ").subscribe.SubscribeSourceTypeListReque" +
+      "st\032*.subscribe.SubscribeSourceTypeListRe" +
+      "sponse\022d\n\025GetSubscribePushEmail\022$.subscr" +
+      "ibe.SubscribePushEmailRequest\032%.subscrib" +
+      "e.SubscribePushEmailResponse\022s\n\030UpdateSu" +
+      "bscribePushEmail\022*.subscribe.UpdateSubsc" +
+      "ribePushEmailRequest\032+.subscribe.UpdateS" +
+      "ubscribePushEmailResponseB \n\025com.wanfang",
+      ".subscribeP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -24,7 +24,7 @@ message CancelSubscribeResponse {
     bool cancel_subscribe_success = 1;
     grpcCommon.GrpcError error = 2;
 }
-
+// 更新推送邮箱
 message UpdateSubscribePushEmailRequest {
     string user_id = 1;
     string email = 2;

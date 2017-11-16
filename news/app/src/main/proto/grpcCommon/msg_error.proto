@@ -21,6 +21,10 @@ enum ErrorCode {
      IAP_PRICE_ERROR = 8; // 内购支付价格错误
 
      IAP_CREATEORDER_ERROR = 9; // 内购创建万方订单发生错误
+
+     THIRD_PARTY_NOT_BINd = 10; // 第三方登录账号未绑定
+
+     TRADE_VALIDATE_FAIL = 11; // 交易验证失败
 }
 
 message GrpcError {

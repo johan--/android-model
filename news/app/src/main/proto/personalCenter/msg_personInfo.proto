@@ -118,3 +118,7 @@ message InfoEmail {
 message InfoAvatar {
     string avatar_url = 1;
 }
+
+message InfoPassword {
+    string password = 1;
+}

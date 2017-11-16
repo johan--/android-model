@@ -10,6 +10,7 @@ import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
 import com.tb.wangfang.news.ui.activity.EditRewardActivity;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.activity.InsertSubscribeActivity;
+import com.tb.wangfang.news.ui.activity.JournalActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
 import com.tb.wangfang.news.ui.activity.MainActivity;
 import com.tb.wangfang.news.ui.activity.MainDetailActivity;
@@ -69,5 +70,7 @@ public interface ActivityComponent {
     void inject(ManageSubscribeActivity manageSubscribeActivity);
 
     void inject(MessageCenterActivity messageCenterActivity);
+
+    void inject(JournalActivity journalActivity);
 
 }

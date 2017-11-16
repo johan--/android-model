@@ -78,11 +78,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:drawablePadding="5dp"
-                        android:drawableRight="@mipmap/desc"
                         android:gravity="center"
                         android:text="相关度"
                         android:textColor="#aeaeae" />
+
+                    <ImageView
+                        android:id="@+id/iv_selected_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/ms_selet_one"
+                       />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -97,11 +104,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:drawablePadding="5dp"
-                        android:drawableRight="@mipmap/desc"
                         android:gravity="center"
                         android:text="发表时间"
                         android:textColor="#aeaeae"></TextView>
+
+                    <ImageView
+                        android:id="@+id/iv_selected_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/ms_selet_two"
+                      />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -115,13 +129,22 @@
                         android:id="@+id/ms_selet_three"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-
                         android:layout_centerInParent="true"
-                        android:drawablePadding="5dp"
-                        android:drawableRight="@mipmap/desc"
+
                         android:gravity="center"
+
+
                         android:text="热度"
                         android:textColor="#aeaeae"></TextView>
+
+                    <ImageView
+                        android:id="@+id/iv_selected_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/ms_selet_three"
+                       />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -136,11 +159,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:drawablePadding="5dp"
-                        android:drawableRight="@mipmap/desc"
                         android:gravity="center"
+
+
                         android:text="被引量"
                         android:textColor="#aeaeae"></TextView>
+
+                    <ImageView
+                        android:id="@+id/iv_selected_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/ms_selet_four"
+                       />
                 </RelativeLayout>
 
 

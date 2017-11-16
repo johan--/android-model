@@ -149,7 +149,8 @@ public class PayOrderActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<UnifiedorderResponse> e) throws Exception {
                 TradeServiceGrpc.TradeServiceBlockingStub stub = TradeServiceGrpc.newBlockingStub(managedChannel);
-                AccountId accountId = AccountId.newBuilder().setKey("Android").setType("AliPay").build();
+                AccountId accountId = AccountId.newBuilder().setKey("Android").setType("Alipay").build();
+//                AccountId accountId = AccountId.newBuilder().setKey("Android").setType("Weixin").build();
                 UnifiedorderRequest request = UnifiedorderRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setTransferOut(accountId).setSafeTransactionString(readResponse.getSafeTransactionString()).build();
                 UnifiedorderResponse response = stub.unifiedorder(request);
                 e.onSuccess(response);
@@ -158,13 +159,13 @@ public class PayOrderActivity extends SimpleActivity {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
                 Log.d(TAG, "onSuccess: " + unifiedorderResponse);
-//                payByWeichat(unifiedorderResponse);
+                //            payByWeichat(unifiedorderResponse);
                 payByZhiFuBao(unifiedorderResponse);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Log.d(TAG, "onError: " + e.getMessage());
             }
         });
     }

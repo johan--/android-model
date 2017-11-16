@@ -154,6 +154,11 @@ public final class MsgPersonInfo {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_personal_InfoAvatar_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_InfoPassword_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_InfoPassword_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -218,8 +223,9 @@ public final class MsgPersonInfo {
       "\022\r\n\005award\030\001 \001(\t\"\036\n\013InfoSubject\022\017\n\007subjec" +
       "t\030\001 \001(\t\"/\n\023InfoInterestSubject\022\030\n\020intere" +
       "st_subject\030\001 \001(\t\"\032\n\tInfoEmail\022\r\n\005email\030\001" +
-      " \001(\t\" \n\nInfoAvatar\022\022\n\navatar_url\030\001 \001(\tB\037" +
-      "\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3"
+      " \001(\t\" \n\nInfoAvatar\022\022\n\navatar_url\030\001 \001(\t\" " +
+      "\n\014InfoPassword\022\020\n\010password\030\001 \001(\tB\037\n\024com." +
+      "wanfang.personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -403,6 +409,12 @@ public final class MsgPersonInfo {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_InfoAvatar_descriptor,
         new java.lang.String[] { "AvatarUrl", });
+    internal_static_personal_InfoPassword_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_personal_InfoPassword_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_InfoPassword_descriptor,
+        new java.lang.String[] { "Password", });
     com.google.protobuf.AnyProto.getDescriptor();
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }

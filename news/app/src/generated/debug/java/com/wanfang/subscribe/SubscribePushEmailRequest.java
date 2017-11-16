@@ -5,7 +5,7 @@ package com.wanfang.subscribe;
 
 /**
  * <pre>
- * 推送邮箱
+ * 获取推送邮箱
  * </pre>
  *
  * Protobuf type {@code subscribe.SubscribePushEmailRequest}
@@ -249,7 +249,7 @@ public  final class SubscribePushEmailRequest extends
   }
   /**
    * <pre>
-   * 推送邮箱
+   * 获取推送邮箱
    * </pre>
    *
    * Protobuf type {@code subscribe.SubscribePushEmailRequest}

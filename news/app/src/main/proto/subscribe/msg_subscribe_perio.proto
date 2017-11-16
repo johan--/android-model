@@ -20,6 +20,16 @@ message SubscribePerioResponse {
     grpcCommon.GrpcError error = 2;
 }
 
+message CheckPerioISSubscribedRequest {
+    string user_id = 1;
+    string perio_id = 2;
+}
+message CheckPerioISSubscribeResponse {
+    bool is_subscribed = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+
 // 获取已订阅期刊列表
 message SubscribePerioListRequest {
     string user_id = 1;
@@ -28,13 +38,68 @@ message SubscribePerioListRequest {
 }
 message SubscribePerioListResponse {
     message SubscribePerioMessage {
+
         string perio_id = 1; // 期刊id
         string perio_name = 2; // 期刊名
         string perio_cover = 3; // 期刊封面
         string perio_society = 4; // 期刊主办单位
         string add_time = 5; // 添加日期
+        string subscribe_id = 6;// 订阅id
     }
     repeated SubscribePerioMessage subscribe_perio = 1;
     grpcCommon.GrpcError error = 2;
     bool has_more = 3;
+}
+
+
+// 左侧类目
+message AddSubscribePerioTreeListRequest {
+    string pre_title = 1; // 首字母
+    string core_perio = 2; // 核心收录
+    string source_db = 3; // 来源数据库
+    string host_unit_area = 4; // 出版地区
+    string publish_cycle = 5; // 出版周期
+    repeated string search_word = 6; // 搜索词
+}
+message AddSubscribePerioTreeListResponse {
+    message AddSubscribeTreeItemMessage {
+        string id = 1;
+        string name = 2;
+        string pid = 3;
+        int32 count = 4; // 当前标签对应结果数
+        string value = 5; // 更新右侧列表是使用
+    }
+    repeated AddSubscribeTreeItemMessage tree_item = 1; // 左侧类目
+}
+
+// 右侧类目
+message SubscribePerioListSearchRequest {
+    int32 page_number = 1;
+    int32 page_size = 2;
+    repeated string select_title = 3; // 检索词
+    string select_order = 4;
+    string pre_title = 6; // 首字母
+    string core_perio = 7; // 核心收录
+    string source_db = 8; // 来源数据库
+    string host_unit_area = 9; // 出版地区
+    string publish_cycle = 10; // 出版周期
+    string value = 11; // 必填 左侧分类值
+    string user_id = 12; // request
+}
+
+message SubscribePerioListSearchResponse {
+    grpcCommon.GrpcError error = 1;
+    bool has_more = 2;
+    message PerioListSearchMessage {
+
+        string perio_title = 1;
+        string perio_id = 2;
+        string end_issue = 3; // 停刊期数
+        string end_year = 4; // 停刊年份
+        string core_perio = 5; // 核心收录 ","分隔 可能为空
+        string publish_cycle = 6; // 月刊 旬刊 ...
+        string subscribe_id = 7;// 订阅id
+        bool is_subscribed = 8;
+    }
+    repeated PerioListSearchMessage search_perios = 3;
 }

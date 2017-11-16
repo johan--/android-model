@@ -35,10 +35,12 @@ message LoginRequest {
 // 登录返回
 message LoginResponse {
 	string user_id = 1; // 用户id
-	string user_name = 2; // 用户名
-	string user_avatar_url = 3; // 用户头像
-	string login_token = 4; // 单点登录token
-	grpcCommon.GrpcError error = 5;
+	string user_nick_name = 2; // 用户昵称
+	string user_real_name = 3; // 用户真实名称
+	string user_used_name = 4; // 用户曾用名
+	string user_avatar_url = 5; // 用户头像
+	string login_token = 6; // 单点登录token
+	grpcCommon.GrpcError error = 7;
 }
 // 快捷登录（手机号登录请求）
 message QuickLoginRequest {
@@ -47,6 +49,37 @@ message QuickLoginRequest {
 	string captcha = 3;
 	string device_id = 4; // 设备号
 	LoginDeviceType device_type = 5; // 登录设备类型
+}
+
+//第三方登录-请求
+message ThirdPartyLoginRequest{
+    string uid = 1; // 第三方登录唯一码
+    int32 third_party_code = 2; // /第三方类型code
+}
+
+//第三方登录-响应
+message ThirdPartyLoginResponse{
+    string user_id = 1; // 用户id
+    string user_nick_name = 2; // 用户昵称
+    string user_real_name = 3; // 用户真实名称
+    string user_used_name = 4; // 用户曾用名
+    string user_avatar_url = 5; // 用户头像
+    string login_token = 6; // 单点登录token
+    grpcCommon.GrpcError error = 7;
+}
+
+//第三方登录账号绑定-请求
+message ThirdPartyBindRequest{
+    string uid = 1; // 第三方登录唯一码
+    string user_id = 2; //用户id
+    int32 third_party_code = 3; // /第三方类型code
+    int32 user_status = 4; //用户账号状态，默认0
+}
+
+//第三方登录账号绑定-响应
+message ThirdPartyBindResponse{
+    int32 bind_status = 1; // 绑定状态：200：成功；
+    grpcCommon.GrpcError error = 2;
 }
 
 // 第三方登录 绑定万方账号
@@ -65,9 +98,6 @@ message BindNewRegistRequest {
 	string password = 3; // 密码
 	ThirdPartyType third_party_type = 4; // 第三方登录类型
 }
-
-
-
 
 
 

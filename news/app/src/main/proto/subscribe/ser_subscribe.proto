@@ -14,6 +14,8 @@ service SubscribeService {
     // 取消订阅
     rpc CancelSubscribe (CancelSubscribeRequest) returns (CancelSubscribeResponse);
 
+    // 检查期刊是否已经被订阅
+    rpc CheckIsSubscribed (CheckPerioISSubscribedRequest) returns (CheckPerioISSubscribeResponse);
     // 订阅关键词
     rpc SubscribeKeyword (SubscribeKeywordRequest) returns (SubscribeKeywordResponse);
 
@@ -28,6 +30,12 @@ service SubscribeService {
 
     // 获取已订阅期刊列表
     rpc GetSubscribePerioList (SubscribePerioListRequest) returns (SubscribePerioListResponse);
+
+    // 添加期刊订阅时 左侧的列表数据
+    rpc GetAddSubscribePerioTreeList (AddSubscribePerioTreeListRequest) returns (AddSubscribePerioTreeListResponse);
+
+    // 添加期刊订阅时  右侧期刊列表数据
+    rpc GetAddSubscribePerioSearchList (SubscribePerioListSearchRequest) returns (SubscribePerioListSearchResponse);
 
     // 获取添加关键词订阅时选取的文献类型列表
     rpc GetSubscribeDocTypeList (SubscribeDocTypeListRequest) returns (SubscribeDocTypeListResponse);

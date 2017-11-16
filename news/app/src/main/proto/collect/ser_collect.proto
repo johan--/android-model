@@ -16,4 +16,7 @@ service CollectService {
 
     // 收藏文献
     rpc Collect (CollectRequest) returns (CollectResponse);
+
+    // 检查文献是否已经收藏过(已登录状态)
+    rpc CheckISCollected (CheckISCollectedRequest) returns (CheckISCollectedRequest);
 }

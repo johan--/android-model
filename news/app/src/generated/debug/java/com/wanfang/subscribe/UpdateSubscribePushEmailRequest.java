@@ -4,6 +4,10 @@
 package com.wanfang.subscribe;
 
 /**
+ * <pre>
+ * 更新推送邮箱
+ * </pre>
+ *
  * Protobuf type {@code subscribe.UpdateSubscribePushEmailRequest}
  */
 public  final class UpdateSubscribePushEmailRequest extends
@@ -326,6 +330,10 @@ public  final class UpdateSubscribePushEmailRequest extends
     return builder;
   }
   /**
+   * <pre>
+   * 更新推送邮箱
+   * </pre>
+   *
    * Protobuf type {@code subscribe.UpdateSubscribePushEmailRequest}
    */
   public static final class Builder extends

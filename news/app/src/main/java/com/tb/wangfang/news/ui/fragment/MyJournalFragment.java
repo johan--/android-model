@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleFragment;
 import com.tb.wangfang.news.di.component.DaggerFragmentComponent;
 import com.tb.wangfang.news.di.module.FragmentModule;
@@ -97,6 +98,7 @@ public class MyJournalFragment extends SimpleFragment implements BaseQuickAdapte
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), JournalActivity.class);
+                intent.putExtra(Constants.ARTICLE_ID, ((SubscribePerioListResponse.SubscribePerioMessage) adapter.getData().get(position)).getPerioId());
                 startActivity(intent);
             }
         });

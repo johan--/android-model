@@ -47,7 +47,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="项目标准编号 : "
+            android:text="项目年度编号 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -120,6 +120,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="中国分类号 : "
+
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -136,7 +137,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="12.5dp"
         android:orientation="horizontal">
 
@@ -216,6 +216,7 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/ll_identity_dapart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -240,6 +241,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_identity_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -264,6 +266,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_recommend_apartment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -273,7 +276,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="推荐部门 : "
+            android:text="申报日期 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -288,6 +291,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_register_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -312,6 +316,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_time_start_end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -345,6 +350,7 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/ll_complete_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -369,6 +375,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_completer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -402,9 +409,85 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/ll_patent_app_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="专利申请号 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_patent_app_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_patent_app_sum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="专利项数 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_patent_app_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_patent_peimit_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="专利授权号 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_patent_peimit_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Industry_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -416,7 +499,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_industry_name"
+            android:id="@+id/tv_Industry_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -426,6 +509,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_Industry_class_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -440,7 +524,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_industrt_num"
+            android:id="@+id/tv_Industry_class_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -459,13 +543,85 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/ll_transfer_cont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12.5dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="转让内容 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_transfer_cont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_Itransfer_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="转让方式 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_transfer_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_transfer_cond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="转让条件 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_transfer_cond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_transfer_range"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -482,8 +638,8 @@
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
-
     <LinearLayout
+        android:id="@+id/ll_transfer_fee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -493,12 +649,36 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="转让方式 : "
+            android:text="转让费 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_transfer_way"
+            android:id="@+id/tv_Itransfer_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_transfer_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="转让注释 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_transfer_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -515,11 +695,35 @@
         android:text="投资信息"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp" />
-
     <LinearLayout
+        android:id="@+id/ll_invest_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="投资说明 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_invest_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_invest_amt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -531,7 +735,31 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_investment_info"
+            android:id="@+id/tv_invest_amt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_invest_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="投资注释 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_invest_note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -550,6 +778,82 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/ll_promotion_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="推广情况说明 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_promotion_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_promotion_range"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="推广范围 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_promotion_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_promotion_tail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="推广跟踪 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_promotion_tail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_promotion_method"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -564,7 +868,32 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_promotion_info"
+            android:id="@+id/tv_promotion_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="刘学疯，范仲淹"
+            android:textColor="@color/gray_text_6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_promotion_forecast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="推广的必要性及推广预测 : "
+            android:textColor="@color/gray_text_6"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_promotion_forecast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -583,6 +912,7 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/ll_unit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -607,6 +937,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_unit_sity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -631,6 +962,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_person_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12.5dp"
@@ -655,6 +987,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_sity_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"

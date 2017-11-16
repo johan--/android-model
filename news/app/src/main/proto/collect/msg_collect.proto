@@ -9,6 +9,17 @@ option java_multiple_files = true;
 option java_package = "com.wanfang.collect";
 option objc_class_prefix = "WFPR";
 
+// 检查文献是否已经收藏
+message CheckISCollectedRequest {
+    string user_id = 1;
+    string docu_id = 2;
+    string docu_type = 3;
+}
+message CheckISCollectedResponse {
+    bool is_collected = 1; // true: 已经收藏过 false：没有收藏
+    grpcCommon.GrpcError error = 2;
+}
+
 // 收藏文献
 message CollectRequest {
     string user_id = 1; // 用户id
@@ -67,7 +78,7 @@ message MyCollectDetailResponse {
     google.protobuf.Any collect_detail = 10;
 
     MyCollectDetailType detail_type = 11;
-
+    
     // 根据type去unpack相应的message
 
     // MyCollectConfMessage conf_message = 11; // 会议信息   CONFERENCE_TYPE
@@ -109,7 +120,7 @@ message MyCollectDegreeMessage {
 }
 
 message MyCollectSimilarPaperMessage {
-    string artical_id = 1;
-    string artical_type = 2;
-    string title = 3;
+	string artical_id = 1;
+	string artical_type = 2;
+	string title = 3;
 }

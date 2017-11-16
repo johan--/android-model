@@ -25,6 +25,12 @@ service PersonalCenterService {
     // 快捷登录(手机号验证码登录)
     rpc QuickLogin (QuickLoginRequest) returns (LoginResponse);
 
+     // 第三方登录
+    rpc thirdPartyLogin (ThirdPartyLoginRequest) returns (ThirdPartyLoginResponse);
+
+     // 第三方登录账号绑定
+    rpc thirdPartyBind (ThirdPartyBindRequest) returns (ThirdPartyBindResponse);
+
     // 第三方登录后绑定万方账号
     rpc BindExistAccount (BindExistAccountRequest) returns (LoginResponse);
 

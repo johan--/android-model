@@ -24,7 +24,14 @@ message ReadResponse {
     string display_info = 3; // 描述信息
     string safe_transaction_string = 4; // 统一下单需要的参数
     bool already_buy = 5; // 已经购买过，不需要购买，直接可以在线阅读 trade_power后判断
-    string read_url = 6; // 阅读地址
+    ResourceFile resource_file = 6; // 文件信息
     bool has_trade_power = 7; // 是否可以支付 先判断
     grpcCommon.GrpcError error = 8;
+}
+
+//全文
+message ResourceFile {
+    string file_name = 1;// 文件名称
+    string content_type = 2; // 文件类型
+    bytes file_byte = 3;// 文件字节
 }

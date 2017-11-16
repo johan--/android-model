@@ -20,6 +20,9 @@ import android.view.WindowManager;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,6 +31,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -270,5 +274,50 @@ public class SystemUtil {
         } catch (Exception e) {
         }
         return defaultValue;
+    }
+
+    public static String getStringFromJsonarray(String json) {
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+            String s = "";
+            for (int i = 0; i < jsonArray.length(); i++) {
+                s += jsonArray.get(i) + " ";
+            }
+            return s;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public static String getStringFromList(List list) {
+        String s = "";
+        for (int i = 0; i < list.size(); i++) {
+            s += list.get(i) + " ";
+        }
+        return s;
+    }
+
+    public static String getStringFromListDouhao(List list) {
+        String s = "";
+        for (int i = 0; i < list.size(); i++) {
+            if (i == list.size() - 1) {
+                s += list.get(i);
+            } else {
+                s += list.get(i) + ",";
+            }
+        }
+        return s;
+    }
+    public static String getStringFromListPozhe(List list) {
+        String s = "";
+        for (int i = 0; i < list.size(); i++) {
+            if (i == list.size() - 1) {
+                s += list.get(i);
+            } else {
+                s += list.get(i) + "-";
+            }
+        }
+        return s;
     }
 }

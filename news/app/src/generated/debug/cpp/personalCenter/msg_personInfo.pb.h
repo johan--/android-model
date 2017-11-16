@@ -52,6 +52,7 @@ class InfoGraduatedSchool;
 class InfoIdNumber;
 class InfoInterestSubject;
 class InfoNickName;
+class InfoPassword;
 class InfoRealName;
 class InfoSex;
 class InfoSubject;
@@ -2647,6 +2648,97 @@ class InfoAvatar : public ::google::protobuf::Message /* @@protoc_insertion_poin
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<InfoAvatar> InfoAvatar_default_instance_;
 
+// -------------------------------------------------------------------
+
+class InfoPassword : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.InfoPassword) */ {
+ public:
+  InfoPassword();
+  virtual ~InfoPassword();
+
+  InfoPassword(const InfoPassword& from);
+
+  inline InfoPassword& operator=(const InfoPassword& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const InfoPassword& default_instance();
+
+  static const InfoPassword* internal_default_instance();
+
+  void Swap(InfoPassword* other);
+
+  // implements Message ----------------------------------------------
+
+  inline InfoPassword* New() const { return New(NULL); }
+
+  InfoPassword* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const InfoPassword& from);
+  void MergeFrom(const InfoPassword& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(InfoPassword* other);
+  void UnsafeMergeFrom(const InfoPassword& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string password = 1;
+  void clear_password();
+  static const int kPasswordFieldNumber = 1;
+  const ::std::string& password() const;
+  void set_password(const ::std::string& value);
+  void set_password(const char* value);
+  void set_password(const char* value, size_t size);
+  ::std::string* mutable_password();
+  ::std::string* release_password();
+  void set_allocated_password(::std::string* password);
+
+  // @@protoc_insertion_point(class_scope:personal.InfoPassword)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr password_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<InfoPassword> InfoPassword_default_instance_;
+
 // ===================================================================
 
 
@@ -4642,7 +4734,60 @@ inline void InfoAvatar::set_allocated_avatar_url(::std::string* avatar_url) {
 inline const InfoAvatar* InfoAvatar::internal_default_instance() {
   return &InfoAvatar_default_instance_.get();
 }
+// -------------------------------------------------------------------
+
+// InfoPassword
+
+// optional string password = 1;
+inline void InfoPassword::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& InfoPassword::password() const {
+  // @@protoc_insertion_point(field_get:personal.InfoPassword.password)
+  return password_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InfoPassword::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.InfoPassword.password)
+}
+inline void InfoPassword::set_password(const char* value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.InfoPassword.password)
+}
+inline void InfoPassword::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.InfoPassword.password)
+}
+inline ::std::string* InfoPassword::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.InfoPassword.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* InfoPassword::release_password() {
+  // @@protoc_insertion_point(field_release:personal.InfoPassword.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InfoPassword::set_allocated_password(::std::string* password) {
+  if (password != NULL) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:personal.InfoPassword.password)
+}
+
+inline const InfoPassword* InfoPassword::internal_default_instance() {
+  return &InfoPassword_default_instance_.get();
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

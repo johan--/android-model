@@ -220,10 +220,16 @@ class SubscribePushEmailResponse : public ::google::protobuf::Message /* @@proto
   ::std::string* release_email();
   void set_allocated_email(::std::string* email);
 
-  // optional .grpcCommon.GrpcError error = 2;
+  // optional bool has_email = 2;
+  void clear_has_email();
+  static const int kHasEmailFieldNumber = 2;
+  bool has_email() const;
+  void set_has_email(bool value);
+
+  // optional .grpcCommon.GrpcError error = 3;
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 2;
+  static const int kErrorFieldNumber = 3;
   const ::grpcCommon::GrpcError& error() const;
   ::grpcCommon::GrpcError* mutable_error();
   ::grpcCommon::GrpcError* release_error();
@@ -235,6 +241,7 @@ class SubscribePushEmailResponse : public ::google::protobuf::Message /* @@proto
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr email_;
   ::grpcCommon::GrpcError* error_;
+  bool has_email_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto_impl();
   friend void  protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto_impl();
@@ -1493,7 +1500,21 @@ inline void SubscribePushEmailResponse::set_allocated_email(::std::string* email
   // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribePushEmailResponse.email)
 }
 
-// optional .grpcCommon.GrpcError error = 2;
+// optional bool has_email = 2;
+inline void SubscribePushEmailResponse::clear_has_email() {
+  has_email_ = false;
+}
+inline bool SubscribePushEmailResponse::has_email() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribePushEmailResponse.has_email)
+  return has_email_;
+}
+inline void SubscribePushEmailResponse::set_has_email(bool value) {
+  
+  has_email_ = value;
+  // @@protoc_insertion_point(field_set:subscribe.SubscribePushEmailResponse.has_email)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
 inline bool SubscribePushEmailResponse::has_error() const {
   return this != internal_default_instance() && error_ != NULL;
 }

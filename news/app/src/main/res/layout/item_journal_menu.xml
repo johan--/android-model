@@ -4,11 +4,18 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
+    <com.tb.wangfang.news.widget.AlwaysMarqueeTextView
         android:id="@+id/tv_name"
         android:layout_width="100dp"
         android:layout_height="45dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:gravity="center"
+        android:lines="1"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:padding="5dp"
+        android:scrollHorizontally="true"
         android:text="工业技术"
         android:textSize="12sp" />
 

@@ -190,6 +190,24 @@ public  final class SubscribePerioListResponse extends
      */
     com.google.protobuf.ByteString
         getAddTimeBytes();
+
+    /**
+     * <pre>
+     * 订阅id
+     * </pre>
+     *
+     * <code>optional string subscribe_id = 6;</code>
+     */
+    java.lang.String getSubscribeId();
+    /**
+     * <pre>
+     * 订阅id
+     * </pre>
+     *
+     * <code>optional string subscribe_id = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getSubscribeIdBytes();
   }
   /**
    * Protobuf type {@code subscribe.SubscribePerioListResponse.SubscribePerioMessage}
@@ -208,6 +226,7 @@ public  final class SubscribePerioListResponse extends
       perioCover_ = "";
       perioSociety_ = "";
       addTime_ = "";
+      subscribeId_ = "";
     }
 
     @java.lang.Override
@@ -263,6 +282,12 @@ public  final class SubscribePerioListResponse extends
               java.lang.String s = input.readStringRequireUtf8();
 
               addTime_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              subscribeId_ = s;
               break;
             }
           }
@@ -498,6 +523,48 @@ public  final class SubscribePerioListResponse extends
       }
     }
 
+    public static final int SUBSCRIBE_ID_FIELD_NUMBER = 6;
+    private volatile java.lang.Object subscribeId_;
+    /**
+     * <pre>
+     * 订阅id
+     * </pre>
+     *
+     * <code>optional string subscribe_id = 6;</code>
+     */
+    public java.lang.String getSubscribeId() {
+      java.lang.Object ref = subscribeId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        subscribeId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 订阅id
+     * </pre>
+     *
+     * <code>optional string subscribe_id = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSubscribeIdBytes() {
+      java.lang.Object ref = subscribeId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        subscribeId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -525,6 +592,9 @@ public  final class SubscribePerioListResponse extends
       if (!getAddTimeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, addTime_);
       }
+      if (!getSubscribeIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, subscribeId_);
+      }
     }
 
     public int getSerializedSize() {
@@ -546,6 +616,9 @@ public  final class SubscribePerioListResponse extends
       }
       if (!getAddTimeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, addTime_);
+      }
+      if (!getSubscribeIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, subscribeId_);
       }
       memoizedSize = size;
       return size;
@@ -573,6 +646,8 @@ public  final class SubscribePerioListResponse extends
           .equals(other.getPerioSociety());
       result = result && getAddTime()
           .equals(other.getAddTime());
+      result = result && getSubscribeId()
+          .equals(other.getSubscribeId());
       return result;
     }
 
@@ -593,6 +668,8 @@ public  final class SubscribePerioListResponse extends
       hash = (53 * hash) + getPerioSociety().hashCode();
       hash = (37 * hash) + ADD_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getAddTime().hashCode();
+      hash = (37 * hash) + SUBSCRIBE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSubscribeId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -721,6 +798,8 @@ public  final class SubscribePerioListResponse extends
 
         addTime_ = "";
 
+        subscribeId_ = "";
+
         return this;
       }
 
@@ -748,6 +827,7 @@ public  final class SubscribePerioListResponse extends
         result.perioCover_ = perioCover_;
         result.perioSociety_ = perioSociety_;
         result.addTime_ = addTime_;
+        result.subscribeId_ = subscribeId_;
         onBuilt();
         return result;
       }
@@ -807,6 +887,10 @@ public  final class SubscribePerioListResponse extends
         }
         if (!other.getAddTime().isEmpty()) {
           addTime_ = other.addTime_;
+          onChanged();
+        }
+        if (!other.getSubscribeId().isEmpty()) {
+          subscribeId_ = other.subscribeId_;
           onChanged();
         }
         onChanged();
@@ -1276,6 +1360,95 @@ public  final class SubscribePerioListResponse extends
   checkByteStringIsUtf8(value);
         
         addTime_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object subscribeId_ = "";
+      /**
+       * <pre>
+       * 订阅id
+       * </pre>
+       *
+       * <code>optional string subscribe_id = 6;</code>
+       */
+      public java.lang.String getSubscribeId() {
+        java.lang.Object ref = subscribeId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          subscribeId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 订阅id
+       * </pre>
+       *
+       * <code>optional string subscribe_id = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSubscribeIdBytes() {
+        java.lang.Object ref = subscribeId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          subscribeId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 订阅id
+       * </pre>
+       *
+       * <code>optional string subscribe_id = 6;</code>
+       */
+      public Builder setSubscribeId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        subscribeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 订阅id
+       * </pre>
+       *
+       * <code>optional string subscribe_id = 6;</code>
+       */
+      public Builder clearSubscribeId() {
+        
+        subscribeId_ = getDefaultInstance().getSubscribeId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 订阅id
+       * </pre>
+       *
+       * <code>optional string subscribe_id = 6;</code>
+       */
+      public Builder setSubscribeIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        subscribeId_ = value;
         onChanged();
         return this;
       }

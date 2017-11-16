@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16.5dp"
-            android:text="王小平"
             android:textColor="@color/gray_text_6" />
 
         <TextView
@@ -35,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="《价值工程》"
             android:textColor="@color/gray_text_6" />
 
         <TextView
@@ -43,7 +41,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="2017年1期"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
 
@@ -56,7 +53,6 @@
         android:ellipsize="end"
         android:lineSpacingExtra="12.5dp"
         android:lines="2"
-        android:text="摘要:房屋开发及无附件为科技离开房间玩if交网费框架偶尔玩方季惟方季惟付军翁付军扩翁军覅翁付军二扩付几扩无风接军付翁付军扩无付几无付军二我偶偶偶偶偶偶偶付军"
         android:textColor="#999"
         android:textSize="12sp" />
 

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.gson.Gson;
 import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.tb.wangfang.news.R;
@@ -23,27 +24,34 @@ import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
+import com.tb.wangfang.news.model.bean.ConfArticle;
+import com.tb.wangfang.news.model.bean.DegreeArticleBean;
+import com.tb.wangfang.news.model.bean.LegisBean;
+import com.tb.wangfang.news.model.bean.PatentElementBean;
+import com.tb.wangfang.news.model.bean.PerioArticelBean;
+import com.tb.wangfang.news.model.bean.RelatePapers;
+import com.tb.wangfang.news.model.bean.StandardsBean;
+import com.tb.wangfang.news.model.bean.TechResultBean;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.SimilarPageAdapter;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.AutoLinearLayoutManager;
 import com.wanfang.collect.CollectRequest;
 import com.wanfang.collect.CollectResponse;
 import com.wanfang.collect.CollectServiceGrpc;
 import com.wanfang.collect.MyCollectConfMessage;
-import com.wanfang.collect.MyCollectDegreeMessage;
-import com.wanfang.collect.MyCollectDetailRequest;
 import com.wanfang.collect.MyCollectDetailResponse;
-import com.wanfang.collect.MyCollectPerioMessage;
-import com.wanfang.collect.MyCollectSimilarPaperMessage;
 import com.wanfang.read.ReadRequest;
 import com.wanfang.read.ReadResponse;
 import com.wanfang.read.ReadServiceGrpc;
 import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageRequest;
 import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageResponse;
 import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageServiceGrpc;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -59,7 +67,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
+import static cn.jpush.android.api.JPushInterface.a.i;
+import static com.tb.wangfang.news.R.id.tv_china_class_num;
+import static com.tb.wangfang.news.R.id.tv_fruit_class;
+import static com.tb.wangfang.news.R.id.tv_identity_dapart;
+import static com.tb.wangfang.news.R.id.tv_key_word;
+import static com.tb.wangfang.news.R.id.tv_progress_num;
+import static com.tb.wangfang.news.R.id.tv_province;
+import static com.tb.wangfang.news.R.id.tv_publish_data;
 import static com.tb.wangfang.news.R.id.tv_summary_num;
+import static com.tb.wangfang.news.app.Constants.SEARCH_DETAIL;
 
 public class DocDetailActivity extends SimpleActivity {
     @Inject
@@ -82,15 +99,19 @@ public class DocDetailActivity extends SimpleActivity {
     RecyclerView rvSimilar;
     @BindView(R.id.sv_all_content)
     ScrollView scrollView;
-    MyCollectDetailResponse detailResponse;
 
-    int i = 0;
+
     private String TAG = "DocDetailActivity";
-    private List<MyCollectSimilarPaperMessage> similarPages;
     private String articleId;
     private String articleType;
     private ManagedChannel mChannelSever;
     private MaterialDialog dialog;
+    private LayoutInflater inflater;
+    private String language;
+    private String resourceId;
+    private String resourceDb;
+    private String resourceTitle;
+    private String classType;
 
 
     @Override
@@ -109,6 +130,7 @@ public class DocDetailActivity extends SimpleActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void initEventAndData() {
+        inflater = getLayoutInflater();
         scrollView.setNestedScrollingEnabled(false);
         articleId = getIntent().getStringExtra(Constants.ARTICLE_ID);
         articleType = getIntent().getStringExtra(Constants.ARTICLE_TYPE);
@@ -119,44 +141,482 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void getDocDetail(final String articleId, final String articleType) {
-        Single.create(new SingleOnSubscribe<MyCollectDetailResponse>() {
-            @Override
-            public void subscribe(SingleEmitter<MyCollectDetailResponse> e) throws Exception {
-                CollectServiceGrpc.CollectServiceBlockingStub stub = CollectServiceGrpc.newBlockingStub(managedChannel);
-                MyCollectDetailRequest request = MyCollectDetailRequest.newBuilder().setArticalId(articleId).setArticalType(articleType).build();
-                MyCollectDetailResponse response = stub.getDocDetail(request);
-                e.onSuccess(response);
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyCollectDetailResponse>() {
-            @Override
-            public void onSuccess(MyCollectDetailResponse myCollectDetailResponse) {
-                detailResponse = myCollectDetailResponse;
-                initView(myCollectDetailResponse.getDetailTypeValue(), myCollectDetailResponse);
-                initSimilarPage(myCollectDetailResponse);
-                scrollView.setVisibility(View.VISIBLE);
-                scrollView.smoothScrollTo(0, 0);
-                dialog.dismiss();
-            }
 
-            @Override
-            public void onError(Throwable e) {
-                ToastUtil.show("服务器异常");
-                dialog.dismiss();
-            }
-        });
+        OkHttpUtils.get().url(SEARCH_DETAIL).addParams("params", articleId).addParams("clstype", articleType).build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+                        Log.d(TAG, "onError: " + e.getMessage());
+                        ToastUtil.show("服务器异常");
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d(TAG, "onResponse: " + response);
+                        if (articleType.equals("perio_artical")) {
+                            initViewPerioArticle(response);
+                        } else if (articleType.equals("degree_artical")) {
+                            initViewDegreeArtcle(response);
+                        } else if (articleType.equals("patent_element")) {
+                            initViewPatentElement(response);
+                        } else if (articleType.equals("conf_artical")) {
+                            initViewConfArticle(response);
+                        } else if (articleType.equals("standards")) {
+                            initViewStandards(response);
+                        } else if (articleType.equals("legislations")) {
+                            initViewLeaislations(response);
+                        } else if (articleType.equals("tech_result")) {
+                            initViewTechResult(response);
+                        }
+
+                        scrollView.setVisibility(View.VISIBLE);
+                        scrollView.smoothScrollTo(0, 0);
+                        dialog.dismiss();
+                    }
+
+
+                });
+
     }
 
-    private void initSimilarPage(MyCollectDetailResponse myCollectDetailResponse) {
+    private void initViewTechResult(String response) {
+        Gson gson = new Gson();
+        TechResultBean bean = gson.fromJson(response, TechResultBean.class);
+        View view = inflater.inflate(R.layout.frag_article_fruit, viewStub, false);
+        viewStub.addView(view);
+
+
+        TextView tvTitle = (TextView) findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) findViewById(R.id.tv_content);
+        TextView tvProgressNum = (TextView) findViewById(tv_progress_num);
+        TextView tvLimitUse = (TextView) findViewById(R.id.tv_limit_use);
+        TextView tvProvince = (TextView) findViewById(tv_province);
+        TextView tvChinaClassNum = (TextView) findViewById(tv_china_class_num);
+        TextView tvFruitClass = (TextView) findViewById(tv_fruit_class);
+        TextView tvPublishData = (TextView) findViewById(tv_publish_data);
+        TextView tvKeyWord = (TextView) findViewById(tv_key_word);
+        LinearLayout llIdentityDapart = (LinearLayout) findViewById(R.id.ll_identity_dapart);
+        TextView tvIdentityDapart = (TextView) findViewById(tv_identity_dapart);
+        LinearLayout llIdentityData = (LinearLayout) findViewById(R.id.ll_identity_data);
+        TextView tvIdentityData = (TextView) findViewById(R.id.tv_identity_data);
+        LinearLayout llRecommendApartment = (LinearLayout) findViewById(R.id.ll_recommend_apartment);
+        TextView tvRecommendApartment = (TextView) findViewById(R.id.tv_recommend_apartment);
+        LinearLayout llRegisterNum = (LinearLayout) findViewById(R.id.ll_register_num);
+        TextView tvRegisterNum = (TextView) findViewById(R.id.tv_register_num);
+        LinearLayout llTimeStartEnd = (LinearLayout) findViewById(R.id.ll_time_start_end);
+        TextView tvTimeStartEnd = (TextView) findViewById(R.id.tv_time_start_end);
+        LinearLayout llCompleteCompany = (LinearLayout) findViewById(R.id.ll_complete_company);
+        TextView tvCompleteCompany = (TextView) findViewById(R.id.tv_complete_company);
+        LinearLayout llCompleter = (LinearLayout) findViewById(R.id.ll_completer);
+        TextView tvCompleter = (TextView) findViewById(R.id.tv_completer);
+        LinearLayout llPromotionInfo = (LinearLayout) findViewById(R.id.ll_promotion_info);
+        TextView tvPromotionInfo = (TextView) findViewById(R.id.tv_promotion_info);
+        LinearLayout llPromotionRange = (LinearLayout) findViewById(R.id.ll_promotion_range);
+        TextView tvPromotionRange = (TextView) findViewById(R.id.tv_promotion_range);
+        LinearLayout llPromotionTail = (LinearLayout) findViewById(R.id.ll_promotion_tail);
+        TextView tvPromotionTail = (TextView) findViewById(R.id.tv_promotion_tail);
+        LinearLayout llPromotionMethod = (LinearLayout) findViewById(R.id.ll_promotion_method);
+        TextView tvPromotionMethod = (TextView) findViewById(R.id.tv_promotion_method);
+        LinearLayout llPromotionForecast = (LinearLayout) findViewById(R.id.ll_promotion_forecast);
+        TextView tvPromotionForecast = (TextView) findViewById(R.id.tv_promotion_forecast);
+        LinearLayout llUnitName = (LinearLayout) findViewById(R.id.ll_unit_name);
+        TextView tvUnitName = (TextView) findViewById(R.id.tv_unit_name);
+        LinearLayout llUnitSity = (LinearLayout) findViewById(R.id.ll_unit_sity);
+        TextView tvUnitSity = (TextView) findViewById(R.id.tv_unit_sity);
+        LinearLayout llPersonName = (LinearLayout) findViewById(R.id.ll_person_name);
+        TextView tvPersonName = (TextView) findViewById(R.id.tv_person_name);
+        LinearLayout llSityCode = (LinearLayout) findViewById(R.id.ll_sity_code);
+        TextView tvSityCode = (TextView) findViewById(R.id.tv_sity_code);
+
+
+        LinearLayout llTransferCont = (LinearLayout) findViewById(R.id.ll_transfer_cont);
+        TextView tvTransferCont = (TextView) findViewById(R.id.tv_transfer_cont);
+        LinearLayout llItransferMode = (LinearLayout) findViewById(R.id.ll_Itransfer_mode);
+        TextView tvTransferMode = (TextView) findViewById(R.id.tv_transfer_mode);
+        LinearLayout llTransferCond = (LinearLayout) findViewById(R.id.ll_transfer_cond);
+        TextView tvTransferCond = (TextView) findViewById(R.id.tv_transfer_cond);
+        LinearLayout llTransferRange = (LinearLayout) findViewById(R.id.ll_transfer_range);
+        TextView tvTransferRange = (TextView) findViewById(R.id.tv_transfer_range);
+        LinearLayout llTransferFee = (LinearLayout) findViewById(R.id.ll_transfer_fee);
+        TextView tvItransferFee = (TextView) findViewById(R.id.tv_Itransfer_fee);
+        LinearLayout llTransferDesc = (LinearLayout) findViewById(R.id.ll_transfer_desc);
+        TextView tvTransferDesc = (TextView) findViewById(R.id.tv_transfer_desc);
+        LinearLayout llInvestDesc = (LinearLayout) findViewById(R.id.ll_invest_desc);
+        TextView tvInvestDesc = (TextView) findViewById(R.id.tv_invest_desc);
+        LinearLayout llInvestAmt = (LinearLayout) findViewById(R.id.ll_invest_amt);
+        TextView tvInvestAmt = (TextView) findViewById(R.id.tv_invest_amt);
+        LinearLayout llInvestNote = (LinearLayout) findViewById(R.id.ll_invest_note);
+        TextView tvInvestNote = (TextView) findViewById(R.id.tv_invest_note);
+
+
+        LinearLayout llPatentAppNum = (LinearLayout) findViewById(R.id.ll_patent_app_num);
+        TextView tvPatentAppNum = (TextView) findViewById(R.id.tv_patent_app_num);
+        LinearLayout llPatentAppSum = (LinearLayout) findViewById(R.id.ll_patent_app_sum);
+        TextView tvPatentAppSum = (TextView) findViewById(R.id.tv_patent_app_sum);
+        LinearLayout llPatentPeimitNum = (LinearLayout) findViewById(R.id.ll_patent_peimit_num);
+        TextView tvPatentPeimitNum = (TextView) findViewById(R.id.tv_patent_peimit_num);
+        LinearLayout llIndustryClass = (LinearLayout) findViewById(R.id.ll_Industry_class);
+        TextView tvIndustryClass = (TextView) findViewById(R.id.tv_Industry_class);
+        LinearLayout llIndustryClassNum = (LinearLayout) findViewById(R.id.ll_Industry_class_num);
+        TextView tvIndustryClassNum = (TextView) findViewById(R.id.tv_Industry_class_num);
+
+
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            tvProgressNum.setText(bean.getData().get(0).getYear_num());
+            tvProvince.setText(bean.getData().get(0).getProvince());
+            tvChinaClassNum.setText(bean.getData().get(0).getClass_code());
+            tvFruitClass.setText(bean.getData().get(0).getResult_type());
+            tvPublishData.setText(bean.getData().get(0).getRe_pubdate());
+            tvKeyWord.setText(SystemUtil.getStringFromList(bean.getData().get(0).getKeywords()));
+            setText(bean.getData().get(0).getIdentify_dept(), tvIdentityDapart, llIdentityDapart);
+            setText(bean.getData().get(0).getIdentify_date(), tvIdentityData, llIdentityData);
+            setText(bean.getData().get(0).getDeclare_date(), tvRecommendApartment, llRecommendApartment);
+            setText(bean.getData().get(0).getReg_code(), tvRegisterNum, llRegisterNum);
+            setText(bean.getData().get(0).getWork_date(), tvTimeStartEnd, llTimeStartEnd);
+            setText(bean.getData().get(0).getIssue_unit(), tvCompleteCompany, llCompleteCompany);
+            setText(bean.getData().get(0).getContact_per(), tvCompleter, llCompleter);
+            setText(bean.getData().get(0).getP_app_id(), tvPatentAppNum, llPatentAppNum);
+            setText(bean.getData().get(0).getPatent_cnt(), tvPatentAppSum, llPatentAppSum);
+            setText(bean.getData().get(0).getGrant_id(), tvPatentPeimitNum, llPatentPeimitNum);
+            setText(bean.getData().get(0).getIndustry_name(), tvIndustryClass, llIndustryClass);
+            setText(bean.getData().get(0).getIndustry_code(), tvIndustryClassNum, llIndustryClassNum);
+            setText(bean.getData().get(0).getTransfer_cont(), tvTransferCont, llTransferCont);
+            setText(bean.getData().get(0).getTransfer_mode(), tvTransferMode, llItransferMode);
+            setText(bean.getData().get(0).getTransfer_cond(), tvTransferCond, llTransferCond);
+            setText(bean.getData().get(0).getTransfer_range(), tvTransferRange, llTransferRange);
+            setText(bean.getData().get(0).getTransfer_fee(), tvItransferFee, llTransferFee);
+            setText(bean.getData().get(0).getTransfer_desc(), tvTransferDesc, llTransferDesc);
+            setText(bean.getData().get(0).getInvest_desc(), tvInvestDesc, llInvestDesc);
+            setText(bean.getData().get(0).getInvest_amt(), tvInvestAmt, llInvestAmt);
+            setText(bean.getData().get(0).getInvest_note(), tvInvestNote, llInvestNote);
+            setText(bean.getData().get(0).getSpread_desc(), tvPromotionInfo, llPromotionInfo);
+            setText(bean.getData().get(0).getSpread_range(), tvPromotionRange, llPromotionRange);
+            setText(bean.getData().get(0).getSpread_track(), tvPromotionTail, llPromotionTail);
+            setText(bean.getData().get(0).getSpread_mode(), tvPromotionMethod, llPromotionMethod);
+            setText(bean.getData().get(0).getSpread(), tvPromotionForecast, llPromotionForecast);
+            setText(bean.getData().get(0).getContact_unit(), tvUnitName, llUnitName);
+            setText(bean.getData().get(0).getAddress(), tvUnitSity, llUnitSity);
+            setText(bean.getData().get(0).getContact_per(), tvPersonName, llPersonName);
+            setText(bean.getData().get(0).getPostcode(), tvSityCode, llSityCode);
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
+            language = "";
+            resourceId = bean.getData().get(0).getResult_id();
+            resourceDb = bean.getData().get(0).getSource_db();
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+        }
+    }
+
+    private void setText(String title, TextView tvIdentityDapart, LinearLayout llIdentityDapart) {
+        if (TextUtils.isEmpty(title)) {
+            llIdentityDapart.setVisibility(View.GONE);
+        } else {
+            llIdentityDapart.setVisibility(View.VISIBLE);
+            tvIdentityDapart.setText(title);
+        }
+    }
+
+    private void initViewLeaislations(String response) {
+        Gson gson = new Gson();
+        LegisBean bean = gson.fromJson(response, LegisBean.class);
+        View view = inflater.inflate(R.layout.frag_article_law, viewStub, false);
+        viewStub.addView(view);
+        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        TextView tvBankName = (TextView) viewStub.findViewById(R.id.tv_bank_name);
+        TextView tvArticleId = (TextView) viewStub.findViewById(R.id.tv_article_id);
+        TextView tvPublishUnis = (TextView) viewStub.findViewById(R.id.tv_publish_unit);
+        TextView tvTimeLiness = (TextView) viewStub.findViewById(R.id.tv_timeliness);
+        TextView tvPublishTime = (TextView) viewStub.findViewById(R.id.tv_publish_time);
+        TextView tvContentClass = (TextView) viewStub.findViewById(R.id.tv_content_class);
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            tvBankName.setText(bean.getData().get(0).getDb_name());
+            tvArticleId.setText(bean.getData().get(0).getPublish_num());
+            tvPublishUnis.setText(bean.getData().get(0).getIssue_dept02());
+            tvTimeLiness.setText(bean.getData().get(0).getIs_valid());
+            tvPublishTime.setText(bean.getData().get(0).getIssue_date02());
+            tvContentClass.setText(bean.getData().get(0).getClass_name02());
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
+            language = "";
+            resourceId = bean.getData().get(0).getLegis_id();
+            resourceDb = bean.getData().get(0).getSource_db();
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+        }
+
+    }
+
+    private void initViewStandards(String response) {
+        Gson gson = new Gson();
+        StandardsBean bean = gson.fromJson(response, StandardsBean.class);
+        View view = inflater.inflate(R.layout.frag_article_standard, viewStub, false);
+        viewStub.addView(view);
+        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        TextView tvStandardId = (TextView) viewStub.findViewById(R.id.tv_standard_id);
+        TextView tvunit = (TextView) viewStub.findViewById(R.id.tv_unit);
+        TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
+        TextView tvStatue = (TextView) viewStub.findViewById(R.id.tv_statue);
+        TextView tvMandatory = (TextView) viewStub.findViewById(R.id.tv_mandatory);
+        TextView tvDoTime = (TextView) viewStub.findViewById(R.id.tv_do_time);
+        TextView tvPageNum = (TextView) viewStub.findViewById(R.id.tv_page_num);
+        TextView tvChinaClassNum = (TextView) viewStub.findViewById(tv_china_class_num);
+        TextView tvStandardClassNum = (TextView) viewStub.findViewById(R.id.tv_standard_class_num);
+        TextView tvCountryNum = (TextView) viewStub.findViewById(R.id.tv_country_num);
+        TextView tvCountryName = (TextView) viewStub.findViewById(R.id.tv_country_name);
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            tvStandardId.setText(bean.getData().get(0).getStand_num());
+            tvunit.setText(bean.getData().get(0).getIssue_unit());
+            tvTime.setText(bean.getData().get(0).getIssue_date());
+            tvStatue.setText(bean.getData().get(0).getStand_status());
+            tvMandatory.setText(bean.getData().get(0).getIs_force());
+            tvDoTime.setText(bean.getData().get(0).getForce_date());
+            tvPageNum.setText(bean.getData().get(0).getPage_cnt());
+            tvChinaClassNum.setText(bean.getData().get(0).getCcs_code_c());
+            tvStandardClassNum.setText(bean.getData().get(0).getCcs_code());
+            tvCountryNum.setText(bean.getData().get(0).getIcs_code());
+            tvCountryName.setText(bean.getData().get(0).getCountry());
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
+            language = bean.getData().get(0).getLanguage();
+            resourceId = bean.getData().get(0).getStand_id();
+            resourceDb = bean.getData().get(0).getSource_db();
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+        }
+
+
+    }
+
+    private void initViewConfArticle(String response) {
+        Gson gson = new Gson();
+        ConfArticle bean = gson.fromJson(response, ConfArticle.class);
+        View view = inflater.inflate(R.layout.frag_article_meeting, viewStub, false);
+        viewStub.addView(view);
+        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
+        TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
+        TextView tvMeetingName = (TextView) viewStub.findViewById(R.id.tv_meeting_name);
+        TextView tvMeetingSity = (TextView) viewStub.findViewById(R.id.tv_meeting_sity);
+        TextView tvPublishMeeting = (TextView) viewStub.findViewById(R.id.tv_publish_meeting);
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            tvKeyWord.setText(SystemUtil.getStringFromList(bean.getData().get(0).getKeywords()));
+            tvAuthor.setText(bean.getData().get(0).getAuthors_name());
+            tvMeetingName.setText(bean.getData().get(0).getConf_name02());
+            tvMeetingSity.setText(bean.getData().get(0).getConf_place());
+            tvPublishMeeting.setText(bean.getData().get(0).getHostunit_name02());
+
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
+            language = bean.getData().get(0).getLanguage();
+            resourceId = bean.getData().get(0).getArticle_id();
+            resourceDb = bean.getData().get(0).getSource_db();
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+
+        }
+
+        if (bean != null && bean.getRelatePapers() != null) {
+            ArrayList<RelatePapers> list = new ArrayList<>();
+            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
+                RelatePapers papers = new RelatePapers();
+                if (bean.getRelatePapers().get(j).getClass_type().equals("perio_artical")) {
+                    papers.setId(bean.getRelatePapers().get(j).getArticle_id());
+                }
+                papers.setType(bean.getRelatePapers().get(j).getClass_type());
+                papers.setTitle(bean.getRelatePapers().get(j).getTitle());
+                list.add(papers);
+            }
+            initSimilarPage(list);
+        }
+
+    }
+
+    private void initViewPatentElement(String response) {
+        Gson gson = new Gson();
+        PatentElementBean bean = gson.fromJson(response, PatentElementBean.class);
+        View view = inflater.inflate(R.layout.frag_article_patent, viewStub, false);
+        viewStub.addView(view);
+        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        TextView tvPatentClass = (TextView) viewStub.findViewById(R.id.tv_patent_class);
+        TextView tvPatentId = (TextView) viewStub.findViewById(R.id.tv_patent_id);
+        TextView tvDate = (TextView) viewStub.findViewById(R.id.tv_date);
+        TextView tvPublishdate = (TextView) viewStub.findViewById(R.id.tv_publish_date);
+        TextView tvApplicant = (TextView) viewStub.findViewById(R.id.tv_applicant);
+        TextView tvApplicantSite = (TextView) viewStub.findViewById(R.id.tv_applicant_site);
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            tvPatentClass.setText(bean.getData().get(0).getPatent_type());
+            tvPatentId.setText(bean.getData().get(0).getPatent_id());
+            tvDate.setText(bean.getData().get(0).getApp_date02());
+            tvPublishdate.setText(bean.getData().get(0).getPub_date());
+            tvApplicant.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getInv_name().toString()));
+            tvApplicantSite.setText(bean.getData().get(0).getApp_address());
+
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getPub_num());
+            //有问题
+            language = "";
+            resourceId = bean.getData().get(0).getPatent_id();
+            resourceDb = bean.getData().get(0).getSource_db();
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+//            ArrayList<RelatePapers> list = new ArrayList<>();
+//            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
+//                RelatePapers papers = new RelatePapers();
+//                if (bean.getRelatePapers().get(j).getClass_type().equals("perio_artical")) {
+//                    papers.setId(bean.getRelatePapers().get(j).getArticle_id());
+//                }
+//                papers.setType(bean.getRelatePapers().get(j).getClass_type());
+//                papers.setTitle(bean.getRelatePapers().get(j).getTitle());
+//                list.add(papers);
+//            }
+//            initSimilarPage(list);
+        }
+    }
+
+    private void initViewDegreeArtcle(String response) {
+        Gson gson = new Gson();
+        DegreeArticleBean bean = gson.fromJson(response, DegreeArticleBean.class);
+        View view = inflater.inflate(R.layout.frag_article_degree, viewStub, false);
+        viewStub.addView(view);
+        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
+        TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
+        TextView tvUnitPublish = (TextView) viewStub.findViewById(R.id.tv_unit_publish);
+        TextView tvTeacherName = (TextView) viewStub.findViewById(R.id.tv_teacher_name);
+        TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            String s = "";
+            for (int j = 0; j < bean.getData().get(0).getKeywords().size(); j++) {
+                if (j == bean.getData().get(0).getKeywords().size() - 1) {
+                    s += bean.getData().get(0).getKeywords().get(j);
+                } else {
+                    s += bean.getData().get(0).getKeywords().get(j) + ",";
+                }
+
+            }
+            tvKeyWord.setText(s);
+            tvAuthor.setText(bean.getData().get(0).getAuthors_name());
+            tvUnitPublish.setText(bean.getData().get(0).getUnit_name02());
+            tvTeacherName.setText(bean.getData().get(0).getTutor_name());
+            tvTime.setText(bean.getData().get(0).getPublish_year());
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
+            language = bean.getData().get(0).getLanguage();
+            resourceId = bean.getData().get(0).getArticle_id();
+            resourceDb = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getSource_db().toString());
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+        }
+        if (bean != null && bean.getRelatePapers() != null) {
+            ArrayList<RelatePapers> list = new ArrayList<>();
+            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
+                RelatePapers papers = new RelatePapers();
+                if (bean.getRelatePapers().get(j).getClass_type().equals("perio_artical")) {
+                    papers.setId(bean.getRelatePapers().get(j).getArticle_id());
+                }
+                papers.setType(bean.getRelatePapers().get(j).getClass_type());
+                papers.setTitle(bean.getRelatePapers().get(j).getTitle());
+                list.add(papers);
+            }
+            initSimilarPage(list);
+
+        }
+
+
+    }
+
+    private void initViewPerioArticle(String response) {
+        Gson gson = new Gson();
+        PerioArticelBean bean = gson.fromJson(response, PerioArticelBean.class);
+        View view_pro = inflater.inflate(R.layout.frag_article, viewStub, false);
+        viewStub.addView(view_pro);
+
+        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
+        TextView tvUnit = (TextView) viewStub.findViewById(R.id.tv_unit);
+        TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
+        TextView tvMagazine = (TextView) viewStub.findViewById(R.id.tv_magazine);
+        TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
+        if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
+            tvTitle.setText(bean.getData().get(0).getTitle());
+            tvContent.setText(bean.getData().get(0).getSummary());
+            tvAuthor.setText(bean.getData().get(0).getAuthors_name());
+            tvUnit.setText(bean.getData().get(0).getAuthors_unit());
+            tvKeyWord.setText(SystemUtil.getStringFromList(bean.getData().get(0).getKeywords()));
+            tvMagazine.setText(bean.getData().get(0).getPerio_title02());
+            tvTime.setText(bean.getData().get(0).getPublish_year() + "," + bean.getData().get(0).getIssue_num());
+            language = bean.getData().get(0).getLanguage();
+            resourceId = bean.getData().get(0).getArticle_id();
+            resourceDb = bean.getData().get(0).getSource_db();
+            resourceTitle = bean.getData().get(0).getTitle();
+            classType = bean.getData().get(0).getClass_type();
+            tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
+            tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
+            tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
+            tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
+
+        }
+        if (bean != null && bean.getRelatePapers() != null) {
+
+            ArrayList<RelatePapers> list = new ArrayList<>();
+            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
+                RelatePapers papers = new RelatePapers();
+                if (bean.getRelatePapers().get(j).getClass_type().equals("perio_artical")) {
+                    papers.setId(bean.getRelatePapers().get(j).getArticle_id());
+                }
+                papers.setType(bean.getRelatePapers().get(j).getClass_type());
+                papers.setTitle(bean.getRelatePapers().get(j).getTitle());
+                list.add(papers);
+            }
+            initSimilarPage(list);
+        }
+
+
+    }
+
+    private void initSimilarPage(ArrayList<RelatePapers> list) {
         rvSimilar.setLayoutManager(new AutoLinearLayoutManager(this));
-        similarPages = myCollectDetailResponse.getSimilarPapersList();
-        final SimilarPageAdapter pageAdapter = new SimilarPageAdapter(similarPages);
+
+        final SimilarPageAdapter pageAdapter = new SimilarPageAdapter(list);
         rvSimilar.setAdapter(pageAdapter);
         pageAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(DocDetailActivity.this, DocDetailActivity.class);
-                intent.putExtra(Constants.ARTICLE_TYPE, pageAdapter.getData().get(i).getArticalType());
-                intent.putExtra(Constants.ARTICLE_ID, pageAdapter.getData().get(i).getArticalId());
+                intent.putExtra(Constants.ARTICLE_TYPE, pageAdapter.getData().get(i).getType());
+                intent.putExtra(Constants.ARTICLE_ID, pageAdapter.getData().get(i).getId());
                 startActivity(intent);
             }
         });
@@ -166,30 +626,10 @@ public class DocDetailActivity extends SimpleActivity {
 
     private void initView(int detailTypeValue, MyCollectDetailResponse myCollectDetailResponse) {
         Any any = myCollectDetailResponse.getCollectDetail();
-        LayoutInflater inflater = getLayoutInflater();
+
         switch (detailTypeValue) {
             case 0://degree
-                View view = inflater.inflate(R.layout.frag_article_degree, viewStub, false);
-                viewStub.addView(view);
-                try {
-                    MyCollectDegreeMessage degreeMessage = any.unpack(MyCollectDegreeMessage.class);
-                    TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-                    TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
-                    TextView tvKeyWord = (TextView) viewStub.findViewById(R.id.tv_key_word);
-                    TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
-                    TextView tvUnitPublish = (TextView) viewStub.findViewById(R.id.tv_unit_publish);
-                    TextView tvTeacherName = (TextView) viewStub.findViewById(R.id.tv_teacher_name);
-                    TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
-                    tvTitle.setText(myCollectDetailResponse.getTitle());
-                    tvContent.setText(myCollectDetailResponse.getSummary());
-                    tvKeyWord.setText(myCollectDetailResponse.getKeywords());
-                    tvAuthor.setText(myCollectDetailResponse.getAuthorsName());
-                    tvUnitPublish.setText(degreeMessage.getDeunitName());
-                    tvTeacherName.setText(degreeMessage.getMajorName());
-                    tvTime.setText(degreeMessage.getPublishYear());
-                } catch (InvalidProtocolBufferException e) {
-                    e.printStackTrace();
-                }
+
                 break;
             case 1://会议
                 View view_meeting = inflater.inflate(R.layout.frag_article_meeting, viewStub, false);
@@ -198,7 +638,7 @@ public class DocDetailActivity extends SimpleActivity {
                     MyCollectConfMessage confMessage = any.unpack(MyCollectConfMessage.class);
                     TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
                     TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
-                    TextView tvKeyWord = (TextView) viewStub.findViewById(R.id.tv_key_word);
+                    TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
                     TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
                     TextView tvMettingName = (TextView) viewStub.findViewById(R.id.tv_meeting_name);
                     TextView tvMeetingSity = (TextView) viewStub.findViewById(R.id.tv_meeting_sity);
@@ -215,27 +655,7 @@ public class DocDetailActivity extends SimpleActivity {
                 }
                 break;
             case 2://PERIO_TYPE_VALUE
-                View view_pro = inflater.inflate(R.layout.frag_article, viewStub, false);
-                viewStub.addView(view_pro);
-                try {
-                    MyCollectPerioMessage myCollectPerioMessage = any.unpack(MyCollectPerioMessage.class);
-                    TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-                    TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
-                    TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
-                    TextView tvUnit = (TextView) viewStub.findViewById(R.id.tv_unit);
-                    TextView tvKeyWord = (TextView) viewStub.findViewById(R.id.tv_key_word);
-                    TextView tvMagazine = (TextView) viewStub.findViewById(R.id.tv_magazine);
-                    TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
-                    tvTitle.setText(myCollectDetailResponse.getTitle());
-                    tvContent.setText(myCollectDetailResponse.getSummary());
-                    tvAuthor.setText(myCollectDetailResponse.getAuthorsName());
-                    tvUnit.setText(myCollectPerioMessage.getAuthorsUnit());
-                    tvKeyWord.setText(myCollectDetailResponse.getKeywords());
-                    tvMagazine.setText(myCollectPerioMessage.getPerioTitle());
-                    tvTime.setText(myCollectPerioMessage.getPublishYear());
-                } catch (InvalidProtocolBufferException e) {
-                    e.printStackTrace();
-                }
+
                 break;
             case 3:
                 break;
@@ -332,19 +752,28 @@ public class DocDetailActivity extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<ReadResponse> e) throws Exception {
                 ReadServiceGrpc.ReadServiceBlockingStub stub = ReadServiceGrpc.newBlockingStub(managedChannel);
-                ReadRequest readRequest = ReadRequest.newBuilder().setLanguage(detailResponse.getLanguage()).setLoginToken(preferencesHelper.getLoginToken()).
-                        setResourceId(detailResponse.getResourceId()).setUserId(preferencesHelper.getUserId()).setSource(detailResponse.getResourceDb()).setResourceTitle(detailResponse.getTitle())
-                        .setResourceType(detailResponse.getClassType()).build();
+                ReadRequest readRequest = ReadRequest.newBuilder().setLanguage(language).setLoginToken(preferencesHelper.getLoginToken()).
+                        setResourceId(resourceId).setUserId(preferencesHelper.getUserId()).setSource(resourceDb).setResourceTitle(resourceTitle)
+                        .setResourceType(classType).build();
                 ReadResponse readResponse = stub.read(readRequest);
                 e.onSuccess(readResponse);
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ReadResponse>() {
             @Override
             public void onSuccess(ReadResponse readResponse) {
-                Log.d(TAG, "onSuccess: " + readResponse.toString());
-                Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
-                intent.putExtra("response", readResponse);
-                startActivity(intent);
+                if (readResponse.getAlreadyBuy()) {
+                    Log.d(TAG, "onSuccess: " + readResponse.getResourceFile().getFileName());
+
+
+                } else if (readResponse.getHasTradePower()) {
+                    Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
+                    intent.putExtra("response", readResponse);
+                    startActivity(intent);
+                } else {
+                    ToastUtil.show("您没有购买的权限");
+                }
+
+
             }
 
             @Override

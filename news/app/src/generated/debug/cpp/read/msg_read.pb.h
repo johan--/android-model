@@ -40,6 +40,7 @@ void protobuf_ShutdownFile_read_2fmsg_5fread_2eproto();
 
 class ReadRequest;
 class ReadResponse;
+class ResourceFile;
 
 // ===================================================================
 
@@ -319,16 +320,14 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   bool already_buy() const;
   void set_already_buy(bool value);
 
-  // optional string read_url = 6;
-  void clear_read_url();
-  static const int kReadUrlFieldNumber = 6;
-  const ::std::string& read_url() const;
-  void set_read_url(const ::std::string& value);
-  void set_read_url(const char* value);
-  void set_read_url(const char* value, size_t size);
-  ::std::string* mutable_read_url();
-  ::std::string* release_read_url();
-  void set_allocated_read_url(::std::string* read_url);
+  // optional .read.ResourceFile resource_file = 6;
+  bool has_resource_file() const;
+  void clear_resource_file();
+  static const int kResourceFileFieldNumber = 6;
+  const ::read::ResourceFile& resource_file() const;
+  ::read::ResourceFile* mutable_resource_file();
+  ::read::ResourceFile* release_resource_file();
+  void set_allocated_resource_file(::read::ResourceFile* resource_file);
 
   // optional bool has_trade_power = 7;
   void clear_has_trade_power();
@@ -353,7 +352,7 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::ArenaStringPtr title_;
   ::google::protobuf::internal::ArenaStringPtr display_info_;
   ::google::protobuf::internal::ArenaStringPtr safe_transaction_string_;
-  ::google::protobuf::internal::ArenaStringPtr read_url_;
+  ::read::ResourceFile* resource_file_;
   ::grpcCommon::GrpcError* error_;
   bool already_buy_;
   bool has_trade_power_;
@@ -366,6 +365,121 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<ReadResponse> ReadResponse_default_instance_;
+
+// -------------------------------------------------------------------
+
+class ResourceFile : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:read.ResourceFile) */ {
+ public:
+  ResourceFile();
+  virtual ~ResourceFile();
+
+  ResourceFile(const ResourceFile& from);
+
+  inline ResourceFile& operator=(const ResourceFile& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ResourceFile& default_instance();
+
+  static const ResourceFile* internal_default_instance();
+
+  void Swap(ResourceFile* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ResourceFile* New() const { return New(NULL); }
+
+  ResourceFile* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ResourceFile& from);
+  void MergeFrom(const ResourceFile& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ResourceFile* other);
+  void UnsafeMergeFrom(const ResourceFile& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string file_name = 1;
+  void clear_file_name();
+  static const int kFileNameFieldNumber = 1;
+  const ::std::string& file_name() const;
+  void set_file_name(const ::std::string& value);
+  void set_file_name(const char* value);
+  void set_file_name(const char* value, size_t size);
+  ::std::string* mutable_file_name();
+  ::std::string* release_file_name();
+  void set_allocated_file_name(::std::string* file_name);
+
+  // optional string content_type = 2;
+  void clear_content_type();
+  static const int kContentTypeFieldNumber = 2;
+  const ::std::string& content_type() const;
+  void set_content_type(const ::std::string& value);
+  void set_content_type(const char* value);
+  void set_content_type(const char* value, size_t size);
+  ::std::string* mutable_content_type();
+  ::std::string* release_content_type();
+  void set_allocated_content_type(::std::string* content_type);
+
+  // optional bytes file_byte = 3;
+  void clear_file_byte();
+  static const int kFileByteFieldNumber = 3;
+  const ::std::string& file_byte() const;
+  void set_file_byte(const ::std::string& value);
+  void set_file_byte(const char* value);
+  void set_file_byte(const void* value, size_t size);
+  ::std::string* mutable_file_byte();
+  ::std::string* release_file_byte();
+  void set_allocated_file_byte(::std::string* file_byte);
+
+  // @@protoc_insertion_point(class_scope:read.ResourceFile)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr file_name_;
+  ::google::protobuf::internal::ArenaStringPtr content_type_;
+  ::google::protobuf::internal::ArenaStringPtr file_byte_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_read_2fmsg_5fread_2eproto_impl();
+  friend void  protobuf_AddDesc_read_2fmsg_5fread_2eproto_impl();
+  friend void protobuf_AssignDesc_read_2fmsg_5fread_2eproto();
+  friend void protobuf_ShutdownFile_read_2fmsg_5fread_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<ResourceFile> ResourceFile_default_instance_;
 
 // ===================================================================
 
@@ -880,48 +994,43 @@ inline void ReadResponse::set_already_buy(bool value) {
   // @@protoc_insertion_point(field_set:read.ReadResponse.already_buy)
 }
 
-// optional string read_url = 6;
-inline void ReadResponse::clear_read_url() {
-  read_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional .read.ResourceFile resource_file = 6;
+inline bool ReadResponse::has_resource_file() const {
+  return this != internal_default_instance() && resource_file_ != NULL;
 }
-inline const ::std::string& ReadResponse::read_url() const {
-  // @@protoc_insertion_point(field_get:read.ReadResponse.read_url)
-  return read_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline void ReadResponse::clear_resource_file() {
+  if (GetArenaNoVirtual() == NULL && resource_file_ != NULL) delete resource_file_;
+  resource_file_ = NULL;
 }
-inline void ReadResponse::set_read_url(const ::std::string& value) {
+inline const ::read::ResourceFile& ReadResponse::resource_file() const {
+  // @@protoc_insertion_point(field_get:read.ReadResponse.resource_file)
+  return resource_file_ != NULL ? *resource_file_
+                         : *::read::ResourceFile::internal_default_instance();
+}
+inline ::read::ResourceFile* ReadResponse::mutable_resource_file() {
   
-  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:read.ReadResponse.read_url)
+  if (resource_file_ == NULL) {
+    resource_file_ = new ::read::ResourceFile;
+  }
+  // @@protoc_insertion_point(field_mutable:read.ReadResponse.resource_file)
+  return resource_file_;
 }
-inline void ReadResponse::set_read_url(const char* value) {
+inline ::read::ResourceFile* ReadResponse::release_resource_file() {
+  // @@protoc_insertion_point(field_release:read.ReadResponse.resource_file)
   
-  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:read.ReadResponse.read_url)
+  ::read::ResourceFile* temp = resource_file_;
+  resource_file_ = NULL;
+  return temp;
 }
-inline void ReadResponse::set_read_url(const char* value, size_t size) {
-  
-  read_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:read.ReadResponse.read_url)
-}
-inline ::std::string* ReadResponse::mutable_read_url() {
-  
-  // @@protoc_insertion_point(field_mutable:read.ReadResponse.read_url)
-  return read_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* ReadResponse::release_read_url() {
-  // @@protoc_insertion_point(field_release:read.ReadResponse.read_url)
-  
-  return read_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void ReadResponse::set_allocated_read_url(::std::string* read_url) {
-  if (read_url != NULL) {
+inline void ReadResponse::set_allocated_resource_file(::read::ResourceFile* resource_file) {
+  delete resource_file_;
+  resource_file_ = resource_file;
+  if (resource_file) {
     
   } else {
     
   }
-  read_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), read_url);
-  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.read_url)
+  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.resource_file)
 }
 
 // optional bool has_trade_power = 7;
@@ -980,7 +1089,148 @@ inline void ReadResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
 inline const ReadResponse* ReadResponse::internal_default_instance() {
   return &ReadResponse_default_instance_.get();
 }
+// -------------------------------------------------------------------
+
+// ResourceFile
+
+// optional string file_name = 1;
+inline void ResourceFile::clear_file_name() {
+  file_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ResourceFile::file_name() const {
+  // @@protoc_insertion_point(field_get:read.ResourceFile.file_name)
+  return file_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ResourceFile::set_file_name(const ::std::string& value) {
+  
+  file_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ResourceFile.file_name)
+}
+inline void ResourceFile::set_file_name(const char* value) {
+  
+  file_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ResourceFile.file_name)
+}
+inline void ResourceFile::set_file_name(const char* value, size_t size) {
+  
+  file_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.ResourceFile.file_name)
+}
+inline ::std::string* ResourceFile::mutable_file_name() {
+  
+  // @@protoc_insertion_point(field_mutable:read.ResourceFile.file_name)
+  return file_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ResourceFile::release_file_name() {
+  // @@protoc_insertion_point(field_release:read.ResourceFile.file_name)
+  
+  return file_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ResourceFile::set_allocated_file_name(::std::string* file_name) {
+  if (file_name != NULL) {
+    
+  } else {
+    
+  }
+  file_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_name);
+  // @@protoc_insertion_point(field_set_allocated:read.ResourceFile.file_name)
+}
+
+// optional string content_type = 2;
+inline void ResourceFile::clear_content_type() {
+  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ResourceFile::content_type() const {
+  // @@protoc_insertion_point(field_get:read.ResourceFile.content_type)
+  return content_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ResourceFile::set_content_type(const ::std::string& value) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ResourceFile.content_type)
+}
+inline void ResourceFile::set_content_type(const char* value) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ResourceFile.content_type)
+}
+inline void ResourceFile::set_content_type(const char* value, size_t size) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.ResourceFile.content_type)
+}
+inline ::std::string* ResourceFile::mutable_content_type() {
+  
+  // @@protoc_insertion_point(field_mutable:read.ResourceFile.content_type)
+  return content_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ResourceFile::release_content_type() {
+  // @@protoc_insertion_point(field_release:read.ResourceFile.content_type)
+  
+  return content_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ResourceFile::set_allocated_content_type(::std::string* content_type) {
+  if (content_type != NULL) {
+    
+  } else {
+    
+  }
+  content_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content_type);
+  // @@protoc_insertion_point(field_set_allocated:read.ResourceFile.content_type)
+}
+
+// optional bytes file_byte = 3;
+inline void ResourceFile::clear_file_byte() {
+  file_byte_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ResourceFile::file_byte() const {
+  // @@protoc_insertion_point(field_get:read.ResourceFile.file_byte)
+  return file_byte_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ResourceFile::set_file_byte(const ::std::string& value) {
+  
+  file_byte_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.ResourceFile.file_byte)
+}
+inline void ResourceFile::set_file_byte(const char* value) {
+  
+  file_byte_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.ResourceFile.file_byte)
+}
+inline void ResourceFile::set_file_byte(const void* value, size_t size) {
+  
+  file_byte_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.ResourceFile.file_byte)
+}
+inline ::std::string* ResourceFile::mutable_file_byte() {
+  
+  // @@protoc_insertion_point(field_mutable:read.ResourceFile.file_byte)
+  return file_byte_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ResourceFile::release_file_byte() {
+  // @@protoc_insertion_point(field_release:read.ResourceFile.file_byte)
+  
+  return file_byte_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ResourceFile::set_allocated_file_byte(::std::string* file_byte) {
+  if (file_byte != NULL) {
+    
+  } else {
+    
+  }
+  file_byte_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_byte);
+  // @@protoc_insertion_point(field_set_allocated:read.ResourceFile.file_byte)
+}
+
+inline const ResourceFile* ResourceFile::internal_default_instance() {
+  return &ResourceFile_default_instance_.get();
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

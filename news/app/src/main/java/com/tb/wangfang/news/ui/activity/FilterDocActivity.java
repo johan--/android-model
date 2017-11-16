@@ -21,6 +21,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.BaseActivity;
 import com.tb.wangfang.news.base.contract.FilterDocContract;
 import com.tb.wangfang.news.model.bean.Level0;
@@ -84,6 +85,14 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
     RelativeLayout rlSeletThree;
     @BindView(R.id.rl_selet_four)
     RelativeLayout rlSeletFour;
+    @BindView(R.id.iv_selected_one)
+    ImageView ivSelectedOne;
+    @BindView(R.id.iv_selected_two)
+    ImageView ivSelectedTwo;
+    @BindView(R.id.iv_selected_three)
+    ImageView ivSelectedThree;
+    @BindView(R.id.iv_selected_four)
+    ImageView ivSelectedFour;
     private SearchDocumentAdapter docAdapter;
     ArrayList<MultiItemEntity> multiItemEntityArrayList = new ArrayList<>();
     private int page = 1;
@@ -135,6 +144,20 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(FilterDocActivity.this, DocDetailActivity.class);
+                if (docAdapter.getData().get(position).getClass_type().equals("perio_artical") || docAdapter.getData().get(position).getClass_type().equals("degree_artical")) {
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getArticle_id());
+                } else if (docAdapter.getData().get(position).getClass_type().equals("patent_element")) {
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPatent_id().toString());
+                } else if (docAdapter.getData().get(position).getClass_type().equals("conf_artical")) {
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getArticle_id());
+                } else if (docAdapter.getData().get(position).getClass_type().equals("standards")) {
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getStand_id());
+                } else if (docAdapter.getData().get(position).getClass_type().equals("legislations")) {
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getLegis_id());
+                } else if (docAdapter.getData().get(position).getClass_type().equals("tech_result")) {
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getResult_id());
+                }
+                intent.putExtra(Constants.ARTICLE_TYPE, docAdapter.getData().get(position).getClass_type().toString());
                 startActivity(intent);
             }
         });
@@ -253,54 +276,61 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
             case R.id.rl_selet_one:
                 if (sortField.equals("相关度:desc")) {
                     sortField = "相关度:asc";
-                    setDrabelRight(msSeletOne, R.mipmap.asc);
+                    setDrabelRight(ivSelectedOne, R.mipmap.asc);
                 } else {
                     sortField = "相关度:desc";
-                    setDrabelRight(msSeletOne, R.mipmap.desc);
+                    setDrabelRight(ivSelectedOne, R.mipmap.desc);
                 }
+                page = 1;
+                docAdapter.setNewData(null);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
             case R.id.rl_selet_two:
                 if (sortField.equals("发表时间:desc")) {
                     sortField = "发表时间:asc";
-                    setDrabelRight(msSeletTwo, R.mipmap.asc);
+                    setDrabelRight(ivSelectedTwo, R.mipmap.asc);
                 } else {
                     sortField = "发表时间:desc";
-                    setDrabelRight(msSeletTwo, R.mipmap.desc);
+                    setDrabelRight(ivSelectedTwo, R.mipmap.desc);
                 }
+                page = 1;
+                docAdapter.setNewData(null);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
             case R.id.rl_selet_three:
                 if (sortField.equals("热度:desc")) {
                     sortField = "热度:asc";
-                    setDrabelRight(msSeletThree, R.mipmap.asc);
+                    setDrabelRight(ivSelectedThree, R.mipmap.asc);
                 } else {
                     sortField = "热度:desc";
-                    setDrabelRight(msSeletThree, R.mipmap.desc);
+                    setDrabelRight(ivSelectedThree, R.mipmap.desc);
                 }
+                page = 1;
+                docAdapter.setNewData(null);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
             case R.id.rl_selet_four:
                 if (sortField.equals("被引量:desc")) {
                     sortField = "被引量:asc";
-                    setDrabelRight(msSeletFour, R.mipmap.asc);
+                    setDrabelRight(ivSelectedFour, R.mipmap.asc);
                 } else {
                     sortField = "被引量:desc";
-                    setDrabelRight(msSeletFour, R.mipmap.desc);
+                    setDrabelRight(ivSelectedFour, R.mipmap.desc);
                 }
+                page = 1;
+                docAdapter.setNewData(null);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
         }
     }
 
-    private void setDrabelRight(TextView msSeletOne, int ms_selet_four) {
-        this.msSeletOne.setCompoundDrawables(null, null, null, null);
-        msSeletTwo.setCompoundDrawables(null, null, null, null);
-        msSeletThree.setCompoundDrawables(null, null, null, null);
-        msSeletFour.setCompoundDrawables(null, null, null, null);
+    private void setDrabelRight(ImageView msSeletOne, int ms_selet_four) {
+        ivSelectedOne.setImageResource(0);
+        ivSelectedTwo.setImageResource(0);
+        ivSelectedThree.setImageResource(0);
+        ivSelectedFour.setImageResource(0);
         Drawable drawable = getResources().getDrawable(ms_selet_four);
-        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        msSeletOne.setCompoundDrawables(null, null, drawable, null);
+        msSeletOne.setImageDrawable(drawable);
 
     }
 
@@ -383,17 +413,17 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
     @Override
     public void loadSearchContent(SearchReplyBean searchReplyBean) {
+
+        swipeLayout.setEnabled(true);
+        swipeLayout.setRefreshing(false);
+        docAdapter.setEnableLoadMore(true);
+        docAdapter.loadMoreComplete();
         if (searchReplyBean != null && searchReplyBean.getData() != null) {
             docAdapter.addData(searchReplyBean.getData());
             if (searchReplyBean.getData().size() < 20) {
                 docAdapter.loadMoreEnd(false);
             }
         }
-        swipeLayout.setEnabled(true);
-        swipeLayout.setRefreshing(false);
-        docAdapter.setEnableLoadMore(true);
-        docAdapter.loadMoreComplete();
-
 
     }
 

@@ -63,6 +63,18 @@ public final class CollectServiceGrpc {
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.collect.CollectResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.collect.CheckISCollectedRequest,
+      com.wanfang.collect.CheckISCollectedRequest> METHOD_CHECK_ISCOLLECTED =
+      io.grpc.MethodDescriptor.<com.wanfang.collect.CheckISCollectedRequest, com.wanfang.collect.CheckISCollectedRequest>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "collect.CollectService", "CheckISCollected"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.collect.CheckISCollectedRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.collect.CheckISCollectedRequest.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -121,6 +133,16 @@ public final class CollectServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_COLLECT, responseObserver);
     }
 
+    /**
+     * <pre>
+     * 检查文献是否已经收藏过(已登录状态)
+     * </pre>
+     */
+    public void checkISCollected(com.wanfang.collect.CheckISCollectedRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedRequest> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CHECK_ISCOLLECTED, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -144,6 +166,13 @@ public final class CollectServiceGrpc {
                 com.wanfang.collect.CollectRequest,
                 com.wanfang.collect.CollectResponse>(
                   this, METHODID_COLLECT)))
+          .addMethod(
+            METHOD_CHECK_ISCOLLECTED,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.collect.CheckISCollectedRequest,
+                com.wanfang.collect.CheckISCollectedRequest>(
+                  this, METHODID_CHECK_ISCOLLECTED)))
           .build();
     }
   }
@@ -198,6 +227,17 @@ public final class CollectServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_COLLECT, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 检查文献是否已经收藏过(已登录状态)
+     * </pre>
+     */
+    public void checkISCollected(com.wanfang.collect.CheckISCollectedRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedRequest> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CHECK_ISCOLLECTED, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -246,6 +286,16 @@ public final class CollectServiceGrpc {
     public com.wanfang.collect.CollectResponse collect(com.wanfang.collect.CollectRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_COLLECT, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 检查文献是否已经收藏过(已登录状态)
+     * </pre>
+     */
+    public com.wanfang.collect.CheckISCollectedRequest checkISCollected(com.wanfang.collect.CheckISCollectedRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CHECK_ISCOLLECTED, getCallOptions(), request);
     }
   }
 
@@ -299,11 +349,23 @@ public final class CollectServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_COLLECT, getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * 检查文献是否已经收藏过(已登录状态)
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.collect.CheckISCollectedRequest> checkISCollected(
+        com.wanfang.collect.CheckISCollectedRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CHECK_ISCOLLECTED, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_DOC_DETAIL = 0;
   private static final int METHODID_GET_MY_COLLECT = 1;
   private static final int METHODID_COLLECT = 2;
+  private static final int METHODID_CHECK_ISCOLLECTED = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -334,6 +396,10 @@ public final class CollectServiceGrpc {
           serviceImpl.collect((com.wanfang.collect.CollectRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.collect.CollectResponse>) responseObserver);
           break;
+        case METHODID_CHECK_ISCOLLECTED:
+          serviceImpl.checkISCollected((com.wanfang.collect.CheckISCollectedRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedRequest>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -362,6 +428,7 @@ public final class CollectServiceGrpc {
               .addMethod(METHOD_GET_DOC_DETAIL)
               .addMethod(METHOD_GET_MY_COLLECT)
               .addMethod(METHOD_COLLECT)
+              .addMethod(METHOD_CHECK_ISCOLLECTED)
               .build();
         }
       }

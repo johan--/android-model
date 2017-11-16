@@ -64,6 +64,30 @@ public final class PersonalCenterServiceGrpc {
               com.wanfang.personal.LoginResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.ThirdPartyLoginRequest,
+      com.wanfang.personal.ThirdPartyLoginResponse> METHOD_THIRD_PARTY_LOGIN =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.ThirdPartyLoginRequest, com.wanfang.personal.ThirdPartyLoginResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "thirdPartyLogin"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyLoginRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyLoginResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.ThirdPartyBindRequest,
+      com.wanfang.personal.ThirdPartyBindResponse> METHOD_THIRD_PARTY_BIND =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.ThirdPartyBindRequest, com.wanfang.personal.ThirdPartyBindResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "thirdPartyBind"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyBindRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyBindResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.BindExistAccountRequest,
       com.wanfang.personal.LoginResponse> METHOD_BIND_EXIST_ACCOUNT =
       io.grpc.MethodDescriptor.<com.wanfang.personal.BindExistAccountRequest, com.wanfang.personal.LoginResponse>newBuilder()
@@ -315,6 +339,26 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public void thirdPartyLogin(com.wanfang.personal.ThirdPartyLoginRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyLoginResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_THIRD_PARTY_LOGIN, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public void thirdPartyBind(com.wanfang.personal.ThirdPartyBindRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_THIRD_PARTY_BIND, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 第三方登录后绑定万方账号
      * </pre>
      */
@@ -497,6 +541,20 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.LoginResponse>(
                   this, METHODID_QUICK_LOGIN)))
           .addMethod(
+            METHOD_THIRD_PARTY_LOGIN,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.ThirdPartyLoginRequest,
+                com.wanfang.personal.ThirdPartyLoginResponse>(
+                  this, METHODID_THIRD_PARTY_LOGIN)))
+          .addMethod(
+            METHOD_THIRD_PARTY_BIND,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.ThirdPartyBindRequest,
+                com.wanfang.personal.ThirdPartyBindResponse>(
+                  this, METHODID_THIRD_PARTY_BIND)))
+          .addMethod(
             METHOD_BIND_EXIST_ACCOUNT,
             asyncUnaryCall(
               new MethodHandlers<
@@ -661,6 +719,28 @@ public final class PersonalCenterServiceGrpc {
         io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_QUICK_LOGIN, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public void thirdPartyLogin(com.wanfang.personal.ThirdPartyLoginRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyLoginResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_LOGIN, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public void thirdPartyBind(com.wanfang.personal.ThirdPartyBindRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_BIND, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -890,6 +970,26 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public com.wanfang.personal.ThirdPartyLoginResponse thirdPartyLogin(com.wanfang.personal.ThirdPartyLoginRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_THIRD_PARTY_LOGIN, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public com.wanfang.personal.ThirdPartyBindResponse thirdPartyBind(com.wanfang.personal.ThirdPartyBindRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_THIRD_PARTY_BIND, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
      * 第三方登录后绑定万方账号
      * </pre>
      */
@@ -1102,6 +1202,28 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.ThirdPartyLoginResponse> thirdPartyLogin(
+        com.wanfang.personal.ThirdPartyLoginRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_LOGIN, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.ThirdPartyBindResponse> thirdPartyBind(
+        com.wanfang.personal.ThirdPartyBindRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_BIND, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 第三方登录后绑定万方账号
      * </pre>
      */
@@ -1280,22 +1402,24 @@ public final class PersonalCenterServiceGrpc {
   private static final int METHODID_LOGIN = 0;
   private static final int METHODID_LOGIN_OUT = 1;
   private static final int METHODID_QUICK_LOGIN = 2;
-  private static final int METHODID_BIND_EXIST_ACCOUNT = 3;
-  private static final int METHODID_BIND_NEW_REGIST = 4;
-  private static final int METHODID_REGIST = 5;
-  private static final int METHODID_GET_PASSWORD_BY_PHONE = 6;
-  private static final int METHODID_PASSWORD_VERIFY = 7;
-  private static final int METHODID_UPDATE_PASSWORD = 8;
-  private static final int METHODID_GET_MY_WALLET = 9;
-  private static final int METHODID_GET_PHONE_CAPTCHA = 10;
-  private static final int METHODID_UPLOAD_FILE = 11;
-  private static final int METHODID_UPLOAD_AVATAR = 12;
-  private static final int METHODID_GET_INTEREST_SUBJECT = 13;
-  private static final int METHODID_GET_USER_INFO = 14;
-  private static final int METHODID_UPDATE_USER_INFO = 15;
-  private static final int METHODID_GET_ROLES_LIST = 16;
-  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 17;
-  private static final int METHODID_GET_SUBJECT_LIST = 18;
+  private static final int METHODID_THIRD_PARTY_LOGIN = 3;
+  private static final int METHODID_THIRD_PARTY_BIND = 4;
+  private static final int METHODID_BIND_EXIST_ACCOUNT = 5;
+  private static final int METHODID_BIND_NEW_REGIST = 6;
+  private static final int METHODID_REGIST = 7;
+  private static final int METHODID_GET_PASSWORD_BY_PHONE = 8;
+  private static final int METHODID_PASSWORD_VERIFY = 9;
+  private static final int METHODID_UPDATE_PASSWORD = 10;
+  private static final int METHODID_GET_MY_WALLET = 11;
+  private static final int METHODID_GET_PHONE_CAPTCHA = 12;
+  private static final int METHODID_UPLOAD_FILE = 13;
+  private static final int METHODID_UPLOAD_AVATAR = 14;
+  private static final int METHODID_GET_INTEREST_SUBJECT = 15;
+  private static final int METHODID_GET_USER_INFO = 16;
+  private static final int METHODID_UPDATE_USER_INFO = 17;
+  private static final int METHODID_GET_ROLES_LIST = 18;
+  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 19;
+  private static final int METHODID_GET_SUBJECT_LIST = 20;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1325,6 +1449,14 @@ public final class PersonalCenterServiceGrpc {
         case METHODID_QUICK_LOGIN:
           serviceImpl.quickLogin((com.wanfang.personal.QuickLoginRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse>) responseObserver);
+          break;
+        case METHODID_THIRD_PARTY_LOGIN:
+          serviceImpl.thirdPartyLogin((com.wanfang.personal.ThirdPartyLoginRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyLoginResponse>) responseObserver);
+          break;
+        case METHODID_THIRD_PARTY_BIND:
+          serviceImpl.thirdPartyBind((com.wanfang.personal.ThirdPartyBindRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse>) responseObserver);
           break;
         case METHODID_BIND_EXIST_ACCOUNT:
           serviceImpl.bindExistAccount((com.wanfang.personal.BindExistAccountRequest) request,
@@ -1418,6 +1550,8 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_LOGIN)
               .addMethod(METHOD_LOGIN_OUT)
               .addMethod(METHOD_QUICK_LOGIN)
+              .addMethod(METHOD_THIRD_PARTY_LOGIN)
+              .addMethod(METHOD_THIRD_PARTY_BIND)
               .addMethod(METHOD_BIND_EXIST_ACCOUNT)
               .addMethod(METHOD_BIND_NEW_REGIST)
               .addMethod(METHOD_REGIST)

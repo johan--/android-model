@@ -20,6 +20,7 @@ public class SearchReplyBean {
     private String totalPage;
     private String status;
     private String message;
+
     private List<DataBean> data;
 
     public String getTotalRow() {
@@ -170,6 +171,238 @@ public class SearchReplyBean {
         private Object award_date;
         private Object inv_name;
         private Object main_classcode;
+
+        public String getRe_pubdate() {
+            return re_pubdate;
+        }
+
+        public void setRe_pubdate(String re_pubdate) {
+            this.re_pubdate = re_pubdate;
+        }
+
+        private String re_pubdate;
+
+        public String getIndustry_name() {
+            return industry_name;
+        }
+
+        public void setIndustry_name(String industry_name) {
+            this.industry_name = industry_name;
+        }
+
+        private  String industry_name;
+
+        public String getResult_type() {
+            return result_type;
+        }
+
+        public void setResult_type(String result_type) {
+            this.result_type = result_type;
+        }
+
+        private String result_type;
+
+        public void setTitle02(Object title02) {
+            this.title02 = title02;
+        }
+
+        public String getResult_id() {
+            return result_id;
+        }
+
+        public void setResult_id(String result_id) {
+            this.result_id = result_id;
+        }
+
+        private String result_id;
+
+        public String getPublish_num() {
+            return publish_num;
+        }
+
+        public void setPublish_num(String publish_num) {
+            this.publish_num = publish_num;
+        }
+
+        private String publish_num;
+
+        public String getIssue_dept() {
+            return issue_dept;
+        }
+
+        public void setIssue_dept(String issue_dept) {
+            this.issue_dept = issue_dept;
+        }
+
+        private String issue_dept;
+
+        public String getDb_name() {
+            return db_name;
+        }
+
+        public void setDb_name(String db_name) {
+            this.db_name = db_name;
+        }
+
+        private String db_name;
+
+
+        public String getConf_name() {
+            return conf_name;
+        }
+
+        public void setConf_name(String conf_name) {
+            this.conf_name = conf_name;
+        }
+
+        private String conf_name;
+
+        public String getConf_year() {
+            return conf_year;
+        }
+
+        public void setConf_year(String conf_year) {
+            this.conf_year = conf_year;
+        }
+
+        private String conf_year;
+
+        public String getLegis_id() {
+            return legis_id;
+        }
+
+        public void setLegis_id(String legis_id) {
+            this.legis_id = legis_id;
+        }
+
+        private String legis_id;
+
+        public String getIssue_date02() {
+            return issue_date02;
+        }
+
+        public void setIssue_date02(String issue_date02) {
+            this.issue_date02 = issue_date02;
+        }
+
+        private String issue_date02;
+
+        public String getStand_id() {
+            return stand_id;
+        }
+
+        public void setStand_id(String stand_id) {
+            this.stand_id = stand_id;
+        }
+
+        private String stand_id;
+
+        public String getStand_status() {
+            return stand_status;
+        }
+
+        public void setStand_status(String stand_status) {
+            this.stand_status = stand_status;
+        }
+
+        private String stand_status;
+
+        public String getIssue_date() {
+            return issue_date;
+        }
+
+        public void setIssue_date(String issue_date) {
+            this.issue_date = issue_date;
+        }
+
+        private String issue_date;
+
+        public String getBelong_type() {
+            return belong_type;
+        }
+
+        public void setBelong_type(String belong_type) {
+            this.belong_type = belong_type;
+        }
+
+        private String belong_type;
+
+
+        public String getStand_num() {
+            return stand_num;
+        }
+
+        public void setStand_num(String stand_num) {
+            this.stand_num = stand_num;
+        }
+
+        private String stand_num;
+
+        public Object getAuthors_name() {
+            return authors_name;
+        }
+
+        public void setAuthors_name(Object authors_name) {
+            this.authors_name = authors_name;
+        }
+
+        public Object getPerio_title02() {
+            return perio_title02;
+        }
+
+        public void setPerio_title02(Object perio_title02) {
+            this.perio_title02 = perio_title02;
+        }
+
+        public Object getCore_perio() {
+            return core_perio;
+        }
+
+        public void setCore_perio(Object core_perio) {
+            this.core_perio = core_perio;
+        }
+
+        private Object authors_name;
+        private Object perio_title02;
+        private Object core_perio;
+
+        public String getArticle_id() {
+            return article_id;
+        }
+
+        public void setArticle_id(String article_id) {
+            this.article_id = article_id;
+        }
+
+        private String article_id;
+
+        public String getMajor_name() {
+            return major_name;
+        }
+
+        public void setMajor_name(String major_name) {
+            this.major_name = major_name;
+        }
+
+        public String getPublish_year() {
+            return publish_year;
+        }
+
+        public void setPublish_year(String publish_year) {
+            this.publish_year = publish_year;
+        }
+
+        public Object getUnit_name02() {
+            return unit_name02;
+        }
+
+        public void setUnit_name02(Object unit_name02) {
+            this.unit_name02 = unit_name02;
+        }
+
+        private String major_name;
+        private String publish_year;
+        private Object unit_name02;
 
         public String getId() {
             return id;
@@ -495,7 +728,7 @@ public class SearchReplyBean {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 

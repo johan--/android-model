@@ -24,14 +24,16 @@ public final class SerCollect {
   static {
     java.lang.String[] descriptorData = {
       "\n\031collect/ser_collect.proto\022\007collect\032\031co" +
-      "llect/msg_collect.proto2\350\001\n\016CollectServi" +
+      "llect/msg_collect.proto2\300\002\n\016CollectServi" +
       "ce\022Q\n\014getDocDetail\022\037.collect.MyCollectDe" +
       "tailRequest\032 .collect.MyCollectDetailRes" +
       "ponse\022E\n\014GetMyCollect\022\031.collect.MyCollec" +
       "tRequest\032\032.collect.MyCollectResponse\022<\n\007" +
       "Collect\022\027.collect.CollectRequest\032\030.colle" +
-      "ct.CollectResponseB\036\n\023com.wanfang.collec" +
-      "tP\001\242\002\004WFPRb\006proto3"
+      "ct.CollectResponse\022V\n\020CheckISCollected\022 " +
+      ".collect.CheckISCollectedRequest\032 .colle" +
+      "ct.CheckISCollectedRequestB\036\n\023com.wanfan",
+      "g.collectP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

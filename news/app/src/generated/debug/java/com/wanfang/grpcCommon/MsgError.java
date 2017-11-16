@@ -99,6 +99,22 @@ public final class MsgError {
      * <code>IAP_CREATEORDER_ERROR = 9;</code>
      */
     IAP_CREATEORDER_ERROR(9),
+    /**
+     * <pre>
+     * 第三方登录账号未绑定
+     * </pre>
+     *
+     * <code>THIRD_PARTY_NOT_BINd = 10;</code>
+     */
+    THIRD_PARTY_NOT_BINd(10),
+    /**
+     * <pre>
+     * 交易验证失败
+     * </pre>
+     *
+     * <code>TRADE_VALIDATE_FAIL = 11;</code>
+     */
+    TRADE_VALIDATE_FAIL(11),
     UNRECOGNIZED(-1),
     ;
 
@@ -182,6 +198,22 @@ public final class MsgError {
      * <code>IAP_CREATEORDER_ERROR = 9;</code>
      */
     public static final int IAP_CREATEORDER_ERROR_VALUE = 9;
+    /**
+     * <pre>
+     * 第三方登录账号未绑定
+     * </pre>
+     *
+     * <code>THIRD_PARTY_NOT_BINd = 10;</code>
+     */
+    public static final int THIRD_PARTY_NOT_BINd_VALUE = 10;
+    /**
+     * <pre>
+     * 交易验证失败
+     * </pre>
+     *
+     * <code>TRADE_VALIDATE_FAIL = 11;</code>
+     */
+    public static final int TRADE_VALIDATE_FAIL_VALUE = 11;
 
 
     public final int getNumber() {
@@ -212,6 +244,8 @@ public final class MsgError {
         case 7: return USER_IS_LOGIN;
         case 8: return IAP_PRICE_ERROR;
         case 9: return IAP_CREATEORDER_ERROR;
+        case 10: return THIRD_PARTY_NOT_BINd;
+        case 11: return TRADE_VALIDATE_FAIL;
         default: return null;
       }
     }
@@ -1580,13 +1614,14 @@ public final class MsgError {
       "rpcCommon.ErrorMessage\"j\n\014ErrorMessage\022)" +
       "\n\nerror_code\030\001 \001(\0162\025.grpcCommon.ErrorCod" +
       "e\022\024\n\014error_reason\030\002 \001(\t\022\031\n\021error_descrip" +
-      "tion\030\003 \001(\t*\311\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
+      "tion\030\003 \001(\t*\374\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
       "\022\r\n\tNO_REGIST\020\001\022\016\n\nUSER_EXIST\020\002\022\016\n\nNEED_" +
       "FIELD\020\003\022\027\n\023UNKNOWN_FILELD_TYPE\020\004\022\017\n\013RESU" +
       "LT_NULL\020\005\022\020\n\014COMMON_ERROR\020\006\022\021\n\rUSER_IS_L" +
       "OGIN\020\007\022\023\n\017IAP_PRICE_ERROR\020\010\022\031\n\025IAP_CREAT",
-      "EORDER_ERROR\020\tB\030\n\026com.wanfang.grpcCommon" +
-      "b\006proto3"
+      "EORDER_ERROR\020\t\022\030\n\024THIRD_PARTY_NOT_BINd\020\n" +
+      "\022\027\n\023TRADE_VALIDATE_FAIL\020\013B\030\n\026com.wanfang" +
+      ".grpcCommonb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

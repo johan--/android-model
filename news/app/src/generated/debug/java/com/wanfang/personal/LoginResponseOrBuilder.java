@@ -27,28 +27,64 @@ public interface LoginResponseOrBuilder extends
 
   /**
    * <pre>
-   * 用户名
+   * 用户昵称
    * </pre>
    *
-   * <code>optional string user_name = 2;</code>
+   * <code>optional string user_nick_name = 2;</code>
    */
-  java.lang.String getUserName();
+  java.lang.String getUserNickName();
   /**
    * <pre>
-   * 用户名
+   * 用户昵称
    * </pre>
    *
-   * <code>optional string user_name = 2;</code>
+   * <code>optional string user_nick_name = 2;</code>
    */
   com.google.protobuf.ByteString
-      getUserNameBytes();
+      getUserNickNameBytes();
+
+  /**
+   * <pre>
+   * 用户真实名称
+   * </pre>
+   *
+   * <code>optional string user_real_name = 3;</code>
+   */
+  java.lang.String getUserRealName();
+  /**
+   * <pre>
+   * 用户真实名称
+   * </pre>
+   *
+   * <code>optional string user_real_name = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserRealNameBytes();
+
+  /**
+   * <pre>
+   * 用户曾用名
+   * </pre>
+   *
+   * <code>optional string user_used_name = 4;</code>
+   */
+  java.lang.String getUserUsedName();
+  /**
+   * <pre>
+   * 用户曾用名
+   * </pre>
+   *
+   * <code>optional string user_used_name = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserUsedNameBytes();
 
   /**
    * <pre>
    * 用户头像
    * </pre>
    *
-   * <code>optional string user_avatar_url = 3;</code>
+   * <code>optional string user_avatar_url = 5;</code>
    */
   java.lang.String getUserAvatarUrl();
   /**
@@ -56,7 +92,7 @@ public interface LoginResponseOrBuilder extends
    * 用户头像
    * </pre>
    *
-   * <code>optional string user_avatar_url = 3;</code>
+   * <code>optional string user_avatar_url = 5;</code>
    */
   com.google.protobuf.ByteString
       getUserAvatarUrlBytes();
@@ -66,7 +102,7 @@ public interface LoginResponseOrBuilder extends
    * 单点登录token
    * </pre>
    *
-   * <code>optional string login_token = 4;</code>
+   * <code>optional string login_token = 6;</code>
    */
   java.lang.String getLoginToken();
   /**
@@ -74,21 +110,21 @@ public interface LoginResponseOrBuilder extends
    * 单点登录token
    * </pre>
    *
-   * <code>optional string login_token = 4;</code>
+   * <code>optional string login_token = 6;</code>
    */
   com.google.protobuf.ByteString
       getLoginTokenBytes();
 
   /**
-   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   boolean hasError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcError getError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

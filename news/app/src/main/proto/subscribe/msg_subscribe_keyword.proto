@@ -10,13 +10,14 @@ option java_package = "com.wanfang.subscribe";
 option objc_class_prefix = "WFPR";
 
 
-// 推送邮箱
+// 获取推送邮箱
 message SubscribePushEmailRequest {
     string user_id = 1;
 }
 message SubscribePushEmailResponse {
     string email = 1;
-    grpcCommon.GrpcError error = 2;
+    bool has_email = 2; // 是否有邮箱 如果有，设置邮箱时用update，没有，用insert
+    grpcCommon.GrpcError error = 3;
 }
 
 // 订阅关键词选取的文献类型列表

@@ -40,6 +40,18 @@ public final class SubscribeServiceGrpc {
               com.wanfang.subscribe.CancelSubscribeResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.subscribe.CheckPerioISSubscribedRequest,
+      com.wanfang.subscribe.CheckPerioISSubscribeResponse> METHOD_CHECK_IS_SUBSCRIBED =
+      io.grpc.MethodDescriptor.<com.wanfang.subscribe.CheckPerioISSubscribedRequest, com.wanfang.subscribe.CheckPerioISSubscribeResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "subscribe.SubscribeService", "CheckIsSubscribed"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.subscribe.CheckPerioISSubscribedRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.subscribe.CheckPerioISSubscribeResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.subscribe.SubscribeKeywordRequest,
       com.wanfang.subscribe.SubscribeKeywordResponse> METHOD_SUBSCRIBE_KEYWORD =
       io.grpc.MethodDescriptor.<com.wanfang.subscribe.SubscribeKeywordRequest, com.wanfang.subscribe.SubscribeKeywordResponse>newBuilder()
@@ -98,6 +110,30 @@ public final class SubscribeServiceGrpc {
               com.wanfang.subscribe.SubscribePerioListRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.subscribe.SubscribePerioListResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.subscribe.AddSubscribePerioTreeListRequest,
+      com.wanfang.subscribe.AddSubscribePerioTreeListResponse> METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST =
+      io.grpc.MethodDescriptor.<com.wanfang.subscribe.AddSubscribePerioTreeListRequest, com.wanfang.subscribe.AddSubscribePerioTreeListResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "subscribe.SubscribeService", "GetAddSubscribePerioTreeList"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.subscribe.AddSubscribePerioTreeListRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.subscribe.AddSubscribePerioTreeListResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.subscribe.SubscribePerioListSearchRequest,
+      com.wanfang.subscribe.SubscribePerioListSearchResponse> METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST =
+      io.grpc.MethodDescriptor.<com.wanfang.subscribe.SubscribePerioListSearchRequest, com.wanfang.subscribe.SubscribePerioListSearchResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "subscribe.SubscribeService", "GetAddSubscribePerioSearchList"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.subscribe.SubscribePerioListSearchRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.subscribe.SubscribePerioListSearchResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.subscribe.SubscribeDocTypeListRequest,
@@ -187,6 +223,16 @@ public final class SubscribeServiceGrpc {
 
     /**
      * <pre>
+     * 检查期刊是否已经被订阅
+     * </pre>
+     */
+    public void checkIsSubscribed(com.wanfang.subscribe.CheckPerioISSubscribedRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.subscribe.CheckPerioISSubscribeResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CHECK_IS_SUBSCRIBED, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 订阅关键词
      * </pre>
      */
@@ -233,6 +279,26 @@ public final class SubscribeServiceGrpc {
     public void getSubscribePerioList(com.wanfang.subscribe.SubscribePerioListRequest request,
         io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribePerioListResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_SUBSCRIBE_PERIO_LIST, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时 左侧的列表数据
+     * </pre>
+     */
+    public void getAddSubscribePerioTreeList(com.wanfang.subscribe.AddSubscribePerioTreeListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.subscribe.AddSubscribePerioTreeListResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时  右侧期刊列表数据
+     * </pre>
+     */
+    public void getAddSubscribePerioSearchList(com.wanfang.subscribe.SubscribePerioListSearchRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribePerioListSearchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST, responseObserver);
     }
 
     /**
@@ -285,6 +351,13 @@ public final class SubscribeServiceGrpc {
                 com.wanfang.subscribe.CancelSubscribeResponse>(
                   this, METHODID_CANCEL_SUBSCRIBE)))
           .addMethod(
+            METHOD_CHECK_IS_SUBSCRIBED,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.subscribe.CheckPerioISSubscribedRequest,
+                com.wanfang.subscribe.CheckPerioISSubscribeResponse>(
+                  this, METHODID_CHECK_IS_SUBSCRIBED)))
+          .addMethod(
             METHOD_SUBSCRIBE_KEYWORD,
             asyncUnaryCall(
               new MethodHandlers<
@@ -319,6 +392,20 @@ public final class SubscribeServiceGrpc {
                 com.wanfang.subscribe.SubscribePerioListRequest,
                 com.wanfang.subscribe.SubscribePerioListResponse>(
                   this, METHODID_GET_SUBSCRIBE_PERIO_LIST)))
+          .addMethod(
+            METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.subscribe.AddSubscribePerioTreeListRequest,
+                com.wanfang.subscribe.AddSubscribePerioTreeListResponse>(
+                  this, METHODID_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST)))
+          .addMethod(
+            METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.subscribe.SubscribePerioListSearchRequest,
+                com.wanfang.subscribe.SubscribePerioListSearchResponse>(
+                  this, METHODID_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST)))
           .addMethod(
             METHOD_GET_SUBSCRIBE_DOC_TYPE_LIST,
             asyncUnaryCall(
@@ -382,6 +469,17 @@ public final class SubscribeServiceGrpc {
 
     /**
      * <pre>
+     * 检查期刊是否已经被订阅
+     * </pre>
+     */
+    public void checkIsSubscribed(com.wanfang.subscribe.CheckPerioISSubscribedRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.subscribe.CheckPerioISSubscribeResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CHECK_IS_SUBSCRIBED, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 订阅关键词
      * </pre>
      */
@@ -433,6 +531,28 @@ public final class SubscribeServiceGrpc {
         io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribePerioListResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_SUBSCRIBE_PERIO_LIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时 左侧的列表数据
+     * </pre>
+     */
+    public void getAddSubscribePerioTreeList(com.wanfang.subscribe.AddSubscribePerioTreeListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.subscribe.AddSubscribePerioTreeListResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时  右侧期刊列表数据
+     * </pre>
+     */
+    public void getAddSubscribePerioSearchList(com.wanfang.subscribe.SubscribePerioListSearchRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribePerioListSearchResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -510,6 +630,16 @@ public final class SubscribeServiceGrpc {
 
     /**
      * <pre>
+     * 检查期刊是否已经被订阅
+     * </pre>
+     */
+    public com.wanfang.subscribe.CheckPerioISSubscribeResponse checkIsSubscribed(com.wanfang.subscribe.CheckPerioISSubscribedRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CHECK_IS_SUBSCRIBED, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
      * 订阅关键词
      * </pre>
      */
@@ -556,6 +686,26 @@ public final class SubscribeServiceGrpc {
     public com.wanfang.subscribe.SubscribePerioListResponse getSubscribePerioList(com.wanfang.subscribe.SubscribePerioListRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_SUBSCRIBE_PERIO_LIST, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时 左侧的列表数据
+     * </pre>
+     */
+    public com.wanfang.subscribe.AddSubscribePerioTreeListResponse getAddSubscribePerioTreeList(com.wanfang.subscribe.AddSubscribePerioTreeListRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时  右侧期刊列表数据
+     * </pre>
+     */
+    public com.wanfang.subscribe.SubscribePerioListSearchResponse getAddSubscribePerioSearchList(com.wanfang.subscribe.SubscribePerioListSearchRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST, getCallOptions(), request);
     }
 
     /**
@@ -630,6 +780,17 @@ public final class SubscribeServiceGrpc {
 
     /**
      * <pre>
+     * 检查期刊是否已经被订阅
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.subscribe.CheckPerioISSubscribeResponse> checkIsSubscribed(
+        com.wanfang.subscribe.CheckPerioISSubscribedRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CHECK_IS_SUBSCRIBED, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 订阅关键词
      * </pre>
      */
@@ -685,6 +846,28 @@ public final class SubscribeServiceGrpc {
 
     /**
      * <pre>
+     * 添加期刊订阅时 左侧的列表数据
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.subscribe.AddSubscribePerioTreeListResponse> getAddSubscribePerioTreeList(
+        com.wanfang.subscribe.AddSubscribePerioTreeListRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 添加期刊订阅时  右侧期刊列表数据
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.subscribe.SubscribePerioListSearchResponse> getAddSubscribePerioSearchList(
+        com.wanfang.subscribe.SubscribePerioListSearchRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 获取添加关键词订阅时选取的文献类型列表
      * </pre>
      */
@@ -729,15 +912,18 @@ public final class SubscribeServiceGrpc {
   }
 
   private static final int METHODID_CANCEL_SUBSCRIBE = 0;
-  private static final int METHODID_SUBSCRIBE_KEYWORD = 1;
-  private static final int METHODID_GET_SUBSCRIBE_KEYWORD_LIST = 2;
-  private static final int METHODID_GET_SUBSCRIBE_DOC_LIST_BY_KEYWORD = 3;
-  private static final int METHODID_SUBSCRIBE_PERIO = 4;
-  private static final int METHODID_GET_SUBSCRIBE_PERIO_LIST = 5;
-  private static final int METHODID_GET_SUBSCRIBE_DOC_TYPE_LIST = 6;
-  private static final int METHODID_GET_SUBSCRIBE_SOURCE_TYPE_LIST = 7;
-  private static final int METHODID_GET_SUBSCRIBE_PUSH_EMAIL = 8;
-  private static final int METHODID_UPDATE_SUBSCRIBE_PUSH_EMAIL = 9;
+  private static final int METHODID_CHECK_IS_SUBSCRIBED = 1;
+  private static final int METHODID_SUBSCRIBE_KEYWORD = 2;
+  private static final int METHODID_GET_SUBSCRIBE_KEYWORD_LIST = 3;
+  private static final int METHODID_GET_SUBSCRIBE_DOC_LIST_BY_KEYWORD = 4;
+  private static final int METHODID_SUBSCRIBE_PERIO = 5;
+  private static final int METHODID_GET_SUBSCRIBE_PERIO_LIST = 6;
+  private static final int METHODID_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST = 7;
+  private static final int METHODID_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST = 8;
+  private static final int METHODID_GET_SUBSCRIBE_DOC_TYPE_LIST = 9;
+  private static final int METHODID_GET_SUBSCRIBE_SOURCE_TYPE_LIST = 10;
+  private static final int METHODID_GET_SUBSCRIBE_PUSH_EMAIL = 11;
+  private static final int METHODID_UPDATE_SUBSCRIBE_PUSH_EMAIL = 12;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -760,6 +946,10 @@ public final class SubscribeServiceGrpc {
           serviceImpl.cancelSubscribe((com.wanfang.subscribe.CancelSubscribeRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.subscribe.CancelSubscribeResponse>) responseObserver);
           break;
+        case METHODID_CHECK_IS_SUBSCRIBED:
+          serviceImpl.checkIsSubscribed((com.wanfang.subscribe.CheckPerioISSubscribedRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.subscribe.CheckPerioISSubscribeResponse>) responseObserver);
+          break;
         case METHODID_SUBSCRIBE_KEYWORD:
           serviceImpl.subscribeKeyword((com.wanfang.subscribe.SubscribeKeywordRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribeKeywordResponse>) responseObserver);
@@ -779,6 +969,14 @@ public final class SubscribeServiceGrpc {
         case METHODID_GET_SUBSCRIBE_PERIO_LIST:
           serviceImpl.getSubscribePerioList((com.wanfang.subscribe.SubscribePerioListRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribePerioListResponse>) responseObserver);
+          break;
+        case METHODID_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST:
+          serviceImpl.getAddSubscribePerioTreeList((com.wanfang.subscribe.AddSubscribePerioTreeListRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.subscribe.AddSubscribePerioTreeListResponse>) responseObserver);
+          break;
+        case METHODID_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST:
+          serviceImpl.getAddSubscribePerioSearchList((com.wanfang.subscribe.SubscribePerioListSearchRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.subscribe.SubscribePerioListSearchResponse>) responseObserver);
           break;
         case METHODID_GET_SUBSCRIBE_DOC_TYPE_LIST:
           serviceImpl.getSubscribeDocTypeList((com.wanfang.subscribe.SubscribeDocTypeListRequest) request,
@@ -822,11 +1020,14 @@ public final class SubscribeServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .addMethod(METHOD_CANCEL_SUBSCRIBE)
+              .addMethod(METHOD_CHECK_IS_SUBSCRIBED)
               .addMethod(METHOD_SUBSCRIBE_KEYWORD)
               .addMethod(METHOD_GET_SUBSCRIBE_KEYWORD_LIST)
               .addMethod(METHOD_GET_SUBSCRIBE_DOC_LIST_BY_KEYWORD)
               .addMethod(METHOD_SUBSCRIBE_PERIO)
               .addMethod(METHOD_GET_SUBSCRIBE_PERIO_LIST)
+              .addMethod(METHOD_GET_ADD_SUBSCRIBE_PERIO_TREE_LIST)
+              .addMethod(METHOD_GET_ADD_SUBSCRIBE_PERIO_SEARCH_LIST)
               .addMethod(METHOD_GET_SUBSCRIBE_DOC_TYPE_LIST)
               .addMethod(METHOD_GET_SUBSCRIBE_SOURCE_TYPE_LIST)
               .addMethod(METHOD_GET_SUBSCRIBE_PUSH_EMAIL)
