@@ -2,7 +2,6 @@ package com.tb.wangfang.news.app;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.os.Process;
 import android.support.multidex.MultiDex;
@@ -12,6 +11,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.mob.MobApplication;
 import com.tb.wangfang.news.component.InitializeService;
 import com.tb.wangfang.news.di.component.AppComponent;
 import com.tb.wangfang.news.di.component.DaggerAppComponent;
@@ -39,7 +39,7 @@ import okhttp3.OkHttpClient;
  * Created by tangbin on 2017/5/4.
  */
 
-public class App extends Application {
+public class App extends MobApplication {
     private static App instance;
     public static AppComponent appComponent;
     private Set<Activity> allActivities;
@@ -64,6 +64,7 @@ public class App extends Application {
         super.onCreate();
         instance = this;
         //初始化屏幕宽高
+
         getScreenSize();
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new LoggerInterceptor("okhttp"))
@@ -117,6 +118,7 @@ public class App extends Application {
         }
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this, true);
+
     }
 
     protected void attachBaseContext(Context base) {
@@ -145,8 +147,8 @@ public class App extends Application {
                 }
             }
         }
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(0);
+//        android.os.Process.killProcess(android.os.Process.myPid());
+//        System.exit(0);
     }
 
     public void getScreenSize() {

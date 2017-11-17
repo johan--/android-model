@@ -138,9 +138,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <!-- 填写您从Mob开发者后台中得到的Appkey和AppSecret -->
+        <meta-data
+            android:name="Mob-AppKey"
+            android:value="226d6b7e695cc" />
+        <meta-data
+            android:name="Mob-AppSecret"
+            android:value="b098cb68c6d2360c29421b3073564e69" />
         <!-- 微信分享回调 -->
         <activity
-            android:name="cn.sharesdk.demo.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -251,7 +258,9 @@
         <activity android:name=".ui.activity.ManageSubscribeActivity" />
         <activity android:name=".ui.activity.MyWalletActivity" />
         <activity android:name=".ui.activity.MessageCenterActivity" />
-        <activity android:name=".ui.activity.WebViewActivity"></activity>
+        <activity android:name=".ui.activity.WebViewActivity" />
+        <activity android:name=".ui.activity.BindwanfangAccountActivity" />
+        <activity android:name=".ui.activity.ReadActivity"></activity>
     </application>
 
 </manifest>

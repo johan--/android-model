@@ -17,7 +17,7 @@ public class DegreeArticleBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
     private List<RelatePapersBean> RelatePapers;
 
@@ -29,11 +29,11 @@ public class DegreeArticleBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -109,72 +109,72 @@ public class DegreeArticleBean {
          * class_type : degree_artical
          */
 
-        private String id;
-        private String publish_year;
+        private Object id;
+        private Object publish_year;
         private int data_sort;
-        private String new_org;
-        private String language;
-        private String publish_year02;
+        private Object new_org;
+        private Object language;
+        private Object publish_year02;
         private int refdoc_cnt;
-        private String auth_area;
-        private String article_id;
+        private Object auth_area;
+        private Object article_id;
         private int tag_num;
-        private String is_full;
+        private Object is_full;
         private int abstract_reading_num;
-        private String tutor_name;
-        private String first_authors;
-        private String full_pubdate;
-        private String common_year;
+        private Object tutor_name;
+        private Object first_authors;
+        private Object full_pubdate;
+        private Object common_year;
         private int thirdparty_links_num;
-        private String abst_webdate;
-        private String authors_name;
+        private Object abst_webdate;
+        private Object authors_name;
         private int import_num;
-        private String degree_level;
+        private Object degree_level;
         private int share_num;
-        private String common_sort_time;
-        private String full_url;
-        private String orig_pub_date;
+        private Object common_sort_time;
+        private Object full_url;
+        private Object orig_pub_date;
         private Object source_db;
         private int collection_num;
-        private String pro_pub_date;
+        private Object pro_pub_date;
         private int cite_num;
         private int download_num;
-        private String service_model;
-        private String unit_name;
+        private Object service_model;
+        private Object unit_name;
         private int linkdoc_cnt;
-        private String unit_name02;
-        private String data_state;
-        private String is_oa;
+        private Object unit_name02;
+        private Object data_state;
+        private Object is_oa;
         private int fulltext_reading_num;
         private int note_num;
-        private String random_id;
+        private Object random_id;
         private int cited_cnt;
-        private String updatetime;
-        private String title;
-        private String deunit_name;
-        private String major_name;
-        private String summary;
+        private Object updatetime;
+        private Object title;
+        private Object deunit_name;
+        private Object major_name;
+        private Object summary;
         private OpBean op;
-        private String class_type;
-        private List<String> auto_keys;
-        private List<String> auto_classcode;
-        private List<String> auto_classcode_level;
-        private List<String> head_words;
-        private List<String> keywords;
+        private Object class_type;
+        private Object auto_keys;
+        private Object auto_classcode;
+        private Object auto_classcode_level;
+        private Object head_words;
+        private Object keywords;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getPublish_year() {
+        public Object getPublish_year() {
             return publish_year;
         }
 
-        public void setPublish_year(String publish_year) {
+        public void setPublish_year(Object publish_year) {
             this.publish_year = publish_year;
         }
 
@@ -186,27 +186,27 @@ public class DegreeArticleBean {
             this.data_sort = data_sort;
         }
 
-        public String getNew_org() {
+        public Object getNew_org() {
             return new_org;
         }
 
-        public void setNew_org(String new_org) {
+        public void setNew_org(Object new_org) {
             this.new_org = new_org;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
-        public String getPublish_year02() {
+        public Object getPublish_year02() {
             return publish_year02;
         }
 
-        public void setPublish_year02(String publish_year02) {
+        public void setPublish_year02(Object publish_year02) {
             this.publish_year02 = publish_year02;
         }
 
@@ -218,19 +218,19 @@ public class DegreeArticleBean {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
@@ -242,11 +242,11 @@ public class DegreeArticleBean {
             this.tag_num = tag_num;
         }
 
-        public String getIs_full() {
+        public Object getIs_full() {
             return is_full;
         }
 
-        public void setIs_full(String is_full) {
+        public void setIs_full(Object is_full) {
             this.is_full = is_full;
         }
 
@@ -258,35 +258,35 @@ public class DegreeArticleBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getTutor_name() {
+        public Object getTutor_name() {
             return tutor_name;
         }
 
-        public void setTutor_name(String tutor_name) {
+        public void setTutor_name(Object tutor_name) {
             this.tutor_name = tutor_name;
         }
 
-        public String getFirst_authors() {
+        public Object getFirst_authors() {
             return first_authors;
         }
 
-        public void setFirst_authors(String first_authors) {
+        public void setFirst_authors(Object first_authors) {
             this.first_authors = first_authors;
         }
 
-        public String getFull_pubdate() {
+        public Object getFull_pubdate() {
             return full_pubdate;
         }
 
-        public void setFull_pubdate(String full_pubdate) {
+        public void setFull_pubdate(Object full_pubdate) {
             this.full_pubdate = full_pubdate;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -298,19 +298,19 @@ public class DegreeArticleBean {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getAbst_webdate() {
+        public Object getAbst_webdate() {
             return abst_webdate;
         }
 
-        public void setAbst_webdate(String abst_webdate) {
+        public void setAbst_webdate(Object abst_webdate) {
             this.abst_webdate = abst_webdate;
         }
 
-        public String getAuthors_name() {
+        public Object getAuthors_name() {
             return authors_name;
         }
 
-        public void setAuthors_name(String authors_name) {
+        public void setAuthors_name(Object authors_name) {
             this.authors_name = authors_name;
         }
 
@@ -322,11 +322,11 @@ public class DegreeArticleBean {
             this.import_num = import_num;
         }
 
-        public String getDegree_level() {
+        public Object getDegree_level() {
             return degree_level;
         }
 
-        public void setDegree_level(String degree_level) {
+        public void setDegree_level(Object degree_level) {
             this.degree_level = degree_level;
         }
 
@@ -338,27 +338,27 @@ public class DegreeArticleBean {
             this.share_num = share_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getFull_url() {
+        public Object getFull_url() {
             return full_url;
         }
 
-        public void setFull_url(String full_url) {
+        public void setFull_url(Object full_url) {
             this.full_url = full_url;
         }
 
-        public String getOrig_pub_date() {
+        public Object getOrig_pub_date() {
             return orig_pub_date;
         }
 
-        public void setOrig_pub_date(String orig_pub_date) {
+        public void setOrig_pub_date(Object orig_pub_date) {
             this.orig_pub_date = orig_pub_date;
         }
 
@@ -378,11 +378,11 @@ public class DegreeArticleBean {
             this.collection_num = collection_num;
         }
 
-        public String getPro_pub_date() {
+        public Object getPro_pub_date() {
             return pro_pub_date;
         }
 
-        public void setPro_pub_date(String pro_pub_date) {
+        public void setPro_pub_date(Object pro_pub_date) {
             this.pro_pub_date = pro_pub_date;
         }
 
@@ -402,19 +402,19 @@ public class DegreeArticleBean {
             this.download_num = download_num;
         }
 
-        public String getService_model() {
+        public Object getService_model() {
             return service_model;
         }
 
-        public void setService_model(String service_model) {
+        public void setService_model(Object service_model) {
             this.service_model = service_model;
         }
 
-        public String getUnit_name() {
+        public Object getUnit_name() {
             return unit_name;
         }
 
-        public void setUnit_name(String unit_name) {
+        public void setUnit_name(Object unit_name) {
             this.unit_name = unit_name;
         }
 
@@ -426,27 +426,27 @@ public class DegreeArticleBean {
             this.linkdoc_cnt = linkdoc_cnt;
         }
 
-        public String getUnit_name02() {
+        public Object getUnit_name02() {
             return unit_name02;
         }
 
-        public void setUnit_name02(String unit_name02) {
+        public void setUnit_name02(Object unit_name02) {
             this.unit_name02 = unit_name02;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getIs_oa() {
+        public Object getIs_oa() {
             return is_oa;
         }
 
-        public void setIs_oa(String is_oa) {
+        public void setIs_oa(Object is_oa) {
             this.is_oa = is_oa;
         }
 
@@ -466,11 +466,11 @@ public class DegreeArticleBean {
             this.note_num = note_num;
         }
 
-        public String getRandom_id() {
+        public Object getRandom_id() {
             return random_id;
         }
 
-        public void setRandom_id(String random_id) {
+        public void setRandom_id(Object random_id) {
             this.random_id = random_id;
         }
 
@@ -482,43 +482,43 @@ public class DegreeArticleBean {
             this.cited_cnt = cited_cnt;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getDeunit_name() {
+        public Object getDeunit_name() {
             return deunit_name;
         }
 
-        public void setDeunit_name(String deunit_name) {
+        public void setDeunit_name(Object deunit_name) {
             this.deunit_name = deunit_name;
         }
 
-        public String getMajor_name() {
+        public Object getMajor_name() {
             return major_name;
         }
 
-        public void setMajor_name(String major_name) {
+        public void setMajor_name(Object major_name) {
             this.major_name = major_name;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -530,51 +530,51 @@ public class DegreeArticleBean {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getAuto_keys() {
+        public Object getAuto_keys() {
             return auto_keys;
         }
 
-        public void setAuto_keys(List<String> auto_keys) {
+        public void setAuto_keys(Object auto_keys) {
             this.auto_keys = auto_keys;
         }
 
-        public List<String> getAuto_classcode() {
+        public Object getAuto_classcode() {
             return auto_classcode;
         }
 
-        public void setAuto_classcode(List<String> auto_classcode) {
+        public void setAuto_classcode(Object auto_classcode) {
             this.auto_classcode = auto_classcode;
         }
 
-        public List<String> getAuto_classcode_level() {
+        public Object getAuto_classcode_level() {
             return auto_classcode_level;
         }
 
-        public void setAuto_classcode_level(List<String> auto_classcode_level) {
+        public void setAuto_classcode_level(Object auto_classcode_level) {
             this.auto_classcode_level = auto_classcode_level;
         }
 
-        public List<String> getHead_words() {
+        public Object getHead_words() {
             return head_words;
         }
 
-        public void setHead_words(List<String> head_words) {
+        public void setHead_words(Object head_words) {
             this.head_words = head_words;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
@@ -619,76 +619,76 @@ public class DegreeArticleBean {
                  * chapter_num : 47
                  */
 
-                private String article_id;
-                private String chalev_num;
-                private String end_page;
-                private String start_page;
-                private String chapter_title;
-                private String chapter_id;
-                private String id;
-                private String chapter_num;
+                private Object article_id;
+                private Object chalev_num;
+                private Object end_page;
+                private Object start_page;
+                private Object chapter_title;
+                private Object chapter_id;
+                private Object id;
+                private Object chapter_num;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getChalev_num() {
+                public Object getChalev_num() {
                     return chalev_num;
                 }
 
-                public void setChalev_num(String chalev_num) {
+                public void setChalev_num(Object chalev_num) {
                     this.chalev_num = chalev_num;
                 }
 
-                public String getEnd_page() {
+                public Object getEnd_page() {
                     return end_page;
                 }
 
-                public void setEnd_page(String end_page) {
+                public void setEnd_page(Object end_page) {
                     this.end_page = end_page;
                 }
 
-                public String getStart_page() {
+                public Object getStart_page() {
                     return start_page;
                 }
 
-                public void setStart_page(String start_page) {
+                public void setStart_page(Object start_page) {
                     this.start_page = start_page;
                 }
 
-                public String getChapter_title() {
+                public Object getChapter_title() {
                     return chapter_title;
                 }
 
-                public void setChapter_title(String chapter_title) {
+                public void setChapter_title(Object chapter_title) {
                     this.chapter_title = chapter_title;
                 }
 
-                public String getChapter_id() {
+                public Object getChapter_id() {
                     return chapter_id;
                 }
 
-                public void setChapter_id(String chapter_id) {
+                public void setChapter_id(Object chapter_id) {
                     this.chapter_id = chapter_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getChapter_num() {
+                public Object getChapter_num() {
                     return chapter_num;
                 }
 
-                public void setChapter_num(String chapter_num) {
+                public void setChapter_num(Object chapter_num) {
                     this.chapter_num = chapter_num;
                 }
             }
@@ -704,67 +704,67 @@ public class DegreeArticleBean {
                  * authors_name : 杨慧丽
                  */
 
-                private String article_id;
-                private String record_id;
-                private String trans_authname;
-                private String org_id;
-                private String authors_seq;
-                private String id;
-                private String authors_name;
+                private Object article_id;
+                private Object record_id;
+                private Object trans_authname;
+                private Object org_id;
+                private Object authors_seq;
+                private Object id;
+                private Object authors_name;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getTrans_authname() {
+                public Object getTrans_authname() {
                     return trans_authname;
                 }
 
-                public void setTrans_authname(String trans_authname) {
+                public void setTrans_authname(Object trans_authname) {
                     this.trans_authname = trans_authname;
                 }
 
-                public String getOrg_id() {
+                public Object getOrg_id() {
                     return org_id;
                 }
 
-                public void setOrg_id(String org_id) {
+                public void setOrg_id(Object org_id) {
                     this.org_id = org_id;
                 }
 
-                public String getAuthors_seq() {
+                public Object getAuthors_seq() {
                     return authors_seq;
                 }
 
-                public void setAuthors_seq(String authors_seq) {
+                public void setAuthors_seq(Object authors_seq) {
                     this.authors_seq = authors_seq;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getAuthors_name() {
+                public Object getAuthors_name() {
                     return authors_name;
                 }
 
-                public void setAuthors_name(String authors_name) {
+                public void setAuthors_name(Object authors_name) {
                     this.authors_name = authors_name;
                 }
             }
@@ -780,67 +780,67 @@ public class DegreeArticleBean {
                  * tutor_seq : 1
                  */
 
-                private String article_id;
-                private String tutor_name;
-                private String tutor_rank;
-                private String trans_tutor;
-                private String tutor_unit;
-                private String id;
-                private String tutor_seq;
+                private Object article_id;
+                private Object tutor_name;
+                private Object tutor_rank;
+                private Object trans_tutor;
+                private Object tutor_unit;
+                private Object id;
+                private Object tutor_seq;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getTutor_name() {
+                public Object getTutor_name() {
                     return tutor_name;
                 }
 
-                public void setTutor_name(String tutor_name) {
+                public void setTutor_name(Object tutor_name) {
                     this.tutor_name = tutor_name;
                 }
 
-                public String getTutor_rank() {
+                public Object getTutor_rank() {
                     return tutor_rank;
                 }
 
-                public void setTutor_rank(String tutor_rank) {
+                public void setTutor_rank(Object tutor_rank) {
                     this.tutor_rank = tutor_rank;
                 }
 
-                public String getTrans_tutor() {
+                public Object getTrans_tutor() {
                     return trans_tutor;
                 }
 
-                public void setTrans_tutor(String trans_tutor) {
+                public void setTrans_tutor(Object trans_tutor) {
                     this.trans_tutor = trans_tutor;
                 }
 
-                public String getTutor_unit() {
+                public Object getTutor_unit() {
                     return tutor_unit;
                 }
 
-                public void setTutor_unit(String tutor_unit) {
+                public void setTutor_unit(Object tutor_unit) {
                     this.tutor_unit = tutor_unit;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getTutor_seq() {
+                public Object getTutor_seq() {
                     return tutor_seq;
                 }
 
-                public void setTutor_seq(String tutor_seq) {
+                public void setTutor_seq(Object tutor_seq) {
                     this.tutor_seq = tutor_seq;
                 }
             }
@@ -903,72 +903,72 @@ public class DegreeArticleBean {
          * class_type : degree_artical
          */
 
-        private String id;
-        private String publish_year;
+        private Object id;
+        private Object publish_year;
         private int data_sort;
-        private String new_org;
-        private String language;
-        private String publish_year02;
+        private Object new_org;
+        private Object language;
+        private Object publish_year02;
         private int refdoc_cnt;
-        private String auth_area;
-        private String article_id;
+        private Object auth_area;
+        private Object article_id;
         private int tag_num;
-        private String is_full;
+        private Object is_full;
         private int abstract_reading_num;
-        private String tutor_name;
-        private String first_authors;
-        private String full_pubdate;
-        private String common_year;
+        private Object tutor_name;
+        private Object first_authors;
+        private Object full_pubdate;
+        private Object common_year;
         private int thirdparty_links_num;
-        private String abst_webdate;
-        private String authors_name;
+        private Object abst_webdate;
+        private Object authors_name;
         private int import_num;
-        private String degree_level;
+        private Object degree_level;
         private int share_num;
-        private String common_sort_time;
-        private String full_url;
-        private String orig_pub_date;
+        private Object common_sort_time;
+        private Object full_url;
+        private Object orig_pub_date;
         private Object source_db;
         private int collection_num;
-        private String pro_pub_date;
+        private Object pro_pub_date;
         private int cite_num;
         private int download_num;
-        private String service_model;
-        private String unit_name;
+        private Object service_model;
+        private Object unit_name;
         private int linkdoc_cnt;
-        private String unit_name02;
-        private String data_state;
-        private String is_oa;
+        private Object unit_name02;
+        private Object data_state;
+        private Object is_oa;
         private int fulltext_reading_num;
         private int note_num;
-        private String random_id;
+        private Object random_id;
         private int cited_cnt;
-        private String updatetime;
-        private String title;
-        private String deunit_name;
-        private String major_name;
-        private String summary;
+        private Object updatetime;
+        private Object title;
+        private Object deunit_name;
+        private Object major_name;
+        private Object summary;
         private OpBeanX op;
-        private String class_type;
-        private List<String> auto_keys;
-        private List<String> auto_classcode;
-        private List<String> auto_classcode_level;
-        private List<String> head_words;
-        private List<String> keywords;
+        private Object class_type;
+        private Object auto_keys;
+        private Object auto_classcode;
+        private Object auto_classcode_level;
+        private Object head_words;
+        private Object keywords;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getPublish_year() {
+        public Object getPublish_year() {
             return publish_year;
         }
 
-        public void setPublish_year(String publish_year) {
+        public void setPublish_year(Object publish_year) {
             this.publish_year = publish_year;
         }
 
@@ -980,27 +980,27 @@ public class DegreeArticleBean {
             this.data_sort = data_sort;
         }
 
-        public String getNew_org() {
+        public Object getNew_org() {
             return new_org;
         }
 
-        public void setNew_org(String new_org) {
+        public void setNew_org(Object new_org) {
             this.new_org = new_org;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
-        public String getPublish_year02() {
+        public Object getPublish_year02() {
             return publish_year02;
         }
 
-        public void setPublish_year02(String publish_year02) {
+        public void setPublish_year02(Object publish_year02) {
             this.publish_year02 = publish_year02;
         }
 
@@ -1012,19 +1012,19 @@ public class DegreeArticleBean {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
@@ -1036,11 +1036,11 @@ public class DegreeArticleBean {
             this.tag_num = tag_num;
         }
 
-        public String getIs_full() {
+        public Object getIs_full() {
             return is_full;
         }
 
-        public void setIs_full(String is_full) {
+        public void setIs_full(Object is_full) {
             this.is_full = is_full;
         }
 
@@ -1052,35 +1052,35 @@ public class DegreeArticleBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getTutor_name() {
+        public Object getTutor_name() {
             return tutor_name;
         }
 
-        public void setTutor_name(String tutor_name) {
+        public void setTutor_name(Object tutor_name) {
             this.tutor_name = tutor_name;
         }
 
-        public String getFirst_authors() {
+        public Object getFirst_authors() {
             return first_authors;
         }
 
-        public void setFirst_authors(String first_authors) {
+        public void setFirst_authors(Object first_authors) {
             this.first_authors = first_authors;
         }
 
-        public String getFull_pubdate() {
+        public Object getFull_pubdate() {
             return full_pubdate;
         }
 
-        public void setFull_pubdate(String full_pubdate) {
+        public void setFull_pubdate(Object full_pubdate) {
             this.full_pubdate = full_pubdate;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -1092,19 +1092,19 @@ public class DegreeArticleBean {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getAbst_webdate() {
+        public Object getAbst_webdate() {
             return abst_webdate;
         }
 
-        public void setAbst_webdate(String abst_webdate) {
+        public void setAbst_webdate(Object abst_webdate) {
             this.abst_webdate = abst_webdate;
         }
 
-        public String getAuthors_name() {
+        public Object getAuthors_name() {
             return authors_name;
         }
 
-        public void setAuthors_name(String authors_name) {
+        public void setAuthors_name(Object authors_name) {
             this.authors_name = authors_name;
         }
 
@@ -1116,11 +1116,11 @@ public class DegreeArticleBean {
             this.import_num = import_num;
         }
 
-        public String getDegree_level() {
+        public Object getDegree_level() {
             return degree_level;
         }
 
-        public void setDegree_level(String degree_level) {
+        public void setDegree_level(Object degree_level) {
             this.degree_level = degree_level;
         }
 
@@ -1132,27 +1132,27 @@ public class DegreeArticleBean {
             this.share_num = share_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getFull_url() {
+        public Object getFull_url() {
             return full_url;
         }
 
-        public void setFull_url(String full_url) {
+        public void setFull_url(Object full_url) {
             this.full_url = full_url;
         }
 
-        public String getOrig_pub_date() {
+        public Object getOrig_pub_date() {
             return orig_pub_date;
         }
 
-        public void setOrig_pub_date(String orig_pub_date) {
+        public void setOrig_pub_date(Object orig_pub_date) {
             this.orig_pub_date = orig_pub_date;
         }
 
@@ -1172,11 +1172,11 @@ public class DegreeArticleBean {
             this.collection_num = collection_num;
         }
 
-        public String getPro_pub_date() {
+        public Object getPro_pub_date() {
             return pro_pub_date;
         }
 
-        public void setPro_pub_date(String pro_pub_date) {
+        public void setPro_pub_date(Object pro_pub_date) {
             this.pro_pub_date = pro_pub_date;
         }
 
@@ -1196,19 +1196,19 @@ public class DegreeArticleBean {
             this.download_num = download_num;
         }
 
-        public String getService_model() {
+        public Object getService_model() {
             return service_model;
         }
 
-        public void setService_model(String service_model) {
+        public void setService_model(Object service_model) {
             this.service_model = service_model;
         }
 
-        public String getUnit_name() {
+        public Object getUnit_name() {
             return unit_name;
         }
 
-        public void setUnit_name(String unit_name) {
+        public void setUnit_name(Object unit_name) {
             this.unit_name = unit_name;
         }
 
@@ -1220,27 +1220,27 @@ public class DegreeArticleBean {
             this.linkdoc_cnt = linkdoc_cnt;
         }
 
-        public String getUnit_name02() {
+        public Object getUnit_name02() {
             return unit_name02;
         }
 
-        public void setUnit_name02(String unit_name02) {
+        public void setUnit_name02(Object unit_name02) {
             this.unit_name02 = unit_name02;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getIs_oa() {
+        public Object getIs_oa() {
             return is_oa;
         }
 
-        public void setIs_oa(String is_oa) {
+        public void setIs_oa(Object is_oa) {
             this.is_oa = is_oa;
         }
 
@@ -1260,11 +1260,11 @@ public class DegreeArticleBean {
             this.note_num = note_num;
         }
 
-        public String getRandom_id() {
+        public Object getRandom_id() {
             return random_id;
         }
 
-        public void setRandom_id(String random_id) {
+        public void setRandom_id(Object random_id) {
             this.random_id = random_id;
         }
 
@@ -1276,43 +1276,43 @@ public class DegreeArticleBean {
             this.cited_cnt = cited_cnt;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getDeunit_name() {
+        public Object getDeunit_name() {
             return deunit_name;
         }
 
-        public void setDeunit_name(String deunit_name) {
+        public void setDeunit_name(Object deunit_name) {
             this.deunit_name = deunit_name;
         }
 
-        public String getMajor_name() {
+        public Object getMajor_name() {
             return major_name;
         }
 
-        public void setMajor_name(String major_name) {
+        public void setMajor_name(Object major_name) {
             this.major_name = major_name;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -1324,51 +1324,51 @@ public class DegreeArticleBean {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getAuto_keys() {
+        public Object getAuto_keys() {
             return auto_keys;
         }
 
-        public void setAuto_keys(List<String> auto_keys) {
+        public void setAuto_keys(Object auto_keys) {
             this.auto_keys = auto_keys;
         }
 
-        public List<String> getAuto_classcode() {
+        public Object getAuto_classcode() {
             return auto_classcode;
         }
 
-        public void setAuto_classcode(List<String> auto_classcode) {
+        public void setAuto_classcode(Object auto_classcode) {
             this.auto_classcode = auto_classcode;
         }
 
-        public List<String> getAuto_classcode_level() {
+        public Object getAuto_classcode_level() {
             return auto_classcode_level;
         }
 
-        public void setAuto_classcode_level(List<String> auto_classcode_level) {
+        public void setAuto_classcode_level(Object auto_classcode_level) {
             this.auto_classcode_level = auto_classcode_level;
         }
 
-        public List<String> getHead_words() {
+        public Object getHead_words() {
             return head_words;
         }
 
-        public void setHead_words(List<String> head_words) {
+        public void setHead_words(Object head_words) {
             this.head_words = head_words;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
@@ -1413,76 +1413,76 @@ public class DegreeArticleBean {
                  * chapter_num : 47
                  */
 
-                private String article_id;
-                private String chalev_num;
-                private String end_page;
-                private String start_page;
-                private String chapter_title;
-                private String chapter_id;
-                private String id;
-                private String chapter_num;
+                private Object article_id;
+                private Object chalev_num;
+                private Object end_page;
+                private Object start_page;
+                private Object chapter_title;
+                private Object chapter_id;
+                private Object id;
+                private Object chapter_num;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getChalev_num() {
+                public Object getChalev_num() {
                     return chalev_num;
                 }
 
-                public void setChalev_num(String chalev_num) {
+                public void setChalev_num(Object chalev_num) {
                     this.chalev_num = chalev_num;
                 }
 
-                public String getEnd_page() {
+                public Object getEnd_page() {
                     return end_page;
                 }
 
-                public void setEnd_page(String end_page) {
+                public void setEnd_page(Object end_page) {
                     this.end_page = end_page;
                 }
 
-                public String getStart_page() {
+                public Object getStart_page() {
                     return start_page;
                 }
 
-                public void setStart_page(String start_page) {
+                public void setStart_page(Object start_page) {
                     this.start_page = start_page;
                 }
 
-                public String getChapter_title() {
+                public Object getChapter_title() {
                     return chapter_title;
                 }
 
-                public void setChapter_title(String chapter_title) {
+                public void setChapter_title(Object chapter_title) {
                     this.chapter_title = chapter_title;
                 }
 
-                public String getChapter_id() {
+                public Object getChapter_id() {
                     return chapter_id;
                 }
 
-                public void setChapter_id(String chapter_id) {
+                public void setChapter_id(Object chapter_id) {
                     this.chapter_id = chapter_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getChapter_num() {
+                public Object getChapter_num() {
                     return chapter_num;
                 }
 
-                public void setChapter_num(String chapter_num) {
+                public void setChapter_num(Object chapter_num) {
                     this.chapter_num = chapter_num;
                 }
             }
@@ -1498,67 +1498,67 @@ public class DegreeArticleBean {
                  * authors_name : 杨慧丽
                  */
 
-                private String article_id;
-                private String record_id;
-                private String trans_authname;
-                private String org_id;
-                private String authors_seq;
-                private String id;
-                private String authors_name;
+                private Object article_id;
+                private Object record_id;
+                private Object trans_authname;
+                private Object org_id;
+                private Object authors_seq;
+                private Object id;
+                private Object authors_name;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getTrans_authname() {
+                public Object getTrans_authname() {
                     return trans_authname;
                 }
 
-                public void setTrans_authname(String trans_authname) {
+                public void setTrans_authname(Object trans_authname) {
                     this.trans_authname = trans_authname;
                 }
 
-                public String getOrg_id() {
+                public Object getOrg_id() {
                     return org_id;
                 }
 
-                public void setOrg_id(String org_id) {
+                public void setOrg_id(Object org_id) {
                     this.org_id = org_id;
                 }
 
-                public String getAuthors_seq() {
+                public Object getAuthors_seq() {
                     return authors_seq;
                 }
 
-                public void setAuthors_seq(String authors_seq) {
+                public void setAuthors_seq(Object authors_seq) {
                     this.authors_seq = authors_seq;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getAuthors_name() {
+                public Object getAuthors_name() {
                     return authors_name;
                 }
 
-                public void setAuthors_name(String authors_name) {
+                public void setAuthors_name(Object authors_name) {
                     this.authors_name = authors_name;
                 }
             }
@@ -1574,67 +1574,67 @@ public class DegreeArticleBean {
                  * tutor_seq : 1
                  */
 
-                private String article_id;
-                private String tutor_name;
-                private String tutor_rank;
-                private String trans_tutor;
-                private String tutor_unit;
-                private String id;
-                private String tutor_seq;
+                private Object article_id;
+                private Object tutor_name;
+                private Object tutor_rank;
+                private Object trans_tutor;
+                private Object tutor_unit;
+                private Object id;
+                private Object tutor_seq;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getTutor_name() {
+                public Object getTutor_name() {
                     return tutor_name;
                 }
 
-                public void setTutor_name(String tutor_name) {
+                public void setTutor_name(Object tutor_name) {
                     this.tutor_name = tutor_name;
                 }
 
-                public String getTutor_rank() {
+                public Object getTutor_rank() {
                     return tutor_rank;
                 }
 
-                public void setTutor_rank(String tutor_rank) {
+                public void setTutor_rank(Object tutor_rank) {
                     this.tutor_rank = tutor_rank;
                 }
 
-                public String getTrans_tutor() {
+                public Object getTrans_tutor() {
                     return trans_tutor;
                 }
 
-                public void setTrans_tutor(String trans_tutor) {
+                public void setTrans_tutor(Object trans_tutor) {
                     this.trans_tutor = trans_tutor;
                 }
 
-                public String getTutor_unit() {
+                public Object getTutor_unit() {
                     return tutor_unit;
                 }
 
-                public void setTutor_unit(String tutor_unit) {
+                public void setTutor_unit(Object tutor_unit) {
                     this.tutor_unit = tutor_unit;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getTutor_seq() {
+                public Object getTutor_seq() {
                     return tutor_seq;
                 }
 
-                public void setTutor_seq(String tutor_seq) {
+                public void setTutor_seq(Object tutor_seq) {
                     this.tutor_seq = tutor_seq;
                 }
             }

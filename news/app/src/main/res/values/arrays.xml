@@ -393,6 +393,10 @@
         <item>赞比亚             *+260  </item>
 
     </string-array>
+    <string-array name="third_select">
+        <item>已有万方账号（去绑定）</item>
+        <item>没有万方账号（去注册）</item>
+    </string-array>
 
 
 </resources>

@@ -52,7 +52,6 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     public void attachView(MainContract.View view) {
         super.attachView(view);
         registerEvent();
-
     }
 
     private void registerEvent() {

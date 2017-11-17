@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,17 +26,25 @@ import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
 import com.wanfang.personal.LoginResponse;
+import com.wanfang.personal.ThirdPartyLoginResponse;
 import com.xiaomi.mipush.sdk.MiPushClient;
+
+import java.util.HashMap;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.wechat.friends.Wechat;
 
 import static android.support.design.widget.TabLayout.OnTabSelectedListener;
 import static android.support.design.widget.TabLayout.Tab;
 
-public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
+public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View, PlatformActionListener {
 
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
@@ -79,6 +88,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Inject
     ImplPreferencesHelper PreferencesHelper;
     private MaterialDialog mdialog;
+    private String TAG = "LoginActivity";
 
 
     @Override
@@ -203,13 +213,36 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.iv_qq_share:
                 break;
             case R.id.iv_weichat_share:
+                weichatLogin();
                 break;
             case R.id.iv_weibo_share:
+                weiboLogin();
                 break;
             case R.id.iv_graph:
                 ivGraph.setImageBitmap(CodeUtils.getInstance().createBitmap(SystemUtil.dp2px(this, 80), SystemUtil.dp2px(this, 40)));
                 break;
         }
+    }
+
+    private void weiboLogin() {
+        Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
+        weibo.SSOSetting(false);  //设置false表示使用SSO授权方式
+        weibo.setPlatformActionListener(this); // 设置分享事件回调
+        weibo.authorize();//单独授权
+        weibo.showUser(null);//授权并获取用户信息
+    }
+
+    private void weichatLogin() {
+
+        Platform wechat = ShareSDK.getPlatform(Wechat.NAME);
+        wechat.SSOSetting(false);
+//回调信息，可以在这里获取基本的授权返回的信息，但是注意如果做提示和UI操作要传到主线程handler里去执行
+        wechat.setPlatformActionListener(this);
+//authorize与showUser单独调用一个即可
+        wechat.authorize();//单独授权,OnComplete返回的hashmap是空的
+        wechat.showUser(null);
+//移除授权
+//weibo.removeAccount(true);
     }
 
 
@@ -249,16 +282,27 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void loginSuccess(LoginResponse response) {
         mdialog.dismiss();
-        if (response == null) {
+        if (TextUtils.isEmpty(response.getLoginToken())) {
             ToastUtil.show("访问失败");
-//            PreferencesHelper.setLoginState(true);
-//            finish();
         } else {
             ToastUtil.show("登录成功");
             MiPushClient.setUserAccount(this, response.getUserId(), null);
             PreferencesHelper.setLoginState(true);
             finish();
         }
+    }
+
+    @Override
+    public void loginSuccess(ThirdPartyLoginResponse response) {
+        if (TextUtils.isEmpty(response.getLoginToken())) {
+            ToastUtil.show("访问失败");
+        } else {
+            ToastUtil.show("登录成功");
+
+            PreferencesHelper.setLoginState(true);
+            finish();
+        }
+
     }
 
     @Override
@@ -269,5 +313,63 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             tvGetCode.setText("获取验证码");
             mPresenter.setCountDown(60);
         }
+    }
+
+    @Override
+    public void showDialoge(final String id, final String type) {
+        new MaterialDialog.Builder(this).title("请绑定万方账号")
+                .items(R.array.third_select)
+                .itemsCallback(new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                        if (position == 0) {
+                            Intent intent = new Intent(LoginActivity.this, BindwanfangAccountActivity.class);
+                            intent.putExtra("uid", id);
+                            intent.putExtra("type", type);
+                            startActivity(intent);
+                        } else {
+                            Intent intent2 = new Intent(LoginActivity.this, RegisterActivity.class);
+                            startActivity(intent2);
+                        }
+                    }
+                }).show();
+
+    }
+
+    @Override
+    public void prefinish() {
+        finish();
+    }
+
+    @Override
+    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+        Log.d(TAG, "onComplete: platformname" + platform.getName());
+        Log.d(TAG, "onComplete: " + hashMap.toString());
+        String id = null;
+        int type = 0;//0表示QQ，1表示微博，2表示微信，4表示Android，5表示iOS，6表示小米
+        if (platform.getName().equals("Wechat")) {
+            id = (String) hashMap.get("openid");//授权用户唯一标识
+            String unionid = (String) hashMap.get("unionid");// 当且仅当该移动应用已获得该用户的userinfo授权时，才会出现该字段
+            type = 0;
+        }
+        mPresenter.thirdLogin(id, type);
+    }
+
+
+    @Override
+    public void onError(Platform platform, int i, Throwable throwable) {
+        if (platform.getName().equals("Wechat")) {
+            if (i == 1) {
+                ToastUtil.show("请安装微信客户端");
+            }
+        } else {
+            ToastUtil.show(throwable.getMessage());
+        }
+    }
+
+    @Override
+    public void onCancel(Platform platform, int i) {
+        Log.d(TAG, "onCancel: " + i);
+        ToastUtil.show("oncancel");
     }
 }

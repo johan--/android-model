@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
@@ -23,6 +24,7 @@ import com.wanfang.personal.PhoneCaptchaRequest;
 import com.wanfang.personal.PhoneCaptchaResponse;
 import com.wanfang.personal.RegistRequest;
 import com.wanfang.personal.RegistResponse;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import javax.inject.Inject;
 
@@ -176,6 +178,8 @@ public class RegisterActivity extends SimpleActivity {
                 registResponse.getUserId();
                 Log.d(TAG, "onSuccess: " + registResponse.toString());
                 ToastUtil.show("注册成功");
+                MiPushClient.setUserAccount(RegisterActivity.this, registResponse.getUserId(), null);
+                RxBus.getDefault().post(new String("bindSuccess"));
                 finish();
 
             }

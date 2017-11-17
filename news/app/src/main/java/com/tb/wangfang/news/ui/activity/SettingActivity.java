@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -61,6 +62,7 @@ public class SettingActivity extends SimpleActivity {
     ImplPreferencesHelper PreferencesHelper;
     @Inject
     ManagedChannel mManagedChannel;
+    private String TAG="SettingActivity";
 
     @Override
     protected int getLayout() {
@@ -198,6 +200,8 @@ public class SettingActivity extends SimpleActivity {
             public void onSuccess(LoginOutResponse loginOutResponse) {
                 dialog.dismiss();
                 PreferencesHelper.setLoginState(false);
+                boolean s = PreferencesHelper.getLoginState();
+                Log.d(TAG, "onSuccess: "+s);
                 App.getInstance().exitApp();
             }
 

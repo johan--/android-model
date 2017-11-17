@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.ColorInt;
@@ -33,6 +34,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Properties;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -277,16 +279,25 @@ public class SystemUtil {
     }
 
     public static String getStringFromJsonarray(String json) {
-        try {
-            JSONArray jsonArray = new JSONArray(json);
-            String s = "";
-            for (int i = 0; i < jsonArray.length(); i++) {
-                s += jsonArray.get(i) + " ";
+        if (!TextUtils.isEmpty(json)) {
+            if (json.startsWith("[")) {
+                try {
+                    JSONArray jsonArray = new JSONArray(json);
+                    String s = "";
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        s += jsonArray.get(i) + " ";
+                    }
+                    return s;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                return json;
             }
-            return s;
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } else {
+
         }
+
         return "";
     }
 
@@ -309,6 +320,7 @@ public class SystemUtil {
         }
         return s;
     }
+
     public static String getStringFromListPozhe(List list) {
         String s = "";
         for (int i = 0; i < list.size(); i++) {
@@ -318,6 +330,38 @@ public class SystemUtil {
                 s += list.get(i) + "-";
             }
         }
+
         return s;
+    }
+
+    public static String getDeviceId(Context context) {
+        String serial = null;
+
+        String m_szDevIDShort = "35" +
+                Build.BOARD.length() % 10 + Build.BRAND.length() % 10 +
+
+                Build.CPU_ABI.length() % 10 + Build.DEVICE.length() % 10 +
+
+                Build.DISPLAY.length() % 10 + Build.HOST.length() % 10 +
+
+                Build.ID.length() % 10 + Build.MANUFACTURER.length() % 10 +
+
+                Build.MODEL.length() % 10 + Build.PRODUCT.length() % 10 +
+
+                Build.TAGS.length() % 10 + Build.TYPE.length() % 10 +
+
+                Build.USER.length() % 10; //13 位
+
+        try {
+            serial = android.os.Build.class.getField("SERIAL").get(null).toString();
+            //API>=9 使用serial号
+            return new UUID(m_szDevIDShort.hashCode(), serial.hashCode()).toString();
+        } catch (Exception exception) {
+            //serial需要一个初始化
+            serial = "serial"; // 随便一个初始化
+        }
+        //使用硬件信息拼凑出来的15位号码
+        return new UUID(m_szDevIDShort.hashCode(), serial.hashCode()).toString();
+
     }
 }

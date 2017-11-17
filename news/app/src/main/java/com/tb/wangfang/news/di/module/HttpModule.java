@@ -28,7 +28,7 @@ public class HttpModule {
         ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.20.17.147", 8088)
                 .usePlaintext(true)
                 .build();
-        //叶书胜的电脑
+       // 叶书胜的电脑
 //        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.20.13.178", 8088)
 //                .usePlaintext(true)
 //                .build();

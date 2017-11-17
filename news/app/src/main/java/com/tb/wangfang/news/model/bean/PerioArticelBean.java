@@ -17,7 +17,7 @@ public class PerioArticelBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
     private List<RelatePapersBean> RelatePapers;
 
@@ -29,11 +29,11 @@ public class PerioArticelBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -128,99 +128,99 @@ public class PerioArticelBean {
          * class_type : perio_artical
          */
 
-        private String id;
-        private String publish_year;
-        private String page_range;
+        private Object id;
+        private Object publish_year;
+        private Object page_range;
         private int page_cnt;
-        private String doc_num;
-        private String perio_id;
-        private String language;
+        private Object doc_num;
+        private Object perio_id;
+        private Object language;
         private int refdoc_cnt;
-        private String authors_name;
+        private Object authors_name;
         private int share_num;
-        private String trans_column;
-        private String is_fulltext;
-        private String issue_num;
-        private String pro_pub_date;
-        private String hxkbj_pku;
-        private String perio_title02;
+        private Object trans_column;
+        private Object is_fulltext;
+        private Object issue_num;
+        private Object pro_pub_date;
+        private Object hxkbj_pku;
+        private Object perio_title02;
         private int cite_num;
-        private String unit_name;
+        private Object unit_name;
         private int linkdoc_cnt;
-        private String issn;
-        private String unit_name02;
-        private String data_state;
-        private String random_id;
+        private Object issn;
+        private Object unit_name02;
+        private Object data_state;
+        private Object random_id;
         private int cited_cnt;
-        private String doi;
-        private String fund_info;
-        private String trans_authors;
-        private String literature_code;
+        private Object doi;
+        private Object fund_info;
+        private Object trans_authors;
+        private Object literature_code;
         private int data_sort;
-        private String new_org;
-        private String core_perio;
-        private String publish_year02;
-        private String auth_area;
-        private String article_id;
+        private Object new_org;
+        private Object core_perio;
+        private Object publish_year02;
+        private Object auth_area;
+        private Object article_id;
         private int tag_num;
         private int abstract_reading_num;
-        private String first_authors;
-        private String full_pubdate;
-        private String common_year;
-        private String authors_unit;
+        private Object first_authors;
+        private Object full_pubdate;
+        private Object common_year;
+        private Object authors_unit;
         private int thirdparty_links_num;
-        private String abst_webdate;
+        private Object abst_webdate;
         private int article_seq;
         private int import_num;
-        private String common_sort_time;
-        private String issue_id;
-        private String full_url;
-        private String orig_pub_date;
-        private String source_db;
-        private String column_name;
-        private String cn;
+        private Object common_sort_time;
+        private Object issue_id;
+        private Object full_url;
+        private Object orig_pub_date;
+        private Object source_db;
+        private Object column_name;
+        private Object cn;
         private int collection_num;
         private int download_num;
-        private String orig_classcode;
-        private String service_model;
-        private String first_publish;
-        private String is_oa;
+        private Object orig_classcode;
+        private Object service_model;
+        private Object first_publish;
+        private Object is_oa;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String perio_title_en;
-        private String title;
-        private String summary;
-        private String perio_title;
-        private String trans_title;
+        private Object updatetime;
+        private Object perio_title_en;
+        private Object title;
+        private Object summary;
+        private Object perio_title;
+        private Object trans_title;
         private OpBean op;
-        private String class_type;
-        private List<String> keywords;
-        private List<String> subject_class_codes;
-        private List<String> head_words;
-        private List<String> subject_classcode_level;
+        private Object class_type;
+        private Object keywords;
+        private Object subject_class_codes;
+        private Object head_words;
+        private Object subject_classcode_level;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getPublish_year() {
+        public Object getPublish_year() {
             return publish_year;
         }
 
-        public void setPublish_year(String publish_year) {
+        public void setPublish_year(Object publish_year) {
             this.publish_year = publish_year;
         }
 
-        public String getPage_range() {
+        public Object getPage_range() {
             return page_range;
         }
 
-        public void setPage_range(String page_range) {
+        public void setPage_range(Object page_range) {
             this.page_range = page_range;
         }
 
@@ -232,27 +232,27 @@ public class PerioArticelBean {
             this.page_cnt = page_cnt;
         }
 
-        public String getDoc_num() {
+        public Object getDoc_num() {
             return doc_num;
         }
 
-        public void setDoc_num(String doc_num) {
+        public void setDoc_num(Object doc_num) {
             this.doc_num = doc_num;
         }
 
-        public String getPerio_id() {
+        public Object getPerio_id() {
             return perio_id;
         }
 
-        public void setPerio_id(String perio_id) {
+        public void setPerio_id(Object perio_id) {
             this.perio_id = perio_id;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
@@ -264,11 +264,11 @@ public class PerioArticelBean {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getAuthors_name() {
+        public Object getAuthors_name() {
             return authors_name;
         }
 
-        public void setAuthors_name(String authors_name) {
+        public void setAuthors_name(Object authors_name) {
             this.authors_name = authors_name;
         }
 
@@ -280,51 +280,51 @@ public class PerioArticelBean {
             this.share_num = share_num;
         }
 
-        public String getTrans_column() {
+        public Object getTrans_column() {
             return trans_column;
         }
 
-        public void setTrans_column(String trans_column) {
+        public void setTrans_column(Object trans_column) {
             this.trans_column = trans_column;
         }
 
-        public String getIs_fulltext() {
+        public Object getIs_fulltext() {
             return is_fulltext;
         }
 
-        public void setIs_fulltext(String is_fulltext) {
+        public void setIs_fulltext(Object is_fulltext) {
             this.is_fulltext = is_fulltext;
         }
 
-        public String getIssue_num() {
+        public Object getIssue_num() {
             return issue_num;
         }
 
-        public void setIssue_num(String issue_num) {
+        public void setIssue_num(Object issue_num) {
             this.issue_num = issue_num;
         }
 
-        public String getPro_pub_date() {
+        public Object getPro_pub_date() {
             return pro_pub_date;
         }
 
-        public void setPro_pub_date(String pro_pub_date) {
+        public void setPro_pub_date(Object pro_pub_date) {
             this.pro_pub_date = pro_pub_date;
         }
 
-        public String getHxkbj_pku() {
+        public Object getHxkbj_pku() {
             return hxkbj_pku;
         }
 
-        public void setHxkbj_pku(String hxkbj_pku) {
+        public void setHxkbj_pku(Object hxkbj_pku) {
             this.hxkbj_pku = hxkbj_pku;
         }
 
-        public String getPerio_title02() {
+        public Object getPerio_title02() {
             return perio_title02;
         }
 
-        public void setPerio_title02(String perio_title02) {
+        public void setPerio_title02(Object perio_title02) {
             this.perio_title02 = perio_title02;
         }
 
@@ -336,11 +336,11 @@ public class PerioArticelBean {
             this.cite_num = cite_num;
         }
 
-        public String getUnit_name() {
+        public Object getUnit_name() {
             return unit_name;
         }
 
-        public void setUnit_name(String unit_name) {
+        public void setUnit_name(Object unit_name) {
             this.unit_name = unit_name;
         }
 
@@ -352,35 +352,35 @@ public class PerioArticelBean {
             this.linkdoc_cnt = linkdoc_cnt;
         }
 
-        public String getIssn() {
+        public Object getIssn() {
             return issn;
         }
 
-        public void setIssn(String issn) {
+        public void setIssn(Object issn) {
             this.issn = issn;
         }
 
-        public String getUnit_name02() {
+        public Object getUnit_name02() {
             return unit_name02;
         }
 
-        public void setUnit_name02(String unit_name02) {
+        public void setUnit_name02(Object unit_name02) {
             this.unit_name02 = unit_name02;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getRandom_id() {
+        public Object getRandom_id() {
             return random_id;
         }
 
-        public void setRandom_id(String random_id) {
+        public void setRandom_id(Object random_id) {
             this.random_id = random_id;
         }
 
@@ -392,35 +392,35 @@ public class PerioArticelBean {
             this.cited_cnt = cited_cnt;
         }
 
-        public String getDoi() {
+        public Object getDoi() {
             return doi;
         }
 
-        public void setDoi(String doi) {
+        public void setDoi(Object doi) {
             this.doi = doi;
         }
 
-        public String getFund_info() {
+        public Object getFund_info() {
             return fund_info;
         }
 
-        public void setFund_info(String fund_info) {
+        public void setFund_info(Object fund_info) {
             this.fund_info = fund_info;
         }
 
-        public String getTrans_authors() {
+        public Object getTrans_authors() {
             return trans_authors;
         }
 
-        public void setTrans_authors(String trans_authors) {
+        public void setTrans_authors(Object trans_authors) {
             this.trans_authors = trans_authors;
         }
 
-        public String getLiterature_code() {
+        public Object getLiterature_code() {
             return literature_code;
         }
 
-        public void setLiterature_code(String literature_code) {
+        public void setLiterature_code(Object literature_code) {
             this.literature_code = literature_code;
         }
 
@@ -432,43 +432,43 @@ public class PerioArticelBean {
             this.data_sort = data_sort;
         }
 
-        public String getNew_org() {
+        public Object getNew_org() {
             return new_org;
         }
 
-        public void setNew_org(String new_org) {
+        public void setNew_org(Object new_org) {
             this.new_org = new_org;
         }
 
-        public String getCore_perio() {
+        public Object getCore_perio() {
             return core_perio;
         }
 
-        public void setCore_perio(String core_perio) {
+        public void setCore_perio(Object core_perio) {
             this.core_perio = core_perio;
         }
 
-        public String getPublish_year02() {
+        public Object getPublish_year02() {
             return publish_year02;
         }
 
-        public void setPublish_year02(String publish_year02) {
+        public void setPublish_year02(Object publish_year02) {
             this.publish_year02 = publish_year02;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
@@ -488,35 +488,35 @@ public class PerioArticelBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getFirst_authors() {
+        public Object getFirst_authors() {
             return first_authors;
         }
 
-        public void setFirst_authors(String first_authors) {
+        public void setFirst_authors(Object first_authors) {
             this.first_authors = first_authors;
         }
 
-        public String getFull_pubdate() {
+        public Object getFull_pubdate() {
             return full_pubdate;
         }
 
-        public void setFull_pubdate(String full_pubdate) {
+        public void setFull_pubdate(Object full_pubdate) {
             this.full_pubdate = full_pubdate;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
-        public String getAuthors_unit() {
+        public Object getAuthors_unit() {
             return authors_unit;
         }
 
-        public void setAuthors_unit(String authors_unit) {
+        public void setAuthors_unit(Object authors_unit) {
             this.authors_unit = authors_unit;
         }
 
@@ -528,11 +528,11 @@ public class PerioArticelBean {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getAbst_webdate() {
+        public Object getAbst_webdate() {
             return abst_webdate;
         }
 
-        public void setAbst_webdate(String abst_webdate) {
+        public void setAbst_webdate(Object abst_webdate) {
             this.abst_webdate = abst_webdate;
         }
 
@@ -552,59 +552,59 @@ public class PerioArticelBean {
             this.import_num = import_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getIssue_id() {
+        public Object getIssue_id() {
             return issue_id;
         }
 
-        public void setIssue_id(String issue_id) {
+        public void setIssue_id(Object issue_id) {
             this.issue_id = issue_id;
         }
 
-        public String getFull_url() {
+        public Object getFull_url() {
             return full_url;
         }
 
-        public void setFull_url(String full_url) {
+        public void setFull_url(Object full_url) {
             this.full_url = full_url;
         }
 
-        public String getOrig_pub_date() {
+        public Object getOrig_pub_date() {
             return orig_pub_date;
         }
 
-        public void setOrig_pub_date(String orig_pub_date) {
+        public void setOrig_pub_date(Object orig_pub_date) {
             this.orig_pub_date = orig_pub_date;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
-        public String getColumn_name() {
+        public Object getColumn_name() {
             return column_name;
         }
 
-        public void setColumn_name(String column_name) {
+        public void setColumn_name(Object column_name) {
             this.column_name = column_name;
         }
 
-        public String getCn() {
+        public Object getCn() {
             return cn;
         }
 
-        public void setCn(String cn) {
+        public void setCn(Object cn) {
             this.cn = cn;
         }
 
@@ -624,35 +624,35 @@ public class PerioArticelBean {
             this.download_num = download_num;
         }
 
-        public String getOrig_classcode() {
+        public Object getOrig_classcode() {
             return orig_classcode;
         }
 
-        public void setOrig_classcode(String orig_classcode) {
+        public void setOrig_classcode(Object orig_classcode) {
             this.orig_classcode = orig_classcode;
         }
 
-        public String getService_model() {
+        public Object getService_model() {
             return service_model;
         }
 
-        public void setService_model(String service_model) {
+        public void setService_model(Object service_model) {
             this.service_model = service_model;
         }
 
-        public String getFirst_publish() {
+        public Object getFirst_publish() {
             return first_publish;
         }
 
-        public void setFirst_publish(String first_publish) {
+        public void setFirst_publish(Object first_publish) {
             this.first_publish = first_publish;
         }
 
-        public String getIs_oa() {
+        public Object getIs_oa() {
             return is_oa;
         }
 
-        public void setIs_oa(String is_oa) {
+        public void setIs_oa(Object is_oa) {
             this.is_oa = is_oa;
         }
 
@@ -672,51 +672,51 @@ public class PerioArticelBean {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getPerio_title_en() {
+        public Object getPerio_title_en() {
             return perio_title_en;
         }
 
-        public void setPerio_title_en(String perio_title_en) {
+        public void setPerio_title_en(Object perio_title_en) {
             this.perio_title_en = perio_title_en;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
-        public String getPerio_title() {
+        public Object getPerio_title() {
             return perio_title;
         }
 
-        public void setPerio_title(String perio_title) {
+        public void setPerio_title(Object perio_title) {
             this.perio_title = perio_title;
         }
 
-        public String getTrans_title() {
+        public Object getTrans_title() {
             return trans_title;
         }
 
-        public void setTrans_title(String trans_title) {
+        public void setTrans_title(Object trans_title) {
             this.trans_title = trans_title;
         }
 
@@ -728,43 +728,43 @@ public class PerioArticelBean {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public List<String> getSubject_class_codes() {
+        public Object getSubject_class_codes() {
             return subject_class_codes;
         }
 
-        public void setSubject_class_codes(List<String> subject_class_codes) {
+        public void setSubject_class_codes(Object subject_class_codes) {
             this.subject_class_codes = subject_class_codes;
         }
 
-        public List<String> getHead_words() {
+        public Object getHead_words() {
             return head_words;
         }
 
-        public void setHead_words(List<String> head_words) {
+        public void setHead_words(Object head_words) {
             this.head_words = head_words;
         }
 
-        public List<String> getSubject_classcode_level() {
+        public Object getSubject_classcode_level() {
             return subject_classcode_level;
         }
 
-        public void setSubject_classcode_level(List<String> subject_classcode_level) {
+        public void setSubject_classcode_level(Object subject_classcode_level) {
             this.subject_classcode_level = subject_classcode_level;
         }
 
@@ -825,58 +825,58 @@ public class PerioArticelBean {
                  * medal_unit :
                  */
 
-                private String record_id;
-                private String perio_id;
-                private String prize_date;
-                private String id;
-                private String prize_name;
-                private String medal_unit;
+                private Object record_id;
+                private Object perio_id;
+                private Object prize_date;
+                private Object id;
+                private Object prize_name;
+                private Object medal_unit;
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getPrize_date() {
+                public Object getPrize_date() {
                     return prize_date;
                 }
 
-                public void setPrize_date(String prize_date) {
+                public void setPrize_date(Object prize_date) {
                     this.prize_date = prize_date;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getPrize_name() {
+                public Object getPrize_name() {
                     return prize_name;
                 }
 
-                public void setPrize_name(String prize_name) {
+                public void setPrize_name(Object prize_name) {
                     this.prize_name = prize_name;
                 }
 
-                public String getMedal_unit() {
+                public Object getMedal_unit() {
                     return medal_unit;
                 }
 
-                public void setMedal_unit(String medal_unit) {
+                public void setMedal_unit(Object medal_unit) {
                     this.medal_unit = medal_unit;
                 }
             }
@@ -891,58 +891,58 @@ public class PerioArticelBean {
                  * pubunit_name : 《农机化研究》编辑部
                  */
 
-                private String area;
-                private String area_code;
-                private String pubunit_norm;
-                private String perio_id;
-                private String id;
-                private String pubunit_name;
+                private Object area;
+                private Object area_code;
+                private Object pubunit_norm;
+                private Object perio_id;
+                private Object id;
+                private Object pubunit_name;
 
-                public String getArea() {
+                public Object getArea() {
                     return area;
                 }
 
-                public void setArea(String area) {
+                public void setArea(Object area) {
                     this.area = area;
                 }
 
-                public String getArea_code() {
+                public Object getArea_code() {
                     return area_code;
                 }
 
-                public void setArea_code(String area_code) {
+                public void setArea_code(Object area_code) {
                     this.area_code = area_code;
                 }
 
-                public String getPubunit_norm() {
+                public Object getPubunit_norm() {
                     return pubunit_norm;
                 }
 
-                public void setPubunit_norm(String pubunit_norm) {
+                public void setPubunit_norm(Object pubunit_norm) {
                     this.pubunit_norm = pubunit_norm;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getPubunit_name() {
+                public Object getPubunit_name() {
                     return pubunit_name;
                 }
 
-                public void setPubunit_name(String pubunit_name) {
+                public void setPubunit_name(Object pubunit_name) {
                     this.pubunit_name = pubunit_name;
                 }
             }
@@ -957,58 +957,58 @@ public class PerioArticelBean {
                  * core_code : PKU
                  */
 
-                private String from_db;
-                private String affectoi;
-                private String perio_id;
-                private String id;
-                private String core_version;
-                private String core_code;
+                private Object from_db;
+                private Object affectoi;
+                private Object perio_id;
+                private Object id;
+                private Object core_version;
+                private Object core_code;
 
-                public String getFrom_db() {
+                public Object getFrom_db() {
                     return from_db;
                 }
 
-                public void setFrom_db(String from_db) {
+                public void setFrom_db(Object from_db) {
                     this.from_db = from_db;
                 }
 
-                public String getAffectoi() {
+                public Object getAffectoi() {
                     return affectoi;
                 }
 
-                public void setAffectoi(String affectoi) {
+                public void setAffectoi(Object affectoi) {
                     this.affectoi = affectoi;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getCore_version() {
+                public Object getCore_version() {
                     return core_version;
                 }
 
-                public void setCore_version(String core_version) {
+                public void setCore_version(Object core_version) {
                     this.core_version = core_version;
                 }
 
-                public String getCore_code() {
+                public Object getCore_code() {
                     return core_code;
                 }
 
-                public void setCore_code(String core_code) {
+                public void setCore_code(Object core_code) {
                     this.core_code = core_code;
                 }
             }
@@ -1023,58 +1023,58 @@ public class PerioArticelBean {
                  * core_code : PKU
                  */
 
-                private String from_db;
-                private String affectoi;
-                private String perio_id;
-                private String id;
-                private String core_version;
-                private String core_code;
+                private Object from_db;
+                private Object affectoi;
+                private Object perio_id;
+                private Object id;
+                private Object core_version;
+                private Object core_code;
 
-                public String getFrom_db() {
+                public Object getFrom_db() {
                     return from_db;
                 }
 
-                public void setFrom_db(String from_db) {
+                public void setFrom_db(Object from_db) {
                     this.from_db = from_db;
                 }
 
-                public String getAffectoi() {
+                public Object getAffectoi() {
                     return affectoi;
                 }
 
-                public void setAffectoi(String affectoi) {
+                public void setAffectoi(Object affectoi) {
                     this.affectoi = affectoi;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getCore_version() {
+                public Object getCore_version() {
                     return core_version;
                 }
 
-                public void setCore_version(String core_version) {
+                public void setCore_version(Object core_version) {
                     this.core_version = core_version;
                 }
 
-                public String getCore_code() {
+                public Object getCore_code() {
                     return core_code;
                 }
 
-                public void setCore_code(String core_code) {
+                public void setCore_code(Object core_code) {
                     this.core_code = core_code;
                 }
             }
@@ -1098,140 +1098,140 @@ public class PerioArticelBean {
                  * 郑州 :
                  */
 
-                private String perio_id;
-                private String unit_name_en;
-                private String authors_role;
-                private String scholar_id;
-                private String is_group;
-                private String article_id;
-                private String unit_name;
-                private String record_id;
-                private String trans_authname;
+                private Object perio_id;
+                private Object unit_name_en;
+                private Object authors_role;
+                private Object scholar_id;
+                private Object is_group;
+                private Object article_id;
+                private Object unit_name;
+                private Object record_id;
+                private Object trans_authname;
                 @SerializedName("450046}")
-                private String _$_450046289; // FIXME check this code
-                private String org_id;
-                private String authors_seq;
-                private String id;
-                private String authors_name;
-                private String 郑州;
+                private Object _$_450046289; // FIXME check this code
+                private Object org_id;
+                private Object authors_seq;
+                private Object id;
+                private Object authors_name;
+                private Object 郑州;
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getUnit_name_en() {
+                public Object getUnit_name_en() {
                     return unit_name_en;
                 }
 
-                public void setUnit_name_en(String unit_name_en) {
+                public void setUnit_name_en(Object unit_name_en) {
                     this.unit_name_en = unit_name_en;
                 }
 
-                public String getAuthors_role() {
+                public Object getAuthors_role() {
                     return authors_role;
                 }
 
-                public void setAuthors_role(String authors_role) {
+                public void setAuthors_role(Object authors_role) {
                     this.authors_role = authors_role;
                 }
 
-                public String getScholar_id() {
+                public Object getScholar_id() {
                     return scholar_id;
                 }
 
-                public void setScholar_id(String scholar_id) {
+                public void setScholar_id(Object scholar_id) {
                     this.scholar_id = scholar_id;
                 }
 
-                public String getIs_group() {
+                public Object getIs_group() {
                     return is_group;
                 }
 
-                public void setIs_group(String is_group) {
+                public void setIs_group(Object is_group) {
                     this.is_group = is_group;
                 }
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getUnit_name() {
+                public Object getUnit_name() {
                     return unit_name;
                 }
 
-                public void setUnit_name(String unit_name) {
+                public void setUnit_name(Object unit_name) {
                     this.unit_name = unit_name;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getTrans_authname() {
+                public Object getTrans_authname() {
                     return trans_authname;
                 }
 
-                public void setTrans_authname(String trans_authname) {
+                public void setTrans_authname(Object trans_authname) {
                     this.trans_authname = trans_authname;
                 }
 
-                public String get_$_450046289() {
+                public Object get_$_450046289() {
                     return _$_450046289;
                 }
 
-                public void set_$_450046289(String _$_450046289) {
+                public void set_$_450046289(Object _$_450046289) {
                     this._$_450046289 = _$_450046289;
                 }
 
-                public String getOrg_id() {
+                public Object getOrg_id() {
                     return org_id;
                 }
 
-                public void setOrg_id(String org_id) {
+                public void setOrg_id(Object org_id) {
                     this.org_id = org_id;
                 }
 
-                public String getAuthors_seq() {
+                public Object getAuthors_seq() {
                     return authors_seq;
                 }
 
-                public void setAuthors_seq(String authors_seq) {
+                public void setAuthors_seq(Object authors_seq) {
                     this.authors_seq = authors_seq;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getAuthors_name() {
+                public Object getAuthors_name() {
                     return authors_name;
                 }
 
-                public void setAuthors_name(String authors_name) {
+                public void setAuthors_name(Object authors_name) {
                     this.authors_name = authors_name;
                 }
 
-                public String get郑州() {
+                public Object get郑州() {
                     return 郑州;
                 }
 
-                public void set郑州(String 郑州) {
+                public void set郑州(Object 郑州) {
                     this.郑州 = 郑州;
                 }
             }
@@ -1313,99 +1313,99 @@ public class PerioArticelBean {
          * class_type : perio_artical
          */
 
-        private String id;
-        private String publish_year;
-        private String page_range;
+        private Object id;
+        private Object publish_year;
+        private Object page_range;
         private int page_cnt;
-        private String doc_num;
-        private String perio_id;
-        private String language;
+        private Object doc_num;
+        private Object perio_id;
+        private Object language;
         private int refdoc_cnt;
-        private String authors_name;
+        private Object authors_name;
         private int share_num;
-        private String trans_column;
-        private String is_fulltext;
-        private String issue_num;
-        private String pro_pub_date;
-        private String hxkbj_pku;
-        private String perio_title02;
+        private Object trans_column;
+        private Object is_fulltext;
+        private Object issue_num;
+        private Object pro_pub_date;
+        private Object hxkbj_pku;
+        private Object perio_title02;
         private int cite_num;
-        private String unit_name;
+        private Object unit_name;
         private int linkdoc_cnt;
-        private String issn;
-        private String unit_name02;
-        private String data_state;
-        private String random_id;
+        private Object issn;
+        private Object unit_name02;
+        private Object data_state;
+        private Object random_id;
         private int cited_cnt;
-        private String doi;
-        private String fund_info;
-        private String trans_authors;
-        private String literature_code;
+        private Object doi;
+        private Object fund_info;
+        private Object trans_authors;
+        private Object literature_code;
         private int data_sort;
-        private String new_org;
-        private String core_perio;
-        private String publish_year02;
-        private String auth_area;
-        private String article_id;
+        private Object new_org;
+        private Object core_perio;
+        private Object publish_year02;
+        private Object auth_area;
+        private Object article_id;
         private int tag_num;
         private int abstract_reading_num;
-        private String first_authors;
-        private String full_pubdate;
-        private String common_year;
-        private String authors_unit;
+        private Object first_authors;
+        private Object full_pubdate;
+        private Object common_year;
+        private Object authors_unit;
         private int thirdparty_links_num;
-        private String abst_webdate;
+        private Object abst_webdate;
         private int article_seq;
         private int import_num;
-        private String common_sort_time;
-        private String issue_id;
-        private String full_url;
-        private String orig_pub_date;
-        private String source_db;
-        private String column_name;
-        private String cn;
+        private Object common_sort_time;
+        private Object issue_id;
+        private Object full_url;
+        private Object orig_pub_date;
+        private Object source_db;
+        private Object column_name;
+        private Object cn;
         private int collection_num;
         private int download_num;
-        private String orig_classcode;
-        private String service_model;
-        private String first_publish;
-        private String is_oa;
+        private Object orig_classcode;
+        private Object service_model;
+        private Object first_publish;
+        private Object is_oa;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String perio_title_en;
-        private String title;
-        private String summary;
-        private String perio_title;
-        private String trans_title;
+        private Object updatetime;
+        private Object perio_title_en;
+        private Object title;
+        private Object summary;
+        private Object perio_title;
+        private Object trans_title;
         private OpBeanX op;
-        private String class_type;
-        private List<String> keywords;
-        private List<String> subject_class_codes;
-        private List<String> head_words;
-        private List<String> subject_classcode_level;
+        private Object class_type;
+        private Object keywords;
+        private Object subject_class_codes;
+        private Object head_words;
+        private Object subject_classcode_level;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getPublish_year() {
+        public Object getPublish_year() {
             return publish_year;
         }
 
-        public void setPublish_year(String publish_year) {
+        public void setPublish_year(Object publish_year) {
             this.publish_year = publish_year;
         }
 
-        public String getPage_range() {
+        public Object getPage_range() {
             return page_range;
         }
 
-        public void setPage_range(String page_range) {
+        public void setPage_range(Object page_range) {
             this.page_range = page_range;
         }
 
@@ -1417,27 +1417,27 @@ public class PerioArticelBean {
             this.page_cnt = page_cnt;
         }
 
-        public String getDoc_num() {
+        public Object getDoc_num() {
             return doc_num;
         }
 
-        public void setDoc_num(String doc_num) {
+        public void setDoc_num(Object doc_num) {
             this.doc_num = doc_num;
         }
 
-        public String getPerio_id() {
+        public Object getPerio_id() {
             return perio_id;
         }
 
-        public void setPerio_id(String perio_id) {
+        public void setPerio_id(Object perio_id) {
             this.perio_id = perio_id;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
@@ -1449,11 +1449,11 @@ public class PerioArticelBean {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getAuthors_name() {
+        public Object getAuthors_name() {
             return authors_name;
         }
 
-        public void setAuthors_name(String authors_name) {
+        public void setAuthors_name(Object authors_name) {
             this.authors_name = authors_name;
         }
 
@@ -1465,51 +1465,51 @@ public class PerioArticelBean {
             this.share_num = share_num;
         }
 
-        public String getTrans_column() {
+        public Object getTrans_column() {
             return trans_column;
         }
 
-        public void setTrans_column(String trans_column) {
+        public void setTrans_column(Object trans_column) {
             this.trans_column = trans_column;
         }
 
-        public String getIs_fulltext() {
+        public Object getIs_fulltext() {
             return is_fulltext;
         }
 
-        public void setIs_fulltext(String is_fulltext) {
+        public void setIs_fulltext(Object is_fulltext) {
             this.is_fulltext = is_fulltext;
         }
 
-        public String getIssue_num() {
+        public Object getIssue_num() {
             return issue_num;
         }
 
-        public void setIssue_num(String issue_num) {
+        public void setIssue_num(Object issue_num) {
             this.issue_num = issue_num;
         }
 
-        public String getPro_pub_date() {
+        public Object getPro_pub_date() {
             return pro_pub_date;
         }
 
-        public void setPro_pub_date(String pro_pub_date) {
+        public void setPro_pub_date(Object pro_pub_date) {
             this.pro_pub_date = pro_pub_date;
         }
 
-        public String getHxkbj_pku() {
+        public Object getHxkbj_pku() {
             return hxkbj_pku;
         }
 
-        public void setHxkbj_pku(String hxkbj_pku) {
+        public void setHxkbj_pku(Object hxkbj_pku) {
             this.hxkbj_pku = hxkbj_pku;
         }
 
-        public String getPerio_title02() {
+        public Object getPerio_title02() {
             return perio_title02;
         }
 
-        public void setPerio_title02(String perio_title02) {
+        public void setPerio_title02(Object perio_title02) {
             this.perio_title02 = perio_title02;
         }
 
@@ -1521,11 +1521,11 @@ public class PerioArticelBean {
             this.cite_num = cite_num;
         }
 
-        public String getUnit_name() {
+        public Object getUnit_name() {
             return unit_name;
         }
 
-        public void setUnit_name(String unit_name) {
+        public void setUnit_name(Object unit_name) {
             this.unit_name = unit_name;
         }
 
@@ -1537,35 +1537,35 @@ public class PerioArticelBean {
             this.linkdoc_cnt = linkdoc_cnt;
         }
 
-        public String getIssn() {
+        public Object getIssn() {
             return issn;
         }
 
-        public void setIssn(String issn) {
+        public void setIssn(Object issn) {
             this.issn = issn;
         }
 
-        public String getUnit_name02() {
+        public Object getUnit_name02() {
             return unit_name02;
         }
 
-        public void setUnit_name02(String unit_name02) {
+        public void setUnit_name02(Object unit_name02) {
             this.unit_name02 = unit_name02;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getRandom_id() {
+        public Object getRandom_id() {
             return random_id;
         }
 
-        public void setRandom_id(String random_id) {
+        public void setRandom_id(Object random_id) {
             this.random_id = random_id;
         }
 
@@ -1577,35 +1577,35 @@ public class PerioArticelBean {
             this.cited_cnt = cited_cnt;
         }
 
-        public String getDoi() {
+        public Object getDoi() {
             return doi;
         }
 
-        public void setDoi(String doi) {
+        public void setDoi(Object doi) {
             this.doi = doi;
         }
 
-        public String getFund_info() {
+        public Object getFund_info() {
             return fund_info;
         }
 
-        public void setFund_info(String fund_info) {
+        public void setFund_info(Object fund_info) {
             this.fund_info = fund_info;
         }
 
-        public String getTrans_authors() {
+        public Object getTrans_authors() {
             return trans_authors;
         }
 
-        public void setTrans_authors(String trans_authors) {
+        public void setTrans_authors(Object trans_authors) {
             this.trans_authors = trans_authors;
         }
 
-        public String getLiterature_code() {
+        public Object getLiterature_code() {
             return literature_code;
         }
 
-        public void setLiterature_code(String literature_code) {
+        public void setLiterature_code(Object literature_code) {
             this.literature_code = literature_code;
         }
 
@@ -1617,43 +1617,43 @@ public class PerioArticelBean {
             this.data_sort = data_sort;
         }
 
-        public String getNew_org() {
+        public Object getNew_org() {
             return new_org;
         }
 
-        public void setNew_org(String new_org) {
+        public void setNew_org(Object new_org) {
             this.new_org = new_org;
         }
 
-        public String getCore_perio() {
+        public Object getCore_perio() {
             return core_perio;
         }
 
-        public void setCore_perio(String core_perio) {
+        public void setCore_perio(Object core_perio) {
             this.core_perio = core_perio;
         }
 
-        public String getPublish_year02() {
+        public Object getPublish_year02() {
             return publish_year02;
         }
 
-        public void setPublish_year02(String publish_year02) {
+        public void setPublish_year02(Object publish_year02) {
             this.publish_year02 = publish_year02;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
@@ -1673,35 +1673,35 @@ public class PerioArticelBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getFirst_authors() {
+        public Object getFirst_authors() {
             return first_authors;
         }
 
-        public void setFirst_authors(String first_authors) {
+        public void setFirst_authors(Object first_authors) {
             this.first_authors = first_authors;
         }
 
-        public String getFull_pubdate() {
+        public Object getFull_pubdate() {
             return full_pubdate;
         }
 
-        public void setFull_pubdate(String full_pubdate) {
+        public void setFull_pubdate(Object full_pubdate) {
             this.full_pubdate = full_pubdate;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
-        public String getAuthors_unit() {
+        public Object getAuthors_unit() {
             return authors_unit;
         }
 
-        public void setAuthors_unit(String authors_unit) {
+        public void setAuthors_unit(Object authors_unit) {
             this.authors_unit = authors_unit;
         }
 
@@ -1713,11 +1713,11 @@ public class PerioArticelBean {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getAbst_webdate() {
+        public Object getAbst_webdate() {
             return abst_webdate;
         }
 
-        public void setAbst_webdate(String abst_webdate) {
+        public void setAbst_webdate(Object abst_webdate) {
             this.abst_webdate = abst_webdate;
         }
 
@@ -1737,59 +1737,59 @@ public class PerioArticelBean {
             this.import_num = import_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getIssue_id() {
+        public Object getIssue_id() {
             return issue_id;
         }
 
-        public void setIssue_id(String issue_id) {
+        public void setIssue_id(Object issue_id) {
             this.issue_id = issue_id;
         }
 
-        public String getFull_url() {
+        public Object getFull_url() {
             return full_url;
         }
 
-        public void setFull_url(String full_url) {
+        public void setFull_url(Object full_url) {
             this.full_url = full_url;
         }
 
-        public String getOrig_pub_date() {
+        public Object getOrig_pub_date() {
             return orig_pub_date;
         }
 
-        public void setOrig_pub_date(String orig_pub_date) {
+        public void setOrig_pub_date(Object orig_pub_date) {
             this.orig_pub_date = orig_pub_date;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
-        public String getColumn_name() {
+        public Object getColumn_name() {
             return column_name;
         }
 
-        public void setColumn_name(String column_name) {
+        public void setColumn_name(Object column_name) {
             this.column_name = column_name;
         }
 
-        public String getCn() {
+        public Object getCn() {
             return cn;
         }
 
-        public void setCn(String cn) {
+        public void setCn(Object cn) {
             this.cn = cn;
         }
 
@@ -1809,35 +1809,35 @@ public class PerioArticelBean {
             this.download_num = download_num;
         }
 
-        public String getOrig_classcode() {
+        public Object getOrig_classcode() {
             return orig_classcode;
         }
 
-        public void setOrig_classcode(String orig_classcode) {
+        public void setOrig_classcode(Object orig_classcode) {
             this.orig_classcode = orig_classcode;
         }
 
-        public String getService_model() {
+        public Object getService_model() {
             return service_model;
         }
 
-        public void setService_model(String service_model) {
+        public void setService_model(Object service_model) {
             this.service_model = service_model;
         }
 
-        public String getFirst_publish() {
+        public Object getFirst_publish() {
             return first_publish;
         }
 
-        public void setFirst_publish(String first_publish) {
+        public void setFirst_publish(Object first_publish) {
             this.first_publish = first_publish;
         }
 
-        public String getIs_oa() {
+        public Object getIs_oa() {
             return is_oa;
         }
 
-        public void setIs_oa(String is_oa) {
+        public void setIs_oa(Object is_oa) {
             this.is_oa = is_oa;
         }
 
@@ -1857,51 +1857,51 @@ public class PerioArticelBean {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getPerio_title_en() {
+        public Object getPerio_title_en() {
             return perio_title_en;
         }
 
-        public void setPerio_title_en(String perio_title_en) {
+        public void setPerio_title_en(Object perio_title_en) {
             this.perio_title_en = perio_title_en;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
-        public String getPerio_title() {
+        public Object getPerio_title() {
             return perio_title;
         }
 
-        public void setPerio_title(String perio_title) {
+        public void setPerio_title(Object perio_title) {
             this.perio_title = perio_title;
         }
 
-        public String getTrans_title() {
+        public Object getTrans_title() {
             return trans_title;
         }
 
-        public void setTrans_title(String trans_title) {
+        public void setTrans_title(Object trans_title) {
             this.trans_title = trans_title;
         }
 
@@ -1913,43 +1913,43 @@ public class PerioArticelBean {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public List<String> getSubject_class_codes() {
+        public Object getSubject_class_codes() {
             return subject_class_codes;
         }
 
-        public void setSubject_class_codes(List<String> subject_class_codes) {
+        public void setSubject_class_codes(Object subject_class_codes) {
             this.subject_class_codes = subject_class_codes;
         }
 
-        public List<String> getHead_words() {
+        public Object getHead_words() {
             return head_words;
         }
 
-        public void setHead_words(List<String> head_words) {
+        public void setHead_words(Object head_words) {
             this.head_words = head_words;
         }
 
-        public List<String> getSubject_classcode_level() {
+        public Object getSubject_classcode_level() {
             return subject_classcode_level;
         }
 
-        public void setSubject_classcode_level(List<String> subject_classcode_level) {
+        public void setSubject_classcode_level(Object subject_classcode_level) {
             this.subject_classcode_level = subject_classcode_level;
         }
 
@@ -2010,58 +2010,58 @@ public class PerioArticelBean {
                  * medal_unit :
                  */
 
-                private String record_id;
-                private String perio_id;
-                private String prize_date;
-                private String id;
-                private String prize_name;
-                private String medal_unit;
+                private Object record_id;
+                private Object perio_id;
+                private Object prize_date;
+                private Object id;
+                private Object prize_name;
+                private Object medal_unit;
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getPrize_date() {
+                public Object getPrize_date() {
                     return prize_date;
                 }
 
-                public void setPrize_date(String prize_date) {
+                public void setPrize_date(Object prize_date) {
                     this.prize_date = prize_date;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getPrize_name() {
+                public Object getPrize_name() {
                     return prize_name;
                 }
 
-                public void setPrize_name(String prize_name) {
+                public void setPrize_name(Object prize_name) {
                     this.prize_name = prize_name;
                 }
 
-                public String getMedal_unit() {
+                public Object getMedal_unit() {
                     return medal_unit;
                 }
 
-                public void setMedal_unit(String medal_unit) {
+                public void setMedal_unit(Object medal_unit) {
                     this.medal_unit = medal_unit;
                 }
             }
@@ -2076,58 +2076,58 @@ public class PerioArticelBean {
                  * pubunit_name : 《农机化研究》编辑部
                  */
 
-                private String area;
-                private String area_code;
-                private String pubunit_norm;
-                private String perio_id;
-                private String id;
-                private String pubunit_name;
+                private Object area;
+                private Object area_code;
+                private Object pubunit_norm;
+                private Object perio_id;
+                private Object id;
+                private Object pubunit_name;
 
-                public String getArea() {
+                public Object getArea() {
                     return area;
                 }
 
-                public void setArea(String area) {
+                public void setArea(Object area) {
                     this.area = area;
                 }
 
-                public String getArea_code() {
+                public Object getArea_code() {
                     return area_code;
                 }
 
-                public void setArea_code(String area_code) {
+                public void setArea_code(Object area_code) {
                     this.area_code = area_code;
                 }
 
-                public String getPubunit_norm() {
+                public Object getPubunit_norm() {
                     return pubunit_norm;
                 }
 
-                public void setPubunit_norm(String pubunit_norm) {
+                public void setPubunit_norm(Object pubunit_norm) {
                     this.pubunit_norm = pubunit_norm;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getPubunit_name() {
+                public Object getPubunit_name() {
                     return pubunit_name;
                 }
 
-                public void setPubunit_name(String pubunit_name) {
+                public void setPubunit_name(Object pubunit_name) {
                     this.pubunit_name = pubunit_name;
                 }
             }
@@ -2142,58 +2142,58 @@ public class PerioArticelBean {
                  * core_code : PKU
                  */
 
-                private String from_db;
-                private String affectoi;
-                private String perio_id;
-                private String id;
-                private String core_version;
-                private String core_code;
+                private Object from_db;
+                private Object affectoi;
+                private Object perio_id;
+                private Object id;
+                private Object core_version;
+                private Object core_code;
 
-                public String getFrom_db() {
+                public Object getFrom_db() {
                     return from_db;
                 }
 
-                public void setFrom_db(String from_db) {
+                public void setFrom_db(Object from_db) {
                     this.from_db = from_db;
                 }
 
-                public String getAffectoi() {
+                public Object getAffectoi() {
                     return affectoi;
                 }
 
-                public void setAffectoi(String affectoi) {
+                public void setAffectoi(Object affectoi) {
                     this.affectoi = affectoi;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getCore_version() {
+                public Object getCore_version() {
                     return core_version;
                 }
 
-                public void setCore_version(String core_version) {
+                public void setCore_version(Object core_version) {
                     this.core_version = core_version;
                 }
 
-                public String getCore_code() {
+                public Object getCore_code() {
                     return core_code;
                 }
 
-                public void setCore_code(String core_code) {
+                public void setCore_code(Object core_code) {
                     this.core_code = core_code;
                 }
             }
@@ -2208,58 +2208,58 @@ public class PerioArticelBean {
                  * core_code : PKU
                  */
 
-                private String from_db;
-                private String affectoi;
-                private String perio_id;
-                private String id;
-                private String core_version;
-                private String core_code;
+                private Object from_db;
+                private Object affectoi;
+                private Object perio_id;
+                private Object id;
+                private Object core_version;
+                private Object core_code;
 
-                public String getFrom_db() {
+                public Object getFrom_db() {
                     return from_db;
                 }
 
-                public void setFrom_db(String from_db) {
+                public void setFrom_db(Object from_db) {
                     this.from_db = from_db;
                 }
 
-                public String getAffectoi() {
+                public Object getAffectoi() {
                     return affectoi;
                 }
 
-                public void setAffectoi(String affectoi) {
+                public void setAffectoi(Object affectoi) {
                     this.affectoi = affectoi;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getCore_version() {
+                public Object getCore_version() {
                     return core_version;
                 }
 
-                public void setCore_version(String core_version) {
+                public void setCore_version(Object core_version) {
                     this.core_version = core_version;
                 }
 
-                public String getCore_code() {
+                public Object getCore_code() {
                     return core_code;
                 }
 
-                public void setCore_code(String core_code) {
+                public void setCore_code(Object core_code) {
                     this.core_code = core_code;
                 }
             }
@@ -2283,140 +2283,140 @@ public class PerioArticelBean {
                  * 郑州 :
                  */
 
-                private String perio_id;
-                private String unit_name_en;
-                private String authors_role;
-                private String scholar_id;
-                private String is_group;
-                private String article_id;
-                private String unit_name;
-                private String record_id;
-                private String trans_authname;
+                private Object perio_id;
+                private Object unit_name_en;
+                private Object authors_role;
+                private Object scholar_id;
+                private Object is_group;
+                private Object article_id;
+                private Object unit_name;
+                private Object record_id;
+                private Object trans_authname;
                 @SerializedName("450046}")
-                private String _$_45004632; // FIXME check this code
-                private String org_id;
-                private String authors_seq;
-                private String id;
-                private String authors_name;
-                private String 郑州;
+                private Object _$_45004632; // FIXME check this code
+                private Object org_id;
+                private Object authors_seq;
+                private Object id;
+                private Object authors_name;
+                private Object 郑州;
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getUnit_name_en() {
+                public Object getUnit_name_en() {
                     return unit_name_en;
                 }
 
-                public void setUnit_name_en(String unit_name_en) {
+                public void setUnit_name_en(Object unit_name_en) {
                     this.unit_name_en = unit_name_en;
                 }
 
-                public String getAuthors_role() {
+                public Object getAuthors_role() {
                     return authors_role;
                 }
 
-                public void setAuthors_role(String authors_role) {
+                public void setAuthors_role(Object authors_role) {
                     this.authors_role = authors_role;
                 }
 
-                public String getScholar_id() {
+                public Object getScholar_id() {
                     return scholar_id;
                 }
 
-                public void setScholar_id(String scholar_id) {
+                public void setScholar_id(Object scholar_id) {
                     this.scholar_id = scholar_id;
                 }
 
-                public String getIs_group() {
+                public Object getIs_group() {
                     return is_group;
                 }
 
-                public void setIs_group(String is_group) {
+                public void setIs_group(Object is_group) {
                     this.is_group = is_group;
                 }
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getUnit_name() {
+                public Object getUnit_name() {
                     return unit_name;
                 }
 
-                public void setUnit_name(String unit_name) {
+                public void setUnit_name(Object unit_name) {
                     this.unit_name = unit_name;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getTrans_authname() {
+                public Object getTrans_authname() {
                     return trans_authname;
                 }
 
-                public void setTrans_authname(String trans_authname) {
+                public void setTrans_authname(Object trans_authname) {
                     this.trans_authname = trans_authname;
                 }
 
-                public String get_$_45004632() {
+                public Object get_$_45004632() {
                     return _$_45004632;
                 }
 
-                public void set_$_45004632(String _$_45004632) {
+                public void set_$_45004632(Object _$_45004632) {
                     this._$_45004632 = _$_45004632;
                 }
 
-                public String getOrg_id() {
+                public Object getOrg_id() {
                     return org_id;
                 }
 
-                public void setOrg_id(String org_id) {
+                public void setOrg_id(Object org_id) {
                     this.org_id = org_id;
                 }
 
-                public String getAuthors_seq() {
+                public Object getAuthors_seq() {
                     return authors_seq;
                 }
 
-                public void setAuthors_seq(String authors_seq) {
+                public void setAuthors_seq(Object authors_seq) {
                     this.authors_seq = authors_seq;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getAuthors_name() {
+                public Object getAuthors_name() {
                     return authors_name;
                 }
 
-                public void setAuthors_name(String authors_name) {
+                public void setAuthors_name(Object authors_name) {
                     this.authors_name = authors_name;
                 }
 
-                public String get郑州() {
+                public Object get郑州() {
                     return 郑州;
                 }
 
-                public void set郑州(String 郑州) {
+                public void set郑州(Object 郑州) {
                     this.郑州 = 郑州;
                 }
             }

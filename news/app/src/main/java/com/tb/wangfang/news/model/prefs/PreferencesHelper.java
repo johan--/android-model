@@ -4,6 +4,7 @@ import com.tb.wangfang.news.model.bean.KeyValueListBean;
 import com.wanfang.personal.EducationLevelListResponse;
 import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.SubjectListResponse;
+import com.wanfang.personal.ThirdPartyLoginResponse;
 import com.wanfang.personal.UserRolesListResponse;
 
 /**
@@ -23,6 +24,8 @@ public interface PreferencesHelper {
     boolean getLoginState();
 
     void storeLoginInfo(LoginResponse response);
+
+    void storeLoginInfo(ThirdPartyLoginResponse response);
 
     String getUserId();
 

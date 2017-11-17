@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.di.scope.ActivityScope;
+import com.tb.wangfang.news.ui.activity.BindwanfangAccountActivity;
 import com.tb.wangfang.news.ui.activity.DocDetailActivity;
 import com.tb.wangfang.news.ui.activity.EditNackNameActivity;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
@@ -72,5 +73,7 @@ public interface ActivityComponent {
     void inject(MessageCenterActivity messageCenterActivity);
 
     void inject(JournalActivity journalActivity);
+
+    void inject(BindwanfangAccountActivity bindwanfangAccountActivity);
 
 }
