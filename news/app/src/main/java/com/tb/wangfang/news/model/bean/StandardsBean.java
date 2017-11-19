@@ -16,7 +16,7 @@ public class StandardsBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
 
     public int getStatus() {
@@ -27,11 +27,11 @@ public class StandardsBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -86,75 +86,75 @@ public class StandardsBean {
          * class_type : standards
          */
 
-        private String id;
-        private String issue_date02;
-        private String country;
-        private String force_date;
+        private Object id;
+        private Object issue_date02;
+        private Object country;
+        private Object force_date;
         private int data_sort;
-        private String page_cnt;
-        private String language;
+        private Object page_cnt;
+        private Object language;
         private int tag_num;
-        private String is_full;
-        private String ccs_code_c;
-        private String belong_type;
+        private Object is_full;
+        private Object ccs_code_c;
+        private Object belong_type;
         private int abstract_reading_num;
-        private String issue_date;
-        private String ics_code;
-        private String stand_id;
-        private String common_year;
-        private String ccs_code;
+        private Object issue_date;
+        private Object ics_code;
+        private Object stand_id;
+        private Object common_year;
+        private Object ccs_code;
         private int thirdparty_links_num;
         private int import_num;
         private int share_num;
-        private String common_sort_time;
-        private String issue_unit;
-        private String is_force;
-        private String stand_status;
-        private String source_db;
+        private Object common_sort_time;
+        private Object issue_unit;
+        private Object is_force;
+        private Object stand_status;
+        private Object source_db;
         private int collection_num;
         private int download_num;
-        private String data_state;
-        private String stand_num;
+        private Object data_state;
+        private Object stand_num;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String class_code;
-        private String title;
-        private String trans_stand;
-        private String summary;
-        private String keywords;
-        private String class_type;
-        private List<String> draft_unit;
+        private Object updatetime;
+        private Object class_code;
+        private Object title;
+        private Object trans_stand;
+        private Object summary;
+        private Object keywords;
+        private Object class_type;
+        private Object draft_unit;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getIssue_date02() {
+        public Object getIssue_date02() {
             return issue_date02;
         }
 
-        public void setIssue_date02(String issue_date02) {
+        public void setIssue_date02(Object issue_date02) {
             this.issue_date02 = issue_date02;
         }
 
-        public String getCountry() {
+        public Object getCountry() {
             return country;
         }
 
-        public void setCountry(String country) {
+        public void setCountry(Object country) {
             this.country = country;
         }
 
-        public String getForce_date() {
+        public Object getForce_date() {
             return force_date;
         }
 
-        public void setForce_date(String force_date) {
+        public void setForce_date(Object force_date) {
             this.force_date = force_date;
         }
 
@@ -166,19 +166,19 @@ public class StandardsBean {
             this.data_sort = data_sort;
         }
 
-        public String getPage_cnt() {
+        public Object getPage_cnt() {
             return page_cnt;
         }
 
-        public void setPage_cnt(String page_cnt) {
+        public void setPage_cnt(Object page_cnt) {
             this.page_cnt = page_cnt;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
@@ -190,27 +190,27 @@ public class StandardsBean {
             this.tag_num = tag_num;
         }
 
-        public String getIs_full() {
+        public Object getIs_full() {
             return is_full;
         }
 
-        public void setIs_full(String is_full) {
+        public void setIs_full(Object is_full) {
             this.is_full = is_full;
         }
 
-        public String getCcs_code_c() {
+        public Object getCcs_code_c() {
             return ccs_code_c;
         }
 
-        public void setCcs_code_c(String ccs_code_c) {
+        public void setCcs_code_c(Object ccs_code_c) {
             this.ccs_code_c = ccs_code_c;
         }
 
-        public String getBelong_type() {
+        public Object getBelong_type() {
             return belong_type;
         }
 
-        public void setBelong_type(String belong_type) {
+        public void setBelong_type(Object belong_type) {
             this.belong_type = belong_type;
         }
 
@@ -222,43 +222,43 @@ public class StandardsBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getIssue_date() {
+        public Object getIssue_date() {
             return issue_date;
         }
 
-        public void setIssue_date(String issue_date) {
+        public void setIssue_date(Object issue_date) {
             this.issue_date = issue_date;
         }
 
-        public String getIcs_code() {
+        public Object getIcs_code() {
             return ics_code;
         }
 
-        public void setIcs_code(String ics_code) {
+        public void setIcs_code(Object ics_code) {
             this.ics_code = ics_code;
         }
 
-        public String getStand_id() {
+        public Object getStand_id() {
             return stand_id;
         }
 
-        public void setStand_id(String stand_id) {
+        public void setStand_id(Object stand_id) {
             this.stand_id = stand_id;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
-        public String getCcs_code() {
+        public Object getCcs_code() {
             return ccs_code;
         }
 
-        public void setCcs_code(String ccs_code) {
+        public void setCcs_code(Object ccs_code) {
             this.ccs_code = ccs_code;
         }
 
@@ -286,43 +286,43 @@ public class StandardsBean {
             this.share_num = share_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getIssue_unit() {
+        public Object getIssue_unit() {
             return issue_unit;
         }
 
-        public void setIssue_unit(String issue_unit) {
+        public void setIssue_unit(Object issue_unit) {
             this.issue_unit = issue_unit;
         }
 
-        public String getIs_force() {
+        public Object getIs_force() {
             return is_force;
         }
 
-        public void setIs_force(String is_force) {
+        public void setIs_force(Object is_force) {
             this.is_force = is_force;
         }
 
-        public String getStand_status() {
+        public Object getStand_status() {
             return stand_status;
         }
 
-        public void setStand_status(String stand_status) {
+        public void setStand_status(Object stand_status) {
             this.stand_status = stand_status;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
@@ -342,19 +342,19 @@ public class StandardsBean {
             this.download_num = download_num;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getStand_num() {
+        public Object getStand_num() {
             return stand_num;
         }
 
-        public void setStand_num(String stand_num) {
+        public void setStand_num(Object stand_num) {
             this.stand_num = stand_num;
         }
 
@@ -374,67 +374,67 @@ public class StandardsBean {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getClass_code() {
+        public Object getClass_code() {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getTrans_stand() {
+        public Object getTrans_stand() {
             return trans_stand;
         }
 
-        public void setTrans_stand(String trans_stand) {
+        public void setTrans_stand(Object trans_stand) {
             this.trans_stand = trans_stand;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
-        public String getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(String keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getDraft_unit() {
+        public Object getDraft_unit() {
             return draft_unit;
         }
 
-        public void setDraft_unit(List<String> draft_unit) {
+        public void setDraft_unit(Object draft_unit) {
             this.draft_unit = draft_unit;
         }
     }

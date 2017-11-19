@@ -15,7 +15,7 @@ public class TechResultBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
 
     public int getStatus() {
@@ -26,11 +26,11 @@ public class TechResultBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -94,293 +94,293 @@ public class TechResultBean {
          * class_type : tech_result
          */
 
-        private String id;
-        private String comp_unit;
-        private String record_status;
+        private Object id;
+        private Object comp_unit;
+        private Object record_status;
         private int data_sort;
-        private String industry_code;
-        private String result_num;
-        private String auth_area;
+        private Object industry_code;
+        private Object result_num;
+        private Object auth_area;
         private int tag_num;
         private int abstract_reading_num;
-        private String province;
-        private String common_year;
+        private Object province;
+        private Object common_year;
         private int thirdparty_links_num;
-        private String fax;
-        private String title_page;
-        private String s_pubdate;
+        private Object fax;
+        private Object title_page;
+        private Object s_pubdate;
         private int import_num;
-        private String email;
+        private Object email;
         private int share_num;
-        private String common_sort_time;
-        private String result_type;
-        private String industry_name;
-        private String issue_unit;
-        private String create_time;
-        private String source_db;
-        private String postcode;
-        private String telephone;
+        private Object common_sort_time;
+        private Object result_type;
+        private Object industry_name;
+        private Object issue_unit;
+        private Object create_time;
+        private Object source_db;
+        private Object postcode;
+        private Object telephone;
         private int collection_num;
-        private String security_level;
+        private Object security_level;
         private int download_num;
-        private String result_id;
-        private String data_state;
-        private String year_num;
+        private Object result_id;
+        private Object data_state;
+        private Object year_num;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String class_code;
-        private String title;
-        private String work_limit;
-        private String summary;
-        private String address;
-        private String re_pubdate;
-        private String record_type;
-        private String contact_unit;
-        private String info_from;
-        private String class_type;
-        private List<String> keywords;
-        private List<String> comp_per;
+        private Object updatetime;
+        private Object class_code;
+        private Object title;
+        private Object work_limit;
+        private Object summary;
+        private Object address;
+        private Object re_pubdate;
+        private Object record_type;
+        private Object contact_unit;
+        private Object info_from;
+        private Object class_type;
+        private Object keywords;
+        private Object comp_per;
 
-        private String invest_amt;
-        private String invest_note;
-        private String invest_desc;
-        private String spread;
+        private Object invest_amt;
+        private Object invest_note;
+        private Object invest_desc;
+        private Object spread;
 
-        public String getSpread_range() {
+        public Object getSpread_range() {
             return spread_range;
         }
 
-        public void setSpread_range(String spread_range) {
+        public void setSpread_range(Object spread_range) {
             this.spread_range = spread_range;
         }
 
-        private  String spread_range;
-        public String getInvest_amt() {
+        private  Object spread_range;
+        public Object getInvest_amt() {
             return invest_amt;
         }
 
-        public void setInvest_amt(String invest_amt) {
+        public void setInvest_amt(Object invest_amt) {
             this.invest_amt = invest_amt;
         }
 
-        public String getInvest_note() {
+        public Object getInvest_note() {
             return invest_note;
         }
 
-        public void setInvest_note(String invest_note) {
+        public void setInvest_note(Object invest_note) {
             this.invest_note = invest_note;
         }
 
-        public String getInvest_desc() {
+        public Object getInvest_desc() {
             return invest_desc;
         }
 
-        public void setInvest_desc(String invest_desc) {
+        public void setInvest_desc(Object invest_desc) {
             this.invest_desc = invest_desc;
         }
 
-        public String getSpread() {
+        public Object getSpread() {
             return spread;
         }
 
-        public void setSpread(String spread) {
+        public void setSpread(Object spread) {
             this.spread = spread;
         }
 
-        public String getSpread_mode() {
+        public Object getSpread_mode() {
             return spread_mode;
         }
 
-        public void setSpread_mode(String spread_mode) {
+        public void setSpread_mode(Object spread_mode) {
             this.spread_mode = spread_mode;
         }
 
-        public String getSpread_track() {
+        public Object getSpread_track() {
             return spread_track;
         }
 
-        public void setSpread_track(String spread_track) {
+        public void setSpread_track(Object spread_track) {
             this.spread_track = spread_track;
         }
 
-        public String getSpread_desc() {
+        public Object getSpread_desc() {
             return spread_desc;
         }
 
-        public void setSpread_desc(String spread_desc) {
+        public void setSpread_desc(Object spread_desc) {
             this.spread_desc = spread_desc;
         }
 
-        public String getTransfer_desc() {
+        public Object getTransfer_desc() {
             return transfer_desc;
         }
 
-        public void setTransfer_desc(String transfer_desc) {
+        public void setTransfer_desc(Object transfer_desc) {
             this.transfer_desc = transfer_desc;
         }
 
-        public String getTransfer_range() {
+        public Object getTransfer_range() {
             return transfer_range;
         }
 
-        public void setTransfer_range(String transfer_range) {
+        public void setTransfer_range(Object transfer_range) {
             this.transfer_range = transfer_range;
         }
 
-        public String getTransfer_cond() {
+        public Object getTransfer_cond() {
             return transfer_cond;
         }
 
-        public void setTransfer_cond(String transfer_cond) {
+        public void setTransfer_cond(Object transfer_cond) {
             this.transfer_cond = transfer_cond;
         }
 
-        public String getTransfer_cont() {
+        public Object getTransfer_cont() {
             return transfer_cont;
         }
 
-        public void setTransfer_cont(String transfer_cont) {
+        public void setTransfer_cont(Object transfer_cont) {
             this.transfer_cont = transfer_cont;
         }
 
-        public String getTransfer_mode() {
+        public Object getTransfer_mode() {
             return transfer_mode;
         }
 
-        public void setTransfer_mode(String transfer_mode) {
+        public void setTransfer_mode(Object transfer_mode) {
             this.transfer_mode = transfer_mode;
         }
 
-        private String spread_mode;
-        private String spread_track;
-        private String spread_desc;
+        private Object spread_mode;
+        private Object spread_track;
+        private Object spread_desc;
 
-        private String transfer_desc;
-        private String transfer_range;
-        private String transfer_cond;
+        private Object transfer_desc;
+        private Object transfer_range;
+        private Object transfer_cond;
 
-        private String transfer_cont;
-        private String transfer_mode;
+        private Object transfer_cont;
+        private Object transfer_mode;
 
-        public String getP_app_id() {
+        public Object getP_app_id() {
             return p_app_id;
         }
 
-        public void setP_app_id(String p_app_id) {
+        public void setP_app_id(Object p_app_id) {
             this.p_app_id = p_app_id;
         }
 
-        public String getPatent_cnt() {
+        public Object getPatent_cnt() {
             return patent_cnt;
         }
 
-        public void setPatent_cnt(String patent_cnt) {
+        public void setPatent_cnt(Object patent_cnt) {
             this.patent_cnt = patent_cnt;
         }
 
-        public String getGrant_id() {
+        public Object getGrant_id() {
             return grant_id;
         }
 
-        public void setGrant_id(String grant_id) {
+        public void setGrant_id(Object grant_id) {
             this.grant_id = grant_id;
         }
 
-        private String p_app_id;
-        private String patent_cnt;
-        private String grant_id;
+        private Object p_app_id;
+        private Object patent_cnt;
+        private Object grant_id;
 
 
-        public String getDeclare_date() {
+        public Object getDeclare_date() {
             return declare_date;
         }
 
-        public void setDeclare_date(String declare_date) {
+        public void setDeclare_date(Object declare_date) {
             this.declare_date = declare_date;
         }
 
-        private String declare_date;
+        private Object declare_date;
 
 
-        public String getIdentify_dept() {
+        public Object getIdentify_dept() {
             return identify_dept;
         }
 
-        public void setIdentify_dept(String identify_dept) {
+        public void setIdentify_dept(Object identify_dept) {
             this.identify_dept = identify_dept;
         }
 
-        public String getTransfer_fee() {
+        public Object getTransfer_fee() {
             return transfer_fee;
         }
 
-        public void setTransfer_fee(String transfer_fee) {
+        public void setTransfer_fee(Object transfer_fee) {
             this.transfer_fee = transfer_fee;
         }
 
-        public String getIdentify_date() {
+        public Object getIdentify_date() {
             return identify_date;
         }
 
-        public void setIdentify_date(String identify_date) {
+        public void setIdentify_date(Object identify_date) {
             this.identify_date = identify_date;
         }
 
-        public String getWork_date() {
+        public Object getWork_date() {
             return work_date;
         }
 
-        public void setWork_date(String work_date) {
+        public void setWork_date(Object work_date) {
             this.work_date = work_date;
         }
 
-        public String getDeclare_unit() {
+        public Object getDeclare_unit() {
             return declare_unit;
         }
 
-        public void setDeclare_unit(String declare_unit) {
+        public void setDeclare_unit(Object declare_unit) {
             this.declare_unit = declare_unit;
         }
 
-        public String getContact_per() {
+        public Object getContact_per() {
             return contact_per;
         }
 
-        public void setContact_per(String contact_per) {
+        public void setContact_per(Object contact_per) {
             this.contact_per = contact_per;
         }
 
-        private String identify_dept;
-        private String transfer_fee;
-        private String identify_date;
-        private String reg_code;//登记号
-        private String work_date;
-        private String declare_unit;
-        private String contact_per;
+        private Object identify_dept;
+        private Object transfer_fee;
+        private Object identify_date;
+        private Object reg_code;//登记号
+        private Object work_date;
+        private Object declare_unit;
+        private Object contact_per;
 
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getComp_unit() {
+        public Object getComp_unit() {
             return comp_unit;
         }
 
-        public void setComp_unit(String comp_unit) {
+        public void setComp_unit(Object comp_unit) {
             this.comp_unit = comp_unit;
         }
 
-        public String getRecord_status() {
+        public Object getRecord_status() {
             return record_status;
         }
 
-        public void setRecord_status(String record_status) {
+        public void setRecord_status(Object record_status) {
             this.record_status = record_status;
         }
 
@@ -392,27 +392,27 @@ public class TechResultBean {
             this.data_sort = data_sort;
         }
 
-        public String getIndustry_code() {
+        public Object getIndustry_code() {
             return industry_code;
         }
 
-        public void setIndustry_code(String industry_code) {
+        public void setIndustry_code(Object industry_code) {
             this.industry_code = industry_code;
         }
 
-        public String getResult_num() {
+        public Object getResult_num() {
             return result_num;
         }
 
-        public void setResult_num(String result_num) {
+        public void setResult_num(Object result_num) {
             this.result_num = result_num;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
@@ -432,19 +432,19 @@ public class TechResultBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getProvince() {
+        public Object getProvince() {
             return province;
         }
 
-        public void setProvince(String province) {
+        public void setProvince(Object province) {
             this.province = province;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -456,27 +456,27 @@ public class TechResultBean {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getFax() {
+        public Object getFax() {
             return fax;
         }
 
-        public void setFax(String fax) {
+        public void setFax(Object fax) {
             this.fax = fax;
         }
 
-        public String getTitle_page() {
+        public Object getTitle_page() {
             return title_page;
         }
 
-        public void setTitle_page(String title_page) {
+        public void setTitle_page(Object title_page) {
             this.title_page = title_page;
         }
 
-        public String getS_pubdate() {
+        public Object getS_pubdate() {
             return s_pubdate;
         }
 
-        public void setS_pubdate(String s_pubdate) {
+        public void setS_pubdate(Object s_pubdate) {
             this.s_pubdate = s_pubdate;
         }
 
@@ -488,11 +488,11 @@ public class TechResultBean {
             this.import_num = import_num;
         }
 
-        public String getEmail() {
+        public Object getEmail() {
             return email;
         }
 
-        public void setEmail(String email) {
+        public void setEmail(Object email) {
             this.email = email;
         }
 
@@ -504,67 +504,67 @@ public class TechResultBean {
             this.share_num = share_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getResult_type() {
+        public Object getResult_type() {
             return result_type;
         }
 
-        public void setResult_type(String result_type) {
+        public void setResult_type(Object result_type) {
             this.result_type = result_type;
         }
 
-        public String getIndustry_name() {
+        public Object getIndustry_name() {
             return industry_name;
         }
 
-        public void setIndustry_name(String industry_name) {
+        public void setIndustry_name(Object industry_name) {
             this.industry_name = industry_name;
         }
 
-        public String getIssue_unit() {
+        public Object getIssue_unit() {
             return issue_unit;
         }
 
-        public void setIssue_unit(String issue_unit) {
+        public void setIssue_unit(Object issue_unit) {
             this.issue_unit = issue_unit;
         }
 
-        public String getCreate_time() {
+        public Object getCreate_time() {
             return create_time;
         }
 
-        public void setCreate_time(String create_time) {
+        public void setCreate_time(Object create_time) {
             this.create_time = create_time;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
-        public String getPostcode() {
+        public Object getPostcode() {
             return postcode;
         }
 
-        public void setPostcode(String postcode) {
+        public void setPostcode(Object postcode) {
             this.postcode = postcode;
         }
 
-        public String getTelephone() {
+        public Object getTelephone() {
             return telephone;
         }
 
-        public void setTelephone(String telephone) {
+        public void setTelephone(Object telephone) {
             this.telephone = telephone;
         }
 
@@ -576,11 +576,11 @@ public class TechResultBean {
             this.collection_num = collection_num;
         }
 
-        public String getSecurity_level() {
+        public Object getSecurity_level() {
             return security_level;
         }
 
-        public void setSecurity_level(String security_level) {
+        public void setSecurity_level(Object security_level) {
             this.security_level = security_level;
         }
 
@@ -592,27 +592,27 @@ public class TechResultBean {
             this.download_num = download_num;
         }
 
-        public String getResult_id() {
+        public Object getResult_id() {
             return result_id;
         }
 
-        public void setResult_id(String result_id) {
+        public void setResult_id(Object result_id) {
             this.result_id = result_id;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getYear_num() {
+        public Object getYear_num() {
             return year_num;
         }
 
-        public void setYear_num(String year_num) {
+        public void setYear_num(Object year_num) {
             this.year_num = year_num;
         }
 
@@ -632,115 +632,115 @@ public class TechResultBean {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getClass_code() {
+        public Object getClass_code() {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 
-        public String getReg_code() {
+        public Object getReg_code() {
             return reg_code;
         }
 
-        public void setReg_code(String reg_code) {
+        public void setReg_code(Object reg_code) {
             this.reg_code = reg_code;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getWork_limit() {
+        public Object getWork_limit() {
             return work_limit;
         }
 
-        public void setWork_limit(String work_limit) {
+        public void setWork_limit(Object work_limit) {
             this.work_limit = work_limit;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
-        public String getAddress() {
+        public Object getAddress() {
             return address;
         }
 
-        public void setAddress(String address) {
+        public void setAddress(Object address) {
             this.address = address;
         }
 
-        public String getRe_pubdate() {
+        public Object getRe_pubdate() {
             return re_pubdate;
         }
 
-        public void setRe_pubdate(String re_pubdate) {
+        public void setRe_pubdate(Object re_pubdate) {
             this.re_pubdate = re_pubdate;
         }
 
-        public String getRecord_type() {
+        public Object getRecord_type() {
             return record_type;
         }
 
-        public void setRecord_type(String record_type) {
+        public void setRecord_type(Object record_type) {
             this.record_type = record_type;
         }
 
-        public String getContact_unit() {
+        public Object getContact_unit() {
             return contact_unit;
         }
 
-        public void setContact_unit(String contact_unit) {
+        public void setContact_unit(Object contact_unit) {
             this.contact_unit = contact_unit;
         }
 
-        public String getInfo_from() {
+        public Object getInfo_from() {
             return info_from;
         }
 
-        public void setInfo_from(String info_from) {
+        public void setInfo_from(Object info_from) {
             this.info_from = info_from;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public List<String> getComp_per() {
+        public Object getComp_per() {
             return comp_per;
         }
 
-        public void setComp_per(List<String> comp_per) {
+        public void setComp_per(Object comp_per) {
             this.comp_per = comp_per;
         }
     }

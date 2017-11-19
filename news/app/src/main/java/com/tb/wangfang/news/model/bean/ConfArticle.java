@@ -15,7 +15,7 @@ public class ConfArticle {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
     private List<RelatePapersBean> RelatePapers;
 
@@ -27,11 +27,11 @@ public class ConfArticle {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -117,82 +117,82 @@ public class ConfArticle {
          * class_type : conf_artical
          */
 
-        private String id;
-        private String page_range;
+        private Object id;
+        private Object page_range;
         private int page_cnt;
-        private String corpus_name;
-        private String mother_literature;
-        private String language;
+        private Object corpus_name;
+        private Object mother_literature;
+        private Object language;
         private int refdoc_cnt;
-        private String is_full;
-        private String corpus_id;
-        private String authors_name;
+        private Object is_full;
+        private Object corpus_id;
+        private Object authors_name;
         private int share_num;
-        private String conf_place;
-        private String hostunit_name;
-        private String conf_id;
-        private String pro_pub_date;
+        private Object conf_place;
+        private Object hostunit_name;
+        private Object conf_id;
+        private Object pro_pub_date;
         private int cite_num;
         private int linkdoc_cnt;
-        private String data_state;
-        private String startdate_char;
-        private String random_id;
+        private Object data_state;
+        private Object startdate_char;
+        private Object random_id;
         private int cited_cnt;
-        private String hostunit_name02;
+        private Object hostunit_name02;
         private int data_sort;
-        private String auth_area;
-        private String article_id;
+        private Object auth_area;
+        private Object article_id;
         private int tag_num;
         private int abstract_reading_num;
-        private String first_authors;
-        private String full_pubdate;
-        private String common_year;
+        private Object first_authors;
+        private Object full_pubdate;
+        private Object common_year;
         private int thirdparty_links_num;
-        private String authors_unit;
-        private String abst_webdate;
+        private Object authors_unit;
+        private Object abst_webdate;
         private int article_seq;
         private int import_num;
-        private String conf_name02;
-        private String common_sort_time;
-        private String full_url;
-        private String orig_pub_date;
-        private String source_db;
+        private Object conf_name02;
+        private Object common_sort_time;
+        private Object full_url;
+        private Object orig_pub_date;
+        private Object source_db;
         private int collection_num;
         private int download_num;
-        private String conf_year;
-        private String service_model;
-        private String conf_type;
-        private String startdate_char02;
-        private String subject_class_codes;
+        private Object conf_year;
+        private Object service_model;
+        private Object conf_type;
+        private Object startdate_char02;
+        private Object subject_class_codes;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String class_code;
-        private String subject_classcode_level;
-        private String conf_name;
-        private String title;
-        private String summary;
+        private Object updatetime;
+        private Object class_code;
+        private Object subject_classcode_level;
+        private Object conf_name;
+        private Object title;
+        private Object summary;
         private OpBean op;
-        private String class_type;
-        private List<String> keywords;
-        private List<String> auto_keys;
-        private List<String> auto_classcode;
-        private List<String> auto_classcode_level;
-        private List<String> head_words;
+        private Object class_type;
+        private Object keywords;
+        private Object auto_keys;
+        private Object auto_classcode;
+        private Object auto_classcode_level;
+        private Object head_words;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getPage_range() {
+        public Object getPage_range() {
             return page_range;
         }
 
-        public void setPage_range(String page_range) {
+        public void setPage_range(Object page_range) {
             this.page_range = page_range;
         }
 
@@ -204,27 +204,27 @@ public class ConfArticle {
             this.page_cnt = page_cnt;
         }
 
-        public String getCorpus_name() {
+        public Object getCorpus_name() {
             return corpus_name;
         }
 
-        public void setCorpus_name(String corpus_name) {
+        public void setCorpus_name(Object corpus_name) {
             this.corpus_name = corpus_name;
         }
 
-        public String getMother_literature() {
+        public Object getMother_literature() {
             return mother_literature;
         }
 
-        public void setMother_literature(String mother_literature) {
+        public void setMother_literature(Object mother_literature) {
             this.mother_literature = mother_literature;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
@@ -236,27 +236,27 @@ public class ConfArticle {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getIs_full() {
+        public Object getIs_full() {
             return is_full;
         }
 
-        public void setIs_full(String is_full) {
+        public void setIs_full(Object is_full) {
             this.is_full = is_full;
         }
 
-        public String getCorpus_id() {
+        public Object getCorpus_id() {
             return corpus_id;
         }
 
-        public void setCorpus_id(String corpus_id) {
+        public void setCorpus_id(Object corpus_id) {
             this.corpus_id = corpus_id;
         }
 
-        public String getAuthors_name() {
+        public Object getAuthors_name() {
             return authors_name;
         }
 
-        public void setAuthors_name(String authors_name) {
+        public void setAuthors_name(Object authors_name) {
             this.authors_name = authors_name;
         }
 
@@ -268,35 +268,35 @@ public class ConfArticle {
             this.share_num = share_num;
         }
 
-        public String getConf_place() {
+        public Object getConf_place() {
             return conf_place;
         }
 
-        public void setConf_place(String conf_place) {
+        public void setConf_place(Object conf_place) {
             this.conf_place = conf_place;
         }
 
-        public String getHostunit_name() {
+        public Object getHostunit_name() {
             return hostunit_name;
         }
 
-        public void setHostunit_name(String hostunit_name) {
+        public void setHostunit_name(Object hostunit_name) {
             this.hostunit_name = hostunit_name;
         }
 
-        public String getConf_id() {
+        public Object getConf_id() {
             return conf_id;
         }
 
-        public void setConf_id(String conf_id) {
+        public void setConf_id(Object conf_id) {
             this.conf_id = conf_id;
         }
 
-        public String getPro_pub_date() {
+        public Object getPro_pub_date() {
             return pro_pub_date;
         }
 
-        public void setPro_pub_date(String pro_pub_date) {
+        public void setPro_pub_date(Object pro_pub_date) {
             this.pro_pub_date = pro_pub_date;
         }
 
@@ -316,27 +316,27 @@ public class ConfArticle {
             this.linkdoc_cnt = linkdoc_cnt;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getStartdate_char() {
+        public Object getStartdate_char() {
             return startdate_char;
         }
 
-        public void setStartdate_char(String startdate_char) {
+        public void setStartdate_char(Object startdate_char) {
             this.startdate_char = startdate_char;
         }
 
-        public String getRandom_id() {
+        public Object getRandom_id() {
             return random_id;
         }
 
-        public void setRandom_id(String random_id) {
+        public void setRandom_id(Object random_id) {
             this.random_id = random_id;
         }
 
@@ -348,11 +348,11 @@ public class ConfArticle {
             this.cited_cnt = cited_cnt;
         }
 
-        public String getHostunit_name02() {
+        public Object getHostunit_name02() {
             return hostunit_name02;
         }
 
-        public void setHostunit_name02(String hostunit_name02) {
+        public void setHostunit_name02(Object hostunit_name02) {
             this.hostunit_name02 = hostunit_name02;
         }
 
@@ -364,19 +364,19 @@ public class ConfArticle {
             this.data_sort = data_sort;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
@@ -396,27 +396,27 @@ public class ConfArticle {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getFirst_authors() {
+        public Object getFirst_authors() {
             return first_authors;
         }
 
-        public void setFirst_authors(String first_authors) {
+        public void setFirst_authors(Object first_authors) {
             this.first_authors = first_authors;
         }
 
-        public String getFull_pubdate() {
+        public Object getFull_pubdate() {
             return full_pubdate;
         }
 
-        public void setFull_pubdate(String full_pubdate) {
+        public void setFull_pubdate(Object full_pubdate) {
             this.full_pubdate = full_pubdate;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -428,19 +428,19 @@ public class ConfArticle {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getAuthors_unit() {
+        public Object getAuthors_unit() {
             return authors_unit;
         }
 
-        public void setAuthors_unit(String authors_unit) {
+        public void setAuthors_unit(Object authors_unit) {
             this.authors_unit = authors_unit;
         }
 
-        public String getAbst_webdate() {
+        public Object getAbst_webdate() {
             return abst_webdate;
         }
 
-        public void setAbst_webdate(String abst_webdate) {
+        public void setAbst_webdate(Object abst_webdate) {
             this.abst_webdate = abst_webdate;
         }
 
@@ -460,43 +460,43 @@ public class ConfArticle {
             this.import_num = import_num;
         }
 
-        public String getConf_name02() {
+        public Object getConf_name02() {
             return conf_name02;
         }
 
-        public void setConf_name02(String conf_name02) {
+        public void setConf_name02(Object conf_name02) {
             this.conf_name02 = conf_name02;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getFull_url() {
+        public Object getFull_url() {
             return full_url;
         }
 
-        public void setFull_url(String full_url) {
+        public void setFull_url(Object full_url) {
             this.full_url = full_url;
         }
 
-        public String getOrig_pub_date() {
+        public Object getOrig_pub_date() {
             return orig_pub_date;
         }
 
-        public void setOrig_pub_date(String orig_pub_date) {
+        public void setOrig_pub_date(Object orig_pub_date) {
             this.orig_pub_date = orig_pub_date;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
@@ -516,43 +516,43 @@ public class ConfArticle {
             this.download_num = download_num;
         }
 
-        public String getConf_year() {
+        public Object getConf_year() {
             return conf_year;
         }
 
-        public void setConf_year(String conf_year) {
+        public void setConf_year(Object conf_year) {
             this.conf_year = conf_year;
         }
 
-        public String getService_model() {
+        public Object getService_model() {
             return service_model;
         }
 
-        public void setService_model(String service_model) {
+        public void setService_model(Object service_model) {
             this.service_model = service_model;
         }
 
-        public String getConf_type() {
+        public Object getConf_type() {
             return conf_type;
         }
 
-        public void setConf_type(String conf_type) {
+        public void setConf_type(Object conf_type) {
             this.conf_type = conf_type;
         }
 
-        public String getStartdate_char02() {
+        public Object getStartdate_char02() {
             return startdate_char02;
         }
 
-        public void setStartdate_char02(String startdate_char02) {
+        public void setStartdate_char02(Object startdate_char02) {
             this.startdate_char02 = startdate_char02;
         }
 
-        public String getSubject_class_codes() {
+        public Object getSubject_class_codes() {
             return subject_class_codes;
         }
 
-        public void setSubject_class_codes(String subject_class_codes) {
+        public void setSubject_class_codes(Object subject_class_codes) {
             this.subject_class_codes = subject_class_codes;
         }
 
@@ -572,51 +572,51 @@ public class ConfArticle {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getClass_code() {
+        public Object getClass_code() {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 
-        public String getSubject_classcode_level() {
+        public Object getSubject_classcode_level() {
             return subject_classcode_level;
         }
 
-        public void setSubject_classcode_level(String subject_classcode_level) {
+        public void setSubject_classcode_level(Object subject_classcode_level) {
             this.subject_classcode_level = subject_classcode_level;
         }
 
-        public String getConf_name() {
+        public Object getConf_name() {
             return conf_name;
         }
 
-        public void setConf_name(String conf_name) {
+        public void setConf_name(Object conf_name) {
             this.conf_name = conf_name;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -628,51 +628,51 @@ public class ConfArticle {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public List<String> getAuto_keys() {
+        public Object getAuto_keys() {
             return auto_keys;
         }
 
-        public void setAuto_keys(List<String> auto_keys) {
+        public void setAuto_keys(Object auto_keys) {
             this.auto_keys = auto_keys;
         }
 
-        public List<String> getAuto_classcode() {
+        public Object getAuto_classcode() {
             return auto_classcode;
         }
 
-        public void setAuto_classcode(List<String> auto_classcode) {
+        public void setAuto_classcode(Object auto_classcode) {
             this.auto_classcode = auto_classcode;
         }
 
-        public List<String> getAuto_classcode_level() {
+        public Object getAuto_classcode_level() {
             return auto_classcode_level;
         }
 
-        public void setAuto_classcode_level(List<String> auto_classcode_level) {
+        public void setAuto_classcode_level(Object auto_classcode_level) {
             this.auto_classcode_level = auto_classcode_level;
         }
 
-        public List<String> getHead_words() {
+        public Object getHead_words() {
             return head_words;
         }
 
-        public void setHead_words(List<String> head_words) {
+        public void setHead_words(Object head_words) {
             this.head_words = head_words;
         }
 
@@ -703,112 +703,112 @@ public class ConfArticle {
                  * is_group :
                  */
 
-                private String article_id;
-                private String unit_name;
-                private String record_id;
-                private String trans_authname;
-                private String org_id;
-                private String authors_seq;
-                private String unit_name_en;
-                private String id;
-                private String authors_name;
-                private String authors_role;
-                private String scholar_id;
-                private String is_group;
+                private Object article_id;
+                private Object unit_name;
+                private Object record_id;
+                private Object trans_authname;
+                private Object org_id;
+                private Object authors_seq;
+                private Object unit_name_en;
+                private Object id;
+                private Object authors_name;
+                private Object authors_role;
+                private Object scholar_id;
+                private Object is_group;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getUnit_name() {
+                public Object getUnit_name() {
                     return unit_name;
                 }
 
-                public void setUnit_name(String unit_name) {
+                public void setUnit_name(Object unit_name) {
                     this.unit_name = unit_name;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getTrans_authname() {
+                public Object getTrans_authname() {
                     return trans_authname;
                 }
 
-                public void setTrans_authname(String trans_authname) {
+                public void setTrans_authname(Object trans_authname) {
                     this.trans_authname = trans_authname;
                 }
 
-                public String getOrg_id() {
+                public Object getOrg_id() {
                     return org_id;
                 }
 
-                public void setOrg_id(String org_id) {
+                public void setOrg_id(Object org_id) {
                     this.org_id = org_id;
                 }
 
-                public String getAuthors_seq() {
+                public Object getAuthors_seq() {
                     return authors_seq;
                 }
 
-                public void setAuthors_seq(String authors_seq) {
+                public void setAuthors_seq(Object authors_seq) {
                     this.authors_seq = authors_seq;
                 }
 
-                public String getUnit_name_en() {
+                public Object getUnit_name_en() {
                     return unit_name_en;
                 }
 
-                public void setUnit_name_en(String unit_name_en) {
+                public void setUnit_name_en(Object unit_name_en) {
                     this.unit_name_en = unit_name_en;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getAuthors_name() {
+                public Object getAuthors_name() {
                     return authors_name;
                 }
 
-                public void setAuthors_name(String authors_name) {
+                public void setAuthors_name(Object authors_name) {
                     this.authors_name = authors_name;
                 }
 
-                public String getAuthors_role() {
+                public Object getAuthors_role() {
                     return authors_role;
                 }
 
-                public void setAuthors_role(String authors_role) {
+                public void setAuthors_role(Object authors_role) {
                     this.authors_role = authors_role;
                 }
 
-                public String getScholar_id() {
+                public Object getScholar_id() {
                     return scholar_id;
                 }
 
-                public void setScholar_id(String scholar_id) {
+                public void setScholar_id(Object scholar_id) {
                     this.scholar_id = scholar_id;
                 }
 
-                public String getIs_group() {
+                public Object getIs_group() {
                     return is_group;
                 }
 
-                public void setIs_group(String is_group) {
+                public void setIs_group(Object is_group) {
                     this.is_group = is_group;
                 }
             }
@@ -881,82 +881,82 @@ public class ConfArticle {
          * class_type : conf_artical
          */
 
-        private String id;
-        private String page_range;
+        private Object id;
+        private Object page_range;
         private int page_cnt;
-        private String corpus_name;
-        private String mother_literature;
-        private String language;
+        private Object corpus_name;
+        private Object mother_literature;
+        private Object language;
         private int refdoc_cnt;
-        private String is_full;
-        private String corpus_id;
-        private String authors_name;
+        private Object is_full;
+        private Object corpus_id;
+        private Object authors_name;
         private int share_num;
-        private String conf_place;
-        private String hostunit_name;
-        private String conf_id;
-        private String pro_pub_date;
+        private Object conf_place;
+        private Object hostunit_name;
+        private Object conf_id;
+        private Object pro_pub_date;
         private int cite_num;
         private int linkdoc_cnt;
-        private String data_state;
-        private String startdate_char;
-        private String random_id;
+        private Object data_state;
+        private Object startdate_char;
+        private Object random_id;
         private int cited_cnt;
-        private String hostunit_name02;
+        private Object hostunit_name02;
         private int data_sort;
-        private String auth_area;
-        private String article_id;
+        private Object auth_area;
+        private Object article_id;
         private int tag_num;
         private int abstract_reading_num;
-        private String first_authors;
-        private String full_pubdate;
-        private String common_year;
+        private Object first_authors;
+        private Object full_pubdate;
+        private Object common_year;
         private int thirdparty_links_num;
-        private String authors_unit;
-        private String abst_webdate;
+        private Object authors_unit;
+        private Object abst_webdate;
         private int article_seq;
         private int import_num;
-        private String conf_name02;
-        private String common_sort_time;
-        private String full_url;
-        private String orig_pub_date;
-        private String source_db;
+        private Object conf_name02;
+        private Object common_sort_time;
+        private Object full_url;
+        private Object orig_pub_date;
+        private Object source_db;
         private int collection_num;
         private int download_num;
-        private String conf_year;
-        private String service_model;
-        private String conf_type;
-        private String startdate_char02;
-        private String subject_class_codes;
+        private Object conf_year;
+        private Object service_model;
+        private Object conf_type;
+        private Object startdate_char02;
+        private Object subject_class_codes;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String class_code;
-        private String subject_classcode_level;
-        private String conf_name;
-        private String title;
-        private String summary;
+        private Object updatetime;
+        private Object class_code;
+        private Object subject_classcode_level;
+        private Object conf_name;
+        private Object title;
+        private Object summary;
         private OpBeanX op;
-        private String class_type;
-        private List<String> keywords;
-        private List<String> auto_keys;
-        private List<String> auto_classcode;
-        private List<String> auto_classcode_level;
-        private List<String> head_words;
+        private Object class_type;
+        private Object keywords;
+        private Object auto_keys;
+        private Object auto_classcode;
+        private Object auto_classcode_level;
+        private Object head_words;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getPage_range() {
+        public Object getPage_range() {
             return page_range;
         }
 
-        public void setPage_range(String page_range) {
+        public void setPage_range(Object page_range) {
             this.page_range = page_range;
         }
 
@@ -968,27 +968,27 @@ public class ConfArticle {
             this.page_cnt = page_cnt;
         }
 
-        public String getCorpus_name() {
+        public Object getCorpus_name() {
             return corpus_name;
         }
 
-        public void setCorpus_name(String corpus_name) {
+        public void setCorpus_name(Object corpus_name) {
             this.corpus_name = corpus_name;
         }
 
-        public String getMother_literature() {
+        public Object getMother_literature() {
             return mother_literature;
         }
 
-        public void setMother_literature(String mother_literature) {
+        public void setMother_literature(Object mother_literature) {
             this.mother_literature = mother_literature;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
@@ -1000,27 +1000,27 @@ public class ConfArticle {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getIs_full() {
+        public Object getIs_full() {
             return is_full;
         }
 
-        public void setIs_full(String is_full) {
+        public void setIs_full(Object is_full) {
             this.is_full = is_full;
         }
 
-        public String getCorpus_id() {
+        public Object getCorpus_id() {
             return corpus_id;
         }
 
-        public void setCorpus_id(String corpus_id) {
+        public void setCorpus_id(Object corpus_id) {
             this.corpus_id = corpus_id;
         }
 
-        public String getAuthors_name() {
+        public Object getAuthors_name() {
             return authors_name;
         }
 
-        public void setAuthors_name(String authors_name) {
+        public void setAuthors_name(Object authors_name) {
             this.authors_name = authors_name;
         }
 
@@ -1032,35 +1032,35 @@ public class ConfArticle {
             this.share_num = share_num;
         }
 
-        public String getConf_place() {
+        public Object getConf_place() {
             return conf_place;
         }
 
-        public void setConf_place(String conf_place) {
+        public void setConf_place(Object conf_place) {
             this.conf_place = conf_place;
         }
 
-        public String getHostunit_name() {
+        public Object getHostunit_name() {
             return hostunit_name;
         }
 
-        public void setHostunit_name(String hostunit_name) {
+        public void setHostunit_name(Object hostunit_name) {
             this.hostunit_name = hostunit_name;
         }
 
-        public String getConf_id() {
+        public Object getConf_id() {
             return conf_id;
         }
 
-        public void setConf_id(String conf_id) {
+        public void setConf_id(Object conf_id) {
             this.conf_id = conf_id;
         }
 
-        public String getPro_pub_date() {
+        public Object getPro_pub_date() {
             return pro_pub_date;
         }
 
-        public void setPro_pub_date(String pro_pub_date) {
+        public void setPro_pub_date(Object pro_pub_date) {
             this.pro_pub_date = pro_pub_date;
         }
 
@@ -1080,27 +1080,27 @@ public class ConfArticle {
             this.linkdoc_cnt = linkdoc_cnt;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getStartdate_char() {
+        public Object getStartdate_char() {
             return startdate_char;
         }
 
-        public void setStartdate_char(String startdate_char) {
+        public void setStartdate_char(Object startdate_char) {
             this.startdate_char = startdate_char;
         }
 
-        public String getRandom_id() {
+        public Object getRandom_id() {
             return random_id;
         }
 
-        public void setRandom_id(String random_id) {
+        public void setRandom_id(Object random_id) {
             this.random_id = random_id;
         }
 
@@ -1112,11 +1112,11 @@ public class ConfArticle {
             this.cited_cnt = cited_cnt;
         }
 
-        public String getHostunit_name02() {
+        public Object getHostunit_name02() {
             return hostunit_name02;
         }
 
-        public void setHostunit_name02(String hostunit_name02) {
+        public void setHostunit_name02(Object hostunit_name02) {
             this.hostunit_name02 = hostunit_name02;
         }
 
@@ -1128,19 +1128,19 @@ public class ConfArticle {
             this.data_sort = data_sort;
         }
 
-        public String getAuth_area() {
+        public Object getAuth_area() {
             return auth_area;
         }
 
-        public void setAuth_area(String auth_area) {
+        public void setAuth_area(Object auth_area) {
             this.auth_area = auth_area;
         }
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
@@ -1160,27 +1160,27 @@ public class ConfArticle {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getFirst_authors() {
+        public Object getFirst_authors() {
             return first_authors;
         }
 
-        public void setFirst_authors(String first_authors) {
+        public void setFirst_authors(Object first_authors) {
             this.first_authors = first_authors;
         }
 
-        public String getFull_pubdate() {
+        public Object getFull_pubdate() {
             return full_pubdate;
         }
 
-        public void setFull_pubdate(String full_pubdate) {
+        public void setFull_pubdate(Object full_pubdate) {
             this.full_pubdate = full_pubdate;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -1192,19 +1192,19 @@ public class ConfArticle {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getAuthors_unit() {
+        public Object getAuthors_unit() {
             return authors_unit;
         }
 
-        public void setAuthors_unit(String authors_unit) {
+        public void setAuthors_unit(Object authors_unit) {
             this.authors_unit = authors_unit;
         }
 
-        public String getAbst_webdate() {
+        public Object getAbst_webdate() {
             return abst_webdate;
         }
 
-        public void setAbst_webdate(String abst_webdate) {
+        public void setAbst_webdate(Object abst_webdate) {
             this.abst_webdate = abst_webdate;
         }
 
@@ -1224,43 +1224,43 @@ public class ConfArticle {
             this.import_num = import_num;
         }
 
-        public String getConf_name02() {
+        public Object getConf_name02() {
             return conf_name02;
         }
 
-        public void setConf_name02(String conf_name02) {
+        public void setConf_name02(Object conf_name02) {
             this.conf_name02 = conf_name02;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getFull_url() {
+        public Object getFull_url() {
             return full_url;
         }
 
-        public void setFull_url(String full_url) {
+        public void setFull_url(Object full_url) {
             this.full_url = full_url;
         }
 
-        public String getOrig_pub_date() {
+        public Object getOrig_pub_date() {
             return orig_pub_date;
         }
 
-        public void setOrig_pub_date(String orig_pub_date) {
+        public void setOrig_pub_date(Object orig_pub_date) {
             this.orig_pub_date = orig_pub_date;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
@@ -1280,43 +1280,43 @@ public class ConfArticle {
             this.download_num = download_num;
         }
 
-        public String getConf_year() {
+        public Object getConf_year() {
             return conf_year;
         }
 
-        public void setConf_year(String conf_year) {
+        public void setConf_year(Object conf_year) {
             this.conf_year = conf_year;
         }
 
-        public String getService_model() {
+        public Object getService_model() {
             return service_model;
         }
 
-        public void setService_model(String service_model) {
+        public void setService_model(Object service_model) {
             this.service_model = service_model;
         }
 
-        public String getConf_type() {
+        public Object getConf_type() {
             return conf_type;
         }
 
-        public void setConf_type(String conf_type) {
+        public void setConf_type(Object conf_type) {
             this.conf_type = conf_type;
         }
 
-        public String getStartdate_char02() {
+        public Object getStartdate_char02() {
             return startdate_char02;
         }
 
-        public void setStartdate_char02(String startdate_char02) {
+        public void setStartdate_char02(Object startdate_char02) {
             this.startdate_char02 = startdate_char02;
         }
 
-        public String getSubject_class_codes() {
+        public Object getSubject_class_codes() {
             return subject_class_codes;
         }
 
-        public void setSubject_class_codes(String subject_class_codes) {
+        public void setSubject_class_codes(Object subject_class_codes) {
             this.subject_class_codes = subject_class_codes;
         }
 
@@ -1336,51 +1336,51 @@ public class ConfArticle {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getClass_code() {
+        public Object getClass_code() {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 
-        public String getSubject_classcode_level() {
+        public Object getSubject_classcode_level() {
             return subject_classcode_level;
         }
 
-        public void setSubject_classcode_level(String subject_classcode_level) {
+        public void setSubject_classcode_level(Object subject_classcode_level) {
             this.subject_classcode_level = subject_classcode_level;
         }
 
-        public String getConf_name() {
+        public Object getConf_name() {
             return conf_name;
         }
 
-        public void setConf_name(String conf_name) {
+        public void setConf_name(Object conf_name) {
             this.conf_name = conf_name;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -1392,51 +1392,51 @@ public class ConfArticle {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
-        public List<String> getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(List<String> keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public List<String> getAuto_keys() {
+        public Object getAuto_keys() {
             return auto_keys;
         }
 
-        public void setAuto_keys(List<String> auto_keys) {
+        public void setAuto_keys(Object auto_keys) {
             this.auto_keys = auto_keys;
         }
 
-        public List<String> getAuto_classcode() {
+        public Object getAuto_classcode() {
             return auto_classcode;
         }
 
-        public void setAuto_classcode(List<String> auto_classcode) {
+        public void setAuto_classcode(Object auto_classcode) {
             this.auto_classcode = auto_classcode;
         }
 
-        public List<String> getAuto_classcode_level() {
+        public Object getAuto_classcode_level() {
             return auto_classcode_level;
         }
 
-        public void setAuto_classcode_level(List<String> auto_classcode_level) {
+        public void setAuto_classcode_level(Object auto_classcode_level) {
             this.auto_classcode_level = auto_classcode_level;
         }
 
-        public List<String> getHead_words() {
+        public Object getHead_words() {
             return head_words;
         }
 
-        public void setHead_words(List<String> head_words) {
+        public void setHead_words(Object head_words) {
             this.head_words = head_words;
         }
 
@@ -1467,112 +1467,112 @@ public class ConfArticle {
                  * is_group :
                  */
 
-                private String article_id;
-                private String unit_name;
-                private String record_id;
-                private String trans_authname;
-                private String org_id;
-                private String authors_seq;
-                private String unit_name_en;
-                private String id;
-                private String authors_name;
-                private String authors_role;
-                private String scholar_id;
-                private String is_group;
+                private Object article_id;
+                private Object unit_name;
+                private Object record_id;
+                private Object trans_authname;
+                private Object org_id;
+                private Object authors_seq;
+                private Object unit_name_en;
+                private Object id;
+                private Object authors_name;
+                private Object authors_role;
+                private Object scholar_id;
+                private Object is_group;
 
-                public String getArticle_id() {
+                public Object getArticle_id() {
                     return article_id;
                 }
 
-                public void setArticle_id(String article_id) {
+                public void setArticle_id(Object article_id) {
                     this.article_id = article_id;
                 }
 
-                public String getUnit_name() {
+                public Object getUnit_name() {
                     return unit_name;
                 }
 
-                public void setUnit_name(String unit_name) {
+                public void setUnit_name(Object unit_name) {
                     this.unit_name = unit_name;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getTrans_authname() {
+                public Object getTrans_authname() {
                     return trans_authname;
                 }
 
-                public void setTrans_authname(String trans_authname) {
+                public void setTrans_authname(Object trans_authname) {
                     this.trans_authname = trans_authname;
                 }
 
-                public String getOrg_id() {
+                public Object getOrg_id() {
                     return org_id;
                 }
 
-                public void setOrg_id(String org_id) {
+                public void setOrg_id(Object org_id) {
                     this.org_id = org_id;
                 }
 
-                public String getAuthors_seq() {
+                public Object getAuthors_seq() {
                     return authors_seq;
                 }
 
-                public void setAuthors_seq(String authors_seq) {
+                public void setAuthors_seq(Object authors_seq) {
                     this.authors_seq = authors_seq;
                 }
 
-                public String getUnit_name_en() {
+                public Object getUnit_name_en() {
                     return unit_name_en;
                 }
 
-                public void setUnit_name_en(String unit_name_en) {
+                public void setUnit_name_en(Object unit_name_en) {
                     this.unit_name_en = unit_name_en;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getAuthors_name() {
+                public Object getAuthors_name() {
                     return authors_name;
                 }
 
-                public void setAuthors_name(String authors_name) {
+                public void setAuthors_name(Object authors_name) {
                     this.authors_name = authors_name;
                 }
 
-                public String getAuthors_role() {
+                public Object getAuthors_role() {
                     return authors_role;
                 }
 
-                public void setAuthors_role(String authors_role) {
+                public void setAuthors_role(Object authors_role) {
                     this.authors_role = authors_role;
                 }
 
-                public String getScholar_id() {
+                public Object getScholar_id() {
                     return scholar_id;
                 }
 
-                public void setScholar_id(String scholar_id) {
+                public void setScholar_id(Object scholar_id) {
                     this.scholar_id = scholar_id;
                 }
 
-                public String getIs_group() {
+                public Object getIs_group() {
                     return is_group;
                 }
 
-                public void setIs_group(String is_group) {
+                public void setIs_group(Object is_group) {
                     this.is_group = is_group;
                 }
             }

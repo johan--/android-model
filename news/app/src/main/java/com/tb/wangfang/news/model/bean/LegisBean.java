@@ -16,7 +16,7 @@ public class LegisBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
 
     public int getStatus() {
@@ -27,11 +27,11 @@ public class LegisBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -85,74 +85,74 @@ public class LegisBean {
          * class_type : legislations
          */
 
-        private String id;
-        private String dept_code;
-        private String issue_date02;
-        private String force_date;
+        private Object id;
+        private Object dept_code;
+        private Object issue_date02;
+        private Object force_date;
         private int data_sort;
-        private String source_db_fg;
+        private Object source_db_fg;
         private int tag_num;
         private int abstract_reading_num;
-        private String issue_date;
-        private String legis_id;
-        private String common_year;
+        private Object issue_date;
+        private Object legis_id;
+        private Object common_year;
         private int thirdparty_links_num;
         private int import_num;
         private int share_num;
-        private String common_sort_time;
-        private String issue_dept02;
-        private String class_name02;
-        private String valid_level;
-        private String source_db;
+        private Object common_sort_time;
+        private Object issue_dept02;
+        private Object class_name02;
+        private Object valid_level;
+        private Object source_db;
         private int collection_num;
-        private String make_date;
-        private String url;
+        private Object make_date;
+        private Object url;
         private int download_num;
-        private String pdf;
-        private String data_state;
-        private String is_valid;
+        private Object pdf;
+        private Object data_state;
+        private Object is_valid;
         private int fulltext_reading_num;
         private int note_num;
-        private String updatetime;
-        private String class_code;
-        private String title;
-        private String class_name;
-        private String issue_dept;
-        private String publish_num;
-        private String db_name;
-        private String summary;
-        private String keywords;
-        private String class_type;
+        private Object updatetime;
+        private Object class_code;
+        private Object title;
+        private Object class_name;
+        private Object issue_dept;
+        private Object publish_num;
+        private Object db_name;
+        private Object summary;
+        private Object keywords;
+        private Object class_type;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getDept_code() {
+        public Object getDept_code() {
             return dept_code;
         }
 
-        public void setDept_code(String dept_code) {
+        public void setDept_code(Object dept_code) {
             this.dept_code = dept_code;
         }
 
-        public String getIssue_date02() {
+        public Object getIssue_date02() {
             return issue_date02;
         }
 
-        public void setIssue_date02(String issue_date02) {
+        public void setIssue_date02(Object issue_date02) {
             this.issue_date02 = issue_date02;
         }
 
-        public String getForce_date() {
+        public Object getForce_date() {
             return force_date;
         }
 
-        public void setForce_date(String force_date) {
+        public void setForce_date(Object force_date) {
             this.force_date = force_date;
         }
 
@@ -164,11 +164,11 @@ public class LegisBean {
             this.data_sort = data_sort;
         }
 
-        public String getSource_db_fg() {
+        public Object getSource_db_fg() {
             return source_db_fg;
         }
 
-        public void setSource_db_fg(String source_db_fg) {
+        public void setSource_db_fg(Object source_db_fg) {
             this.source_db_fg = source_db_fg;
         }
 
@@ -188,27 +188,27 @@ public class LegisBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getIssue_date() {
+        public Object getIssue_date() {
             return issue_date;
         }
 
-        public void setIssue_date(String issue_date) {
+        public void setIssue_date(Object issue_date) {
             this.issue_date = issue_date;
         }
 
-        public String getLegis_id() {
+        public Object getLegis_id() {
             return legis_id;
         }
 
-        public void setLegis_id(String legis_id) {
+        public void setLegis_id(Object legis_id) {
             this.legis_id = legis_id;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -236,43 +236,43 @@ public class LegisBean {
             this.share_num = share_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getIssue_dept02() {
+        public Object getIssue_dept02() {
             return issue_dept02;
         }
 
-        public void setIssue_dept02(String issue_dept02) {
+        public void setIssue_dept02(Object issue_dept02) {
             this.issue_dept02 = issue_dept02;
         }
 
-        public String getClass_name02() {
+        public Object getClass_name02() {
             return class_name02;
         }
 
-        public void setClass_name02(String class_name02) {
+        public void setClass_name02(Object class_name02) {
             this.class_name02 = class_name02;
         }
 
-        public String getValid_level() {
+        public Object getValid_level() {
             return valid_level;
         }
 
-        public void setValid_level(String valid_level) {
+        public void setValid_level(Object valid_level) {
             this.valid_level = valid_level;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
@@ -284,19 +284,19 @@ public class LegisBean {
             this.collection_num = collection_num;
         }
 
-        public String getMake_date() {
+        public Object getMake_date() {
             return make_date;
         }
 
-        public void setMake_date(String make_date) {
+        public void setMake_date(Object make_date) {
             this.make_date = make_date;
         }
 
-        public String getUrl() {
+        public Object getUrl() {
             return url;
         }
 
-        public void setUrl(String url) {
+        public void setUrl(Object url) {
             this.url = url;
         }
 
@@ -308,27 +308,27 @@ public class LegisBean {
             this.download_num = download_num;
         }
 
-        public String getPdf() {
+        public Object getPdf() {
             return pdf;
         }
 
-        public void setPdf(String pdf) {
+        public void setPdf(Object pdf) {
             this.pdf = pdf;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getIs_valid() {
+        public Object getIs_valid() {
             return is_valid;
         }
 
-        public void setIs_valid(String is_valid) {
+        public void setIs_valid(Object is_valid) {
             this.is_valid = is_valid;
         }
 
@@ -348,83 +348,83 @@ public class LegisBean {
             this.note_num = note_num;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
-        public String getClass_code() {
+        public Object getClass_code() {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getClass_name() {
+        public Object getClass_name() {
             return class_name;
         }
 
-        public void setClass_name(String class_name) {
+        public void setClass_name(Object class_name) {
             this.class_name = class_name;
         }
 
-        public String getIssue_dept() {
+        public Object getIssue_dept() {
             return issue_dept;
         }
 
-        public void setIssue_dept(String issue_dept) {
+        public void setIssue_dept(Object issue_dept) {
             this.issue_dept = issue_dept;
         }
 
-        public String getPublish_num() {
+        public Object getPublish_num() {
             return publish_num;
         }
 
-        public void setPublish_num(String publish_num) {
+        public void setPublish_num(Object publish_num) {
             this.publish_num = publish_num;
         }
 
-        public String getDb_name() {
+        public Object getDb_name() {
             return db_name;
         }
 
-        public void setDb_name(String db_name) {
+        public void setDb_name(Object db_name) {
             this.db_name = db_name;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
-        public String getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(String keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
     }

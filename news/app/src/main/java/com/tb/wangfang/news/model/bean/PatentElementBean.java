@@ -14,7 +14,7 @@ public class PatentElementBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
 
     public int getStatus() {
@@ -25,11 +25,11 @@ public class PatentElementBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -94,61 +94,61 @@ public class PatentElementBean {
          * class_type : patent_element
          */
 
-        private String id;
+        private Object id;
         private int data_sort;
         private int page_cnt;
         private int refdoc_cnt;
-        private String title02;
-        private String prio_num;
+        private Object title02;
+        private Object prio_num;
         private int tag_num;
-        private String pub_date;
+        private Object pub_date;
         private int abstract_reading_num;
-        private String disk_num;
-        private String app_date;
-        private String common_year;
-        private String app_num;
+        private Object disk_num;
+        private Object app_date;
+        private Object common_year;
+        private Object app_num;
         private int thirdparty_links_num;
-        private String legal_status;
-        private String prio_date;
+        private Object legal_status;
+        private Object prio_date;
         private int import_num;
         private int share_num;
-        private String common_sort_time;
-        private String patent_id;
-        private String signory;
-        private String app_area_code;
-        private String source_db;
-        private String agy_per_name;
-        private String app_date02;
+        private Object common_sort_time;
+        private Object patent_id;
+        private Object signory;
+        private Object app_area_code;
+        private Object source_db;
+        private Object agy_per_name;
+        private Object app_date02;
         private int collection_num;
-        private String priority;
-        private String applicant_name;
-        private String proposer_name;
-        private String issue_dir;
+        private Object priority;
+        private Object applicant_name;
+        private Object proposer_name;
+        private Object issue_dir;
         private int download_num;
-        private String prio_ccode;
-        private String pub_num;
-        private String data_state;
-        private String app_address;
-        private String patent_type;
+        private Object prio_ccode;
+        private Object pub_num;
+        private Object data_state;
+        private Object app_address;
+        private Object patent_type;
         private int fulltext_reading_num;
         private int note_num;
-        private String agy_org_name;
-        private String updatetime;
+        private Object agy_org_name;
+        private Object updatetime;
         private Object class_code;
-        private String pub_org_code;
-        private String title;
-        private String summary;
-        private String keywords;
+        private Object pub_org_code;
+        private Object title;
+        private Object summary;
+        private Object keywords;
         private OpBean op;
-        private String class_type;
+        private Object class_type;
         private Object inv_name;
-        private List<String> main_classcode;
+        private Object main_classcode;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
@@ -176,19 +176,19 @@ public class PatentElementBean {
             this.refdoc_cnt = refdoc_cnt;
         }
 
-        public String getTitle02() {
+        public Object getTitle02() {
             return title02;
         }
 
-        public void setTitle02(String title02) {
+        public void setTitle02(Object title02) {
             this.title02 = title02;
         }
 
-        public String getPrio_num() {
+        public Object getPrio_num() {
             return prio_num;
         }
 
-        public void setPrio_num(String prio_num) {
+        public void setPrio_num(Object prio_num) {
             this.prio_num = prio_num;
         }
 
@@ -200,11 +200,11 @@ public class PatentElementBean {
             this.tag_num = tag_num;
         }
 
-        public String getPub_date() {
+        public Object getPub_date() {
             return pub_date;
         }
 
-        public void setPub_date(String pub_date) {
+        public void setPub_date(Object pub_date) {
             this.pub_date = pub_date;
         }
 
@@ -216,35 +216,35 @@ public class PatentElementBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getDisk_num() {
+        public Object getDisk_num() {
             return disk_num;
         }
 
-        public void setDisk_num(String disk_num) {
+        public void setDisk_num(Object disk_num) {
             this.disk_num = disk_num;
         }
 
-        public String getApp_date() {
+        public Object getApp_date() {
             return app_date;
         }
 
-        public void setApp_date(String app_date) {
+        public void setApp_date(Object app_date) {
             this.app_date = app_date;
         }
 
-        public String getCommon_year() {
+        public Object getCommon_year() {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
-        public String getApp_num() {
+        public Object getApp_num() {
             return app_num;
         }
 
-        public void setApp_num(String app_num) {
+        public void setApp_num(Object app_num) {
             this.app_num = app_num;
         }
 
@@ -256,19 +256,19 @@ public class PatentElementBean {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
-        public String getLegal_status() {
+        public Object getLegal_status() {
             return legal_status;
         }
 
-        public void setLegal_status(String legal_status) {
+        public void setLegal_status(Object legal_status) {
             this.legal_status = legal_status;
         }
 
-        public String getPrio_date() {
+        public Object getPrio_date() {
             return prio_date;
         }
 
-        public void setPrio_date(String prio_date) {
+        public void setPrio_date(Object prio_date) {
             this.prio_date = prio_date;
         }
 
@@ -288,59 +288,59 @@ public class PatentElementBean {
             this.share_num = share_num;
         }
 
-        public String getCommon_sort_time() {
+        public Object getCommon_sort_time() {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
-        public String getPatent_id() {
+        public Object getPatent_id() {
             return patent_id;
         }
 
-        public void setPatent_id(String patent_id) {
+        public void setPatent_id(Object patent_id) {
             this.patent_id = patent_id;
         }
 
-        public String getSignory() {
+        public Object getSignory() {
             return signory;
         }
 
-        public void setSignory(String signory) {
+        public void setSignory(Object signory) {
             this.signory = signory;
         }
 
-        public String getApp_area_code() {
+        public Object getApp_area_code() {
             return app_area_code;
         }
 
-        public void setApp_area_code(String app_area_code) {
+        public void setApp_area_code(Object app_area_code) {
             this.app_area_code = app_area_code;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
-        public String getAgy_per_name() {
+        public Object getAgy_per_name() {
             return agy_per_name;
         }
 
-        public void setAgy_per_name(String agy_per_name) {
+        public void setAgy_per_name(Object agy_per_name) {
             this.agy_per_name = agy_per_name;
         }
 
-        public String getApp_date02() {
+        public Object getApp_date02() {
             return app_date02;
         }
 
-        public void setApp_date02(String app_date02) {
+        public void setApp_date02(Object app_date02) {
             this.app_date02 = app_date02;
         }
 
@@ -352,35 +352,35 @@ public class PatentElementBean {
             this.collection_num = collection_num;
         }
 
-        public String getPriority() {
+        public Object getPriority() {
             return priority;
         }
 
-        public void setPriority(String priority) {
+        public void setPriority(Object priority) {
             this.priority = priority;
         }
 
-        public String getApplicant_name() {
+        public Object getApplicant_name() {
             return applicant_name;
         }
 
-        public void setApplicant_name(String applicant_name) {
+        public void setApplicant_name(Object applicant_name) {
             this.applicant_name = applicant_name;
         }
 
-        public String getProposer_name() {
+        public Object getProposer_name() {
             return proposer_name;
         }
 
-        public void setProposer_name(String proposer_name) {
+        public void setProposer_name(Object proposer_name) {
             this.proposer_name = proposer_name;
         }
 
-        public String getIssue_dir() {
+        public Object getIssue_dir() {
             return issue_dir;
         }
 
-        public void setIssue_dir(String issue_dir) {
+        public void setIssue_dir(Object issue_dir) {
             this.issue_dir = issue_dir;
         }
 
@@ -392,43 +392,43 @@ public class PatentElementBean {
             this.download_num = download_num;
         }
 
-        public String getPrio_ccode() {
+        public Object getPrio_ccode() {
             return prio_ccode;
         }
 
-        public void setPrio_ccode(String prio_ccode) {
+        public void setPrio_ccode(Object prio_ccode) {
             this.prio_ccode = prio_ccode;
         }
 
-        public String getPub_num() {
+        public Object getPub_num() {
             return pub_num;
         }
 
-        public void setPub_num(String pub_num) {
+        public void setPub_num(Object pub_num) {
             this.pub_num = pub_num;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getApp_address() {
+        public Object getApp_address() {
             return app_address;
         }
 
-        public void setApp_address(String app_address) {
+        public void setApp_address(Object app_address) {
             this.app_address = app_address;
         }
 
-        public String getPatent_type() {
+        public Object getPatent_type() {
             return patent_type;
         }
 
-        public void setPatent_type(String patent_type) {
+        public void setPatent_type(Object patent_type) {
             this.patent_type = patent_type;
         }
 
@@ -448,19 +448,19 @@ public class PatentElementBean {
             this.note_num = note_num;
         }
 
-        public String getAgy_org_name() {
+        public Object getAgy_org_name() {
             return agy_org_name;
         }
 
-        public void setAgy_org_name(String agy_org_name) {
+        public void setAgy_org_name(Object agy_org_name) {
             this.agy_org_name = agy_org_name;
         }
 
-        public String getUpdatetime() {
+        public Object getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
@@ -472,35 +472,35 @@ public class PatentElementBean {
             this.class_code = class_code;
         }
 
-        public String getPub_org_code() {
+        public Object getPub_org_code() {
             return pub_org_code;
         }
 
-        public void setPub_org_code(String pub_org_code) {
+        public void setPub_org_code(Object pub_org_code) {
             this.pub_org_code = pub_org_code;
         }
 
-        public String getTitle() {
+        public Object getTitle() {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
-        public String getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(String keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
@@ -512,11 +512,11 @@ public class PatentElementBean {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
@@ -528,11 +528,11 @@ public class PatentElementBean {
             this.inv_name = inv_name;
         }
 
-        public List<String> getMain_classcode() {
+        public Object getMain_classcode() {
             return main_classcode;
         }
 
-        public void setMain_classcode(List<String> main_classcode) {
+        public void setMain_classcode(Object main_classcode) {
             this.main_classcode = main_classcode;
         }
 
@@ -610,49 +610,49 @@ public class PatentElementBean {
                  * claim_num :
                  */
 
-                private String patent_id;
-                private String record_id;
-                private String claim_text;
-                private String id;
-                private String claim_num;
+                private Object patent_id;
+                private Object record_id;
+                private Object claim_text;
+                private Object id;
+                private Object claim_num;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getClaim_text() {
+                public Object getClaim_text() {
                     return claim_text;
                 }
 
-                public void setClaim_text(String claim_text) {
+                public void setClaim_text(Object claim_text) {
                     this.claim_text = claim_text;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getClaim_num() {
+                public Object getClaim_num() {
                     return claim_num;
                 }
 
-                public void setClaim_num(String claim_num) {
+                public void setClaim_num(Object claim_num) {
                     this.claim_num = claim_num;
                 }
             }
@@ -668,67 +668,67 @@ public class PatentElementBean {
                  * tech_field :
                  */
 
-                private String patent_id;
-                private String disclosure;
-                private String draw_desc;
-                private String bg_tech;
-                private String spec_detail;
-                private String id;
-                private String tech_field;
+                private Object patent_id;
+                private Object disclosure;
+                private Object draw_desc;
+                private Object bg_tech;
+                private Object spec_detail;
+                private Object id;
+                private Object tech_field;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getDisclosure() {
+                public Object getDisclosure() {
                     return disclosure;
                 }
 
-                public void setDisclosure(String disclosure) {
+                public void setDisclosure(Object disclosure) {
                     this.disclosure = disclosure;
                 }
 
-                public String getDraw_desc() {
+                public Object getDraw_desc() {
                     return draw_desc;
                 }
 
-                public void setDraw_desc(String draw_desc) {
+                public void setDraw_desc(Object draw_desc) {
                     this.draw_desc = draw_desc;
                 }
 
-                public String getBg_tech() {
+                public Object getBg_tech() {
                     return bg_tech;
                 }
 
-                public void setBg_tech(String bg_tech) {
+                public void setBg_tech(Object bg_tech) {
                     this.bg_tech = bg_tech;
                 }
 
-                public String getSpec_detail() {
+                public Object getSpec_detail() {
                     return spec_detail;
                 }
 
-                public void setSpec_detail(String spec_detail) {
+                public void setSpec_detail(Object spec_detail) {
                     this.spec_detail = spec_detail;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getTech_field() {
+                public Object getTech_field() {
                     return tech_field;
                 }
 
-                public void setTech_field(String tech_field) {
+                public void setTech_field(Object tech_field) {
                     this.tech_field = tech_field;
                 }
             }
@@ -743,58 +743,58 @@ public class PatentElementBean {
                  * proposer_type :
                  */
 
-                private String patent_id;
-                private String proposer_id;
-                private String record_id;
-                private String id;
-                private String proposer_name;
-                private String proposer_type;
+                private Object patent_id;
+                private Object proposer_id;
+                private Object record_id;
+                private Object id;
+                private Object proposer_name;
+                private Object proposer_type;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getProposer_id() {
+                public Object getProposer_id() {
                     return proposer_id;
                 }
 
-                public void setProposer_id(String proposer_id) {
+                public void setProposer_id(Object proposer_id) {
                     this.proposer_id = proposer_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getProposer_name() {
+                public Object getProposer_name() {
                     return proposer_name;
                 }
 
-                public void setProposer_name(String proposer_name) {
+                public void setProposer_name(Object proposer_name) {
                     this.proposer_name = proposer_name;
                 }
 
-                public String getProposer_type() {
+                public Object getProposer_type() {
                     return proposer_type;
                 }
 
-                public void setProposer_type(String proposer_type) {
+                public void setProposer_type(Object proposer_type) {
                     this.proposer_type = proposer_type;
                 }
             }
@@ -814,103 +814,103 @@ public class PatentElementBean {
                  * third_abst_url :
                  */
 
-                private String patent_id;
-                private String record_id;
-                private String is_full;
-                private String third_url;
-                private String orig_num;
-                private String source_db;
-                private String is_oa;
-                private String id;
-                private String source_alburm;
-                private String platform;
-                private String third_abst_url;
+                private Object patent_id;
+                private Object record_id;
+                private Object is_full;
+                private Object third_url;
+                private Object orig_num;
+                private Object source_db;
+                private Object is_oa;
+                private Object id;
+                private Object source_alburm;
+                private Object platform;
+                private Object third_abst_url;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getIs_full() {
+                public Object getIs_full() {
                     return is_full;
                 }
 
-                public void setIs_full(String is_full) {
+                public void setIs_full(Object is_full) {
                     this.is_full = is_full;
                 }
 
-                public String getThird_url() {
+                public Object getThird_url() {
                     return third_url;
                 }
 
-                public void setThird_url(String third_url) {
+                public void setThird_url(Object third_url) {
                     this.third_url = third_url;
                 }
 
-                public String getOrig_num() {
+                public Object getOrig_num() {
                     return orig_num;
                 }
 
-                public void setOrig_num(String orig_num) {
+                public void setOrig_num(Object orig_num) {
                     this.orig_num = orig_num;
                 }
 
-                public String getSource_db() {
+                public Object getSource_db() {
                     return source_db;
                 }
 
-                public void setSource_db(String source_db) {
+                public void setSource_db(Object source_db) {
                     this.source_db = source_db;
                 }
 
-                public String getIs_oa() {
+                public Object getIs_oa() {
                     return is_oa;
                 }
 
-                public void setIs_oa(String is_oa) {
+                public void setIs_oa(Object is_oa) {
                     this.is_oa = is_oa;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getSource_alburm() {
+                public Object getSource_alburm() {
                     return source_alburm;
                 }
 
-                public void setSource_alburm(String source_alburm) {
+                public void setSource_alburm(Object source_alburm) {
                     this.source_alburm = source_alburm;
                 }
 
-                public String getPlatform() {
+                public Object getPlatform() {
                     return platform;
                 }
 
-                public void setPlatform(String platform) {
+                public void setPlatform(Object platform) {
                     this.platform = platform;
                 }
 
-                public String getThird_abst_url() {
+                public Object getThird_abst_url() {
                     return third_abst_url;
                 }
 
-                public void setThird_abst_url(String third_abst_url) {
+                public void setThird_abst_url(Object third_abst_url) {
                     this.third_abst_url = third_abst_url;
                 }
             }
@@ -926,67 +926,67 @@ public class PatentElementBean {
                  * id : 16111430-1070-4bb7-91c5-d32d2d9028c5
                  */
 
-                private String record_id;
-                private String cited_seq;
-                private String patent_id;
-                private String cited_orig_id;
-                private String cited_num_type;
-                private String cited_num;
-                private String id;
+                private Object record_id;
+                private Object cited_seq;
+                private Object patent_id;
+                private Object cited_orig_id;
+                private Object cited_num_type;
+                private Object cited_num;
+                private Object id;
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getCited_seq() {
+                public Object getCited_seq() {
                     return cited_seq;
                 }
 
-                public void setCited_seq(String cited_seq) {
+                public void setCited_seq(Object cited_seq) {
                     this.cited_seq = cited_seq;
                 }
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getCited_orig_id() {
+                public Object getCited_orig_id() {
                     return cited_orig_id;
                 }
 
-                public void setCited_orig_id(String cited_orig_id) {
+                public void setCited_orig_id(Object cited_orig_id) {
                     this.cited_orig_id = cited_orig_id;
                 }
 
-                public String getCited_num_type() {
+                public Object getCited_num_type() {
                     return cited_num_type;
                 }
 
-                public void setCited_num_type(String cited_num_type) {
+                public void setCited_num_type(Object cited_num_type) {
                     this.cited_num_type = cited_num_type;
                 }
 
-                public String getCited_num() {
+                public Object getCited_num() {
                     return cited_num;
                 }
 
-                public void setCited_num(String cited_num) {
+                public void setCited_num(Object cited_num) {
                     this.cited_num = cited_num;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
             }
@@ -1003,76 +1003,76 @@ public class PatentElementBean {
                  * inv_name : 吉泽政洋%汤本一磨%星野和义
                  */
 
-                private String record_id;
-                private String proposer_id;
-                private String patent_id;
-                private String inv_ccode;
-                private String inv_acode;
-                private String inv_address;
-                private String id;
-                private String inv_name;
+                private Object record_id;
+                private Object proposer_id;
+                private Object patent_id;
+                private Object inv_ccode;
+                private Object inv_acode;
+                private Object inv_address;
+                private Object id;
+                private Object inv_name;
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getProposer_id() {
+                public Object getProposer_id() {
                     return proposer_id;
                 }
 
-                public void setProposer_id(String proposer_id) {
+                public void setProposer_id(Object proposer_id) {
                     this.proposer_id = proposer_id;
                 }
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getInv_ccode() {
+                public Object getInv_ccode() {
                     return inv_ccode;
                 }
 
-                public void setInv_ccode(String inv_ccode) {
+                public void setInv_ccode(Object inv_ccode) {
                     this.inv_ccode = inv_ccode;
                 }
 
-                public String getInv_acode() {
+                public Object getInv_acode() {
                     return inv_acode;
                 }
 
-                public void setInv_acode(String inv_acode) {
+                public void setInv_acode(Object inv_acode) {
                     this.inv_acode = inv_acode;
                 }
 
-                public String getInv_address() {
+                public Object getInv_address() {
                     return inv_address;
                 }
 
-                public void setInv_address(String inv_address) {
+                public void setInv_address(Object inv_address) {
                     this.inv_address = inv_address;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getInv_name() {
+                public Object getInv_name() {
                     return inv_name;
                 }
 
-                public void setInv_name(String inv_name) {
+                public void setInv_name(Object inv_name) {
                     this.inv_name = inv_name;
                 }
             }
@@ -1086,49 +1086,49 @@ public class PatentElementBean {
                  * id : ebf0fb26-a54b-4623-8549-757ac74793b5
                  */
 
-                private String cited_npl_seq;
-                private String patent_id;
-                private String record_id;
-                private String cited_npl;
-                private String id;
+                private Object cited_npl_seq;
+                private Object patent_id;
+                private Object record_id;
+                private Object cited_npl;
+                private Object id;
 
-                public String getCited_npl_seq() {
+                public Object getCited_npl_seq() {
                     return cited_npl_seq;
                 }
 
-                public void setCited_npl_seq(String cited_npl_seq) {
+                public void setCited_npl_seq(Object cited_npl_seq) {
                     this.cited_npl_seq = cited_npl_seq;
                 }
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getCited_npl() {
+                public Object getCited_npl() {
                     return cited_npl;
                 }
 
-                public void setCited_npl(String cited_npl) {
+                public void setCited_npl(Object cited_npl) {
                     this.cited_npl = cited_npl;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
             }

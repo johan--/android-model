@@ -273,53 +273,53 @@ public class DocDetailActivity extends SimpleActivity {
 
 
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle());
-            tvContent.setText(bean.getData().get(0).getSummary());
-            tvProgressNum.setText(bean.getData().get(0).getYear_num());
-            tvProvince.setText(bean.getData().get(0).getProvince());
-            tvChinaClassNum.setText(bean.getData().get(0).getClass_code());
-            tvFruitClass.setText(bean.getData().get(0).getResult_type());
-            tvPublishData.setText(bean.getData().get(0).getRe_pubdate());
-            tvKeyWord.setText(SystemUtil.getStringFromList(bean.getData().get(0).getKeywords()));
-            setText(bean.getData().get(0).getIdentify_dept(), tvIdentityDapart, llIdentityDapart);
-            setText(bean.getData().get(0).getIdentify_date(), tvIdentityData, llIdentityData);
-            setText(bean.getData().get(0).getDeclare_date(), tvRecommendApartment, llRecommendApartment);
-            setText(bean.getData().get(0).getReg_code(), tvRegisterNum, llRegisterNum);
-            setText(bean.getData().get(0).getWork_date(), tvTimeStartEnd, llTimeStartEnd);
-            setText(bean.getData().get(0).getIssue_unit(), tvCompleteCompany, llCompleteCompany);
-            setText(bean.getData().get(0).getContact_per(), tvCompleter, llCompleter);
-            setText(bean.getData().get(0).getP_app_id(), tvPatentAppNum, llPatentAppNum);
-            setText(bean.getData().get(0).getPatent_cnt(), tvPatentAppSum, llPatentAppSum);
-            setText(bean.getData().get(0).getGrant_id(), tvPatentPeimitNum, llPatentPeimitNum);
-            setText(bean.getData().get(0).getIndustry_name(), tvIndustryClass, llIndustryClass);
-            setText(bean.getData().get(0).getIndustry_code(), tvIndustryClassNum, llIndustryClassNum);
-            setText(bean.getData().get(0).getTransfer_cont(), tvTransferCont, llTransferCont);
-            setText(bean.getData().get(0).getTransfer_mode(), tvTransferMode, llItransferMode);
-            setText(bean.getData().get(0).getTransfer_cond(), tvTransferCond, llTransferCond);
-            setText(bean.getData().get(0).getTransfer_range(), tvTransferRange, llTransferRange);
-            setText(bean.getData().get(0).getTransfer_fee(), tvItransferFee, llTransferFee);
-            setText(bean.getData().get(0).getTransfer_desc(), tvTransferDesc, llTransferDesc);
-            setText(bean.getData().get(0).getInvest_desc(), tvInvestDesc, llInvestDesc);
-            setText(bean.getData().get(0).getInvest_amt(), tvInvestAmt, llInvestAmt);
-            setText(bean.getData().get(0).getInvest_note(), tvInvestNote, llInvestNote);
-            setText(bean.getData().get(0).getSpread_desc(), tvPromotionInfo, llPromotionInfo);
-            setText(bean.getData().get(0).getSpread_range(), tvPromotionRange, llPromotionRange);
-            setText(bean.getData().get(0).getSpread_track(), tvPromotionTail, llPromotionTail);
-            setText(bean.getData().get(0).getSpread_mode(), tvPromotionMethod, llPromotionMethod);
-            setText(bean.getData().get(0).getSpread(), tvPromotionForecast, llPromotionForecast);
-            setText(bean.getData().get(0).getContact_unit(), tvUnitName, llUnitName);
-            setText(bean.getData().get(0).getAddress(), tvUnitSity, llUnitSity);
-            setText(bean.getData().get(0).getContact_per(), tvPersonName, llPersonName);
-            setText(bean.getData().get(0).getPostcode(), tvSityCode, llSityCode);
+            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvContent.setText(bean.getData().get(0).getSummary().toString());
+            tvProgressNum.setText(bean.getData().get(0).getYear_num().toString());
+            tvProvince.setText(bean.getData().get(0).getProvince().toString());
+            tvChinaClassNum.setText(bean.getData().get(0).getClass_code().toString());
+            tvFruitClass.setText(bean.getData().get(0).getResult_type().toString());
+            tvPublishData.setText(bean.getData().get(0).getRe_pubdate().toString());
+            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
+            setText(bean.getData().get(0).getIdentify_dept().toString(), tvIdentityDapart, llIdentityDapart);
+            setText(bean.getData().get(0).getIdentify_date().toString(), tvIdentityData, llIdentityData);
+            setText(bean.getData().get(0).getDeclare_date().toString(), tvRecommendApartment, llRecommendApartment);
+            setText(bean.getData().get(0).getReg_code().toString(), tvRegisterNum, llRegisterNum);
+            setText(bean.getData().get(0).getWork_date().toString(), tvTimeStartEnd, llTimeStartEnd);
+            setText(bean.getData().get(0).getIssue_unit().toString(), tvCompleteCompany, llCompleteCompany);
+            setText(bean.getData().get(0).getContact_per().toString(), tvCompleter, llCompleter);
+            setText(bean.getData().get(0).getP_app_id().toString(), tvPatentAppNum, llPatentAppNum);
+            setText(bean.getData().get(0).getPatent_cnt().toString(), tvPatentAppSum, llPatentAppSum);
+            setText(bean.getData().get(0).getGrant_id().toString(), tvPatentPeimitNum, llPatentPeimitNum);
+            setText(bean.getData().get(0).getIndustry_name().toString(), tvIndustryClass, llIndustryClass);
+            setText(bean.getData().get(0).getIndustry_code().toString(), tvIndustryClassNum, llIndustryClassNum);
+            setText(bean.getData().get(0).getTransfer_cont().toString(), tvTransferCont, llTransferCont);
+            setText(bean.getData().get(0).getTransfer_mode().toString(), tvTransferMode, llItransferMode);
+            setText(bean.getData().get(0).getTransfer_cond().toString(), tvTransferCond, llTransferCond);
+            setText(bean.getData().get(0).getTransfer_range().toString(), tvTransferRange, llTransferRange);
+            setText(bean.getData().get(0).getTransfer_fee().toString(), tvItransferFee, llTransferFee);
+            setText(bean.getData().get(0).getTransfer_desc().toString(), tvTransferDesc, llTransferDesc);
+            setText(bean.getData().get(0).getInvest_desc().toString(), tvInvestDesc, llInvestDesc);
+            setText(bean.getData().get(0).getInvest_amt().toString(), tvInvestAmt, llInvestAmt);
+            setText(bean.getData().get(0).getInvest_note().toString(), tvInvestNote, llInvestNote);
+            setText(bean.getData().get(0).getSpread_desc().toString(), tvPromotionInfo, llPromotionInfo);
+            setText(bean.getData().get(0).getSpread_range().toString(), tvPromotionRange, llPromotionRange);
+            setText(bean.getData().get(0).getSpread_track().toString(), tvPromotionTail, llPromotionTail);
+            setText(bean.getData().get(0).getSpread_mode().toString(), tvPromotionMethod, llPromotionMethod);
+            setText(bean.getData().get(0).getSpread().toString(), tvPromotionForecast, llPromotionForecast);
+            setText(bean.getData().get(0).getContact_unit().toString(), tvUnitName, llUnitName);
+            setText(bean.getData().get(0).getAddress().toString(), tvUnitSity, llUnitSity);
+            setText(bean.getData().get(0).getContact_per().toString(), tvPersonName, llPersonName);
+            setText(bean.getData().get(0).getPostcode().toString(), tvSityCode, llSityCode);
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
             language = "";
-            resourceId = bean.getData().get(0).getResult_id();
-            resourceDb = bean.getData().get(0).getSource_db();
-            resourceTitle = bean.getData().get(0).getTitle();
-            classType = bean.getData().get(0).getClass_type();
+            resourceId = bean.getData().get(0).getResult_id().toString();
+            resourceDb = bean.getData().get(0).getSource_db().toString();
+            resourceTitle = bean.getData().get(0).getTitle().toString();
+            classType = bean.getData().get(0).getClass_type().toString();
         }
     }
 
@@ -346,23 +346,23 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvPublishTime = (TextView) viewStub.findViewById(R.id.tv_publish_time);
         TextView tvContentClass = (TextView) viewStub.findViewById(R.id.tv_content_class);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle());
-            tvContent.setText(bean.getData().get(0).getSummary());
-            tvBankName.setText(bean.getData().get(0).getDb_name());
-            tvArticleId.setText(bean.getData().get(0).getPublish_num());
-            tvPublishUnis.setText(bean.getData().get(0).getIssue_dept02());
-            tvTimeLiness.setText(bean.getData().get(0).getIs_valid());
-            tvPublishTime.setText(bean.getData().get(0).getIssue_date02());
-            tvContentClass.setText(bean.getData().get(0).getClass_name02());
+            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvContent.setText(bean.getData().get(0).getSummary().toString());
+            tvBankName.setText(bean.getData().get(0).getDb_name().toString());
+            tvArticleId.setText(bean.getData().get(0).getPublish_num().toString());
+            tvPublishUnis.setText(bean.getData().get(0).getIssue_dept02().toString());
+            tvTimeLiness.setText(bean.getData().get(0).getIs_valid().toString());
+            tvPublishTime.setText(bean.getData().get(0).getIssue_date02().toString());
+            tvContentClass.setText(bean.getData().get(0).getClass_name02().toString());
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
             language = "";
-            resourceId = bean.getData().get(0).getLegis_id();
-            resourceDb = bean.getData().get(0).getSource_db();
-            resourceTitle = bean.getData().get(0).getTitle();
-            classType = bean.getData().get(0).getClass_type();
+            resourceId = bean.getData().get(0).getLegis_id().toString();
+            resourceDb = bean.getData().get(0).getSource_db().toString();
+            resourceTitle = bean.getData().get(0).getTitle().toString();
+            classType = bean.getData().get(0).getClass_type().toString();
         }
 
     }
@@ -386,28 +386,28 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvCountryNum = (TextView) viewStub.findViewById(R.id.tv_country_num);
         TextView tvCountryName = (TextView) viewStub.findViewById(R.id.tv_country_name);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle());
-            tvContent.setText(bean.getData().get(0).getSummary());
-            tvStandardId.setText(bean.getData().get(0).getStand_num());
-            tvunit.setText(bean.getData().get(0).getIssue_unit());
-            tvTime.setText(bean.getData().get(0).getIssue_date());
-            tvStatue.setText(bean.getData().get(0).getStand_status());
-            tvMandatory.setText(bean.getData().get(0).getIs_force());
-            tvDoTime.setText(bean.getData().get(0).getForce_date());
-            tvPageNum.setText(bean.getData().get(0).getPage_cnt());
-            tvChinaClassNum.setText(bean.getData().get(0).getCcs_code_c());
-            tvStandardClassNum.setText(bean.getData().get(0).getCcs_code());
-            tvCountryNum.setText(bean.getData().get(0).getIcs_code());
-            tvCountryName.setText(bean.getData().get(0).getCountry());
+            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvContent.setText(bean.getData().get(0).getSummary().toString());
+            tvStandardId.setText(bean.getData().get(0).getStand_num().toString());
+            tvunit.setText(bean.getData().get(0).getIssue_unit().toString());
+            tvTime.setText(bean.getData().get(0).getIssue_date().toString());
+            tvStatue.setText(bean.getData().get(0).getStand_status().toString());
+            tvMandatory.setText(bean.getData().get(0).getIs_force().toString());
+            tvDoTime.setText(bean.getData().get(0).getForce_date().toString());
+            tvPageNum.setText(bean.getData().get(0).getPage_cnt().toString());
+            tvChinaClassNum.setText(bean.getData().get(0).getCcs_code_c().toString());
+            tvStandardClassNum.setText(bean.getData().get(0).getCcs_code().toString());
+            tvCountryNum.setText(bean.getData().get(0).getIcs_code().toString());
+            tvCountryName.setText(bean.getData().get(0).getCountry().toString());
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
-            language = bean.getData().get(0).getLanguage();
-            resourceId = bean.getData().get(0).getStand_id();
-            resourceDb = bean.getData().get(0).getSource_db();
-            resourceTitle = bean.getData().get(0).getTitle();
-            classType = bean.getData().get(0).getClass_type();
+            language = bean.getData().get(0).getLanguage().toString();
+            resourceId = bean.getData().get(0).getStand_id().toString();
+            resourceDb = bean.getData().get(0).getSource_db().toString();
+            resourceTitle = bean.getData().get(0).getTitle().toString();
+            classType = bean.getData().get(0).getClass_type().toString();
         }
 
 
@@ -426,23 +426,23 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvMeetingSity = (TextView) viewStub.findViewById(R.id.tv_meeting_sity);
         TextView tvPublishMeeting = (TextView) viewStub.findViewById(R.id.tv_publish_meeting);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle());
-            tvContent.setText(bean.getData().get(0).getSummary());
-            tvKeyWord.setText(SystemUtil.getStringFromList(bean.getData().get(0).getKeywords()));
-            tvAuthor.setText(bean.getData().get(0).getAuthors_name());
-            tvMeetingName.setText(bean.getData().get(0).getConf_name02());
-            tvMeetingSity.setText(bean.getData().get(0).getConf_place());
-            tvPublishMeeting.setText(bean.getData().get(0).getHostunit_name02());
+            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvContent.setText(bean.getData().get(0).getSummary().toString());
+            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
+            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString()));
+            tvMeetingName.setText(bean.getData().get(0).getConf_name02().toString());
+            tvMeetingSity.setText(bean.getData().get(0).getConf_place().toString());
+            tvPublishMeeting.setText(bean.getData().get(0).getHostunit_name02().toString());
 
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
-            language = bean.getData().get(0).getLanguage();
-            resourceId = bean.getData().get(0).getArticle_id();
-            resourceDb = bean.getData().get(0).getSource_db();
-            resourceTitle = bean.getData().get(0).getTitle();
-            classType = bean.getData().get(0).getClass_type();
+            language = bean.getData().get(0).getLanguage().toString();
+            resourceId = bean.getData().get(0).getArticle_id().toString();
+            resourceDb = bean.getData().get(0).getSource_db().toString();
+            resourceTitle = bean.getData().get(0).getTitle().toString();
+            classType = bean.getData().get(0).getClass_type().toString();
 
         }
 
@@ -451,10 +451,10 @@ public class DocDetailActivity extends SimpleActivity {
             for (int j = 0; j < bean.getRelatePapers().size(); j++) {
                 RelatePapers papers = new RelatePapers();
                 if (bean.getRelatePapers().get(j).getClass_type().equals("perio_artical")) {
-                    papers.setId(bean.getRelatePapers().get(j).getArticle_id());
+                    papers.setId(bean.getRelatePapers().get(j).getArticle_id().toString());
                 }
-                papers.setType(bean.getRelatePapers().get(j).getClass_type());
-                papers.setTitle(bean.getRelatePapers().get(j).getTitle());
+                papers.setType(bean.getRelatePapers().get(j).getClass_type().toString());
+                papers.setTitle(bean.getRelatePapers().get(j).getTitle().toString());
                 list.add(papers);
             }
             initSimilarPage(list);
@@ -476,14 +476,14 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvApplicant = (TextView) viewStub.findViewById(R.id.tv_applicant);
         TextView tvApplicantSite = (TextView) viewStub.findViewById(R.id.tv_applicant_site);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle());
-            tvContent.setText(bean.getData().get(0).getSummary());
-            tvPatentClass.setText(bean.getData().get(0).getPatent_type());
-            tvPatentId.setText(bean.getData().get(0).getPatent_id());
-            tvDate.setText(bean.getData().get(0).getApp_date02());
-            tvPublishdate.setText(bean.getData().get(0).getPub_date());
+            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvContent.setText(bean.getData().get(0).getSummary().toString());
+            tvPatentClass.setText(bean.getData().get(0).getPatent_type().toString());
+            tvPatentId.setText(bean.getData().get(0).getPatent_id().toString());
+            tvDate.setText(bean.getData().get(0).getApp_date02().toString());
+            tvPublishdate.setText(bean.getData().get(0).getPub_date().toString());
             tvApplicant.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getInv_name().toString()));
-            tvApplicantSite.setText(bean.getData().get(0).getApp_address());
+            tvApplicantSite.setText(bean.getData().get(0).getApp_address().toString());
 
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
@@ -491,10 +491,10 @@ public class DocDetailActivity extends SimpleActivity {
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getPub_num());
             //有问题
             language = "";
-            resourceId = bean.getData().get(0).getPatent_id();
-            resourceDb = bean.getData().get(0).getSource_db();
-            resourceTitle = bean.getData().get(0).getTitle();
-            classType = bean.getData().get(0).getClass_type();
+            resourceId = bean.getData().get(0).getPatent_id().toString();
+            resourceDb = bean.getData().get(0).getSource_db().toString();
+            resourceTitle = bean.getData().get(0).getTitle().toString();
+            classType = bean.getData().get(0).getClass_type().toString();
 //            ArrayList<RelatePapers> list = new ArrayList<>();
 //            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
 //                RelatePapers papers = new RelatePapers();
@@ -787,7 +787,7 @@ public class DocDetailActivity extends SimpleActivity {
 
     }
 
-    private void down(ReadResponse readResponse) {
+    private void down(final ReadResponse readResponse) {
 
         materialDialog = new MaterialDialog.Builder(DocDetailActivity.this)
                 .title("下载中")
@@ -803,49 +803,64 @@ public class DocDetailActivity extends SimpleActivity {
                 .showListener(new DialogInterface.OnShowListener() {
                     @Override
                     public void onShow(DialogInterface dialog) {
-//                        final MaterialDialog materialDialog = (MaterialDialog) dialog;
-//                        materialDialog.setProgress((int) (value.getProgress() / value.getTotal()));
                     }
                 }).show();
 
-        String fileName = readResponse.getResourceFile().getFileName();
-        ByteString ByteString = readResponse.getResourceFile().getFileByte();
-        InputStream is = ByteString.newInput();
-        FileOutputStream fileOutputStream = null;
-        File file = new File(FileUtil.getFolioPDFEncryFilePath(fileName.replace(".pdf", "").replace(".epub", "")));
-        try {
-            long downloadLength = 0;
-            fileOutputStream = new FileOutputStream(file, true);
-            byte[] buffer = new byte[2048];//缓冲数组2kB
-            int len;
-            while ((len = is.read(buffer)) != -1) {
-                fileOutputStream.write(buffer, 0, len);
-                downloadLength += len;
-            }
-            fileOutputStream.flush();
-
-        } catch (Exception e1) {
-        } finally {
-            //关闭IO流
-            if (is != null) {
+        Single.create(new SingleOnSubscribe<String>() {
+            @Override
+            public void subscribe(SingleEmitter<String> e) throws Exception {
+                String fileName = readResponse.getResourceFile().getFileName();
+                ByteString ByteString = readResponse.getResourceFile().getFileByte();
+                InputStream is = ByteString.newInput();
+                FileOutputStream fileOutputStream = null;
+                File file = new File(FileUtil.getFolioPDFEncryFilePath(fileName.replace(".pdf", "").replace(".epub", "")));
                 try {
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    long downloadLength = 0;
+                    fileOutputStream = new FileOutputStream(file, true);
+                    byte[] buffer = new byte[2048];//缓冲数组2kB
+                    int len;
+                    while ((len = is.read(buffer)) != -1) {
+                        fileOutputStream.write(buffer, 0, len);
+                        downloadLength += len;
+                    }
+                    fileOutputStream.flush();
+                    e.onSuccess(file.getAbsolutePath());
+                } catch (Exception e1) {
+                } finally {
+                    //关闭IO流
+                    if (is != null) {
+                        try {
+                            is.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+
                 }
+
+
             }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<String>() {
+            @Override
+            public void onSuccess(String readResponse) {
+                Intent intent = new Intent(DocDetailActivity.this, ReadActivity.class);
+                intent.putExtra("url", readResponse);
+                startActivity(intent);
             }
 
-        }
-        Intent intent = new Intent(DocDetailActivity.this, ReadActivity.class);
-        intent.putExtra("url", file.getAbsolutePath());
-        startActivity(intent);
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
+
 
     }
 
