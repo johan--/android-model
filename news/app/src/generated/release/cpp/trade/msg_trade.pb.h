@@ -38,6 +38,7 @@ void protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto();
 void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto();
 void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto();
 
+class AccountId;
 class MyOrdersRequest;
 class MyOrdersResponse;
 class MyOrdersResponse_Result;
@@ -120,9 +121,18 @@ class UnifiedorderRequest : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_user_id();
   void set_allocated_user_id(::std::string* user_id);
 
-  // optional string safe_transaction_string = 2;
+  // optional .trade.AccountId transfer_out = 2;
+  bool has_transfer_out() const;
+  void clear_transfer_out();
+  static const int kTransferOutFieldNumber = 2;
+  const ::trade::AccountId& transfer_out() const;
+  ::trade::AccountId* mutable_transfer_out();
+  ::trade::AccountId* release_transfer_out();
+  void set_allocated_transfer_out(::trade::AccountId* transfer_out);
+
+  // optional string safe_transaction_string = 3;
   void clear_safe_transaction_string();
-  static const int kSafeTransactionStringFieldNumber = 2;
+  static const int kSafeTransactionStringFieldNumber = 3;
   const ::std::string& safe_transaction_string() const;
   void set_safe_transaction_string(const ::std::string& value);
   void set_safe_transaction_string(const char* value);
@@ -137,6 +147,7 @@ class UnifiedorderRequest : public ::google::protobuf::Message /* @@protoc_inser
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr user_id_;
   ::google::protobuf::internal::ArenaStringPtr safe_transaction_string_;
+  ::trade::AccountId* transfer_out_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
   friend void  protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl();
@@ -146,6 +157,109 @@ class UnifiedorderRequest : public ::google::protobuf::Message /* @@protoc_inser
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<UnifiedorderRequest> UnifiedorderRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class AccountId : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.AccountId) */ {
+ public:
+  AccountId();
+  virtual ~AccountId();
+
+  AccountId(const AccountId& from);
+
+  inline AccountId& operator=(const AccountId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AccountId& default_instance();
+
+  static const AccountId* internal_default_instance();
+
+  void Swap(AccountId* other);
+
+  // implements Message ----------------------------------------------
+
+  inline AccountId* New() const { return New(NULL); }
+
+  AccountId* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AccountId& from);
+  void MergeFrom(const AccountId& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(AccountId* other);
+  void UnsafeMergeFrom(const AccountId& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string Type = 1;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  const ::std::string& type() const;
+  void set_type(const ::std::string& value);
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  ::std::string* mutable_type();
+  ::std::string* release_type();
+  void set_allocated_type(::std::string* type);
+
+  // optional string Key = 2;
+  void clear_key();
+  static const int kKeyFieldNumber = 2;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // @@protoc_insertion_point(class_scope:trade.AccountId)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr type_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void  protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl();
+  friend void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto();
+  friend void protobuf_ShutdownFile_trade_2fmsg_5ftrade_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<AccountId> AccountId_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -562,6 +676,17 @@ class MyOrdersResponse_Result : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_pay_way();
   void set_allocated_pay_way(::std::string* pay_way);
 
+  // optional string productDetail = 9;
+  void clear_productdetail();
+  static const int kProductDetailFieldNumber = 9;
+  const ::std::string& productdetail() const;
+  void set_productdetail(const ::std::string& value);
+  void set_productdetail(const char* value);
+  void set_productdetail(const char* value, size_t size);
+  ::std::string* mutable_productdetail();
+  ::std::string* release_productdetail();
+  void set_allocated_productdetail(::std::string* productdetail);
+
   // @@protoc_insertion_point(class_scope:trade.MyOrdersResponse.Result)
  private:
 
@@ -572,6 +697,7 @@ class MyOrdersResponse_Result : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::internal::ArenaStringPtr order_product_type_;
   ::google::protobuf::internal::ArenaStringPtr order_title_;
   ::google::protobuf::internal::ArenaStringPtr pay_way_;
+  ::google::protobuf::internal::ArenaStringPtr productdetail_;
   ::google::protobuf::int32 order_state_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
@@ -753,7 +879,46 @@ inline void UnifiedorderRequest::set_allocated_user_id(::std::string* user_id) {
   // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderRequest.user_id)
 }
 
-// optional string safe_transaction_string = 2;
+// optional .trade.AccountId transfer_out = 2;
+inline bool UnifiedorderRequest::has_transfer_out() const {
+  return this != internal_default_instance() && transfer_out_ != NULL;
+}
+inline void UnifiedorderRequest::clear_transfer_out() {
+  if (GetArenaNoVirtual() == NULL && transfer_out_ != NULL) delete transfer_out_;
+  transfer_out_ = NULL;
+}
+inline const ::trade::AccountId& UnifiedorderRequest::transfer_out() const {
+  // @@protoc_insertion_point(field_get:trade.UnifiedorderRequest.transfer_out)
+  return transfer_out_ != NULL ? *transfer_out_
+                         : *::trade::AccountId::internal_default_instance();
+}
+inline ::trade::AccountId* UnifiedorderRequest::mutable_transfer_out() {
+  
+  if (transfer_out_ == NULL) {
+    transfer_out_ = new ::trade::AccountId;
+  }
+  // @@protoc_insertion_point(field_mutable:trade.UnifiedorderRequest.transfer_out)
+  return transfer_out_;
+}
+inline ::trade::AccountId* UnifiedorderRequest::release_transfer_out() {
+  // @@protoc_insertion_point(field_release:trade.UnifiedorderRequest.transfer_out)
+  
+  ::trade::AccountId* temp = transfer_out_;
+  transfer_out_ = NULL;
+  return temp;
+}
+inline void UnifiedorderRequest::set_allocated_transfer_out(::trade::AccountId* transfer_out) {
+  delete transfer_out_;
+  transfer_out_ = transfer_out;
+  if (transfer_out) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:trade.UnifiedorderRequest.transfer_out)
+}
+
+// optional string safe_transaction_string = 3;
 inline void UnifiedorderRequest::clear_safe_transaction_string() {
   safe_transaction_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -799,6 +964,101 @@ inline void UnifiedorderRequest::set_allocated_safe_transaction_string(::std::st
 
 inline const UnifiedorderRequest* UnifiedorderRequest::internal_default_instance() {
   return &UnifiedorderRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// AccountId
+
+// optional string Type = 1;
+inline void AccountId::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AccountId::type() const {
+  // @@protoc_insertion_point(field_get:trade.AccountId.Type)
+  return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AccountId::set_type(const ::std::string& value) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.AccountId.Type)
+}
+inline void AccountId::set_type(const char* value) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.AccountId.Type)
+}
+inline void AccountId::set_type(const char* value, size_t size) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.AccountId.Type)
+}
+inline ::std::string* AccountId::mutable_type() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.AccountId.Type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AccountId::release_type() {
+  // @@protoc_insertion_point(field_release:trade.AccountId.Type)
+  
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AccountId::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    
+  } else {
+    
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:trade.AccountId.Type)
+}
+
+// optional string Key = 2;
+inline void AccountId::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AccountId::key() const {
+  // @@protoc_insertion_point(field_get:trade.AccountId.Key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AccountId::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.AccountId.Key)
+}
+inline void AccountId::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.AccountId.Key)
+}
+inline void AccountId::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.AccountId.Key)
+}
+inline ::std::string* AccountId::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.AccountId.Key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AccountId::release_key() {
+  // @@protoc_insertion_point(field_release:trade.AccountId.Key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AccountId::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:trade.AccountId.Key)
+}
+
+inline const AccountId* AccountId::internal_default_instance() {
+  return &AccountId_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -1515,6 +1775,50 @@ inline void MyOrdersResponse_Result::set_allocated_pay_way(::std::string* pay_wa
   // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.pay_way)
 }
 
+// optional string productDetail = 9;
+inline void MyOrdersResponse_Result::clear_productdetail() {
+  productdetail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::productdetail() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.productDetail)
+  return productdetail_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_productdetail(const ::std::string& value) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.productDetail)
+}
+inline void MyOrdersResponse_Result::set_productdetail(const char* value) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.productDetail)
+}
+inline void MyOrdersResponse_Result::set_productdetail(const char* value, size_t size) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.productDetail)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_productdetail() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.productDetail)
+  return productdetail_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_productdetail() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.productDetail)
+  
+  return productdetail_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_productdetail(::std::string* productdetail) {
+  if (productdetail != NULL) {
+    
+  } else {
+    
+  }
+  productdetail_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), productdetail);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.productDetail)
+}
+
 inline const MyOrdersResponse_Result* MyOrdersResponse_Result::internal_default_instance() {
   return &MyOrdersResponse_Result_default_instance_.get();
 }
@@ -1623,6 +1927,8 @@ inline const MyOrdersResponse* MyOrdersResponse::internal_default_instance() {
   return &MyOrdersResponse_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

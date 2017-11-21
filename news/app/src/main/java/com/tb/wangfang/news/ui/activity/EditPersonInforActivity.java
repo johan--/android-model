@@ -67,6 +67,8 @@ import me.iwf.photopicker.PhotoPicker;
 
 import static com.tb.wangfang.news.ui.activity.EditNackNameActivity.TYPE_ID_CARD;
 import static com.tb.wangfang.news.ui.activity.EditNackNameActivity.TYPE_NAME;
+import static com.tb.wangfang.news.ui.activity.EditNackNameActivity.TYPE_SCHOOL;
+import static com.tb.wangfang.news.ui.activity.EditNackNameActivity.TYPE_UNIT;
 
 public class EditPersonInforActivity extends SimpleActivity {
     @Inject
@@ -435,9 +437,9 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etJobTitle.setText("");
             }
         }
-        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_UNIT) {
+        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_UNIT) {
             if (data != null) {
-                String unit = data.getStringExtra("item");
+                String unit = data.getStringExtra("nickname");
                 etUnit.setText(unit);
             } else {
                 etUnit.setHint("未填写");
@@ -453,9 +455,9 @@ public class EditPersonInforActivity extends SimpleActivity {
                 etEducation.setText("");
             }
         }
-        if (resultCode == RESULT_OK && requestCode == PersonEditListActivity.TYPE_GRADUATE_SCHOOL) {
+        if (resultCode == RESULT_OK && requestCode == EditNackNameActivity.TYPE_SCHOOL) {
             if (data != null) {
-                String unit = data.getStringExtra("item");
+                String unit = data.getStringExtra("nickname");
                 etGraduateSchool.setText(unit);
             } else {
                 etGraduateSchool.setHint("未填写");
@@ -590,9 +592,12 @@ public class EditPersonInforActivity extends SimpleActivity {
                 startActivityForResult(intent4, PersonEditListActivity.TYPE_JOB_TITLE);
                 break;
             case R.id.rl_unit:
-                Intent intent5 = new Intent(this, PersonEditListActivity.class);
-                intent5.putExtra("type", PersonEditListActivity.TYPE_UNIT);
-                startActivityForResult(intent5, PersonEditListActivity.TYPE_UNIT);
+                Intent intent5 = new Intent(this, EditNackNameActivity.class);
+                intent5.putExtra("type", TYPE_UNIT);
+                intent5.putExtra("content", etName.getText().toString().trim());
+                startActivityForResult(intent5, TYPE_UNIT);
+
+
                 break;
             case R.id.rl_education:
                 Intent intent6 = new Intent(this, PersonEditListActivity.class);
@@ -600,9 +605,12 @@ public class EditPersonInforActivity extends SimpleActivity {
                 startActivityForResult(intent6, PersonEditListActivity.TYPE_EDUCATION);
                 break;
             case R.id.rl_graduate_school:
-                Intent intent7 = new Intent(this, PersonEditListActivity.class);
-                intent7.putExtra("type", PersonEditListActivity.TYPE_GRADUATE_SCHOOL);
-                startActivityForResult(intent7, PersonEditListActivity.TYPE_GRADUATE_SCHOOL);
+
+                Intent intent7 = new Intent(this, EditNackNameActivity.class);
+                intent7.putExtra("type", TYPE_SCHOOL);
+                intent7.putExtra("content", etName.getText().toString().trim());
+                startActivityForResult(intent7, TYPE_SCHOOL);
+
                 break;
             case R.id.rl_reward:
                 Intent intent9 = new Intent(this, EditRewardActivity.class);

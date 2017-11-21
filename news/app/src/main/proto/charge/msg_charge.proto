@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package charge;
+option java_multiple_files = true;
+option java_package = "com.wanfang.charge";
+option objc_class_prefix = "WFPR";
+
+message ChargeRequest{
+    string user_id = 1;// 必须,不可为空
+    string login_token = 2;// 认证系统token
+    TransferIn transfer_in = 3;// 收入账户
+    string pay_type = 4;// 必须,不可为空,充值方式,Weixin,Alipay,
+    string turnover = 5;// 充值金额
+    string product_detail = 6;// 商品信息
+    string product_title = 7;// 商品标题
+}
+
+// 交易收入账户
+message TransferIn {
+    string Type = 1;// 如果是个人账户请传"Person"
+    string Key = 2;// 可为空,如果传参请传user_id
+}
+
+message ChargeResponse {
+    string app_id = 1;// 支付平台的应用app_id
+    string partner_id = 2;// 商户号
+    string prepay_id = 3;// 商户订单id(预支付交易会话ID)
+    string package = 4;// 扩展字段
+    string noncestr = 5;// 随机字符串
+    string time_stamp = 6;// 时间戳
+    string sign = 7;// 签名
+    grpcCommon.GrpcError error = 8;
+}

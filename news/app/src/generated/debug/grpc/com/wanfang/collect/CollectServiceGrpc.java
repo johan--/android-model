@@ -64,16 +64,28 @@ public final class CollectServiceGrpc {
               com.wanfang.collect.CollectResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.collect.CancelCollectReqeust,
+      com.wanfang.collect.CancelCollectResponse> METHOD_CANCEL_COLLECT =
+      io.grpc.MethodDescriptor.<com.wanfang.collect.CancelCollectReqeust, com.wanfang.collect.CancelCollectResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "collect.CollectService", "CancelCollect"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.collect.CancelCollectReqeust.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.collect.CancelCollectResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.collect.CheckISCollectedRequest,
-      com.wanfang.collect.CheckISCollectedRequest> METHOD_CHECK_ISCOLLECTED =
-      io.grpc.MethodDescriptor.<com.wanfang.collect.CheckISCollectedRequest, com.wanfang.collect.CheckISCollectedRequest>newBuilder()
+      com.wanfang.collect.CheckISCollectedResponse> METHOD_CHECK_ISCOLLECTED =
+      io.grpc.MethodDescriptor.<com.wanfang.collect.CheckISCollectedRequest, com.wanfang.collect.CheckISCollectedResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "collect.CollectService", "CheckISCollected"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.collect.CheckISCollectedRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.collect.CheckISCollectedRequest.getDefaultInstance()))
+              com.wanfang.collect.CheckISCollectedResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -134,12 +146,19 @@ public final class CollectServiceGrpc {
     }
 
     /**
+     */
+    public void cancelCollect(com.wanfang.collect.CancelCollectReqeust request,
+        io.grpc.stub.StreamObserver<com.wanfang.collect.CancelCollectResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CANCEL_COLLECT, responseObserver);
+    }
+
+    /**
      * <pre>
      * 检查文献是否已经收藏过(已登录状态)
      * </pre>
      */
     public void checkISCollected(com.wanfang.collect.CheckISCollectedRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedRequest> responseObserver) {
+        io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_CHECK_ISCOLLECTED, responseObserver);
     }
 
@@ -167,11 +186,18 @@ public final class CollectServiceGrpc {
                 com.wanfang.collect.CollectResponse>(
                   this, METHODID_COLLECT)))
           .addMethod(
+            METHOD_CANCEL_COLLECT,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.collect.CancelCollectReqeust,
+                com.wanfang.collect.CancelCollectResponse>(
+                  this, METHODID_CANCEL_COLLECT)))
+          .addMethod(
             METHOD_CHECK_ISCOLLECTED,
             asyncUnaryCall(
               new MethodHandlers<
                 com.wanfang.collect.CheckISCollectedRequest,
-                com.wanfang.collect.CheckISCollectedRequest>(
+                com.wanfang.collect.CheckISCollectedResponse>(
                   this, METHODID_CHECK_ISCOLLECTED)))
           .build();
     }
@@ -229,12 +255,20 @@ public final class CollectServiceGrpc {
     }
 
     /**
+     */
+    public void cancelCollect(com.wanfang.collect.CancelCollectReqeust request,
+        io.grpc.stub.StreamObserver<com.wanfang.collect.CancelCollectResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CANCEL_COLLECT, getCallOptions()), request, responseObserver);
+    }
+
+    /**
      * <pre>
      * 检查文献是否已经收藏过(已登录状态)
      * </pre>
      */
     public void checkISCollected(com.wanfang.collect.CheckISCollectedRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedRequest> responseObserver) {
+        io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CHECK_ISCOLLECTED, getCallOptions()), request, responseObserver);
     }
@@ -289,11 +323,18 @@ public final class CollectServiceGrpc {
     }
 
     /**
+     */
+    public com.wanfang.collect.CancelCollectResponse cancelCollect(com.wanfang.collect.CancelCollectReqeust request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CANCEL_COLLECT, getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * 检查文献是否已经收藏过(已登录状态)
      * </pre>
      */
-    public com.wanfang.collect.CheckISCollectedRequest checkISCollected(com.wanfang.collect.CheckISCollectedRequest request) {
+    public com.wanfang.collect.CheckISCollectedResponse checkISCollected(com.wanfang.collect.CheckISCollectedRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CHECK_ISCOLLECTED, getCallOptions(), request);
     }
@@ -351,11 +392,19 @@ public final class CollectServiceGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.collect.CancelCollectResponse> cancelCollect(
+        com.wanfang.collect.CancelCollectReqeust request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CANCEL_COLLECT, getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * 检查文献是否已经收藏过(已登录状态)
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.collect.CheckISCollectedRequest> checkISCollected(
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.collect.CheckISCollectedResponse> checkISCollected(
         com.wanfang.collect.CheckISCollectedRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CHECK_ISCOLLECTED, getCallOptions()), request);
@@ -365,7 +414,8 @@ public final class CollectServiceGrpc {
   private static final int METHODID_GET_DOC_DETAIL = 0;
   private static final int METHODID_GET_MY_COLLECT = 1;
   private static final int METHODID_COLLECT = 2;
-  private static final int METHODID_CHECK_ISCOLLECTED = 3;
+  private static final int METHODID_CANCEL_COLLECT = 3;
+  private static final int METHODID_CHECK_ISCOLLECTED = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -396,9 +446,13 @@ public final class CollectServiceGrpc {
           serviceImpl.collect((com.wanfang.collect.CollectRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.collect.CollectResponse>) responseObserver);
           break;
+        case METHODID_CANCEL_COLLECT:
+          serviceImpl.cancelCollect((com.wanfang.collect.CancelCollectReqeust) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.collect.CancelCollectResponse>) responseObserver);
+          break;
         case METHODID_CHECK_ISCOLLECTED:
           serviceImpl.checkISCollected((com.wanfang.collect.CheckISCollectedRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedRequest>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.wanfang.collect.CheckISCollectedResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -428,6 +482,7 @@ public final class CollectServiceGrpc {
               .addMethod(METHOD_GET_DOC_DETAIL)
               .addMethod(METHOD_GET_MY_COLLECT)
               .addMethod(METHOD_COLLECT)
+              .addMethod(METHOD_CANCEL_COLLECT)
               .addMethod(METHOD_CHECK_ISCOLLECTED)
               .build();
         }

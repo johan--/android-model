@@ -74,21 +74,28 @@ public interface ReadResponseOrBuilder extends
 
   /**
    * <pre>
-   * 阅读地址
+   * 文件信息
    * </pre>
    *
-   * <code>optional string read_url = 6;</code>
+   * <code>optional .read.ResourceFile resource_file = 6;</code>
    */
-  java.lang.String getReadUrl();
+  boolean hasResourceFile();
   /**
    * <pre>
-   * 阅读地址
+   * 文件信息
    * </pre>
    *
-   * <code>optional string read_url = 6;</code>
+   * <code>optional .read.ResourceFile resource_file = 6;</code>
    */
-  com.google.protobuf.ByteString
-      getReadUrlBytes();
+  com.wanfang.read.ResourceFile getResourceFile();
+  /**
+   * <pre>
+   * 文件信息
+   * </pre>
+   *
+   * <code>optional .read.ResourceFile resource_file = 6;</code>
+   */
+  com.wanfang.read.ResourceFileOrBuilder getResourceFileOrBuilder();
 
   /**
    * <pre>

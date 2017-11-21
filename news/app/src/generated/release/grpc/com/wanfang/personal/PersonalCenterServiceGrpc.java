@@ -28,6 +28,30 @@ public final class PersonalCenterServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UserGetTradeListRequest,
+      com.wanfang.personal.UserGetTradeListResponse> METHOD_GET_TRADE_LIST =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.UserGetTradeListRequest, com.wanfang.personal.UserGetTradeListResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "GetTradeList"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.UserGetTradeListRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.UserGetTradeListResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UserGetBalenceRequest,
+      com.wanfang.personal.UserGetBalenceResponse> METHOD_GET_BALANCE =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.UserGetBalenceRequest, com.wanfang.personal.UserGetBalenceResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "GetBalance"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.UserGetBalenceRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.UserGetBalenceResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.LoginRequest,
       com.wanfang.personal.LoginResponse> METHOD_LOGIN =
       io.grpc.MethodDescriptor.<com.wanfang.personal.LoginRequest, com.wanfang.personal.LoginResponse>newBuilder()
@@ -57,11 +81,35 @@ public final class PersonalCenterServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.personal.QuickLoginRequest, com.wanfang.personal.LoginResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "QuickLogin"))
+              "personal.PersonalCenterService", "quickLogin"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.QuickLoginRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.LoginResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.ThirdPartyLoginRequest,
+      com.wanfang.personal.LoginResponse> METHOD_THIRD_PARTY_LOGIN =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.ThirdPartyLoginRequest, com.wanfang.personal.LoginResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "thirdPartyLogin"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyLoginRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.LoginResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.ThirdPartyBindRequest,
+      com.wanfang.personal.ThirdPartyBindResponse> METHOD_THIRD_PARTY_BIND =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.ThirdPartyBindRequest, com.wanfang.personal.ThirdPartyBindResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "thirdPartyBind"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyBindRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.ThirdPartyBindResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.BindExistAccountRequest,
@@ -105,7 +153,7 @@ public final class PersonalCenterServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.personal.PasswordByPhoneRequest, com.wanfang.personal.PasswordByPhoneResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "GetPasswordByPhone"))
+              "personal.PersonalCenterService", "getPasswordByPhone"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.PasswordByPhoneRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
@@ -148,16 +196,28 @@ public final class PersonalCenterServiceGrpc {
               com.wanfang.personal.MyWalletResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.PhoneCaptchaRequest,
-      com.wanfang.personal.PhoneCaptchaResponse> METHOD_GET_PHONE_CAPTCHA =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.PhoneCaptchaRequest, com.wanfang.personal.PhoneCaptchaResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.GetPhoneCaptchaRequest,
+      com.wanfang.personal.GetPhoneCaptchaResponse> METHOD_GET_PHONE_CAPTCHA =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.GetPhoneCaptchaRequest, com.wanfang.personal.GetPhoneCaptchaResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "GetPhoneCaptcha"))
+              "personal.PersonalCenterService", "getPhoneCaptcha"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.PhoneCaptchaRequest.getDefaultInstance()))
+              com.wanfang.personal.GetPhoneCaptchaRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.PhoneCaptchaResponse.getDefaultInstance()))
+              com.wanfang.personal.GetPhoneCaptchaResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.CheckPhoneCaptchaRequest,
+      com.wanfang.personal.CheckPhoneCaptchaResponse> METHOD_CHECK_PHONE_CAPTCHA =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.CheckPhoneCaptchaRequest, com.wanfang.personal.CheckPhoneCaptchaResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "checkPhoneCaptcha"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.CheckPhoneCaptchaRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.CheckPhoneCaptchaResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.UploadFileRequest,
@@ -285,6 +345,26 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 获取交易历史
+     * </pre>
+     */
+    public void getTradeList(com.wanfang.personal.UserGetTradeListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetTradeListResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_TRADE_LIST, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 获取账户余额
+     * </pre>
+     */
+    public void getBalance(com.wanfang.personal.UserGetBalenceRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetBalenceResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_BALANCE, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 登录
      * </pre>
      */
@@ -311,6 +391,26 @@ public final class PersonalCenterServiceGrpc {
     public void quickLogin(com.wanfang.personal.QuickLoginRequest request,
         io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_QUICK_LOGIN, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public void thirdPartyLogin(com.wanfang.personal.ThirdPartyLoginRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_THIRD_PARTY_LOGIN, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public void thirdPartyBind(com.wanfang.personal.ThirdPartyBindRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_THIRD_PARTY_BIND, responseObserver);
     }
 
     /**
@@ -345,7 +445,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 通过手机号找回密码 验证手机号
+     * 通过手机号找回密码
      * </pre>
      */
     public void getPasswordByPhone(com.wanfang.personal.PasswordByPhoneRequest request,
@@ -385,12 +485,22 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取验证码
+     * 获取手机验证码
      * </pre>
      */
-    public void getPhoneCaptcha(com.wanfang.personal.PhoneCaptchaRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.PhoneCaptchaResponse> responseObserver) {
+    public void getPhoneCaptcha(com.wanfang.personal.GetPhoneCaptchaRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.GetPhoneCaptchaResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_PHONE_CAPTCHA, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 检验手机验证码
+     * </pre>
+     */
+    public void checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneCaptchaResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CHECK_PHONE_CAPTCHA, responseObserver);
     }
 
     /**
@@ -476,6 +586,20 @@ public final class PersonalCenterServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
+            METHOD_GET_TRADE_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.UserGetTradeListRequest,
+                com.wanfang.personal.UserGetTradeListResponse>(
+                  this, METHODID_GET_TRADE_LIST)))
+          .addMethod(
+            METHOD_GET_BALANCE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.UserGetBalenceRequest,
+                com.wanfang.personal.UserGetBalenceResponse>(
+                  this, METHODID_GET_BALANCE)))
+          .addMethod(
             METHOD_LOGIN,
             asyncUnaryCall(
               new MethodHandlers<
@@ -496,6 +620,20 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.QuickLoginRequest,
                 com.wanfang.personal.LoginResponse>(
                   this, METHODID_QUICK_LOGIN)))
+          .addMethod(
+            METHOD_THIRD_PARTY_LOGIN,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.ThirdPartyLoginRequest,
+                com.wanfang.personal.LoginResponse>(
+                  this, METHODID_THIRD_PARTY_LOGIN)))
+          .addMethod(
+            METHOD_THIRD_PARTY_BIND,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.ThirdPartyBindRequest,
+                com.wanfang.personal.ThirdPartyBindResponse>(
+                  this, METHODID_THIRD_PARTY_BIND)))
           .addMethod(
             METHOD_BIND_EXIST_ACCOUNT,
             asyncUnaryCall(
@@ -549,9 +687,16 @@ public final class PersonalCenterServiceGrpc {
             METHOD_GET_PHONE_CAPTCHA,
             asyncUnaryCall(
               new MethodHandlers<
-                com.wanfang.personal.PhoneCaptchaRequest,
-                com.wanfang.personal.PhoneCaptchaResponse>(
+                com.wanfang.personal.GetPhoneCaptchaRequest,
+                com.wanfang.personal.GetPhoneCaptchaResponse>(
                   this, METHODID_GET_PHONE_CAPTCHA)))
+          .addMethod(
+            METHOD_CHECK_PHONE_CAPTCHA,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.CheckPhoneCaptchaRequest,
+                com.wanfang.personal.CheckPhoneCaptchaResponse>(
+                  this, METHODID_CHECK_PHONE_CAPTCHA)))
           .addMethod(
             METHOD_UPLOAD_FILE,
             asyncUnaryCall(
@@ -632,6 +777,28 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 获取交易历史
+     * </pre>
+     */
+    public void getTradeList(com.wanfang.personal.UserGetTradeListRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetTradeListResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_TRADE_LIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 获取账户余额
+     * </pre>
+     */
+    public void getBalance(com.wanfang.personal.UserGetBalenceRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetBalenceResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_BALANCE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 登录
      * </pre>
      */
@@ -661,6 +828,28 @@ public final class PersonalCenterServiceGrpc {
         io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_QUICK_LOGIN, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public void thirdPartyLogin(com.wanfang.personal.ThirdPartyLoginRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_LOGIN, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public void thirdPartyBind(com.wanfang.personal.ThirdPartyBindRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_BIND, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -698,7 +887,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 通过手机号找回密码 验证手机号
+     * 通过手机号找回密码
      * </pre>
      */
     public void getPasswordByPhone(com.wanfang.personal.PasswordByPhoneRequest request,
@@ -742,13 +931,24 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取验证码
+     * 获取手机验证码
      * </pre>
      */
-    public void getPhoneCaptcha(com.wanfang.personal.PhoneCaptchaRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.PhoneCaptchaResponse> responseObserver) {
+    public void getPhoneCaptcha(com.wanfang.personal.GetPhoneCaptchaRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.GetPhoneCaptchaResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_PHONE_CAPTCHA, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 检验手机验证码
+     * </pre>
+     */
+    public void checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneCaptchaResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CHECK_PHONE_CAPTCHA, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -860,6 +1060,26 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 获取交易历史
+     * </pre>
+     */
+    public com.wanfang.personal.UserGetTradeListResponse getTradeList(com.wanfang.personal.UserGetTradeListRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_TRADE_LIST, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 获取账户余额
+     * </pre>
+     */
+    public com.wanfang.personal.UserGetBalenceResponse getBalance(com.wanfang.personal.UserGetBalenceRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_BALANCE, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
      * 登录
      * </pre>
      */
@@ -886,6 +1106,26 @@ public final class PersonalCenterServiceGrpc {
     public com.wanfang.personal.LoginResponse quickLogin(com.wanfang.personal.QuickLoginRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_QUICK_LOGIN, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public com.wanfang.personal.LoginResponse thirdPartyLogin(com.wanfang.personal.ThirdPartyLoginRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_THIRD_PARTY_LOGIN, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public com.wanfang.personal.ThirdPartyBindResponse thirdPartyBind(com.wanfang.personal.ThirdPartyBindRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_THIRD_PARTY_BIND, getCallOptions(), request);
     }
 
     /**
@@ -920,7 +1160,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 通过手机号找回密码 验证手机号
+     * 通过手机号找回密码
      * </pre>
      */
     public com.wanfang.personal.PasswordByPhoneResponse getPasswordByPhone(com.wanfang.personal.PasswordByPhoneRequest request) {
@@ -960,12 +1200,22 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取验证码
+     * 获取手机验证码
      * </pre>
      */
-    public com.wanfang.personal.PhoneCaptchaResponse getPhoneCaptcha(com.wanfang.personal.PhoneCaptchaRequest request) {
+    public com.wanfang.personal.GetPhoneCaptchaResponse getPhoneCaptcha(com.wanfang.personal.GetPhoneCaptchaRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_PHONE_CAPTCHA, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 检验手机验证码
+     * </pre>
+     */
+    public com.wanfang.personal.CheckPhoneCaptchaResponse checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CHECK_PHONE_CAPTCHA, getCallOptions(), request);
     }
 
     /**
@@ -1069,6 +1319,28 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 获取交易历史
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UserGetTradeListResponse> getTradeList(
+        com.wanfang.personal.UserGetTradeListRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_TRADE_LIST, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 获取账户余额
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UserGetBalenceResponse> getBalance(
+        com.wanfang.personal.UserGetBalenceRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_BALANCE, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 登录
      * </pre>
      */
@@ -1098,6 +1370,28 @@ public final class PersonalCenterServiceGrpc {
         com.wanfang.personal.QuickLoginRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_QUICK_LOGIN, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.LoginResponse> thirdPartyLogin(
+        com.wanfang.personal.ThirdPartyLoginRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_LOGIN, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 第三方登录账号绑定
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.ThirdPartyBindResponse> thirdPartyBind(
+        com.wanfang.personal.ThirdPartyBindRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_THIRD_PARTY_BIND, getCallOptions()), request);
     }
 
     /**
@@ -1135,7 +1429,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 通过手机号找回密码 验证手机号
+     * 通过手机号找回密码
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.PasswordByPhoneResponse> getPasswordByPhone(
@@ -1179,13 +1473,24 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 获取验证码
+     * 获取手机验证码
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.PhoneCaptchaResponse> getPhoneCaptcha(
-        com.wanfang.personal.PhoneCaptchaRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.GetPhoneCaptchaResponse> getPhoneCaptcha(
+        com.wanfang.personal.GetPhoneCaptchaRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_PHONE_CAPTCHA, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 检验手机验证码
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.CheckPhoneCaptchaResponse> checkPhoneCaptcha(
+        com.wanfang.personal.CheckPhoneCaptchaRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CHECK_PHONE_CAPTCHA, getCallOptions()), request);
     }
 
     /**
@@ -1277,25 +1582,30 @@ public final class PersonalCenterServiceGrpc {
     }
   }
 
-  private static final int METHODID_LOGIN = 0;
-  private static final int METHODID_LOGIN_OUT = 1;
-  private static final int METHODID_QUICK_LOGIN = 2;
-  private static final int METHODID_BIND_EXIST_ACCOUNT = 3;
-  private static final int METHODID_BIND_NEW_REGIST = 4;
-  private static final int METHODID_REGIST = 5;
-  private static final int METHODID_GET_PASSWORD_BY_PHONE = 6;
-  private static final int METHODID_PASSWORD_VERIFY = 7;
-  private static final int METHODID_UPDATE_PASSWORD = 8;
-  private static final int METHODID_GET_MY_WALLET = 9;
-  private static final int METHODID_GET_PHONE_CAPTCHA = 10;
-  private static final int METHODID_UPLOAD_FILE = 11;
-  private static final int METHODID_UPLOAD_AVATAR = 12;
-  private static final int METHODID_GET_INTEREST_SUBJECT = 13;
-  private static final int METHODID_GET_USER_INFO = 14;
-  private static final int METHODID_UPDATE_USER_INFO = 15;
-  private static final int METHODID_GET_ROLES_LIST = 16;
-  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 17;
-  private static final int METHODID_GET_SUBJECT_LIST = 18;
+  private static final int METHODID_GET_TRADE_LIST = 0;
+  private static final int METHODID_GET_BALANCE = 1;
+  private static final int METHODID_LOGIN = 2;
+  private static final int METHODID_LOGIN_OUT = 3;
+  private static final int METHODID_QUICK_LOGIN = 4;
+  private static final int METHODID_THIRD_PARTY_LOGIN = 5;
+  private static final int METHODID_THIRD_PARTY_BIND = 6;
+  private static final int METHODID_BIND_EXIST_ACCOUNT = 7;
+  private static final int METHODID_BIND_NEW_REGIST = 8;
+  private static final int METHODID_REGIST = 9;
+  private static final int METHODID_GET_PASSWORD_BY_PHONE = 10;
+  private static final int METHODID_PASSWORD_VERIFY = 11;
+  private static final int METHODID_UPDATE_PASSWORD = 12;
+  private static final int METHODID_GET_MY_WALLET = 13;
+  private static final int METHODID_GET_PHONE_CAPTCHA = 14;
+  private static final int METHODID_CHECK_PHONE_CAPTCHA = 15;
+  private static final int METHODID_UPLOAD_FILE = 16;
+  private static final int METHODID_UPLOAD_AVATAR = 17;
+  private static final int METHODID_GET_INTEREST_SUBJECT = 18;
+  private static final int METHODID_GET_USER_INFO = 19;
+  private static final int METHODID_UPDATE_USER_INFO = 20;
+  private static final int METHODID_GET_ROLES_LIST = 21;
+  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 22;
+  private static final int METHODID_GET_SUBJECT_LIST = 23;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1314,6 +1624,14 @@ public final class PersonalCenterServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_TRADE_LIST:
+          serviceImpl.getTradeList((com.wanfang.personal.UserGetTradeListRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetTradeListResponse>) responseObserver);
+          break;
+        case METHODID_GET_BALANCE:
+          serviceImpl.getBalance((com.wanfang.personal.UserGetBalenceRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetBalenceResponse>) responseObserver);
+          break;
         case METHODID_LOGIN:
           serviceImpl.login((com.wanfang.personal.LoginRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse>) responseObserver);
@@ -1325,6 +1643,14 @@ public final class PersonalCenterServiceGrpc {
         case METHODID_QUICK_LOGIN:
           serviceImpl.quickLogin((com.wanfang.personal.QuickLoginRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse>) responseObserver);
+          break;
+        case METHODID_THIRD_PARTY_LOGIN:
+          serviceImpl.thirdPartyLogin((com.wanfang.personal.ThirdPartyLoginRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse>) responseObserver);
+          break;
+        case METHODID_THIRD_PARTY_BIND:
+          serviceImpl.thirdPartyBind((com.wanfang.personal.ThirdPartyBindRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse>) responseObserver);
           break;
         case METHODID_BIND_EXIST_ACCOUNT:
           serviceImpl.bindExistAccount((com.wanfang.personal.BindExistAccountRequest) request,
@@ -1355,8 +1681,12 @@ public final class PersonalCenterServiceGrpc {
               (io.grpc.stub.StreamObserver<com.wanfang.personal.MyWalletResponse>) responseObserver);
           break;
         case METHODID_GET_PHONE_CAPTCHA:
-          serviceImpl.getPhoneCaptcha((com.wanfang.personal.PhoneCaptchaRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.PhoneCaptchaResponse>) responseObserver);
+          serviceImpl.getPhoneCaptcha((com.wanfang.personal.GetPhoneCaptchaRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.GetPhoneCaptchaResponse>) responseObserver);
+          break;
+        case METHODID_CHECK_PHONE_CAPTCHA:
+          serviceImpl.checkPhoneCaptcha((com.wanfang.personal.CheckPhoneCaptchaRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneCaptchaResponse>) responseObserver);
           break;
         case METHODID_UPLOAD_FILE:
           serviceImpl.uploadFile((com.wanfang.personal.UploadFileRequest) request,
@@ -1415,9 +1745,13 @@ public final class PersonalCenterServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
+              .addMethod(METHOD_GET_TRADE_LIST)
+              .addMethod(METHOD_GET_BALANCE)
               .addMethod(METHOD_LOGIN)
               .addMethod(METHOD_LOGIN_OUT)
               .addMethod(METHOD_QUICK_LOGIN)
+              .addMethod(METHOD_THIRD_PARTY_LOGIN)
+              .addMethod(METHOD_THIRD_PARTY_BIND)
               .addMethod(METHOD_BIND_EXIST_ACCOUNT)
               .addMethod(METHOD_BIND_NEW_REGIST)
               .addMethod(METHOD_REGIST)
@@ -1426,6 +1760,7 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_UPDATE_PASSWORD)
               .addMethod(METHOD_GET_MY_WALLET)
               .addMethod(METHOD_GET_PHONE_CAPTCHA)
+              .addMethod(METHOD_CHECK_PHONE_CAPTCHA)
               .addMethod(METHOD_UPLOAD_FILE)
               .addMethod(METHOD_UPLOAD_AVATAR)
               .addMethod(METHOD_GET_INTEREST_SUBJECT)

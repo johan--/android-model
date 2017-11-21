@@ -86,8 +86,9 @@ void protobuf_AssignDesc_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto() {
       sizeof(SubscribePushEmailRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribePushEmailRequest, _internal_metadata_));
   SubscribePushEmailResponse_descriptor_ = file->message_type(1);
-  static const int SubscribePushEmailResponse_offsets_[2] = {
+  static const int SubscribePushEmailResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribePushEmailResponse, email_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribePushEmailResponse, has_email_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubscribePushEmailResponse, error_),
   };
   SubscribePushEmailResponse_reflection_ =
@@ -393,34 +394,35 @@ void protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_5fkeyword_2eproto_impl() {
     "\n%subscribe/msg_subscribe_keyword.proto\022"
     "\tsubscribe\032\031google/protobuf/any.proto\032\032g"
     "rpcCommon/msg_error.proto\",\n\031SubscribePu"
-    "shEmailRequest\022\017\n\007user_id\030\001 \001(\t\"Q\n\032Subsc"
-    "ribePushEmailResponse\022\r\n\005email\030\001 \001(\t\022$\n\005"
-    "error\030\002 \001(\0132\025.grpcCommon.GrpcError\"\035\n\033Su"
-    "bscribeDocTypeListRequest\"D\n\034SubscribeDo"
-    "cTypeListResponse\022$\n\010doc_type\030\001 \003(\0132\022.su"
-    "bscribe.DocType\" \n\036SubscribeSourceTypeLi"
-    "stRequest\"M\n\037SubscribeSourceTypeListResp"
-    "onse\022*\n\013source_type\030\001 \003(\0132\025.subscribe.So"
-    "urceType\"\271\001\n\027SubscribeKeywordRequest\022\017\n\007"
-    "user_id\030\001 \001(\t\022\017\n\007keyword\030\002 \001(\t\022$\n\010doc_ty"
-    "pe\030\003 \003(\0132\022.subscribe.DocType\022*\n\013source_t"
-    "ype\030\004 \003(\0132\025.subscribe.SourceType\022\r\n\005emai"
-    "l\030\005 \001(\t\022\033\n\023should_update_email\030\006 \001(\010\"[\n\030"
-    "SubscribeKeywordResponse\022\031\n\021subscribe_su"
-    "ccess\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommon."
-    "GrpcError\"V\n\033SubscribeKeywordListRequest"
-    "\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\021"
-    "\n\tpage_size\030\003 \001(\005\"\225\001\n\034SubscribeKeywordLi"
-    "stResponse\022=\n\021subscribe_keyword\030\001 \003(\0132\"."
-    "subscribe.SubscribeKeywordMessage\022\020\n\010has"
-    "_more\030\002 \001(\010\022$\n\005error\030\003 \001(\0132\025.grpcCommon."
-    "GrpcError\"v\n\027SubscribeKeywordMessage\022\017\n\007"
-    "user_id\030\001 \001(\t\022\024\n\014subscribe_id\030\002 \001(\t\022\021\n\td"
-    "ocu_type\030\003 \001(\t\022\020\n\010add_time\030\004 \001(\t\022\017\n\007keyw"
-    "ord\030\005 \001(\t\"+\n\007DocType\022\017\n\007ch_name\030\001 \001(\t\022\017\n"
-    "\007en_name\030\002 \001(\t\".\n\nSourceType\022\017\n\007ch_name\030"
-    "\001 \001(\t\022\017\n\007en_name\030\002 \001(\tB \n\025com.wanfang.su"
-    "bscribeP\001\242\002\004WFPRb\006proto3", 1224);
+    "shEmailRequest\022\017\n\007user_id\030\001 \001(\t\"d\n\032Subsc"
+    "ribePushEmailResponse\022\r\n\005email\030\001 \001(\t\022\021\n\t"
+    "has_email\030\002 \001(\010\022$\n\005error\030\003 \001(\0132\025.grpcCom"
+    "mon.GrpcError\"\035\n\033SubscribeDocTypeListReq"
+    "uest\"D\n\034SubscribeDocTypeListResponse\022$\n\010"
+    "doc_type\030\001 \003(\0132\022.subscribe.DocType\" \n\036Su"
+    "bscribeSourceTypeListRequest\"M\n\037Subscrib"
+    "eSourceTypeListResponse\022*\n\013source_type\030\001"
+    " \003(\0132\025.subscribe.SourceType\"\271\001\n\027Subscrib"
+    "eKeywordRequest\022\017\n\007user_id\030\001 \001(\t\022\017\n\007keyw"
+    "ord\030\002 \001(\t\022$\n\010doc_type\030\003 \003(\0132\022.subscribe."
+    "DocType\022*\n\013source_type\030\004 \003(\0132\025.subscribe"
+    ".SourceType\022\r\n\005email\030\005 \001(\t\022\033\n\023should_upd"
+    "ate_email\030\006 \001(\010\"[\n\030SubscribeKeywordRespo"
+    "nse\022\031\n\021subscribe_success\030\001 \001(\010\022$\n\005error\030"
+    "\002 \001(\0132\025.grpcCommon.GrpcError\"V\n\033Subscrib"
+    "eKeywordListRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013"
+    "page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\225\001\n"
+    "\034SubscribeKeywordListResponse\022=\n\021subscri"
+    "be_keyword\030\001 \003(\0132\".subscribe.SubscribeKe"
+    "ywordMessage\022\020\n\010has_more\030\002 \001(\010\022$\n\005error\030"
+    "\003 \001(\0132\025.grpcCommon.GrpcError\"v\n\027Subscrib"
+    "eKeywordMessage\022\017\n\007user_id\030\001 \001(\t\022\024\n\014subs"
+    "cribe_id\030\002 \001(\t\022\021\n\tdocu_type\030\003 \001(\t\022\020\n\010add"
+    "_time\030\004 \001(\t\022\017\n\007keyword\030\005 \001(\t\"+\n\007DocType\022"
+    "\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030\002 \001(\t\".\n\nSou"
+    "rceType\022\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030\002 \001("
+    "\tB \n\025com.wanfang.subscribeP\001\242\002\004WFPRb\006pro"
+    "to3", 1243);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "subscribe/msg_subscribe_keyword.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -743,6 +745,7 @@ inline const SubscribePushEmailRequest* SubscribePushEmailRequest::internal_defa
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SubscribePushEmailResponse::kEmailFieldNumber;
+const int SubscribePushEmailResponse::kHasEmailFieldNumber;
 const int SubscribePushEmailResponse::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -769,6 +772,7 @@ SubscribePushEmailResponse::SubscribePushEmailResponse(const SubscribePushEmailR
 void SubscribePushEmailResponse::SharedCtor() {
   email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   error_ = NULL;
+  has_email_ = false;
   _cached_size_ = 0;
 }
 
@@ -812,6 +816,7 @@ SubscribePushEmailResponse* SubscribePushEmailResponse::New(::google::protobuf::
 void SubscribePushEmailResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:subscribe.SubscribePushEmailResponse)
   email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  has_email_ = false;
   if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
   error_ = NULL;
 }
@@ -838,13 +843,28 @@ bool SubscribePushEmailResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_error;
+        if (input->ExpectTag(16)) goto parse_has_email;
         break;
       }
 
-      // optional .grpcCommon.GrpcError error = 2;
+      // optional bool has_email = 2;
       case 2: {
-        if (tag == 18) {
+        if (tag == 16) {
+         parse_has_email:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &has_email_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 3;
+      case 3: {
+        if (tag == 26) {
          parse_error:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_error()));
@@ -889,10 +909,15 @@ void SubscribePushEmailResponse::SerializeWithCachedSizes(
       1, this->email(), output);
   }
 
-  // optional .grpcCommon.GrpcError error = 2;
+  // optional bool has_email = 2;
+  if (this->has_email() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->has_email(), output);
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
   if (this->has_error()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->error_, output);
+      3, *this->error_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:subscribe.SubscribePushEmailResponse)
@@ -913,11 +938,16 @@ void SubscribePushEmailResponse::SerializeWithCachedSizes(
         1, this->email(), target);
   }
 
-  // optional .grpcCommon.GrpcError error = 2;
+  // optional bool has_email = 2;
+  if (this->has_email() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->has_email(), target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
   if (this->has_error()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->error_, false, target);
+        3, *this->error_, false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:subscribe.SubscribePushEmailResponse)
@@ -935,7 +965,12 @@ size_t SubscribePushEmailResponse::ByteSizeLong() const {
         this->email());
   }
 
-  // optional .grpcCommon.GrpcError error = 2;
+  // optional bool has_email = 2;
+  if (this->has_email() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // optional .grpcCommon.GrpcError error = 3;
   if (this->has_error()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -979,6 +1014,9 @@ void SubscribePushEmailResponse::UnsafeMergeFrom(const SubscribePushEmailRespons
 
     email_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.email_);
   }
+  if (from.has_email() != 0) {
+    set_has_email(from.has_email());
+  }
   if (from.has_error()) {
     mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
   }
@@ -1009,6 +1047,7 @@ void SubscribePushEmailResponse::Swap(SubscribePushEmailResponse* other) {
 }
 void SubscribePushEmailResponse::InternalSwap(SubscribePushEmailResponse* other) {
   email_.Swap(&other->email_);
+  std::swap(has_email_, other->has_email_);
   std::swap(error_, other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1069,7 +1108,21 @@ void SubscribePushEmailResponse::set_allocated_email(::std::string* email) {
   // @@protoc_insertion_point(field_set_allocated:subscribe.SubscribePushEmailResponse.email)
 }
 
-// optional .grpcCommon.GrpcError error = 2;
+// optional bool has_email = 2;
+void SubscribePushEmailResponse::clear_has_email() {
+  has_email_ = false;
+}
+bool SubscribePushEmailResponse::has_email() const {
+  // @@protoc_insertion_point(field_get:subscribe.SubscribePushEmailResponse.has_email)
+  return has_email_;
+}
+void SubscribePushEmailResponse::set_has_email(bool value) {
+  
+  has_email_ = value;
+  // @@protoc_insertion_point(field_set:subscribe.SubscribePushEmailResponse.has_email)
+}
+
+// optional .grpcCommon.GrpcError error = 3;
 bool SubscribePushEmailResponse::has_error() const {
   return this != internal_default_instance() && error_ != NULL;
 }

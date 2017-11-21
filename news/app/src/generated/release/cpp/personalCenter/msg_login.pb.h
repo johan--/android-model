@@ -46,6 +46,9 @@ class LoginOutResponse;
 class LoginRequest;
 class LoginResponse;
 class QuickLoginRequest;
+class ThirdPartyBindRequest;
+class ThirdPartyBindResponse;
+class ThirdPartyLoginRequest;
 
 enum ThirdPartyType {
   WECHAT = 0,
@@ -480,20 +483,42 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_user_id();
   void set_allocated_user_id(::std::string* user_id);
 
-  // optional string user_name = 2;
-  void clear_user_name();
-  static const int kUserNameFieldNumber = 2;
-  const ::std::string& user_name() const;
-  void set_user_name(const ::std::string& value);
-  void set_user_name(const char* value);
-  void set_user_name(const char* value, size_t size);
-  ::std::string* mutable_user_name();
-  ::std::string* release_user_name();
-  void set_allocated_user_name(::std::string* user_name);
+  // optional string user_nick_name = 2;
+  void clear_user_nick_name();
+  static const int kUserNickNameFieldNumber = 2;
+  const ::std::string& user_nick_name() const;
+  void set_user_nick_name(const ::std::string& value);
+  void set_user_nick_name(const char* value);
+  void set_user_nick_name(const char* value, size_t size);
+  ::std::string* mutable_user_nick_name();
+  ::std::string* release_user_nick_name();
+  void set_allocated_user_nick_name(::std::string* user_nick_name);
 
-  // optional string user_avatar_url = 3;
+  // optional string user_real_name = 3;
+  void clear_user_real_name();
+  static const int kUserRealNameFieldNumber = 3;
+  const ::std::string& user_real_name() const;
+  void set_user_real_name(const ::std::string& value);
+  void set_user_real_name(const char* value);
+  void set_user_real_name(const char* value, size_t size);
+  ::std::string* mutable_user_real_name();
+  ::std::string* release_user_real_name();
+  void set_allocated_user_real_name(::std::string* user_real_name);
+
+  // optional string user_used_name = 4;
+  void clear_user_used_name();
+  static const int kUserUsedNameFieldNumber = 4;
+  const ::std::string& user_used_name() const;
+  void set_user_used_name(const ::std::string& value);
+  void set_user_used_name(const char* value);
+  void set_user_used_name(const char* value, size_t size);
+  ::std::string* mutable_user_used_name();
+  ::std::string* release_user_used_name();
+  void set_allocated_user_used_name(::std::string* user_used_name);
+
+  // optional string user_avatar_url = 5;
   void clear_user_avatar_url();
-  static const int kUserAvatarUrlFieldNumber = 3;
+  static const int kUserAvatarUrlFieldNumber = 5;
   const ::std::string& user_avatar_url() const;
   void set_user_avatar_url(const ::std::string& value);
   void set_user_avatar_url(const char* value);
@@ -502,9 +527,9 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_user_avatar_url();
   void set_allocated_user_avatar_url(::std::string* user_avatar_url);
 
-  // optional string login_token = 4;
+  // optional string login_token = 6;
   void clear_login_token();
-  static const int kLoginTokenFieldNumber = 4;
+  static const int kLoginTokenFieldNumber = 6;
   const ::std::string& login_token() const;
   void set_login_token(const ::std::string& value);
   void set_login_token(const char* value);
@@ -513,10 +538,10 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_login_token();
   void set_allocated_login_token(::std::string* login_token);
 
-  // optional .grpcCommon.GrpcError error = 5;
+  // optional .grpcCommon.GrpcError error = 7;
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 5;
+  static const int kErrorFieldNumber = 7;
   const ::grpcCommon::GrpcError& error() const;
   ::grpcCommon::GrpcError* mutable_error();
   ::grpcCommon::GrpcError* release_error();
@@ -527,7 +552,9 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr user_id_;
-  ::google::protobuf::internal::ArenaStringPtr user_name_;
+  ::google::protobuf::internal::ArenaStringPtr user_nick_name_;
+  ::google::protobuf::internal::ArenaStringPtr user_real_name_;
+  ::google::protobuf::internal::ArenaStringPtr user_used_name_;
   ::google::protobuf::internal::ArenaStringPtr user_avatar_url_;
   ::google::protobuf::internal::ArenaStringPtr login_token_;
   ::grpcCommon::GrpcError* error_;
@@ -606,65 +633,34 @@ class QuickLoginRequest : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // optional string phone = 1;
-  void clear_phone();
-  static const int kPhoneFieldNumber = 1;
-  const ::std::string& phone() const;
-  void set_phone(const ::std::string& value);
-  void set_phone(const char* value);
-  void set_phone(const char* value, size_t size);
-  ::std::string* mutable_phone();
-  ::std::string* release_phone();
-  void set_allocated_phone(::std::string* phone);
+  // optional string phone_number = 1;
+  void clear_phone_number();
+  static const int kPhoneNumberFieldNumber = 1;
+  const ::std::string& phone_number() const;
+  void set_phone_number(const ::std::string& value);
+  void set_phone_number(const char* value);
+  void set_phone_number(const char* value, size_t size);
+  ::std::string* mutable_phone_number();
+  ::std::string* release_phone_number();
+  void set_allocated_phone_number(::std::string* phone_number);
 
-  // optional string token = 2;
-  void clear_token();
-  static const int kTokenFieldNumber = 2;
-  const ::std::string& token() const;
-  void set_token(const ::std::string& value);
-  void set_token(const char* value);
-  void set_token(const char* value, size_t size);
-  ::std::string* mutable_token();
-  ::std::string* release_token();
-  void set_allocated_token(::std::string* token);
-
-  // optional string captcha = 3;
-  void clear_captcha();
-  static const int kCaptchaFieldNumber = 3;
-  const ::std::string& captcha() const;
-  void set_captcha(const ::std::string& value);
-  void set_captcha(const char* value);
-  void set_captcha(const char* value, size_t size);
-  ::std::string* mutable_captcha();
-  ::std::string* release_captcha();
-  void set_allocated_captcha(::std::string* captcha);
-
-  // optional string device_id = 4;
-  void clear_device_id();
-  static const int kDeviceIdFieldNumber = 4;
-  const ::std::string& device_id() const;
-  void set_device_id(const ::std::string& value);
-  void set_device_id(const char* value);
-  void set_device_id(const char* value, size_t size);
-  ::std::string* mutable_device_id();
-  ::std::string* release_device_id();
-  void set_allocated_device_id(::std::string* device_id);
-
-  // optional .personal.LoginDeviceType device_type = 5;
-  void clear_device_type();
-  static const int kDeviceTypeFieldNumber = 5;
-  ::personal::LoginDeviceType device_type() const;
-  void set_device_type(::personal::LoginDeviceType value);
+  // optional string phone_captcha = 2;
+  void clear_phone_captcha();
+  static const int kPhoneCaptchaFieldNumber = 2;
+  const ::std::string& phone_captcha() const;
+  void set_phone_captcha(const ::std::string& value);
+  void set_phone_captcha(const char* value);
+  void set_phone_captcha(const char* value, size_t size);
+  ::std::string* mutable_phone_captcha();
+  ::std::string* release_phone_captcha();
+  void set_allocated_phone_captcha(::std::string* phone_captcha);
 
   // @@protoc_insertion_point(class_scope:personal.QuickLoginRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr phone_;
-  ::google::protobuf::internal::ArenaStringPtr token_;
-  ::google::protobuf::internal::ArenaStringPtr captcha_;
-  ::google::protobuf::internal::ArenaStringPtr device_id_;
-  int device_type_;
+  ::google::protobuf::internal::ArenaStringPtr phone_number_;
+  ::google::protobuf::internal::ArenaStringPtr phone_captcha_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
@@ -674,6 +670,317 @@ class QuickLoginRequest : public ::google::protobuf::Message /* @@protoc_inserti
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<QuickLoginRequest> QuickLoginRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class ThirdPartyLoginRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.ThirdPartyLoginRequest) */ {
+ public:
+  ThirdPartyLoginRequest();
+  virtual ~ThirdPartyLoginRequest();
+
+  ThirdPartyLoginRequest(const ThirdPartyLoginRequest& from);
+
+  inline ThirdPartyLoginRequest& operator=(const ThirdPartyLoginRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ThirdPartyLoginRequest& default_instance();
+
+  static const ThirdPartyLoginRequest* internal_default_instance();
+
+  void Swap(ThirdPartyLoginRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ThirdPartyLoginRequest* New() const { return New(NULL); }
+
+  ThirdPartyLoginRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ThirdPartyLoginRequest& from);
+  void MergeFrom(const ThirdPartyLoginRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ThirdPartyLoginRequest* other);
+  void UnsafeMergeFrom(const ThirdPartyLoginRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string uid = 1;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
+  // optional int32 third_party_code = 2;
+  void clear_third_party_code();
+  static const int kThirdPartyCodeFieldNumber = 2;
+  ::google::protobuf::int32 third_party_code() const;
+  void set_third_party_code(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:personal.ThirdPartyLoginRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  ::google::protobuf::int32 third_party_code_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5flogin_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<ThirdPartyLoginRequest> ThirdPartyLoginRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class ThirdPartyBindRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.ThirdPartyBindRequest) */ {
+ public:
+  ThirdPartyBindRequest();
+  virtual ~ThirdPartyBindRequest();
+
+  ThirdPartyBindRequest(const ThirdPartyBindRequest& from);
+
+  inline ThirdPartyBindRequest& operator=(const ThirdPartyBindRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ThirdPartyBindRequest& default_instance();
+
+  static const ThirdPartyBindRequest* internal_default_instance();
+
+  void Swap(ThirdPartyBindRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ThirdPartyBindRequest* New() const { return New(NULL); }
+
+  ThirdPartyBindRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ThirdPartyBindRequest& from);
+  void MergeFrom(const ThirdPartyBindRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ThirdPartyBindRequest* other);
+  void UnsafeMergeFrom(const ThirdPartyBindRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string uid = 1;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
+  // optional string user_id = 2;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 2;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // optional int32 third_party_code = 3;
+  void clear_third_party_code();
+  static const int kThirdPartyCodeFieldNumber = 3;
+  ::google::protobuf::int32 third_party_code() const;
+  void set_third_party_code(::google::protobuf::int32 value);
+
+  // optional int32 user_status = 4;
+  void clear_user_status();
+  static const int kUserStatusFieldNumber = 4;
+  ::google::protobuf::int32 user_status() const;
+  void set_user_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:personal.ThirdPartyBindRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::google::protobuf::int32 third_party_code_;
+  ::google::protobuf::int32 user_status_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5flogin_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<ThirdPartyBindRequest> ThirdPartyBindRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class ThirdPartyBindResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.ThirdPartyBindResponse) */ {
+ public:
+  ThirdPartyBindResponse();
+  virtual ~ThirdPartyBindResponse();
+
+  ThirdPartyBindResponse(const ThirdPartyBindResponse& from);
+
+  inline ThirdPartyBindResponse& operator=(const ThirdPartyBindResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ThirdPartyBindResponse& default_instance();
+
+  static const ThirdPartyBindResponse* internal_default_instance();
+
+  void Swap(ThirdPartyBindResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ThirdPartyBindResponse* New() const { return New(NULL); }
+
+  ThirdPartyBindResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ThirdPartyBindResponse& from);
+  void MergeFrom(const ThirdPartyBindResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ThirdPartyBindResponse* other);
+  void UnsafeMergeFrom(const ThirdPartyBindResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 bind_status = 1;
+  void clear_bind_status();
+  static const int kBindStatusFieldNumber = 1;
+  ::google::protobuf::int32 bind_status() const;
+  void set_bind_status(::google::protobuf::int32 value);
+
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:personal.ThirdPartyBindResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
+  ::google::protobuf::int32 bind_status_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5flogin_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<ThirdPartyBindResponse> ThirdPartyBindResponse_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -1284,51 +1591,139 @@ inline void LoginResponse::set_allocated_user_id(::std::string* user_id) {
   // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.user_id)
 }
 
-// optional string user_name = 2;
-inline void LoginResponse::clear_user_name() {
-  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string user_nick_name = 2;
+inline void LoginResponse::clear_user_nick_name() {
+  user_nick_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& LoginResponse::user_name() const {
-  // @@protoc_insertion_point(field_get:personal.LoginResponse.user_name)
-  return user_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& LoginResponse::user_nick_name() const {
+  // @@protoc_insertion_point(field_get:personal.LoginResponse.user_nick_name)
+  return user_nick_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void LoginResponse::set_user_name(const ::std::string& value) {
+inline void LoginResponse::set_user_nick_name(const ::std::string& value) {
   
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.LoginResponse.user_name)
+  user_nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.LoginResponse.user_nick_name)
 }
-inline void LoginResponse::set_user_name(const char* value) {
+inline void LoginResponse::set_user_nick_name(const char* value) {
   
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.LoginResponse.user_name)
+  user_nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.LoginResponse.user_nick_name)
 }
-inline void LoginResponse::set_user_name(const char* value, size_t size) {
+inline void LoginResponse::set_user_nick_name(const char* value, size_t size) {
   
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  user_nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.LoginResponse.user_name)
+  // @@protoc_insertion_point(field_set_pointer:personal.LoginResponse.user_nick_name)
 }
-inline ::std::string* LoginResponse::mutable_user_name() {
+inline ::std::string* LoginResponse::mutable_user_nick_name() {
   
-  // @@protoc_insertion_point(field_mutable:personal.LoginResponse.user_name)
-  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:personal.LoginResponse.user_nick_name)
+  return user_nick_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* LoginResponse::release_user_name() {
-  // @@protoc_insertion_point(field_release:personal.LoginResponse.user_name)
+inline ::std::string* LoginResponse::release_user_nick_name() {
+  // @@protoc_insertion_point(field_release:personal.LoginResponse.user_nick_name)
   
-  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return user_nick_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void LoginResponse::set_allocated_user_name(::std::string* user_name) {
-  if (user_name != NULL) {
+inline void LoginResponse::set_allocated_user_nick_name(::std::string* user_nick_name) {
+  if (user_nick_name != NULL) {
     
   } else {
     
   }
-  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
-  // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.user_name)
+  user_nick_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_nick_name);
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.user_nick_name)
 }
 
-// optional string user_avatar_url = 3;
+// optional string user_real_name = 3;
+inline void LoginResponse::clear_user_real_name() {
+  user_real_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoginResponse::user_real_name() const {
+  // @@protoc_insertion_point(field_get:personal.LoginResponse.user_real_name)
+  return user_real_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginResponse::set_user_real_name(const ::std::string& value) {
+  
+  user_real_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.LoginResponse.user_real_name)
+}
+inline void LoginResponse::set_user_real_name(const char* value) {
+  
+  user_real_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.LoginResponse.user_real_name)
+}
+inline void LoginResponse::set_user_real_name(const char* value, size_t size) {
+  
+  user_real_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.LoginResponse.user_real_name)
+}
+inline ::std::string* LoginResponse::mutable_user_real_name() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.LoginResponse.user_real_name)
+  return user_real_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoginResponse::release_user_real_name() {
+  // @@protoc_insertion_point(field_release:personal.LoginResponse.user_real_name)
+  
+  return user_real_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginResponse::set_allocated_user_real_name(::std::string* user_real_name) {
+  if (user_real_name != NULL) {
+    
+  } else {
+    
+  }
+  user_real_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_real_name);
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.user_real_name)
+}
+
+// optional string user_used_name = 4;
+inline void LoginResponse::clear_user_used_name() {
+  user_used_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoginResponse::user_used_name() const {
+  // @@protoc_insertion_point(field_get:personal.LoginResponse.user_used_name)
+  return user_used_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginResponse::set_user_used_name(const ::std::string& value) {
+  
+  user_used_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.LoginResponse.user_used_name)
+}
+inline void LoginResponse::set_user_used_name(const char* value) {
+  
+  user_used_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.LoginResponse.user_used_name)
+}
+inline void LoginResponse::set_user_used_name(const char* value, size_t size) {
+  
+  user_used_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.LoginResponse.user_used_name)
+}
+inline ::std::string* LoginResponse::mutable_user_used_name() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.LoginResponse.user_used_name)
+  return user_used_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoginResponse::release_user_used_name() {
+  // @@protoc_insertion_point(field_release:personal.LoginResponse.user_used_name)
+  
+  return user_used_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginResponse::set_allocated_user_used_name(::std::string* user_used_name) {
+  if (user_used_name != NULL) {
+    
+  } else {
+    
+  }
+  user_used_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_used_name);
+  // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.user_used_name)
+}
+
+// optional string user_avatar_url = 5;
 inline void LoginResponse::clear_user_avatar_url() {
   user_avatar_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1372,7 +1767,7 @@ inline void LoginResponse::set_allocated_user_avatar_url(::std::string* user_ava
   // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.user_avatar_url)
 }
 
-// optional string login_token = 4;
+// optional string login_token = 6;
 inline void LoginResponse::clear_login_token() {
   login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1416,7 +1811,7 @@ inline void LoginResponse::set_allocated_login_token(::std::string* login_token)
   // @@protoc_insertion_point(field_set_allocated:personal.LoginResponse.login_token)
 }
 
-// optional .grpcCommon.GrpcError error = 5;
+// optional .grpcCommon.GrpcError error = 7;
 inline bool LoginResponse::has_error() const {
   return this != internal_default_instance() && error_ != NULL;
 }
@@ -1462,198 +1857,344 @@ inline const LoginResponse* LoginResponse::internal_default_instance() {
 
 // QuickLoginRequest
 
-// optional string phone = 1;
-inline void QuickLoginRequest::clear_phone() {
-  phone_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string phone_number = 1;
+inline void QuickLoginRequest::clear_phone_number() {
+  phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& QuickLoginRequest::phone() const {
-  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.phone)
-  return phone_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& QuickLoginRequest::phone_number() const {
+  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.phone_number)
+  return phone_number_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void QuickLoginRequest::set_phone(const ::std::string& value) {
+inline void QuickLoginRequest::set_phone_number(const ::std::string& value) {
   
-  phone_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.phone)
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.phone_number)
 }
-inline void QuickLoginRequest::set_phone(const char* value) {
+inline void QuickLoginRequest::set_phone_number(const char* value) {
   
-  phone_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.phone)
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.phone_number)
 }
-inline void QuickLoginRequest::set_phone(const char* value, size_t size) {
+inline void QuickLoginRequest::set_phone_number(const char* value, size_t size) {
   
-  phone_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.phone)
+  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.phone_number)
 }
-inline ::std::string* QuickLoginRequest::mutable_phone() {
+inline ::std::string* QuickLoginRequest::mutable_phone_number() {
   
-  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.phone)
-  return phone_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.phone_number)
+  return phone_number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* QuickLoginRequest::release_phone() {
-  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.phone)
+inline ::std::string* QuickLoginRequest::release_phone_number() {
+  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.phone_number)
   
-  return phone_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return phone_number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void QuickLoginRequest::set_allocated_phone(::std::string* phone) {
-  if (phone != NULL) {
+inline void QuickLoginRequest::set_allocated_phone_number(::std::string* phone_number) {
+  if (phone_number != NULL) {
     
   } else {
     
   }
-  phone_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone);
-  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.phone)
+  phone_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_number);
+  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.phone_number)
 }
 
-// optional string token = 2;
-inline void QuickLoginRequest::clear_token() {
-  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string phone_captcha = 2;
+inline void QuickLoginRequest::clear_phone_captcha() {
+  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& QuickLoginRequest::token() const {
-  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.token)
-  return token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& QuickLoginRequest::phone_captcha() const {
+  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.phone_captcha)
+  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void QuickLoginRequest::set_token(const ::std::string& value) {
+inline void QuickLoginRequest::set_phone_captcha(const ::std::string& value) {
   
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.token)
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.phone_captcha)
 }
-inline void QuickLoginRequest::set_token(const char* value) {
+inline void QuickLoginRequest::set_phone_captcha(const char* value) {
   
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.token)
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.phone_captcha)
 }
-inline void QuickLoginRequest::set_token(const char* value, size_t size) {
+inline void QuickLoginRequest::set_phone_captcha(const char* value, size_t size) {
   
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.token)
+  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.phone_captcha)
 }
-inline ::std::string* QuickLoginRequest::mutable_token() {
+inline ::std::string* QuickLoginRequest::mutable_phone_captcha() {
   
-  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.token)
-  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.phone_captcha)
+  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* QuickLoginRequest::release_token() {
-  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.token)
+inline ::std::string* QuickLoginRequest::release_phone_captcha() {
+  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.phone_captcha)
   
-  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void QuickLoginRequest::set_allocated_token(::std::string* token) {
-  if (token != NULL) {
+inline void QuickLoginRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
+  if (phone_captcha != NULL) {
     
   } else {
     
   }
-  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
-  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.token)
-}
-
-// optional string captcha = 3;
-inline void QuickLoginRequest::clear_captcha() {
-  captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& QuickLoginRequest::captcha() const {
-  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.captcha)
-  return captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void QuickLoginRequest::set_captcha(const ::std::string& value) {
-  
-  captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.captcha)
-}
-inline void QuickLoginRequest::set_captcha(const char* value) {
-  
-  captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.captcha)
-}
-inline void QuickLoginRequest::set_captcha(const char* value, size_t size) {
-  
-  captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.captcha)
-}
-inline ::std::string* QuickLoginRequest::mutable_captcha() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.captcha)
-  return captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* QuickLoginRequest::release_captcha() {
-  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.captcha)
-  
-  return captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void QuickLoginRequest::set_allocated_captcha(::std::string* captcha) {
-  if (captcha != NULL) {
-    
-  } else {
-    
-  }
-  captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), captcha);
-  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.captcha)
-}
-
-// optional string device_id = 4;
-inline void QuickLoginRequest::clear_device_id() {
-  device_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& QuickLoginRequest::device_id() const {
-  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.device_id)
-  return device_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void QuickLoginRequest::set_device_id(const ::std::string& value) {
-  
-  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.device_id)
-}
-inline void QuickLoginRequest::set_device_id(const char* value) {
-  
-  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.device_id)
-}
-inline void QuickLoginRequest::set_device_id(const char* value, size_t size) {
-  
-  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.device_id)
-}
-inline ::std::string* QuickLoginRequest::mutable_device_id() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.device_id)
-  return device_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* QuickLoginRequest::release_device_id() {
-  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.device_id)
-  
-  return device_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void QuickLoginRequest::set_allocated_device_id(::std::string* device_id) {
-  if (device_id != NULL) {
-    
-  } else {
-    
-  }
-  device_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.device_id)
-}
-
-// optional .personal.LoginDeviceType device_type = 5;
-inline void QuickLoginRequest::clear_device_type() {
-  device_type_ = 0;
-}
-inline ::personal::LoginDeviceType QuickLoginRequest::device_type() const {
-  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.device_type)
-  return static_cast< ::personal::LoginDeviceType >(device_type_);
-}
-inline void QuickLoginRequest::set_device_type(::personal::LoginDeviceType value) {
-  
-  device_type_ = value;
-  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.device_type)
+  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
+  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.phone_captcha)
 }
 
 inline const QuickLoginRequest* QuickLoginRequest::internal_default_instance() {
   return &QuickLoginRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// ThirdPartyLoginRequest
+
+// optional string uid = 1;
+inline void ThirdPartyLoginRequest::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ThirdPartyLoginRequest::uid() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyLoginRequest.uid)
+  return uid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ThirdPartyLoginRequest::set_uid(const ::std::string& value) {
+  
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyLoginRequest.uid)
+}
+inline void ThirdPartyLoginRequest::set_uid(const char* value) {
+  
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.ThirdPartyLoginRequest.uid)
+}
+inline void ThirdPartyLoginRequest::set_uid(const char* value, size_t size) {
+  
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.ThirdPartyLoginRequest.uid)
+}
+inline ::std::string* ThirdPartyLoginRequest::mutable_uid() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.ThirdPartyLoginRequest.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ThirdPartyLoginRequest::release_uid() {
+  // @@protoc_insertion_point(field_release:personal.ThirdPartyLoginRequest.uid)
+  
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ThirdPartyLoginRequest::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    
+  } else {
+    
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:personal.ThirdPartyLoginRequest.uid)
+}
+
+// optional int32 third_party_code = 2;
+inline void ThirdPartyLoginRequest::clear_third_party_code() {
+  third_party_code_ = 0;
+}
+inline ::google::protobuf::int32 ThirdPartyLoginRequest::third_party_code() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyLoginRequest.third_party_code)
+  return third_party_code_;
+}
+inline void ThirdPartyLoginRequest::set_third_party_code(::google::protobuf::int32 value) {
+  
+  third_party_code_ = value;
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyLoginRequest.third_party_code)
+}
+
+inline const ThirdPartyLoginRequest* ThirdPartyLoginRequest::internal_default_instance() {
+  return &ThirdPartyLoginRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// ThirdPartyBindRequest
+
+// optional string uid = 1;
+inline void ThirdPartyBindRequest::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ThirdPartyBindRequest::uid() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyBindRequest.uid)
+  return uid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ThirdPartyBindRequest::set_uid(const ::std::string& value) {
+  
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyBindRequest.uid)
+}
+inline void ThirdPartyBindRequest::set_uid(const char* value) {
+  
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.ThirdPartyBindRequest.uid)
+}
+inline void ThirdPartyBindRequest::set_uid(const char* value, size_t size) {
+  
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.ThirdPartyBindRequest.uid)
+}
+inline ::std::string* ThirdPartyBindRequest::mutable_uid() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.ThirdPartyBindRequest.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ThirdPartyBindRequest::release_uid() {
+  // @@protoc_insertion_point(field_release:personal.ThirdPartyBindRequest.uid)
+  
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ThirdPartyBindRequest::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    
+  } else {
+    
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:personal.ThirdPartyBindRequest.uid)
+}
+
+// optional string user_id = 2;
+inline void ThirdPartyBindRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ThirdPartyBindRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyBindRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ThirdPartyBindRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyBindRequest.user_id)
+}
+inline void ThirdPartyBindRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.ThirdPartyBindRequest.user_id)
+}
+inline void ThirdPartyBindRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.ThirdPartyBindRequest.user_id)
+}
+inline ::std::string* ThirdPartyBindRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.ThirdPartyBindRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ThirdPartyBindRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:personal.ThirdPartyBindRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ThirdPartyBindRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.ThirdPartyBindRequest.user_id)
+}
+
+// optional int32 third_party_code = 3;
+inline void ThirdPartyBindRequest::clear_third_party_code() {
+  third_party_code_ = 0;
+}
+inline ::google::protobuf::int32 ThirdPartyBindRequest::third_party_code() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyBindRequest.third_party_code)
+  return third_party_code_;
+}
+inline void ThirdPartyBindRequest::set_third_party_code(::google::protobuf::int32 value) {
+  
+  third_party_code_ = value;
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyBindRequest.third_party_code)
+}
+
+// optional int32 user_status = 4;
+inline void ThirdPartyBindRequest::clear_user_status() {
+  user_status_ = 0;
+}
+inline ::google::protobuf::int32 ThirdPartyBindRequest::user_status() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyBindRequest.user_status)
+  return user_status_;
+}
+inline void ThirdPartyBindRequest::set_user_status(::google::protobuf::int32 value) {
+  
+  user_status_ = value;
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyBindRequest.user_status)
+}
+
+inline const ThirdPartyBindRequest* ThirdPartyBindRequest::internal_default_instance() {
+  return &ThirdPartyBindRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// ThirdPartyBindResponse
+
+// optional int32 bind_status = 1;
+inline void ThirdPartyBindResponse::clear_bind_status() {
+  bind_status_ = 0;
+}
+inline ::google::protobuf::int32 ThirdPartyBindResponse::bind_status() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyBindResponse.bind_status)
+  return bind_status_;
+}
+inline void ThirdPartyBindResponse::set_bind_status(::google::protobuf::int32 value) {
+  
+  bind_status_ = value;
+  // @@protoc_insertion_point(field_set:personal.ThirdPartyBindResponse.bind_status)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool ThirdPartyBindResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void ThirdPartyBindResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& ThirdPartyBindResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.ThirdPartyBindResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* ThirdPartyBindResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.ThirdPartyBindResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* ThirdPartyBindResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.ThirdPartyBindResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void ThirdPartyBindResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.ThirdPartyBindResponse.error)
+}
+
+inline const ThirdPartyBindResponse* ThirdPartyBindResponse::internal_default_instance() {
+  return &ThirdPartyBindResponse_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -2020,6 +2561,12 @@ inline const BindNewRegistRequest* BindNewRegistRequest::internal_default_instan
   return &BindNewRegistRequest_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

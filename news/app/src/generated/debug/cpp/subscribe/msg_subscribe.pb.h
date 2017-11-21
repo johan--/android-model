@@ -148,11 +148,23 @@ class CancelSubscribeRequest : public ::google::protobuf::Message /* @@protoc_in
   ::subscribe::CancelSubscribeType cancel_type() const;
   void set_cancel_type(::subscribe::CancelSubscribeType value);
 
+  // optional string user_id = 3;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 3;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
   // @@protoc_insertion_point(class_scope:subscribe.CancelSubscribeRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr subscribe_id_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
   int cancel_type_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_subscribe_2fmsg_5fsubscribe_2eproto_impl();
@@ -530,6 +542,50 @@ inline void CancelSubscribeRequest::set_cancel_type(::subscribe::CancelSubscribe
   
   cancel_type_ = value;
   // @@protoc_insertion_point(field_set:subscribe.CancelSubscribeRequest.cancel_type)
+}
+
+// optional string user_id = 3;
+inline void CancelSubscribeRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CancelSubscribeRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:subscribe.CancelSubscribeRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CancelSubscribeRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.CancelSubscribeRequest.user_id)
+}
+inline void CancelSubscribeRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.CancelSubscribeRequest.user_id)
+}
+inline void CancelSubscribeRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.CancelSubscribeRequest.user_id)
+}
+inline ::std::string* CancelSubscribeRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.CancelSubscribeRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CancelSubscribeRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:subscribe.CancelSubscribeRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CancelSubscribeRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.CancelSubscribeRequest.user_id)
 }
 
 inline const CancelSubscribeRequest* CancelSubscribeRequest::internal_default_instance() {

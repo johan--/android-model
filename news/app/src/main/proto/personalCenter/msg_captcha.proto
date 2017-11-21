@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package personal;
+option java_multiple_files = true;
+option java_package = "com.wanfang.personal";
+option objc_class_prefix = "WFPR";
+
+// 获取手机验证码-请求
+message GetPhoneCaptchaRequest{
+    // 手机号
+    string phone_number = 1;
+    // 国际区号 如：中国：0086；
+    string nation = 2;
+    // 消息类型 目前仅支持“bind”
+    string message_type = 3;
+}
+
+// 获取手机验证码-响应
+message GetPhoneCaptchaResponse{
+    // 结果状态:200:成功
+    int32 status = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+// 校验手机验证码-请求
+message CheckPhoneCaptchaRequest{
+    // 手机号
+    string phone_number = 1;
+    // 验证码
+    string phone_captcha = 2;
+    // 国际区号 如：中国：0086；
+    string nation = 3;
+    // 消息类型 目前仅支持“bind”
+    string message_type = 4;
+}
+
+// 校验手机验证码-响应
+message CheckPhoneCaptchaResponse{
+    // 结果状态:200:成功
+    int32 status = 1;
+    grpcCommon.GrpcError error = 2;
+}

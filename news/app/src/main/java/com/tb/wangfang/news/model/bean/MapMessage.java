@@ -17,6 +17,11 @@ public class MapMessage implements Parcelable {
         hasNext = in.readByte() != 0;
     }
 
+    public MapMessage(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+
     public MapMessage() {
     }
 

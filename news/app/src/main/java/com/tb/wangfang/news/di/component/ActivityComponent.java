@@ -10,6 +10,8 @@ import com.tb.wangfang.news.ui.activity.EditNackNameActivity;
 import com.tb.wangfang.news.ui.activity.EditPersonInforActivity;
 import com.tb.wangfang.news.ui.activity.EditRewardActivity;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
+import com.tb.wangfang.news.ui.activity.FindPassWordActivity1;
+import com.tb.wangfang.news.ui.activity.FindPasswordActivity2;
 import com.tb.wangfang.news.ui.activity.InsertSubscribeActivity;
 import com.tb.wangfang.news.ui.activity.JournalActivity;
 import com.tb.wangfang.news.ui.activity.LoginActivity;
@@ -19,6 +21,7 @@ import com.tb.wangfang.news.ui.activity.ManageSubscribeActivity;
 import com.tb.wangfang.news.ui.activity.MessageActivity;
 import com.tb.wangfang.news.ui.activity.MessageCenterActivity;
 import com.tb.wangfang.news.ui.activity.MyOrderActivity;
+import com.tb.wangfang.news.ui.activity.MyWalletActivity;
 import com.tb.wangfang.news.ui.activity.MycollectActivity;
 import com.tb.wangfang.news.ui.activity.PayOrderActivity;
 import com.tb.wangfang.news.ui.activity.PersonEditListActivity;
@@ -75,5 +78,11 @@ public interface ActivityComponent {
     void inject(JournalActivity journalActivity);
 
     void inject(BindwanfangAccountActivity bindwanfangAccountActivity);
+
+    void inject(MyWalletActivity myWalletActivity);
+
+    void inject(FindPassWordActivity1 findPassWordActivity1);
+
+    void inject(FindPasswordActivity2 findPasswordActivity2);
 
 }

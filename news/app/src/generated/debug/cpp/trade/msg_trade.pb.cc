@@ -136,7 +136,7 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
       sizeof(MyOrdersResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse, _internal_metadata_));
   MyOrdersResponse_Result_descriptor_ = MyOrdersResponse_descriptor_->nested_type(0);
-  static const int MyOrdersResponse_Result_offsets_[7] = {
+  static const int MyOrdersResponse_Result_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, order_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, create_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, order_money_),
@@ -144,6 +144,7 @@ void protobuf_AssignDesc_trade_2fmsg_5ftrade_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, order_state_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, order_title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, pay_way_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyOrdersResponse_Result, productdetail_),
   };
   MyOrdersResponse_Result_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -243,16 +244,16 @@ void protobuf_AddDesc_trade_2fmsg_5ftrade_2eproto_impl() {
     "\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(\t\022\014\n\004sign\030\007 \001(\t"
     "\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcError\"J"
     "\n\017MyOrdersRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013pa"
-    "ge_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\256\002\n\020M"
+    "ge_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\305\002\n\020M"
     "yOrdersResponse\022/\n\007results\030\001 \003(\0132\036.trade"
     ".MyOrdersResponse.Result\022\023\n\013total_count\030"
     "\002 \001(\005\022\020\n\010has_more\030\003 \001(\010\022$\n\005error\030\004 \001(\0132\025"
-    ".grpcCommon.GrpcError\032\233\001\n\006Result\022\020\n\010orde"
+    ".grpcCommon.GrpcError\032\262\001\n\006Result\022\020\n\010orde"
     "r_id\030\001 \001(\t\022\023\n\013create_time\030\002 \001(\t\022\023\n\013order"
     "_money\030\003 \001(\t\022\032\n\022order_product_type\030\005 \001(\t"
     "\022\023\n\013order_state\030\006 \001(\005\022\023\n\013order_title\030\007 \001"
-    "(\t\022\017\n\007pay_way\030\010 \001(\tB\034\n\021com.wanfang.trade"
-    "P\001\242\002\004WFPRb\006proto3", 817);
+    "(\t\022\017\n\007pay_way\030\010 \001(\t\022\025\n\rproductDetail\030\t \001"
+    "(\tB\034\n\021com.wanfang.tradeP\001\242\002\004WFPRb\006proto3", 840);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "trade/msg_trade.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -2526,6 +2527,7 @@ const int MyOrdersResponse_Result::kOrderProductTypeFieldNumber;
 const int MyOrdersResponse_Result::kOrderStateFieldNumber;
 const int MyOrdersResponse_Result::kOrderTitleFieldNumber;
 const int MyOrdersResponse_Result::kPayWayFieldNumber;
+const int MyOrdersResponse_Result::kProductDetailFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MyOrdersResponse_Result::MyOrdersResponse_Result()
@@ -2553,6 +2555,7 @@ void MyOrdersResponse_Result::SharedCtor() {
   order_product_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   order_title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   pay_way_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  productdetail_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   order_state_ = 0;
   _cached_size_ = 0;
 }
@@ -2569,6 +2572,7 @@ void MyOrdersResponse_Result::SharedDtor() {
   order_product_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   order_title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   pay_way_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  productdetail_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MyOrdersResponse_Result::SetCachedSize(int size) const {
@@ -2605,6 +2609,7 @@ void MyOrdersResponse_Result::Clear() {
   order_state_ = 0;
   order_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   pay_way_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  productdetail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool MyOrdersResponse_Result::MergePartialFromCodedStream(
@@ -2729,6 +2734,23 @@ bool MyOrdersResponse_Result::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(74)) goto parse_productDetail;
+        break;
+      }
+
+      // optional string productDetail = 9;
+      case 9: {
+        if (tag == 74) {
+         parse_productDetail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_productdetail()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->productdetail().data(), this->productdetail().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "trade.MyOrdersResponse.Result.productDetail"));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2822,6 +2844,16 @@ void MyOrdersResponse_Result::SerializeWithCachedSizes(
       8, this->pay_way(), output);
   }
 
+  // optional string productDetail = 9;
+  if (this->productdetail().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->productdetail().data(), this->productdetail().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.MyOrdersResponse.Result.productDetail");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      9, this->productdetail(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:trade.MyOrdersResponse.Result)
 }
 
@@ -2900,6 +2932,17 @@ void MyOrdersResponse_Result::SerializeWithCachedSizes(
         8, this->pay_way(), target);
   }
 
+  // optional string productDetail = 9;
+  if (this->productdetail().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->productdetail().data(), this->productdetail().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.MyOrdersResponse.Result.productDetail");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        9, this->productdetail(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:trade.MyOrdersResponse.Result)
   return target;
 }
@@ -2955,6 +2998,13 @@ size_t MyOrdersResponse_Result::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->pay_way());
+  }
+
+  // optional string productDetail = 9;
+  if (this->productdetail().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->productdetail());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -3017,6 +3067,10 @@ void MyOrdersResponse_Result::UnsafeMergeFrom(const MyOrdersResponse_Result& fro
 
     pay_way_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.pay_way_);
   }
+  if (from.productdetail().size() > 0) {
+
+    productdetail_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.productdetail_);
+  }
 }
 
 void MyOrdersResponse_Result::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3050,6 +3104,7 @@ void MyOrdersResponse_Result::InternalSwap(MyOrdersResponse_Result* other) {
   std::swap(order_state_, other->order_state_);
   order_title_.Swap(&other->order_title_);
   pay_way_.Swap(&other->pay_way_);
+  productdetail_.Swap(&other->productdetail_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3711,6 +3766,50 @@ void MyOrdersResponse_Result::set_allocated_pay_way(::std::string* pay_way) {
   }
   pay_way_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pay_way);
   // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.pay_way)
+}
+
+// optional string productDetail = 9;
+void MyOrdersResponse_Result::clear_productdetail() {
+  productdetail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& MyOrdersResponse_Result::productdetail() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.productDetail)
+  return productdetail_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyOrdersResponse_Result::set_productdetail(const ::std::string& value) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.productDetail)
+}
+void MyOrdersResponse_Result::set_productdetail(const char* value) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.productDetail)
+}
+void MyOrdersResponse_Result::set_productdetail(const char* value, size_t size) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.productDetail)
+}
+::std::string* MyOrdersResponse_Result::mutable_productdetail() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.productDetail)
+  return productdetail_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MyOrdersResponse_Result::release_productdetail() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.productDetail)
+  
+  return productdetail_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MyOrdersResponse_Result::set_allocated_productdetail(::std::string* productdetail) {
+  if (productdetail != NULL) {
+    
+  } else {
+    
+  }
+  productdetail_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), productdetail);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.productDetail)
 }
 
 inline const MyOrdersResponse_Result* MyOrdersResponse_Result::internal_default_instance() {

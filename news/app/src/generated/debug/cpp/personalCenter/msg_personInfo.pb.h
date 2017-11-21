@@ -28,6 +28,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/map.h>
 #include <google/protobuf/map_field_inl.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/any.pb.h>
 #include "grpcCommon/msg_error.pb.h"
@@ -66,10 +67,556 @@ class SubjectFieldMap;
 class SubjectListRequest;
 class SubjectListResponse;
 class SubjectMessage;
+class UserGetBalenceRequest;
+class UserGetBalenceResponse;
+class UserGetTradeListRequest;
+class UserGetTradeListResponse;
+class UserGetTradeListResponse_TradeTransaction;
 class UserRolesListRequest;
 class UserRolesListResponse;
 
+enum BALENCETYPE {
+  NORMAL = 0,
+  APPLE = 1,
+  BALENCETYPE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  BALENCETYPE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool BALENCETYPE_IsValid(int value);
+const BALENCETYPE BALENCETYPE_MIN = NORMAL;
+const BALENCETYPE BALENCETYPE_MAX = APPLE;
+const int BALENCETYPE_ARRAYSIZE = BALENCETYPE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* BALENCETYPE_descriptor();
+inline const ::std::string& BALENCETYPE_Name(BALENCETYPE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    BALENCETYPE_descriptor(), value);
+}
+inline bool BALENCETYPE_Parse(
+    const ::std::string& name, BALENCETYPE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<BALENCETYPE>(
+    BALENCETYPE_descriptor(), name, value);
+}
 // ===================================================================
+
+class UserGetBalenceRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UserGetBalenceRequest) */ {
+ public:
+  UserGetBalenceRequest();
+  virtual ~UserGetBalenceRequest();
+
+  UserGetBalenceRequest(const UserGetBalenceRequest& from);
+
+  inline UserGetBalenceRequest& operator=(const UserGetBalenceRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UserGetBalenceRequest& default_instance();
+
+  static const UserGetBalenceRequest* internal_default_instance();
+
+  void Swap(UserGetBalenceRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline UserGetBalenceRequest* New() const { return New(NULL); }
+
+  UserGetBalenceRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UserGetBalenceRequest& from);
+  void MergeFrom(const UserGetBalenceRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(UserGetBalenceRequest* other);
+  void UnsafeMergeFrom(const UserGetBalenceRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string user_id = 1;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  void clear_balence_type();
+  static const int kBalenceTypeFieldNumber = 2;
+  ::personal::BALENCETYPE balence_type() const;
+  void set_balence_type(::personal::BALENCETYPE value);
+
+  // @@protoc_insertion_point(class_scope:personal.UserGetBalenceRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  int balence_type_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<UserGetBalenceRequest> UserGetBalenceRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class UserGetBalenceResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UserGetBalenceResponse) */ {
+ public:
+  UserGetBalenceResponse();
+  virtual ~UserGetBalenceResponse();
+
+  UserGetBalenceResponse(const UserGetBalenceResponse& from);
+
+  inline UserGetBalenceResponse& operator=(const UserGetBalenceResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UserGetBalenceResponse& default_instance();
+
+  static const UserGetBalenceResponse* internal_default_instance();
+
+  void Swap(UserGetBalenceResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline UserGetBalenceResponse* New() const { return New(NULL); }
+
+  UserGetBalenceResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UserGetBalenceResponse& from);
+  void MergeFrom(const UserGetBalenceResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(UserGetBalenceResponse* other);
+  void UnsafeMergeFrom(const UserGetBalenceResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional double balence = 1;
+  void clear_balence();
+  static const int kBalenceFieldNumber = 1;
+  double balence() const;
+  void set_balence(double value);
+
+  // @@protoc_insertion_point(class_scope:personal.UserGetBalenceResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  double balence_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<UserGetBalenceResponse> UserGetBalenceResponse_default_instance_;
+
+// -------------------------------------------------------------------
+
+class UserGetTradeListRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UserGetTradeListRequest) */ {
+ public:
+  UserGetTradeListRequest();
+  virtual ~UserGetTradeListRequest();
+
+  UserGetTradeListRequest(const UserGetTradeListRequest& from);
+
+  inline UserGetTradeListRequest& operator=(const UserGetTradeListRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UserGetTradeListRequest& default_instance();
+
+  static const UserGetTradeListRequest* internal_default_instance();
+
+  void Swap(UserGetTradeListRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline UserGetTradeListRequest* New() const { return New(NULL); }
+
+  UserGetTradeListRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UserGetTradeListRequest& from);
+  void MergeFrom(const UserGetTradeListRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(UserGetTradeListRequest* other);
+  void UnsafeMergeFrom(const UserGetTradeListRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string user_id = 1;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  void clear_balence_type();
+  static const int kBalenceTypeFieldNumber = 2;
+  ::personal::BALENCETYPE balence_type() const;
+  void set_balence_type(::personal::BALENCETYPE value);
+
+  // @@protoc_insertion_point(class_scope:personal.UserGetTradeListRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  int balence_type_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<UserGetTradeListRequest> UserGetTradeListRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class UserGetTradeListResponse_TradeTransaction : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UserGetTradeListResponse.TradeTransaction) */ {
+ public:
+  UserGetTradeListResponse_TradeTransaction();
+  virtual ~UserGetTradeListResponse_TradeTransaction();
+
+  UserGetTradeListResponse_TradeTransaction(const UserGetTradeListResponse_TradeTransaction& from);
+
+  inline UserGetTradeListResponse_TradeTransaction& operator=(const UserGetTradeListResponse_TradeTransaction& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UserGetTradeListResponse_TradeTransaction& default_instance();
+
+  static const UserGetTradeListResponse_TradeTransaction* internal_default_instance();
+
+  void Swap(UserGetTradeListResponse_TradeTransaction* other);
+
+  // implements Message ----------------------------------------------
+
+  inline UserGetTradeListResponse_TradeTransaction* New() const { return New(NULL); }
+
+  UserGetTradeListResponse_TradeTransaction* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UserGetTradeListResponse_TradeTransaction& from);
+  void MergeFrom(const UserGetTradeListResponse_TradeTransaction& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(UserGetTradeListResponse_TradeTransaction* other);
+  void UnsafeMergeFrom(const UserGetTradeListResponse_TradeTransaction& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string trade_id = 1;
+  void clear_trade_id();
+  static const int kTradeIdFieldNumber = 1;
+  const ::std::string& trade_id() const;
+  void set_trade_id(const ::std::string& value);
+  void set_trade_id(const char* value);
+  void set_trade_id(const char* value, size_t size);
+  ::std::string* mutable_trade_id();
+  ::std::string* release_trade_id();
+  void set_allocated_trade_id(::std::string* trade_id);
+
+  // optional string create_time = 2;
+  void clear_create_time();
+  static const int kCreateTimeFieldNumber = 2;
+  const ::std::string& create_time() const;
+  void set_create_time(const ::std::string& value);
+  void set_create_time(const char* value);
+  void set_create_time(const char* value, size_t size);
+  ::std::string* mutable_create_time();
+  ::std::string* release_create_time();
+  void set_allocated_create_time(::std::string* create_time);
+
+  // optional string turnover = 3;
+  void clear_turnover();
+  static const int kTurnoverFieldNumber = 3;
+  const ::std::string& turnover() const;
+  void set_turnover(const ::std::string& value);
+  void set_turnover(const char* value);
+  void set_turnover(const char* value, size_t size);
+  ::std::string* mutable_turnover();
+  ::std::string* release_turnover();
+  void set_allocated_turnover(::std::string* turnover);
+
+  // optional string product_title = 4;
+  void clear_product_title();
+  static const int kProductTitleFieldNumber = 4;
+  const ::std::string& product_title() const;
+  void set_product_title(const ::std::string& value);
+  void set_product_title(const char* value);
+  void set_product_title(const char* value, size_t size);
+  ::std::string* mutable_product_title();
+  ::std::string* release_product_title();
+  void set_allocated_product_title(::std::string* product_title);
+
+  // optional int32 status = 5;
+  void clear_status();
+  static const int kStatusFieldNumber = 5;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:personal.UserGetTradeListResponse.TradeTransaction)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr trade_id_;
+  ::google::protobuf::internal::ArenaStringPtr create_time_;
+  ::google::protobuf::internal::ArenaStringPtr turnover_;
+  ::google::protobuf::internal::ArenaStringPtr product_title_;
+  ::google::protobuf::int32 status_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<UserGetTradeListResponse_TradeTransaction> UserGetTradeListResponse_TradeTransaction_default_instance_;
+
+// -------------------------------------------------------------------
+
+class UserGetTradeListResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UserGetTradeListResponse) */ {
+ public:
+  UserGetTradeListResponse();
+  virtual ~UserGetTradeListResponse();
+
+  UserGetTradeListResponse(const UserGetTradeListResponse& from);
+
+  inline UserGetTradeListResponse& operator=(const UserGetTradeListResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UserGetTradeListResponse& default_instance();
+
+  static const UserGetTradeListResponse* internal_default_instance();
+
+  void Swap(UserGetTradeListResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline UserGetTradeListResponse* New() const { return New(NULL); }
+
+  UserGetTradeListResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UserGetTradeListResponse& from);
+  void MergeFrom(const UserGetTradeListResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(UserGetTradeListResponse* other);
+  void UnsafeMergeFrom(const UserGetTradeListResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef UserGetTradeListResponse_TradeTransaction TradeTransaction;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+  int trade_transaction_size() const;
+  void clear_trade_transaction();
+  static const int kTradeTransactionFieldNumber = 1;
+  const ::personal::UserGetTradeListResponse_TradeTransaction& trade_transaction(int index) const;
+  ::personal::UserGetTradeListResponse_TradeTransaction* mutable_trade_transaction(int index);
+  ::personal::UserGetTradeListResponse_TradeTransaction* add_trade_transaction();
+  ::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction >*
+      mutable_trade_transaction();
+  const ::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction >&
+      trade_transaction() const;
+
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:personal.UserGetTradeListResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction > trade_transaction_;
+  ::grpcCommon::GrpcError* error_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<UserGetTradeListResponse> UserGetTradeListResponse_default_instance_;
+
+// -------------------------------------------------------------------
 
 class UserRolesListRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.UserRolesListRequest) */ {
  public:
@@ -2745,6 +3292,430 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<InfoPassword> InfoPas
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// UserGetBalenceRequest
+
+// optional string user_id = 1;
+inline void UserGetBalenceRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGetBalenceRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetBalenceRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetBalenceRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetBalenceRequest.user_id)
+}
+inline void UserGetBalenceRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetBalenceRequest.user_id)
+}
+inline void UserGetBalenceRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetBalenceRequest.user_id)
+}
+inline ::std::string* UserGetBalenceRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetBalenceRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGetBalenceRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:personal.UserGetBalenceRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetBalenceRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetBalenceRequest.user_id)
+}
+
+// optional .personal.BALENCETYPE balence_type = 2;
+inline void UserGetBalenceRequest::clear_balence_type() {
+  balence_type_ = 0;
+}
+inline ::personal::BALENCETYPE UserGetBalenceRequest::balence_type() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetBalenceRequest.balence_type)
+  return static_cast< ::personal::BALENCETYPE >(balence_type_);
+}
+inline void UserGetBalenceRequest::set_balence_type(::personal::BALENCETYPE value) {
+  
+  balence_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetBalenceRequest.balence_type)
+}
+
+inline const UserGetBalenceRequest* UserGetBalenceRequest::internal_default_instance() {
+  return &UserGetBalenceRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// UserGetBalenceResponse
+
+// optional double balence = 1;
+inline void UserGetBalenceResponse::clear_balence() {
+  balence_ = 0;
+}
+inline double UserGetBalenceResponse::balence() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetBalenceResponse.balence)
+  return balence_;
+}
+inline void UserGetBalenceResponse::set_balence(double value) {
+  
+  balence_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetBalenceResponse.balence)
+}
+
+inline const UserGetBalenceResponse* UserGetBalenceResponse::internal_default_instance() {
+  return &UserGetBalenceResponse_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// UserGetTradeListRequest
+
+// optional string user_id = 1;
+inline void UserGetTradeListRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGetTradeListRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListRequest.user_id)
+}
+inline void UserGetTradeListRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListRequest.user_id)
+}
+inline void UserGetTradeListRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListRequest.user_id)
+}
+inline ::std::string* UserGetTradeListRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGetTradeListRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListRequest.user_id)
+}
+
+// optional .personal.BALENCETYPE balence_type = 2;
+inline void UserGetTradeListRequest::clear_balence_type() {
+  balence_type_ = 0;
+}
+inline ::personal::BALENCETYPE UserGetTradeListRequest::balence_type() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListRequest.balence_type)
+  return static_cast< ::personal::BALENCETYPE >(balence_type_);
+}
+inline void UserGetTradeListRequest::set_balence_type(::personal::BALENCETYPE value) {
+  
+  balence_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListRequest.balence_type)
+}
+
+inline const UserGetTradeListRequest* UserGetTradeListRequest::internal_default_instance() {
+  return &UserGetTradeListRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// UserGetTradeListResponse_TradeTransaction
+
+// optional string trade_id = 1;
+inline void UserGetTradeListResponse_TradeTransaction::clear_trade_id() {
+  trade_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGetTradeListResponse_TradeTransaction::trade_id() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+  return trade_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_trade_id(const ::std::string& value) {
+  
+  trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_trade_id(const char* value) {
+  
+  trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_trade_id(const char* value, size_t size) {
+  
+  trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::mutable_trade_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+  return trade_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::release_trade_id() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+  
+  return trade_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_allocated_trade_id(::std::string* trade_id) {
+  if (trade_id != NULL) {
+    
+  } else {
+    
+  }
+  trade_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), trade_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+
+// optional string create_time = 2;
+inline void UserGetTradeListResponse_TradeTransaction::clear_create_time() {
+  create_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGetTradeListResponse_TradeTransaction::create_time() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+  return create_time_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_create_time(const ::std::string& value) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_create_time(const char* value) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_create_time(const char* value, size_t size) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::mutable_create_time() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+  return create_time_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::release_create_time() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+  
+  return create_time_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_allocated_create_time(::std::string* create_time) {
+  if (create_time != NULL) {
+    
+  } else {
+    
+  }
+  create_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), create_time);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+
+// optional string turnover = 3;
+inline void UserGetTradeListResponse_TradeTransaction::clear_turnover() {
+  turnover_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGetTradeListResponse_TradeTransaction::turnover() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+  return turnover_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_turnover(const ::std::string& value) {
+  
+  turnover_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_turnover(const char* value) {
+  
+  turnover_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_turnover(const char* value, size_t size) {
+  
+  turnover_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::mutable_turnover() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+  return turnover_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::release_turnover() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+  
+  return turnover_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_allocated_turnover(::std::string* turnover) {
+  if (turnover != NULL) {
+    
+  } else {
+    
+  }
+  turnover_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), turnover);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+
+// optional string product_title = 4;
+inline void UserGetTradeListResponse_TradeTransaction::clear_product_title() {
+  product_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGetTradeListResponse_TradeTransaction::product_title() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+  return product_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_product_title(const ::std::string& value) {
+  
+  product_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_product_title(const char* value) {
+  
+  product_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_product_title(const char* value, size_t size) {
+  
+  product_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::mutable_product_title() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+  return product_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGetTradeListResponse_TradeTransaction::release_product_title() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+  
+  return product_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_allocated_product_title(::std::string* product_title) {
+  if (product_title != NULL) {
+    
+  } else {
+    
+  }
+  product_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_title);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+
+// optional int32 status = 5;
+inline void UserGetTradeListResponse_TradeTransaction::clear_status() {
+  status_ = 0;
+}
+inline ::google::protobuf::int32 UserGetTradeListResponse_TradeTransaction::status() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.status)
+  return status_;
+}
+inline void UserGetTradeListResponse_TradeTransaction::set_status(::google::protobuf::int32 value) {
+  
+  status_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.status)
+}
+
+inline const UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse_TradeTransaction::internal_default_instance() {
+  return &UserGetTradeListResponse_TradeTransaction_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// UserGetTradeListResponse
+
+// repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+inline int UserGetTradeListResponse::trade_transaction_size() const {
+  return trade_transaction_.size();
+}
+inline void UserGetTradeListResponse::clear_trade_transaction() {
+  trade_transaction_.Clear();
+}
+inline const ::personal::UserGetTradeListResponse_TradeTransaction& UserGetTradeListResponse::trade_transaction(int index) const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_.Get(index);
+}
+inline ::personal::UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse::mutable_trade_transaction(int index) {
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_.Mutable(index);
+}
+inline ::personal::UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse::add_trade_transaction() {
+  // @@protoc_insertion_point(field_add:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction >*
+UserGetTradeListResponse::mutable_trade_transaction() {
+  // @@protoc_insertion_point(field_mutable_list:personal.UserGetTradeListResponse.trade_transaction)
+  return &trade_transaction_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction >&
+UserGetTradeListResponse::trade_transaction() const {
+  // @@protoc_insertion_point(field_list:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_;
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool UserGetTradeListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void UserGetTradeListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& UserGetTradeListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* UserGetTradeListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* UserGetTradeListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void UserGetTradeListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.error)
+}
+
+inline const UserGetTradeListResponse* UserGetTradeListResponse::internal_default_instance() {
+  return &UserGetTradeListResponse_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
 // UserRolesListRequest
 
 inline const UserRolesListRequest* UserRolesListRequest::internal_default_instance() {
@@ -4838,10 +5809,34 @@ inline const InfoPassword* InfoPassword::internal_default_instance() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace personal
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::personal::BALENCETYPE> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::personal::BALENCETYPE>() {
+  return ::personal::BALENCETYPE_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

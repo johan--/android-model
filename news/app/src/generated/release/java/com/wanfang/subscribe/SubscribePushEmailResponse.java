@@ -16,6 +16,7 @@ public  final class SubscribePushEmailResponse extends
   }
   private SubscribePushEmailResponse() {
     email_ = "";
+    hasEmail_ = false;
   }
 
   @java.lang.Override
@@ -49,7 +50,12 @@ public  final class SubscribePushEmailResponse extends
             email_ = s;
             break;
           }
-          case 18: {
+          case 16: {
+
+            hasEmail_ = input.readBool();
+            break;
+          }
+          case 26: {
             com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
             if (error_ != null) {
               subBuilder = error_.toBuilder();
@@ -119,22 +125,35 @@ public  final class SubscribePushEmailResponse extends
     }
   }
 
-  public static final int ERROR_FIELD_NUMBER = 2;
+  public static final int HAS_EMAIL_FIELD_NUMBER = 2;
+  private boolean hasEmail_;
+  /**
+   * <pre>
+   * 是否有邮箱 如果有，设置邮箱时用update，没有，用insert
+   * </pre>
+   *
+   * <code>optional bool has_email = 2;</code>
+   */
+  public boolean getHasEmail() {
+    return hasEmail_;
+  }
+
+  public static final int ERROR_FIELD_NUMBER = 3;
   private com.wanfang.grpcCommon.MsgError.GrpcError error_;
   /**
-   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
    */
   public boolean hasError() {
     return error_ != null;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
     return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
     return getError();
@@ -155,8 +174,11 @@ public  final class SubscribePushEmailResponse extends
     if (!getEmailBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, email_);
     }
+    if (hasEmail_ != false) {
+      output.writeBool(2, hasEmail_);
+    }
     if (error_ != null) {
-      output.writeMessage(2, getError());
+      output.writeMessage(3, getError());
     }
   }
 
@@ -168,9 +190,13 @@ public  final class SubscribePushEmailResponse extends
     if (!getEmailBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, email_);
     }
+    if (hasEmail_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, hasEmail_);
+    }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getError());
+        .computeMessageSize(3, getError());
     }
     memoizedSize = size;
     return size;
@@ -190,6 +216,8 @@ public  final class SubscribePushEmailResponse extends
     boolean result = true;
     result = result && getEmail()
         .equals(other.getEmail());
+    result = result && (getHasEmail()
+        == other.getHasEmail());
     result = result && (hasError() == other.hasError());
     if (hasError()) {
       result = result && getError()
@@ -207,6 +235,9 @@ public  final class SubscribePushEmailResponse extends
     hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getEmail().hashCode();
+    hash = (37 * hash) + HAS_EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getHasEmail());
     if (hasError()) {
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
@@ -331,6 +362,8 @@ public  final class SubscribePushEmailResponse extends
       super.clear();
       email_ = "";
 
+      hasEmail_ = false;
+
       if (errorBuilder_ == null) {
         error_ = null;
       } else {
@@ -360,6 +393,7 @@ public  final class SubscribePushEmailResponse extends
     public com.wanfang.subscribe.SubscribePushEmailResponse buildPartial() {
       com.wanfang.subscribe.SubscribePushEmailResponse result = new com.wanfang.subscribe.SubscribePushEmailResponse(this);
       result.email_ = email_;
+      result.hasEmail_ = hasEmail_;
       if (errorBuilder_ == null) {
         result.error_ = error_;
       } else {
@@ -409,6 +443,9 @@ public  final class SubscribePushEmailResponse extends
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
         onChanged();
+      }
+      if (other.getHasEmail() != false) {
+        setHasEmail(other.getHasEmail());
       }
       if (other.hasError()) {
         mergeError(other.getError());
@@ -508,17 +545,55 @@ public  final class SubscribePushEmailResponse extends
       return this;
     }
 
+    private boolean hasEmail_ ;
+    /**
+     * <pre>
+     * 是否有邮箱 如果有，设置邮箱时用update，没有，用insert
+     * </pre>
+     *
+     * <code>optional bool has_email = 2;</code>
+     */
+    public boolean getHasEmail() {
+      return hasEmail_;
+    }
+    /**
+     * <pre>
+     * 是否有邮箱 如果有，设置邮箱时用update，没有，用insert
+     * </pre>
+     *
+     * <code>optional bool has_email = 2;</code>
+     */
+    public Builder setHasEmail(boolean value) {
+      
+      hasEmail_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否有邮箱 如果有，设置邮箱时用update，没有，用insert
+     * </pre>
+     *
+     * <code>optional bool has_email = 2;</code>
+     */
+    public Builder clearHasEmail() {
+      
+      hasEmail_ = false;
+      onChanged();
+      return this;
+    }
+
     private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public boolean hasError() {
       return errorBuilder_ != null || error_ != null;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
       if (errorBuilder_ == null) {
@@ -528,7 +603,7 @@ public  final class SubscribePushEmailResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -544,7 +619,7 @@ public  final class SubscribePushEmailResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public Builder setError(
         com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
@@ -558,7 +633,7 @@ public  final class SubscribePushEmailResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -576,7 +651,7 @@ public  final class SubscribePushEmailResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public Builder clearError() {
       if (errorBuilder_ == null) {
@@ -590,7 +665,7 @@ public  final class SubscribePushEmailResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
       
@@ -598,7 +673,7 @@ public  final class SubscribePushEmailResponse extends
       return getErrorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
       if (errorBuilder_ != null) {
@@ -609,7 +684,7 @@ public  final class SubscribePushEmailResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 2;</code>
+     * <code>optional .grpcCommon.GrpcError error = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 

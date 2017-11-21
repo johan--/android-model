@@ -223,6 +223,24 @@ public  final class MyOrdersResponse extends
      */
     com.google.protobuf.ByteString
         getPayWayBytes();
+
+    /**
+     * <pre>
+     * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+     * </pre>
+     *
+     * <code>optional string productDetail = 9;</code>
+     */
+    java.lang.String getProductDetail();
+    /**
+     * <pre>
+     * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+     * </pre>
+     *
+     * <code>optional string productDetail = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getProductDetailBytes();
   }
   /**
    * Protobuf type {@code trade.MyOrdersResponse.Result}
@@ -243,6 +261,7 @@ public  final class MyOrdersResponse extends
       orderState_ = 0;
       orderTitle_ = "";
       payWay_ = "";
+      productDetail_ = "";
     }
 
     @java.lang.Override
@@ -309,6 +328,12 @@ public  final class MyOrdersResponse extends
               java.lang.String s = input.readStringRequireUtf8();
 
               payWay_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              productDetail_ = s;
               break;
             }
           }
@@ -599,6 +624,48 @@ public  final class MyOrdersResponse extends
       }
     }
 
+    public static final int PRODUCTDETAIL_FIELD_NUMBER = 9;
+    private volatile java.lang.Object productDetail_;
+    /**
+     * <pre>
+     * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+     * </pre>
+     *
+     * <code>optional string productDetail = 9;</code>
+     */
+    public java.lang.String getProductDetail() {
+      java.lang.Object ref = productDetail_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        productDetail_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+     * </pre>
+     *
+     * <code>optional string productDetail = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProductDetailBytes() {
+      java.lang.Object ref = productDetail_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        productDetail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -632,6 +699,9 @@ public  final class MyOrdersResponse extends
       if (!getPayWayBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, payWay_);
       }
+      if (!getProductDetailBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, productDetail_);
+      }
     }
 
     public int getSerializedSize() {
@@ -660,6 +730,9 @@ public  final class MyOrdersResponse extends
       }
       if (!getPayWayBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, payWay_);
+      }
+      if (!getProductDetailBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, productDetail_);
       }
       memoizedSize = size;
       return size;
@@ -691,6 +764,8 @@ public  final class MyOrdersResponse extends
           .equals(other.getOrderTitle());
       result = result && getPayWay()
           .equals(other.getPayWay());
+      result = result && getProductDetail()
+          .equals(other.getProductDetail());
       return result;
     }
 
@@ -715,6 +790,8 @@ public  final class MyOrdersResponse extends
       hash = (53 * hash) + getOrderTitle().hashCode();
       hash = (37 * hash) + PAY_WAY_FIELD_NUMBER;
       hash = (53 * hash) + getPayWay().hashCode();
+      hash = (37 * hash) + PRODUCTDETAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getProductDetail().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -847,6 +924,8 @@ public  final class MyOrdersResponse extends
 
         payWay_ = "";
 
+        productDetail_ = "";
+
         return this;
       }
 
@@ -876,6 +955,7 @@ public  final class MyOrdersResponse extends
         result.orderState_ = orderState_;
         result.orderTitle_ = orderTitle_;
         result.payWay_ = payWay_;
+        result.productDetail_ = productDetail_;
         onBuilt();
         return result;
       }
@@ -942,6 +1022,10 @@ public  final class MyOrdersResponse extends
         }
         if (!other.getPayWay().isEmpty()) {
           payWay_ = other.payWay_;
+          onChanged();
+        }
+        if (!other.getProductDetail().isEmpty()) {
+          productDetail_ = other.productDetail_;
           onChanged();
         }
         onChanged();
@@ -1538,6 +1622,95 @@ public  final class MyOrdersResponse extends
   checkByteStringIsUtf8(value);
         
         payWay_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object productDetail_ = "";
+      /**
+       * <pre>
+       * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+       * </pre>
+       *
+       * <code>optional string productDetail = 9;</code>
+       */
+      public java.lang.String getProductDetail() {
+        java.lang.Object ref = productDetail_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          productDetail_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+       * </pre>
+       *
+       * <code>optional string productDetail = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getProductDetailBytes() {
+        java.lang.Object ref = productDetail_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          productDetail_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+       * </pre>
+       *
+       * <code>optional string productDetail = 9;</code>
+       */
+      public Builder setProductDetail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        productDetail_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+       * </pre>
+       *
+       * <code>optional string productDetail = 9;</code>
+       */
+      public Builder clearProductDetail() {
+        
+        productDetail_ = getDefaultInstance().getProductDetail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
+       * </pre>
+       *
+       * <code>optional string productDetail = 9;</code>
+       */
+      public Builder setProductDetailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        productDetail_ = value;
         onChanged();
         return this;
       }

@@ -69,16 +69,18 @@ void protobuf_AddDesc_collect_2fser_5fcollect_2eproto_impl() {
   protobuf_InitDefaults_collect_2fser_5fcollect_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\031collect/ser_collect.proto\022\007collect\032\031co"
-    "llect/msg_collect.proto2\300\002\n\016CollectServi"
+    "llect/msg_collect.proto2\221\003\n\016CollectServi"
     "ce\022Q\n\014getDocDetail\022\037.collect.MyCollectDe"
     "tailRequest\032 .collect.MyCollectDetailRes"
     "ponse\022E\n\014GetMyCollect\022\031.collect.MyCollec"
     "tRequest\032\032.collect.MyCollectResponse\022<\n\007"
     "Collect\022\027.collect.CollectRequest\032\030.colle"
-    "ct.CollectResponse\022V\n\020CheckISCollected\022 "
-    ".collect.CheckISCollectedRequest\032 .colle"
-    "ct.CheckISCollectedRequestB\036\n\023com.wanfan"
-    "g.collectP\001\242\002\004WFPRb\006proto3", 426);
+    "ct.CollectResponse\022N\n\rCancelCollect\022\035.co"
+    "llect.CancelCollectReqeust\032\036.collect.Can"
+    "celCollectResponse\022W\n\020CheckISCollected\022 "
+    ".collect.CheckISCollectedRequest\032!.colle"
+    "ct.CheckISCollectedResponseB\036\n\023com.wanfa"
+    "ng.collectP\001\242\002\004WFPRb\006proto3", 507);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "collect/ser_collect.proto", &protobuf_RegisterTypes);
   ::collect::protobuf_AddDesc_collect_2fmsg_5fcollect_2eproto();

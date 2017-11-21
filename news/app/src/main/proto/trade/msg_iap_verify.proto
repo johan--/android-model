@@ -15,3 +15,16 @@ message IAPVerifyResponse {
     bool verify_success = 1; // 验证成功
     grpcCommon.GrpcError error = 2;
 }
+
+// 完成交易
+message CompleteIAPTradeRequest {
+    string order_number = 1; // 创建订单返回
+    string product_id = 2;
+    string iap_trade_id = 3; // apple返回的
+    string account_type = 4;
+}
+
+message CompleteIAPTradeResponse {
+    bool trade_success = 1;
+    grpcCommon.GrpcError error = 2;
+}

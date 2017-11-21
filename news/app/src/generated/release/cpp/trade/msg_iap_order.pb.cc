@@ -39,9 +39,10 @@ void protobuf_AssignDesc_trade_2fmsg_5fiap_5forder_2eproto() {
       "trade/msg_iap_order.proto");
   GOOGLE_CHECK(file != NULL);
   IAPCreateOrderRequest_descriptor_ = file->message_type(0);
-  static const int IAPCreateOrderRequest_offsets_[2] = {
+  static const int IAPCreateOrderRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IAPCreateOrderRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IAPCreateOrderRequest, product_price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IAPCreateOrderRequest, login_token_),
   };
   IAPCreateOrderRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -120,12 +121,13 @@ void protobuf_AddDesc_trade_2fmsg_5fiap_5forder_2eproto_impl() {
   protobuf_InitDefaults_trade_2fmsg_5fiap_5forder_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\031trade/msg_iap_order.proto\022\005trade\032\032grpc"
-    "Common/msg_error.proto\"\?\n\025IAPCreateOrder"
+    "Common/msg_error.proto\"T\n\025IAPCreateOrder"
     "Request\022\017\n\007user_id\030\001 \001(\t\022\025\n\rproduct_pric"
-    "e\030\002 \001(\t\"l\n\026IAPCreateOrderResponse\022\030\n\020iap"
-    "_order_number\030\001 \001(\t\022\022\n\nproduct_id\030\002 \001(\t\022"
-    "$\n\005error\030\003 \001(\0132\025.grpcCommon.GrpcErrorB\034\n"
-    "\021com.wanfang.tradeP\001\242\002\004WFPRb\006proto3", 275);
+    "e\030\002 \001(\t\022\023\n\013login_token\030\003 \001(\t\"l\n\026IAPCreat"
+    "eOrderResponse\022\030\n\020iap_order_number\030\001 \001(\t"
+    "\022\022\n\nproduct_id\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.gr"
+    "pcCommon.GrpcErrorB\034\n\021com.wanfang.tradeP"
+    "\001\242\002\004WFPRb\006proto3", 296);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "trade/msg_iap_order.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -159,6 +161,7 @@ static void MergeFromFail(int line) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int IAPCreateOrderRequest::kUserIdFieldNumber;
 const int IAPCreateOrderRequest::kProductPriceFieldNumber;
+const int IAPCreateOrderRequest::kLoginTokenFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 IAPCreateOrderRequest::IAPCreateOrderRequest()
@@ -182,6 +185,7 @@ IAPCreateOrderRequest::IAPCreateOrderRequest(const IAPCreateOrderRequest& from)
 void IAPCreateOrderRequest::SharedCtor() {
   user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   product_price_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  login_token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -193,6 +197,7 @@ IAPCreateOrderRequest::~IAPCreateOrderRequest() {
 void IAPCreateOrderRequest::SharedDtor() {
   user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   product_price_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  login_token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void IAPCreateOrderRequest::SetCachedSize(int size) const {
@@ -224,6 +229,7 @@ void IAPCreateOrderRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:trade.IAPCreateOrderRequest)
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   product_price_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool IAPCreateOrderRequest::MergePartialFromCodedStream(
@@ -262,6 +268,23 @@ bool IAPCreateOrderRequest::MergePartialFromCodedStream(
             this->product_price().data(), this->product_price().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "trade.IAPCreateOrderRequest.product_price"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_login_token;
+        break;
+      }
+
+      // optional string login_token = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_login_token:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_login_token()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->login_token().data(), this->login_token().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "trade.IAPCreateOrderRequest.login_token"));
         } else {
           goto handle_unusual;
         }
@@ -313,6 +336,16 @@ void IAPCreateOrderRequest::SerializeWithCachedSizes(
       2, this->product_price(), output);
   }
 
+  // optional string login_token = 3;
+  if (this->login_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->login_token().data(), this->login_token().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.IAPCreateOrderRequest.login_token");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->login_token(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:trade.IAPCreateOrderRequest)
 }
 
@@ -342,6 +375,17 @@ void IAPCreateOrderRequest::SerializeWithCachedSizes(
         2, this->product_price(), target);
   }
 
+  // optional string login_token = 3;
+  if (this->login_token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->login_token().data(), this->login_token().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trade.IAPCreateOrderRequest.login_token");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->login_token(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:trade.IAPCreateOrderRequest)
   return target;
 }
@@ -362,6 +406,13 @@ size_t IAPCreateOrderRequest::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->product_price());
+  }
+
+  // optional string login_token = 3;
+  if (this->login_token().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->login_token());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -405,6 +456,10 @@ void IAPCreateOrderRequest::UnsafeMergeFrom(const IAPCreateOrderRequest& from) {
 
     product_price_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_price_);
   }
+  if (from.login_token().size() > 0) {
+
+    login_token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_token_);
+  }
 }
 
 void IAPCreateOrderRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -433,6 +488,7 @@ void IAPCreateOrderRequest::Swap(IAPCreateOrderRequest* other) {
 void IAPCreateOrderRequest::InternalSwap(IAPCreateOrderRequest* other) {
   user_id_.Swap(&other->user_id_);
   product_price_.Swap(&other->product_price_);
+  login_token_.Swap(&other->login_token_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -534,6 +590,50 @@ void IAPCreateOrderRequest::set_allocated_product_price(::std::string* product_p
   }
   product_price_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_price);
   // @@protoc_insertion_point(field_set_allocated:trade.IAPCreateOrderRequest.product_price)
+}
+
+// optional string login_token = 3;
+void IAPCreateOrderRequest::clear_login_token() {
+  login_token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& IAPCreateOrderRequest::login_token() const {
+  // @@protoc_insertion_point(field_get:trade.IAPCreateOrderRequest.login_token)
+  return login_token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void IAPCreateOrderRequest::set_login_token(const ::std::string& value) {
+  
+  login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.IAPCreateOrderRequest.login_token)
+}
+void IAPCreateOrderRequest::set_login_token(const char* value) {
+  
+  login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.IAPCreateOrderRequest.login_token)
+}
+void IAPCreateOrderRequest::set_login_token(const char* value, size_t size) {
+  
+  login_token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.IAPCreateOrderRequest.login_token)
+}
+::std::string* IAPCreateOrderRequest::mutable_login_token() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.IAPCreateOrderRequest.login_token)
+  return login_token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* IAPCreateOrderRequest::release_login_token() {
+  // @@protoc_insertion_point(field_release:trade.IAPCreateOrderRequest.login_token)
+  
+  return login_token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void IAPCreateOrderRequest::set_allocated_login_token(::std::string* login_token) {
+  if (login_token != NULL) {
+    
+  } else {
+    
+  }
+  login_token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_token);
+  // @@protoc_insertion_point(field_set_allocated:trade.IAPCreateOrderRequest.login_token)
 }
 
 inline const IAPCreateOrderRequest* IAPCreateOrderRequest::internal_default_instance() {

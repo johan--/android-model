@@ -5,7 +5,7 @@ package com.wanfang.personal;
 
 /**
  * <pre>
- * 快捷登录（手机号登录请求）
+ * 快捷登录（手机号登录）-请求
  * </pre>
  *
  * Protobuf type {@code personal.QuickLoginRequest}
@@ -19,11 +19,8 @@ public  final class QuickLoginRequest extends
     super(builder);
   }
   private QuickLoginRequest() {
-    phone_ = "";
-    token_ = "";
-    captcha_ = "";
-    deviceId_ = "";
-    deviceType_ = 0;
+    phoneNumber_ = "";
+    phoneCaptcha_ = "";
   }
 
   @java.lang.Override
@@ -54,31 +51,13 @@ public  final class QuickLoginRequest extends
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            phone_ = s;
+            phoneNumber_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            token_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            captcha_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deviceId_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            deviceType_ = rawValue;
+            phoneCaptcha_ = s;
             break;
           }
         }
@@ -104,172 +83,88 @@ public  final class QuickLoginRequest extends
             com.wanfang.personal.QuickLoginRequest.class, com.wanfang.personal.QuickLoginRequest.Builder.class);
   }
 
-  public static final int PHONE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object phone_;
+  public static final int PHONE_NUMBER_FIELD_NUMBER = 1;
+  private volatile java.lang.Object phoneNumber_;
   /**
-   * <code>optional string phone = 1;</code>
+   * <pre>
+   * 手机号
+   * </pre>
+   *
+   * <code>optional string phone_number = 1;</code>
    */
-  public java.lang.String getPhone() {
-    java.lang.Object ref = phone_;
+  public java.lang.String getPhoneNumber() {
+    java.lang.Object ref = phoneNumber_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      phone_ = s;
+      phoneNumber_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string phone = 1;</code>
+   * <pre>
+   * 手机号
+   * </pre>
+   *
+   * <code>optional string phone_number = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getPhoneBytes() {
-    java.lang.Object ref = phone_;
+      getPhoneNumberBytes() {
+    java.lang.Object ref = phoneNumber_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      phone_ = b;
+      phoneNumber_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int TOKEN_FIELD_NUMBER = 2;
-  private volatile java.lang.Object token_;
+  public static final int PHONE_CAPTCHA_FIELD_NUMBER = 2;
+  private volatile java.lang.Object phoneCaptcha_;
   /**
-   * <code>optional string token = 2;</code>
+   * <pre>
+   * 手机验证码
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 2;</code>
    */
-  public java.lang.String getToken() {
-    java.lang.Object ref = token_;
+  public java.lang.String getPhoneCaptcha() {
+    java.lang.Object ref = phoneCaptcha_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      token_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>optional string token = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTokenBytes() {
-    java.lang.Object ref = token_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      token_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CAPTCHA_FIELD_NUMBER = 3;
-  private volatile java.lang.Object captcha_;
-  /**
-   * <code>optional string captcha = 3;</code>
-   */
-  public java.lang.String getCaptcha() {
-    java.lang.Object ref = captcha_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      captcha_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>optional string captcha = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCaptchaBytes() {
-    java.lang.Object ref = captcha_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      captcha_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DEVICE_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object deviceId_;
-  /**
-   * <pre>
-   * 设备号
-   * </pre>
-   *
-   * <code>optional string device_id = 4;</code>
-   */
-  public java.lang.String getDeviceId() {
-    java.lang.Object ref = deviceId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      deviceId_ = s;
+      phoneCaptcha_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 设备号
+   * 手机验证码
    * </pre>
    *
-   * <code>optional string device_id = 4;</code>
+   * <code>optional string phone_captcha = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getDeviceIdBytes() {
-    java.lang.Object ref = deviceId_;
+      getPhoneCaptchaBytes() {
+    java.lang.Object ref = phoneCaptcha_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      deviceId_ = b;
+      phoneCaptcha_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int DEVICE_TYPE_FIELD_NUMBER = 5;
-  private int deviceType_;
-  /**
-   * <pre>
-   * 登录设备类型
-   * </pre>
-   *
-   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-   */
-  public int getDeviceTypeValue() {
-    return deviceType_;
-  }
-  /**
-   * <pre>
-   * 登录设备类型
-   * </pre>
-   *
-   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-   */
-  public com.wanfang.personal.LoginDeviceType getDeviceType() {
-    com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
-    return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -284,20 +179,11 @@ public  final class QuickLoginRequest extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPhoneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phone_);
+    if (!getPhoneNumberBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phoneNumber_);
     }
-    if (!getTokenBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
-    }
-    if (!getCaptchaBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, captcha_);
-    }
-    if (!getDeviceIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, deviceId_);
-    }
-    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
-      output.writeEnum(5, deviceType_);
+    if (!getPhoneCaptchaBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phoneCaptcha_);
     }
   }
 
@@ -306,21 +192,11 @@ public  final class QuickLoginRequest extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getPhoneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phone_);
+    if (!getPhoneNumberBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phoneNumber_);
     }
-    if (!getTokenBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
-    }
-    if (!getCaptchaBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, captcha_);
-    }
-    if (!getDeviceIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, deviceId_);
-    }
-    if (deviceType_ != com.wanfang.personal.LoginDeviceType.ANDROID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(5, deviceType_);
+    if (!getPhoneCaptchaBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phoneCaptcha_);
     }
     memoizedSize = size;
     return size;
@@ -338,15 +214,10 @@ public  final class QuickLoginRequest extends
     com.wanfang.personal.QuickLoginRequest other = (com.wanfang.personal.QuickLoginRequest) obj;
 
     boolean result = true;
-    result = result && getPhone()
-        .equals(other.getPhone());
-    result = result && getToken()
-        .equals(other.getToken());
-    result = result && getCaptcha()
-        .equals(other.getCaptcha());
-    result = result && getDeviceId()
-        .equals(other.getDeviceId());
-    result = result && deviceType_ == other.deviceType_;
+    result = result && getPhoneNumber()
+        .equals(other.getPhoneNumber());
+    result = result && getPhoneCaptcha()
+        .equals(other.getPhoneCaptcha());
     return result;
   }
 
@@ -357,16 +228,10 @@ public  final class QuickLoginRequest extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + PHONE_FIELD_NUMBER;
-    hash = (53 * hash) + getPhone().hashCode();
-    hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getToken().hashCode();
-    hash = (37 * hash) + CAPTCHA_FIELD_NUMBER;
-    hash = (53 * hash) + getCaptcha().hashCode();
-    hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getDeviceId().hashCode();
-    hash = (37 * hash) + DEVICE_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + deviceType_;
+    hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getPhoneNumber().hashCode();
+    hash = (37 * hash) + PHONE_CAPTCHA_FIELD_NUMBER;
+    hash = (53 * hash) + getPhoneCaptcha().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -451,7 +316,7 @@ public  final class QuickLoginRequest extends
   }
   /**
    * <pre>
-   * 快捷登录（手机号登录请求）
+   * 快捷登录（手机号登录）-请求
    * </pre>
    *
    * Protobuf type {@code personal.QuickLoginRequest}
@@ -489,15 +354,9 @@ public  final class QuickLoginRequest extends
     }
     public Builder clear() {
       super.clear();
-      phone_ = "";
+      phoneNumber_ = "";
 
-      token_ = "";
-
-      captcha_ = "";
-
-      deviceId_ = "";
-
-      deviceType_ = 0;
+      phoneCaptcha_ = "";
 
       return this;
     }
@@ -521,11 +380,8 @@ public  final class QuickLoginRequest extends
 
     public com.wanfang.personal.QuickLoginRequest buildPartial() {
       com.wanfang.personal.QuickLoginRequest result = new com.wanfang.personal.QuickLoginRequest(this);
-      result.phone_ = phone_;
-      result.token_ = token_;
-      result.captcha_ = captcha_;
-      result.deviceId_ = deviceId_;
-      result.deviceType_ = deviceType_;
+      result.phoneNumber_ = phoneNumber_;
+      result.phoneCaptcha_ = phoneCaptcha_;
       onBuilt();
       return result;
     }
@@ -567,24 +423,13 @@ public  final class QuickLoginRequest extends
 
     public Builder mergeFrom(com.wanfang.personal.QuickLoginRequest other) {
       if (other == com.wanfang.personal.QuickLoginRequest.getDefaultInstance()) return this;
-      if (!other.getPhone().isEmpty()) {
-        phone_ = other.phone_;
+      if (!other.getPhoneNumber().isEmpty()) {
+        phoneNumber_ = other.phoneNumber_;
         onChanged();
       }
-      if (!other.getToken().isEmpty()) {
-        token_ = other.token_;
+      if (!other.getPhoneCaptcha().isEmpty()) {
+        phoneCaptcha_ = other.phoneCaptcha_;
         onChanged();
-      }
-      if (!other.getCaptcha().isEmpty()) {
-        captcha_ = other.captcha_;
-        onChanged();
-      }
-      if (!other.getDeviceId().isEmpty()) {
-        deviceId_ = other.deviceId_;
-        onChanged();
-      }
-      if (other.deviceType_ != 0) {
-        setDeviceTypeValue(other.getDeviceTypeValue());
       }
       onChanged();
       return this;
@@ -612,228 +457,21 @@ public  final class QuickLoginRequest extends
       return this;
     }
 
-    private java.lang.Object phone_ = "";
-    /**
-     * <code>optional string phone = 1;</code>
-     */
-    public java.lang.String getPhone() {
-      java.lang.Object ref = phone_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phone_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>optional string phone = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPhoneBytes() {
-      java.lang.Object ref = phone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string phone = 1;</code>
-     */
-    public Builder setPhone(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      phone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string phone = 1;</code>
-     */
-    public Builder clearPhone() {
-      
-      phone_ = getDefaultInstance().getPhone();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string phone = 1;</code>
-     */
-    public Builder setPhoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      phone_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object token_ = "";
-    /**
-     * <code>optional string token = 2;</code>
-     */
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        token_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>optional string token = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string token = 2;</code>
-     */
-    public Builder setToken(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      token_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string token = 2;</code>
-     */
-    public Builder clearToken() {
-      
-      token_ = getDefaultInstance().getToken();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string token = 2;</code>
-     */
-    public Builder setTokenBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      token_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object captcha_ = "";
-    /**
-     * <code>optional string captcha = 3;</code>
-     */
-    public java.lang.String getCaptcha() {
-      java.lang.Object ref = captcha_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        captcha_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>optional string captcha = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCaptchaBytes() {
-      java.lang.Object ref = captcha_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        captcha_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string captcha = 3;</code>
-     */
-    public Builder setCaptcha(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      captcha_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string captcha = 3;</code>
-     */
-    public Builder clearCaptcha() {
-      
-      captcha_ = getDefaultInstance().getCaptcha();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string captcha = 3;</code>
-     */
-    public Builder setCaptchaBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      captcha_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object deviceId_ = "";
+    private java.lang.Object phoneNumber_ = "";
     /**
      * <pre>
-     * 设备号
+     * 手机号
      * </pre>
      *
-     * <code>optional string device_id = 4;</code>
+     * <code>optional string phone_number = 1;</code>
      */
-    public java.lang.String getDeviceId() {
-      java.lang.Object ref = deviceId_;
+    public java.lang.String getPhoneNumber() {
+      java.lang.Object ref = phoneNumber_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        deviceId_ = s;
+        phoneNumber_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -841,19 +479,19 @@ public  final class QuickLoginRequest extends
     }
     /**
      * <pre>
-     * 设备号
+     * 手机号
      * </pre>
      *
-     * <code>optional string device_id = 4;</code>
+     * <code>optional string phone_number = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getDeviceIdBytes() {
-      java.lang.Object ref = deviceId_;
+        getPhoneNumberBytes() {
+      java.lang.Object ref = phoneNumber_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        deviceId_ = b;
+        phoneNumber_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -861,113 +499,138 @@ public  final class QuickLoginRequest extends
     }
     /**
      * <pre>
-     * 设备号
+     * 手机号
      * </pre>
      *
-     * <code>optional string device_id = 4;</code>
+     * <code>optional string phone_number = 1;</code>
      */
-    public Builder setDeviceId(
+    public Builder setPhoneNumber(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      deviceId_ = value;
+      phoneNumber_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 设备号
+     * 手机号
      * </pre>
      *
-     * <code>optional string device_id = 4;</code>
+     * <code>optional string phone_number = 1;</code>
      */
-    public Builder clearDeviceId() {
+    public Builder clearPhoneNumber() {
       
-      deviceId_ = getDefaultInstance().getDeviceId();
+      phoneNumber_ = getDefaultInstance().getPhoneNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 设备号
+     * 手机号
      * </pre>
      *
-     * <code>optional string device_id = 4;</code>
+     * <code>optional string phone_number = 1;</code>
      */
-    public Builder setDeviceIdBytes(
+    public Builder setPhoneNumberBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      deviceId_ = value;
+      phoneNumber_ = value;
       onChanged();
       return this;
     }
 
-    private int deviceType_ = 0;
+    private java.lang.Object phoneCaptcha_ = "";
     /**
      * <pre>
-     * 登录设备类型
+     * 手机验证码
      * </pre>
      *
-     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     * <code>optional string phone_captcha = 2;</code>
      */
-    public int getDeviceTypeValue() {
-      return deviceType_;
-    }
-    /**
-     * <pre>
-     * 登录设备类型
-     * </pre>
-     *
-     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-     */
-    public Builder setDeviceTypeValue(int value) {
-      deviceType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 登录设备类型
-     * </pre>
-     *
-     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-     */
-    public com.wanfang.personal.LoginDeviceType getDeviceType() {
-      com.wanfang.personal.LoginDeviceType result = com.wanfang.personal.LoginDeviceType.valueOf(deviceType_);
-      return result == null ? com.wanfang.personal.LoginDeviceType.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * 登录设备类型
-     * </pre>
-     *
-     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-     */
-    public Builder setDeviceType(com.wanfang.personal.LoginDeviceType value) {
-      if (value == null) {
-        throw new NullPointerException();
+    public java.lang.String getPhoneCaptcha() {
+      java.lang.Object ref = phoneCaptcha_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phoneCaptcha_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
       }
-      
-      deviceType_ = value.getNumber();
+    }
+    /**
+     * <pre>
+     * 手机验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPhoneCaptchaBytes() {
+      java.lang.Object ref = phoneCaptcha_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phoneCaptcha_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 手机验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public Builder setPhoneCaptcha(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      phoneCaptcha_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 登录设备类型
+     * 手机验证码
      * </pre>
      *
-     * <code>optional .personal.LoginDeviceType device_type = 5;</code>
+     * <code>optional string phone_captcha = 2;</code>
      */
-    public Builder clearDeviceType() {
+    public Builder clearPhoneCaptcha() {
       
-      deviceType_ = 0;
+      phoneCaptcha_ = getDefaultInstance().getPhoneCaptcha();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public Builder setPhoneCaptchaBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      phoneCaptcha_ = value;
       onChanged();
       return this;
     }

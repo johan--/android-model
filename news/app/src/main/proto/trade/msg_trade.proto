@@ -20,13 +20,13 @@ message AccountId {
 }
 
 message UnifiedorderResponse {
-    string app_id = 1;
-    string partner_id = 2;
-    string prepay_id = 3;
-    string package = 4;
-    string noncestr = 5;
-    string time_stamp = 6;
-    string sign = 7;
+    string app_id = 1; //微信开放平台审核通过的应用APPID
+    string partner_id = 2;//微信支付分配的商户号
+    string prepay_id = 3;//微信返回的支付交易会话ID
+    string package = 4;// 暂填写固定值Sign=WXPay
+    string noncestr = 5;//随机字符串，不长于32位。推荐随机数生成算法
+    string time_stamp = 6;// 时间戳
+    string sign = 7;//sign
     grpcCommon.GrpcError error = 8;
 }
 
@@ -47,6 +47,7 @@ message MyOrdersResponse {
         string order_title = 7; // 订单内容标题
 
         string pay_way = 8; // 支付方式 采取contains判断 Weixin=微信支付 Alipay=支付宝 Person=账户余额 WFChargeCard=万方卡 Group=其他 UnionPay=银联支付
+        string productDetail = 9; // perio_kjzw20117 类似这种有下划线分隔的是可以跳转详情页的 前面的是type，type要做转换
     }
     repeated Result results = 1;
     int32 total_count = 2; // 命中数

@@ -9,19 +9,21 @@ public interface PasswordByPhoneRequestOrBuilder extends
 
   /**
    * <pre>
+   * 手机号
    * </pre>
    *
-   * <code>optional string phone = 1;</code>
+   * <code>optional string phone_number = 1;</code>
    */
-  java.lang.String getPhone();
+  java.lang.String getPhoneNumber();
   /**
    * <pre>
+   * 手机号
    * </pre>
    *
-   * <code>optional string phone = 1;</code>
+   * <code>optional string phone_number = 1;</code>
    */
   com.google.protobuf.ByteString
-      getPhoneBytes();
+      getPhoneNumberBytes();
 
   /**
    * <pre>
@@ -42,12 +44,38 @@ public interface PasswordByPhoneRequestOrBuilder extends
       getPhoneCaptchaBytes();
 
   /**
-   * <code>optional string token = 3;</code>
+   * <pre>
+   * 国际区号 如：中国：0086；
+   * </pre>
+   *
+   * <code>optional string nation = 3;</code>
    */
-  java.lang.String getToken();
+  java.lang.String getNation();
   /**
-   * <code>optional string token = 3;</code>
+   * <pre>
+   * 国际区号 如：中国：0086；
+   * </pre>
+   *
+   * <code>optional string nation = 3;</code>
    */
   com.google.protobuf.ByteString
-      getTokenBytes();
+      getNationBytes();
+
+  /**
+   * <pre>
+   * 消息类型 目前仅支持“bind”
+   * </pre>
+   *
+   * <code>optional string message_type = 4;</code>
+   */
+  java.lang.String getMessageType();
+  /**
+   * <pre>
+   * 消息类型 目前仅支持“bind”
+   * </pre>
+   *
+   * <code>optional string message_type = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageTypeBytes();
 }

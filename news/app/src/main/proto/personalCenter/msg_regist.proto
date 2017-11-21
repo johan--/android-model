@@ -12,11 +12,14 @@ option objc_class_prefix = "WFPR";
 
 // 注册请求
 message RegistRequest {
-	string password = 1; // 密码
-	string phone = 2; // 手机号
-	string phone_captcha = 3; // 手机号验证码(发送给服务端做双向验证)
-	string user_name = 4; // 用户名
-	string token = 5;
+	string user_name = 1; // 用户名
+	string password = 2; // 密码
+	string phone = 3; // 手机号
+	string phone_captcha = 4; // 手机号验证码(发送给服务端做双向验证)
+	// 国际区号 如：中国：0086；
+    string nation = 5;
+    // 消息类型 目前仅支持“bind”
+    string message_type = 6;
 }
 // 注册返回
 message RegistResponse {

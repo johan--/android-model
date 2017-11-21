@@ -123,14 +123,17 @@ void protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto_impl() {
     "rpcCommon.ErrorMessage\"j\n\014ErrorMessage\022)"
     "\n\nerror_code\030\001 \001(\0162\025.grpcCommon.ErrorCod"
     "e\022\024\n\014error_reason\030\002 \001(\t\022\031\n\021error_descrip"
-    "tion\030\003 \001(\t*\374\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000"
+    "tion\030\003 \001(\t*\351\002\n\tErrorCode\022\016\n\nPASS_ERROR\020\000"
     "\022\r\n\tNO_REGIST\020\001\022\016\n\nUSER_EXIST\020\002\022\016\n\nNEED_"
     "FIELD\020\003\022\027\n\023UNKNOWN_FILELD_TYPE\020\004\022\017\n\013RESU"
     "LT_NULL\020\005\022\020\n\014COMMON_ERROR\020\006\022\021\n\rUSER_IS_L"
     "OGIN\020\007\022\023\n\017IAP_PRICE_ERROR\020\010\022\031\n\025IAP_CREAT"
     "EORDER_ERROR\020\t\022\030\n\024THIRD_PARTY_NOT_BINd\020\n"
-    "\022\027\n\023TRADE_VALIDATE_FAIL\020\013B\030\n\026com.wanfang"
-    ".grpcCommonb\006proto3", 499);
+    "\022\027\n\023TRADE_VALIDATE_FAIL\020\013\022\027\n\023PHONE_CAPTC"
+    "HA_ERROR\020\014\022\026\n\022PHONE_NOT_REGISTER\020\r\022\022\n\016US"
+    "ER_IS_FREEZE\020\016\022\017\n\013GRUSER_MORE\020\017\022\025\n\021ALREA"
+    "DY_COLLECTED\020\020B\030\n\026com.wanfang.grpcCommon"
+    "b\006proto3", 608);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "grpcCommon/msg_error.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_grpcCommon_2fmsg_5ferror_2eproto);
@@ -165,6 +168,11 @@ bool ErrorCode_IsValid(int value) {
     case 9:
     case 10:
     case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
       return true;
     default:
       return false;

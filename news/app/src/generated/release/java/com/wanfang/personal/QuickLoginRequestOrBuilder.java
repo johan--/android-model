@@ -8,67 +8,38 @@ public interface QuickLoginRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string phone = 1;</code>
+   * <pre>
+   * 手机号
+   * </pre>
+   *
+   * <code>optional string phone_number = 1;</code>
    */
-  java.lang.String getPhone();
+  java.lang.String getPhoneNumber();
   /**
-   * <code>optional string phone = 1;</code>
+   * <pre>
+   * 手机号
+   * </pre>
+   *
+   * <code>optional string phone_number = 1;</code>
    */
   com.google.protobuf.ByteString
-      getPhoneBytes();
-
-  /**
-   * <code>optional string token = 2;</code>
-   */
-  java.lang.String getToken();
-  /**
-   * <code>optional string token = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getTokenBytes();
-
-  /**
-   * <code>optional string captcha = 3;</code>
-   */
-  java.lang.String getCaptcha();
-  /**
-   * <code>optional string captcha = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getCaptchaBytes();
+      getPhoneNumberBytes();
 
   /**
    * <pre>
-   * 设备号
+   * 手机验证码
    * </pre>
    *
-   * <code>optional string device_id = 4;</code>
+   * <code>optional string phone_captcha = 2;</code>
    */
-  java.lang.String getDeviceId();
+  java.lang.String getPhoneCaptcha();
   /**
    * <pre>
-   * 设备号
+   * 手机验证码
    * </pre>
    *
-   * <code>optional string device_id = 4;</code>
+   * <code>optional string phone_captcha = 2;</code>
    */
   com.google.protobuf.ByteString
-      getDeviceIdBytes();
-
-  /**
-   * <pre>
-   * 登录设备类型
-   * </pre>
-   *
-   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-   */
-  int getDeviceTypeValue();
-  /**
-   * <pre>
-   * 登录设备类型
-   * </pre>
-   *
-   * <code>optional .personal.LoginDeviceType device_type = 5;</code>
-   */
-  com.wanfang.personal.LoginDeviceType getDeviceType();
+      getPhoneCaptchaBytes();
 }

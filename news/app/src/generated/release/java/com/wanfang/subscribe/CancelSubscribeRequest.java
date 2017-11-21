@@ -21,6 +21,7 @@ public  final class CancelSubscribeRequest extends
   private CancelSubscribeRequest() {
     subscribeId_ = "";
     cancelType_ = 0;
+    userId_ = "";
   }
 
   @java.lang.Override
@@ -58,6 +59,12 @@ public  final class CancelSubscribeRequest extends
             int rawValue = input.readEnum();
 
             cancelType_ = rawValue;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userId_ = s;
             break;
           }
         }
@@ -133,6 +140,40 @@ public  final class CancelSubscribeRequest extends
     return result == null ? com.wanfang.subscribe.CancelSubscribeType.UNRECOGNIZED : result;
   }
 
+  public static final int USER_ID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object userId_;
+  /**
+   * <code>optional string user_id = 3;</code>
+   */
+  public java.lang.String getUserId() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string user_id = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getUserIdBytes() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -151,6 +192,9 @@ public  final class CancelSubscribeRequest extends
     if (cancelType_ != com.wanfang.subscribe.CancelSubscribeType.DeleteKeyWord.getNumber()) {
       output.writeEnum(2, cancelType_);
     }
+    if (!getUserIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userId_);
+    }
   }
 
   public int getSerializedSize() {
@@ -164,6 +208,9 @@ public  final class CancelSubscribeRequest extends
     if (cancelType_ != com.wanfang.subscribe.CancelSubscribeType.DeleteKeyWord.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, cancelType_);
+    }
+    if (!getUserIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userId_);
     }
     memoizedSize = size;
     return size;
@@ -184,6 +231,8 @@ public  final class CancelSubscribeRequest extends
     result = result && getSubscribeId()
         .equals(other.getSubscribeId());
     result = result && cancelType_ == other.cancelType_;
+    result = result && getUserId()
+        .equals(other.getUserId());
     return result;
   }
 
@@ -198,6 +247,8 @@ public  final class CancelSubscribeRequest extends
     hash = (53 * hash) + getSubscribeId().hashCode();
     hash = (37 * hash) + CANCEL_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + cancelType_;
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -324,6 +375,8 @@ public  final class CancelSubscribeRequest extends
 
       cancelType_ = 0;
 
+      userId_ = "";
+
       return this;
     }
 
@@ -348,6 +401,7 @@ public  final class CancelSubscribeRequest extends
       com.wanfang.subscribe.CancelSubscribeRequest result = new com.wanfang.subscribe.CancelSubscribeRequest(this);
       result.subscribeId_ = subscribeId_;
       result.cancelType_ = cancelType_;
+      result.userId_ = userId_;
       onBuilt();
       return result;
     }
@@ -395,6 +449,10 @@ public  final class CancelSubscribeRequest extends
       }
       if (other.cancelType_ != 0) {
         setCancelTypeValue(other.getCancelTypeValue());
+      }
+      if (!other.getUserId().isEmpty()) {
+        userId_ = other.userId_;
+        onChanged();
       }
       onChanged();
       return this;
@@ -531,6 +589,75 @@ public  final class CancelSubscribeRequest extends
     public Builder clearCancelType() {
       
       cancelType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userId_ = "";
+    /**
+     * <code>optional string user_id = 3;</code>
+     */
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string user_id = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserIdBytes() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string user_id = 3;</code>
+     */
+    public Builder setUserId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string user_id = 3;</code>
+     */
+    public Builder clearUserId() {
+      
+      userId_ = getDefaultInstance().getUserId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string user_id = 3;</code>
+     */
+    public Builder setUserIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userId_ = value;
       onChanged();
       return this;
     }

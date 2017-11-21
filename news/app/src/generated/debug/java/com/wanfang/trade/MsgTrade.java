@@ -64,16 +64,16 @@ public final class MsgTrade {
       "\030\005 \001(\t\022\022\n\ntime_stamp\030\006 \001(\t\022\014\n\004sign\030\007 \001(\t" +
       "\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcError\"J",
       "\n\017MyOrdersRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013pa" +
-      "ge_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\256\002\n\020M" +
+      "ge_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\305\002\n\020M" +
       "yOrdersResponse\022/\n\007results\030\001 \003(\0132\036.trade" +
       ".MyOrdersResponse.Result\022\023\n\013total_count\030" +
       "\002 \001(\005\022\020\n\010has_more\030\003 \001(\010\022$\n\005error\030\004 \001(\0132\025" +
-      ".grpcCommon.GrpcError\032\233\001\n\006Result\022\020\n\010orde" +
+      ".grpcCommon.GrpcError\032\262\001\n\006Result\022\020\n\010orde" +
       "r_id\030\001 \001(\t\022\023\n\013create_time\030\002 \001(\t\022\023\n\013order" +
       "_money\030\003 \001(\t\022\032\n\022order_product_type\030\005 \001(\t" +
       "\022\023\n\013order_state\030\006 \001(\005\022\023\n\013order_title\030\007 \001" +
-      "(\t\022\017\n\007pay_way\030\010 \001(\tB\034\n\021com.wanfang.trade",
-      "P\001\242\002\004WFPRb\006proto3"
+      "(\t\022\017\n\007pay_way\030\010 \001(\t\022\025\n\rproductDetail\030\t \001",
+      "(\tB\034\n\021com.wanfang.tradeP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -123,7 +123,7 @@ public final class MsgTrade {
     internal_static_trade_MyOrdersResponse_Result_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_trade_MyOrdersResponse_Result_descriptor,
-        new java.lang.String[] { "OrderId", "CreateTime", "OrderMoney", "OrderProductType", "OrderState", "OrderTitle", "PayWay", });
+        new java.lang.String[] { "OrderId", "CreateTime", "OrderMoney", "OrderProductType", "OrderState", "OrderTitle", "PayWay", "ProductDetail", });
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 

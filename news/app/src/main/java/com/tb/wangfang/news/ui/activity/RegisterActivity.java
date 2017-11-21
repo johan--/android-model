@@ -19,9 +19,9 @@ import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.AppUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.personal.GetPhoneCaptchaRequest;
+import com.wanfang.personal.GetPhoneCaptchaResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
-import com.wanfang.personal.PhoneCaptchaRequest;
-import com.wanfang.personal.PhoneCaptchaResponse;
 import com.wanfang.personal.RegistRequest;
 import com.wanfang.personal.RegistResponse;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -163,24 +163,30 @@ public class RegisterActivity extends SimpleActivity {
     }
 
     private void register(final String userName, final String passWord, final String phone, final String code) {
+
+
         Single.create(new SingleOnSubscribe<RegistResponse>() {
             @Override
             public void subscribe(SingleEmitter<RegistResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
                 RegistRequest registRequest = RegistRequest.newBuilder().setPassword(passWord.trim()).setPhone(phone.trim()).
-                        setUserName(userName.trim()).setPhoneCaptcha(code.trim()).build();
+                        setUserName(userName.trim()).setPhoneCaptcha(code.trim()).setNation("0086").setMessageType("bind").build();
                 RegistResponse response = stub.regist(registRequest);
                 e.onSuccess(response);
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<RegistResponse>() {
             @Override
             public void onSuccess(RegistResponse registResponse) {
-                registResponse.getUserId();
                 Log.d(TAG, "onSuccess: " + registResponse.toString());
-                ToastUtil.show("注册成功");
-                MiPushClient.setUserAccount(RegisterActivity.this, registResponse.getUserId(), null);
-                RxBus.getDefault().post(new String("bindSuccess"));
-                finish();
+                if (!TextUtils.isEmpty(registResponse.getUserId())) {
+                    ToastUtil.show("注册成功");
+                    MiPushClient.setUserAccount(RegisterActivity.this, registResponse.getUserId(), null);
+                    RxBus.getDefault().post(new String("bindSuccess"));
+                    finish();
+                } else {
+                    ToastUtil.show(registResponse.getError().getErrorMessage().getErrorReason());
+                }
+
 
             }
 
@@ -200,19 +206,26 @@ public class RegisterActivity extends SimpleActivity {
     }
 
     private void get_Code(final String phone) {
-        Single.create(new SingleOnSubscribe<PhoneCaptchaResponse>() {
+        Single.create(new SingleOnSubscribe<GetPhoneCaptchaResponse>() {
             @Override
-            public void subscribe(SingleEmitter<PhoneCaptchaResponse> e) throws Exception {
+            public void subscribe(SingleEmitter<GetPhoneCaptchaResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                PhoneCaptchaRequest request = PhoneCaptchaRequest.newBuilder().setPhone(phone).build();
-                PhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
+                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation("0086").setMessageType("bind").build();
+                GetPhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
                 e.onSuccess(response);
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<PhoneCaptchaResponse>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<GetPhoneCaptchaResponse>() {
             @Override
-            public void onSuccess(PhoneCaptchaResponse phoneCaptchaResponse) {
-                ToastUtil.show("发送验证码成功");
-                Log.d(TAG, "onSuccess: " + phoneCaptchaResponse.getPhoneCaptcha() + "发送验证码成功");
+            public void onSuccess(GetPhoneCaptchaResponse response) {
+                Log.d(TAG, "onSuccess: " + response.getStatus());
+                if (response.getStatus() == 200) {
+
+                    ToastUtil.show("发送成功");
+                } else {
+                    ToastUtil.show("发送失败");
+                }
+
+
             }
 
             @Override
@@ -221,5 +234,15 @@ public class RegisterActivity extends SimpleActivity {
                 Log.d(TAG, "onError: " + e.getMessage());
             }
         });
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (handler != null) {
+            handler.removeMessages(0);
+        }
+
     }
 }

@@ -20,7 +20,6 @@ public  final class ReadResponse extends
     displayInfo_ = "";
     safeTransactionString_ = "";
     alreadyBuy_ = false;
-    readUrl_ = "";
     hasTradePower_ = false;
   }
 
@@ -79,9 +78,16 @@ public  final class ReadResponse extends
             break;
           }
           case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.wanfang.read.ResourceFile.Builder subBuilder = null;
+            if (resourceFile_ != null) {
+              subBuilder = resourceFile_.toBuilder();
+            }
+            resourceFile_ = input.readMessage(com.wanfang.read.ResourceFile.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(resourceFile_);
+              resourceFile_ = subBuilder.buildPartial();
+            }
 
-            readUrl_ = s;
             break;
           }
           case 56: {
@@ -290,46 +296,37 @@ public  final class ReadResponse extends
     return alreadyBuy_;
   }
 
-  public static final int READ_URL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object readUrl_;
+  public static final int RESOURCE_FILE_FIELD_NUMBER = 6;
+  private com.wanfang.read.ResourceFile resourceFile_;
   /**
    * <pre>
-   * 阅读地址
+   * 文件信息
    * </pre>
    *
-   * <code>optional string read_url = 6;</code>
+   * <code>optional .read.ResourceFile resource_file = 6;</code>
    */
-  public java.lang.String getReadUrl() {
-    java.lang.Object ref = readUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      readUrl_ = s;
-      return s;
-    }
+  public boolean hasResourceFile() {
+    return resourceFile_ != null;
   }
   /**
    * <pre>
-   * 阅读地址
+   * 文件信息
    * </pre>
    *
-   * <code>optional string read_url = 6;</code>
+   * <code>optional .read.ResourceFile resource_file = 6;</code>
    */
-  public com.google.protobuf.ByteString
-      getReadUrlBytes() {
-    java.lang.Object ref = readUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      readUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.wanfang.read.ResourceFile getResourceFile() {
+    return resourceFile_ == null ? com.wanfang.read.ResourceFile.getDefaultInstance() : resourceFile_;
+  }
+  /**
+   * <pre>
+   * 文件信息
+   * </pre>
+   *
+   * <code>optional .read.ResourceFile resource_file = 6;</code>
+   */
+  public com.wanfang.read.ResourceFileOrBuilder getResourceFileOrBuilder() {
+    return getResourceFile();
   }
 
   public static final int HAS_TRADE_POWER_FIELD_NUMBER = 7;
@@ -393,8 +390,8 @@ public  final class ReadResponse extends
     if (alreadyBuy_ != false) {
       output.writeBool(5, alreadyBuy_);
     }
-    if (!getReadUrlBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, readUrl_);
+    if (resourceFile_ != null) {
+      output.writeMessage(6, getResourceFile());
     }
     if (hasTradePower_ != false) {
       output.writeBool(7, hasTradePower_);
@@ -425,8 +422,9 @@ public  final class ReadResponse extends
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, alreadyBuy_);
     }
-    if (!getReadUrlBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, readUrl_);
+    if (resourceFile_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getResourceFile());
     }
     if (hasTradePower_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -462,8 +460,11 @@ public  final class ReadResponse extends
         .equals(other.getSafeTransactionString());
     result = result && (getAlreadyBuy()
         == other.getAlreadyBuy());
-    result = result && getReadUrl()
-        .equals(other.getReadUrl());
+    result = result && (hasResourceFile() == other.hasResourceFile());
+    if (hasResourceFile()) {
+      result = result && getResourceFile()
+          .equals(other.getResourceFile());
+    }
     result = result && (getHasTradePower()
         == other.getHasTradePower());
     result = result && (hasError() == other.hasError());
@@ -492,8 +493,10 @@ public  final class ReadResponse extends
     hash = (37 * hash) + ALREADY_BUY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAlreadyBuy());
-    hash = (37 * hash) + READ_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getReadUrl().hashCode();
+    if (hasResourceFile()) {
+      hash = (37 * hash) + RESOURCE_FILE_FIELD_NUMBER;
+      hash = (53 * hash) + getResourceFile().hashCode();
+    }
     hash = (37 * hash) + HAS_TRADE_POWER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHasTradePower());
@@ -629,8 +632,12 @@ public  final class ReadResponse extends
 
       alreadyBuy_ = false;
 
-      readUrl_ = "";
-
+      if (resourceFileBuilder_ == null) {
+        resourceFile_ = null;
+      } else {
+        resourceFile_ = null;
+        resourceFileBuilder_ = null;
+      }
       hasTradePower_ = false;
 
       if (errorBuilder_ == null) {
@@ -666,7 +673,11 @@ public  final class ReadResponse extends
       result.displayInfo_ = displayInfo_;
       result.safeTransactionString_ = safeTransactionString_;
       result.alreadyBuy_ = alreadyBuy_;
-      result.readUrl_ = readUrl_;
+      if (resourceFileBuilder_ == null) {
+        result.resourceFile_ = resourceFile_;
+      } else {
+        result.resourceFile_ = resourceFileBuilder_.build();
+      }
       result.hasTradePower_ = hasTradePower_;
       if (errorBuilder_ == null) {
         result.error_ = error_;
@@ -733,9 +744,8 @@ public  final class ReadResponse extends
       if (other.getAlreadyBuy() != false) {
         setAlreadyBuy(other.getAlreadyBuy());
       }
-      if (!other.getReadUrl().isEmpty()) {
-        readUrl_ = other.readUrl_;
-        onChanged();
+      if (other.hasResourceFile()) {
+        mergeResourceFile(other.getResourceFile());
       }
       if (other.getHasTradePower() != false) {
         setHasTradePower(other.getHasTradePower());
@@ -1123,93 +1133,157 @@ public  final class ReadResponse extends
       return this;
     }
 
-    private java.lang.Object readUrl_ = "";
+    private com.wanfang.read.ResourceFile resourceFile_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.read.ResourceFile, com.wanfang.read.ResourceFile.Builder, com.wanfang.read.ResourceFileOrBuilder> resourceFileBuilder_;
     /**
      * <pre>
-     * 阅读地址
+     * 文件信息
      * </pre>
      *
-     * <code>optional string read_url = 6;</code>
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
      */
-    public java.lang.String getReadUrl() {
-      java.lang.Object ref = readUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        readUrl_ = s;
-        return s;
+    public boolean hasResourceFile() {
+      return resourceFileBuilder_ != null || resourceFile_ != null;
+    }
+    /**
+     * <pre>
+     * 文件信息
+     * </pre>
+     *
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
+     */
+    public com.wanfang.read.ResourceFile getResourceFile() {
+      if (resourceFileBuilder_ == null) {
+        return resourceFile_ == null ? com.wanfang.read.ResourceFile.getDefaultInstance() : resourceFile_;
       } else {
-        return (java.lang.String) ref;
+        return resourceFileBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * 阅读地址
+     * 文件信息
      * </pre>
      *
-     * <code>optional string read_url = 6;</code>
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
      */
-    public com.google.protobuf.ByteString
-        getReadUrlBytes() {
-      java.lang.Object ref = readUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        readUrl_ = b;
-        return b;
+    public Builder setResourceFile(com.wanfang.read.ResourceFile value) {
+      if (resourceFileBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        resourceFile_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        resourceFileBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 文件信息
+     * </pre>
+     *
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
+     */
+    public Builder setResourceFile(
+        com.wanfang.read.ResourceFile.Builder builderForValue) {
+      if (resourceFileBuilder_ == null) {
+        resourceFile_ = builderForValue.build();
+        onChanged();
+      } else {
+        resourceFileBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 文件信息
+     * </pre>
+     *
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
+     */
+    public Builder mergeResourceFile(com.wanfang.read.ResourceFile value) {
+      if (resourceFileBuilder_ == null) {
+        if (resourceFile_ != null) {
+          resourceFile_ =
+            com.wanfang.read.ResourceFile.newBuilder(resourceFile_).mergeFrom(value).buildPartial();
+        } else {
+          resourceFile_ = value;
+        }
+        onChanged();
+      } else {
+        resourceFileBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 文件信息
+     * </pre>
+     *
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
+     */
+    public Builder clearResourceFile() {
+      if (resourceFileBuilder_ == null) {
+        resourceFile_ = null;
+        onChanged();
+      } else {
+        resourceFile_ = null;
+        resourceFileBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 文件信息
+     * </pre>
+     *
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
+     */
+    public com.wanfang.read.ResourceFile.Builder getResourceFileBuilder() {
+      
+      onChanged();
+      return getResourceFileFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 文件信息
+     * </pre>
+     *
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
+     */
+    public com.wanfang.read.ResourceFileOrBuilder getResourceFileOrBuilder() {
+      if (resourceFileBuilder_ != null) {
+        return resourceFileBuilder_.getMessageOrBuilder();
+      } else {
+        return resourceFile_ == null ?
+            com.wanfang.read.ResourceFile.getDefaultInstance() : resourceFile_;
       }
     }
     /**
      * <pre>
-     * 阅读地址
+     * 文件信息
      * </pre>
      *
-     * <code>optional string read_url = 6;</code>
+     * <code>optional .read.ResourceFile resource_file = 6;</code>
      */
-    public Builder setReadUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      readUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 阅读地址
-     * </pre>
-     *
-     * <code>optional string read_url = 6;</code>
-     */
-    public Builder clearReadUrl() {
-      
-      readUrl_ = getDefaultInstance().getReadUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 阅读地址
-     * </pre>
-     *
-     * <code>optional string read_url = 6;</code>
-     */
-    public Builder setReadUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      readUrl_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.read.ResourceFile, com.wanfang.read.ResourceFile.Builder, com.wanfang.read.ResourceFileOrBuilder> 
+        getResourceFileFieldBuilder() {
+      if (resourceFileBuilder_ == null) {
+        resourceFileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.read.ResourceFile, com.wanfang.read.ResourceFile.Builder, com.wanfang.read.ResourceFileOrBuilder>(
+                getResourceFile(),
+                getParentForChildren(),
+                isClean());
+        resourceFile_ = null;
+      }
+      return resourceFileBuilder_;
     }
 
     private boolean hasTradePower_ ;

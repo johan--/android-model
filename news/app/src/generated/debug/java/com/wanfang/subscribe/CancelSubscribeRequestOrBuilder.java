@@ -25,4 +25,14 @@ public interface CancelSubscribeRequestOrBuilder extends
    * <code>optional .subscribe.CancelSubscribeType cancel_type = 2;</code>
    */
   com.wanfang.subscribe.CancelSubscribeType getCancelType();
+
+  /**
+   * <code>optional string user_id = 3;</code>
+   */
+  java.lang.String getUserId();
+  /**
+   * <code>optional string user_id = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserIdBytes();
 }

@@ -45,19 +45,20 @@ public final class MsgSubscribe {
     java.lang.String[] descriptorData = {
       "\n\035subscribe/msg_subscribe.proto\022\tsubscri" +
       "be\032\031google/protobuf/any.proto\032\032grpcCommo" +
-      "n/msg_error.proto\"c\n\026CancelSubscribeRequ" +
+      "n/msg_error.proto\"t\n\026CancelSubscribeRequ" +
       "est\022\024\n\014subscribe_id\030\001 \001(\t\0223\n\013cancel_type" +
-      "\030\002 \001(\0162\036.subscribe.CancelSubscribeType\"a" +
-      "\n\027CancelSubscribeResponse\022 \n\030cancel_subs" +
-      "cribe_success\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grp" +
-      "cCommon.GrpcError\"^\n\037UpdateSubscribePush" +
-      "EmailRequest\022\017\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002" +
-      " \001(\t\022\033\n\023should_update_email\030\003 \001(\010\"`\n Upd",
-      "ateSubscribePushEmailResponse\022\026\n\016update_" +
-      "success\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommo" +
-      "n.GrpcError*9\n\023CancelSubscribeType\022\021\n\rDe" +
-      "leteKeyWord\020\000\022\017\n\013DeletePerio\020\001B \n\025com.wa" +
-      "nfang.subscribeP\001\242\002\004WFPRb\006proto3"
+      "\030\002 \001(\0162\036.subscribe.CancelSubscribeType\022\017" +
+      "\n\007user_id\030\003 \001(\t\"a\n\027CancelSubscribeRespon" +
+      "se\022 \n\030cancel_subscribe_success\030\001 \001(\010\022$\n\005" +
+      "error\030\002 \001(\0132\025.grpcCommon.GrpcError\"^\n\037Up" +
+      "dateSubscribePushEmailRequest\022\017\n\007user_id" +
+      "\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\033\n\023should_update_e",
+      "mail\030\003 \001(\010\"`\n UpdateSubscribePushEmailRe" +
+      "sponse\022\026\n\016update_success\030\001 \001(\010\022$\n\005error\030" +
+      "\002 \001(\0132\025.grpcCommon.GrpcError*9\n\023CancelSu" +
+      "bscribeType\022\021\n\rDeleteKeyWord\020\000\022\017\n\013Delete" +
+      "Perio\020\001B \n\025com.wanfang.subscribeP\001\242\002\004WFP" +
+      "Rb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -78,7 +79,7 @@ public final class MsgSubscribe {
     internal_static_subscribe_CancelSubscribeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscribe_CancelSubscribeRequest_descriptor,
-        new java.lang.String[] { "SubscribeId", "CancelType", });
+        new java.lang.String[] { "SubscribeId", "CancelType", "UserId", });
     internal_static_subscribe_CancelSubscribeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_subscribe_CancelSubscribeResponse_fieldAccessorTable = new

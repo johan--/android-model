@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_sign_one"
             android:layout_marginLeft="20dp"
-            android:text="99.80"
+            android:text=""
             android:textColor="#ffffff"
             android:textSize="36sp" />
 
@@ -120,5 +120,7 @@
         android:id="@+id/rv_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    <include layout="@layout/normal_empty_layout" />
 
 </LinearLayout>

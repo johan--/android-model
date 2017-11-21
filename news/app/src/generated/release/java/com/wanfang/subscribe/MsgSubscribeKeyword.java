@@ -91,34 +91,35 @@ public final class MsgSubscribeKeyword {
       "\n%subscribe/msg_subscribe_keyword.proto\022" +
       "\tsubscribe\032\031google/protobuf/any.proto\032\032g" +
       "rpcCommon/msg_error.proto\",\n\031SubscribePu" +
-      "shEmailRequest\022\017\n\007user_id\030\001 \001(\t\"Q\n\032Subsc" +
-      "ribePushEmailResponse\022\r\n\005email\030\001 \001(\t\022$\n\005" +
-      "error\030\002 \001(\0132\025.grpcCommon.GrpcError\"\035\n\033Su" +
-      "bscribeDocTypeListRequest\"D\n\034SubscribeDo" +
-      "cTypeListResponse\022$\n\010doc_type\030\001 \003(\0132\022.su" +
-      "bscribe.DocType\" \n\036SubscribeSourceTypeLi" +
-      "stRequest\"M\n\037SubscribeSourceTypeListResp",
-      "onse\022*\n\013source_type\030\001 \003(\0132\025.subscribe.So" +
-      "urceType\"\271\001\n\027SubscribeKeywordRequest\022\017\n\007" +
-      "user_id\030\001 \001(\t\022\017\n\007keyword\030\002 \001(\t\022$\n\010doc_ty" +
-      "pe\030\003 \003(\0132\022.subscribe.DocType\022*\n\013source_t" +
-      "ype\030\004 \003(\0132\025.subscribe.SourceType\022\r\n\005emai" +
-      "l\030\005 \001(\t\022\033\n\023should_update_email\030\006 \001(\010\"[\n\030" +
-      "SubscribeKeywordResponse\022\031\n\021subscribe_su" +
-      "ccess\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommon." +
-      "GrpcError\"V\n\033SubscribeKeywordListRequest" +
-      "\022\017\n\007user_id\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\021",
-      "\n\tpage_size\030\003 \001(\005\"\225\001\n\034SubscribeKeywordLi" +
-      "stResponse\022=\n\021subscribe_keyword\030\001 \003(\0132\"." +
-      "subscribe.SubscribeKeywordMessage\022\020\n\010has" +
-      "_more\030\002 \001(\010\022$\n\005error\030\003 \001(\0132\025.grpcCommon." +
-      "GrpcError\"v\n\027SubscribeKeywordMessage\022\017\n\007" +
-      "user_id\030\001 \001(\t\022\024\n\014subscribe_id\030\002 \001(\t\022\021\n\td" +
-      "ocu_type\030\003 \001(\t\022\020\n\010add_time\030\004 \001(\t\022\017\n\007keyw" +
-      "ord\030\005 \001(\t\"+\n\007DocType\022\017\n\007ch_name\030\001 \001(\t\022\017\n" +
-      "\007en_name\030\002 \001(\t\".\n\nSourceType\022\017\n\007ch_name\030" +
-      "\001 \001(\t\022\017\n\007en_name\030\002 \001(\tB \n\025com.wanfang.su",
-      "bscribeP\001\242\002\004WFPRb\006proto3"
+      "shEmailRequest\022\017\n\007user_id\030\001 \001(\t\"d\n\032Subsc" +
+      "ribePushEmailResponse\022\r\n\005email\030\001 \001(\t\022\021\n\t" +
+      "has_email\030\002 \001(\010\022$\n\005error\030\003 \001(\0132\025.grpcCom" +
+      "mon.GrpcError\"\035\n\033SubscribeDocTypeListReq" +
+      "uest\"D\n\034SubscribeDocTypeListResponse\022$\n\010" +
+      "doc_type\030\001 \003(\0132\022.subscribe.DocType\" \n\036Su" +
+      "bscribeSourceTypeListRequest\"M\n\037Subscrib",
+      "eSourceTypeListResponse\022*\n\013source_type\030\001" +
+      " \003(\0132\025.subscribe.SourceType\"\271\001\n\027Subscrib" +
+      "eKeywordRequest\022\017\n\007user_id\030\001 \001(\t\022\017\n\007keyw" +
+      "ord\030\002 \001(\t\022$\n\010doc_type\030\003 \003(\0132\022.subscribe." +
+      "DocType\022*\n\013source_type\030\004 \003(\0132\025.subscribe" +
+      ".SourceType\022\r\n\005email\030\005 \001(\t\022\033\n\023should_upd" +
+      "ate_email\030\006 \001(\010\"[\n\030SubscribeKeywordRespo" +
+      "nse\022\031\n\021subscribe_success\030\001 \001(\010\022$\n\005error\030" +
+      "\002 \001(\0132\025.grpcCommon.GrpcError\"V\n\033Subscrib" +
+      "eKeywordListRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013",
+      "page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\225\001\n" +
+      "\034SubscribeKeywordListResponse\022=\n\021subscri" +
+      "be_keyword\030\001 \003(\0132\".subscribe.SubscribeKe" +
+      "ywordMessage\022\020\n\010has_more\030\002 \001(\010\022$\n\005error\030" +
+      "\003 \001(\0132\025.grpcCommon.GrpcError\"v\n\027Subscrib" +
+      "eKeywordMessage\022\017\n\007user_id\030\001 \001(\t\022\024\n\014subs" +
+      "cribe_id\030\002 \001(\t\022\021\n\tdocu_type\030\003 \001(\t\022\020\n\010add" +
+      "_time\030\004 \001(\t\022\017\n\007keyword\030\005 \001(\t\"+\n\007DocType\022" +
+      "\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030\002 \001(\t\".\n\nSou" +
+      "rceType\022\017\n\007ch_name\030\001 \001(\t\022\017\n\007en_name\030\002 \001(",
+      "\tB \n\025com.wanfang.subscribeP\001\242\002\004WFPRb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -145,7 +146,7 @@ public final class MsgSubscribeKeyword {
     internal_static_subscribe_SubscribePushEmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscribe_SubscribePushEmailResponse_descriptor,
-        new java.lang.String[] { "Email", "Error", });
+        new java.lang.String[] { "Email", "HasEmail", "Error", });
     internal_static_subscribe_SubscribeDocTypeListRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_subscribe_SubscribeDocTypeListRequest_fieldAccessorTable = new

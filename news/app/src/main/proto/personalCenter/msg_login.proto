@@ -42,30 +42,19 @@ message LoginResponse {
 	string login_token = 6; // 单点登录token
 	grpcCommon.GrpcError error = 7;
 }
-// 快捷登录（手机号登录请求）
+
+// 快捷登录（手机号登录）-请求
 message QuickLoginRequest {
-	string phone = 1;
-	string token = 2;
-	string captcha = 3;
-	string device_id = 4; // 设备号
-	LoginDeviceType device_type = 5; // 登录设备类型
+    // 手机号
+	string phone_number = 1;
+	// 手机验证码
+	string phone_captcha = 2;
 }
 
 //第三方登录-请求
 message ThirdPartyLoginRequest{
     string uid = 1; // 第三方登录唯一码
-    int32 third_party_code = 2; // /第三方类型code
-}
-
-//第三方登录-响应
-message ThirdPartyLoginResponse{
-    string user_id = 1; // 用户id
-    string user_nick_name = 2; // 用户昵称
-    string user_real_name = 3; // 用户真实名称
-    string user_used_name = 4; // 用户曾用名
-    string user_avatar_url = 5; // 用户头像
-    string login_token = 6; // 单点登录token
-    grpcCommon.GrpcError error = 7;
+    int32 third_party_code = 2; // 第三方类型code(0：QQ，1：微博，2：微信)
 }
 
 //第三方登录账号绑定-请求

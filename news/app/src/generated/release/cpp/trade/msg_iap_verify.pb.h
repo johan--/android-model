@@ -38,6 +38,8 @@ void protobuf_InitDefaults_trade_2fmsg_5fiap_5fverify_2eproto();
 void protobuf_AssignDesc_trade_2fmsg_5fiap_5fverify_2eproto();
 void protobuf_ShutdownFile_trade_2fmsg_5fiap_5fverify_2eproto();
 
+class CompleteIAPTradeRequest;
+class CompleteIAPTradeResponse;
 class IAPVerifyRequest;
 class IAPVerifyResponse;
 
@@ -252,6 +254,229 @@ class IAPVerifyResponse : public ::google::protobuf::Message /* @@protoc_inserti
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<IAPVerifyResponse> IAPVerifyResponse_default_instance_;
 
+// -------------------------------------------------------------------
+
+class CompleteIAPTradeRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.CompleteIAPTradeRequest) */ {
+ public:
+  CompleteIAPTradeRequest();
+  virtual ~CompleteIAPTradeRequest();
+
+  CompleteIAPTradeRequest(const CompleteIAPTradeRequest& from);
+
+  inline CompleteIAPTradeRequest& operator=(const CompleteIAPTradeRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CompleteIAPTradeRequest& default_instance();
+
+  static const CompleteIAPTradeRequest* internal_default_instance();
+
+  void Swap(CompleteIAPTradeRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CompleteIAPTradeRequest* New() const { return New(NULL); }
+
+  CompleteIAPTradeRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CompleteIAPTradeRequest& from);
+  void MergeFrom(const CompleteIAPTradeRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CompleteIAPTradeRequest* other);
+  void UnsafeMergeFrom(const CompleteIAPTradeRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string order_number = 1;
+  void clear_order_number();
+  static const int kOrderNumberFieldNumber = 1;
+  const ::std::string& order_number() const;
+  void set_order_number(const ::std::string& value);
+  void set_order_number(const char* value);
+  void set_order_number(const char* value, size_t size);
+  ::std::string* mutable_order_number();
+  ::std::string* release_order_number();
+  void set_allocated_order_number(::std::string* order_number);
+
+  // optional string product_id = 2;
+  void clear_product_id();
+  static const int kProductIdFieldNumber = 2;
+  const ::std::string& product_id() const;
+  void set_product_id(const ::std::string& value);
+  void set_product_id(const char* value);
+  void set_product_id(const char* value, size_t size);
+  ::std::string* mutable_product_id();
+  ::std::string* release_product_id();
+  void set_allocated_product_id(::std::string* product_id);
+
+  // optional string iap_trade_id = 3;
+  void clear_iap_trade_id();
+  static const int kIapTradeIdFieldNumber = 3;
+  const ::std::string& iap_trade_id() const;
+  void set_iap_trade_id(const ::std::string& value);
+  void set_iap_trade_id(const char* value);
+  void set_iap_trade_id(const char* value, size_t size);
+  ::std::string* mutable_iap_trade_id();
+  ::std::string* release_iap_trade_id();
+  void set_allocated_iap_trade_id(::std::string* iap_trade_id);
+
+  // optional string account_type = 4;
+  void clear_account_type();
+  static const int kAccountTypeFieldNumber = 4;
+  const ::std::string& account_type() const;
+  void set_account_type(const ::std::string& value);
+  void set_account_type(const char* value);
+  void set_account_type(const char* value, size_t size);
+  ::std::string* mutable_account_type();
+  ::std::string* release_account_type();
+  void set_allocated_account_type(::std::string* account_type);
+
+  // @@protoc_insertion_point(class_scope:trade.CompleteIAPTradeRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr order_number_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
+  ::google::protobuf::internal::ArenaStringPtr iap_trade_id_;
+  ::google::protobuf::internal::ArenaStringPtr account_type_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trade_2fmsg_5fiap_5fverify_2eproto_impl();
+  friend void  protobuf_AddDesc_trade_2fmsg_5fiap_5fverify_2eproto_impl();
+  friend void protobuf_AssignDesc_trade_2fmsg_5fiap_5fverify_2eproto();
+  friend void protobuf_ShutdownFile_trade_2fmsg_5fiap_5fverify_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CompleteIAPTradeRequest> CompleteIAPTradeRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class CompleteIAPTradeResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trade.CompleteIAPTradeResponse) */ {
+ public:
+  CompleteIAPTradeResponse();
+  virtual ~CompleteIAPTradeResponse();
+
+  CompleteIAPTradeResponse(const CompleteIAPTradeResponse& from);
+
+  inline CompleteIAPTradeResponse& operator=(const CompleteIAPTradeResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CompleteIAPTradeResponse& default_instance();
+
+  static const CompleteIAPTradeResponse* internal_default_instance();
+
+  void Swap(CompleteIAPTradeResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CompleteIAPTradeResponse* New() const { return New(NULL); }
+
+  CompleteIAPTradeResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CompleteIAPTradeResponse& from);
+  void MergeFrom(const CompleteIAPTradeResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CompleteIAPTradeResponse* other);
+  void UnsafeMergeFrom(const CompleteIAPTradeResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool trade_success = 1;
+  void clear_trade_success();
+  static const int kTradeSuccessFieldNumber = 1;
+  bool trade_success() const;
+  void set_trade_success(bool value);
+
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:trade.CompleteIAPTradeResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
+  bool trade_success_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trade_2fmsg_5fiap_5fverify_2eproto_impl();
+  friend void  protobuf_AddDesc_trade_2fmsg_5fiap_5fverify_2eproto_impl();
+  friend void protobuf_AssignDesc_trade_2fmsg_5fiap_5fverify_2eproto();
+  friend void protobuf_ShutdownFile_trade_2fmsg_5fiap_5fverify_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CompleteIAPTradeResponse> CompleteIAPTradeResponse_default_instance_;
+
 // ===================================================================
 
 
@@ -455,7 +680,254 @@ inline void IAPVerifyResponse::set_allocated_error(::grpcCommon::GrpcError* erro
 inline const IAPVerifyResponse* IAPVerifyResponse::internal_default_instance() {
   return &IAPVerifyResponse_default_instance_.get();
 }
+// -------------------------------------------------------------------
+
+// CompleteIAPTradeRequest
+
+// optional string order_number = 1;
+inline void CompleteIAPTradeRequest::clear_order_number() {
+  order_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CompleteIAPTradeRequest::order_number() const {
+  // @@protoc_insertion_point(field_get:trade.CompleteIAPTradeRequest.order_number)
+  return order_number_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_order_number(const ::std::string& value) {
+  
+  order_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.CompleteIAPTradeRequest.order_number)
+}
+inline void CompleteIAPTradeRequest::set_order_number(const char* value) {
+  
+  order_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.CompleteIAPTradeRequest.order_number)
+}
+inline void CompleteIAPTradeRequest::set_order_number(const char* value, size_t size) {
+  
+  order_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.CompleteIAPTradeRequest.order_number)
+}
+inline ::std::string* CompleteIAPTradeRequest::mutable_order_number() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.CompleteIAPTradeRequest.order_number)
+  return order_number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CompleteIAPTradeRequest::release_order_number() {
+  // @@protoc_insertion_point(field_release:trade.CompleteIAPTradeRequest.order_number)
+  
+  return order_number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_allocated_order_number(::std::string* order_number) {
+  if (order_number != NULL) {
+    
+  } else {
+    
+  }
+  order_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_number);
+  // @@protoc_insertion_point(field_set_allocated:trade.CompleteIAPTradeRequest.order_number)
+}
+
+// optional string product_id = 2;
+inline void CompleteIAPTradeRequest::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CompleteIAPTradeRequest::product_id() const {
+  // @@protoc_insertion_point(field_get:trade.CompleteIAPTradeRequest.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_product_id(const ::std::string& value) {
+  
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.CompleteIAPTradeRequest.product_id)
+}
+inline void CompleteIAPTradeRequest::set_product_id(const char* value) {
+  
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.CompleteIAPTradeRequest.product_id)
+}
+inline void CompleteIAPTradeRequest::set_product_id(const char* value, size_t size) {
+  
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.CompleteIAPTradeRequest.product_id)
+}
+inline ::std::string* CompleteIAPTradeRequest::mutable_product_id() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.CompleteIAPTradeRequest.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CompleteIAPTradeRequest::release_product_id() {
+  // @@protoc_insertion_point(field_release:trade.CompleteIAPTradeRequest.product_id)
+  
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    
+  } else {
+    
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:trade.CompleteIAPTradeRequest.product_id)
+}
+
+// optional string iap_trade_id = 3;
+inline void CompleteIAPTradeRequest::clear_iap_trade_id() {
+  iap_trade_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CompleteIAPTradeRequest::iap_trade_id() const {
+  // @@protoc_insertion_point(field_get:trade.CompleteIAPTradeRequest.iap_trade_id)
+  return iap_trade_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_iap_trade_id(const ::std::string& value) {
+  
+  iap_trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.CompleteIAPTradeRequest.iap_trade_id)
+}
+inline void CompleteIAPTradeRequest::set_iap_trade_id(const char* value) {
+  
+  iap_trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.CompleteIAPTradeRequest.iap_trade_id)
+}
+inline void CompleteIAPTradeRequest::set_iap_trade_id(const char* value, size_t size) {
+  
+  iap_trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.CompleteIAPTradeRequest.iap_trade_id)
+}
+inline ::std::string* CompleteIAPTradeRequest::mutable_iap_trade_id() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.CompleteIAPTradeRequest.iap_trade_id)
+  return iap_trade_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CompleteIAPTradeRequest::release_iap_trade_id() {
+  // @@protoc_insertion_point(field_release:trade.CompleteIAPTradeRequest.iap_trade_id)
+  
+  return iap_trade_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_allocated_iap_trade_id(::std::string* iap_trade_id) {
+  if (iap_trade_id != NULL) {
+    
+  } else {
+    
+  }
+  iap_trade_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), iap_trade_id);
+  // @@protoc_insertion_point(field_set_allocated:trade.CompleteIAPTradeRequest.iap_trade_id)
+}
+
+// optional string account_type = 4;
+inline void CompleteIAPTradeRequest::clear_account_type() {
+  account_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CompleteIAPTradeRequest::account_type() const {
+  // @@protoc_insertion_point(field_get:trade.CompleteIAPTradeRequest.account_type)
+  return account_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_account_type(const ::std::string& value) {
+  
+  account_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.CompleteIAPTradeRequest.account_type)
+}
+inline void CompleteIAPTradeRequest::set_account_type(const char* value) {
+  
+  account_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.CompleteIAPTradeRequest.account_type)
+}
+inline void CompleteIAPTradeRequest::set_account_type(const char* value, size_t size) {
+  
+  account_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.CompleteIAPTradeRequest.account_type)
+}
+inline ::std::string* CompleteIAPTradeRequest::mutable_account_type() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.CompleteIAPTradeRequest.account_type)
+  return account_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CompleteIAPTradeRequest::release_account_type() {
+  // @@protoc_insertion_point(field_release:trade.CompleteIAPTradeRequest.account_type)
+  
+  return account_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CompleteIAPTradeRequest::set_allocated_account_type(::std::string* account_type) {
+  if (account_type != NULL) {
+    
+  } else {
+    
+  }
+  account_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), account_type);
+  // @@protoc_insertion_point(field_set_allocated:trade.CompleteIAPTradeRequest.account_type)
+}
+
+inline const CompleteIAPTradeRequest* CompleteIAPTradeRequest::internal_default_instance() {
+  return &CompleteIAPTradeRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// CompleteIAPTradeResponse
+
+// optional bool trade_success = 1;
+inline void CompleteIAPTradeResponse::clear_trade_success() {
+  trade_success_ = false;
+}
+inline bool CompleteIAPTradeResponse::trade_success() const {
+  // @@protoc_insertion_point(field_get:trade.CompleteIAPTradeResponse.trade_success)
+  return trade_success_;
+}
+inline void CompleteIAPTradeResponse::set_trade_success(bool value) {
+  
+  trade_success_ = value;
+  // @@protoc_insertion_point(field_set:trade.CompleteIAPTradeResponse.trade_success)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool CompleteIAPTradeResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void CompleteIAPTradeResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& CompleteIAPTradeResponse::error() const {
+  // @@protoc_insertion_point(field_get:trade.CompleteIAPTradeResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* CompleteIAPTradeResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:trade.CompleteIAPTradeResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* CompleteIAPTradeResponse::release_error() {
+  // @@protoc_insertion_point(field_release:trade.CompleteIAPTradeResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void CompleteIAPTradeResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:trade.CompleteIAPTradeResponse.error)
+}
+
+inline const CompleteIAPTradeResponse* CompleteIAPTradeResponse::internal_default_instance() {
+  return &CompleteIAPTradeResponse_default_instance_.get();
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

@@ -46,9 +46,10 @@ void protobuf_AssignDesc_subscribe_2fmsg_5fsubscribe_2eproto() {
       "subscribe/msg_subscribe.proto");
   GOOGLE_CHECK(file != NULL);
   CancelSubscribeRequest_descriptor_ = file->message_type(0);
-  static const int CancelSubscribeRequest_offsets_[2] = {
+  static const int CancelSubscribeRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CancelSubscribeRequest, subscribe_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CancelSubscribeRequest, cancel_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CancelSubscribeRequest, user_id_),
   };
   CancelSubscribeRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -172,19 +173,20 @@ void protobuf_AddDesc_subscribe_2fmsg_5fsubscribe_2eproto_impl() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\035subscribe/msg_subscribe.proto\022\tsubscri"
     "be\032\031google/protobuf/any.proto\032\032grpcCommo"
-    "n/msg_error.proto\"c\n\026CancelSubscribeRequ"
+    "n/msg_error.proto\"t\n\026CancelSubscribeRequ"
     "est\022\024\n\014subscribe_id\030\001 \001(\t\0223\n\013cancel_type"
-    "\030\002 \001(\0162\036.subscribe.CancelSubscribeType\"a"
-    "\n\027CancelSubscribeResponse\022 \n\030cancel_subs"
-    "cribe_success\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grp"
-    "cCommon.GrpcError\"^\n\037UpdateSubscribePush"
-    "EmailRequest\022\017\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002"
-    " \001(\t\022\033\n\023should_update_email\030\003 \001(\010\"`\n Upd"
-    "ateSubscribePushEmailResponse\022\026\n\016update_"
-    "success\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommo"
-    "n.GrpcError*9\n\023CancelSubscribeType\022\021\n\rDe"
-    "leteKeyWord\020\000\022\017\n\013DeletePerio\020\001B \n\025com.wa"
-    "nfang.subscribeP\001\242\002\004WFPRb\006proto3", 592);
+    "\030\002 \001(\0162\036.subscribe.CancelSubscribeType\022\017"
+    "\n\007user_id\030\003 \001(\t\"a\n\027CancelSubscribeRespon"
+    "se\022 \n\030cancel_subscribe_success\030\001 \001(\010\022$\n\005"
+    "error\030\002 \001(\0132\025.grpcCommon.GrpcError\"^\n\037Up"
+    "dateSubscribePushEmailRequest\022\017\n\007user_id"
+    "\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\033\n\023should_update_e"
+    "mail\030\003 \001(\010\"`\n UpdateSubscribePushEmailRe"
+    "sponse\022\026\n\016update_success\030\001 \001(\010\022$\n\005error\030"
+    "\002 \001(\0132\025.grpcCommon.GrpcError*9\n\023CancelSu"
+    "bscribeType\022\021\n\rDeleteKeyWord\020\000\022\017\n\013Delete"
+    "Perio\020\001B \n\025com.wanfang.subscribeP\001\242\002\004WFP"
+    "Rb\006proto3", 609);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "subscribe/msg_subscribe.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -233,6 +235,7 @@ static void MergeFromFail(int line) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int CancelSubscribeRequest::kSubscribeIdFieldNumber;
 const int CancelSubscribeRequest::kCancelTypeFieldNumber;
+const int CancelSubscribeRequest::kUserIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CancelSubscribeRequest::CancelSubscribeRequest()
@@ -255,6 +258,7 @@ CancelSubscribeRequest::CancelSubscribeRequest(const CancelSubscribeRequest& fro
 
 void CancelSubscribeRequest::SharedCtor() {
   subscribe_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   cancel_type_ = 0;
   _cached_size_ = 0;
 }
@@ -266,6 +270,7 @@ CancelSubscribeRequest::~CancelSubscribeRequest() {
 
 void CancelSubscribeRequest::SharedDtor() {
   subscribe_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void CancelSubscribeRequest::SetCachedSize(int size) const {
@@ -297,6 +302,7 @@ void CancelSubscribeRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:subscribe.CancelSubscribeRequest)
   subscribe_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   cancel_type_ = 0;
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool CancelSubscribeRequest::MergePartialFromCodedStream(
@@ -334,6 +340,23 @@ bool CancelSubscribeRequest::MergePartialFromCodedStream(
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           set_cancel_type(static_cast< ::subscribe::CancelSubscribeType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_user_id;
+        break;
+      }
+
+      // optional string user_id = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_user_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_id().data(), this->user_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "subscribe.CancelSubscribeRequest.user_id"));
         } else {
           goto handle_unusual;
         }
@@ -381,6 +404,16 @@ void CancelSubscribeRequest::SerializeWithCachedSizes(
       2, this->cancel_type(), output);
   }
 
+  // optional string user_id = 3;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.CancelSubscribeRequest.user_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->user_id(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:subscribe.CancelSubscribeRequest)
 }
 
@@ -405,6 +438,17 @@ void CancelSubscribeRequest::SerializeWithCachedSizes(
       2, this->cancel_type(), target);
   }
 
+  // optional string user_id = 3;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "subscribe.CancelSubscribeRequest.user_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->user_id(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:subscribe.CancelSubscribeRequest)
   return target;
 }
@@ -424,6 +468,13 @@ size_t CancelSubscribeRequest::ByteSizeLong() const {
   if (this->cancel_type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->cancel_type());
+  }
+
+  // optional string user_id = 3;
+  if (this->user_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_id());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -466,6 +517,10 @@ void CancelSubscribeRequest::UnsafeMergeFrom(const CancelSubscribeRequest& from)
   if (from.cancel_type() != 0) {
     set_cancel_type(from.cancel_type());
   }
+  if (from.user_id().size() > 0) {
+
+    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+  }
 }
 
 void CancelSubscribeRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -494,6 +549,7 @@ void CancelSubscribeRequest::Swap(CancelSubscribeRequest* other) {
 void CancelSubscribeRequest::InternalSwap(CancelSubscribeRequest* other) {
   subscribe_id_.Swap(&other->subscribe_id_);
   std::swap(cancel_type_, other->cancel_type_);
+  user_id_.Swap(&other->user_id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -565,6 +621,50 @@ void CancelSubscribeRequest::set_cancel_type(::subscribe::CancelSubscribeType va
   
   cancel_type_ = value;
   // @@protoc_insertion_point(field_set:subscribe.CancelSubscribeRequest.cancel_type)
+}
+
+// optional string user_id = 3;
+void CancelSubscribeRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& CancelSubscribeRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:subscribe.CancelSubscribeRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CancelSubscribeRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:subscribe.CancelSubscribeRequest.user_id)
+}
+void CancelSubscribeRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:subscribe.CancelSubscribeRequest.user_id)
+}
+void CancelSubscribeRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:subscribe.CancelSubscribeRequest.user_id)
+}
+::std::string* CancelSubscribeRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:subscribe.CancelSubscribeRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* CancelSubscribeRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:subscribe.CancelSubscribeRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CancelSubscribeRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:subscribe.CancelSubscribeRequest.user_id)
 }
 
 inline const CancelSubscribeRequest* CancelSubscribeRequest::internal_default_instance() {

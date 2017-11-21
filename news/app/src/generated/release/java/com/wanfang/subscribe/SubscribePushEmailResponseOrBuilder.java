@@ -18,15 +18,24 @@ public interface SubscribePushEmailResponseOrBuilder extends
       getEmailBytes();
 
   /**
-   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   * <pre>
+   * 是否有邮箱 如果有，设置邮箱时用update，没有，用insert
+   * </pre>
+   *
+   * <code>optional bool has_email = 2;</code>
+   */
+  boolean getHasEmail();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
    */
   boolean hasError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcError getError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 2;</code>
+   * <code>optional .grpcCommon.GrpcError error = 3;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

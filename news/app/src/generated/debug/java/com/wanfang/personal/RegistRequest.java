@@ -19,11 +19,12 @@ public  final class RegistRequest extends
     super(builder);
   }
   private RegistRequest() {
+    userName_ = "";
     password_ = "";
     phone_ = "";
     phoneCaptcha_ = "";
-    userName_ = "";
-    token_ = "";
+    nation_ = "";
+    messageType_ = "";
   }
 
   @java.lang.Override
@@ -54,31 +55,37 @@ public  final class RegistRequest extends
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            password_ = s;
+            userName_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            phone_ = s;
+            password_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            phoneCaptcha_ = s;
+            phone_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            userName_ = s;
+            phoneCaptcha_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            token_ = s;
+            nation_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            messageType_ = s;
             break;
           }
         }
@@ -104,140 +111,14 @@ public  final class RegistRequest extends
             com.wanfang.personal.RegistRequest.class, com.wanfang.personal.RegistRequest.Builder.class);
   }
 
-  public static final int PASSWORD_FIELD_NUMBER = 1;
-  private volatile java.lang.Object password_;
-  /**
-   * <pre>
-   * 密码
-   * </pre>
-   *
-   * <code>optional string password = 1;</code>
-   */
-  public java.lang.String getPassword() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      password_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 密码
-   * </pre>
-   *
-   * <code>optional string password = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPasswordBytes() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      password_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PHONE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object phone_;
-  /**
-   * <pre>
-   * 手机号
-   * </pre>
-   *
-   * <code>optional string phone = 2;</code>
-   */
-  public java.lang.String getPhone() {
-    java.lang.Object ref = phone_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      phone_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 手机号
-   * </pre>
-   *
-   * <code>optional string phone = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPhoneBytes() {
-    java.lang.Object ref = phone_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      phone_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PHONE_CAPTCHA_FIELD_NUMBER = 3;
-  private volatile java.lang.Object phoneCaptcha_;
-  /**
-   * <pre>
-   * 手机号验证码(发送给服务端做双向验证)
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 3;</code>
-   */
-  public java.lang.String getPhoneCaptcha() {
-    java.lang.Object ref = phoneCaptcha_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      phoneCaptcha_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 手机号验证码(发送给服务端做双向验证)
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPhoneCaptchaBytes() {
-    java.lang.Object ref = phoneCaptcha_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      phoneCaptcha_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int USER_NAME_FIELD_NUMBER = 4;
+  public static final int USER_NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object userName_;
   /**
    * <pre>
    * 用户名
    * </pre>
    *
-   * <code>optional string user_name = 4;</code>
+   * <code>optional string user_name = 1;</code>
    */
   public java.lang.String getUserName() {
     java.lang.Object ref = userName_;
@@ -256,7 +137,7 @@ public  final class RegistRequest extends
    * 用户名
    * </pre>
    *
-   * <code>optional string user_name = 4;</code>
+   * <code>optional string user_name = 1;</code>
    */
   public com.google.protobuf.ByteString
       getUserNameBytes() {
@@ -272,34 +153,210 @@ public  final class RegistRequest extends
     }
   }
 
-  public static final int TOKEN_FIELD_NUMBER = 5;
-  private volatile java.lang.Object token_;
+  public static final int PASSWORD_FIELD_NUMBER = 2;
+  private volatile java.lang.Object password_;
   /**
-   * <code>optional string token = 5;</code>
+   * <pre>
+   * 密码
+   * </pre>
+   *
+   * <code>optional string password = 2;</code>
    */
-  public java.lang.String getToken() {
-    java.lang.Object ref = token_;
+  public java.lang.String getPassword() {
+    java.lang.Object ref = password_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      token_ = s;
+      password_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string token = 5;</code>
+   * <pre>
+   * 密码
+   * </pre>
+   *
+   * <code>optional string password = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getTokenBytes() {
-    java.lang.Object ref = token_;
+      getPasswordBytes() {
+    java.lang.Object ref = password_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      token_ = b;
+      password_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PHONE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object phone_;
+  /**
+   * <pre>
+   * 手机号
+   * </pre>
+   *
+   * <code>optional string phone = 3;</code>
+   */
+  public java.lang.String getPhone() {
+    java.lang.Object ref = phone_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      phone_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 手机号
+   * </pre>
+   *
+   * <code>optional string phone = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPhoneBytes() {
+    java.lang.Object ref = phone_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      phone_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PHONE_CAPTCHA_FIELD_NUMBER = 4;
+  private volatile java.lang.Object phoneCaptcha_;
+  /**
+   * <pre>
+   * 手机号验证码(发送给服务端做双向验证)
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 4;</code>
+   */
+  public java.lang.String getPhoneCaptcha() {
+    java.lang.Object ref = phoneCaptcha_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      phoneCaptcha_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 手机号验证码(发送给服务端做双向验证)
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPhoneCaptchaBytes() {
+    java.lang.Object ref = phoneCaptcha_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      phoneCaptcha_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int NATION_FIELD_NUMBER = 5;
+  private volatile java.lang.Object nation_;
+  /**
+   * <pre>
+   * 国际区号 如：中国：0086；
+   * </pre>
+   *
+   * <code>optional string nation = 5;</code>
+   */
+  public java.lang.String getNation() {
+    java.lang.Object ref = nation_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      nation_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 国际区号 如：中国：0086；
+   * </pre>
+   *
+   * <code>optional string nation = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getNationBytes() {
+    java.lang.Object ref = nation_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      nation_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MESSAGE_TYPE_FIELD_NUMBER = 6;
+  private volatile java.lang.Object messageType_;
+  /**
+   * <pre>
+   * 消息类型 目前仅支持“bind”
+   * </pre>
+   *
+   * <code>optional string message_type = 6;</code>
+   */
+  public java.lang.String getMessageType() {
+    java.lang.Object ref = messageType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      messageType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 消息类型 目前仅支持“bind”
+   * </pre>
+   *
+   * <code>optional string message_type = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getMessageTypeBytes() {
+    java.lang.Object ref = messageType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      messageType_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -318,20 +375,23 @@ public  final class RegistRequest extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!getUserNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userName_);
+    }
     if (!getPasswordBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, password_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
     }
     if (!getPhoneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phone_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, phone_);
     }
     if (!getPhoneCaptchaBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, phoneCaptcha_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, phoneCaptcha_);
     }
-    if (!getUserNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userName_);
+    if (!getNationBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, nation_);
     }
-    if (!getTokenBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, token_);
+    if (!getMessageTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, messageType_);
     }
   }
 
@@ -340,20 +400,23 @@ public  final class RegistRequest extends
     if (size != -1) return size;
 
     size = 0;
+    if (!getUserNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userName_);
+    }
     if (!getPasswordBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, password_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
     }
     if (!getPhoneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phone_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, phone_);
     }
     if (!getPhoneCaptchaBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, phoneCaptcha_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, phoneCaptcha_);
     }
-    if (!getUserNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userName_);
+    if (!getNationBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, nation_);
     }
-    if (!getTokenBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, token_);
+    if (!getMessageTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, messageType_);
     }
     memoizedSize = size;
     return size;
@@ -371,16 +434,18 @@ public  final class RegistRequest extends
     com.wanfang.personal.RegistRequest other = (com.wanfang.personal.RegistRequest) obj;
 
     boolean result = true;
+    result = result && getUserName()
+        .equals(other.getUserName());
     result = result && getPassword()
         .equals(other.getPassword());
     result = result && getPhone()
         .equals(other.getPhone());
     result = result && getPhoneCaptcha()
         .equals(other.getPhoneCaptcha());
-    result = result && getUserName()
-        .equals(other.getUserName());
-    result = result && getToken()
-        .equals(other.getToken());
+    result = result && getNation()
+        .equals(other.getNation());
+    result = result && getMessageType()
+        .equals(other.getMessageType());
     return result;
   }
 
@@ -391,16 +456,18 @@ public  final class RegistRequest extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
+    hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getUserName().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
     hash = (37 * hash) + PHONE_FIELD_NUMBER;
     hash = (53 * hash) + getPhone().hashCode();
     hash = (37 * hash) + PHONE_CAPTCHA_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneCaptcha().hashCode();
-    hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getUserName().hashCode();
-    hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getToken().hashCode();
+    hash = (37 * hash) + NATION_FIELD_NUMBER;
+    hash = (53 * hash) + getNation().hashCode();
+    hash = (37 * hash) + MESSAGE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessageType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -523,15 +590,17 @@ public  final class RegistRequest extends
     }
     public Builder clear() {
       super.clear();
+      userName_ = "";
+
       password_ = "";
 
       phone_ = "";
 
       phoneCaptcha_ = "";
 
-      userName_ = "";
+      nation_ = "";
 
-      token_ = "";
+      messageType_ = "";
 
       return this;
     }
@@ -555,11 +624,12 @@ public  final class RegistRequest extends
 
     public com.wanfang.personal.RegistRequest buildPartial() {
       com.wanfang.personal.RegistRequest result = new com.wanfang.personal.RegistRequest(this);
+      result.userName_ = userName_;
       result.password_ = password_;
       result.phone_ = phone_;
       result.phoneCaptcha_ = phoneCaptcha_;
-      result.userName_ = userName_;
-      result.token_ = token_;
+      result.nation_ = nation_;
+      result.messageType_ = messageType_;
       onBuilt();
       return result;
     }
@@ -601,6 +671,10 @@ public  final class RegistRequest extends
 
     public Builder mergeFrom(com.wanfang.personal.RegistRequest other) {
       if (other == com.wanfang.personal.RegistRequest.getDefaultInstance()) return this;
+      if (!other.getUserName().isEmpty()) {
+        userName_ = other.userName_;
+        onChanged();
+      }
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
         onChanged();
@@ -613,12 +687,12 @@ public  final class RegistRequest extends
         phoneCaptcha_ = other.phoneCaptcha_;
         onChanged();
       }
-      if (!other.getUserName().isEmpty()) {
-        userName_ = other.userName_;
+      if (!other.getNation().isEmpty()) {
+        nation_ = other.nation_;
         onChanged();
       }
-      if (!other.getToken().isEmpty()) {
-        token_ = other.token_;
+      if (!other.getMessageType().isEmpty()) {
+        messageType_ = other.messageType_;
         onChanged();
       }
       onChanged();
@@ -647,280 +721,13 @@ public  final class RegistRequest extends
       return this;
     }
 
-    private java.lang.Object password_ = "";
-    /**
-     * <pre>
-     * 密码
-     * </pre>
-     *
-     * <code>optional string password = 1;</code>
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 密码
-     * </pre>
-     *
-     * <code>optional string password = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 密码
-     * </pre>
-     *
-     * <code>optional string password = 1;</code>
-     */
-    public Builder setPassword(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      password_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 密码
-     * </pre>
-     *
-     * <code>optional string password = 1;</code>
-     */
-    public Builder clearPassword() {
-      
-      password_ = getDefaultInstance().getPassword();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 密码
-     * </pre>
-     *
-     * <code>optional string password = 1;</code>
-     */
-    public Builder setPasswordBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      password_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object phone_ = "";
-    /**
-     * <pre>
-     * 手机号
-     * </pre>
-     *
-     * <code>optional string phone = 2;</code>
-     */
-    public java.lang.String getPhone() {
-      java.lang.Object ref = phone_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phone_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 手机号
-     * </pre>
-     *
-     * <code>optional string phone = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPhoneBytes() {
-      java.lang.Object ref = phone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 手机号
-     * </pre>
-     *
-     * <code>optional string phone = 2;</code>
-     */
-    public Builder setPhone(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      phone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 手机号
-     * </pre>
-     *
-     * <code>optional string phone = 2;</code>
-     */
-    public Builder clearPhone() {
-      
-      phone_ = getDefaultInstance().getPhone();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 手机号
-     * </pre>
-     *
-     * <code>optional string phone = 2;</code>
-     */
-    public Builder setPhoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      phone_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object phoneCaptcha_ = "";
-    /**
-     * <pre>
-     * 手机号验证码(发送给服务端做双向验证)
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 3;</code>
-     */
-    public java.lang.String getPhoneCaptcha() {
-      java.lang.Object ref = phoneCaptcha_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phoneCaptcha_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 手机号验证码(发送给服务端做双向验证)
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPhoneCaptchaBytes() {
-      java.lang.Object ref = phoneCaptcha_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phoneCaptcha_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 手机号验证码(发送给服务端做双向验证)
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 3;</code>
-     */
-    public Builder setPhoneCaptcha(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      phoneCaptcha_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 手机号验证码(发送给服务端做双向验证)
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 3;</code>
-     */
-    public Builder clearPhoneCaptcha() {
-      
-      phoneCaptcha_ = getDefaultInstance().getPhoneCaptcha();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 手机号验证码(发送给服务端做双向验证)
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 3;</code>
-     */
-    public Builder setPhoneCaptchaBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      phoneCaptcha_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object userName_ = "";
     /**
      * <pre>
      * 用户名
      * </pre>
      *
-     * <code>optional string user_name = 4;</code>
+     * <code>optional string user_name = 1;</code>
      */
     public java.lang.String getUserName() {
       java.lang.Object ref = userName_;
@@ -939,7 +746,7 @@ public  final class RegistRequest extends
      * 用户名
      * </pre>
      *
-     * <code>optional string user_name = 4;</code>
+     * <code>optional string user_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getUserNameBytes() {
@@ -959,7 +766,7 @@ public  final class RegistRequest extends
      * 用户名
      * </pre>
      *
-     * <code>optional string user_name = 4;</code>
+     * <code>optional string user_name = 1;</code>
      */
     public Builder setUserName(
         java.lang.String value) {
@@ -976,7 +783,7 @@ public  final class RegistRequest extends
      * 用户名
      * </pre>
      *
-     * <code>optional string user_name = 4;</code>
+     * <code>optional string user_name = 1;</code>
      */
     public Builder clearUserName() {
       
@@ -989,7 +796,7 @@ public  final class RegistRequest extends
      * 用户名
      * </pre>
      *
-     * <code>optional string user_name = 4;</code>
+     * <code>optional string user_name = 1;</code>
      */
     public Builder setUserNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1003,71 +810,447 @@ public  final class RegistRequest extends
       return this;
     }
 
-    private java.lang.Object token_ = "";
+    private java.lang.Object password_ = "";
     /**
-     * <code>optional string token = 5;</code>
+     * <pre>
+     * 密码
+     * </pre>
+     *
+     * <code>optional string password = 2;</code>
      */
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        token_ = s;
+        password_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string token = 5;</code>
+     * <pre>
+     * 密码
+     * </pre>
+     *
+     * <code>optional string password = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        token_ = b;
+        password_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>optional string token = 5;</code>
+     * <pre>
+     * 密码
+     * </pre>
+     *
+     * <code>optional string password = 2;</code>
      */
-    public Builder setToken(
+    public Builder setPassword(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      token_ = value;
+      password_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string token = 5;</code>
+     * <pre>
+     * 密码
+     * </pre>
+     *
+     * <code>optional string password = 2;</code>
      */
-    public Builder clearToken() {
+    public Builder clearPassword() {
       
-      token_ = getDefaultInstance().getToken();
+      password_ = getDefaultInstance().getPassword();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string token = 5;</code>
+     * <pre>
+     * 密码
+     * </pre>
+     *
+     * <code>optional string password = 2;</code>
      */
-    public Builder setTokenBytes(
+    public Builder setPasswordBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      token_ = value;
+      password_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object phone_ = "";
+    /**
+     * <pre>
+     * 手机号
+     * </pre>
+     *
+     * <code>optional string phone = 3;</code>
+     */
+    public java.lang.String getPhone() {
+      java.lang.Object ref = phone_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phone_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 手机号
+     * </pre>
+     *
+     * <code>optional string phone = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPhoneBytes() {
+      java.lang.Object ref = phone_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 手机号
+     * </pre>
+     *
+     * <code>optional string phone = 3;</code>
+     */
+    public Builder setPhone(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      phone_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号
+     * </pre>
+     *
+     * <code>optional string phone = 3;</code>
+     */
+    public Builder clearPhone() {
+      
+      phone_ = getDefaultInstance().getPhone();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号
+     * </pre>
+     *
+     * <code>optional string phone = 3;</code>
+     */
+    public Builder setPhoneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      phone_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object phoneCaptcha_ = "";
+    /**
+     * <pre>
+     * 手机号验证码(发送给服务端做双向验证)
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 4;</code>
+     */
+    public java.lang.String getPhoneCaptcha() {
+      java.lang.Object ref = phoneCaptcha_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phoneCaptcha_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 手机号验证码(发送给服务端做双向验证)
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPhoneCaptchaBytes() {
+      java.lang.Object ref = phoneCaptcha_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phoneCaptcha_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 手机号验证码(发送给服务端做双向验证)
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 4;</code>
+     */
+    public Builder setPhoneCaptcha(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      phoneCaptcha_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号验证码(发送给服务端做双向验证)
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 4;</code>
+     */
+    public Builder clearPhoneCaptcha() {
+      
+      phoneCaptcha_ = getDefaultInstance().getPhoneCaptcha();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 手机号验证码(发送给服务端做双向验证)
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 4;</code>
+     */
+    public Builder setPhoneCaptchaBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      phoneCaptcha_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object nation_ = "";
+    /**
+     * <pre>
+     * 国际区号 如：中国：0086；
+     * </pre>
+     *
+     * <code>optional string nation = 5;</code>
+     */
+    public java.lang.String getNation() {
+      java.lang.Object ref = nation_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nation_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 国际区号 如：中国：0086；
+     * </pre>
+     *
+     * <code>optional string nation = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNationBytes() {
+      java.lang.Object ref = nation_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nation_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 国际区号 如：中国：0086；
+     * </pre>
+     *
+     * <code>optional string nation = 5;</code>
+     */
+    public Builder setNation(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      nation_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 国际区号 如：中国：0086；
+     * </pre>
+     *
+     * <code>optional string nation = 5;</code>
+     */
+    public Builder clearNation() {
+      
+      nation_ = getDefaultInstance().getNation();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 国际区号 如：中国：0086；
+     * </pre>
+     *
+     * <code>optional string nation = 5;</code>
+     */
+    public Builder setNationBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      nation_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object messageType_ = "";
+    /**
+     * <pre>
+     * 消息类型 目前仅支持“bind”
+     * </pre>
+     *
+     * <code>optional string message_type = 6;</code>
+     */
+    public java.lang.String getMessageType() {
+      java.lang.Object ref = messageType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 消息类型 目前仅支持“bind”
+     * </pre>
+     *
+     * <code>optional string message_type = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageTypeBytes() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 消息类型 目前仅支持“bind”
+     * </pre>
+     *
+     * <code>optional string message_type = 6;</code>
+     */
+    public Builder setMessageType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      messageType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 消息类型 目前仅支持“bind”
+     * </pre>
+     *
+     * <code>optional string message_type = 6;</code>
+     */
+    public Builder clearMessageType() {
+      
+      messageType_ = getDefaultInstance().getMessageType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 消息类型 目前仅支持“bind”
+     * </pre>
+     *
+     * <code>optional string message_type = 6;</code>
+     */
+    public Builder setMessageTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      messageType_ = value;
       onChanged();
       return this;
     }

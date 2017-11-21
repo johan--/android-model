@@ -99,6 +99,62 @@ public final class MsgError {
      * <code>IAP_CREATEORDER_ERROR = 9;</code>
      */
     IAP_CREATEORDER_ERROR(9),
+    /**
+     * <pre>
+     * 第三方登录账号未绑定
+     * </pre>
+     *
+     * <code>THIRD_PARTY_NOT_BINd = 10;</code>
+     */
+    THIRD_PARTY_NOT_BINd(10),
+    /**
+     * <pre>
+     * 交易验证失败
+     * </pre>
+     *
+     * <code>TRADE_VALIDATE_FAIL = 11;</code>
+     */
+    TRADE_VALIDATE_FAIL(11),
+    /**
+     * <pre>
+     * 手机验证码错误
+     * </pre>
+     *
+     * <code>PHONE_CAPTCHA_ERROR = 12;</code>
+     */
+    PHONE_CAPTCHA_ERROR(12),
+    /**
+     * <pre>
+     * 手机号未注册
+     * </pre>
+     *
+     * <code>PHONE_NOT_REGISTER = 13;</code>
+     */
+    PHONE_NOT_REGISTER(13),
+    /**
+     * <pre>
+     * 用户已冻结
+     * </pre>
+     *
+     * <code>USER_IS_FREEZE = 14;</code>
+     */
+    USER_IS_FREEZE(14),
+    /**
+     * <pre>
+     * 已存在个人用户
+     * </pre>
+     *
+     * <code>GRUSER_MORE = 15;</code>
+     */
+    GRUSER_MORE(15),
+    /**
+     * <pre>
+     * already collect
+     * </pre>
+     *
+     * <code>ALREADY_COLLECTED = 16;</code>
+     */
+    ALREADY_COLLECTED(16),
     UNRECOGNIZED(-1),
     ;
 
@@ -182,6 +238,62 @@ public final class MsgError {
      * <code>IAP_CREATEORDER_ERROR = 9;</code>
      */
     public static final int IAP_CREATEORDER_ERROR_VALUE = 9;
+    /**
+     * <pre>
+     * 第三方登录账号未绑定
+     * </pre>
+     *
+     * <code>THIRD_PARTY_NOT_BINd = 10;</code>
+     */
+    public static final int THIRD_PARTY_NOT_BINd_VALUE = 10;
+    /**
+     * <pre>
+     * 交易验证失败
+     * </pre>
+     *
+     * <code>TRADE_VALIDATE_FAIL = 11;</code>
+     */
+    public static final int TRADE_VALIDATE_FAIL_VALUE = 11;
+    /**
+     * <pre>
+     * 手机验证码错误
+     * </pre>
+     *
+     * <code>PHONE_CAPTCHA_ERROR = 12;</code>
+     */
+    public static final int PHONE_CAPTCHA_ERROR_VALUE = 12;
+    /**
+     * <pre>
+     * 手机号未注册
+     * </pre>
+     *
+     * <code>PHONE_NOT_REGISTER = 13;</code>
+     */
+    public static final int PHONE_NOT_REGISTER_VALUE = 13;
+    /**
+     * <pre>
+     * 用户已冻结
+     * </pre>
+     *
+     * <code>USER_IS_FREEZE = 14;</code>
+     */
+    public static final int USER_IS_FREEZE_VALUE = 14;
+    /**
+     * <pre>
+     * 已存在个人用户
+     * </pre>
+     *
+     * <code>GRUSER_MORE = 15;</code>
+     */
+    public static final int GRUSER_MORE_VALUE = 15;
+    /**
+     * <pre>
+     * already collect
+     * </pre>
+     *
+     * <code>ALREADY_COLLECTED = 16;</code>
+     */
+    public static final int ALREADY_COLLECTED_VALUE = 16;
 
 
     public final int getNumber() {
@@ -212,6 +324,13 @@ public final class MsgError {
         case 7: return USER_IS_LOGIN;
         case 8: return IAP_PRICE_ERROR;
         case 9: return IAP_CREATEORDER_ERROR;
+        case 10: return THIRD_PARTY_NOT_BINd;
+        case 11: return TRADE_VALIDATE_FAIL;
+        case 12: return PHONE_CAPTCHA_ERROR;
+        case 13: return PHONE_NOT_REGISTER;
+        case 14: return USER_IS_FREEZE;
+        case 15: return GRUSER_MORE;
+        case 16: return ALREADY_COLLECTED;
         default: return null;
       }
     }
@@ -1580,12 +1699,16 @@ public final class MsgError {
       "rpcCommon.ErrorMessage\"j\n\014ErrorMessage\022)" +
       "\n\nerror_code\030\001 \001(\0162\025.grpcCommon.ErrorCod" +
       "e\022\024\n\014error_reason\030\002 \001(\t\022\031\n\021error_descrip" +
-      "tion\030\003 \001(\t*\311\001\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
+      "tion\030\003 \001(\t*\351\002\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
       "\022\r\n\tNO_REGIST\020\001\022\016\n\nUSER_EXIST\020\002\022\016\n\nNEED_" +
       "FIELD\020\003\022\027\n\023UNKNOWN_FILELD_TYPE\020\004\022\017\n\013RESU" +
       "LT_NULL\020\005\022\020\n\014COMMON_ERROR\020\006\022\021\n\rUSER_IS_L" +
       "OGIN\020\007\022\023\n\017IAP_PRICE_ERROR\020\010\022\031\n\025IAP_CREAT",
-      "EORDER_ERROR\020\tB\030\n\026com.wanfang.grpcCommon" +
+      "EORDER_ERROR\020\t\022\030\n\024THIRD_PARTY_NOT_BINd\020\n" +
+      "\022\027\n\023TRADE_VALIDATE_FAIL\020\013\022\027\n\023PHONE_CAPTC" +
+      "HA_ERROR\020\014\022\026\n\022PHONE_NOT_REGISTER\020\r\022\022\n\016US" +
+      "ER_IS_FREEZE\020\016\022\017\n\013GRUSER_MORE\020\017\022\025\n\021ALREA" +
+      "DY_COLLECTED\020\020B\030\n\026com.wanfang.grpcCommon" +
       "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =

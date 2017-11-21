@@ -44,17 +44,17 @@ public final class MsgRegist {
   static {
     java.lang.String[] descriptorData = {
       "\n\037personalCenter/msg_regist.proto\022\010perso" +
-      "nal\032\032grpcCommon/msg_error.proto\"i\n\rRegis" +
-      "tRequest\022\020\n\010password\030\001 \001(\t\022\r\n\005phone\030\002 \001(" +
-      "\t\022\025\n\rphone_captcha\030\003 \001(\t\022\021\n\tuser_name\030\004 " +
-      "\001(\t\022\r\n\005token\030\005 \001(\t\"G\n\016RegistResponse\022\017\n\007" +
-      "user_id\030\001 \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommo" +
-      "n.GrpcError\"S\n\027UpdateRegistInfoRequest\022\017" +
-      "\n\007user_id\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\030\n\020intere" +
-      "st_subject\030\003 \001(\t\"@\n\030UpdateRegistInfoResp" +
-      "onse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErr",
-      "orB\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006pro" +
-      "to3"
+      "nal\032\032grpcCommon/msg_error.proto\"\200\001\n\rRegi" +
+      "stRequest\022\021\n\tuser_name\030\001 \001(\t\022\020\n\010password" +
+      "\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\025\n\rphone_captcha\030\004" +
+      " \001(\t\022\016\n\006nation\030\005 \001(\t\022\024\n\014message_type\030\006 \001" +
+      "(\t\"G\n\016RegistResponse\022\017\n\007user_id\030\001 \001(\t\022$\n" +
+      "\005error\030\002 \001(\0132\025.grpcCommon.GrpcError\"S\n\027U" +
+      "pdateRegistInfoRequest\022\017\n\007user_id\030\001 \001(\t\022" +
+      "\r\n\005email\030\002 \001(\t\022\030\n\020interest_subject\030\003 \001(\t" +
+      "\"@\n\030UpdateRegistInfoResponse\022$\n\005error\030\001 ",
+      "\001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfan" +
+      "g.personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -74,7 +74,7 @@ public final class MsgRegist {
     internal_static_personal_RegistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_RegistRequest_descriptor,
-        new java.lang.String[] { "Password", "Phone", "PhoneCaptcha", "UserName", "Token", });
+        new java.lang.String[] { "UserName", "Password", "Phone", "PhoneCaptcha", "Nation", "MessageType", });
     internal_static_personal_RegistResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_personal_RegistResponse_fieldAccessorTable = new

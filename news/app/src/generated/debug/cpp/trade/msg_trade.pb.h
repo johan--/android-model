@@ -676,6 +676,17 @@ class MyOrdersResponse_Result : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_pay_way();
   void set_allocated_pay_way(::std::string* pay_way);
 
+  // optional string productDetail = 9;
+  void clear_productdetail();
+  static const int kProductDetailFieldNumber = 9;
+  const ::std::string& productdetail() const;
+  void set_productdetail(const ::std::string& value);
+  void set_productdetail(const char* value);
+  void set_productdetail(const char* value, size_t size);
+  ::std::string* mutable_productdetail();
+  ::std::string* release_productdetail();
+  void set_allocated_productdetail(::std::string* productdetail);
+
   // @@protoc_insertion_point(class_scope:trade.MyOrdersResponse.Result)
  private:
 
@@ -686,6 +697,7 @@ class MyOrdersResponse_Result : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::internal::ArenaStringPtr order_product_type_;
   ::google::protobuf::internal::ArenaStringPtr order_title_;
   ::google::protobuf::internal::ArenaStringPtr pay_way_;
+  ::google::protobuf::internal::ArenaStringPtr productdetail_;
   ::google::protobuf::int32 order_state_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trade_2fmsg_5ftrade_2eproto_impl();
@@ -1761,6 +1773,50 @@ inline void MyOrdersResponse_Result::set_allocated_pay_way(::std::string* pay_wa
   }
   pay_way_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pay_way);
   // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.pay_way)
+}
+
+// optional string productDetail = 9;
+inline void MyOrdersResponse_Result::clear_productdetail() {
+  productdetail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MyOrdersResponse_Result::productdetail() const {
+  // @@protoc_insertion_point(field_get:trade.MyOrdersResponse.Result.productDetail)
+  return productdetail_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_productdetail(const ::std::string& value) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trade.MyOrdersResponse.Result.productDetail)
+}
+inline void MyOrdersResponse_Result::set_productdetail(const char* value) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trade.MyOrdersResponse.Result.productDetail)
+}
+inline void MyOrdersResponse_Result::set_productdetail(const char* value, size_t size) {
+  
+  productdetail_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trade.MyOrdersResponse.Result.productDetail)
+}
+inline ::std::string* MyOrdersResponse_Result::mutable_productdetail() {
+  
+  // @@protoc_insertion_point(field_mutable:trade.MyOrdersResponse.Result.productDetail)
+  return productdetail_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MyOrdersResponse_Result::release_productdetail() {
+  // @@protoc_insertion_point(field_release:trade.MyOrdersResponse.Result.productDetail)
+  
+  return productdetail_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MyOrdersResponse_Result::set_allocated_productdetail(::std::string* productdetail) {
+  if (productdetail != NULL) {
+    
+  } else {
+    
+  }
+  productdetail_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), productdetail);
+  // @@protoc_insertion_point(field_set_allocated:trade.MyOrdersResponse.Result.productDetail)
 }
 
 inline const MyOrdersResponse_Result* MyOrdersResponse_Result::internal_default_instance() {

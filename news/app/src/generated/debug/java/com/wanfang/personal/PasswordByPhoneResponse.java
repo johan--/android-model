@@ -4,6 +4,10 @@
 package com.wanfang.personal;
 
 /**
+ * <pre>
+ * 找回密码(通过手机号)-响应
+ * </pre>
+ *
  * Protobuf type {@code personal.PasswordByPhoneResponse}
  */
 public  final class PasswordByPhoneResponse extends
@@ -88,6 +92,10 @@ public  final class PasswordByPhoneResponse extends
   public static final int USER_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userId_;
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   public java.lang.String getUserId() {
@@ -103,6 +111,10 @@ public  final class PasswordByPhoneResponse extends
     }
   }
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   public com.google.protobuf.ByteString
@@ -294,6 +306,10 @@ public  final class PasswordByPhoneResponse extends
     return builder;
   }
   /**
+   * <pre>
+   * 找回密码(通过手机号)-响应
+   * </pre>
+   *
    * Protobuf type {@code personal.PasswordByPhoneResponse}
    */
   public static final class Builder extends
@@ -441,6 +457,10 @@ public  final class PasswordByPhoneResponse extends
 
     private java.lang.Object userId_ = "";
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public java.lang.String getUserId() {
@@ -456,6 +476,10 @@ public  final class PasswordByPhoneResponse extends
       }
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -472,6 +496,10 @@ public  final class PasswordByPhoneResponse extends
       }
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder setUserId(
@@ -485,6 +513,10 @@ public  final class PasswordByPhoneResponse extends
       return this;
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder clearUserId() {
@@ -494,6 +526,10 @@ public  final class PasswordByPhoneResponse extends
       return this;
     }
     /**
+     * <pre>
+     * 用户id
+     * </pre>
+     *
      * <code>optional string user_id = 1;</code>
      */
     public Builder setUserIdBytes(

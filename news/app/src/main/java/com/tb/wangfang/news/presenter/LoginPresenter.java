@@ -10,13 +10,13 @@ import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.wanfang.grpcCommon.MsgError;
+import com.wanfang.personal.GetPhoneCaptchaRequest;
+import com.wanfang.personal.GetPhoneCaptchaResponse;
 import com.wanfang.personal.LoginRequest;
 import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
-import com.wanfang.personal.PhoneCaptchaRequest;
-import com.wanfang.personal.PhoneCaptchaResponse;
+import com.wanfang.personal.QuickLoginRequest;
 import com.wanfang.personal.ThirdPartyLoginRequest;
-import com.wanfang.personal.ThirdPartyLoginResponse;
 
 import java.io.File;
 
@@ -134,21 +134,28 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
     }
 
     @Override
-    public void getPhoneCaptcha(final String phone) {
-        Single.create(new SingleOnSubscribe<PhoneCaptchaResponse>() {
+    public void getPhoneCaptcha(final String phone, final String nation) {
+        Single.create(new SingleOnSubscribe<GetPhoneCaptchaResponse>() {
             @Override
-            public void subscribe(SingleEmitter<PhoneCaptchaResponse> e) throws Exception {
+            public void subscribe(SingleEmitter<GetPhoneCaptchaResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                PhoneCaptchaRequest request = PhoneCaptchaRequest.newBuilder().setPhone(phone).build();
-                PhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
+                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation("0086").setMessageType("bind").build();
+                GetPhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
                 e.onSuccess(response);
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<PhoneCaptchaResponse>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<GetPhoneCaptchaResponse>() {
             @Override
-            public void onSuccess(PhoneCaptchaResponse response) {
-                Message msg = new Message();
-                msg.what = 0;
-                handler.sendMessage(msg);
+            public void onSuccess(GetPhoneCaptchaResponse response) {
+                Log.d(TAG, "onSuccess: " + response.getStatus());
+                if (response.getStatus() == 200) {
+                    Message msg = new Message();
+                    msg.what = 0;
+                    handler.sendMessage(msg);
+                    ToastUtil.show("发送成功");
+                } else {
+                    ToastUtil.show("发送失败");
+                }
+
 
             }
 
@@ -162,18 +169,18 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     @Override
     public void thirdLogin(final String id, final int type) {
-        Single.create(new SingleOnSubscribe<ThirdPartyLoginResponse>() {
+        Single.create(new SingleOnSubscribe<LoginResponse>() {
             @Override
-            public void subscribe(SingleEmitter<ThirdPartyLoginResponse> e) throws Exception {
+            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
                 ThirdPartyLoginRequest request = ThirdPartyLoginRequest.newBuilder().setUid(id).setThirdPartyCode(type).build();
-                ThirdPartyLoginResponse response = stub.thirdPartyLogin(request);
+                LoginResponse response = stub.thirdPartyLogin(request);
                 e.onSuccess(response);
 
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ThirdPartyLoginResponse>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
             @Override
-            public void onSuccess(ThirdPartyLoginResponse userRolesListResponse) {
+            public void onSuccess(LoginResponse userRolesListResponse) {
                 if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
 
                     mView.showDialoge(id, type + "");
@@ -189,6 +196,35 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                 ToastUtil.show("网络出错");
             }
         });
+    }
+
+    @Override
+    public void quickLogin(final String phone, final String captcha, final String deviceId) {
+        Single.create(new SingleOnSubscribe<LoginResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                QuickLoginRequest request = QuickLoginRequest.newBuilder().setPhoneCaptcha(captcha).setPhoneNumber(phone).build();
+                LoginResponse response = stub.quickLogin(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+            @Override
+            public void onSuccess(LoginResponse response) {
+                Log.d(TAG, "onSuccess: " + response.toString());
+                JMessageLogin(response);
+                preferencesHelps.storeLoginInfo(response);
+                mView.loginSuccess(response);
+            }
+
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                mView.loginSuccess(LoginResponse.getDefaultInstance());
+            }
+        });
+
     }
 
     private void JMessageLogin(final LoginResponse response) {
@@ -224,37 +260,4 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
         });
     }
 
-    private void JMessageLogin(final ThirdPartyLoginResponse response) {
-
-//        JMessageClient.updateUserAvatar(new File(uri.getPath()), new BasicCallback() {
-//            @Override
-//            public void gotResult(int responseCode, String responseMessage) {
-//                jiguang.chat.utils.dialog.LoadDialog.dismiss(context);
-//                if (responseCode == 0) {
-//                    ToastUtil.shortToast(mContext, "更新成功");
-//                }else {
-//                    ToastUtil.shortToast(mContext, "更新失败" + responseMessage);
-//                }
-//            }
-//        });
-        JMessageClient.login(response.getUserId(), "123456", new BasicCallback() {
-            @Override
-            public void gotResult(int responseCode, String responseMessage) {
-                if (responseCode == 0) {
-                    UserInfo myInfo = JMessageClient.getMyInfo();
-                    File avatarFile = myInfo.getAvatarFile();
-                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
-                    if (avatarFile != null) {
-                        preferencesHelps.setUserAvatar(avatarFile.getAbsolutePath());
-                    } else {
-                        preferencesHelps.setUserAvatar(null);
-                    }
-                    mView.loginSuccess(response);
-                } else {
-                    mView.loginSuccess(ThirdPartyLoginResponse.getDefaultInstance());
-                    Log.d(TAG, "gotResult: 极光im登录失败");
-                }
-            }
-        });
-    }
 }

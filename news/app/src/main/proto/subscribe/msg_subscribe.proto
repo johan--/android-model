@@ -19,6 +19,7 @@ enum CancelSubscribeType {
 message CancelSubscribeRequest {
     string subscribe_id = 1;
     CancelSubscribeType cancel_type = 2;
+    string user_id = 3;
 }
 message CancelSubscribeResponse {
     bool cancel_subscribe_success = 1;

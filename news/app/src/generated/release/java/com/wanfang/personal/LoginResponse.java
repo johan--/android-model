@@ -20,7 +20,9 @@ public  final class LoginResponse extends
   }
   private LoginResponse() {
     userId_ = "";
-    userName_ = "";
+    userNickName_ = "";
+    userRealName_ = "";
+    userUsedName_ = "";
     userAvatarUrl_ = "";
     loginToken_ = "";
   }
@@ -59,22 +61,34 @@ public  final class LoginResponse extends
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            userName_ = s;
+            userNickName_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            userAvatarUrl_ = s;
+            userRealName_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            loginToken_ = s;
+            userUsedName_ = s;
             break;
           }
           case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userAvatarUrl_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            loginToken_ = s;
+            break;
+          }
+          case 58: {
             com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
             if (error_ != null) {
               subBuilder = error_.toBuilder();
@@ -152,56 +166,140 @@ public  final class LoginResponse extends
     }
   }
 
-  public static final int USER_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object userName_;
+  public static final int USER_NICK_NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object userNickName_;
   /**
    * <pre>
-   * 用户名
+   * 用户昵称
    * </pre>
    *
-   * <code>optional string user_name = 2;</code>
+   * <code>optional string user_nick_name = 2;</code>
    */
-  public java.lang.String getUserName() {
-    java.lang.Object ref = userName_;
+  public java.lang.String getUserNickName() {
+    java.lang.Object ref = userNickName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      userName_ = s;
+      userNickName_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 用户名
+   * 用户昵称
    * </pre>
    *
-   * <code>optional string user_name = 2;</code>
+   * <code>optional string user_nick_name = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getUserNameBytes() {
-    java.lang.Object ref = userName_;
+      getUserNickNameBytes() {
+    java.lang.Object ref = userNickName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      userName_ = b;
+      userNickName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int USER_AVATAR_URL_FIELD_NUMBER = 3;
+  public static final int USER_REAL_NAME_FIELD_NUMBER = 3;
+  private volatile java.lang.Object userRealName_;
+  /**
+   * <pre>
+   * 用户真实名称
+   * </pre>
+   *
+   * <code>optional string user_real_name = 3;</code>
+   */
+  public java.lang.String getUserRealName() {
+    java.lang.Object ref = userRealName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userRealName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 用户真实名称
+   * </pre>
+   *
+   * <code>optional string user_real_name = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getUserRealNameBytes() {
+    java.lang.Object ref = userRealName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userRealName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int USER_USED_NAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object userUsedName_;
+  /**
+   * <pre>
+   * 用户曾用名
+   * </pre>
+   *
+   * <code>optional string user_used_name = 4;</code>
+   */
+  public java.lang.String getUserUsedName() {
+    java.lang.Object ref = userUsedName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userUsedName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 用户曾用名
+   * </pre>
+   *
+   * <code>optional string user_used_name = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getUserUsedNameBytes() {
+    java.lang.Object ref = userUsedName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userUsedName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int USER_AVATAR_URL_FIELD_NUMBER = 5;
   private volatile java.lang.Object userAvatarUrl_;
   /**
    * <pre>
    * 用户头像
    * </pre>
    *
-   * <code>optional string user_avatar_url = 3;</code>
+   * <code>optional string user_avatar_url = 5;</code>
    */
   public java.lang.String getUserAvatarUrl() {
     java.lang.Object ref = userAvatarUrl_;
@@ -220,7 +318,7 @@ public  final class LoginResponse extends
    * 用户头像
    * </pre>
    *
-   * <code>optional string user_avatar_url = 3;</code>
+   * <code>optional string user_avatar_url = 5;</code>
    */
   public com.google.protobuf.ByteString
       getUserAvatarUrlBytes() {
@@ -236,14 +334,14 @@ public  final class LoginResponse extends
     }
   }
 
-  public static final int LOGIN_TOKEN_FIELD_NUMBER = 4;
+  public static final int LOGIN_TOKEN_FIELD_NUMBER = 6;
   private volatile java.lang.Object loginToken_;
   /**
    * <pre>
    * 单点登录token
    * </pre>
    *
-   * <code>optional string login_token = 4;</code>
+   * <code>optional string login_token = 6;</code>
    */
   public java.lang.String getLoginToken() {
     java.lang.Object ref = loginToken_;
@@ -262,7 +360,7 @@ public  final class LoginResponse extends
    * 单点登录token
    * </pre>
    *
-   * <code>optional string login_token = 4;</code>
+   * <code>optional string login_token = 6;</code>
    */
   public com.google.protobuf.ByteString
       getLoginTokenBytes() {
@@ -278,22 +376,22 @@ public  final class LoginResponse extends
     }
   }
 
-  public static final int ERROR_FIELD_NUMBER = 5;
+  public static final int ERROR_FIELD_NUMBER = 7;
   private com.wanfang.grpcCommon.MsgError.GrpcError error_;
   /**
-   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   public boolean hasError() {
     return error_ != null;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
     return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 5;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
     return getError();
@@ -314,17 +412,23 @@ public  final class LoginResponse extends
     if (!getUserIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
     }
-    if (!getUserNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
+    if (!getUserNickNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userNickName_);
+    }
+    if (!getUserRealNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userRealName_);
+    }
+    if (!getUserUsedNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userUsedName_);
     }
     if (!getUserAvatarUrlBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userAvatarUrl_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, userAvatarUrl_);
     }
     if (!getLoginTokenBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, loginToken_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, loginToken_);
     }
     if (error_ != null) {
-      output.writeMessage(5, getError());
+      output.writeMessage(7, getError());
     }
   }
 
@@ -336,18 +440,24 @@ public  final class LoginResponse extends
     if (!getUserIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
     }
-    if (!getUserNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
+    if (!getUserNickNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userNickName_);
+    }
+    if (!getUserRealNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userRealName_);
+    }
+    if (!getUserUsedNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userUsedName_);
     }
     if (!getUserAvatarUrlBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userAvatarUrl_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, userAvatarUrl_);
     }
     if (!getLoginTokenBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, loginToken_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, loginToken_);
     }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getError());
+        .computeMessageSize(7, getError());
     }
     memoizedSize = size;
     return size;
@@ -367,8 +477,12 @@ public  final class LoginResponse extends
     boolean result = true;
     result = result && getUserId()
         .equals(other.getUserId());
-    result = result && getUserName()
-        .equals(other.getUserName());
+    result = result && getUserNickName()
+        .equals(other.getUserNickName());
+    result = result && getUserRealName()
+        .equals(other.getUserRealName());
+    result = result && getUserUsedName()
+        .equals(other.getUserUsedName());
     result = result && getUserAvatarUrl()
         .equals(other.getUserAvatarUrl());
     result = result && getLoginToken()
@@ -390,8 +504,12 @@ public  final class LoginResponse extends
     hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId().hashCode();
-    hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getUserName().hashCode();
+    hash = (37 * hash) + USER_NICK_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getUserNickName().hashCode();
+    hash = (37 * hash) + USER_REAL_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getUserRealName().hashCode();
+    hash = (37 * hash) + USER_USED_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getUserUsedName().hashCode();
     hash = (37 * hash) + USER_AVATAR_URL_FIELD_NUMBER;
     hash = (53 * hash) + getUserAvatarUrl().hashCode();
     hash = (37 * hash) + LOGIN_TOKEN_FIELD_NUMBER;
@@ -524,7 +642,11 @@ public  final class LoginResponse extends
       super.clear();
       userId_ = "";
 
-      userName_ = "";
+      userNickName_ = "";
+
+      userRealName_ = "";
+
+      userUsedName_ = "";
 
       userAvatarUrl_ = "";
 
@@ -559,7 +681,9 @@ public  final class LoginResponse extends
     public com.wanfang.personal.LoginResponse buildPartial() {
       com.wanfang.personal.LoginResponse result = new com.wanfang.personal.LoginResponse(this);
       result.userId_ = userId_;
-      result.userName_ = userName_;
+      result.userNickName_ = userNickName_;
+      result.userRealName_ = userRealName_;
+      result.userUsedName_ = userUsedName_;
       result.userAvatarUrl_ = userAvatarUrl_;
       result.loginToken_ = loginToken_;
       if (errorBuilder_ == null) {
@@ -612,8 +736,16 @@ public  final class LoginResponse extends
         userId_ = other.userId_;
         onChanged();
       }
-      if (!other.getUserName().isEmpty()) {
-        userName_ = other.userName_;
+      if (!other.getUserNickName().isEmpty()) {
+        userNickName_ = other.userNickName_;
+        onChanged();
+      }
+      if (!other.getUserRealName().isEmpty()) {
+        userRealName_ = other.userRealName_;
+        onChanged();
+      }
+      if (!other.getUserUsedName().isEmpty()) {
+        userUsedName_ = other.userUsedName_;
         onChanged();
       }
       if (!other.getUserAvatarUrl().isEmpty()) {
@@ -742,21 +874,21 @@ public  final class LoginResponse extends
       return this;
     }
 
-    private java.lang.Object userName_ = "";
+    private java.lang.Object userNickName_ = "";
     /**
      * <pre>
-     * 用户名
+     * 用户昵称
      * </pre>
      *
-     * <code>optional string user_name = 2;</code>
+     * <code>optional string user_nick_name = 2;</code>
      */
-    public java.lang.String getUserName() {
-      java.lang.Object ref = userName_;
+    public java.lang.String getUserNickName() {
+      java.lang.Object ref = userNickName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        userName_ = s;
+        userNickName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -764,19 +896,19 @@ public  final class LoginResponse extends
     }
     /**
      * <pre>
-     * 用户名
+     * 用户昵称
      * </pre>
      *
-     * <code>optional string user_name = 2;</code>
+     * <code>optional string user_nick_name = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      java.lang.Object ref = userName_;
+        getUserNickNameBytes() {
+      java.lang.Object ref = userNickName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        userName_ = b;
+        userNickName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -784,49 +916,227 @@ public  final class LoginResponse extends
     }
     /**
      * <pre>
-     * 用户名
+     * 用户昵称
      * </pre>
      *
-     * <code>optional string user_name = 2;</code>
+     * <code>optional string user_nick_name = 2;</code>
      */
-    public Builder setUserName(
+    public Builder setUserNickName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      userName_ = value;
+      userNickName_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 用户名
+     * 用户昵称
      * </pre>
      *
-     * <code>optional string user_name = 2;</code>
+     * <code>optional string user_nick_name = 2;</code>
      */
-    public Builder clearUserName() {
+    public Builder clearUserNickName() {
       
-      userName_ = getDefaultInstance().getUserName();
+      userNickName_ = getDefaultInstance().getUserNickName();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 用户名
+     * 用户昵称
      * </pre>
      *
-     * <code>optional string user_name = 2;</code>
+     * <code>optional string user_nick_name = 2;</code>
      */
-    public Builder setUserNameBytes(
+    public Builder setUserNickNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      userName_ = value;
+      userNickName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userRealName_ = "";
+    /**
+     * <pre>
+     * 用户真实名称
+     * </pre>
+     *
+     * <code>optional string user_real_name = 3;</code>
+     */
+    public java.lang.String getUserRealName() {
+      java.lang.Object ref = userRealName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userRealName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 用户真实名称
+     * </pre>
+     *
+     * <code>optional string user_real_name = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserRealNameBytes() {
+      java.lang.Object ref = userRealName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userRealName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 用户真实名称
+     * </pre>
+     *
+     * <code>optional string user_real_name = 3;</code>
+     */
+    public Builder setUserRealName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userRealName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 用户真实名称
+     * </pre>
+     *
+     * <code>optional string user_real_name = 3;</code>
+     */
+    public Builder clearUserRealName() {
+      
+      userRealName_ = getDefaultInstance().getUserRealName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 用户真实名称
+     * </pre>
+     *
+     * <code>optional string user_real_name = 3;</code>
+     */
+    public Builder setUserRealNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userRealName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userUsedName_ = "";
+    /**
+     * <pre>
+     * 用户曾用名
+     * </pre>
+     *
+     * <code>optional string user_used_name = 4;</code>
+     */
+    public java.lang.String getUserUsedName() {
+      java.lang.Object ref = userUsedName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userUsedName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 用户曾用名
+     * </pre>
+     *
+     * <code>optional string user_used_name = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserUsedNameBytes() {
+      java.lang.Object ref = userUsedName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userUsedName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 用户曾用名
+     * </pre>
+     *
+     * <code>optional string user_used_name = 4;</code>
+     */
+    public Builder setUserUsedName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userUsedName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 用户曾用名
+     * </pre>
+     *
+     * <code>optional string user_used_name = 4;</code>
+     */
+    public Builder clearUserUsedName() {
+      
+      userUsedName_ = getDefaultInstance().getUserUsedName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 用户曾用名
+     * </pre>
+     *
+     * <code>optional string user_used_name = 4;</code>
+     */
+    public Builder setUserUsedNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userUsedName_ = value;
       onChanged();
       return this;
     }
@@ -837,7 +1147,7 @@ public  final class LoginResponse extends
      * 用户头像
      * </pre>
      *
-     * <code>optional string user_avatar_url = 3;</code>
+     * <code>optional string user_avatar_url = 5;</code>
      */
     public java.lang.String getUserAvatarUrl() {
       java.lang.Object ref = userAvatarUrl_;
@@ -856,7 +1166,7 @@ public  final class LoginResponse extends
      * 用户头像
      * </pre>
      *
-     * <code>optional string user_avatar_url = 3;</code>
+     * <code>optional string user_avatar_url = 5;</code>
      */
     public com.google.protobuf.ByteString
         getUserAvatarUrlBytes() {
@@ -876,7 +1186,7 @@ public  final class LoginResponse extends
      * 用户头像
      * </pre>
      *
-     * <code>optional string user_avatar_url = 3;</code>
+     * <code>optional string user_avatar_url = 5;</code>
      */
     public Builder setUserAvatarUrl(
         java.lang.String value) {
@@ -893,7 +1203,7 @@ public  final class LoginResponse extends
      * 用户头像
      * </pre>
      *
-     * <code>optional string user_avatar_url = 3;</code>
+     * <code>optional string user_avatar_url = 5;</code>
      */
     public Builder clearUserAvatarUrl() {
       
@@ -906,7 +1216,7 @@ public  final class LoginResponse extends
      * 用户头像
      * </pre>
      *
-     * <code>optional string user_avatar_url = 3;</code>
+     * <code>optional string user_avatar_url = 5;</code>
      */
     public Builder setUserAvatarUrlBytes(
         com.google.protobuf.ByteString value) {
@@ -926,7 +1236,7 @@ public  final class LoginResponse extends
      * 单点登录token
      * </pre>
      *
-     * <code>optional string login_token = 4;</code>
+     * <code>optional string login_token = 6;</code>
      */
     public java.lang.String getLoginToken() {
       java.lang.Object ref = loginToken_;
@@ -945,7 +1255,7 @@ public  final class LoginResponse extends
      * 单点登录token
      * </pre>
      *
-     * <code>optional string login_token = 4;</code>
+     * <code>optional string login_token = 6;</code>
      */
     public com.google.protobuf.ByteString
         getLoginTokenBytes() {
@@ -965,7 +1275,7 @@ public  final class LoginResponse extends
      * 单点登录token
      * </pre>
      *
-     * <code>optional string login_token = 4;</code>
+     * <code>optional string login_token = 6;</code>
      */
     public Builder setLoginToken(
         java.lang.String value) {
@@ -982,7 +1292,7 @@ public  final class LoginResponse extends
      * 单点登录token
      * </pre>
      *
-     * <code>optional string login_token = 4;</code>
+     * <code>optional string login_token = 6;</code>
      */
     public Builder clearLoginToken() {
       
@@ -995,7 +1305,7 @@ public  final class LoginResponse extends
      * 单点登录token
      * </pre>
      *
-     * <code>optional string login_token = 4;</code>
+     * <code>optional string login_token = 6;</code>
      */
     public Builder setLoginTokenBytes(
         com.google.protobuf.ByteString value) {
@@ -1013,13 +1323,13 @@ public  final class LoginResponse extends
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public boolean hasError() {
       return errorBuilder_ != null || error_ != null;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
       if (errorBuilder_ == null) {
@@ -1029,7 +1339,7 @@ public  final class LoginResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1045,7 +1355,7 @@ public  final class LoginResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder setError(
         com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
@@ -1059,7 +1369,7 @@ public  final class LoginResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1077,7 +1387,7 @@ public  final class LoginResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder clearError() {
       if (errorBuilder_ == null) {
@@ -1091,7 +1401,7 @@ public  final class LoginResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
       
@@ -1099,7 +1409,7 @@ public  final class LoginResponse extends
       return getErrorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
       if (errorBuilder_ != null) {
@@ -1110,7 +1420,7 @@ public  final class LoginResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 5;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 

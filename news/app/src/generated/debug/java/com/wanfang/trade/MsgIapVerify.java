@@ -24,6 +24,16 @@ public final class MsgIapVerify {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_trade_IAPVerifyResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_trade_CompleteIAPTradeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_trade_CompleteIAPTradeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_trade_CompleteIAPTradeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_trade_CompleteIAPTradeResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -38,8 +48,13 @@ public final class MsgIapVerify {
       "est\022\017\n\007user_id\030\001 \001(\t\022\017\n\007receipt\030\002 \001(\t\022\030\n" +
       "\020iap_order_number\030\003 \001(\t\"Q\n\021IAPVerifyResp" +
       "onse\022\026\n\016verify_success\030\001 \001(\010\022$\n\005error\030\002 " +
-      "\001(\0132\025.grpcCommon.GrpcErrorB\034\n\021com.wanfan" +
-      "g.tradeP\001\242\002\004WFPRb\006proto3"
+      "\001(\0132\025.grpcCommon.GrpcError\"o\n\027CompleteIA" +
+      "PTradeRequest\022\024\n\014order_number\030\001 \001(\t\022\022\n\np" +
+      "roduct_id\030\002 \001(\t\022\024\n\014iap_trade_id\030\003 \001(\t\022\024\n" +
+      "\014account_type\030\004 \001(\t\"W\n\030CompleteIAPTradeR" +
+      "esponse\022\025\n\rtrade_success\030\001 \001(\010\022$\n\005error\030",
+      "\002 \001(\0132\025.grpcCommon.GrpcErrorB\034\n\021com.wanf" +
+      "ang.tradeP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -66,6 +81,18 @@ public final class MsgIapVerify {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_trade_IAPVerifyResponse_descriptor,
         new java.lang.String[] { "VerifySuccess", "Error", });
+    internal_static_trade_CompleteIAPTradeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_trade_CompleteIAPTradeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_trade_CompleteIAPTradeRequest_descriptor,
+        new java.lang.String[] { "OrderNumber", "ProductId", "IapTradeId", "AccountType", });
+    internal_static_trade_CompleteIAPTradeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_trade_CompleteIAPTradeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_trade_CompleteIAPTradeResponse_descriptor,
+        new java.lang.String[] { "TradeSuccess", "Error", });
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 

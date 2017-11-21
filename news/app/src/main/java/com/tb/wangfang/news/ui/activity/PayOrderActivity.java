@@ -10,15 +10,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.alipay.sdk.app.PayTask;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleActivity;
+import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.AuthResult;
 import com.tb.wangfang.news.utils.PayResult;
+import com.tb.wangfang.news.utils.PayUtil;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -39,8 +43,13 @@ import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
+
+import static com.tb.wangfang.news.R.id.tv_articl_name;
 
 public class PayOrderActivity extends SimpleActivity {
 
@@ -53,7 +62,7 @@ public class PayOrderActivity extends SimpleActivity {
     TextView tvTitle;
     @BindView(R.id.tv_article_title)
     TextView tvArticleTitle;
-    @BindView(R.id.tv_articl_name)
+    @BindView(tv_articl_name)
     TextView tvArticlName;
     @BindView(R.id.tv_price)
     TextView tvPrice;
@@ -116,6 +125,30 @@ public class PayOrderActivity extends SimpleActivity {
 
         ;
     };
+    private MaterialDialog materialDialog;
+    private String author;
+    private String journal;
+    private String time;
+    protected CompositeDisposable mCompositeDisposable;
+
+    protected void unSubscribe() {
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.dispose();
+        }
+    }
+
+    protected void addSubscribe(Disposable subscription) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(subscription);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unSubscribe();
+    }
 
     @Override
     protected int getLayout() {
@@ -123,14 +156,70 @@ public class PayOrderActivity extends SimpleActivity {
                 .appComponent(App.getAppComponent())
                 .activityModule(new ActivityModule(this))
                 .build().inject(this);
+
         return R.layout.activity_pay_order;
     }
 
     @Override
     protected void initEventAndData() {
+        registerEvent();
+
+
+        api = WXAPIFactory.createWXAPI(PayOrderActivity.this, Constants.APP_ID);
+        api.registerApp(Constants.APP_ID);
         readResponse = (ReadResponse) getIntent().getSerializableExtra("response");
         tvArticleTitle.setText(readResponse.getTitle());
         tvPrice.setText(readResponse.getPrice());
+        String s = "";
+        String articleType = getIntent().getStringExtra("type");
+        if (articleType.equals("perio_artical")) {
+            s += "[期刊论文]";
+        } else if (articleType.equals("degree_artical")) {
+            s += "[学位论文]";
+        } else if (articleType.equals("patent_element")) {
+            s += "[专利]";
+        } else if (articleType.equals("conf_artical")) {
+            s += "[会议]";
+        } else if (articleType.equals("standards")) {
+            s += "[标准]";
+        } else if (articleType.equals("legislations")) {
+            s += "[法规]";
+        } else if (articleType.equals("tech_result")) {
+            s += "[成果]";
+        }
+        author = getIntent().getStringExtra("author");
+        journal = getIntent().getStringExtra("journal");
+        time = getIntent().getStringExtra("time");
+        s += " " + author;
+        s += "-" + journal + "-";
+        s += time;
+        tvArticlName.setText(s);
+
+    }
+
+    private void registerEvent() {
+        addSubscribe(
+                RxBus.getDefault().toFlowable(String.class).subscribeWith(new DisposableSubscriber<String>() {
+                    @Override
+                    public void onNext(String s) {
+                        Log.d(TAG, "onNext: " + s);
+                        if (s.equals("pay success")) {
+                            finish();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                }));
+
     }
 
     @OnClick({R.id.tv_return, R.id.btn_pay})
@@ -139,18 +228,39 @@ public class PayOrderActivity extends SimpleActivity {
             case R.id.tv_return:
                 break;
             case R.id.btn_pay:
-                getOrders();
+                materialDialog = new MaterialDialog.Builder(this)
+                        .title("选择支付方式")
+                        .items(R.array.payMethod)
+                        .itemsCallbackSingleChoice(
+                                0, new MaterialDialog.ListCallbackSingleChoice() {
+                                    @Override
+                                    public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
+                                        if (which == 0) {
+                                            getOrders("Alipay");
+                                        } else if (which == 1) {
+                                            getOrders("Weixin");
+
+                                        } else if (which == 2) {
+                                            getOrders("WFChargeCard");
+                                        }
+
+                                        return true;
+                                    }
+                                }
+                        )
+                        .positiveText(R.string.md_choose_label)
+                        .show();
+
                 break;
         }
     }
 
-    private void getOrders() {
+    private void getOrders(final String type) {
         Single.create(new SingleOnSubscribe<UnifiedorderResponse>() {
             @Override
             public void subscribe(SingleEmitter<UnifiedorderResponse> e) throws Exception {
                 TradeServiceGrpc.TradeServiceBlockingStub stub = TradeServiceGrpc.newBlockingStub(managedChannel);
-                AccountId accountId = AccountId.newBuilder().setKey("Android").setType("Alipay").build();
-//                AccountId accountId = AccountId.newBuilder().setKey("Android").setType("Weixin").build();
+                AccountId accountId = AccountId.newBuilder().setKey(preferencesHelper.getUserId()).setType(type).build();
                 UnifiedorderRequest request = UnifiedorderRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setTransferOut(accountId).setSafeTransactionString(readResponse.getSafeTransactionString()).build();
                 UnifiedorderResponse response = stub.unifiedorder(request);
                 e.onSuccess(response);
@@ -159,8 +269,16 @@ public class PayOrderActivity extends SimpleActivity {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
                 Log.d(TAG, "onSuccess: " + unifiedorderResponse);
-                //            payByWeichat(unifiedorderResponse);
-                payByZhiFuBao(unifiedorderResponse);
+                if (type.equals("Alipay")) {
+                    payByZhiFuBao(unifiedorderResponse);
+                } else if (type.equals("Weixin")) {
+                    Log.d(TAG, "onSuccess: unifiedorderResponse.getPrepayId()" + unifiedorderResponse.getPrepayId());
+                    PayUtil.payWeiXin(PayOrderActivity.this, unifiedorderResponse.getPrepayId());
+//                    payByWeichat(unifiedorderResponse);
+                } else {
+                    PayByBalance(unifiedorderResponse);
+                }
+
             }
 
             @Override
@@ -168,6 +286,11 @@ public class PayOrderActivity extends SimpleActivity {
                 Log.d(TAG, "onError: " + e.getMessage());
             }
         });
+    }
+
+    private void PayByBalance(UnifiedorderResponse unifiedorderResponse) {
+
+
     }
 
     private void payByZhiFuBao(UnifiedorderResponse unifiedorderResponse) {
@@ -194,9 +317,8 @@ public class PayOrderActivity extends SimpleActivity {
 
     private void payByWeichat(UnifiedorderResponse unifiedorderResponse) {
         btnPay.setEnabled(false);
-        api = WXAPIFactory.createWXAPI(this, unifiedorderResponse.getAppId());
+        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
         PayReq req = new PayReq();
-        //req.appId = "wxf8b4f85f3a794e77";  // 测试用appId
         req.appId = unifiedorderResponse.getAppId();
         req.partnerId = unifiedorderResponse.getPartnerId();
         req.prepayId = unifiedorderResponse.getPrepayId();
@@ -210,4 +332,6 @@ public class PayOrderActivity extends SimpleActivity {
         api.sendReq(req);
         btnPay.setEnabled(true);
     }
+
+
 }

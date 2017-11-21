@@ -8,70 +8,126 @@ public interface UnifiedorderResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   *微信开放平台审核通过的应用APPID
+   * </pre>
+   *
    * <code>optional string app_id = 1;</code>
    */
   java.lang.String getAppId();
   /**
+   * <pre>
+   *微信开放平台审核通过的应用APPID
+   * </pre>
+   *
    * <code>optional string app_id = 1;</code>
    */
   com.google.protobuf.ByteString
       getAppIdBytes();
 
   /**
+   * <pre>
+   *微信支付分配的商户号
+   * </pre>
+   *
    * <code>optional string partner_id = 2;</code>
    */
   java.lang.String getPartnerId();
   /**
+   * <pre>
+   *微信支付分配的商户号
+   * </pre>
+   *
    * <code>optional string partner_id = 2;</code>
    */
   com.google.protobuf.ByteString
       getPartnerIdBytes();
 
   /**
+   * <pre>
+   *微信返回的支付交易会话ID
+   * </pre>
+   *
    * <code>optional string prepay_id = 3;</code>
    */
   java.lang.String getPrepayId();
   /**
+   * <pre>
+   *微信返回的支付交易会话ID
+   * </pre>
+   *
    * <code>optional string prepay_id = 3;</code>
    */
   com.google.protobuf.ByteString
       getPrepayIdBytes();
 
   /**
+   * <pre>
+   * 暂填写固定值Sign=WXPay
+   * </pre>
+   *
    * <code>optional string package = 4;</code>
    */
   java.lang.String getPackage();
   /**
+   * <pre>
+   * 暂填写固定值Sign=WXPay
+   * </pre>
+   *
    * <code>optional string package = 4;</code>
    */
   com.google.protobuf.ByteString
       getPackageBytes();
 
   /**
+   * <pre>
+   *随机字符串，不长于32位。推荐随机数生成算法
+   * </pre>
+   *
    * <code>optional string noncestr = 5;</code>
    */
   java.lang.String getNoncestr();
   /**
+   * <pre>
+   *随机字符串，不长于32位。推荐随机数生成算法
+   * </pre>
+   *
    * <code>optional string noncestr = 5;</code>
    */
   com.google.protobuf.ByteString
       getNoncestrBytes();
 
   /**
+   * <pre>
+   * 时间戳
+   * </pre>
+   *
    * <code>optional string time_stamp = 6;</code>
    */
   java.lang.String getTimeStamp();
   /**
+   * <pre>
+   * 时间戳
+   * </pre>
+   *
    * <code>optional string time_stamp = 6;</code>
    */
   com.google.protobuf.ByteString
       getTimeStampBytes();
 
   /**
+   * <pre>
+   *sign
+   * </pre>
+   *
    * <code>optional string sign = 7;</code>
    */
   java.lang.String getSign();
   /**
+   * <pre>
+   *sign
+   * </pre>
+   *
    * <code>optional string sign = 7;</code>
    */
   com.google.protobuf.ByteString

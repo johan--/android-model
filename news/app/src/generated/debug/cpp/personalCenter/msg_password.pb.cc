@@ -129,10 +129,11 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpassword_2eproto() {
       sizeof(PasswordEmailResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordEmailResponse, _internal_metadata_));
   PasswordByPhoneRequest_descriptor_ = file->message_type(4);
-  static const int PasswordByPhoneRequest_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, phone_),
+  static const int PasswordByPhoneRequest_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, phone_number_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, phone_captcha_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, token_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, nation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PasswordByPhoneRequest, message_type_),
   };
   PasswordByPhoneRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -331,19 +332,20 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl() {
     "er_name\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommo"
     "n.GrpcError\"%\n\024PasswordEmailRequest\022\r\n\005e"
     "mail\030\001 \001(\t\"=\n\025PasswordEmailResponse\022$\n\005e"
-    "rror\030\001 \001(\0132\025.grpcCommon.GrpcError\"M\n\026Pas"
-    "swordByPhoneRequest\022\r\n\005phone\030\001 \001(\t\022\025\n\rph"
-    "one_captcha\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\"P\n\027Pass"
-    "wordByPhoneResponse\022\017\n\007user_id\030\001 \001(\t\022$\n\005"
-    "error\030\002 \001(\0132\025.grpcCommon.GrpcError\">\n\025Pa"
-    "sswordUpdateRequest\022\017\n\007user_id\030\001 \001(\t\022\024\n\014"
-    "new_password\030\002 \001(\t\">\n\026PasswordUpdateResp"
-    "onse\022$\n\005error\030\001 \001(\0132\025.grpcCommon.GrpcErr"
-    "or\":\n\025PasswordVerifyRequest\022\017\n\007user_id\030\001"
-    " \001(\t\022\020\n\010password\030\002 \001(\t\"P\n\026PasswordVerify"
-    "Response\022\020\n\010is_right\030\001 \001(\010\022$\n\005error\030\002 \001("
-    "\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang."
-    "personalP\001\242\002\004WFPRb\006proto3", 825);
+    "rror\030\001 \001(\0132\025.grpcCommon.GrpcError\"k\n\026Pas"
+    "swordByPhoneRequest\022\024\n\014phone_number\030\001 \001("
+    "\t\022\025\n\rphone_captcha\030\002 \001(\t\022\016\n\006nation\030\003 \001(\t"
+    "\022\024\n\014message_type\030\004 \001(\t\"P\n\027PasswordByPhon"
+    "eResponse\022\017\n\007user_id\030\001 \001(\t\022$\n\005error\030\002 \001("
+    "\0132\025.grpcCommon.GrpcError\">\n\025PasswordUpda"
+    "teRequest\022\017\n\007user_id\030\001 \001(\t\022\024\n\014new_passwo"
+    "rd\030\002 \001(\t\">\n\026PasswordUpdateResponse\022$\n\005er"
+    "ror\030\001 \001(\0132\025.grpcCommon.GrpcError\":\n\025Pass"
+    "wordVerifyRequest\022\017\n\007user_id\030\001 \001(\t\022\020\n\010pa"
+    "ssword\030\002 \001(\t\"P\n\026PasswordVerifyResponse\022\020"
+    "\n\010is_right\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCo"
+    "mmon.GrpcErrorB\037\n\024com.wanfang.personalP\001"
+    "\242\002\004WFPRb\006proto3", 855);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_password.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -1912,9 +1914,10 @@ inline const PasswordEmailResponse* PasswordEmailResponse::internal_default_inst
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int PasswordByPhoneRequest::kPhoneFieldNumber;
+const int PasswordByPhoneRequest::kPhoneNumberFieldNumber;
 const int PasswordByPhoneRequest::kPhoneCaptchaFieldNumber;
-const int PasswordByPhoneRequest::kTokenFieldNumber;
+const int PasswordByPhoneRequest::kNationFieldNumber;
+const int PasswordByPhoneRequest::kMessageTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PasswordByPhoneRequest::PasswordByPhoneRequest()
@@ -1936,9 +1939,10 @@ PasswordByPhoneRequest::PasswordByPhoneRequest(const PasswordByPhoneRequest& fro
 }
 
 void PasswordByPhoneRequest::SharedCtor() {
-  phone_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phone_number_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   phone_captcha_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  nation_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -1948,9 +1952,10 @@ PasswordByPhoneRequest::~PasswordByPhoneRequest() {
 }
 
 void PasswordByPhoneRequest::SharedDtor() {
-  phone_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phone_number_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   phone_captcha_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  nation_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void PasswordByPhoneRequest::SetCachedSize(int size) const {
@@ -1980,9 +1985,10 @@ PasswordByPhoneRequest* PasswordByPhoneRequest::New(::google::protobuf::Arena* a
 
 void PasswordByPhoneRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.PasswordByPhoneRequest)
-  phone_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool PasswordByPhoneRequest::MergePartialFromCodedStream(
@@ -1995,15 +2001,15 @@ bool PasswordByPhoneRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string phone = 1;
+      // optional string phone_number = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone()));
+                input, this->mutable_phone_number()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->phone().data(), this->phone().length(),
+            this->phone_number().data(), this->phone_number().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.PasswordByPhoneRequest.phone"));
+            "personal.PasswordByPhoneRequest.phone_number"));
         } else {
           goto handle_unusual;
         }
@@ -2024,20 +2030,37 @@ bool PasswordByPhoneRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_token;
+        if (input->ExpectTag(26)) goto parse_nation;
         break;
       }
 
-      // optional string token = 3;
+      // optional string nation = 3;
       case 3: {
         if (tag == 26) {
-         parse_token:
+         parse_nation:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_token()));
+                input, this->mutable_nation()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->token().data(), this->token().length(),
+            this->nation().data(), this->nation().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.PasswordByPhoneRequest.token"));
+            "personal.PasswordByPhoneRequest.nation"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_message_type;
+        break;
+      }
+
+      // optional string message_type = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_message_type:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_message_type()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->message_type().data(), this->message_type().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.PasswordByPhoneRequest.message_type"));
         } else {
           goto handle_unusual;
         }
@@ -2069,14 +2092,14 @@ failure:
 void PasswordByPhoneRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:personal.PasswordByPhoneRequest)
-  // optional string phone = 1;
-  if (this->phone().size() > 0) {
+  // optional string phone_number = 1;
+  if (this->phone_number().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->phone().data(), this->phone().length(),
+      this->phone_number().data(), this->phone_number().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.PasswordByPhoneRequest.phone");
+      "personal.PasswordByPhoneRequest.phone_number");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->phone(), output);
+      1, this->phone_number(), output);
   }
 
   // optional string phone_captcha = 2;
@@ -2089,14 +2112,24 @@ void PasswordByPhoneRequest::SerializeWithCachedSizes(
       2, this->phone_captcha(), output);
   }
 
-  // optional string token = 3;
-  if (this->token().size() > 0) {
+  // optional string nation = 3;
+  if (this->nation().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->token().data(), this->token().length(),
+      this->nation().data(), this->nation().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.PasswordByPhoneRequest.token");
+      "personal.PasswordByPhoneRequest.nation");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->token(), output);
+      3, this->nation(), output);
+  }
+
+  // optional string message_type = 4;
+  if (this->message_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message_type().data(), this->message_type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.PasswordByPhoneRequest.message_type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->message_type(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:personal.PasswordByPhoneRequest)
@@ -2106,15 +2139,15 @@ void PasswordByPhoneRequest::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:personal.PasswordByPhoneRequest)
-  // optional string phone = 1;
-  if (this->phone().size() > 0) {
+  // optional string phone_number = 1;
+  if (this->phone_number().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->phone().data(), this->phone().length(),
+      this->phone_number().data(), this->phone_number().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.PasswordByPhoneRequest.phone");
+      "personal.PasswordByPhoneRequest.phone_number");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->phone(), target);
+        1, this->phone_number(), target);
   }
 
   // optional string phone_captcha = 2;
@@ -2128,15 +2161,26 @@ void PasswordByPhoneRequest::SerializeWithCachedSizes(
         2, this->phone_captcha(), target);
   }
 
-  // optional string token = 3;
-  if (this->token().size() > 0) {
+  // optional string nation = 3;
+  if (this->nation().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->token().data(), this->token().length(),
+      this->nation().data(), this->nation().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.PasswordByPhoneRequest.token");
+      "personal.PasswordByPhoneRequest.nation");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->token(), target);
+        3, this->nation(), target);
+  }
+
+  // optional string message_type = 4;
+  if (this->message_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message_type().data(), this->message_type().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.PasswordByPhoneRequest.message_type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->message_type(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:personal.PasswordByPhoneRequest)
@@ -2147,11 +2191,11 @@ size_t PasswordByPhoneRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:personal.PasswordByPhoneRequest)
   size_t total_size = 0;
 
-  // optional string phone = 1;
-  if (this->phone().size() > 0) {
+  // optional string phone_number = 1;
+  if (this->phone_number().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->phone());
+        this->phone_number());
   }
 
   // optional string phone_captcha = 2;
@@ -2161,11 +2205,18 @@ size_t PasswordByPhoneRequest::ByteSizeLong() const {
         this->phone_captcha());
   }
 
-  // optional string token = 3;
-  if (this->token().size() > 0) {
+  // optional string nation = 3;
+  if (this->nation().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->token());
+        this->nation());
+  }
+
+  // optional string message_type = 4;
+  if (this->message_type().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->message_type());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2201,17 +2252,21 @@ void PasswordByPhoneRequest::MergeFrom(const PasswordByPhoneRequest& from) {
 
 void PasswordByPhoneRequest::UnsafeMergeFrom(const PasswordByPhoneRequest& from) {
   GOOGLE_DCHECK(&from != this);
-  if (from.phone().size() > 0) {
+  if (from.phone_number().size() > 0) {
 
-    phone_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_);
+    phone_number_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_number_);
   }
   if (from.phone_captcha().size() > 0) {
 
     phone_captcha_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_captcha_);
   }
-  if (from.token().size() > 0) {
+  if (from.nation().size() > 0) {
 
-    token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
+    nation_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.nation_);
+  }
+  if (from.message_type().size() > 0) {
+
+    message_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_type_);
   }
 }
 
@@ -2239,9 +2294,10 @@ void PasswordByPhoneRequest::Swap(PasswordByPhoneRequest* other) {
   InternalSwap(other);
 }
 void PasswordByPhoneRequest::InternalSwap(PasswordByPhoneRequest* other) {
-  phone_.Swap(&other->phone_);
+  phone_number_.Swap(&other->phone_number_);
   phone_captcha_.Swap(&other->phone_captcha_);
-  token_.Swap(&other->token_);
+  nation_.Swap(&other->nation_);
+  message_type_.Swap(&other->message_type_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2257,48 +2313,48 @@ void PasswordByPhoneRequest::InternalSwap(PasswordByPhoneRequest* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PasswordByPhoneRequest
 
-// optional string phone = 1;
-void PasswordByPhoneRequest::clear_phone() {
-  phone_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string phone_number = 1;
+void PasswordByPhoneRequest::clear_phone_number() {
+  phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& PasswordByPhoneRequest::phone() const {
-  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.phone)
-  return phone_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+const ::std::string& PasswordByPhoneRequest::phone_number() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.phone_number)
+  return phone_number_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void PasswordByPhoneRequest::set_phone(const ::std::string& value) {
+void PasswordByPhoneRequest::set_phone_number(const ::std::string& value) {
   
-  phone_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.phone)
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.phone_number)
 }
-void PasswordByPhoneRequest::set_phone(const char* value) {
+void PasswordByPhoneRequest::set_phone_number(const char* value) {
   
-  phone_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.phone)
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.phone_number)
 }
-void PasswordByPhoneRequest::set_phone(const char* value, size_t size) {
+void PasswordByPhoneRequest::set_phone_number(const char* value, size_t size) {
   
-  phone_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.phone)
+  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.phone_number)
 }
-::std::string* PasswordByPhoneRequest::mutable_phone() {
+::std::string* PasswordByPhoneRequest::mutable_phone_number() {
   
-  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.phone)
-  return phone_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.phone_number)
+  return phone_number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* PasswordByPhoneRequest::release_phone() {
-  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.phone)
+::std::string* PasswordByPhoneRequest::release_phone_number() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.phone_number)
   
-  return phone_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return phone_number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void PasswordByPhoneRequest::set_allocated_phone(::std::string* phone) {
-  if (phone != NULL) {
+void PasswordByPhoneRequest::set_allocated_phone_number(::std::string* phone_number) {
+  if (phone_number != NULL) {
     
   } else {
     
   }
-  phone_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone);
-  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.phone)
+  phone_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_number);
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.phone_number)
 }
 
 // optional string phone_captcha = 2;
@@ -2345,48 +2401,92 @@ void PasswordByPhoneRequest::set_allocated_phone_captcha(::std::string* phone_ca
   // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.phone_captcha)
 }
 
-// optional string token = 3;
-void PasswordByPhoneRequest::clear_token() {
-  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string nation = 3;
+void PasswordByPhoneRequest::clear_nation() {
+  nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& PasswordByPhoneRequest::token() const {
-  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.token)
-  return token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+const ::std::string& PasswordByPhoneRequest::nation() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.nation)
+  return nation_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void PasswordByPhoneRequest::set_token(const ::std::string& value) {
+void PasswordByPhoneRequest::set_nation(const ::std::string& value) {
   
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.token)
+  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.nation)
 }
-void PasswordByPhoneRequest::set_token(const char* value) {
+void PasswordByPhoneRequest::set_nation(const char* value) {
   
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.token)
+  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.nation)
 }
-void PasswordByPhoneRequest::set_token(const char* value, size_t size) {
+void PasswordByPhoneRequest::set_nation(const char* value, size_t size) {
   
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.token)
+  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.nation)
 }
-::std::string* PasswordByPhoneRequest::mutable_token() {
+::std::string* PasswordByPhoneRequest::mutable_nation() {
   
-  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.token)
-  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.nation)
+  return nation_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* PasswordByPhoneRequest::release_token() {
-  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.token)
+::std::string* PasswordByPhoneRequest::release_nation() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.nation)
   
-  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return nation_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void PasswordByPhoneRequest::set_allocated_token(::std::string* token) {
-  if (token != NULL) {
+void PasswordByPhoneRequest::set_allocated_nation(::std::string* nation) {
+  if (nation != NULL) {
     
   } else {
     
   }
-  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
-  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.token)
+  nation_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nation);
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.nation)
+}
+
+// optional string message_type = 4;
+void PasswordByPhoneRequest::clear_message_type() {
+  message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& PasswordByPhoneRequest::message_type() const {
+  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.message_type)
+  return message_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void PasswordByPhoneRequest::set_message_type(const ::std::string& value) {
+  
+  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.message_type)
+}
+void PasswordByPhoneRequest::set_message_type(const char* value) {
+  
+  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.message_type)
+}
+void PasswordByPhoneRequest::set_message_type(const char* value, size_t size) {
+  
+  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.message_type)
+}
+::std::string* PasswordByPhoneRequest::mutable_message_type() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.message_type)
+  return message_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* PasswordByPhoneRequest::release_message_type() {
+  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.message_type)
+  
+  return message_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void PasswordByPhoneRequest::set_allocated_message_type(::std::string* message_type) {
+  if (message_type != NULL) {
+    
+  } else {
+    
+  }
+  message_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message_type);
+  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.message_type)
 }
 
 inline const PasswordByPhoneRequest* PasswordByPhoneRequest::internal_default_instance() {

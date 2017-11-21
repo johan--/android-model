@@ -26,7 +26,7 @@ import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
 import com.wanfang.personal.LoginResponse;
-import com.wanfang.personal.ThirdPartyLoginResponse;
+
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.HashMap;
@@ -158,13 +158,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.tv_pre_num:
                 Intent intent = new Intent(this, CountryCodeActivity.class);
                 startActivityForResult(intent, 0);
+
                 break;
             case R.id.tv_get_code:
                 String phone = editPhonenum.getText().toString();
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
                     phone = phone.trim();
-                    if (!SystemUtil.isMobileNO(phone)) {
-                        mPresenter.getPhoneCaptcha(phone);
+                    if (SystemUtil.isMobileNO(phone)) {
+                        mPresenter.getPhoneCaptcha(phone, tvPreNum.getText().toString().replace("+", ""));
+                    } else {
+                        ToastUtil.show("手机格式不正确");
                     }
                 } else {
                     ToastUtil.show("手机号码不能为空");
@@ -176,31 +179,52 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
                 break;
             case R.id.btn_login:
-                String account = editAccount.getText().toString();
-                String passWord = editPassword.getText().toString();
-                String graphCode = editGraphCode.getText().toString();
-                if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(account.trim())) {
-                    if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
-                        if (!TextUtils.isEmpty(graphCode) && !TextUtils.isEmpty(graphCode.trim())) {
-                            if (graphCode.equals(CodeUtils.getInstance().getCode())) {
-                                mdialog = new MaterialDialog.Builder(this)
-                                        .title("登录中")
-                                        .progress(true, 0)
-                                        .progressIndeterminateStyle(true)
-                                        .show();
-                                mPresenter.AccountLogin(account, passWord);
-                            } else {
-                                ToastUtil.show("图形码不正确，请重新输入");
-                            }
+                if (tabLayout.getSelectedTabPosition() == 0) {
+                    String phoneNum = editPhonenum.getText().toString();
+                    String captcha = editSecurity.getText().toString();
+                    if (!TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(phoneNum.trim())) {
+                        if (!TextUtils.isEmpty(captcha) && !TextUtils.isEmpty(captcha.trim())) {
+                            mdialog = new MaterialDialog.Builder(this)
+                                    .title("登录中")
+                                    .progress(true, 0)
+                                    .progressIndeterminateStyle(true)
+                                    .show();
+                            mPresenter.quickLogin(phoneNum, captcha, SystemUtil.getDeviceId(this));
                         } else {
-                            ToastUtil.show("请输入图形验证码");
+                            ToastUtil.show("请输入手机验证码");
                         }
+
                     } else {
-                        ToastUtil.show("请输入密码");
+                        ToastUtil.show("请输入手机号码");
                     }
                 } else {
-                    ToastUtil.show("请输入账号");
+                    String account = editAccount.getText().toString();
+                    String passWord = editPassword.getText().toString();
+                    String graphCode = editGraphCode.getText().toString();
+                    if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(account.trim())) {
+                        if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
+                            if (!TextUtils.isEmpty(graphCode) && !TextUtils.isEmpty(graphCode.trim())) {
+                                if (graphCode.equals(CodeUtils.getInstance().getCode())) {
+                                    mdialog = new MaterialDialog.Builder(this)
+                                            .title("登录中")
+                                            .progress(true, 0)
+                                            .progressIndeterminateStyle(true)
+                                            .show();
+                                    mPresenter.AccountLogin(account, passWord);
+                                } else {
+                                    ToastUtil.show("图形码不正确，请重新输入");
+                                }
+                            } else {
+                                ToastUtil.show("请输入图形验证码");
+                            }
+                        } else {
+                            ToastUtil.show("请输入密码");
+                        }
+                    } else {
+                        ToastUtil.show("请输入账号");
+                    }
                 }
+
                 break;
             case R.id.tv_find_password:
                 Intent intent1 = new Intent(this, FindPassWordActivity1.class);
@@ -292,18 +316,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-    @Override
-    public void loginSuccess(ThirdPartyLoginResponse response) {
-        if (TextUtils.isEmpty(response.getLoginToken())) {
-            ToastUtil.show("访问失败");
-        } else {
-            ToastUtil.show("登录成功");
-
-            PreferencesHelper.setLoginState(true);
-            finish();
-        }
-
-    }
 
     @Override
     public void showCountDown(int num) {

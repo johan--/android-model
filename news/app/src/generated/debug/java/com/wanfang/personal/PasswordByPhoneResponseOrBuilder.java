@@ -8,10 +8,18 @@ public interface PasswordByPhoneResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   java.lang.String getUserId();
   /**
+   * <pre>
+   * 用户id
+   * </pre>
+   *
    * <code>optional string user_id = 1;</code>
    */
   com.google.protobuf.ByteString

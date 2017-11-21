@@ -11,7 +11,7 @@ import com.tb.wangfang.news.model.bean.KeyValueListBean;
 import com.wanfang.personal.EducationLevelListResponse;
 import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.SubjectListResponse;
-import com.wanfang.personal.ThirdPartyLoginResponse;
+
 import com.wanfang.personal.UserRolesListResponse;
 
 import javax.inject.Inject;
@@ -64,11 +64,7 @@ public class ImplPreferencesHelper implements PreferencesHelper {
                 .putString(Constants.USER_NAME, response.getUserRealName()).putString(Constants.LOGIN_TOKEN, response.getLoginToken()).apply();
     }
 
-    @Override
-    public void storeLoginInfo(ThirdPartyLoginResponse response) {
-        mSPrefs.edit().putString(Constants.USER_AVATAR, response.getUserAvatarUrl()).putString(Constants.USER_ID, response.getUserId())
-                .putString(Constants.USER_NAME, response.getUserRealName()).putString(Constants.LOGIN_TOKEN, response.getLoginToken()).apply();
-    }
+
 
     @Override
     public String getUserId() {

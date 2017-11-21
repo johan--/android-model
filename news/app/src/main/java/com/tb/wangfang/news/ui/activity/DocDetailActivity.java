@@ -1,6 +1,5 @@
 package com.tb.wangfang.news.ui.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -14,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
@@ -38,7 +36,6 @@ import com.tb.wangfang.news.model.bean.TechResultBean;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.SimilarPageAdapter;
 import com.tb.wangfang.news.utils.FileUtil;
-import com.tb.wangfang.news.utils.LogUtil;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.AutoLinearLayoutManager;
@@ -122,6 +119,9 @@ public class DocDetailActivity extends SimpleActivity {
     private String resourceTitle;
     private String classType;
     private MaterialDialog materialDialog;
+    private String author;
+    private String time;
+    private String journal;
 
 
     @Override
@@ -164,6 +164,7 @@ public class DocDetailActivity extends SimpleActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         Log.d(TAG, "onResponse: " + response);
+
                         if (articleType.equals("perio_artical")) {
                             initViewPerioArticle(response);
                         } else if (articleType.equals("degree_artical")) {
@@ -320,6 +321,11 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = bean.getData().get(0).getSource_db().toString();
             resourceTitle = bean.getData().get(0).getTitle().toString();
             classType = bean.getData().get(0).getClass_type().toString();
+
+            time = bean.getData().get(0).getCommon_year() + "年";
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIndustry_name().toString());
+            journal = bean.getData().get(0).getTitle().toString();
+
         }
     }
 
@@ -363,6 +369,10 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = bean.getData().get(0).getSource_db().toString();
             resourceTitle = bean.getData().get(0).getTitle().toString();
             classType = bean.getData().get(0).getClass_type().toString();
+
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssue_dept().toString());
+            journal = bean.getData().get(0).getTitle().toString();
+            time = bean.getData().get(0).getCommon_year() + "年";
         }
 
     }
@@ -408,6 +418,10 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = bean.getData().get(0).getSource_db().toString();
             resourceTitle = bean.getData().get(0).getTitle().toString();
             classType = bean.getData().get(0).getClass_type().toString();
+
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getDraft_unit().toString());
+            journal = bean.getData().get(0).getTitle().toString();
+            time = bean.getData().get(0).getCommon_year() + "年";
         }
 
 
@@ -443,6 +457,10 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = bean.getData().get(0).getSource_db().toString();
             resourceTitle = bean.getData().get(0).getTitle().toString();
             classType = bean.getData().get(0).getClass_type().toString();
+
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
+            journal = bean.getData().get(0).getTitle().toString();
+            time = bean.getData().get(0).getConf_year() + "年";
 
         }
 
@@ -495,6 +513,10 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = bean.getData().get(0).getSource_db().toString();
             resourceTitle = bean.getData().get(0).getTitle().toString();
             classType = bean.getData().get(0).getClass_type().toString();
+
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAgy_org_name().toString());
+            journal = bean.getData().get(0).getTitle().toString();
+            time = bean.getData().get(0).getCommon_year() + "年";
 //            ArrayList<RelatePapers> list = new ArrayList<>();
 //            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
 //                RelatePapers papers = new RelatePapers();
@@ -529,6 +551,7 @@ public class DocDetailActivity extends SimpleActivity {
             tvUnitPublish.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getUnit_name02().toString()));
             tvTeacherName.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getTutor_name().toString()));
             tvTime.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPublish_year().toString()));
+
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
@@ -538,6 +561,10 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getSource_db().toString());
             resourceTitle = bean.getData().get(0).getTitle() + "";
             classType = bean.getData().get(0).getClass_type() + "";
+
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
+            journal = bean.getData().get(0).getTitle().toString();
+            time = bean.getData().get(0).getPublish_year() + "年";
         }
         if (bean != null && bean.getRelatePapers() != null) {
             ArrayList<RelatePapers> list = new ArrayList<>();
@@ -574,6 +601,9 @@ public class DocDetailActivity extends SimpleActivity {
             tvTitle.setText(bean.getData().get(0).getTitle().toString());
             tvContent.setText(bean.getData().get(0).getSummary().toString());
             tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString()));
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
+            journal = bean.getData().get(0).getPerio_title().toString();
+            time = bean.getData().get(0).getCommon_year() + "年" + bean.getData().get(0).getIssue_num() + "期";
             tvUnit.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_unit().toString()));
             tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
             tvMagazine.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title02().toString()));
@@ -749,6 +779,8 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void goRead() {
+
+
         Single.create(new SingleOnSubscribe<ReadResponse>() {
             @Override
             public void subscribe(SingleEmitter<ReadResponse> e) throws Exception {
@@ -764,11 +796,18 @@ public class DocDetailActivity extends SimpleActivity {
             public void onSuccess(ReadResponse readResponse) {
                 if (readResponse.getAlreadyBuy()) {
                     Log.d(TAG, "onSuccess: " + readResponse.getResourceFile().getFileName());
-                    ToastUtil.show("能阅读了" + readResponse.getResourceFile().getFileName());
+
                     down(readResponse);
                 } else if (readResponse.getHasTradePower()) {
                     Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
                     intent.putExtra("response", readResponse);
+                    intent.putExtra("type", classType);
+
+
+                    intent.putExtra("author", author);
+                    intent.putExtra("journal", journal);
+                    intent.putExtra("time", time);
+
                     startActivity(intent);
 
 
@@ -789,23 +828,8 @@ public class DocDetailActivity extends SimpleActivity {
 
     private void down(final ReadResponse readResponse) {
 
-        materialDialog = new MaterialDialog.Builder(DocDetailActivity.this)
-                .title("下载中")
-                .content("请等待")
-                .contentGravity(GravityEnum.CENTER)
-                .progress(false, 100, true)
-                .cancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        LogUtil.d("被取消了");
-                    }
-                }).cancelable(false)
-                .showListener(new DialogInterface.OnShowListener() {
-                    @Override
-                    public void onShow(DialogInterface dialog) {
-                    }
-                }).show();
-
+        dialog = new MaterialDialog.Builder(DocDetailActivity.this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
+        dialog.show();
         Single.create(new SingleOnSubscribe<String>() {
             @Override
             public void subscribe(SingleEmitter<String> e) throws Exception {
@@ -814,17 +838,20 @@ public class DocDetailActivity extends SimpleActivity {
                 InputStream is = ByteString.newInput();
                 FileOutputStream fileOutputStream = null;
                 File file = new File(FileUtil.getFolioPDFEncryFilePath(fileName.replace(".pdf", "").replace(".epub", "")));
+                File Folder = new File(FileUtil.getFolioPDFEncryFolderPath(fileName.replace(".pdf", "").replace(".epub", "")));
+                if (!Folder.exists()) {
+                    Folder.mkdirs();
+                }
+                Log.d(TAG, "subscribe: " + file.getAbsolutePath());
                 try {
-                    long downloadLength = 0;
                     fileOutputStream = new FileOutputStream(file, true);
                     byte[] buffer = new byte[2048];//缓冲数组2kB
                     int len;
                     while ((len = is.read(buffer)) != -1) {
                         fileOutputStream.write(buffer, 0, len);
-                        downloadLength += len;
                     }
                     fileOutputStream.flush();
-                    e.onSuccess(file.getAbsolutePath());
+                    e.onSuccess(fileName);
                 } catch (Exception e1) {
                 } finally {
                     //关闭IO流
@@ -850,6 +877,7 @@ public class DocDetailActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<String>() {
             @Override
             public void onSuccess(String readResponse) {
+                dialog.dismiss();
                 Intent intent = new Intent(DocDetailActivity.this, ReadActivity.class);
                 intent.putExtra("url", readResponse);
                 startActivity(intent);
@@ -857,7 +885,7 @@ public class DocDetailActivity extends SimpleActivity {
 
             @Override
             public void onError(Throwable e) {
-
+                dialog.dismiss();
             }
         });
 

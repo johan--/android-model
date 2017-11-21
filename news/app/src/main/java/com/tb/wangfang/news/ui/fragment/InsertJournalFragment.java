@@ -24,6 +24,9 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.SearchEditText;
 import com.wanfang.subscribe.AddSubscribePerioTreeListRequest;
 import com.wanfang.subscribe.AddSubscribePerioTreeListResponse;
+import com.wanfang.subscribe.CancelSubscribeRequest;
+import com.wanfang.subscribe.CancelSubscribeResponse;
+import com.wanfang.subscribe.CancelSubscribeType;
 import com.wanfang.subscribe.SubscribePerioListSearchRequest;
 import com.wanfang.subscribe.SubscribePerioListSearchResponse;
 import com.wanfang.subscribe.SubscribePerioRequest;
@@ -110,11 +113,53 @@ public class InsertJournalFragment extends SimpleFragment implements BaseQuickAd
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.btn_subscribe_state) {
-                    subscribe((SubscribePerioListSearchResponse.PerioListSearchMessage) adapter.getData().get(position), position);
+                    if (detailAdapter.getData().get(position).getIsSubscribed()) {
+                        unSubscribe((SubscribePerioListSearchResponse.PerioListSearchMessage) adapter.getData().get(position), position);
+                    } else {
+                        subscribe((SubscribePerioListSearchResponse.PerioListSearchMessage) adapter.getData().get(position), position);
+                    }
+
                 }
             }
         });
 
+
+    }
+
+    private void unSubscribe(final SubscribePerioListSearchResponse.PerioListSearchMessage perioListSearchMessage, final int position) {
+        Single.create(new SingleOnSubscribe<CancelSubscribeResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CancelSubscribeResponse> e) throws Exception {
+                SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
+                CancelSubscribeRequest request = CancelSubscribeRequest.newBuilder().setUserId(preferencesHelper.getUserId())
+                        .setSubscribeId(perioListSearchMessage.getPerioId()).setCancelType(CancelSubscribeType.DeletePerio).build();
+
+                CancelSubscribeResponse response = stub.cancelSubscribe(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<CancelSubscribeResponse>() {
+                    @Override
+                    public void onSuccess(CancelSubscribeResponse response) {
+                        Log.d(TAG, "onSuccess: " + response.toString());
+                        if (response.getCancelSubscribeSuccess()) {
+                            ToastUtil.show("取消订阅成功");
+                            SubscribePerioListSearchResponse.PerioListSearchMessage searchMessage = detailAdapter.getData().get(position);
+                            SubscribePerioListSearchResponse.PerioListSearchMessage newSearchMessage = searchMessage.toBuilder().setIsSubscribed(false).build();
+                            ArrayList<SubscribePerioListSearchResponse.PerioListSearchMessage> arrayList = new ArrayList<SubscribePerioListSearchResponse.PerioListSearchMessage>(detailAdapter.getData());
+                            arrayList.set(position, newSearchMessage);
+                            detailAdapter.setNewData(arrayList);
+                            detailAdapter.notifyDataSetChanged();
+                        } else {
+                            ToastUtil.show("订阅失败");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtil.show("网络出错");
+                    }
+                });
 
     }
 

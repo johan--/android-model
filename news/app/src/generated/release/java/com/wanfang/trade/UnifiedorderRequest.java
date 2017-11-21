@@ -55,6 +55,19 @@ public  final class UnifiedorderRequest extends
             break;
           }
           case 18: {
+            com.wanfang.trade.AccountId.Builder subBuilder = null;
+            if (transferOut_ != null) {
+              subBuilder = transferOut_.toBuilder();
+            }
+            transferOut_ = input.readMessage(com.wanfang.trade.AccountId.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(transferOut_);
+              transferOut_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
             safeTransactionString_ = s;
@@ -117,14 +130,47 @@ public  final class UnifiedorderRequest extends
     }
   }
 
-  public static final int SAFE_TRANSACTION_STRING_FIELD_NUMBER = 2;
+  public static final int TRANSFER_OUT_FIELD_NUMBER = 2;
+  private com.wanfang.trade.AccountId transferOut_;
+  /**
+   * <pre>
+   *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+   * </pre>
+   *
+   * <code>optional .trade.AccountId transfer_out = 2;</code>
+   */
+  public boolean hasTransferOut() {
+    return transferOut_ != null;
+  }
+  /**
+   * <pre>
+   *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+   * </pre>
+   *
+   * <code>optional .trade.AccountId transfer_out = 2;</code>
+   */
+  public com.wanfang.trade.AccountId getTransferOut() {
+    return transferOut_ == null ? com.wanfang.trade.AccountId.getDefaultInstance() : transferOut_;
+  }
+  /**
+   * <pre>
+   *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+   * </pre>
+   *
+   * <code>optional .trade.AccountId transfer_out = 2;</code>
+   */
+  public com.wanfang.trade.AccountIdOrBuilder getTransferOutOrBuilder() {
+    return getTransferOut();
+  }
+
+  public static final int SAFE_TRANSACTION_STRING_FIELD_NUMBER = 3;
   private volatile java.lang.Object safeTransactionString_;
   /**
    * <pre>
-   * 统一下单需要的参数
+   * 统一下单需要的参数，TransactionRequest Json
    * </pre>
    *
-   * <code>optional string safe_transaction_string = 2;</code>
+   * <code>optional string safe_transaction_string = 3;</code>
    */
   public java.lang.String getSafeTransactionString() {
     java.lang.Object ref = safeTransactionString_;
@@ -140,10 +186,10 @@ public  final class UnifiedorderRequest extends
   }
   /**
    * <pre>
-   * 统一下单需要的参数
+   * 统一下单需要的参数，TransactionRequest Json
    * </pre>
    *
-   * <code>optional string safe_transaction_string = 2;</code>
+   * <code>optional string safe_transaction_string = 3;</code>
    */
   public com.google.protobuf.ByteString
       getSafeTransactionStringBytes() {
@@ -174,8 +220,11 @@ public  final class UnifiedorderRequest extends
     if (!getUserIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
     }
+    if (transferOut_ != null) {
+      output.writeMessage(2, getTransferOut());
+    }
     if (!getSafeTransactionStringBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, safeTransactionString_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, safeTransactionString_);
     }
   }
 
@@ -187,8 +236,12 @@ public  final class UnifiedorderRequest extends
     if (!getUserIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
     }
+    if (transferOut_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getTransferOut());
+    }
     if (!getSafeTransactionStringBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, safeTransactionString_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, safeTransactionString_);
     }
     memoizedSize = size;
     return size;
@@ -208,6 +261,11 @@ public  final class UnifiedorderRequest extends
     boolean result = true;
     result = result && getUserId()
         .equals(other.getUserId());
+    result = result && (hasTransferOut() == other.hasTransferOut());
+    if (hasTransferOut()) {
+      result = result && getTransferOut()
+          .equals(other.getTransferOut());
+    }
     result = result && getSafeTransactionString()
         .equals(other.getSafeTransactionString());
     return result;
@@ -222,6 +280,10 @@ public  final class UnifiedorderRequest extends
     hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId().hashCode();
+    if (hasTransferOut()) {
+      hash = (37 * hash) + TRANSFER_OUT_FIELD_NUMBER;
+      hash = (53 * hash) + getTransferOut().hashCode();
+    }
     hash = (37 * hash) + SAFE_TRANSACTION_STRING_FIELD_NUMBER;
     hash = (53 * hash) + getSafeTransactionString().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -348,6 +410,12 @@ public  final class UnifiedorderRequest extends
       super.clear();
       userId_ = "";
 
+      if (transferOutBuilder_ == null) {
+        transferOut_ = null;
+      } else {
+        transferOut_ = null;
+        transferOutBuilder_ = null;
+      }
       safeTransactionString_ = "";
 
       return this;
@@ -373,6 +441,11 @@ public  final class UnifiedorderRequest extends
     public com.wanfang.trade.UnifiedorderRequest buildPartial() {
       com.wanfang.trade.UnifiedorderRequest result = new com.wanfang.trade.UnifiedorderRequest(this);
       result.userId_ = userId_;
+      if (transferOutBuilder_ == null) {
+        result.transferOut_ = transferOut_;
+      } else {
+        result.transferOut_ = transferOutBuilder_.build();
+      }
       result.safeTransactionString_ = safeTransactionString_;
       onBuilt();
       return result;
@@ -418,6 +491,9 @@ public  final class UnifiedorderRequest extends
       if (!other.getUserId().isEmpty()) {
         userId_ = other.userId_;
         onChanged();
+      }
+      if (other.hasTransferOut()) {
+        mergeTransferOut(other.getTransferOut());
       }
       if (!other.getSafeTransactionString().isEmpty()) {
         safeTransactionString_ = other.safeTransactionString_;
@@ -518,13 +594,166 @@ public  final class UnifiedorderRequest extends
       return this;
     }
 
+    private com.wanfang.trade.AccountId transferOut_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.trade.AccountId, com.wanfang.trade.AccountId.Builder, com.wanfang.trade.AccountIdOrBuilder> transferOutBuilder_;
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public boolean hasTransferOut() {
+      return transferOutBuilder_ != null || transferOut_ != null;
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public com.wanfang.trade.AccountId getTransferOut() {
+      if (transferOutBuilder_ == null) {
+        return transferOut_ == null ? com.wanfang.trade.AccountId.getDefaultInstance() : transferOut_;
+      } else {
+        return transferOutBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public Builder setTransferOut(com.wanfang.trade.AccountId value) {
+      if (transferOutBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        transferOut_ = value;
+        onChanged();
+      } else {
+        transferOutBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public Builder setTransferOut(
+        com.wanfang.trade.AccountId.Builder builderForValue) {
+      if (transferOutBuilder_ == null) {
+        transferOut_ = builderForValue.build();
+        onChanged();
+      } else {
+        transferOutBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public Builder mergeTransferOut(com.wanfang.trade.AccountId value) {
+      if (transferOutBuilder_ == null) {
+        if (transferOut_ != null) {
+          transferOut_ =
+            com.wanfang.trade.AccountId.newBuilder(transferOut_).mergeFrom(value).buildPartial();
+        } else {
+          transferOut_ = value;
+        }
+        onChanged();
+      } else {
+        transferOutBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public Builder clearTransferOut() {
+      if (transferOutBuilder_ == null) {
+        transferOut_ = null;
+        onChanged();
+      } else {
+        transferOut_ = null;
+        transferOutBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public com.wanfang.trade.AccountId.Builder getTransferOutBuilder() {
+      
+      onChanged();
+      return getTransferOutFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    public com.wanfang.trade.AccountIdOrBuilder getTransferOutOrBuilder() {
+      if (transferOutBuilder_ != null) {
+        return transferOutBuilder_.getMessageOrBuilder();
+      } else {
+        return transferOut_ == null ?
+            com.wanfang.trade.AccountId.getDefaultInstance() : transferOut_;
+      }
+    }
+    /**
+     * <pre>
+     *支出账号，不可为空，Weixin.Android, Weixin.IOS, Alipay.Android, Alipay.IOS,ApplePay ,WFChargeCard.xxx(xxx为userid)
+     * </pre>
+     *
+     * <code>optional .trade.AccountId transfer_out = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.wanfang.trade.AccountId, com.wanfang.trade.AccountId.Builder, com.wanfang.trade.AccountIdOrBuilder> 
+        getTransferOutFieldBuilder() {
+      if (transferOutBuilder_ == null) {
+        transferOutBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.wanfang.trade.AccountId, com.wanfang.trade.AccountId.Builder, com.wanfang.trade.AccountIdOrBuilder>(
+                getTransferOut(),
+                getParentForChildren(),
+                isClean());
+        transferOut_ = null;
+      }
+      return transferOutBuilder_;
+    }
+
     private java.lang.Object safeTransactionString_ = "";
     /**
      * <pre>
-     * 统一下单需要的参数
+     * 统一下单需要的参数，TransactionRequest Json
      * </pre>
      *
-     * <code>optional string safe_transaction_string = 2;</code>
+     * <code>optional string safe_transaction_string = 3;</code>
      */
     public java.lang.String getSafeTransactionString() {
       java.lang.Object ref = safeTransactionString_;
@@ -540,10 +769,10 @@ public  final class UnifiedorderRequest extends
     }
     /**
      * <pre>
-     * 统一下单需要的参数
+     * 统一下单需要的参数，TransactionRequest Json
      * </pre>
      *
-     * <code>optional string safe_transaction_string = 2;</code>
+     * <code>optional string safe_transaction_string = 3;</code>
      */
     public com.google.protobuf.ByteString
         getSafeTransactionStringBytes() {
@@ -560,10 +789,10 @@ public  final class UnifiedorderRequest extends
     }
     /**
      * <pre>
-     * 统一下单需要的参数
+     * 统一下单需要的参数，TransactionRequest Json
      * </pre>
      *
-     * <code>optional string safe_transaction_string = 2;</code>
+     * <code>optional string safe_transaction_string = 3;</code>
      */
     public Builder setSafeTransactionString(
         java.lang.String value) {
@@ -577,10 +806,10 @@ public  final class UnifiedorderRequest extends
     }
     /**
      * <pre>
-     * 统一下单需要的参数
+     * 统一下单需要的参数，TransactionRequest Json
      * </pre>
      *
-     * <code>optional string safe_transaction_string = 2;</code>
+     * <code>optional string safe_transaction_string = 3;</code>
      */
     public Builder clearSafeTransactionString() {
       
@@ -590,10 +819,10 @@ public  final class UnifiedorderRequest extends
     }
     /**
      * <pre>
-     * 统一下单需要的参数
+     * 统一下单需要的参数，TransactionRequest Json
      * </pre>
      *
-     * <code>optional string safe_transaction_string = 2;</code>
+     * <code>optional string safe_transaction_string = 3;</code>
      */
     public Builder setSafeTransactionStringBytes(
         com.google.protobuf.ByteString value) {

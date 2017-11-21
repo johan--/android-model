@@ -20,6 +20,14 @@ message CheckISCollectedResponse {
     grpcCommon.GrpcError error = 2;
 }
 
+message CancelCollectReqeust {
+    string user_id = 1;
+    string doc_id = 2;
+}
+message CancelCollectResponse {
+    bool cancel_success = 1;
+}
+
 // 收藏文献
 message CollectRequest {
     string user_id = 1; // 用户id

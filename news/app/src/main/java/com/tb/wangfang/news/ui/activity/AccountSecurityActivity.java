@@ -37,6 +37,7 @@ public class AccountSecurityActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
+        String oldPassword =editOldPassword.getText().toString();
 
     }
 

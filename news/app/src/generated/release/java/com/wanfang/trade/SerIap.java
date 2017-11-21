@@ -25,14 +25,16 @@ public final class SerIap {
     java.lang.String[] descriptorData = {
       "\n\023trade/ser_iap.proto\022\005trade\032\032trade/msg_" +
       "iap_verify.proto\032\036trade/msg_iap_price_li" +
-      "st.proto\032\031trade/msg_iap_order.proto2\344\001\n\n" +
+      "st.proto\032\031trade/msg_iap_order.proto2\271\002\n\n" +
       "IAPService\022>\n\tIAPVerify\022\027.trade.IAPVerif" +
-      "yRequest\032\030.trade.IAPVerifyResponse\022G\n\014IA" +
-      "PPriceList\022\032.trade.IAPPriceListRequest\032\033" +
-      ".trade.IAPPriceListResponse\022M\n\016IAPCreate" +
-      "Order\022\034.trade.IAPCreateOrderRequest\032\035.tr" +
-      "ade.IAPCreateOrderResponseB\034\n\021com.wanfan" +
-      "g.tradeP\001\242\002\004WFPRb\006proto3"
+      "yRequest\032\030.trade.IAPVerifyResponse\022S\n\020Co" +
+      "mpleteIAPTrade\022\036.trade.CompleteIAPTradeR" +
+      "equest\032\037.trade.CompleteIAPTradeResponse\022" +
+      "G\n\014IAPPriceList\022\032.trade.IAPPriceListRequ" +
+      "est\032\033.trade.IAPPriceListResponse\022M\n\016IAPC" +
+      "reateOrder\022\034.trade.IAPCreateOrderRequest",
+      "\032\035.trade.IAPCreateOrderResponseB\034\n\021com.w" +
+      "anfang.tradeP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

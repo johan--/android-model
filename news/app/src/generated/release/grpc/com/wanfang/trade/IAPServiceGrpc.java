@@ -40,6 +40,18 @@ public final class IAPServiceGrpc {
               com.wanfang.trade.IAPVerifyResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.trade.CompleteIAPTradeRequest,
+      com.wanfang.trade.CompleteIAPTradeResponse> METHOD_COMPLETE_IAPTRADE =
+      io.grpc.MethodDescriptor.<com.wanfang.trade.CompleteIAPTradeRequest, com.wanfang.trade.CompleteIAPTradeResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "trade.IAPService", "CompleteIAPTrade"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.trade.CompleteIAPTradeRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.trade.CompleteIAPTradeResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.trade.IAPPriceListRequest,
       com.wanfang.trade.IAPPriceListResponse> METHOD_IAPPRICE_LIST =
       io.grpc.MethodDescriptor.<com.wanfang.trade.IAPPriceListRequest, com.wanfang.trade.IAPPriceListResponse>newBuilder()
@@ -103,6 +115,16 @@ public final class IAPServiceGrpc {
 
     /**
      * <pre>
+     * 完成交易
+     * </pre>
+     */
+    public void completeIAPTrade(com.wanfang.trade.CompleteIAPTradeRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.trade.CompleteIAPTradeResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_COMPLETE_IAPTRADE, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 获取价目表
      * </pre>
      */
@@ -130,6 +152,13 @@ public final class IAPServiceGrpc {
                 com.wanfang.trade.IAPVerifyRequest,
                 com.wanfang.trade.IAPVerifyResponse>(
                   this, METHODID_IAPVERIFY)))
+          .addMethod(
+            METHOD_COMPLETE_IAPTRADE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.trade.CompleteIAPTradeRequest,
+                com.wanfang.trade.CompleteIAPTradeResponse>(
+                  this, METHODID_COMPLETE_IAPTRADE)))
           .addMethod(
             METHOD_IAPPRICE_LIST,
             asyncUnaryCall(
@@ -175,6 +204,17 @@ public final class IAPServiceGrpc {
         io.grpc.stub.StreamObserver<com.wanfang.trade.IAPVerifyResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_IAPVERIFY, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 完成交易
+     * </pre>
+     */
+    public void completeIAPTrade(com.wanfang.trade.CompleteIAPTradeRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.trade.CompleteIAPTradeResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_COMPLETE_IAPTRADE, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -230,6 +270,16 @@ public final class IAPServiceGrpc {
 
     /**
      * <pre>
+     * 完成交易
+     * </pre>
+     */
+    public com.wanfang.trade.CompleteIAPTradeResponse completeIAPTrade(com.wanfang.trade.CompleteIAPTradeRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_COMPLETE_IAPTRADE, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
      * 获取价目表
      * </pre>
      */
@@ -280,6 +330,17 @@ public final class IAPServiceGrpc {
 
     /**
      * <pre>
+     * 完成交易
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.trade.CompleteIAPTradeResponse> completeIAPTrade(
+        com.wanfang.trade.CompleteIAPTradeRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_COMPLETE_IAPTRADE, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 获取价目表
      * </pre>
      */
@@ -302,8 +363,9 @@ public final class IAPServiceGrpc {
   }
 
   private static final int METHODID_IAPVERIFY = 0;
-  private static final int METHODID_IAPPRICE_LIST = 1;
-  private static final int METHODID_IAPCREATE_ORDER = 2;
+  private static final int METHODID_COMPLETE_IAPTRADE = 1;
+  private static final int METHODID_IAPPRICE_LIST = 2;
+  private static final int METHODID_IAPCREATE_ORDER = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -325,6 +387,10 @@ public final class IAPServiceGrpc {
         case METHODID_IAPVERIFY:
           serviceImpl.iAPVerify((com.wanfang.trade.IAPVerifyRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.trade.IAPVerifyResponse>) responseObserver);
+          break;
+        case METHODID_COMPLETE_IAPTRADE:
+          serviceImpl.completeIAPTrade((com.wanfang.trade.CompleteIAPTradeRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.trade.CompleteIAPTradeResponse>) responseObserver);
           break;
         case METHODID_IAPPRICE_LIST:
           serviceImpl.iAPPriceList((com.wanfang.trade.IAPPriceListRequest) request,
@@ -360,6 +426,7 @@ public final class IAPServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .addMethod(METHOD_IAPVERIFY)
+              .addMethod(METHOD_COMPLETE_IAPTRADE)
               .addMethod(METHOD_IAPPRICE_LIST)
               .addMethod(METHOD_IAPCREATE_ORDER)
               .build();

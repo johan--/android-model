@@ -13,6 +13,9 @@ service IAPService {
     // 后台二次验证接口（IAP）
     rpc IAPVerify (IAPVerifyRequest) returns (IAPVerifyResponse);
 
+    // 完成交易
+    rpc CompleteIAPTrade (CompleteIAPTradeRequest) returns (CompleteIAPTradeResponse);
+
     // 获取价目表
     rpc IAPPriceList (IAPPriceListRequest) returns (IAPPriceListResponse);
 

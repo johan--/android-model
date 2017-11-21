@@ -15,6 +15,26 @@ public final class MsgCollect {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_CheckISCollectedRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_CheckISCollectedRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_CheckISCollectedResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_CheckISCollectedResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_CancelCollectReqeust_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_CancelCollectReqeust_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_collect_CancelCollectResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_collect_CancelCollectResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_collect_CollectRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -80,48 +100,55 @@ public final class MsgCollect {
     java.lang.String[] descriptorData = {
       "\n\031collect/msg_collect.proto\022\007collect\032\031go" +
       "ogle/protobuf/any.proto\032\032grpcCommon/msg_" +
-      "error.proto\"C\n\016CollectRequest\022\017\n\007user_id" +
-      "\030\001 \001(\t\022\016\n\006doc_id\030\002 \001(\t\022\020\n\010doc_type\030\003 \001(\t" +
-      "\"P\n\017CollectResponse\022\027\n\017collect_success\030\001" +
-      " \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcErr" +
-      "or\"K\n\020MyCollectRequest\022\017\n\007user_id\030\001 \001(\t\022" +
-      "\023\n\013page_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"" +
-      "\207\001\n\021MyCollectResponse\022%\n\007results\030\001 \003(\0132\024" +
-      ".google.protobuf.Any\022\020\n\010has_more\030\002 \001(\010\022\023",
-      "\n\013total_count\030\003 \001(\005\022$\n\005error\030\004 \001(\0132\025.grp" +
-      "cCommon.GrpcError\"k\n\013CollectBody\022\017\n\007docu" +
-      "_id\030\001 \001(\t\022\022\n\ndocu_title\030\002 \001(\t\022\020\n\010add_tim" +
-      "e\030\003 \001(\t\022\022\n\nstar_level\030\004 \001(\005\022\021\n\tdocu_type" +
-      "\030\005 \001(\t\"B\n\026MyCollectDetailRequest\022\022\n\narti" +
-      "cal_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(\t\"\333\003\n\027M" +
-      "yCollectDetailResponse\022$\n\005error\030\001 \001(\0132\025." +
-      "grpcCommon.GrpcError\022\r\n\005title\030\002 \001(\t\022\017\n\007s" +
-      "ummary\030\003 \001(\t\022\020\n\010keywords\030\004 \001(\t\022\024\n\014author" +
-      "s_name\030\005 \001(\t\022\020\n\010cite_num\030\006 \001(\t\022\024\n\014downlo",
-      "ad_num\030\007 \001(\t\022\034\n\024fulltext_reading_num\030\010 \001" +
-      "(\t\022\034\n\024thirdparty_links_num\030\t \001(\t\022,\n\016coll" +
-      "ect_detail\030\n \001(\0132\024.google.protobuf.Any\0221" +
-      "\n\013detail_type\030\013 \001(\0162\034.collect.MyCollectD" +
-      "etailType\022=\n\016similar_papers\030\014 \003(\0132%.coll" +
-      "ect.MyCollectSimilarPaperMessage\022\023\n\013reso" +
-      "urce_id\030\r \001(\t\022\023\n\013resource_db\030\016 \001(\t\022\020\n\010la" +
-      "nguage\030\017 \001(\t\022\022\n\nclass_type\030\020 \001(\t\"}\n\024MyCo" +
-      "llectConfMessage\022\021\n\tconf_name\030\001 \001(\t\022\021\n\tc" +
-      "onf_type\030\002 \001(\t\022\021\n\tconf_year\030\003 \001(\t\022\025\n\rpub",
-      "lish_place\030\004 \001(\t\022\025\n\rhostunit_name\030\005 \001(\t\"" +
-      "\231\001\n\025MyCollectPerioMessage\022\024\n\014authors_uni" +
-      "t\030\001 \001(\t\022\023\n\013perio_title\030\002 \001(\t\022\026\n\016perio_ti" +
-      "tle_en\030\003 \001(\t\022\024\n\014publish_year\030\004 \001(\t\022\021\n\tis" +
-      "sue_num\030\005 \001(\t\022\024\n\014abst_webdate\030\006 \001(\t\"\201\001\n\026" +
-      "MyCollectDegreeMessage\022\023\n\013deunit_name\030\001 " +
-      "\001(\t\022\024\n\014degree_level\030\002 \001(\t\022\022\n\nmajor_name\030" +
-      "\003 \001(\t\022\022\n\ntutor_name\030\004 \001(\t\022\024\n\014publish_yea" +
-      "r\030\005 \001(\t\"W\n\034MyCollectSimilarPaperMessage\022" +
-      "\022\n\nartical_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(",
-      "\t\022\r\n\005title\030\003 \001(\t*K\n\023MyCollectDetailType\022" +
-      "\017\n\013DEGREE_TYPE\020\000\022\023\n\017CONFERENCE_TYPE\020\001\022\016\n" +
-      "\nPERIO_TYPE\020\002B\036\n\023com.wanfang.collectP\001\242\002" +
-      "\004WFPRb\006proto3"
+      "error.proto\"N\n\027CheckISCollectedRequest\022\017" +
+      "\n\007user_id\030\001 \001(\t\022\017\n\007docu_id\030\002 \001(\t\022\021\n\tdocu" +
+      "_type\030\003 \001(\t\"V\n\030CheckISCollectedResponse\022" +
+      "\024\n\014is_collected\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.g" +
+      "rpcCommon.GrpcError\"7\n\024CancelCollectReqe" +
+      "ust\022\017\n\007user_id\030\001 \001(\t\022\016\n\006doc_id\030\002 \001(\t\"/\n\025" +
+      "CancelCollectResponse\022\026\n\016cancel_success\030" +
+      "\001 \001(\010\"C\n\016CollectRequest\022\017\n\007user_id\030\001 \001(\t",
+      "\022\016\n\006doc_id\030\002 \001(\t\022\020\n\010doc_type\030\003 \001(\t\"P\n\017Co" +
+      "llectResponse\022\027\n\017collect_success\030\001 \001(\010\022$" +
+      "\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcError\"K\n\020" +
+      "MyCollectRequest\022\017\n\007user_id\030\001 \001(\t\022\023\n\013pag" +
+      "e_number\030\002 \001(\005\022\021\n\tpage_size\030\003 \001(\005\"\207\001\n\021My" +
+      "CollectResponse\022%\n\007results\030\001 \003(\0132\024.googl" +
+      "e.protobuf.Any\022\020\n\010has_more\030\002 \001(\010\022\023\n\013tota" +
+      "l_count\030\003 \001(\005\022$\n\005error\030\004 \001(\0132\025.grpcCommo" +
+      "n.GrpcError\"k\n\013CollectBody\022\017\n\007docu_id\030\001 " +
+      "\001(\t\022\022\n\ndocu_title\030\002 \001(\t\022\020\n\010add_time\030\003 \001(",
+      "\t\022\022\n\nstar_level\030\004 \001(\005\022\021\n\tdocu_type\030\005 \001(\t" +
+      "\"B\n\026MyCollectDetailRequest\022\022\n\nartical_id" +
+      "\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(\t\"\333\003\n\027MyColle" +
+      "ctDetailResponse\022$\n\005error\030\001 \001(\0132\025.grpcCo" +
+      "mmon.GrpcError\022\r\n\005title\030\002 \001(\t\022\017\n\007summary" +
+      "\030\003 \001(\t\022\020\n\010keywords\030\004 \001(\t\022\024\n\014authors_name" +
+      "\030\005 \001(\t\022\020\n\010cite_num\030\006 \001(\t\022\024\n\014download_num" +
+      "\030\007 \001(\t\022\034\n\024fulltext_reading_num\030\010 \001(\t\022\034\n\024" +
+      "thirdparty_links_num\030\t \001(\t\022,\n\016collect_de" +
+      "tail\030\n \001(\0132\024.google.protobuf.Any\0221\n\013deta",
+      "il_type\030\013 \001(\0162\034.collect.MyCollectDetailT" +
+      "ype\022=\n\016similar_papers\030\014 \003(\0132%.collect.My" +
+      "CollectSimilarPaperMessage\022\023\n\013resource_i" +
+      "d\030\r \001(\t\022\023\n\013resource_db\030\016 \001(\t\022\020\n\010language" +
+      "\030\017 \001(\t\022\022\n\nclass_type\030\020 \001(\t\"}\n\024MyCollectC" +
+      "onfMessage\022\021\n\tconf_name\030\001 \001(\t\022\021\n\tconf_ty" +
+      "pe\030\002 \001(\t\022\021\n\tconf_year\030\003 \001(\t\022\025\n\rpublish_p" +
+      "lace\030\004 \001(\t\022\025\n\rhostunit_name\030\005 \001(\t\"\231\001\n\025My" +
+      "CollectPerioMessage\022\024\n\014authors_unit\030\001 \001(" +
+      "\t\022\023\n\013perio_title\030\002 \001(\t\022\026\n\016perio_title_en",
+      "\030\003 \001(\t\022\024\n\014publish_year\030\004 \001(\t\022\021\n\tissue_nu" +
+      "m\030\005 \001(\t\022\024\n\014abst_webdate\030\006 \001(\t\"\201\001\n\026MyColl" +
+      "ectDegreeMessage\022\023\n\013deunit_name\030\001 \001(\t\022\024\n" +
+      "\014degree_level\030\002 \001(\t\022\022\n\nmajor_name\030\003 \001(\t\022" +
+      "\022\n\ntutor_name\030\004 \001(\t\022\024\n\014publish_year\030\005 \001(" +
+      "\t\"W\n\034MyCollectSimilarPaperMessage\022\022\n\nart" +
+      "ical_id\030\001 \001(\t\022\024\n\014artical_type\030\002 \001(\t\022\r\n\005t" +
+      "itle\030\003 \001(\t*K\n\023MyCollectDetailType\022\017\n\013DEG" +
+      "REE_TYPE\020\000\022\023\n\017CONFERENCE_TYPE\020\001\022\016\n\nPERIO" +
+      "_TYPE\020\002B\036\n\023com.wanfang.collectP\001\242\002\004WFPRb",
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -137,68 +164,92 @@ public final class MsgCollect {
           com.google.protobuf.AnyProto.getDescriptor(),
           com.wanfang.grpcCommon.MsgError.getDescriptor(),
         }, assigner);
-    internal_static_collect_CollectRequest_descriptor =
+    internal_static_collect_CheckISCollectedRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_collect_CheckISCollectedRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_CheckISCollectedRequest_descriptor,
+        new java.lang.String[] { "UserId", "DocuId", "DocuType", });
+    internal_static_collect_CheckISCollectedResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_collect_CheckISCollectedResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_CheckISCollectedResponse_descriptor,
+        new java.lang.String[] { "IsCollected", "Error", });
+    internal_static_collect_CancelCollectReqeust_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_collect_CancelCollectReqeust_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_CancelCollectReqeust_descriptor,
+        new java.lang.String[] { "UserId", "DocId", });
+    internal_static_collect_CancelCollectResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_collect_CancelCollectResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_collect_CancelCollectResponse_descriptor,
+        new java.lang.String[] { "CancelSuccess", });
+    internal_static_collect_CollectRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_collect_CollectRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_CollectRequest_descriptor,
         new java.lang.String[] { "UserId", "DocId", "DocType", });
     internal_static_collect_CollectResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_collect_CollectResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_CollectResponse_descriptor,
         new java.lang.String[] { "CollectSuccess", "Error", });
     internal_static_collect_MyCollectRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_collect_MyCollectRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectRequest_descriptor,
         new java.lang.String[] { "UserId", "PageNumber", "PageSize", });
     internal_static_collect_MyCollectResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_collect_MyCollectResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectResponse_descriptor,
         new java.lang.String[] { "Results", "HasMore", "TotalCount", "Error", });
     internal_static_collect_CollectBody_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_collect_CollectBody_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_CollectBody_descriptor,
         new java.lang.String[] { "DocuId", "DocuTitle", "AddTime", "StarLevel", "DocuType", });
     internal_static_collect_MyCollectDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_collect_MyCollectDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectDetailRequest_descriptor,
         new java.lang.String[] { "ArticalId", "ArticalType", });
     internal_static_collect_MyCollectDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_collect_MyCollectDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectDetailResponse_descriptor,
         new java.lang.String[] { "Error", "Title", "Summary", "Keywords", "AuthorsName", "CiteNum", "DownloadNum", "FulltextReadingNum", "ThirdpartyLinksNum", "CollectDetail", "DetailType", "SimilarPapers", "ResourceId", "ResourceDb", "Language", "ClassType", });
     internal_static_collect_MyCollectConfMessage_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_collect_MyCollectConfMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectConfMessage_descriptor,
         new java.lang.String[] { "ConfName", "ConfType", "ConfYear", "PublishPlace", "HostunitName", });
     internal_static_collect_MyCollectPerioMessage_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_collect_MyCollectPerioMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectPerioMessage_descriptor,
         new java.lang.String[] { "AuthorsUnit", "PerioTitle", "PerioTitleEn", "PublishYear", "IssueNum", "AbstWebdate", });
     internal_static_collect_MyCollectDegreeMessage_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_collect_MyCollectDegreeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectDegreeMessage_descriptor,
         new java.lang.String[] { "DeunitName", "DegreeLevel", "MajorName", "TutorName", "PublishYear", });
     internal_static_collect_MyCollectSimilarPaperMessage_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_collect_MyCollectSimilarPaperMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_collect_MyCollectSimilarPaperMessage_descriptor,

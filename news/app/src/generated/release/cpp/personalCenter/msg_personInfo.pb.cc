@@ -21,6 +21,21 @@ namespace personal {
 
 namespace {
 
+const ::google::protobuf::Descriptor* UserGetBalenceRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UserGetBalenceRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UserGetBalenceResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UserGetBalenceResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UserGetTradeListRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UserGetTradeListRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UserGetTradeListResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UserGetTradeListResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UserGetTradeListResponse_TradeTransaction_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UserGetTradeListResponse_TradeTransaction_reflection_ = NULL;
 const ::google::protobuf::Descriptor* UserRolesListRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   UserRolesListRequest_reflection_ = NULL;
@@ -101,6 +116,10 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* InfoAvatar_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   InfoAvatar_reflection_ = NULL;
+const ::google::protobuf::Descriptor* InfoPassword_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  InfoPassword_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* BALENCETYPE_descriptor_ = NULL;
 
 }  // namespace
 
@@ -112,7 +131,84 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "personalCenter/msg_personInfo.proto");
   GOOGLE_CHECK(file != NULL);
-  UserRolesListRequest_descriptor_ = file->message_type(0);
+  UserGetBalenceRequest_descriptor_ = file->message_type(0);
+  static const int UserGetBalenceRequest_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetBalenceRequest, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetBalenceRequest, balence_type_),
+  };
+  UserGetBalenceRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UserGetBalenceRequest_descriptor_,
+      UserGetBalenceRequest::internal_default_instance(),
+      UserGetBalenceRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UserGetBalenceRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetBalenceRequest, _internal_metadata_));
+  UserGetBalenceResponse_descriptor_ = file->message_type(1);
+  static const int UserGetBalenceResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetBalenceResponse, balence_),
+  };
+  UserGetBalenceResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UserGetBalenceResponse_descriptor_,
+      UserGetBalenceResponse::internal_default_instance(),
+      UserGetBalenceResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UserGetBalenceResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetBalenceResponse, _internal_metadata_));
+  UserGetTradeListRequest_descriptor_ = file->message_type(2);
+  static const int UserGetTradeListRequest_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListRequest, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListRequest, balence_type_),
+  };
+  UserGetTradeListRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UserGetTradeListRequest_descriptor_,
+      UserGetTradeListRequest::internal_default_instance(),
+      UserGetTradeListRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UserGetTradeListRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListRequest, _internal_metadata_));
+  UserGetTradeListResponse_descriptor_ = file->message_type(3);
+  static const int UserGetTradeListResponse_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse, trade_transaction_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse, error_),
+  };
+  UserGetTradeListResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UserGetTradeListResponse_descriptor_,
+      UserGetTradeListResponse::internal_default_instance(),
+      UserGetTradeListResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UserGetTradeListResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse, _internal_metadata_));
+  UserGetTradeListResponse_TradeTransaction_descriptor_ = UserGetTradeListResponse_descriptor_->nested_type(0);
+  static const int UserGetTradeListResponse_TradeTransaction_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse_TradeTransaction, trade_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse_TradeTransaction, create_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse_TradeTransaction, turnover_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse_TradeTransaction, product_title_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse_TradeTransaction, status_),
+  };
+  UserGetTradeListResponse_TradeTransaction_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UserGetTradeListResponse_TradeTransaction_descriptor_,
+      UserGetTradeListResponse_TradeTransaction::internal_default_instance(),
+      UserGetTradeListResponse_TradeTransaction_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UserGetTradeListResponse_TradeTransaction),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserGetTradeListResponse_TradeTransaction, _internal_metadata_));
+  UserRolesListRequest_descriptor_ = file->message_type(4);
   static const int UserRolesListRequest_offsets_[1] = {
   };
   UserRolesListRequest_reflection_ =
@@ -125,7 +221,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(UserRolesListRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListRequest, _internal_metadata_));
-  UserRolesListResponse_descriptor_ = file->message_type(1);
+  UserRolesListResponse_descriptor_ = file->message_type(5);
   static const int UserRolesListResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListResponse, roles_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListResponse, list_version_),
@@ -142,7 +238,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       sizeof(UserRolesListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserRolesListResponse, _internal_metadata_));
   UserRolesListResponse_RolesEntry_descriptor_ = UserRolesListResponse_descriptor_->nested_type(0);
-  EducationLevelListRequest_descriptor_ = file->message_type(2);
+  EducationLevelListRequest_descriptor_ = file->message_type(6);
   static const int EducationLevelListRequest_offsets_[1] = {
   };
   EducationLevelListRequest_reflection_ =
@@ -155,7 +251,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(EducationLevelListRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListRequest, _internal_metadata_));
-  EducationLevelListResponse_descriptor_ = file->message_type(3);
+  EducationLevelListResponse_descriptor_ = file->message_type(7);
   static const int EducationLevelListResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, educationlevels_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, list_version_),
@@ -172,7 +268,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       sizeof(EducationLevelListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EducationLevelListResponse, _internal_metadata_));
   EducationLevelListResponse_EducationLevelsEntry_descriptor_ = EducationLevelListResponse_descriptor_->nested_type(0);
-  SubjectListRequest_descriptor_ = file->message_type(4);
+  SubjectListRequest_descriptor_ = file->message_type(8);
   static const int SubjectListRequest_offsets_[1] = {
   };
   SubjectListRequest_reflection_ =
@@ -185,7 +281,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(SubjectListRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListRequest, _internal_metadata_));
-  SubjectListResponse_descriptor_ = file->message_type(5);
+  SubjectListResponse_descriptor_ = file->message_type(9);
   static const int SubjectListResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, subject_list_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, error_),
@@ -200,7 +296,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(SubjectListResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectListResponse, _internal_metadata_));
-  SubjectFieldMap_descriptor_ = file->message_type(6);
+  SubjectFieldMap_descriptor_ = file->message_type(10);
   static const int SubjectFieldMap_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectFieldMap, key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectFieldMap, value_),
@@ -215,7 +311,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(SubjectFieldMap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectFieldMap, _internal_metadata_));
-  SubjectMessage_descriptor_ = file->message_type(7);
+  SubjectMessage_descriptor_ = file->message_type(11);
   static const int SubjectMessage_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, subject_field_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, sub_subject_),
@@ -231,7 +327,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(SubjectMessage),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SubjectMessage, _internal_metadata_));
-  MyInfoRequest_descriptor_ = file->message_type(8);
+  MyInfoRequest_descriptor_ = file->message_type(12);
   static const int MyInfoRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoRequest, user_id_),
   };
@@ -245,7 +341,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoRequest, _internal_metadata_));
-  MyInfoResponse_descriptor_ = file->message_type(9);
+  MyInfoResponse_descriptor_ = file->message_type(13);
   static const int MyInfoResponse_offsets_[15] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, nick_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, real_name_),
@@ -273,7 +369,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoResponse, _internal_metadata_));
-  MyInfoUpdateRequest_descriptor_ = file->message_type(10);
+  MyInfoUpdateRequest_descriptor_ = file->message_type(14);
   static const int MyInfoUpdateRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, field_),
@@ -288,7 +384,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoUpdateRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateRequest, _internal_metadata_));
-  MyInfoUpdateResponse_descriptor_ = file->message_type(11);
+  MyInfoUpdateResponse_descriptor_ = file->message_type(15);
   static const int MyInfoUpdateResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateResponse, error_),
   };
@@ -302,7 +398,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(MyInfoUpdateResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MyInfoUpdateResponse, _internal_metadata_));
-  InfoNickName_descriptor_ = file->message_type(12);
+  InfoNickName_descriptor_ = file->message_type(16);
   static const int InfoNickName_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoNickName, nick_name_),
   };
@@ -316,7 +412,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoNickName),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoNickName, _internal_metadata_));
-  InfoRealName_descriptor_ = file->message_type(13);
+  InfoRealName_descriptor_ = file->message_type(17);
   static const int InfoRealName_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoRealName, real_name_),
   };
@@ -330,7 +426,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoRealName),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoRealName, _internal_metadata_));
-  InfoIdNumber_descriptor_ = file->message_type(14);
+  InfoIdNumber_descriptor_ = file->message_type(18);
   static const int InfoIdNumber_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoIdNumber, id_number_),
   };
@@ -344,7 +440,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoIdNumber),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoIdNumber, _internal_metadata_));
-  InfoSex_descriptor_ = file->message_type(15);
+  InfoSex_descriptor_ = file->message_type(19);
   static const int InfoSex_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSex, sex_),
   };
@@ -358,7 +454,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoSex),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSex, _internal_metadata_));
-  InfoBirthday_descriptor_ = file->message_type(16);
+  InfoBirthday_descriptor_ = file->message_type(20);
   static const int InfoBirthday_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoBirthday, birthday_),
   };
@@ -372,7 +468,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoBirthday),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoBirthday, _internal_metadata_));
-  InfoUserRoles_descriptor_ = file->message_type(17);
+  InfoUserRoles_descriptor_ = file->message_type(21);
   static const int InfoUserRoles_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoUserRoles, user_roles_),
   };
@@ -386,7 +482,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoUserRoles),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoUserRoles, _internal_metadata_));
-  InfoWorkUnit_descriptor_ = file->message_type(18);
+  InfoWorkUnit_descriptor_ = file->message_type(22);
   static const int InfoWorkUnit_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoWorkUnit, workunit_),
   };
@@ -400,7 +496,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoWorkUnit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoWorkUnit, _internal_metadata_));
-  InfoEducationLevel_descriptor_ = file->message_type(19);
+  InfoEducationLevel_descriptor_ = file->message_type(23);
   static const int InfoEducationLevel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEducationLevel, educationlevel_),
   };
@@ -414,7 +510,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoEducationLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEducationLevel, _internal_metadata_));
-  InfoGraduatedSchool_descriptor_ = file->message_type(20);
+  InfoGraduatedSchool_descriptor_ = file->message_type(24);
   static const int InfoGraduatedSchool_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoGraduatedSchool, graduated_school_),
   };
@@ -428,7 +524,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoGraduatedSchool),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoGraduatedSchool, _internal_metadata_));
-  InfoAward_descriptor_ = file->message_type(21);
+  InfoAward_descriptor_ = file->message_type(25);
   static const int InfoAward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAward, award_),
   };
@@ -442,7 +538,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoAward),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAward, _internal_metadata_));
-  InfoSubject_descriptor_ = file->message_type(22);
+  InfoSubject_descriptor_ = file->message_type(26);
   static const int InfoSubject_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSubject, subject_),
   };
@@ -456,7 +552,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoSubject, _internal_metadata_));
-  InfoInterestSubject_descriptor_ = file->message_type(23);
+  InfoInterestSubject_descriptor_ = file->message_type(27);
   static const int InfoInterestSubject_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoInterestSubject, interest_subject_),
   };
@@ -470,7 +566,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoInterestSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoInterestSubject, _internal_metadata_));
-  InfoEmail_descriptor_ = file->message_type(24);
+  InfoEmail_descriptor_ = file->message_type(28);
   static const int InfoEmail_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEmail, email_),
   };
@@ -484,7 +580,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoEmail),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoEmail, _internal_metadata_));
-  InfoAvatar_descriptor_ = file->message_type(25);
+  InfoAvatar_descriptor_ = file->message_type(29);
   static const int InfoAvatar_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAvatar, avatar_url_),
   };
@@ -498,6 +594,21 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fpersonInfo_2eproto() {
       -1,
       sizeof(InfoAvatar),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoAvatar, _internal_metadata_));
+  InfoPassword_descriptor_ = file->message_type(30);
+  static const int InfoPassword_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoPassword, password_),
+  };
+  InfoPassword_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      InfoPassword_descriptor_,
+      InfoPassword::internal_default_instance(),
+      InfoPassword_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(InfoPassword),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InfoPassword, _internal_metadata_));
+  BALENCETYPE_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -511,6 +622,16 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UserGetBalenceRequest_descriptor_, UserGetBalenceRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UserGetBalenceResponse_descriptor_, UserGetBalenceResponse::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UserGetTradeListRequest_descriptor_, UserGetTradeListRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UserGetTradeListResponse_descriptor_, UserGetTradeListResponse::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UserGetTradeListResponse_TradeTransaction_descriptor_, UserGetTradeListResponse_TradeTransaction::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       UserRolesListRequest_descriptor_, UserRolesListRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -581,11 +702,23 @@ void protobuf_RegisterTypes(const ::std::string&) {
       InfoEmail_descriptor_, InfoEmail::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       InfoAvatar_descriptor_, InfoAvatar::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      InfoPassword_descriptor_, InfoPassword::internal_default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto() {
+  UserGetBalenceRequest_default_instance_.Shutdown();
+  delete UserGetBalenceRequest_reflection_;
+  UserGetBalenceResponse_default_instance_.Shutdown();
+  delete UserGetBalenceResponse_reflection_;
+  UserGetTradeListRequest_default_instance_.Shutdown();
+  delete UserGetTradeListRequest_reflection_;
+  UserGetTradeListResponse_default_instance_.Shutdown();
+  delete UserGetTradeListResponse_reflection_;
+  UserGetTradeListResponse_TradeTransaction_default_instance_.Shutdown();
+  delete UserGetTradeListResponse_TradeTransaction_reflection_;
   UserRolesListRequest_default_instance_.Shutdown();
   delete UserRolesListRequest_reflection_;
   UserRolesListResponse_default_instance_.Shutdown();
@@ -638,6 +771,8 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fpersonInfo_2eproto() {
   delete InfoEmail_reflection_;
   InfoAvatar_default_instance_.Shutdown();
   delete InfoAvatar_reflection_;
+  InfoPassword_default_instance_.Shutdown();
+  delete InfoPassword_reflection_;
 }
 
 void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
@@ -645,6 +780,14 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
 
   ::google::protobuf::protobuf_InitDefaults_google_2fprotobuf_2fany_2eproto();
   ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
+  ::google::protobuf::internal::GetEmptyString();
+  UserGetBalenceRequest_default_instance_.DefaultConstruct();
+  UserGetBalenceResponse_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  UserGetTradeListRequest_default_instance_.DefaultConstruct();
+  UserGetTradeListResponse_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  UserGetTradeListResponse_TradeTransaction_default_instance_.DefaultConstruct();
   UserRolesListRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   UserRolesListResponse_default_instance_.DefaultConstruct();
@@ -652,7 +795,6 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   EducationLevelListRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   EducationLevelListResponse_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
   SubjectListRequest_default_instance_.DefaultConstruct();
   SubjectListResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -692,6 +834,13 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   InfoEmail_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   InfoAvatar_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  InfoPassword_default_instance_.DefaultConstruct();
+  UserGetBalenceRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  UserGetBalenceResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
+  UserGetTradeListRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  UserGetTradeListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
+  UserGetTradeListResponse_TradeTransaction_default_instance_.get_mutable()->InitAsDefaultInstance();
   UserRolesListRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   UserRolesListResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   EducationLevelListRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -718,6 +867,7 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   InfoInterestSubject_default_instance_.get_mutable()->InitAsDefaultInstance();
   InfoEmail_default_instance_.get_mutable()->InitAsDefaultInstance();
   InfoAvatar_default_instance_.get_mutable()->InitAsDefaultInstance();
+  InfoPassword_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_once_);
@@ -732,61 +882,75 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n#personalCenter/msg_personInfo.proto\022\010p"
     "ersonal\032\031google/protobuf/any.proto\032\032grpc"
-    "Common/msg_error.proto\"\026\n\024UserRolesListR"
-    "equest\"\274\001\n\025UserRolesListResponse\0229\n\005role"
-    "s\030\001 \003(\0132*.personal.UserRolesListResponse"
-    ".RolesEntry\022\024\n\014list_version\030\002 \001(\t\022$\n\005err"
-    "or\030\003 \001(\0132\025.grpcCommon.GrpcError\032,\n\nRoles"
-    "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\033\n"
-    "\031EducationLevelListRequest\"\344\001\n\032Education"
-    "LevelListResponse\022R\n\017educationLevels\030\001 \003"
-    "(\01329.personal.EducationLevelListResponse"
-    ".EducationLevelsEntry\022\024\n\014list_version\030\002 "
-    "\001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon.GrpcErro"
-    "r\0326\n\024EducationLevelsEntry\022\013\n\003key\030\001 \001(\t\022\r"
-    "\n\005value\030\002 \001(\t:\0028\001\"\024\n\022SubjectListRequest\""
-    "k\n\023SubjectListResponse\022.\n\014subject_list\030\001"
-    " \001(\0132\030.personal.SubjectMessage\022$\n\005error\030"
-    "\002 \001(\0132\025.grpcCommon.GrpcError\"-\n\017SubjectF"
-    "ieldMap\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\212\001\n\016"
-    "SubjectMessage\0220\n\rsubject_field\030\001 \001(\0132\031."
-    "personal.SubjectFieldMap\022-\n\013sub_subject\030"
-    "\002 \003(\0132\030.personal.SubjectMessage\022\027\n\017has_s"
-    "ub_subject\030\003 \001(\010\" \n\rMyInfoRequest\022\017\n\007use"
-    "r_id\030\001 \001(\t\"\232\005\n\016MyInfoResponse\022)\n\tnick_na"
-    "me\030\001 \001(\0132\026.personal.InfoNickName\022)\n\treal"
-    "_name\030\002 \001(\0132\026.personal.InfoRealName\022)\n\ti"
-    "d_number\030\003 \001(\0132\026.personal.InfoIdNumber\022\036"
-    "\n\003sex\030\004 \001(\0132\021.personal.InfoSex\022(\n\010birthd"
-    "ay\030\005 \001(\0132\026.personal.InfoBirthday\022+\n\nuser"
-    "_roles\030\006 \001(\0132\027.personal.InfoUserRoles\022(\n"
-    "\010workUnit\030\007 \001(\0132\026.personal.InfoWorkUnit\022"
-    "4\n\016educationLevel\030\010 \001(\0132\034.personal.InfoE"
-    "ducationLevel\0227\n\020graduated_school\030\t \001(\0132"
-    "\035.personal.InfoGraduatedSchool\022\"\n\005award\030"
-    "\n \001(\0132\023.personal.InfoAward\022&\n\007subject\030\013 "
-    "\001(\0132\025.personal.InfoSubject\0227\n\020interest_s"
-    "ubject\030\014 \001(\0132\035.personal.InfoInterestSubj"
-    "ect\022\"\n\005email\030\r \001(\0132\023.personal.InfoEmail\022"
-    "(\n\navatar_url\030\016 \001(\0132\024.personal.InfoAvata"
-    "r\022$\n\005error\030\017 \001(\0132\025.grpcCommon.GrpcError\""
-    "K\n\023MyInfoUpdateRequest\022\017\n\007user_id\030\001 \001(\t\022"
-    "#\n\005field\030\002 \003(\0132\024.google.protobuf.Any\"<\n\024"
-    "MyInfoUpdateResponse\022$\n\005error\030\001 \001(\0132\025.gr"
-    "pcCommon.GrpcError\"!\n\014InfoNickName\022\021\n\tni"
-    "ck_name\030\001 \001(\t\"!\n\014InfoRealName\022\021\n\treal_na"
-    "me\030\001 \001(\t\"!\n\014InfoIdNumber\022\021\n\tid_number\030\001 "
-    "\001(\t\"\026\n\007InfoSex\022\013\n\003sex\030\001 \001(\t\" \n\014InfoBirth"
-    "day\022\020\n\010birthday\030\001 \001(\t\"#\n\rInfoUserRoles\022\022"
-    "\n\nuser_roles\030\001 \001(\t\" \n\014InfoWorkUnit\022\020\n\010wo"
-    "rkUnit\030\001 \001(\t\",\n\022InfoEducationLevel\022\026\n\016ed"
-    "ucationLevel\030\001 \001(\t\"/\n\023InfoGraduatedSchoo"
-    "l\022\030\n\020graduated_school\030\001 \001(\t\"\032\n\tInfoAward"
-    "\022\r\n\005award\030\001 \001(\t\"\036\n\013InfoSubject\022\017\n\007subjec"
-    "t\030\001 \001(\t\"/\n\023InfoInterestSubject\022\030\n\020intere"
-    "st_subject\030\001 \001(\t\"\032\n\tInfoEmail\022\r\n\005email\030\001"
-    " \001(\t\" \n\nInfoAvatar\022\022\n\navatar_url\030\001 \001(\tB\037"
-    "\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto3", 2279);
+    "Common/msg_error.proto\"U\n\025UserGetBalence"
+    "Request\022\017\n\007user_id\030\001 \001(\t\022+\n\014balence_type"
+    "\030\002 \001(\0162\025.personal.BALENCETYPE\")\n\026UserGet"
+    "BalenceResponse\022\017\n\007balence\030\001 \001(\001\"W\n\027User"
+    "GetTradeListRequest\022\017\n\007user_id\030\001 \001(\t\022+\n\014"
+    "balence_type\030\002 \001(\0162\025.personal.BALENCETYP"
+    "E\"\204\002\n\030UserGetTradeListResponse\022N\n\021trade_"
+    "transaction\030\001 \003(\01323.personal.UserGetTrad"
+    "eListResponse.TradeTransaction\022$\n\005error\030"
+    "\002 \001(\0132\025.grpcCommon.GrpcError\032r\n\020TradeTra"
+    "nsaction\022\020\n\010trade_id\030\001 \001(\t\022\023\n\013create_tim"
+    "e\030\002 \001(\t\022\020\n\010turnover\030\003 \001(\t\022\025\n\rproduct_tit"
+    "le\030\004 \001(\t\022\016\n\006status\030\005 \001(\005\"\026\n\024UserRolesLis"
+    "tRequest\"\274\001\n\025UserRolesListResponse\0229\n\005ro"
+    "les\030\001 \003(\0132*.personal.UserRolesListRespon"
+    "se.RolesEntry\022\024\n\014list_version\030\002 \001(\t\022$\n\005e"
+    "rror\030\003 \001(\0132\025.grpcCommon.GrpcError\032,\n\nRol"
+    "esEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\""
+    "\033\n\031EducationLevelListRequest\"\344\001\n\032Educati"
+    "onLevelListResponse\022R\n\017educationLevels\030\001"
+    " \003(\01329.personal.EducationLevelListRespon"
+    "se.EducationLevelsEntry\022\024\n\014list_version\030"
+    "\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommon.GrpcEr"
+    "ror\0326\n\024EducationLevelsEntry\022\013\n\003key\030\001 \001(\t"
+    "\022\r\n\005value\030\002 \001(\t:\0028\001\"\024\n\022SubjectListReques"
+    "t\"k\n\023SubjectListResponse\022.\n\014subject_list"
+    "\030\001 \001(\0132\030.personal.SubjectMessage\022$\n\005erro"
+    "r\030\002 \001(\0132\025.grpcCommon.GrpcError\"-\n\017Subjec"
+    "tFieldMap\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\212\001"
+    "\n\016SubjectMessage\0220\n\rsubject_field\030\001 \001(\0132"
+    "\031.personal.SubjectFieldMap\022-\n\013sub_subjec"
+    "t\030\002 \003(\0132\030.personal.SubjectMessage\022\027\n\017has"
+    "_sub_subject\030\003 \001(\010\" \n\rMyInfoRequest\022\017\n\007u"
+    "ser_id\030\001 \001(\t\"\232\005\n\016MyInfoResponse\022)\n\tnick_"
+    "name\030\001 \001(\0132\026.personal.InfoNickName\022)\n\tre"
+    "al_name\030\002 \001(\0132\026.personal.InfoRealName\022)\n"
+    "\tid_number\030\003 \001(\0132\026.personal.InfoIdNumber"
+    "\022\036\n\003sex\030\004 \001(\0132\021.personal.InfoSex\022(\n\010birt"
+    "hday\030\005 \001(\0132\026.personal.InfoBirthday\022+\n\nus"
+    "er_roles\030\006 \001(\0132\027.personal.InfoUserRoles\022"
+    "(\n\010workUnit\030\007 \001(\0132\026.personal.InfoWorkUni"
+    "t\0224\n\016educationLevel\030\010 \001(\0132\034.personal.Inf"
+    "oEducationLevel\0227\n\020graduated_school\030\t \001("
+    "\0132\035.personal.InfoGraduatedSchool\022\"\n\005awar"
+    "d\030\n \001(\0132\023.personal.InfoAward\022&\n\007subject\030"
+    "\013 \001(\0132\025.personal.InfoSubject\0227\n\020interest"
+    "_subject\030\014 \001(\0132\035.personal.InfoInterestSu"
+    "bject\022\"\n\005email\030\r \001(\0132\023.personal.InfoEmai"
+    "l\022(\n\navatar_url\030\016 \001(\0132\024.personal.InfoAva"
+    "tar\022$\n\005error\030\017 \001(\0132\025.grpcCommon.GrpcErro"
+    "r\"K\n\023MyInfoUpdateRequest\022\017\n\007user_id\030\001 \001("
+    "\t\022#\n\005field\030\002 \003(\0132\024.google.protobuf.Any\"<"
+    "\n\024MyInfoUpdateResponse\022$\n\005error\030\001 \001(\0132\025."
+    "grpcCommon.GrpcError\"!\n\014InfoNickName\022\021\n\t"
+    "nick_name\030\001 \001(\t\"!\n\014InfoRealName\022\021\n\treal_"
+    "name\030\001 \001(\t\"!\n\014InfoIdNumber\022\021\n\tid_number\030"
+    "\001 \001(\t\"\026\n\007InfoSex\022\013\n\003sex\030\001 \001(\t\" \n\014InfoBir"
+    "thday\022\020\n\010birthday\030\001 \001(\t\"#\n\rInfoUserRoles"
+    "\022\022\n\nuser_roles\030\001 \001(\t\" \n\014InfoWorkUnit\022\020\n\010"
+    "workUnit\030\001 \001(\t\",\n\022InfoEducationLevel\022\026\n\016"
+    "educationLevel\030\001 \001(\t\"/\n\023InfoGraduatedSch"
+    "ool\022\030\n\020graduated_school\030\001 \001(\t\"\032\n\tInfoAwa"
+    "rd\022\r\n\005award\030\001 \001(\t\"\036\n\013InfoSubject\022\017\n\007subj"
+    "ect\030\001 \001(\t\"/\n\023InfoInterestSubject\022\030\n\020inte"
+    "rest_subject\030\001 \001(\t\"\032\n\tInfoEmail\022\r\n\005email"
+    "\030\001 \001(\t\" \n\nInfoAvatar\022\022\n\navatar_url\030\001 \001(\t"
+    "\" \n\014InfoPassword\022\020\n\010password\030\001 \001(\t*$\n\013BA"
+    "LENCETYPE\022\n\n\006NORMAL\020\000\022\t\n\005APPLE\020\001B\037\n\024com."
+    "wanfang.personalP\001\242\002\004WFPRb\006proto3", 2833);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_personInfo.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
@@ -805,6 +969,20 @@ struct StaticDescriptorInitializer_personalCenter_2fmsg_5fpersonInfo_2eproto {
     protobuf_AddDesc_personalCenter_2fmsg_5fpersonInfo_2eproto();
   }
 } static_descriptor_initializer_personalCenter_2fmsg_5fpersonInfo_2eproto_;
+const ::google::protobuf::EnumDescriptor* BALENCETYPE_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BALENCETYPE_descriptor_;
+}
+bool BALENCETYPE_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 namespace {
 
@@ -815,6 +993,1923 @@ static void MergeFromFail(int line) {
 
 }  // namespace
 
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserGetBalenceRequest::kUserIdFieldNumber;
+const int UserGetBalenceRequest::kBalenceTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserGetBalenceRequest::UserGetBalenceRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.UserGetBalenceRequest)
+}
+
+void UserGetBalenceRequest::InitAsDefaultInstance() {
+}
+
+UserGetBalenceRequest::UserGetBalenceRequest(const UserGetBalenceRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.UserGetBalenceRequest)
+}
+
+void UserGetBalenceRequest::SharedCtor() {
+  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  balence_type_ = 0;
+  _cached_size_ = 0;
+}
+
+UserGetBalenceRequest::~UserGetBalenceRequest() {
+  // @@protoc_insertion_point(destructor:personal.UserGetBalenceRequest)
+  SharedDtor();
+}
+
+void UserGetBalenceRequest::SharedDtor() {
+  user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void UserGetBalenceRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UserGetBalenceRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UserGetBalenceRequest_descriptor_;
+}
+
+const UserGetBalenceRequest& UserGetBalenceRequest::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<UserGetBalenceRequest> UserGetBalenceRequest_default_instance_;
+
+UserGetBalenceRequest* UserGetBalenceRequest::New(::google::protobuf::Arena* arena) const {
+  UserGetBalenceRequest* n = new UserGetBalenceRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UserGetBalenceRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.UserGetBalenceRequest)
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  balence_type_ = 0;
+}
+
+bool UserGetBalenceRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.UserGetBalenceRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string user_id = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_id().data(), this->user_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.UserGetBalenceRequest.user_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_balence_type;
+        break;
+      }
+
+      // optional .personal.BALENCETYPE balence_type = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_balence_type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_balence_type(static_cast< ::personal::BALENCETYPE >(value));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.UserGetBalenceRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.UserGetBalenceRequest)
+  return false;
+#undef DO_
+}
+
+void UserGetBalenceRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.UserGetBalenceRequest)
+  // optional string user_id = 1;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetBalenceRequest.user_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->user_id(), output);
+  }
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  if (this->balence_type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->balence_type(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.UserGetBalenceRequest)
+}
+
+::google::protobuf::uint8* UserGetBalenceRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.UserGetBalenceRequest)
+  // optional string user_id = 1;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetBalenceRequest.user_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->user_id(), target);
+  }
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  if (this->balence_type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->balence_type(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.UserGetBalenceRequest)
+  return target;
+}
+
+size_t UserGetBalenceRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.UserGetBalenceRequest)
+  size_t total_size = 0;
+
+  // optional string user_id = 1;
+  if (this->user_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_id());
+  }
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  if (this->balence_type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->balence_type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UserGetBalenceRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.UserGetBalenceRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UserGetBalenceRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserGetBalenceRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.UserGetBalenceRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.UserGetBalenceRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void UserGetBalenceRequest::MergeFrom(const UserGetBalenceRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.UserGetBalenceRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void UserGetBalenceRequest::UnsafeMergeFrom(const UserGetBalenceRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.user_id().size() > 0) {
+
+    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+  }
+  if (from.balence_type() != 0) {
+    set_balence_type(from.balence_type());
+  }
+}
+
+void UserGetBalenceRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.UserGetBalenceRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserGetBalenceRequest::CopyFrom(const UserGetBalenceRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.UserGetBalenceRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool UserGetBalenceRequest::IsInitialized() const {
+
+  return true;
+}
+
+void UserGetBalenceRequest::Swap(UserGetBalenceRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserGetBalenceRequest::InternalSwap(UserGetBalenceRequest* other) {
+  user_id_.Swap(&other->user_id_);
+  std::swap(balence_type_, other->balence_type_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UserGetBalenceRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UserGetBalenceRequest_descriptor_;
+  metadata.reflection = UserGetBalenceRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UserGetBalenceRequest
+
+// optional string user_id = 1;
+void UserGetBalenceRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& UserGetBalenceRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetBalenceRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetBalenceRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetBalenceRequest.user_id)
+}
+void UserGetBalenceRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetBalenceRequest.user_id)
+}
+void UserGetBalenceRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetBalenceRequest.user_id)
+}
+::std::string* UserGetBalenceRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetBalenceRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* UserGetBalenceRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:personal.UserGetBalenceRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetBalenceRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetBalenceRequest.user_id)
+}
+
+// optional .personal.BALENCETYPE balence_type = 2;
+void UserGetBalenceRequest::clear_balence_type() {
+  balence_type_ = 0;
+}
+::personal::BALENCETYPE UserGetBalenceRequest::balence_type() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetBalenceRequest.balence_type)
+  return static_cast< ::personal::BALENCETYPE >(balence_type_);
+}
+void UserGetBalenceRequest::set_balence_type(::personal::BALENCETYPE value) {
+  
+  balence_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetBalenceRequest.balence_type)
+}
+
+inline const UserGetBalenceRequest* UserGetBalenceRequest::internal_default_instance() {
+  return &UserGetBalenceRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserGetBalenceResponse::kBalenceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserGetBalenceResponse::UserGetBalenceResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.UserGetBalenceResponse)
+}
+
+void UserGetBalenceResponse::InitAsDefaultInstance() {
+}
+
+UserGetBalenceResponse::UserGetBalenceResponse(const UserGetBalenceResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.UserGetBalenceResponse)
+}
+
+void UserGetBalenceResponse::SharedCtor() {
+  balence_ = 0;
+  _cached_size_ = 0;
+}
+
+UserGetBalenceResponse::~UserGetBalenceResponse() {
+  // @@protoc_insertion_point(destructor:personal.UserGetBalenceResponse)
+  SharedDtor();
+}
+
+void UserGetBalenceResponse::SharedDtor() {
+}
+
+void UserGetBalenceResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UserGetBalenceResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UserGetBalenceResponse_descriptor_;
+}
+
+const UserGetBalenceResponse& UserGetBalenceResponse::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<UserGetBalenceResponse> UserGetBalenceResponse_default_instance_;
+
+UserGetBalenceResponse* UserGetBalenceResponse::New(::google::protobuf::Arena* arena) const {
+  UserGetBalenceResponse* n = new UserGetBalenceResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UserGetBalenceResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.UserGetBalenceResponse)
+  balence_ = 0;
+}
+
+bool UserGetBalenceResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.UserGetBalenceResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional double balence = 1;
+      case 1: {
+        if (tag == 9) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &balence_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.UserGetBalenceResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.UserGetBalenceResponse)
+  return false;
+#undef DO_
+}
+
+void UserGetBalenceResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.UserGetBalenceResponse)
+  // optional double balence = 1;
+  if (this->balence() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->balence(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.UserGetBalenceResponse)
+}
+
+::google::protobuf::uint8* UserGetBalenceResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.UserGetBalenceResponse)
+  // optional double balence = 1;
+  if (this->balence() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->balence(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.UserGetBalenceResponse)
+  return target;
+}
+
+size_t UserGetBalenceResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.UserGetBalenceResponse)
+  size_t total_size = 0;
+
+  // optional double balence = 1;
+  if (this->balence() != 0) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UserGetBalenceResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.UserGetBalenceResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UserGetBalenceResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserGetBalenceResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.UserGetBalenceResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.UserGetBalenceResponse)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void UserGetBalenceResponse::MergeFrom(const UserGetBalenceResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.UserGetBalenceResponse)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void UserGetBalenceResponse::UnsafeMergeFrom(const UserGetBalenceResponse& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.balence() != 0) {
+    set_balence(from.balence());
+  }
+}
+
+void UserGetBalenceResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.UserGetBalenceResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserGetBalenceResponse::CopyFrom(const UserGetBalenceResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.UserGetBalenceResponse)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool UserGetBalenceResponse::IsInitialized() const {
+
+  return true;
+}
+
+void UserGetBalenceResponse::Swap(UserGetBalenceResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserGetBalenceResponse::InternalSwap(UserGetBalenceResponse* other) {
+  std::swap(balence_, other->balence_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UserGetBalenceResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UserGetBalenceResponse_descriptor_;
+  metadata.reflection = UserGetBalenceResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UserGetBalenceResponse
+
+// optional double balence = 1;
+void UserGetBalenceResponse::clear_balence() {
+  balence_ = 0;
+}
+double UserGetBalenceResponse::balence() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetBalenceResponse.balence)
+  return balence_;
+}
+void UserGetBalenceResponse::set_balence(double value) {
+  
+  balence_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetBalenceResponse.balence)
+}
+
+inline const UserGetBalenceResponse* UserGetBalenceResponse::internal_default_instance() {
+  return &UserGetBalenceResponse_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserGetTradeListRequest::kUserIdFieldNumber;
+const int UserGetTradeListRequest::kBalenceTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserGetTradeListRequest::UserGetTradeListRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.UserGetTradeListRequest)
+}
+
+void UserGetTradeListRequest::InitAsDefaultInstance() {
+}
+
+UserGetTradeListRequest::UserGetTradeListRequest(const UserGetTradeListRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.UserGetTradeListRequest)
+}
+
+void UserGetTradeListRequest::SharedCtor() {
+  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  balence_type_ = 0;
+  _cached_size_ = 0;
+}
+
+UserGetTradeListRequest::~UserGetTradeListRequest() {
+  // @@protoc_insertion_point(destructor:personal.UserGetTradeListRequest)
+  SharedDtor();
+}
+
+void UserGetTradeListRequest::SharedDtor() {
+  user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void UserGetTradeListRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UserGetTradeListRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UserGetTradeListRequest_descriptor_;
+}
+
+const UserGetTradeListRequest& UserGetTradeListRequest::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<UserGetTradeListRequest> UserGetTradeListRequest_default_instance_;
+
+UserGetTradeListRequest* UserGetTradeListRequest::New(::google::protobuf::Arena* arena) const {
+  UserGetTradeListRequest* n = new UserGetTradeListRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UserGetTradeListRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.UserGetTradeListRequest)
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  balence_type_ = 0;
+}
+
+bool UserGetTradeListRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.UserGetTradeListRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string user_id = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_id().data(), this->user_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.UserGetTradeListRequest.user_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_balence_type;
+        break;
+      }
+
+      // optional .personal.BALENCETYPE balence_type = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_balence_type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_balence_type(static_cast< ::personal::BALENCETYPE >(value));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.UserGetTradeListRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.UserGetTradeListRequest)
+  return false;
+#undef DO_
+}
+
+void UserGetTradeListRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.UserGetTradeListRequest)
+  // optional string user_id = 1;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListRequest.user_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->user_id(), output);
+  }
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  if (this->balence_type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->balence_type(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.UserGetTradeListRequest)
+}
+
+::google::protobuf::uint8* UserGetTradeListRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.UserGetTradeListRequest)
+  // optional string user_id = 1;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListRequest.user_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->user_id(), target);
+  }
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  if (this->balence_type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->balence_type(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.UserGetTradeListRequest)
+  return target;
+}
+
+size_t UserGetTradeListRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.UserGetTradeListRequest)
+  size_t total_size = 0;
+
+  // optional string user_id = 1;
+  if (this->user_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_id());
+  }
+
+  // optional .personal.BALENCETYPE balence_type = 2;
+  if (this->balence_type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->balence_type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UserGetTradeListRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.UserGetTradeListRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UserGetTradeListRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserGetTradeListRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.UserGetTradeListRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.UserGetTradeListRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void UserGetTradeListRequest::MergeFrom(const UserGetTradeListRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.UserGetTradeListRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void UserGetTradeListRequest::UnsafeMergeFrom(const UserGetTradeListRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.user_id().size() > 0) {
+
+    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+  }
+  if (from.balence_type() != 0) {
+    set_balence_type(from.balence_type());
+  }
+}
+
+void UserGetTradeListRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.UserGetTradeListRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserGetTradeListRequest::CopyFrom(const UserGetTradeListRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.UserGetTradeListRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool UserGetTradeListRequest::IsInitialized() const {
+
+  return true;
+}
+
+void UserGetTradeListRequest::Swap(UserGetTradeListRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserGetTradeListRequest::InternalSwap(UserGetTradeListRequest* other) {
+  user_id_.Swap(&other->user_id_);
+  std::swap(balence_type_, other->balence_type_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UserGetTradeListRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UserGetTradeListRequest_descriptor_;
+  metadata.reflection = UserGetTradeListRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UserGetTradeListRequest
+
+// optional string user_id = 1;
+void UserGetTradeListRequest::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& UserGetTradeListRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListRequest.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListRequest::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListRequest.user_id)
+}
+void UserGetTradeListRequest::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListRequest.user_id)
+}
+void UserGetTradeListRequest::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListRequest.user_id)
+}
+::std::string* UserGetTradeListRequest::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListRequest.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* UserGetTradeListRequest::release_user_id() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListRequest.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListRequest.user_id)
+}
+
+// optional .personal.BALENCETYPE balence_type = 2;
+void UserGetTradeListRequest::clear_balence_type() {
+  balence_type_ = 0;
+}
+::personal::BALENCETYPE UserGetTradeListRequest::balence_type() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListRequest.balence_type)
+  return static_cast< ::personal::BALENCETYPE >(balence_type_);
+}
+void UserGetTradeListRequest::set_balence_type(::personal::BALENCETYPE value) {
+  
+  balence_type_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListRequest.balence_type)
+}
+
+inline const UserGetTradeListRequest* UserGetTradeListRequest::internal_default_instance() {
+  return &UserGetTradeListRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserGetTradeListResponse_TradeTransaction::kTradeIdFieldNumber;
+const int UserGetTradeListResponse_TradeTransaction::kCreateTimeFieldNumber;
+const int UserGetTradeListResponse_TradeTransaction::kTurnoverFieldNumber;
+const int UserGetTradeListResponse_TradeTransaction::kProductTitleFieldNumber;
+const int UserGetTradeListResponse_TradeTransaction::kStatusFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserGetTradeListResponse_TradeTransaction::UserGetTradeListResponse_TradeTransaction()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.UserGetTradeListResponse.TradeTransaction)
+}
+
+void UserGetTradeListResponse_TradeTransaction::InitAsDefaultInstance() {
+}
+
+UserGetTradeListResponse_TradeTransaction::UserGetTradeListResponse_TradeTransaction(const UserGetTradeListResponse_TradeTransaction& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.UserGetTradeListResponse.TradeTransaction)
+}
+
+void UserGetTradeListResponse_TradeTransaction::SharedCtor() {
+  trade_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  create_time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  turnover_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  status_ = 0;
+  _cached_size_ = 0;
+}
+
+UserGetTradeListResponse_TradeTransaction::~UserGetTradeListResponse_TradeTransaction() {
+  // @@protoc_insertion_point(destructor:personal.UserGetTradeListResponse.TradeTransaction)
+  SharedDtor();
+}
+
+void UserGetTradeListResponse_TradeTransaction::SharedDtor() {
+  trade_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  create_time_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  turnover_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void UserGetTradeListResponse_TradeTransaction::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UserGetTradeListResponse_TradeTransaction::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UserGetTradeListResponse_TradeTransaction_descriptor_;
+}
+
+const UserGetTradeListResponse_TradeTransaction& UserGetTradeListResponse_TradeTransaction::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<UserGetTradeListResponse_TradeTransaction> UserGetTradeListResponse_TradeTransaction_default_instance_;
+
+UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse_TradeTransaction::New(::google::protobuf::Arena* arena) const {
+  UserGetTradeListResponse_TradeTransaction* n = new UserGetTradeListResponse_TradeTransaction;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UserGetTradeListResponse_TradeTransaction::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.UserGetTradeListResponse.TradeTransaction)
+  trade_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  create_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  turnover_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  status_ = 0;
+}
+
+bool UserGetTradeListResponse_TradeTransaction::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.UserGetTradeListResponse.TradeTransaction)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string trade_id = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_trade_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->trade_id().data(), this->trade_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.UserGetTradeListResponse.TradeTransaction.trade_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_create_time;
+        break;
+      }
+
+      // optional string create_time = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_create_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_create_time()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->create_time().data(), this->create_time().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.UserGetTradeListResponse.TradeTransaction.create_time"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_turnover;
+        break;
+      }
+
+      // optional string turnover = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_turnover:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_turnover()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->turnover().data(), this->turnover().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.UserGetTradeListResponse.TradeTransaction.turnover"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_product_title;
+        break;
+      }
+
+      // optional string product_title = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_product_title:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_product_title()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->product_title().data(), this->product_title().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.UserGetTradeListResponse.TradeTransaction.product_title"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_status;
+        break;
+      }
+
+      // optional int32 status = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_status:
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &status_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.UserGetTradeListResponse.TradeTransaction)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.UserGetTradeListResponse.TradeTransaction)
+  return false;
+#undef DO_
+}
+
+void UserGetTradeListResponse_TradeTransaction::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.UserGetTradeListResponse.TradeTransaction)
+  // optional string trade_id = 1;
+  if (this->trade_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->trade_id().data(), this->trade_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.trade_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->trade_id(), output);
+  }
+
+  // optional string create_time = 2;
+  if (this->create_time().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->create_time().data(), this->create_time().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.create_time");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->create_time(), output);
+  }
+
+  // optional string turnover = 3;
+  if (this->turnover().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->turnover().data(), this->turnover().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.turnover");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->turnover(), output);
+  }
+
+  // optional string product_title = 4;
+  if (this->product_title().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->product_title().data(), this->product_title().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.product_title");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->product_title(), output);
+  }
+
+  // optional int32 status = 5;
+  if (this->status() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->status(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.UserGetTradeListResponse.TradeTransaction)
+}
+
+::google::protobuf::uint8* UserGetTradeListResponse_TradeTransaction::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.UserGetTradeListResponse.TradeTransaction)
+  // optional string trade_id = 1;
+  if (this->trade_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->trade_id().data(), this->trade_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.trade_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->trade_id(), target);
+  }
+
+  // optional string create_time = 2;
+  if (this->create_time().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->create_time().data(), this->create_time().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.create_time");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->create_time(), target);
+  }
+
+  // optional string turnover = 3;
+  if (this->turnover().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->turnover().data(), this->turnover().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.turnover");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->turnover(), target);
+  }
+
+  // optional string product_title = 4;
+  if (this->product_title().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->product_title().data(), this->product_title().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.UserGetTradeListResponse.TradeTransaction.product_title");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->product_title(), target);
+  }
+
+  // optional int32 status = 5;
+  if (this->status() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->status(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.UserGetTradeListResponse.TradeTransaction)
+  return target;
+}
+
+size_t UserGetTradeListResponse_TradeTransaction::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.UserGetTradeListResponse.TradeTransaction)
+  size_t total_size = 0;
+
+  // optional string trade_id = 1;
+  if (this->trade_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->trade_id());
+  }
+
+  // optional string create_time = 2;
+  if (this->create_time().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->create_time());
+  }
+
+  // optional string turnover = 3;
+  if (this->turnover().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->turnover());
+  }
+
+  // optional string product_title = 4;
+  if (this->product_title().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->product_title());
+  }
+
+  // optional int32 status = 5;
+  if (this->status() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UserGetTradeListResponse_TradeTransaction::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.UserGetTradeListResponse.TradeTransaction)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UserGetTradeListResponse_TradeTransaction* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserGetTradeListResponse_TradeTransaction>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.UserGetTradeListResponse.TradeTransaction)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.UserGetTradeListResponse.TradeTransaction)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void UserGetTradeListResponse_TradeTransaction::MergeFrom(const UserGetTradeListResponse_TradeTransaction& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.UserGetTradeListResponse.TradeTransaction)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void UserGetTradeListResponse_TradeTransaction::UnsafeMergeFrom(const UserGetTradeListResponse_TradeTransaction& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.trade_id().size() > 0) {
+
+    trade_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.trade_id_);
+  }
+  if (from.create_time().size() > 0) {
+
+    create_time_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.create_time_);
+  }
+  if (from.turnover().size() > 0) {
+
+    turnover_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.turnover_);
+  }
+  if (from.product_title().size() > 0) {
+
+    product_title_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_title_);
+  }
+  if (from.status() != 0) {
+    set_status(from.status());
+  }
+}
+
+void UserGetTradeListResponse_TradeTransaction::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.UserGetTradeListResponse.TradeTransaction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserGetTradeListResponse_TradeTransaction::CopyFrom(const UserGetTradeListResponse_TradeTransaction& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.UserGetTradeListResponse.TradeTransaction)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool UserGetTradeListResponse_TradeTransaction::IsInitialized() const {
+
+  return true;
+}
+
+void UserGetTradeListResponse_TradeTransaction::Swap(UserGetTradeListResponse_TradeTransaction* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserGetTradeListResponse_TradeTransaction::InternalSwap(UserGetTradeListResponse_TradeTransaction* other) {
+  trade_id_.Swap(&other->trade_id_);
+  create_time_.Swap(&other->create_time_);
+  turnover_.Swap(&other->turnover_);
+  product_title_.Swap(&other->product_title_);
+  std::swap(status_, other->status_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UserGetTradeListResponse_TradeTransaction::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UserGetTradeListResponse_TradeTransaction_descriptor_;
+  metadata.reflection = UserGetTradeListResponse_TradeTransaction_reflection_;
+  return metadata;
+}
+
+
+// -------------------------------------------------------------------
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserGetTradeListResponse::kTradeTransactionFieldNumber;
+const int UserGetTradeListResponse::kErrorFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserGetTradeListResponse::UserGetTradeListResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.UserGetTradeListResponse)
+}
+
+void UserGetTradeListResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
+}
+
+UserGetTradeListResponse::UserGetTradeListResponse(const UserGetTradeListResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.UserGetTradeListResponse)
+}
+
+void UserGetTradeListResponse::SharedCtor() {
+  error_ = NULL;
+  _cached_size_ = 0;
+}
+
+UserGetTradeListResponse::~UserGetTradeListResponse() {
+  // @@protoc_insertion_point(destructor:personal.UserGetTradeListResponse)
+  SharedDtor();
+}
+
+void UserGetTradeListResponse::SharedDtor() {
+  if (this != &UserGetTradeListResponse_default_instance_.get()) {
+    delete error_;
+  }
+}
+
+void UserGetTradeListResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UserGetTradeListResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UserGetTradeListResponse_descriptor_;
+}
+
+const UserGetTradeListResponse& UserGetTradeListResponse::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<UserGetTradeListResponse> UserGetTradeListResponse_default_instance_;
+
+UserGetTradeListResponse* UserGetTradeListResponse::New(::google::protobuf::Arena* arena) const {
+  UserGetTradeListResponse* n = new UserGetTradeListResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UserGetTradeListResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.UserGetTradeListResponse)
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+  trade_transaction_.Clear();
+}
+
+bool UserGetTradeListResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.UserGetTradeListResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_trade_transaction:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_trade_transaction()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(10)) goto parse_loop_trade_transaction;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.UserGetTradeListResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.UserGetTradeListResponse)
+  return false;
+#undef DO_
+}
+
+void UserGetTradeListResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.UserGetTradeListResponse)
+  // repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+  for (unsigned int i = 0, n = this->trade_transaction_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->trade_transaction(i), output);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.UserGetTradeListResponse)
+}
+
+::google::protobuf::uint8* UserGetTradeListResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.UserGetTradeListResponse)
+  // repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+  for (unsigned int i = 0, n = this->trade_transaction_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->trade_transaction(i), false, target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.UserGetTradeListResponse)
+  return target;
+}
+
+size_t UserGetTradeListResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.UserGetTradeListResponse)
+  size_t total_size = 0;
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+
+  // repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+  {
+    unsigned int count = this->trade_transaction_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->trade_transaction(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UserGetTradeListResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.UserGetTradeListResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UserGetTradeListResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserGetTradeListResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.UserGetTradeListResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.UserGetTradeListResponse)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void UserGetTradeListResponse::MergeFrom(const UserGetTradeListResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.UserGetTradeListResponse)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void UserGetTradeListResponse::UnsafeMergeFrom(const UserGetTradeListResponse& from) {
+  GOOGLE_DCHECK(&from != this);
+  trade_transaction_.MergeFrom(from.trade_transaction_);
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
+}
+
+void UserGetTradeListResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.UserGetTradeListResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserGetTradeListResponse::CopyFrom(const UserGetTradeListResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.UserGetTradeListResponse)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool UserGetTradeListResponse::IsInitialized() const {
+
+  return true;
+}
+
+void UserGetTradeListResponse::Swap(UserGetTradeListResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserGetTradeListResponse::InternalSwap(UserGetTradeListResponse* other) {
+  trade_transaction_.UnsafeArenaSwap(&other->trade_transaction_);
+  std::swap(error_, other->error_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UserGetTradeListResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UserGetTradeListResponse_descriptor_;
+  metadata.reflection = UserGetTradeListResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UserGetTradeListResponse_TradeTransaction
+
+// optional string trade_id = 1;
+void UserGetTradeListResponse_TradeTransaction::clear_trade_id() {
+  trade_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& UserGetTradeListResponse_TradeTransaction::trade_id() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+  return trade_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_trade_id(const ::std::string& value) {
+  
+  trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+void UserGetTradeListResponse_TradeTransaction::set_trade_id(const char* value) {
+  
+  trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+void UserGetTradeListResponse_TradeTransaction::set_trade_id(const char* value, size_t size) {
+  
+  trade_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::mutable_trade_id() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+  return trade_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::release_trade_id() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+  
+  return trade_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_allocated_trade_id(::std::string* trade_id) {
+  if (trade_id != NULL) {
+    
+  } else {
+    
+  }
+  trade_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), trade_id);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.trade_id)
+}
+
+// optional string create_time = 2;
+void UserGetTradeListResponse_TradeTransaction::clear_create_time() {
+  create_time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& UserGetTradeListResponse_TradeTransaction::create_time() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+  return create_time_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_create_time(const ::std::string& value) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+void UserGetTradeListResponse_TradeTransaction::set_create_time(const char* value) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+void UserGetTradeListResponse_TradeTransaction::set_create_time(const char* value, size_t size) {
+  
+  create_time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::mutable_create_time() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+  return create_time_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::release_create_time() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+  
+  return create_time_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_allocated_create_time(::std::string* create_time) {
+  if (create_time != NULL) {
+    
+  } else {
+    
+  }
+  create_time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), create_time);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.create_time)
+}
+
+// optional string turnover = 3;
+void UserGetTradeListResponse_TradeTransaction::clear_turnover() {
+  turnover_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& UserGetTradeListResponse_TradeTransaction::turnover() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+  return turnover_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_turnover(const ::std::string& value) {
+  
+  turnover_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+void UserGetTradeListResponse_TradeTransaction::set_turnover(const char* value) {
+  
+  turnover_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+void UserGetTradeListResponse_TradeTransaction::set_turnover(const char* value, size_t size) {
+  
+  turnover_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::mutable_turnover() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+  return turnover_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::release_turnover() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+  
+  return turnover_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_allocated_turnover(::std::string* turnover) {
+  if (turnover != NULL) {
+    
+  } else {
+    
+  }
+  turnover_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), turnover);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.turnover)
+}
+
+// optional string product_title = 4;
+void UserGetTradeListResponse_TradeTransaction::clear_product_title() {
+  product_title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& UserGetTradeListResponse_TradeTransaction::product_title() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+  return product_title_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_product_title(const ::std::string& value) {
+  
+  product_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+void UserGetTradeListResponse_TradeTransaction::set_product_title(const char* value) {
+  
+  product_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+void UserGetTradeListResponse_TradeTransaction::set_product_title(const char* value, size_t size) {
+  
+  product_title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::mutable_product_title() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+  return product_title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* UserGetTradeListResponse_TradeTransaction::release_product_title() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+  
+  return product_title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void UserGetTradeListResponse_TradeTransaction::set_allocated_product_title(::std::string* product_title) {
+  if (product_title != NULL) {
+    
+  } else {
+    
+  }
+  product_title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_title);
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.TradeTransaction.product_title)
+}
+
+// optional int32 status = 5;
+void UserGetTradeListResponse_TradeTransaction::clear_status() {
+  status_ = 0;
+}
+::google::protobuf::int32 UserGetTradeListResponse_TradeTransaction::status() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.TradeTransaction.status)
+  return status_;
+}
+void UserGetTradeListResponse_TradeTransaction::set_status(::google::protobuf::int32 value) {
+  
+  status_ = value;
+  // @@protoc_insertion_point(field_set:personal.UserGetTradeListResponse.TradeTransaction.status)
+}
+
+inline const UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse_TradeTransaction::internal_default_instance() {
+  return &UserGetTradeListResponse_TradeTransaction_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// UserGetTradeListResponse
+
+// repeated .personal.UserGetTradeListResponse.TradeTransaction trade_transaction = 1;
+int UserGetTradeListResponse::trade_transaction_size() const {
+  return trade_transaction_.size();
+}
+void UserGetTradeListResponse::clear_trade_transaction() {
+  trade_transaction_.Clear();
+}
+const ::personal::UserGetTradeListResponse_TradeTransaction& UserGetTradeListResponse::trade_transaction(int index) const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_.Get(index);
+}
+::personal::UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse::mutable_trade_transaction(int index) {
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_.Mutable(index);
+}
+::personal::UserGetTradeListResponse_TradeTransaction* UserGetTradeListResponse::add_trade_transaction() {
+  // @@protoc_insertion_point(field_add:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction >*
+UserGetTradeListResponse::mutable_trade_transaction() {
+  // @@protoc_insertion_point(field_mutable_list:personal.UserGetTradeListResponse.trade_transaction)
+  return &trade_transaction_;
+}
+const ::google::protobuf::RepeatedPtrField< ::personal::UserGetTradeListResponse_TradeTransaction >&
+UserGetTradeListResponse::trade_transaction() const {
+  // @@protoc_insertion_point(field_list:personal.UserGetTradeListResponse.trade_transaction)
+  return trade_transaction_;
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool UserGetTradeListResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void UserGetTradeListResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& UserGetTradeListResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.UserGetTradeListResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* UserGetTradeListResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.UserGetTradeListResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* UserGetTradeListResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.UserGetTradeListResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void UserGetTradeListResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.UserGetTradeListResponse.error)
+}
+
+inline const UserGetTradeListResponse* UserGetTradeListResponse::internal_default_instance() {
+  return &UserGetTradeListResponse_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
@@ -10045,6 +12140,295 @@ void InfoAvatar::set_allocated_avatar_url(::std::string* avatar_url) {
 
 inline const InfoAvatar* InfoAvatar::internal_default_instance() {
   return &InfoAvatar_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int InfoPassword::kPasswordFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+InfoPassword::InfoPassword()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.InfoPassword)
+}
+
+void InfoPassword::InitAsDefaultInstance() {
+}
+
+InfoPassword::InfoPassword(const InfoPassword& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.InfoPassword)
+}
+
+void InfoPassword::SharedCtor() {
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+InfoPassword::~InfoPassword() {
+  // @@protoc_insertion_point(destructor:personal.InfoPassword)
+  SharedDtor();
+}
+
+void InfoPassword::SharedDtor() {
+  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void InfoPassword::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* InfoPassword::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return InfoPassword_descriptor_;
+}
+
+const InfoPassword& InfoPassword::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<InfoPassword> InfoPassword_default_instance_;
+
+InfoPassword* InfoPassword::New(::google::protobuf::Arena* arena) const {
+  InfoPassword* n = new InfoPassword;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void InfoPassword::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.InfoPassword)
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool InfoPassword::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.InfoPassword)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string password = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->password().data(), this->password().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.InfoPassword.password"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.InfoPassword)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.InfoPassword)
+  return false;
+#undef DO_
+}
+
+void InfoPassword::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.InfoPassword)
+  // optional string password = 1;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.InfoPassword.password");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->password(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.InfoPassword)
+}
+
+::google::protobuf::uint8* InfoPassword::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.InfoPassword)
+  // optional string password = 1;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.InfoPassword.password");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->password(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.InfoPassword)
+  return target;
+}
+
+size_t InfoPassword::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.InfoPassword)
+  size_t total_size = 0;
+
+  // optional string password = 1;
+  if (this->password().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->password());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void InfoPassword::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.InfoPassword)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const InfoPassword* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const InfoPassword>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.InfoPassword)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.InfoPassword)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void InfoPassword::MergeFrom(const InfoPassword& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.InfoPassword)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void InfoPassword::UnsafeMergeFrom(const InfoPassword& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.password().size() > 0) {
+
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+}
+
+void InfoPassword::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.InfoPassword)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void InfoPassword::CopyFrom(const InfoPassword& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.InfoPassword)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool InfoPassword::IsInitialized() const {
+
+  return true;
+}
+
+void InfoPassword::Swap(InfoPassword* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void InfoPassword::InternalSwap(InfoPassword* other) {
+  password_.Swap(&other->password_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata InfoPassword::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = InfoPassword_descriptor_;
+  metadata.reflection = InfoPassword_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// InfoPassword
+
+// optional string password = 1;
+void InfoPassword::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& InfoPassword::password() const {
+  // @@protoc_insertion_point(field_get:personal.InfoPassword.password)
+  return password_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void InfoPassword::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.InfoPassword.password)
+}
+void InfoPassword::set_password(const char* value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.InfoPassword.password)
+}
+void InfoPassword::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.InfoPassword.password)
+}
+::std::string* InfoPassword::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.InfoPassword.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* InfoPassword::release_password() {
+  // @@protoc_insertion_point(field_release:personal.InfoPassword.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void InfoPassword::set_allocated_password(::std::string* password) {
+  if (password != NULL) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:personal.InfoPassword.password)
+}
+
+inline const InfoPassword* InfoPassword::internal_default_instance() {
+  return &InfoPassword_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

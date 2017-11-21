@@ -42,7 +42,7 @@ public class ReadActivity extends SimpleActivity {
         }
         if (fileName.endsWith("pdf")) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                pdfView.initAdapter(this, outputString);
+                pdfView.initAdapter(this, inputString);
             }
 
         }

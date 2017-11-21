@@ -33,6 +33,7 @@
 #include "personalCenter/msg_upload_avatar.pb.h"
 #include "personalCenter/msg_interest_word.pb.h"
 #include "personalCenter/msg_personInfo.pb.h"
+#include "personalCenter/msg_captcha.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace personal {

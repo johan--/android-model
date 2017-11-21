@@ -17,9 +17,11 @@ import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.personal.InfoGraduatedSchool;
 import com.wanfang.personal.InfoIdNumber;
 import com.wanfang.personal.InfoNickName;
 import com.wanfang.personal.InfoRealName;
+import com.wanfang.personal.InfoWorkUnit;
 import com.wanfang.personal.MyInfoUpdateRequest;
 import com.wanfang.personal.MyInfoUpdateResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
@@ -49,6 +51,8 @@ public class EditNackNameActivity extends SimpleActivity {
     final static int TYPE_NICKNAME = 110;
     final static int TYPE_NAME = 1;
     final static int TYPE_ID_CARD = 2;
+    final static int TYPE_UNIT = 101;
+    final static int TYPE_SCHOOL = 102;
 
     private int type;
     private MaterialDialog mdialog;
@@ -76,6 +80,12 @@ public class EditNackNameActivity extends SimpleActivity {
         } else if (type == TYPE_NAME) {
             tvPageTitle.setText("姓名");
             etName.setHint("请输入姓名");
+        } else if (type == TYPE_UNIT) {
+            tvPageTitle.setText("当前单位/院校");
+            etName.setHint("请输入当前单位或当前院校");
+        } else if (type == TYPE_SCHOOL) {
+            tvPageTitle.setText("毕业院校");
+            etName.setHint("请输入毕业院校");
         } else if (type == TYPE_ID_CARD) {
             tvPageTitle.setText("身份证号");
             etName.setHint("请输入身份证号");
@@ -143,6 +153,10 @@ public class EditNackNameActivity extends SimpleActivity {
                             ToastUtil.show("姓名不能是空格");
                         } else if (type == TYPE_ID_CARD) {
                             ToastUtil.show("身份证号不能是空格");
+                        } else if (type == TYPE_UNIT) {
+                            ToastUtil.show("当前单位/院校不能是空格");
+                        } else if (type == TYPE_SCHOOL) {
+                            ToastUtil.show("毕业院校不能是空格");
                         }
 
                     }
@@ -153,6 +167,10 @@ public class EditNackNameActivity extends SimpleActivity {
                         ToastUtil.show("姓名不能为空");
                     } else if (type == TYPE_ID_CARD) {
                         ToastUtil.show("身份证号不能为空");
+                    } else if (type == TYPE_UNIT) {
+                        ToastUtil.show("当前单位/院校不能为空");
+                    } else if (type == TYPE_SCHOOL) {
+                        ToastUtil.show("毕业院校不能为空");
                     }
                 }
 
@@ -175,6 +193,12 @@ public class EditNackNameActivity extends SimpleActivity {
                 } else if (type == TYPE_ID_CARD) {
                     InfoIdNumber infoIdNumber = InfoIdNumber.newBuilder().setIdNumber(trim).build();
                     any = Any.pack(infoIdNumber);
+                }else if (type == TYPE_UNIT) {
+                    InfoWorkUnit infoWorkUnit= InfoWorkUnit.newBuilder().setWorkUnit(trim).build();
+                    any = Any.pack(infoWorkUnit);
+                } else if (type == TYPE_SCHOOL) {
+                    InfoGraduatedSchool infoGraduatedSchool = InfoGraduatedSchool.newBuilder().setGraduatedSchool(trim).build();
+                    any = Any.pack(infoGraduatedSchool);
                 }
                 MyInfoUpdateRequest myInfoUpdateRequest = MyInfoUpdateRequest.newBuilder().setUserId(preferencesHelper.getUserId()).addField(any).build();
                 MyInfoUpdateResponse response = stub.updateUserInfo(myInfoUpdateRequest);

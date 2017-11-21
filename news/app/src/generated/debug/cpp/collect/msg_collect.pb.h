@@ -40,6 +40,8 @@ void protobuf_InitDefaults_collect_2fmsg_5fcollect_2eproto();
 void protobuf_AssignDesc_collect_2fmsg_5fcollect_2eproto();
 void protobuf_ShutdownFile_collect_2fmsg_5fcollect_2eproto();
 
+class CancelCollectReqeust;
+class CancelCollectResponse;
 class CheckISCollectedRequest;
 class CheckISCollectedResponse;
 class CollectBody;
@@ -286,6 +288,195 @@ class CheckISCollectedResponse : public ::google::protobuf::Message /* @@protoc_
   void InitAsDefaultInstance();
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<CheckISCollectedResponse> CheckISCollectedResponse_default_instance_;
+
+// -------------------------------------------------------------------
+
+class CancelCollectReqeust : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:collect.CancelCollectReqeust) */ {
+ public:
+  CancelCollectReqeust();
+  virtual ~CancelCollectReqeust();
+
+  CancelCollectReqeust(const CancelCollectReqeust& from);
+
+  inline CancelCollectReqeust& operator=(const CancelCollectReqeust& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CancelCollectReqeust& default_instance();
+
+  static const CancelCollectReqeust* internal_default_instance();
+
+  void Swap(CancelCollectReqeust* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CancelCollectReqeust* New() const { return New(NULL); }
+
+  CancelCollectReqeust* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CancelCollectReqeust& from);
+  void MergeFrom(const CancelCollectReqeust& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CancelCollectReqeust* other);
+  void UnsafeMergeFrom(const CancelCollectReqeust& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string user_id = 1;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // optional string doc_id = 2;
+  void clear_doc_id();
+  static const int kDocIdFieldNumber = 2;
+  const ::std::string& doc_id() const;
+  void set_doc_id(const ::std::string& value);
+  void set_doc_id(const char* value);
+  void set_doc_id(const char* value, size_t size);
+  ::std::string* mutable_doc_id();
+  ::std::string* release_doc_id();
+  void set_allocated_doc_id(::std::string* doc_id);
+
+  // @@protoc_insertion_point(class_scope:collect.CancelCollectReqeust)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::google::protobuf::internal::ArenaStringPtr doc_id_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_collect_2fmsg_5fcollect_2eproto_impl();
+  friend void  protobuf_AddDesc_collect_2fmsg_5fcollect_2eproto_impl();
+  friend void protobuf_AssignDesc_collect_2fmsg_5fcollect_2eproto();
+  friend void protobuf_ShutdownFile_collect_2fmsg_5fcollect_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CancelCollectReqeust> CancelCollectReqeust_default_instance_;
+
+// -------------------------------------------------------------------
+
+class CancelCollectResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:collect.CancelCollectResponse) */ {
+ public:
+  CancelCollectResponse();
+  virtual ~CancelCollectResponse();
+
+  CancelCollectResponse(const CancelCollectResponse& from);
+
+  inline CancelCollectResponse& operator=(const CancelCollectResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CancelCollectResponse& default_instance();
+
+  static const CancelCollectResponse* internal_default_instance();
+
+  void Swap(CancelCollectResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CancelCollectResponse* New() const { return New(NULL); }
+
+  CancelCollectResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CancelCollectResponse& from);
+  void MergeFrom(const CancelCollectResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CancelCollectResponse* other);
+  void UnsafeMergeFrom(const CancelCollectResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool cancel_success = 1;
+  void clear_cancel_success();
+  static const int kCancelSuccessFieldNumber = 1;
+  bool cancel_success() const;
+  void set_cancel_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:collect.CancelCollectResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool cancel_success_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_collect_2fmsg_5fcollect_2eproto_impl();
+  friend void  protobuf_AddDesc_collect_2fmsg_5fcollect_2eproto_impl();
+  friend void protobuf_AssignDesc_collect_2fmsg_5fcollect_2eproto();
+  friend void protobuf_ShutdownFile_collect_2fmsg_5fcollect_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CancelCollectResponse> CancelCollectResponse_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -1965,6 +2156,122 @@ inline void CheckISCollectedResponse::set_allocated_error(::grpcCommon::GrpcErro
 
 inline const CheckISCollectedResponse* CheckISCollectedResponse::internal_default_instance() {
   return &CheckISCollectedResponse_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// CancelCollectReqeust
+
+// optional string user_id = 1;
+inline void CancelCollectReqeust::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CancelCollectReqeust::user_id() const {
+  // @@protoc_insertion_point(field_get:collect.CancelCollectReqeust.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CancelCollectReqeust::set_user_id(const ::std::string& value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:collect.CancelCollectReqeust.user_id)
+}
+inline void CancelCollectReqeust::set_user_id(const char* value) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:collect.CancelCollectReqeust.user_id)
+}
+inline void CancelCollectReqeust::set_user_id(const char* value, size_t size) {
+  
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:collect.CancelCollectReqeust.user_id)
+}
+inline ::std::string* CancelCollectReqeust::mutable_user_id() {
+  
+  // @@protoc_insertion_point(field_mutable:collect.CancelCollectReqeust.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CancelCollectReqeust::release_user_id() {
+  // @@protoc_insertion_point(field_release:collect.CancelCollectReqeust.user_id)
+  
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CancelCollectReqeust::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:collect.CancelCollectReqeust.user_id)
+}
+
+// optional string doc_id = 2;
+inline void CancelCollectReqeust::clear_doc_id() {
+  doc_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CancelCollectReqeust::doc_id() const {
+  // @@protoc_insertion_point(field_get:collect.CancelCollectReqeust.doc_id)
+  return doc_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CancelCollectReqeust::set_doc_id(const ::std::string& value) {
+  
+  doc_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:collect.CancelCollectReqeust.doc_id)
+}
+inline void CancelCollectReqeust::set_doc_id(const char* value) {
+  
+  doc_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:collect.CancelCollectReqeust.doc_id)
+}
+inline void CancelCollectReqeust::set_doc_id(const char* value, size_t size) {
+  
+  doc_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:collect.CancelCollectReqeust.doc_id)
+}
+inline ::std::string* CancelCollectReqeust::mutable_doc_id() {
+  
+  // @@protoc_insertion_point(field_mutable:collect.CancelCollectReqeust.doc_id)
+  return doc_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CancelCollectReqeust::release_doc_id() {
+  // @@protoc_insertion_point(field_release:collect.CancelCollectReqeust.doc_id)
+  
+  return doc_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CancelCollectReqeust::set_allocated_doc_id(::std::string* doc_id) {
+  if (doc_id != NULL) {
+    
+  } else {
+    
+  }
+  doc_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), doc_id);
+  // @@protoc_insertion_point(field_set_allocated:collect.CancelCollectReqeust.doc_id)
+}
+
+inline const CancelCollectReqeust* CancelCollectReqeust::internal_default_instance() {
+  return &CancelCollectReqeust_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// CancelCollectResponse
+
+// optional bool cancel_success = 1;
+inline void CancelCollectResponse::clear_cancel_success() {
+  cancel_success_ = false;
+}
+inline bool CancelCollectResponse::cancel_success() const {
+  // @@protoc_insertion_point(field_get:collect.CancelCollectResponse.cancel_success)
+  return cancel_success_;
+}
+inline void CancelCollectResponse::set_cancel_success(bool value) {
+  
+  cancel_success_ = value;
+  // @@protoc_insertion_point(field_set:collect.CancelCollectResponse.cancel_success)
+}
+
+inline const CancelCollectResponse* CancelCollectResponse::internal_default_instance() {
+  return &CancelCollectResponse_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -4162,6 +4469,10 @@ inline const MyCollectSimilarPaperMessage* MyCollectSimilarPaperMessage::interna
   return &MyCollectSimilarPaperMessage_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

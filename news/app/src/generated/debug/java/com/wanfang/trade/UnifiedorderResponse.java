@@ -130,6 +130,10 @@ public  final class UnifiedorderResponse extends
   public static final int APP_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object appId_;
   /**
+   * <pre>
+   *微信开放平台审核通过的应用APPID
+   * </pre>
+   *
    * <code>optional string app_id = 1;</code>
    */
   public java.lang.String getAppId() {
@@ -145,6 +149,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   *微信开放平台审核通过的应用APPID
+   * </pre>
+   *
    * <code>optional string app_id = 1;</code>
    */
   public com.google.protobuf.ByteString
@@ -164,6 +172,10 @@ public  final class UnifiedorderResponse extends
   public static final int PARTNER_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object partnerId_;
   /**
+   * <pre>
+   *微信支付分配的商户号
+   * </pre>
+   *
    * <code>optional string partner_id = 2;</code>
    */
   public java.lang.String getPartnerId() {
@@ -179,6 +191,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   *微信支付分配的商户号
+   * </pre>
+   *
    * <code>optional string partner_id = 2;</code>
    */
   public com.google.protobuf.ByteString
@@ -198,6 +214,10 @@ public  final class UnifiedorderResponse extends
   public static final int PREPAY_ID_FIELD_NUMBER = 3;
   private volatile java.lang.Object prepayId_;
   /**
+   * <pre>
+   *微信返回的支付交易会话ID
+   * </pre>
+   *
    * <code>optional string prepay_id = 3;</code>
    */
   public java.lang.String getPrepayId() {
@@ -213,6 +233,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   *微信返回的支付交易会话ID
+   * </pre>
+   *
    * <code>optional string prepay_id = 3;</code>
    */
   public com.google.protobuf.ByteString
@@ -232,6 +256,10 @@ public  final class UnifiedorderResponse extends
   public static final int PACKAGE_FIELD_NUMBER = 4;
   private volatile java.lang.Object package_;
   /**
+   * <pre>
+   * 暂填写固定值Sign=WXPay
+   * </pre>
+   *
    * <code>optional string package = 4;</code>
    */
   public java.lang.String getPackage() {
@@ -247,6 +275,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   * 暂填写固定值Sign=WXPay
+   * </pre>
+   *
    * <code>optional string package = 4;</code>
    */
   public com.google.protobuf.ByteString
@@ -266,6 +298,10 @@ public  final class UnifiedorderResponse extends
   public static final int NONCESTR_FIELD_NUMBER = 5;
   private volatile java.lang.Object noncestr_;
   /**
+   * <pre>
+   *随机字符串，不长于32位。推荐随机数生成算法
+   * </pre>
+   *
    * <code>optional string noncestr = 5;</code>
    */
   public java.lang.String getNoncestr() {
@@ -281,6 +317,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   *随机字符串，不长于32位。推荐随机数生成算法
+   * </pre>
+   *
    * <code>optional string noncestr = 5;</code>
    */
   public com.google.protobuf.ByteString
@@ -300,6 +340,10 @@ public  final class UnifiedorderResponse extends
   public static final int TIME_STAMP_FIELD_NUMBER = 6;
   private volatile java.lang.Object timeStamp_;
   /**
+   * <pre>
+   * 时间戳
+   * </pre>
+   *
    * <code>optional string time_stamp = 6;</code>
    */
   public java.lang.String getTimeStamp() {
@@ -315,6 +359,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   * 时间戳
+   * </pre>
+   *
    * <code>optional string time_stamp = 6;</code>
    */
   public com.google.protobuf.ByteString
@@ -334,6 +382,10 @@ public  final class UnifiedorderResponse extends
   public static final int SIGN_FIELD_NUMBER = 7;
   private volatile java.lang.Object sign_;
   /**
+   * <pre>
+   *sign
+   * </pre>
+   *
    * <code>optional string sign = 7;</code>
    */
   public java.lang.String getSign() {
@@ -349,6 +401,10 @@ public  final class UnifiedorderResponse extends
     }
   }
   /**
+   * <pre>
+   *sign
+   * </pre>
+   *
    * <code>optional string sign = 7;</code>
    */
   public com.google.protobuf.ByteString
@@ -789,6 +845,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object appId_ = "";
     /**
+     * <pre>
+     *微信开放平台审核通过的应用APPID
+     * </pre>
+     *
      * <code>optional string app_id = 1;</code>
      */
     public java.lang.String getAppId() {
@@ -804,6 +864,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *微信开放平台审核通过的应用APPID
+     * </pre>
+     *
      * <code>optional string app_id = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -820,6 +884,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *微信开放平台审核通过的应用APPID
+     * </pre>
+     *
      * <code>optional string app_id = 1;</code>
      */
     public Builder setAppId(
@@ -833,6 +901,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *微信开放平台审核通过的应用APPID
+     * </pre>
+     *
      * <code>optional string app_id = 1;</code>
      */
     public Builder clearAppId() {
@@ -842,6 +914,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *微信开放平台审核通过的应用APPID
+     * </pre>
+     *
      * <code>optional string app_id = 1;</code>
      */
     public Builder setAppIdBytes(
@@ -858,6 +934,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object partnerId_ = "";
     /**
+     * <pre>
+     *微信支付分配的商户号
+     * </pre>
+     *
      * <code>optional string partner_id = 2;</code>
      */
     public java.lang.String getPartnerId() {
@@ -873,6 +953,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *微信支付分配的商户号
+     * </pre>
+     *
      * <code>optional string partner_id = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -889,6 +973,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *微信支付分配的商户号
+     * </pre>
+     *
      * <code>optional string partner_id = 2;</code>
      */
     public Builder setPartnerId(
@@ -902,6 +990,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *微信支付分配的商户号
+     * </pre>
+     *
      * <code>optional string partner_id = 2;</code>
      */
     public Builder clearPartnerId() {
@@ -911,6 +1003,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *微信支付分配的商户号
+     * </pre>
+     *
      * <code>optional string partner_id = 2;</code>
      */
     public Builder setPartnerIdBytes(
@@ -927,6 +1023,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object prepayId_ = "";
     /**
+     * <pre>
+     *微信返回的支付交易会话ID
+     * </pre>
+     *
      * <code>optional string prepay_id = 3;</code>
      */
     public java.lang.String getPrepayId() {
@@ -942,6 +1042,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *微信返回的支付交易会话ID
+     * </pre>
+     *
      * <code>optional string prepay_id = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -958,6 +1062,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *微信返回的支付交易会话ID
+     * </pre>
+     *
      * <code>optional string prepay_id = 3;</code>
      */
     public Builder setPrepayId(
@@ -971,6 +1079,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *微信返回的支付交易会话ID
+     * </pre>
+     *
      * <code>optional string prepay_id = 3;</code>
      */
     public Builder clearPrepayId() {
@@ -980,6 +1092,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *微信返回的支付交易会话ID
+     * </pre>
+     *
      * <code>optional string prepay_id = 3;</code>
      */
     public Builder setPrepayIdBytes(
@@ -996,6 +1112,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object package_ = "";
     /**
+     * <pre>
+     * 暂填写固定值Sign=WXPay
+     * </pre>
+     *
      * <code>optional string package = 4;</code>
      */
     public java.lang.String getPackage() {
@@ -1011,6 +1131,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     * 暂填写固定值Sign=WXPay
+     * </pre>
+     *
      * <code>optional string package = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -1027,6 +1151,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     * 暂填写固定值Sign=WXPay
+     * </pre>
+     *
      * <code>optional string package = 4;</code>
      */
     public Builder setPackage(
@@ -1040,6 +1168,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     * 暂填写固定值Sign=WXPay
+     * </pre>
+     *
      * <code>optional string package = 4;</code>
      */
     public Builder clearPackage() {
@@ -1049,6 +1181,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     * 暂填写固定值Sign=WXPay
+     * </pre>
+     *
      * <code>optional string package = 4;</code>
      */
     public Builder setPackageBytes(
@@ -1065,6 +1201,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object noncestr_ = "";
     /**
+     * <pre>
+     *随机字符串，不长于32位。推荐随机数生成算法
+     * </pre>
+     *
      * <code>optional string noncestr = 5;</code>
      */
     public java.lang.String getNoncestr() {
@@ -1080,6 +1220,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *随机字符串，不长于32位。推荐随机数生成算法
+     * </pre>
+     *
      * <code>optional string noncestr = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -1096,6 +1240,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *随机字符串，不长于32位。推荐随机数生成算法
+     * </pre>
+     *
      * <code>optional string noncestr = 5;</code>
      */
     public Builder setNoncestr(
@@ -1109,6 +1257,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *随机字符串，不长于32位。推荐随机数生成算法
+     * </pre>
+     *
      * <code>optional string noncestr = 5;</code>
      */
     public Builder clearNoncestr() {
@@ -1118,6 +1270,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *随机字符串，不长于32位。推荐随机数生成算法
+     * </pre>
+     *
      * <code>optional string noncestr = 5;</code>
      */
     public Builder setNoncestrBytes(
@@ -1134,6 +1290,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object timeStamp_ = "";
     /**
+     * <pre>
+     * 时间戳
+     * </pre>
+     *
      * <code>optional string time_stamp = 6;</code>
      */
     public java.lang.String getTimeStamp() {
@@ -1149,6 +1309,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     * 时间戳
+     * </pre>
+     *
      * <code>optional string time_stamp = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -1165,6 +1329,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     * 时间戳
+     * </pre>
+     *
      * <code>optional string time_stamp = 6;</code>
      */
     public Builder setTimeStamp(
@@ -1178,6 +1346,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     * 时间戳
+     * </pre>
+     *
      * <code>optional string time_stamp = 6;</code>
      */
     public Builder clearTimeStamp() {
@@ -1187,6 +1359,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     * 时间戳
+     * </pre>
+     *
      * <code>optional string time_stamp = 6;</code>
      */
     public Builder setTimeStampBytes(
@@ -1203,6 +1379,10 @@ public  final class UnifiedorderResponse extends
 
     private java.lang.Object sign_ = "";
     /**
+     * <pre>
+     *sign
+     * </pre>
+     *
      * <code>optional string sign = 7;</code>
      */
     public java.lang.String getSign() {
@@ -1218,6 +1398,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *sign
+     * </pre>
+     *
      * <code>optional string sign = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -1234,6 +1418,10 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
+     * <pre>
+     *sign
+     * </pre>
+     *
      * <code>optional string sign = 7;</code>
      */
     public Builder setSign(
@@ -1247,6 +1435,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *sign
+     * </pre>
+     *
      * <code>optional string sign = 7;</code>
      */
     public Builder clearSign() {
@@ -1256,6 +1448,10 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
+     * <pre>
+     *sign
+     * </pre>
+     *
      * <code>optional string sign = 7;</code>
      */
     public Builder setSignBytes(
