@@ -123,7 +123,7 @@ public class PayOrderActivity extends SimpleActivity {
             }
         }
 
-        ;
+
     };
     private MaterialDialog materialDialog;
     private String author;
@@ -272,7 +272,6 @@ public class PayOrderActivity extends SimpleActivity {
                 if (type.equals("Alipay")) {
                     payByZhiFuBao(unifiedorderResponse);
                 } else if (type.equals("Weixin")) {
-                    Log.d(TAG, "onSuccess: unifiedorderResponse.getPrepayId()" + unifiedorderResponse.getPrepayId());
                     PayUtil.payWeiXin(PayOrderActivity.this, unifiedorderResponse.getPrepayId());
 //                    payByWeichat(unifiedorderResponse);
                 } else {
@@ -326,7 +325,6 @@ public class PayOrderActivity extends SimpleActivity {
         req.timeStamp = unifiedorderResponse.getTimeStamp();
         req.packageValue = unifiedorderResponse.getPackage();
         req.sign = unifiedorderResponse.getSign();
-        req.extData = "app data"; // optional
         Toast.makeText(PayOrderActivity.this, "正常调起支付", Toast.LENGTH_SHORT).show();
         // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
         api.sendReq(req);

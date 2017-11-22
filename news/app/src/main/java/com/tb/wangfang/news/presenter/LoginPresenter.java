@@ -181,6 +181,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
             @Override
             public void onSuccess(LoginResponse userRolesListResponse) {
+                Log.e(TAG, "onSuccess: userRolesListResponse" + userRolesListResponse);
                 if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
 
                     mView.showDialoge(id, type + "");

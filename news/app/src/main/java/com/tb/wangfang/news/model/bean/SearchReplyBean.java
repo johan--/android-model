@@ -200,7 +200,7 @@ public class SearchReplyBean {
             this.industry_name = industry_name;
         }
 
-        private  String industry_name;
+        private String industry_name;
 
         public String getResult_type() {
             return result_type;

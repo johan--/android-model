@@ -274,55 +274,61 @@ public class DocDetailActivity extends SimpleActivity {
 
 
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle().toString());
-            tvContent.setText(bean.getData().get(0).getSummary().toString());
-            tvProgressNum.setText(bean.getData().get(0).getYear_num().toString());
-            tvProvince.setText(bean.getData().get(0).getProvince().toString());
-            tvChinaClassNum.setText(bean.getData().get(0).getClass_code().toString());
-            tvFruitClass.setText(bean.getData().get(0).getResult_type().toString());
-            tvPublishData.setText(bean.getData().get(0).getRe_pubdate().toString());
+            tvTitle.setText(SystemUtil.getObjectString(bean.getData().get(0).getTitle()));
+            tvContent.setText(SystemUtil.getObjectString(bean.getData().get(0).getSummary()));
+            tvProgressNum.setText(SystemUtil.getObjectString(bean.getData().get(0).getYear_num()));
+            tvProvince.setText(SystemUtil.getObjectString(bean.getData().get(0).getProvince()));
+            tvChinaClassNum.setText(SystemUtil.getObjectString(bean.getData().get(0).getClass_code()));
+            tvFruitClass.setText(SystemUtil.getObjectString(bean.getData().get(0).getResult_type()));
+            tvPublishData.setText(SystemUtil.getObjectString(bean.getData().get(0).getRe_pubdate()));
             tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
-            setText(bean.getData().get(0).getIdentify_dept().toString(), tvIdentityDapart, llIdentityDapart);
-            setText(bean.getData().get(0).getIdentify_date().toString(), tvIdentityData, llIdentityData);
-            setText(bean.getData().get(0).getDeclare_date().toString(), tvRecommendApartment, llRecommendApartment);
-            setText(bean.getData().get(0).getReg_code().toString(), tvRegisterNum, llRegisterNum);
-            setText(bean.getData().get(0).getWork_date().toString(), tvTimeStartEnd, llTimeStartEnd);
-            setText(bean.getData().get(0).getIssue_unit().toString(), tvCompleteCompany, llCompleteCompany);
-            setText(bean.getData().get(0).getContact_per().toString(), tvCompleter, llCompleter);
-            setText(bean.getData().get(0).getP_app_id().toString(), tvPatentAppNum, llPatentAppNum);
-            setText(bean.getData().get(0).getPatent_cnt().toString(), tvPatentAppSum, llPatentAppSum);
-            setText(bean.getData().get(0).getGrant_id().toString(), tvPatentPeimitNum, llPatentPeimitNum);
-            setText(bean.getData().get(0).getIndustry_name().toString(), tvIndustryClass, llIndustryClass);
-            setText(bean.getData().get(0).getIndustry_code().toString(), tvIndustryClassNum, llIndustryClassNum);
-            setText(bean.getData().get(0).getTransfer_cont().toString(), tvTransferCont, llTransferCont);
-            setText(bean.getData().get(0).getTransfer_mode().toString(), tvTransferMode, llItransferMode);
-            setText(bean.getData().get(0).getTransfer_cond().toString(), tvTransferCond, llTransferCond);
-            setText(bean.getData().get(0).getTransfer_range().toString(), tvTransferRange, llTransferRange);
-            setText(bean.getData().get(0).getTransfer_fee().toString(), tvItransferFee, llTransferFee);
-            setText(bean.getData().get(0).getTransfer_desc().toString(), tvTransferDesc, llTransferDesc);
-            setText(bean.getData().get(0).getInvest_desc().toString(), tvInvestDesc, llInvestDesc);
-            setText(bean.getData().get(0).getInvest_amt().toString(), tvInvestAmt, llInvestAmt);
-            setText(bean.getData().get(0).getInvest_note().toString(), tvInvestNote, llInvestNote);
-            setText(bean.getData().get(0).getSpread_desc().toString(), tvPromotionInfo, llPromotionInfo);
-            setText(bean.getData().get(0).getSpread_range().toString(), tvPromotionRange, llPromotionRange);
-            setText(bean.getData().get(0).getSpread_track().toString(), tvPromotionTail, llPromotionTail);
-            setText(bean.getData().get(0).getSpread_mode().toString(), tvPromotionMethod, llPromotionMethod);
-            setText(bean.getData().get(0).getSpread().toString(), tvPromotionForecast, llPromotionForecast);
-            setText(bean.getData().get(0).getContact_unit().toString(), tvUnitName, llUnitName);
-            setText(bean.getData().get(0).getAddress().toString(), tvUnitSity, llUnitSity);
-            setText(bean.getData().get(0).getContact_per().toString(), tvPersonName, llPersonName);
-            setText(bean.getData().get(0).getPostcode().toString(), tvSityCode, llSityCode);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getIdentify_dept()), tvIdentityDapart, llIdentityDapart);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getIdentify_date()), tvIdentityData, llIdentityData);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getDeclare_date()), tvRecommendApartment, llRecommendApartment);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getReg_code()), tvRegisterNum, llRegisterNum);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getWork_date()), tvTimeStartEnd, llTimeStartEnd);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getIssue_unit()), tvCompleteCompany, llCompleteCompany);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getContact_per()), tvCompleter, llCompleter);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getP_app_id()), tvPatentAppNum, llPatentAppNum);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getPatent_cnt()), tvPatentAppSum, llPatentAppSum);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getGrant_id()), tvPatentPeimitNum, llPatentPeimitNum);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getIndustry_name()), tvIndustryClass, llIndustryClass);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getIndustry_code()), tvIndustryClassNum, llIndustryClassNum);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getTransfer_cont()), tvTransferCont, llTransferCont);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getTransfer_mode()), tvTransferMode, llItransferMode);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getTransfer_cond()), tvTransferCond, llTransferCond);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getTransfer_range()), tvTransferRange, llTransferRange);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getTransfer_fee()), tvItransferFee, llTransferFee);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getTransfer_desc()), tvTransferDesc, llTransferDesc);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getInvest_desc()), tvInvestDesc, llInvestDesc);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getInvest_amt()), tvInvestAmt, llInvestAmt);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getInvest_note()), tvInvestNote, llInvestNote);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getSpread_desc()), tvPromotionInfo, llPromotionInfo);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getSpread_range()), tvPromotionRange, llPromotionRange);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getSpread_track()), tvPromotionTail, llPromotionTail);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getSpread_mode()), tvPromotionMethod, llPromotionMethod);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getSpread()), tvPromotionForecast, llPromotionForecast);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getContact_unit()), tvUnitName, llUnitName);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getAddress()), tvUnitSity, llUnitSity);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getContact_per()), tvPersonName, llPersonName);
+            setText(SystemUtil.getObjectString(bean.getData().get(0).getPostcode()), tvSityCode, llSityCode);
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
             language = "";
-            resourceId = bean.getData().get(0).getResult_id().toString();
-            resourceDb = bean.getData().get(0).getSource_db().toString();
-            resourceTitle = bean.getData().get(0).getTitle().toString();
-            classType = bean.getData().get(0).getClass_type().toString();
+            resourceId = SystemUtil.getObjectString(bean.getData().get(0).getResult_id());
+            resourceDb = SystemUtil.getObjectString(bean.getData().get(0).getSource_db());
+            resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
+            if (bean.getData().get(0).getCommon_year() != null) {
+                if (bean.getData().get(0).getCommon_year() != null) {
+                    if (bean.getData().get(0).getCommon_year() != null) {
+                        time = bean.getData().get(0).getCommon_year() + "年";
+                    }
+                }
+            }
 
-            time = bean.getData().get(0).getCommon_year() + "年";
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIndustry_name().toString());
             journal = bean.getData().get(0).getTitle().toString();
 
@@ -352,7 +358,7 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvPublishTime = (TextView) viewStub.findViewById(R.id.tv_publish_time);
         TextView tvContentClass = (TextView) viewStub.findViewById(R.id.tv_content_class);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvTitle.setText(SystemUtil.getObjectString(bean.getData().get(0).getTitle().toString()));
             tvContent.setText(bean.getData().get(0).getSummary().toString());
             tvBankName.setText(bean.getData().get(0).getDb_name().toString());
             tvArticleId.setText(bean.getData().get(0).getPublish_num().toString());
@@ -365,14 +371,16 @@ public class DocDetailActivity extends SimpleActivity {
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
             language = "";
-            resourceId = bean.getData().get(0).getLegis_id().toString();
-            resourceDb = bean.getData().get(0).getSource_db().toString();
-            resourceTitle = bean.getData().get(0).getTitle().toString();
-            classType = bean.getData().get(0).getClass_type().toString();
+            resourceId = SystemUtil.getObjectString(bean.getData().get(0).getLegis_id());
+            resourceDb = SystemUtil.getObjectString(bean.getData().get(0).getSource_db());
+            resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
 
-            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssue_dept().toString());
-            journal = bean.getData().get(0).getTitle().toString();
-            time = bean.getData().get(0).getCommon_year() + "年";
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssue_dept());
+            journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            if (bean.getData().get(0).getCommon_year() != null) {
+                time = bean.getData().get(0).getCommon_year() + "年";
+            }
         }
 
     }
@@ -396,32 +404,34 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvCountryNum = (TextView) viewStub.findViewById(R.id.tv_country_num);
         TextView tvCountryName = (TextView) viewStub.findViewById(R.id.tv_country_name);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle().toString());
-            tvContent.setText(bean.getData().get(0).getSummary().toString());
-            tvStandardId.setText(bean.getData().get(0).getStand_num().toString());
-            tvunit.setText(bean.getData().get(0).getIssue_unit().toString());
-            tvTime.setText(bean.getData().get(0).getIssue_date().toString());
-            tvStatue.setText(bean.getData().get(0).getStand_status().toString());
-            tvMandatory.setText(bean.getData().get(0).getIs_force().toString());
-            tvDoTime.setText(bean.getData().get(0).getForce_date().toString());
-            tvPageNum.setText(bean.getData().get(0).getPage_cnt().toString());
-            tvChinaClassNum.setText(bean.getData().get(0).getCcs_code_c().toString());
-            tvStandardClassNum.setText(bean.getData().get(0).getCcs_code().toString());
-            tvCountryNum.setText(bean.getData().get(0).getIcs_code().toString());
-            tvCountryName.setText(bean.getData().get(0).getCountry().toString());
+            tvTitle.setText(SystemUtil.getObjectString(bean.getData().get(0).getTitle()));
+            tvContent.setText(SystemUtil.getObjectString(bean.getData().get(0).getSummary()));
+            tvStandardId.setText(SystemUtil.getObjectString(bean.getData().get(0).getStand_num()));
+            tvunit.setText(SystemUtil.getObjectString(bean.getData().get(0).getIssue_unit()));
+            tvTime.setText(SystemUtil.getObjectString(bean.getData().get(0).getIssue_date()));
+            tvStatue.setText(SystemUtil.getObjectString(bean.getData().get(0).getStand_status()));
+            tvMandatory.setText(SystemUtil.getObjectString(bean.getData().get(0).getIs_force()));
+            tvDoTime.setText(SystemUtil.getObjectString(bean.getData().get(0).getForce_date()));
+            tvPageNum.setText(SystemUtil.getObjectString(bean.getData().get(0).getPage_cnt()));
+            tvChinaClassNum.setText(SystemUtil.getObjectString(bean.getData().get(0).getCcs_code_c()));
+            tvStandardClassNum.setText(SystemUtil.getObjectString(bean.getData().get(0).getCcs_code()));
+            tvCountryNum.setText(SystemUtil.getObjectString(bean.getData().get(0).getIcs_code()));
+            tvCountryName.setText(SystemUtil.getObjectString(bean.getData().get(0).getCountry()));
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getNote_num());
-            language = bean.getData().get(0).getLanguage().toString();
-            resourceId = bean.getData().get(0).getStand_id().toString();
-            resourceDb = bean.getData().get(0).getSource_db().toString();
-            resourceTitle = bean.getData().get(0).getTitle().toString();
-            classType = bean.getData().get(0).getClass_type().toString();
+            language = SystemUtil.getObjectString(bean.getData().get(0).getLanguage());
+            resourceId = SystemUtil.getObjectString(bean.getData().get(0).getStand_id());
+            resourceDb = SystemUtil.getObjectString(bean.getData().get(0).getSource_db());
+            resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
 
-            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getDraft_unit().toString());
-            journal = bean.getData().get(0).getTitle().toString();
-            time = bean.getData().get(0).getCommon_year() + "年";
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getDraft_unit());
+            journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            if (bean.getData().get(0).getCommon_year() != null) {
+                time = bean.getData().get(0).getCommon_year() + "年";
+            }
         }
 
 
@@ -440,27 +450,29 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvMeetingSity = (TextView) viewStub.findViewById(R.id.tv_meeting_sity);
         TextView tvPublishMeeting = (TextView) viewStub.findViewById(R.id.tv_publish_meeting);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            tvTitle.setText(SystemUtil.getObjectString(bean.getData().get(0).getTitle()));
             tvContent.setText(bean.getData().get(0).getSummary().toString());
-            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
-            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString()));
-            tvMeetingName.setText(bean.getData().get(0).getConf_name02().toString());
-            tvMeetingSity.setText(bean.getData().get(0).getConf_place().toString());
-            tvPublishMeeting.setText(bean.getData().get(0).getHostunit_name02().toString());
+            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords()));
+            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name()));
+            tvMeetingName.setText(SystemUtil.getObjectString(bean.getData().get(0).getConf_name02()));
+            tvPublishMeeting.setText(SystemUtil.getObjectString(bean.getData().get(0).getHostunit_name02()));
 
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
-            language = bean.getData().get(0).getLanguage().toString();
-            resourceId = bean.getData().get(0).getArticle_id().toString();
-            resourceDb = bean.getData().get(0).getSource_db().toString();
-            resourceTitle = bean.getData().get(0).getTitle().toString();
-            classType = bean.getData().get(0).getClass_type().toString();
+            language = SystemUtil.getObjectString(bean.getData().get(0).getLanguage());
+            resourceId = SystemUtil.getObjectString(bean.getData().get(0).getArticle_id());
+            resourceDb = SystemUtil.getObjectString(bean.getData().get(0).getSource_db());
+            resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
 
-            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
-            journal = bean.getData().get(0).getTitle().toString();
-            time = bean.getData().get(0).getConf_year() + "年";
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name());
+            journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            if (bean.getData().get(0).getConf_year() != null) {
+                time = bean.getData().get(0).getConf_year() + "年";
+            }
+
 
         }
 
@@ -494,14 +506,14 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvApplicant = (TextView) viewStub.findViewById(R.id.tv_applicant);
         TextView tvApplicantSite = (TextView) viewStub.findViewById(R.id.tv_applicant_site);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle().toString());
-            tvContent.setText(bean.getData().get(0).getSummary().toString());
-            tvPatentClass.setText(bean.getData().get(0).getPatent_type().toString());
-            tvPatentId.setText(bean.getData().get(0).getPatent_id().toString());
-            tvDate.setText(bean.getData().get(0).getApp_date02().toString());
-            tvPublishdate.setText(bean.getData().get(0).getPub_date().toString());
-            tvApplicant.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getInv_name().toString()));
-            tvApplicantSite.setText(bean.getData().get(0).getApp_address().toString());
+            tvTitle.setText(SystemUtil.getObjectString(bean.getData().get(0).getTitle()));
+            tvContent.setText(SystemUtil.getObjectString(bean.getData().get(0).getSummary()));
+            tvPatentClass.setText(SystemUtil.getObjectString(bean.getData().get(0).getPatent_type()));
+            tvPatentId.setText(SystemUtil.getObjectString(bean.getData().get(0).getPatent_id()));
+            tvDate.setText(SystemUtil.getObjectString(bean.getData().get(0).getApp_date02()));
+            tvPublishdate.setText(SystemUtil.getObjectString(bean.getData().get(0).getPub_date()));
+            tvApplicant.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getInv_name()));
+            tvApplicantSite.setText(SystemUtil.getObjectString(bean.getData().get(0).getApp_address()));
 
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
@@ -514,9 +526,14 @@ public class DocDetailActivity extends SimpleActivity {
             resourceTitle = bean.getData().get(0).getTitle().toString();
             classType = bean.getData().get(0).getClass_type().toString();
 
-            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAgy_org_name().toString());
-            journal = bean.getData().get(0).getTitle().toString();
-            time = bean.getData().get(0).getCommon_year() + "年";
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAgy_org_name());
+
+            journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+            if (bean.getData().get(0).getCommon_year() != null) {
+
+                time = bean.getData().get(0).getCommon_year() + "年";
+
+            }
 //            ArrayList<RelatePapers> list = new ArrayList<>();
 //            for (int j = 0; j < bean.getRelatePapers().size(); j++) {
 //                RelatePapers papers = new RelatePapers();
@@ -546,11 +563,11 @@ public class DocDetailActivity extends SimpleActivity {
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
             tvTitle.setText(bean.getData().get(0).getTitle().toString());
             tvContent.setText(bean.getData().get(0).getSummary().toString());
-            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
-            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString()));
-            tvUnitPublish.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getUnit_name02().toString()));
-            tvTeacherName.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getTutor_name().toString()));
-            tvTime.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPublish_year().toString()));
+            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords()));
+            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name()));
+            tvUnitPublish.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getUnit_name02()));
+            tvTeacherName.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getTutor_name()));
+            tvTime.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPublish_year()));
 
             tvSummaryNum.setText("文摘阅读 : " + bean.getData().get(0).getAbstract_reading_num());
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
@@ -558,13 +575,16 @@ public class DocDetailActivity extends SimpleActivity {
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
             language = bean.getData().get(0).getLanguage().toString() + "";
             resourceId = bean.getData().get(0).getArticle_id() + "";
-            resourceDb = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getSource_db().toString());
+            resourceDb = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getSource_db());
             resourceTitle = bean.getData().get(0).getTitle() + "";
             classType = bean.getData().get(0).getClass_type() + "";
 
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
             journal = bean.getData().get(0).getTitle().toString();
-            time = bean.getData().get(0).getPublish_year() + "年";
+            if (bean.getData().get(0).getPublish_year() != null) {
+                time = bean.getData().get(0).getPublish_year() + "年";
+            }
+
         }
         if (bean != null && bean.getRelatePapers() != null) {
             ArrayList<RelatePapers> list = new ArrayList<>();
@@ -600,13 +620,13 @@ public class DocDetailActivity extends SimpleActivity {
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
             tvTitle.setText(bean.getData().get(0).getTitle().toString());
             tvContent.setText(bean.getData().get(0).getSummary().toString());
-            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString()));
+            tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name()));
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
-            journal = bean.getData().get(0).getPerio_title().toString();
+            journal = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title());
             time = bean.getData().get(0).getCommon_year() + "年" + bean.getData().get(0).getIssue_num() + "期";
-            tvUnit.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_unit().toString()));
-            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords().toString()));
-            tvMagazine.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title02().toString()));
+            tvUnit.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_unit()));
+            tvKeyWord.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getKeywords()));
+            tvMagazine.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title02()));
             tvTime.setText(bean.getData().get(0).getPublish_year() + "," + bean.getData().get(0).getIssue_num());
             language = bean.getData().get(0).getLanguage() + "";
             resourceId = bean.getData().get(0).getArticle_id() + "";

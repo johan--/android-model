@@ -19,17 +19,27 @@ import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.AppUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.grpcCommon.MsgError;
 import com.wanfang.personal.GetPhoneCaptchaRequest;
 import com.wanfang.personal.GetPhoneCaptchaResponse;
+import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 import com.wanfang.personal.RegistRequest;
 import com.wanfang.personal.RegistResponse;
+import com.wanfang.personal.ThirdPartyBindRequest;
+import com.wanfang.personal.ThirdPartyBindResponse;
+import com.wanfang.personal.ThirdPartyLoginRequest;
 import com.xiaomi.mipush.sdk.MiPushClient;
+
+import java.io.File;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.model.UserInfo;
+import cn.jpush.im.api.BasicCallback;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -86,6 +96,8 @@ public class RegisterActivity extends SimpleActivity {
     private String userName;
     private String passWord;
     private String code;
+    private String id;
+    private String type;
 
     @Override
     protected int getLayout() {
@@ -99,6 +111,8 @@ public class RegisterActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
+        id = getIntent().getStringExtra("uid");
+        type = getIntent().getStringExtra("type");
         tvWanfangProtocol.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         tvWanfangProtocol.getPaint().setAntiAlias(true);
         tvToLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -181,8 +195,8 @@ public class RegisterActivity extends SimpleActivity {
                 if (!TextUtils.isEmpty(registResponse.getUserId())) {
                     ToastUtil.show("注册成功");
                     MiPushClient.setUserAccount(RegisterActivity.this, registResponse.getUserId(), null);
-                    RxBus.getDefault().post(new String("bindSuccess"));
-                    finish();
+                    bindAccount(userName, passWord);
+
                 } else {
                     ToastUtil.show(registResponse.getError().getErrorMessage().getErrorReason());
                 }
@@ -194,6 +208,38 @@ public class RegisterActivity extends SimpleActivity {
             public void onError(Throwable e) {
                 Log.d(TAG, "onError: " + e.getMessage());
                 ToastUtil.show("服务器错误");
+            }
+        });
+    }
+
+    private void bindAccount(final String account, final String passWord) {
+
+        Single.create(new SingleOnSubscribe<ThirdPartyBindResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<ThirdPartyBindResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                ThirdPartyBindRequest request = ThirdPartyBindRequest.newBuilder().setUid(id).setUserId(account).setThirdPartyCode(Integer.parseInt(type)).setUserStatus(0).build();
+                ThirdPartyBindResponse response = stub.thirdPartyBind(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ThirdPartyBindResponse>() {
+            @Override
+            public void onSuccess(ThirdPartyBindResponse response) {
+                Log.d(TAG, "onSuccess: " + response.toString());
+                if (response.getBindStatus() == 200) {
+                    login();
+                } else {
+                    ToastUtil.show("绑定失败");
+                }
+
+            }
+
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                ToastUtil.show("服务器异常");
+
             }
         });
     }
@@ -235,6 +281,70 @@ public class RegisterActivity extends SimpleActivity {
             }
         });
 
+    }
+
+    private void login() {
+        Single.create(new SingleOnSubscribe<LoginResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                ThirdPartyLoginRequest request = ThirdPartyLoginRequest.newBuilder().setUid(id).setThirdPartyCode(Integer.parseInt(type)).build();
+                LoginResponse response = stub.thirdPartyLogin(request);
+                e.onSuccess(response);
+
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+            @Override
+            public void onSuccess(LoginResponse userRolesListResponse) {
+                Log.e(TAG, "onSuccess: userRolesListResponse" + userRolesListResponse);
+                if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
+
+                    ToastUtil.show("未绑定成功");
+                } else {
+                    JMessageLogin(userRolesListResponse);
+                    PreferencesHelper.storeLoginInfo(userRolesListResponse);
+                    if (TextUtils.isEmpty(userRolesListResponse.getLoginToken())) {
+                        ToastUtil.show("访问失败");
+                    } else {
+
+                        ToastUtil.show("绑定成功");
+                        RxBus.getDefault().post("bindSuccess");
+                        MiPushClient.setUserAccount(RegisterActivity.this, userRolesListResponse.getUserId(), null);
+                        PreferencesHelper.setLoginState(true);
+                        finish();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("网络出错");
+            }
+        });
+
+    }
+
+    private void JMessageLogin(final LoginResponse response) {
+
+
+        JMessageClient.login(response.getUserId(), "123456", new BasicCallback() {
+            @Override
+            public void gotResult(int responseCode, String responseMessage) {
+                if (responseCode == 0) {
+                    UserInfo myInfo = JMessageClient.getMyInfo();
+                    File avatarFile = myInfo.getAvatarFile();
+                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
+                    if (avatarFile != null) {
+                        PreferencesHelper.setUserAvatar(avatarFile.getAbsolutePath());
+                    } else {
+                        PreferencesHelper.setUserAvatar(null);
+                    }
+
+                } else {
+
+                }
+            }
+        });
     }
 
     @Override

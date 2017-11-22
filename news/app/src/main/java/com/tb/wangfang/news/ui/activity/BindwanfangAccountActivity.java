@@ -16,13 +16,17 @@ import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
-import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
-import com.wanfang.personal.BindExistAccountRequest;
-import com.wanfang.personal.LoginDeviceType;
+import com.wanfang.grpcCommon.MsgError;
 import com.wanfang.personal.LoginResponse;
+import com.wanfang.personal.PasswordVerifyRequest;
+import com.wanfang.personal.PasswordVerifyResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.personal.ThirdPartyBindRequest;
+import com.wanfang.personal.ThirdPartyBindResponse;
+import com.wanfang.personal.ThirdPartyLoginRequest;
 import com.wanfang.personal.ThirdPartyType;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.io.File;
 
@@ -79,13 +83,6 @@ public class BindwanfangAccountActivity extends SimpleActivity {
 
         id = getIntent().getStringExtra("uid");
         type = getIntent().getStringExtra("type");
-        if (type.equals("0")) {
-            thirdPartyType = ThirdPartyType.WECHAT;
-        } else if (type.equals("1")) {
-            thirdPartyType = ThirdPartyType.QQ;
-        } else if (type.equals("3")) {
-            thirdPartyType = ThirdPartyType.SINA;
-        }
     }
 
 
@@ -106,38 +103,38 @@ public class BindwanfangAccountActivity extends SimpleActivity {
                                 .progress(true, 0)
                                 .progressIndeterminateStyle(true)
                                 .show();
-                        bindAccount(account, passWord);
+                        checkAccount(account, passWord);
+
                     } else {
                         ToastUtil.show("请输入密码");
                     }
                 } else {
                     ToastUtil.show("请输入账号");
                 }
-                bindAccount(account, passWord);
+//                bindAccount(account, passWord);
                 break;
         }
     }
 
-    private void bindAccount(final String account, final String passWord) {
-
-        Single.create(new SingleOnSubscribe<LoginResponse>() {
+    private void checkAccount(final String account, final String passWord) {
+        Single.create(new SingleOnSubscribe<PasswordVerifyResponse>() {
             @Override
-            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+            public void subscribe(SingleEmitter<PasswordVerifyResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                BindExistAccountRequest request = BindExistAccountRequest.newBuilder().setUid(id).setThirdPartyType(thirdPartyType).setUserName(account).setPassword(passWord)
-                        .setDeviceId(SystemUtil.getDeviceId(BindwanfangAccountActivity.this)).setDeviceType(LoginDeviceType.ANDROID).build();
-                LoginResponse response = stub.bindExistAccount(request);
+                PasswordVerifyRequest request = PasswordVerifyRequest.newBuilder().setUserId(account).setPassword(passWord).build();
+                PasswordVerifyResponse response = stub.passwordVerify(request);
                 e.onSuccess(response);
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<PasswordVerifyResponse>() {
             @Override
-            public void onSuccess(LoginResponse response) {
+            public void onSuccess(PasswordVerifyResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
-                JMessageLogin(response);
-                preferencesHelper.storeLoginInfo(response);
-                preferencesHelper.setLoginState(true);
-                RxBus.getDefault().post(new String("bindSuccess"));
-                finish();
+                if (response.getIsRight()) {
+                    bindAccount(account, passWord);
+                } else {
+                    ToastUtil.show("账号或密码错误");
+                }
+
             }
 
 
@@ -148,6 +145,83 @@ public class BindwanfangAccountActivity extends SimpleActivity {
 
             }
         });
+
+    }
+
+    private void bindAccount(final String account, final String passWord) {
+
+        Single.create(new SingleOnSubscribe<ThirdPartyBindResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<ThirdPartyBindResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                ThirdPartyBindRequest request = ThirdPartyBindRequest.newBuilder().setUid(id).setUserId(account).setThirdPartyCode(Integer.parseInt(type)).setUserStatus(0).build();
+                ThirdPartyBindResponse response = stub.thirdPartyBind(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ThirdPartyBindResponse>() {
+            @Override
+            public void onSuccess(ThirdPartyBindResponse response) {
+                Log.d(TAG, "onSuccess: " + response.toString());
+                if (response.getBindStatus() == 200) {
+
+                    login();
+
+
+                } else {
+                    ToastUtil.show("绑定失败");
+                }
+
+            }
+
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                ToastUtil.show("服务器异常");
+
+            }
+        });
+    }
+
+    private void login() {
+        Single.create(new SingleOnSubscribe<LoginResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                ThirdPartyLoginRequest request = ThirdPartyLoginRequest.newBuilder().setUid(id).setThirdPartyCode(Integer.parseInt(type)).build();
+                LoginResponse response = stub.thirdPartyLogin(request);
+                e.onSuccess(response);
+
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+            @Override
+            public void onSuccess(LoginResponse userRolesListResponse) {
+                Log.e(TAG, "onSuccess: userRolesListResponse" + userRolesListResponse);
+                if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
+
+                    ToastUtil.show("未绑定成功");
+                } else {
+                    JMessageLogin(userRolesListResponse);
+                    preferencesHelper.storeLoginInfo(userRolesListResponse);
+                    if (TextUtils.isEmpty(userRolesListResponse.getLoginToken())) {
+                        ToastUtil.show("访问失败");
+                    } else {
+
+                        ToastUtil.show("绑定成功");
+                        RxBus.getDefault().post("bindSuccess");
+                        MiPushClient.setUserAccount(BindwanfangAccountActivity.this, userRolesListResponse.getUserId(), null);
+                        preferencesHelper.setLoginState(true);
+                        finish();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("网络出错");
+            }
+        });
+
     }
 
     private void JMessageLogin(final LoginResponse response) {
@@ -175,9 +249,9 @@ public class BindwanfangAccountActivity extends SimpleActivity {
                     } else {
                         preferencesHelper.setUserAvatar(null);
                     }
-                    ToastUtil.show("登录成功");
+
                 } else {
-                    ToastUtil.show("登录失败");
+
                 }
             }
         });

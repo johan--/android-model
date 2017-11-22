@@ -104,6 +104,7 @@ public class PayUtil {
         signParams.add(new MapMessage("timestamp", req.timeStamp));
         req.sign = genAppSign(signParams);
         Log.e("8", signParams.toString());
+        Log.e("9", req.sign.toString());
     }
 
     private static void genPayReq(Map<String, String> resultunifiedorder) {
@@ -137,7 +138,7 @@ public class PayUtil {
         }
         sb2.append("key=");
         sb2.append(API_KEY);
-
+        Log.e(TAG, "genAppSign:sb2 " + sb2);
         String appSign = MD5.getMessageDigest(sb2.toString().getBytes()).toUpperCase();
         Log.e("2", appSign);
         return appSign;
@@ -150,6 +151,7 @@ public class PayUtil {
             Toast.makeText(context, "支付失败，请检查您的微信", Toast.LENGTH_SHORT).show();
         }
     }
+
     private static void sendPayReq(Context context) {
         api.registerApp(APP_ID);
         boolean ifSuccess = api.sendReq(req);

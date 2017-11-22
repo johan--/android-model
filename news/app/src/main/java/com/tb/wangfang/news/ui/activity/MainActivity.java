@@ -31,7 +31,6 @@ import com.tb.wangfang.news.ui.fragment.FirstFragment;
 import com.tb.wangfang.news.ui.fragment.FourthFragment;
 import com.tb.wangfang.news.ui.fragment.SecondFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
-import com.tb.wangfang.news.utils.PayUtil;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -79,7 +78,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
             initHuaweiPush(this);
         }

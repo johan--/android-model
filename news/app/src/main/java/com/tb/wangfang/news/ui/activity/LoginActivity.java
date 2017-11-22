@@ -305,7 +305,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void loginSuccess(LoginResponse response) {
-        mdialog.dismiss();
+        if (mdialog!=null){
+            mdialog.dismiss();
+        }
+
         if (TextUtils.isEmpty(response.getLoginToken())) {
             ToastUtil.show("访问失败");
         } else {
@@ -341,6 +344,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                             startActivity(intent);
                         } else {
                             Intent intent2 = new Intent(LoginActivity.this, RegisterActivity.class);
+                            intent2.putExtra("uid", id);
+                            intent2.putExtra("type", type);
                             startActivity(intent2);
                         }
                     }
@@ -358,11 +363,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         Log.d(TAG, "onComplete: platformname" + platform.getName());
         Log.d(TAG, "onComplete: " + hashMap.toString());
         String id = null;
-        int type = 0;//0表示QQ，1表示微博，2表示微信，4表示Android，5表示iOS，6表示小米
+        int type = 0;// 第三方类型code(0：QQ，1：微博，2：微信)
         if (platform.getName().equals("Wechat")) {
             id = (String) hashMap.get("openid");//授权用户唯一标识
             String unionid = (String) hashMap.get("unionid");// 当且仅当该移动应用已获得该用户的userinfo授权时，才会出现该字段
-            type = 0;
+            type = 2;
         }
         mPresenter.thirdLogin(id, type);
     }

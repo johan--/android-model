@@ -278,7 +278,11 @@ public class SystemUtil {
         return defaultValue;
     }
 
-    public static String getStringFromJsonarray(String json) {
+    public static String getStringFromJsonarray(Object object) {
+        if (object == null) {
+            return "";
+        }
+        String json = object.toString();
         if (!TextUtils.isEmpty(json)) {
             if (json.startsWith("[")) {
                 try {
@@ -363,5 +367,12 @@ public class SystemUtil {
         //使用硬件信息拼凑出来的15位号码
         return new UUID(m_szDevIDShort.hashCode(), serial.hashCode()).toString();
 
+    }
+
+    public static String getObjectString(Object object) {
+        if (object == null) {
+            return "";
+        }
+        return object.toString();
     }
 }

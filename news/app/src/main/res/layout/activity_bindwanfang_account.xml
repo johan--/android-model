@@ -107,6 +107,7 @@
             android:layout_marginRight="96.5dp"
             android:background="@color/divide" />
     </LinearLayout>
+
     <Button
         android:id="@+id/btn_bind"
         android:layout_width="match_parent"
@@ -115,6 +116,6 @@
         android:layout_marginRight="16.5dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_blue_bg"
-        android:text="登录"
+        android:text="绑定"
         android:textColor="@color/white" />
 </LinearLayout>

@@ -27,31 +27,24 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchReplyBean.Data
     @Override
     protected void convert(BaseViewHolder helper, SearchReplyBean.DataBean item) {
         if (item.getClass_type().equals("patent_element")) {
-            helper.setText(R.id.tv_author, item.getPatent_type().toString());
-            if (item.getApplicant_name() != null && item.getApplicant_name().toString().startsWith("[")) {
-
-                helper.setText(R.id.tv_book_name, SystemUtil.getStringFromJsonarray(item.getApplicant_name().toString()));
+            helper.setText(R.id.tv_author, SystemUtil.getObjectString(item.getPatent_type()));
 
 
-            } else if (item.getApplicant_name() != null) {
-                helper.setText(R.id.tv_book_name, item.getApplicant_name().toString());
-            }
+            helper.setText(R.id.tv_book_name, SystemUtil.getStringFromJsonarray(item.getApplicant_name()));
+
+
         } else if (item.getClass_type().equals("perio_artical")) {
-            if (item.getAuthors_name() != null && item.getAuthors_name().toString().startsWith("[")) {
-                helper.setText(R.id.tv_author, SystemUtil.getStringFromJsonarray(item.getAuthors_name().toString()));
-            } else if (item.getAuthors_name() != null) {
-                helper.setText(R.id.tv_author, item.getAuthors_name().toString());
-            }
+
+            helper.setText(R.id.tv_author, SystemUtil.getStringFromJsonarray(item.getAuthors_name().toString()));
+
             if (item.getPerio_title02() != null) {
                 helper.setText(R.id.tv_book_name, "《" + item.getPerio_title02().toString() + "》");
             }
 
         } else if (item.getClass_type().equals("degree_artical")) {
-            if (item.getAuthors_name() != null && item.getAuthors_name().toString().startsWith("[")) {
-                helper.setText(R.id.tv_author, SystemUtil.getStringFromJsonarray(item.getAuthors_name().toString()));
-            } else if (item.getAuthors_name() != null) {
-                helper.setText(R.id.tv_author, item.getAuthors_name().toString());
-            }
+
+            helper.setText(R.id.tv_author, SystemUtil.getStringFromJsonarray(item.getAuthors_name().toString()));
+
             String s1 = "";
             String s2 = "";
             if (item.getUnit_name02() != null) {
@@ -67,11 +60,9 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchReplyBean.Data
 
 
         } else if (item.getClass_type().equals("conf_artical")) {
-            if (item.getAuthors_name() != null && item.getAuthors_name().toString().startsWith("[")) {
-                helper.setText(R.id.tv_author, SystemUtil.getStringFromJsonarray(item.getAuthors_name().toString()));
-            } else if (item.getAuthors_name() != null) {
-                helper.setText(R.id.tv_author, item.getAuthors_name().toString());
-            }
+
+            helper.setText(R.id.tv_author, SystemUtil.getStringFromJsonarray(item.getAuthors_name()));
+
             if (item.getConf_year() != null) {
                 helper.setText(R.id.tv_book_name, item.getConf_year());
             }
