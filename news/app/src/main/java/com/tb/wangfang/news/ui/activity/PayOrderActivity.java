@@ -23,6 +23,7 @@ import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.AuthResult;
 import com.tb.wangfang.news.utils.PayResult;
 import com.tb.wangfang.news.utils.PayUtil;
+import com.tb.wangfang.news.utils.ToastUtil;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -226,6 +227,7 @@ public class PayOrderActivity extends SimpleActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
+                finish();
                 break;
             case R.id.btn_pay:
                 materialDialog = new MaterialDialog.Builder(this)
@@ -269,6 +271,12 @@ public class PayOrderActivity extends SimpleActivity {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
                 Log.d(TAG, "onSuccess: " + unifiedorderResponse);
+                if (unifiedorderResponse.getStatus().equals("1")) {
+                    ToastUtil.show("支付成功");
+                    finish();
+                } else {
+                    ToastUtil.show("支付失败");
+                }
                 if (type.equals("Alipay")) {
                     payByZhiFuBao(unifiedorderResponse);
                 } else if (type.equals("Weixin")) {

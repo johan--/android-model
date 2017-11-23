@@ -27,6 +27,7 @@ public interface MainContract {
         void setNightModeState(boolean b);
 
         void restorePersonnalMappingTable();
+        void  reLogin();
 
     }
 }

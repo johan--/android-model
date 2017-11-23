@@ -12,6 +12,8 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.wanfang.personal.EducationLevelListRequest;
 import com.wanfang.personal.EducationLevelListResponse;
+import com.wanfang.personal.LoginRequest;
+import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 import com.wanfang.personal.SubjectListRequest;
 import com.wanfang.personal.SubjectListResponse;
@@ -167,6 +169,33 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
             });
         }
 
+    }
+
+    @Override
+    public void reLogin() {
+        Single.create(new SingleOnSubscribe<LoginResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                LoginRequest request = LoginRequest.newBuilder().setUserName(preferencesHelper.getUserId()).setPassword(preferencesHelper.getPassword()).build();
+                LoginResponse response = stub.login(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+            @Override
+            public void onSuccess(LoginResponse response) {
+                Log.d(TAG, "onSuccess: " + response.toString());
+
+            }
+
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+
+
+            }
+        });
     }
 
 }

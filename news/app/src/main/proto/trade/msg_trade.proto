@@ -27,7 +27,8 @@ message UnifiedorderResponse {
     string noncestr = 5;//随机字符串，不长于32位。推荐随机数生成算法
     string time_stamp = 6;// 时间戳
     string sign = 7;//sign
-    grpcCommon.GrpcError error = 8;
+    string status = 8;// 使用余额支付时返回的状态,1代表成功,0代表失败
+    grpcCommon.GrpcError error = 9;
 }
 
 // 获取我的订单列表数据

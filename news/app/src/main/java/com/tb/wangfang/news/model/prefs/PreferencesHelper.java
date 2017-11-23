@@ -22,8 +22,8 @@ public interface PreferencesHelper {
 
     boolean getLoginState();
 
-    void storeLoginInfo(LoginResponse response);
-
+    void storeLoginInfo(LoginResponse response, String passwoard);
+    String getPassword();
 
 
     String getUserId();

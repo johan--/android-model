@@ -45,7 +45,7 @@ public interface ResourceFileOrBuilder extends
 
   /**
    * <pre>
-   * 文件字节
+   * 文件字节（若为空，则获取全文失败）
    * </pre>
    *
    * <code>optional bytes file_byte = 3;</code>

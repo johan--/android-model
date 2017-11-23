@@ -2,6 +2,7 @@ package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -39,6 +40,10 @@ import com.tb.wangfang.news.utils.FileUtil;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.AutoLinearLayoutManager;
+import com.wanfang.collect.CancelCollectReqeust;
+import com.wanfang.collect.CancelCollectResponse;
+import com.wanfang.collect.CheckISCollectedRequest;
+import com.wanfang.collect.CheckISCollectedResponse;
 import com.wanfang.collect.CollectRequest;
 import com.wanfang.collect.CollectResponse;
 import com.wanfang.collect.CollectServiceGrpc;
@@ -62,6 +67,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import io.grpc.ManagedChannel;
@@ -72,6 +78,7 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Call;
 
 import static cn.jpush.android.api.JPushInterface.a.i;
 import static com.tb.wangfang.news.R.id.tv_china_class_num;
@@ -105,6 +112,10 @@ public class DocDetailActivity extends SimpleActivity {
     RecyclerView rvSimilar;
     @BindView(R.id.sv_all_content)
     ScrollView scrollView;
+    @BindView(R.id.ll_read_online)
+    LinearLayout llReadOnline;
+    @BindView(R.id.ll_collect)
+    LinearLayout llCollect;
 
 
     private String TAG = "DocDetailActivity";
@@ -146,7 +157,39 @@ public class DocDetailActivity extends SimpleActivity {
         articleType = getIntent().getStringExtra(Constants.ARTICLE_TYPE);
         dialog = new MaterialDialog.Builder(this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
         dialog.show();
+        checkIsCollected();
         getDocDetail(articleId, articleType);
+
+    }
+
+    private void checkIsCollected() {
+        Single.create(new SingleOnSubscribe<CheckISCollectedResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CheckISCollectedResponse> e) throws Exception {
+                CollectServiceGrpc.CollectServiceBlockingStub stub = CollectServiceGrpc.newBlockingStub(managedChannel);
+                CheckISCollectedRequest collectRequest = CheckISCollectedRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setDocuId(articleId).setDocuType(articleType).build();
+                CheckISCollectedResponse response = stub.checkISCollected(collectRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<CheckISCollectedResponse>() {
+            @Override
+            public void onSuccess(CheckISCollectedResponse collectResponse) {
+                Log.d(TAG, "onSuccess: " + collectResponse.toString());
+                TextView tvCollect = (TextView) llCollect.getChildAt(0);
+                tvCollect.setVisibility(View.VISIBLE);
+                if (collectResponse.getIsCollected()) {
+                    tvCollect.setText("取消收藏");
+                } else {
+                    tvCollect.setText("收藏");
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
 
     }
 
@@ -155,7 +198,7 @@ public class DocDetailActivity extends SimpleActivity {
         OkHttpUtils.get().url(SEARCH_DETAIL).addParams("params", articleId).addParams("clstype", articleType).build()
                 .execute(new StringCallback() {
                     @Override
-                    public void onError(okhttp3.Call call, Exception e, int id) {
+                    public void onError(Call call, Exception e, int id) {
                         Log.d(TAG, "onError: " + e.getMessage());
                         ToastUtil.show("服务器异常");
                         dialog.dismiss();
@@ -321,12 +364,14 @@ public class DocDetailActivity extends SimpleActivity {
             resourceDb = SystemUtil.getObjectString(bean.getData().get(0).getSource_db());
             resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
             classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
+
             if (bean.getData().get(0).getCommon_year() != null) {
-                if (bean.getData().get(0).getCommon_year() != null) {
-                    if (bean.getData().get(0).getCommon_year() != null) {
-                        time = bean.getData().get(0).getCommon_year() + "年";
-                    }
-                }
+                time = bean.getData().get(0).getCommon_year() + "年";
             }
 
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIndustry_name().toString());
@@ -378,6 +423,12 @@ public class DocDetailActivity extends SimpleActivity {
 
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssue_dept());
             journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
             if (bean.getData().get(0).getCommon_year() != null) {
                 time = bean.getData().get(0).getCommon_year() + "年";
             }
@@ -429,6 +480,12 @@ public class DocDetailActivity extends SimpleActivity {
 
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getDraft_unit());
             journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
+
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
             if (bean.getData().get(0).getCommon_year() != null) {
                 time = bean.getData().get(0).getCommon_year() + "年";
             }
@@ -467,6 +524,11 @@ public class DocDetailActivity extends SimpleActivity {
             resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
             classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
 
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name());
             journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
             if (bean.getData().get(0).getConf_year() != null) {
@@ -519,6 +581,12 @@ public class DocDetailActivity extends SimpleActivity {
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getPub_num());
+
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
             //有问题
             language = "";
             resourceId = bean.getData().get(0).getPatent_id().toString();
@@ -581,6 +649,12 @@ public class DocDetailActivity extends SimpleActivity {
 
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
             journal = bean.getData().get(0).getTitle().toString();
+
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
             if (bean.getData().get(0).getPublish_year() != null) {
                 time = bean.getData().get(0).getPublish_year() + "年";
             }
@@ -637,6 +711,11 @@ public class DocDetailActivity extends SimpleActivity {
             tvDownNum.setText("下载 : " + bean.getData().get(0).getDownload_num());
             tvLinkNum.setText("第三方链接 : " + bean.getData().get(0).getThirdparty_links_num());
             tvReferenceNum.setText("被用 : " + bean.getData().get(0).getCite_num());
+            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
+                llReadOnline.setVisibility(View.VISIBLE);
+            } else {
+                llReadOnline.setVisibility(View.INVISIBLE);
+            }
 
         }
         if (bean != null && bean.getRelatePapers() != null) {
@@ -730,13 +809,50 @@ public class DocDetailActivity extends SimpleActivity {
                 goRead();
                 break;
             case R.id.ll_collect:
-                collectPro();
+                TextView tvCollect = (TextView) llCollect.getChildAt(0);
+                if (tvCollect.getText().toString().equals("收藏")) {
+                    collectPro();
+                } else {
+                    unCollectPro();
+                }
+
                 break;
             case R.id.ll_share:
                 sendJPush();
                 showShare();
                 break;
         }
+    }
+
+    private void unCollectPro() {
+        Single.create(new SingleOnSubscribe<CancelCollectResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CancelCollectResponse> e) throws Exception {
+                CollectServiceGrpc.CollectServiceBlockingStub stub = CollectServiceGrpc.newBlockingStub(managedChannel);
+                CancelCollectReqeust collectRequest = CancelCollectReqeust.newBuilder().setDocId(articleId).setUserId(preferencesHelper.getUserId()).build();
+                CancelCollectResponse response = stub.cancelCollect(collectRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<CancelCollectResponse>() {
+            @Override
+            public void onSuccess(CancelCollectResponse cancelCollectResponse) {
+                Log.d(TAG, "onSuccess: " + cancelCollectResponse.toString());
+                if (cancelCollectResponse.getCancelSuccess()) {
+                    ToastUtil.show("取消收藏成功");
+                    TextView tvCollect = (TextView) llCollect.getChildAt(0);
+                    tvCollect.setText("收藏");
+
+                } else {
+                    ToastUtil.show("取消收藏失败");
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
     }
 
     private void sendJPush() {
@@ -785,6 +901,9 @@ public class DocDetailActivity extends SimpleActivity {
                 Log.d(TAG, "onSuccess: " + collectResponse.toString());
                 if (collectResponse.getCollectSuccess()) {
                     ToastUtil.show("添加收藏成功");
+                    TextView tvCollect = (TextView) llCollect.getChildAt(0);
+                    tvCollect.setText("取消收藏");
+
                 } else {
                     ToastUtil.show("添加收藏失败");
                 }
@@ -814,8 +933,9 @@ public class DocDetailActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ReadResponse>() {
             @Override
             public void onSuccess(ReadResponse readResponse) {
+                Log.d(TAG, "onSuccess: readResponse" + readResponse);
                 if (readResponse.getAlreadyBuy()) {
-                    Log.d(TAG, "onSuccess: " + readResponse.getResourceFile().getFileName());
+
 
                     down(readResponse);
                 } else if (readResponse.getHasTradePower()) {
@@ -938,5 +1058,12 @@ public class DocDetailActivity extends SimpleActivity {
 
         // 启动分享GUI
         oks.show(this);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

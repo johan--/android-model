@@ -27,6 +27,7 @@ public class Constants {
     public static final String USER_ID = "user_id";
     public static final String USER_AVATAR = "user_avatar";
     public static final String USER_NAME = "user_name";
+    public static final String PASS_WORD = "password";
     public static final String LOGIN_TOKEN = "login_token";
     public static final String MI_PUSH_ID = "2882303761517622332";
     public static final String MI_PUSH_KEY = "5241762212332";

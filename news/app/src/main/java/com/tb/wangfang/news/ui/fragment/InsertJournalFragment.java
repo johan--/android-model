@@ -81,6 +81,7 @@ public class InsertJournalFragment extends SimpleFragment implements BaseQuickAd
 
     @Override
     protected void initEventAndData() {
+
         rvMenu.setLayoutManager(new LinearLayoutManager(getActivity()));
         menuAdapter = new JournalMenuAdapter(null);
         rvMenu.setAdapter(menuAdapter);
@@ -151,7 +152,7 @@ public class InsertJournalFragment extends SimpleFragment implements BaseQuickAd
                             detailAdapter.setNewData(arrayList);
                             detailAdapter.notifyDataSetChanged();
                         } else {
-                            ToastUtil.show("订阅失败");
+                            ToastUtil.show("取消订阅订阅失败");
                         }
                     }
 

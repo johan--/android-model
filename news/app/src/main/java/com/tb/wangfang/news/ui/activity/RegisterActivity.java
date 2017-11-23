@@ -227,7 +227,7 @@ public class RegisterActivity extends SimpleActivity {
             public void onSuccess(ThirdPartyBindResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 if (response.getBindStatus() == 200) {
-                    login();
+                    login(passWord);
                 } else {
                     ToastUtil.show("绑定失败");
                 }
@@ -283,7 +283,7 @@ public class RegisterActivity extends SimpleActivity {
 
     }
 
-    private void login() {
+    private void login(final String passWord) {
         Single.create(new SingleOnSubscribe<LoginResponse>() {
             @Override
             public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
@@ -302,7 +302,7 @@ public class RegisterActivity extends SimpleActivity {
                     ToastUtil.show("未绑定成功");
                 } else {
                     JMessageLogin(userRolesListResponse);
-                    PreferencesHelper.storeLoginInfo(userRolesListResponse);
+                    PreferencesHelper.storeLoginInfo(userRolesListResponse, passWord);
                     if (TextUtils.isEmpty(userRolesListResponse.getLoginToken())) {
                         ToastUtil.show("访问失败");
                     } else {

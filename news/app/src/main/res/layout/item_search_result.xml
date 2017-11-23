@@ -17,42 +17,50 @@
         android:textColor="@color/black_text"
         android:textSize="16sp" />
 
-    <LinearLayout
+    <com.tb.wangfang.news.widget.FlowLayout
+        android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12.5dp">
+
+        android:layout_marginTop="7.5dp">
 
         <TextView
             android:id="@+id/tv_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/gray_text_6" />
 
         <TextView
             android:id="@+id/tv_book_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/gray_text_6" />
 
         <TextView
             android:id="@+id/tv_period"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/gray_text_6" />
-    </LinearLayout>
+    </com.tb.wangfang.news.widget.FlowLayout>
 
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
         android:layout_marginTop="12.5dp"
         android:ellipsize="end"
         android:lineSpacingExtra="12.5dp"
-        android:lines="2"
         android:textColor="#999"
         android:textSize="12sp" />
 
@@ -115,7 +123,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16.5dp"
-                android:layout_weight="1"
                 android:drawableLeft="@mipmap/reference_icon"
                 android:drawablePadding="5dp"
                 android:lines="1"
@@ -127,10 +134,10 @@
     </RelativeLayout>
 
     <View
-        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="16.5dp"
         android:layout_marginRight="16.5dp"
+        android:layout_marginTop="15dp"
         android:background="@color/divide" />
 </LinearLayout>

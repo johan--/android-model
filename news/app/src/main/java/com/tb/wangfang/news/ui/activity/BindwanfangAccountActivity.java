@@ -164,7 +164,7 @@ public class BindwanfangAccountActivity extends SimpleActivity {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 if (response.getBindStatus() == 200) {
 
-                    login();
+                    login(passWord);
 
 
                 } else {
@@ -183,7 +183,7 @@ public class BindwanfangAccountActivity extends SimpleActivity {
         });
     }
 
-    private void login() {
+    private void login(final String password) {
         Single.create(new SingleOnSubscribe<LoginResponse>() {
             @Override
             public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
@@ -202,7 +202,7 @@ public class BindwanfangAccountActivity extends SimpleActivity {
                     ToastUtil.show("未绑定成功");
                 } else {
                     JMessageLogin(userRolesListResponse);
-                    preferencesHelper.storeLoginInfo(userRolesListResponse);
+                    preferencesHelper.storeLoginInfo(userRolesListResponse,password);
                     if (TextUtils.isEmpty(userRolesListResponse.getLoginToken())) {
                         ToastUtil.show("访问失败");
                     } else {

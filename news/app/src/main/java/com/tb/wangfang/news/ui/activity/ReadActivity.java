@@ -38,7 +38,7 @@ public class ReadActivity extends SimpleActivity {
         }
         File file = new File(outputString);
         if (!file.exists()) {
-            encryptUtils.decry(inputString, outputString);
+//            encryptUtils.decry(inputString, outputString);
         }
         if (fileName.endsWith("pdf")) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

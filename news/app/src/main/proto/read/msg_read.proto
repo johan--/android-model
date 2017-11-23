@@ -33,5 +33,5 @@ message ReadResponse {
 message ResourceFile {
     string file_name = 1;// 文件名称
     string content_type = 2; // 文件类型
-    bytes file_byte = 3;// 文件字节
+    bytes file_byte = 3;// 文件字节（若为空，则获取全文失败）
 }

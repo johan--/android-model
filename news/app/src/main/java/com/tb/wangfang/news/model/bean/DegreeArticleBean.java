@@ -119,7 +119,7 @@ public class DegreeArticleBean {
         private Object auth_area;
         private Object article_id;
         private int tag_num;
-        private Object is_full;
+
         private int abstract_reading_num;
         private Object tutor_name;
         private Object first_authors;
@@ -162,6 +162,22 @@ public class DegreeArticleBean {
         private Object head_words;
         private Object keywords;
 
+        public Object getIs_fulltext() {
+            return is_fulltext;
+        }
+
+        public void setIs_fulltext(Object is_fulltext) {
+            this.is_fulltext = is_fulltext;
+        }
+        public Object getIs_full() {
+            return is_full;
+        }
+
+        public void setIs_full(Object is_full) {
+            this.is_full = is_full;
+        }
+        private Object is_fulltext;
+        private Object is_full;
         public Object getId() {
             return id;
         }
@@ -242,13 +258,7 @@ public class DegreeArticleBean {
             this.tag_num = tag_num;
         }
 
-        public Object getIs_full() {
-            return is_full;
-        }
 
-        public void setIs_full(Object is_full) {
-            this.is_full = is_full;
-        }
 
         public int getAbstract_reading_num() {
             return abstract_reading_num;

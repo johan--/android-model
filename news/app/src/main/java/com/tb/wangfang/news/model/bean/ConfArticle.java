@@ -124,7 +124,6 @@ public class ConfArticle {
         private Object mother_literature;
         private Object language;
         private int refdoc_cnt;
-        private Object is_full;
         private Object corpus_id;
         private Object authors_name;
         private int share_num;
@@ -179,7 +178,16 @@ public class ConfArticle {
         private Object auto_classcode;
         private Object auto_classcode_level;
         private Object head_words;
+        public Object getIs_fulltext() {
+            return is_fulltext;
+        }
 
+        public void setIs_fulltext(Object is_fulltext) {
+            this.is_fulltext = is_fulltext;
+        }
+
+        private Object is_fulltext;
+        private Object is_full;
         public Object getId() {
             return id;
         }

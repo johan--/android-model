@@ -546,15 +546,15 @@ public class EditPersonInforActivity extends SimpleActivity {
                 picker.setCanceledOnTouchOutside(true);
                 picker.setUseWeight(true);
                 picker.setTopPadding(SystemUtil.dp2px(this, 10));
-                picker.setRangeEnd(2111, 1, 11);
-                picker.setRangeStart(2016, 8, 29);
-                picker.setSelectedItem(2050, 10, 14);
+                picker.setRangeEnd(2018, 1, 1);
+                picker.setRangeStart(1940, 1, 1);
+                picker.setSelectedItem(1992, 1, 1);
                 picker.setResetWhileWheel(false);
                 picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
                     @Override
                     public void onDatePicked(String year, String month, String day) {
                         submitBirthDay(year + "-" + month + "-" + day);
-                        ToastUtil.show(year + "-" + month + "-" + day);
+                        tvBirthday.setText(year + "-" + month + "-" + day);
                     }
                 });
                 picker.setOnWheelListener(new DatePicker.OnWheelListener() {
@@ -594,7 +594,7 @@ public class EditPersonInforActivity extends SimpleActivity {
             case R.id.rl_unit:
                 Intent intent5 = new Intent(this, EditNackNameActivity.class);
                 intent5.putExtra("type", TYPE_UNIT);
-                intent5.putExtra("content", etName.getText().toString().trim());
+                intent5.putExtra("content", etUnit.getText().toString().trim());
                 startActivityForResult(intent5, TYPE_UNIT);
 
 
@@ -608,13 +608,14 @@ public class EditPersonInforActivity extends SimpleActivity {
 
                 Intent intent7 = new Intent(this, EditNackNameActivity.class);
                 intent7.putExtra("type", TYPE_SCHOOL);
-                intent7.putExtra("content", etName.getText().toString().trim());
+                intent7.putExtra("content", etGraduateSchool.getText().toString().trim());
                 startActivityForResult(intent7, TYPE_SCHOOL);
 
                 break;
             case R.id.rl_reward:
                 Intent intent9 = new Intent(this, EditRewardActivity.class);
                 intent9.putExtra("experience", etReward.getText().toString().trim());
+                intent9.putExtra("type", EditRewardActivity.TYPE_REWARD);
                 startActivityForResult(intent9, 8);
                 break;
             case R.id.rl_subject:
@@ -625,6 +626,7 @@ public class EditPersonInforActivity extends SimpleActivity {
             case R.id.rl_interest:
                 Intent intent10 = new Intent(this, EditRewardActivity.class);
                 intent10.putExtra("experience", etInterest.getText().toString().trim());
+                intent10.putExtra("type", EditRewardActivity.TYPE_INTREST);
                 startActivityForResult(intent10, 9);
                 break;
         }

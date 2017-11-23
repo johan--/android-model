@@ -65,6 +65,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     mView.showCountDown(countDown);
                 } else {
                     mView.showCountDown(countDown);
+                    mView.setCodeBtnEnable();
                 }
             }
         }
@@ -118,7 +119,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 JMessageLogin(response);
-                preferencesHelps.storeLoginInfo(response);
+                preferencesHelps.storeLoginInfo(response, passWord);
 
                 mView.loginSuccess(response);
             }
@@ -135,6 +136,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     @Override
     public void getPhoneCaptcha(final String phone, final String nation) {
+        mView.setCodeBtnDisable();
         Single.create(new SingleOnSubscribe<GetPhoneCaptchaResponse>() {
             @Override
             public void subscribe(SingleEmitter<GetPhoneCaptchaResponse> e) throws Exception {
@@ -152,8 +154,10 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     msg.what = 0;
                     handler.sendMessage(msg);
                     ToastUtil.show("发送成功");
+
                 } else {
                     ToastUtil.show("发送失败");
+                    mView.setCodeBtnEnable();
                 }
 
 
@@ -186,8 +190,9 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                     mView.showDialoge(id, type + "");
                 } else {
+
                     JMessageLogin(userRolesListResponse);
-                    preferencesHelps.storeLoginInfo(userRolesListResponse);
+                    preferencesHelps.storeLoginInfo(userRolesListResponse, "wx&&" + id);
                     mView.loginSuccess(userRolesListResponse);
                 }
             }
@@ -214,7 +219,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 JMessageLogin(response);
-                preferencesHelps.storeLoginInfo(response);
+                preferencesHelps.storeLoginInfo(response, "ql&&");
                 mView.loginSuccess(response);
             }
 

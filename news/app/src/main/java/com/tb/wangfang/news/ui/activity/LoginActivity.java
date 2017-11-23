@@ -305,7 +305,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void loginSuccess(LoginResponse response) {
-        if (mdialog!=null){
+        if (mdialog != null) {
             mdialog.dismiss();
         }
 
@@ -356,6 +356,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void prefinish() {
         finish();
+    }
+
+    @Override
+    public void setCodeBtnEnable() {
+        tvGetCode.setEnabled(true);
+    }
+
+    @Override
+    public void setCodeBtnDisable() {
+        tvGetCode.setEnabled(false);
     }
 
     @Override

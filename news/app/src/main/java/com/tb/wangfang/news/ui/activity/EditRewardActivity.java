@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
-import com.wanfang.personal.InfoEducationLevel;
+import com.wanfang.personal.InfoAward;
 import com.wanfang.personal.InfoInterestSubject;
 import com.wanfang.personal.MyInfoUpdateRequest;
 import com.wanfang.personal.MyInfoUpdateResponse;
@@ -54,6 +55,7 @@ public class EditRewardActivity extends SimpleActivity {
     public final static int TYPE_INTREST = 9;
     private int type;
     private MaterialDialog mdialog;
+    private String TAG = "EditRewardActivity";
 
     @Override
     protected int getLayout() {
@@ -131,9 +133,9 @@ public class EditRewardActivity extends SimpleActivity {
                             PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
                             Any any = null;
                             if (type == TYPE_REWARD) {
-                                InfoEducationLevel infoEducationLevel = InfoEducationLevel.newBuilder().setEducationLevel(etExperience.getText().toString().trim()).build();
-                                any = Any.pack(infoEducationLevel);
-                            } else if (type==TYPE_INTREST){
+                                InfoAward infoAward = InfoAward.newBuilder().setAward(etExperience.getText().toString().trim()).build();
+                                any = Any.pack(infoAward);
+                            } else if (type == TYPE_INTREST) {
                                 InfoInterestSubject infoInterestSubject = InfoInterestSubject.newBuilder().setInterestSubject(etExperience.getText().toString().trim()).build();
                                 any = Any.pack(infoInterestSubject);
                             }
@@ -144,12 +146,15 @@ public class EditRewardActivity extends SimpleActivity {
                     }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<MyInfoUpdateResponse>() {
                         @Override
                         public void onSuccess(MyInfoUpdateResponse myInfoUpdateResponse) {
+                            Log.d(TAG, "onSuccess: myInfoUpdateResponse" + myInfoUpdateResponse);
+
                             mdialog.dismiss();
                             Intent intent = new Intent();
                             intent.putExtra("experience", etExperience.getText().toString().trim());
                             setResult(RESULT_OK, intent);
                             finish();
                         }
+
                         @Override
                         public void onError(Throwable e) {
                             mdialog.dismiss();

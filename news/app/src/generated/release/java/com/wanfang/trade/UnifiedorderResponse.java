@@ -22,6 +22,7 @@ public  final class UnifiedorderResponse extends
     noncestr_ = "";
     timeStamp_ = "";
     sign_ = "";
+    status_ = "";
   }
 
   @java.lang.Override
@@ -92,6 +93,12 @@ public  final class UnifiedorderResponse extends
             break;
           }
           case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            status_ = s;
+            break;
+          }
+          case 74: {
             com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
             if (error_ != null) {
               subBuilder = error_.toBuilder();
@@ -421,22 +428,64 @@ public  final class UnifiedorderResponse extends
     }
   }
 
-  public static final int ERROR_FIELD_NUMBER = 8;
+  public static final int STATUS_FIELD_NUMBER = 8;
+  private volatile java.lang.Object status_;
+  /**
+   * <pre>
+   * 使用余额支付时返回的状态,1代表成功,0代表失败
+   * </pre>
+   *
+   * <code>optional string status = 8;</code>
+   */
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 使用余额支付时返回的状态,1代表成功,0代表失败
+   * </pre>
+   *
+   * <code>optional string status = 8;</code>
+   */
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ERROR_FIELD_NUMBER = 9;
   private com.wanfang.grpcCommon.MsgError.GrpcError error_;
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 9;</code>
    */
   public boolean hasError() {
     return error_ != null;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 9;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
     return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 9;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
     return getError();
@@ -475,8 +524,11 @@ public  final class UnifiedorderResponse extends
     if (!getSignBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, sign_);
     }
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, status_);
+    }
     if (error_ != null) {
-      output.writeMessage(8, getError());
+      output.writeMessage(9, getError());
     }
   }
 
@@ -506,9 +558,12 @@ public  final class UnifiedorderResponse extends
     if (!getSignBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sign_);
     }
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, status_);
+    }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, getError());
+        .computeMessageSize(9, getError());
     }
     memoizedSize = size;
     return size;
@@ -540,6 +595,8 @@ public  final class UnifiedorderResponse extends
         .equals(other.getTimeStamp());
     result = result && getSign()
         .equals(other.getSign());
+    result = result && getStatus()
+        .equals(other.getStatus());
     result = result && (hasError() == other.hasError());
     if (hasError()) {
       result = result && getError()
@@ -569,6 +626,8 @@ public  final class UnifiedorderResponse extends
     hash = (53 * hash) + getTimeStamp().hashCode();
     hash = (37 * hash) + SIGN_FIELD_NUMBER;
     hash = (53 * hash) + getSign().hashCode();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     if (hasError()) {
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
@@ -705,6 +764,8 @@ public  final class UnifiedorderResponse extends
 
       sign_ = "";
 
+      status_ = "";
+
       if (errorBuilder_ == null) {
         error_ = null;
       } else {
@@ -740,6 +801,7 @@ public  final class UnifiedorderResponse extends
       result.noncestr_ = noncestr_;
       result.timeStamp_ = timeStamp_;
       result.sign_ = sign_;
+      result.status_ = status_;
       if (errorBuilder_ == null) {
         result.error_ = error_;
       } else {
@@ -812,6 +874,10 @@ public  final class UnifiedorderResponse extends
       }
       if (!other.getSign().isEmpty()) {
         sign_ = other.sign_;
+        onChanged();
+      }
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
         onChanged();
       }
       if (other.hasError()) {
@@ -1466,17 +1532,106 @@ public  final class UnifiedorderResponse extends
       return this;
     }
 
+    private java.lang.Object status_ = "";
+    /**
+     * <pre>
+     * 使用余额支付时返回的状态,1代表成功,0代表失败
+     * </pre>
+     *
+     * <code>optional string status = 8;</code>
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 使用余额支付时返回的状态,1代表成功,0代表失败
+     * </pre>
+     *
+     * <code>optional string status = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 使用余额支付时返回的状态,1代表成功,0代表失败
+     * </pre>
+     *
+     * <code>optional string status = 8;</code>
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 使用余额支付时返回的状态,1代表成功,0代表失败
+     * </pre>
+     *
+     * <code>optional string status = 8;</code>
+     */
+    public Builder clearStatus() {
+      
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 使用余额支付时返回的状态,1代表成功,0代表失败
+     * </pre>
+     *
+     * <code>optional string status = 8;</code>
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
+      onChanged();
+      return this;
+    }
+
     private com.wanfang.grpcCommon.MsgError.GrpcError error_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public boolean hasError() {
       return errorBuilder_ != null || error_ != null;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
       if (errorBuilder_ == null) {
@@ -1486,7 +1641,7 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1502,7 +1657,7 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public Builder setError(
         com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
@@ -1516,7 +1671,7 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1534,7 +1689,7 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public Builder clearError() {
       if (errorBuilder_ == null) {
@@ -1548,7 +1703,7 @@ public  final class UnifiedorderResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
       
@@ -1556,7 +1711,7 @@ public  final class UnifiedorderResponse extends
       return getErrorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
       if (errorBuilder_ != null) {
@@ -1567,7 +1722,7 @@ public  final class UnifiedorderResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 9;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 

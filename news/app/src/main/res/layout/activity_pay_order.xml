@@ -31,7 +31,7 @@
             android:gravity="center"
             android:lines="1"
             android:maxEms="13"
-            android:text="文献详情"
+            android:text="文献订单"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </RelativeLayout>
@@ -55,8 +55,8 @@
             android:layout_marginLeft="16.5dp"
             android:layout_marginTop="22.5dp"
             android:text="人文科学的考古学"
-            android:textSize="14sp"
             android:textColor="@color/black_text"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView

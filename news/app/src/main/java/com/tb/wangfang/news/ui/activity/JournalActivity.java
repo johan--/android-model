@@ -25,6 +25,11 @@ import com.tb.wangfang.news.model.bean.JournalDetailBean;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.fragment.JournalPeriodFragment;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.wanfang.subscribe.CancelSubscribeRequest;
+import com.wanfang.subscribe.CancelSubscribeResponse;
+import com.wanfang.subscribe.CancelSubscribeType;
+import com.wanfang.subscribe.CheckPerioISSubscribeResponse;
+import com.wanfang.subscribe.CheckPerioISSubscribedRequest;
 import com.wanfang.subscribe.SubscribePerioRequest;
 import com.wanfang.subscribe.SubscribePerioResponse;
 import com.wanfang.subscribe.SubscribeServiceGrpc;
@@ -37,6 +42,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -44,7 +50,9 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Call;
 
+import static com.tb.wangfang.news.R.id.tv_order;
 import static com.tb.wangfang.news.app.Constants.SEARCH_DETAIL;
 
 public class JournalActivity extends SimpleActivity {
@@ -77,6 +85,8 @@ public class JournalActivity extends SimpleActivity {
     TextView tvMore;
     JournalPeriodFragment[] yearFragment;
     String[] mTabTitle;
+    @BindView(R.id.tv_order)
+    TextView tvOrder;
     private MaterialDialog dialog;
     private String journalId;
     private String TAG = "JournalActivity";
@@ -93,8 +103,99 @@ public class JournalActivity extends SimpleActivity {
     @Override
     protected void initEventAndData() {
         journalId = getIntent().getStringExtra(Constants.ARTICLE_ID);
+        checkIsSubscribed();
         getDetail();
 
+
+    }
+
+    private void checkIsSubscribed() {
+        Single.create(new SingleOnSubscribe<CheckPerioISSubscribeResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CheckPerioISSubscribeResponse> e) throws Exception {
+                SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
+                CheckPerioISSubscribedRequest request = CheckPerioISSubscribedRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPerioId(journalId).build();
+                CheckPerioISSubscribeResponse response = stub.checkIsSubscribed(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<CheckPerioISSubscribeResponse>() {
+                    @Override
+                    public void onSuccess(CheckPerioISSubscribeResponse response) {
+                        Log.d(TAG, "onSuccess: " + response.toString());
+                        tvOrder.setVisibility(View.VISIBLE);
+                        if (response.getIsSubscribed()) {
+                            tvOrder.setText("取消订阅");
+                        } else {
+                            tvOrder.setText("订阅");
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtil.show("网络出错");
+                    }
+                });
+    }
+
+    private void unSubscribe() {
+        Single.create(new SingleOnSubscribe<CancelSubscribeResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CancelSubscribeResponse> e) throws Exception {
+                SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
+                CancelSubscribeRequest request = CancelSubscribeRequest.newBuilder().setUserId(preferencesHelper.getUserId())
+                        .setSubscribeId(journalId).setCancelType(CancelSubscribeType.DeletePerio).build();
+                CancelSubscribeResponse response = stub.cancelSubscribe(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<CancelSubscribeResponse>() {
+                    @Override
+                    public void onSuccess(CancelSubscribeResponse response) {
+                        Log.d(TAG, "onSuccess: " + response.toString());
+                        if (response.getCancelSubscribeSuccess()) {
+                            ToastUtil.show("取消订阅成功");
+                            tvOrder.setText("订阅");
+                        } else {
+                            ToastUtil.show("取消订阅订阅失败");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtil.show("网络出错");
+                    }
+                });
+    }
+
+    private void subscribe() {
+        Single.create(new SingleOnSubscribe<SubscribePerioResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<SubscribePerioResponse> e) throws Exception {
+                SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
+                SubscribePerioRequest request = SubscribePerioRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPerioId(journalId).build();
+                SubscribePerioResponse response = stub.subscribePerio(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<SubscribePerioResponse>() {
+                    @Override
+                    public void onSuccess(SubscribePerioResponse subjectListResponse) {
+                        Log.d(TAG, "onSuccess: " + subjectListResponse.toString());
+                        if (subjectListResponse.getSubscribeSuccess()) {
+                            ToastUtil.show("订阅成功");
+                            tvOrder.setText("取消订阅");
+                        } else {
+                            ToastUtil.show("订阅失败");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastUtil.show("网络出错");
+                    }
+                });
 
     }
 
@@ -103,7 +204,7 @@ public class JournalActivity extends SimpleActivity {
         OkHttpUtils.get().url(SEARCH_DETAIL).addParams("params", journalId).addParams("clstype", "periodical_info").build()
                 .execute(new StringCallback() {
                     @Override
-                    public void onError(okhttp3.Call call, Exception e, int id) {
+                    public void onError(Call call, Exception e, int id) {
                         Log.d(TAG, "onError: " + e.getMessage());
                         ToastUtil.show("服务器异常");
                         dialog.dismiss();
@@ -119,8 +220,6 @@ public class JournalActivity extends SimpleActivity {
                         initDialog(bean);
 
                     }
-
-
                 });
     }
 
@@ -159,7 +258,6 @@ public class JournalActivity extends SimpleActivity {
         dialog = new MaterialDialog.Builder(this)
                 .customView(R.layout.journal_article_dialog, true)
                 .positiveText("关闭")
-
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                                 @Override
                                 public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
@@ -193,53 +291,56 @@ public class JournalActivity extends SimpleActivity {
 
     }
 
-    private void subscribe() {
-        Single.create(new SingleOnSubscribe<SubscribePerioResponse>() {
-            @Override
-            public void subscribe(SingleEmitter<SubscribePerioResponse> e) throws Exception {
-                SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
-                SubscribePerioRequest request = SubscribePerioRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPerioId(journalId).build();
-                SubscribePerioResponse response = stub.subscribePerio(request);
-                e.onSuccess(response);
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<SubscribePerioResponse>() {
-                    @Override
-                    public void onSuccess(SubscribePerioResponse subjectListResponse) {
-                        Log.d(TAG, "onSuccess: " + subjectListResponse.toString());
-                        if (subjectListResponse.getSubscribeSuccess()) {
-                            ToastUtil.show("订阅成功");
-
-                        } else {
-                            ToastUtil.show("订阅失败");
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        ToastUtil.show("网络出错");
-                    }
-                });
-
-    }
-
-    @OnClick({R.id.tv_return, R.id.tv_order, R.id.tv_share, R.id.tv_more})
+    @OnClick({R.id.tv_return, tv_order, R.id.tv_share, R.id.tv_more})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
                 finish();
                 break;
-            case R.id.tv_order:
-                subscribe();
+            case tv_order:
+                if (tvOrder.getText().toString().equals("订阅")) {
+                    subscribe();
+                } else {
+                    unSubscribe();
+                }
                 break;
             case R.id.tv_share:
+                showShare();
                 break;
             case R.id.tv_more:
-
                 dialog.show();
                 break;
         }
     }
+
+    private void showShare() {
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+        // 分享时Notification的图标和文字  2.5.9以后的版本不     调用此方法
+        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+        oks.setTitle("分享");
+        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+        oks.setTitleUrl("http://sharesdk.cn");
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://sharesdk.cn");
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://sharesdk.cn");
+
+        // 启动分享GUI
+        oks.show(this);
+    }
+
 
     class ViewPageAdapter extends FragmentPagerAdapter {
         JournalPeriodFragment[] yearFragment;

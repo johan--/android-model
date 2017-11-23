@@ -98,7 +98,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             mFragments[FOURTH] = findFragment(FourthFragment.class);
         }
 
-
+        mPresenter.reLogin();
         initView();
         JMessageClient.login("tangbin", "123456", new BasicCallback() {
             @Override
@@ -115,6 +115,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         });
         //test
         MiPushClient.setAlias(this, "tangbin", null);
+
 //        mPresenter.restorePersonnalMappingTable();
     }
 

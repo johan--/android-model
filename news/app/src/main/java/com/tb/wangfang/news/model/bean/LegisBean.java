@@ -123,7 +123,22 @@ public class LegisBean {
         private Object summary;
         private Object keywords;
         private Object class_type;
+        public Object getIs_fulltext() {
+            return is_fulltext;
+        }
 
+        public void setIs_fulltext(Object is_fulltext) {
+            this.is_fulltext = is_fulltext;
+        }
+        public Object getIs_full() {
+            return is_full;
+        }
+
+        public void setIs_full(Object is_full) {
+            this.is_full = is_full;
+        }
+        private Object is_fulltext;
+        private Object is_full;
         public Object getId() {
             return id;
         }

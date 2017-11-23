@@ -134,15 +134,33 @@ public interface UnifiedorderResponseOrBuilder extends
       getSignBytes();
 
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <pre>
+   * 使用余额支付时返回的状态,1代表成功,0代表失败
+   * </pre>
+   *
+   * <code>optional string status = 8;</code>
+   */
+  java.lang.String getStatus();
+  /**
+   * <pre>
+   * 使用余额支付时返回的状态,1代表成功,0代表失败
+   * </pre>
+   *
+   * <code>optional string status = 8;</code>
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
+
+  /**
+   * <code>optional .grpcCommon.GrpcError error = 9;</code>
    */
   boolean hasError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 9;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcError getError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 9;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

@@ -177,7 +177,7 @@ public  final class ResourceFile extends
   private com.google.protobuf.ByteString fileByte_;
   /**
    * <pre>
-   * 文件字节
+   * 文件字节（若为空，则获取全文失败）
    * </pre>
    *
    * <code>optional bytes file_byte = 3;</code>
@@ -674,7 +674,7 @@ public  final class ResourceFile extends
     private com.google.protobuf.ByteString fileByte_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
-     * 文件字节
+     * 文件字节（若为空，则获取全文失败）
      * </pre>
      *
      * <code>optional bytes file_byte = 3;</code>
@@ -684,7 +684,7 @@ public  final class ResourceFile extends
     }
     /**
      * <pre>
-     * 文件字节
+     * 文件字节（若为空，则获取全文失败）
      * </pre>
      *
      * <code>optional bytes file_byte = 3;</code>
@@ -700,7 +700,7 @@ public  final class ResourceFile extends
     }
     /**
      * <pre>
-     * 文件字节
+     * 文件字节（若为空，则获取全文失败）
      * </pre>
      *
      * <code>optional bytes file_byte = 3;</code>

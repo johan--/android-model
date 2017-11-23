@@ -94,7 +94,7 @@ public class StandardsBean {
         private Object page_cnt;
         private Object language;
         private int tag_num;
-        private Object is_full;
+
         private Object ccs_code_c;
         private Object belong_type;
         private int abstract_reading_num;
@@ -125,7 +125,16 @@ public class StandardsBean {
         private Object keywords;
         private Object class_type;
         private Object draft_unit;
+        public Object getIs_fulltext() {
+            return is_fulltext;
+        }
 
+        public void setIs_fulltext(Object is_fulltext) {
+            this.is_fulltext = is_fulltext;
+        }
+
+        private Object is_fulltext;
+        private Object is_full;
         public Object getId() {
             return id;
         }

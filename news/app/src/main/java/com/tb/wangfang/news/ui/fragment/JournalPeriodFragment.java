@@ -1,15 +1,20 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.tb.wangfang.news.R;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleFragment;
 import com.tb.wangfang.news.model.bean.JournalYearBean;
+import com.tb.wangfang.news.ui.activity.DocDetailActivity;
 import com.tb.wangfang.news.ui.adapter.JournalPeriodAdapter;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -65,9 +70,20 @@ public class JournalPeriodFragment extends SimpleFragment implements BaseQuickAd
         adapter.setOnLoadMoreListener(this, rvPeriod);
         adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         adapter.setPreLoadNumber(10);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                JournalYearBean.DataBean bean = ((JournalYearBean.DataBean) adapter.getData().get(position));
+                Intent intent = new Intent(getActivity(), DocDetailActivity.class);
+                intent.putExtra(Constants.ARTICLE_ID, SystemUtil.getObjectString(bean.getArticle_id()));
+                intent.putExtra(Constants.ARTICLE_TYPE, SystemUtil.getObjectString(bean.getClass_type()));
+                startActivity(intent);
+            }
+        });
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rvPeriod.setLayoutManager(linearLayoutManager);
         rvPeriod.setAdapter(adapter);
+
         rvPeriod.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {

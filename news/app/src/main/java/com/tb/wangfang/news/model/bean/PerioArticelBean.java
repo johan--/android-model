@@ -139,7 +139,7 @@ public class PerioArticelBean {
         private Object authors_name;
         private int share_num;
         private Object trans_column;
-        private Object is_fulltext;
+
         private Object issue_num;
         private Object pro_pub_date;
         private Object hxkbj_pku;
@@ -200,6 +200,15 @@ public class PerioArticelBean {
         private Object head_words;
         private Object subject_classcode_level;
 
+        public Object getIs_full() {
+            return is_full;
+        }
+
+        public void setIs_full(Object is_full) {
+            this.is_full = is_full;
+        }
+        private Object is_fulltext;
+        private Object is_full;
         public Object getId() {
             return id;
         }

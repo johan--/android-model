@@ -127,9 +127,11 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
         if (PreferencesHelper.getLoginState()) {
             tvRegister.setVisibility(View.GONE);
             tvEditPersonnal.setVisibility(View.VISIBLE);
+            tvUserName.setText(PreferencesHelper.getUserName());
         } else {
             tvRegister.setVisibility(View.VISIBLE);
             tvEditPersonnal.setVisibility(View.GONE);
+            tvUserName.setText("登录体验更多功能");
         }
     }
 }

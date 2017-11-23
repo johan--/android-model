@@ -1,6 +1,8 @@
 package com.tb.wangfang.news.ui.adapter;
 
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -28,10 +30,7 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchReplyBean.Data
     protected void convert(BaseViewHolder helper, SearchReplyBean.DataBean item) {
         if (item.getClass_type().equals("patent_element")) {
             helper.setText(R.id.tv_author, SystemUtil.getObjectString(item.getPatent_type()));
-
-
             helper.setText(R.id.tv_book_name, SystemUtil.getStringFromJsonarray(item.getApplicant_name()));
-
 
         } else if (item.getClass_type().equals("perio_artical")) {
 
@@ -120,14 +119,23 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchReplyBean.Data
         if (item.getTitle() != null) {
             helper.setText(R.id.tv_articl_title, item.getTitle().toString());
         }
-        if (item.getSummary() != null) {
-            helper.setText(R.id.tv_content, "摘要: " + item.getSummary().toString());
+        if (!TextUtils.isEmpty(SystemUtil.getObjectString(item.getSummary()))) {
+            helper.setText(R.id.tv_content, "摘要: " + item.getSummary().toString()).setVisible(R.id.tv_content, true);
         } else {
-            helper.setText(R.id.tv_content, "摘要: 无");
+            helper.setVisible(R.id.tv_content, false);
         }
         if (item.getApp_date02() != null) {
             helper.setText(R.id.tv_period, item.getApp_date02().toString());
         }
+        TextView textView = helper.getView(R.id.tv_author);
+        TextView textView2 = helper.getView(R.id.tv_book_name);
+        TextView textView3 = helper.getView(R.id.tv_period);
+        if (TextUtils.isEmpty(textView.getText().toString()) && TextUtils.isEmpty(textView2.getText().toString()) && TextUtils.isEmpty(textView3.getText().toString())) {
+            helper.getView(R.id.fl_content).setVisibility(View.GONE);
+        } else {
+            helper.getView(R.id.fl_content).setVisibility(View.VISIBLE);
+        }
+
         helper.setText(R.id.tv_summary_num, "文摘阅读 : " + item.getAbstract_reading_num()).setText(R.id.tv_down_num, "下载 : " + item.getDownload_num())
                 .setText(R.id.tv_link_num, "第三方链接 : " + item.getNote_num()).setText(R.id.tv_reference_num, "被引用 : " + item.getImport_num());
         helper.addOnClickListener(R.id.tv_book_name);

@@ -145,7 +145,7 @@ public class MycollectActivity extends SimpleActivity implements BaseQuickAdapte
         adapter.setEnableLoadMore(false);
         page = 1;
         adapter.setNewData(null);
-       arrayList.clear();
+        arrayList.clear();
         getMyCollect();
     }
 
