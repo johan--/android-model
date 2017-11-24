@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
 
+        android:text="会议信息"
+        android:drawablePadding="7.5dp"
+        android:textColor="#999"
+        android:drawableLeft="@mipmap/double_circle_icon"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -35,10 +45,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="关键词 : "
+            android:text="关     键      词 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -47,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+
             android:lines="1"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
@@ -59,10 +72,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="作者 : "
+            android:text="作               者 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -83,10 +97,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="会议名称 : "
+            android:text="会  议   名  称 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -107,10 +122,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="会议地点 : "
+            android:text="会  议   地  点 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -132,10 +148,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="主办单位 : "
+            android:text="主  办   单  位 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 

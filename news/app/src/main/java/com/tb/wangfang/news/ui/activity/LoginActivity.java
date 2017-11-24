@@ -183,7 +183,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     String phoneNum = editPhonenum.getText().toString();
                     String captcha = editSecurity.getText().toString();
                     if (!TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(phoneNum.trim())) {
-                        if (!TextUtils.isEmpty(captcha) && !TextUtils.isEmpty(captcha.trim())) {
+                        if (!TextUtils.isEmpty(captcha) && !TextUtils.isEmpty(captcha.trim()) && captcha.trim().equals(mPresenter.getPhoneCaprcha())) {
                             mdialog = new MaterialDialog.Builder(this)
                                     .title("登录中")
                                     .progress(true, 0)
@@ -191,7 +191,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                     .show();
                             mPresenter.quickLogin(phoneNum, captcha, SystemUtil.getDeviceId(this));
                         } else {
-                            ToastUtil.show("请输入手机验证码");
+                            ToastUtil.show("请输入正确的手机验证码");
                         }
 
                     } else {
@@ -312,7 +312,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         if (TextUtils.isEmpty(response.getLoginToken())) {
             ToastUtil.show("访问失败");
         } else {
-            ToastUtil.show("登录成功");
+            ToastUtil.shortShow("登录成功");
             MiPushClient.setUserAccount(this, response.getUserId(), null);
             PreferencesHelper.setLoginState(true);
             finish();
@@ -326,7 +326,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             tvGetCode.setText(num + "s");
         } else {
             tvGetCode.setText("获取验证码");
-            mPresenter.setCountDown(60);
+
         }
     }
 

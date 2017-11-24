@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50.5dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_similarity"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="7dp"
         android:drawableLeft="@drawable/blue_circle"
         android:drawablePadding="10dp"
         android:ellipsize="end"
+        android:gravity="center_vertical"
         android:lines="1"
         android:text="基于PLC的一种霸星材料放松放松"
         android:textColor="@color/gray_text_6" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divide" />
 </LinearLayout>

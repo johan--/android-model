@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
 
+        android:text="法规信息"
+        android:drawablePadding="7.5dp"
+        android:textColor="#999"
+        android:drawableLeft="@mipmap/double_circle_icon"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -12,6 +22,7 @@
         android:layout_marginTop="15dp"
         android:ellipsize="end"
         android:lines="1"
+        android:layout_marginRight="16.5dp"
         android:text="基于IOS平台的智慧课堂上房揭瓦覅乳房反倒是的实现"
         android:textColor="@color/black_text"
         android:textSize="16sp" />
@@ -23,6 +34,7 @@
         android:layout_marginLeft="16.5dp"
         android:layout_marginTop="15dp"
         android:ellipsize="end"
+        android:layout_marginRight="16.5dp"
         android:maxLines="4"
         android:text=""
         android:textColor="@color/gray_text_6"
@@ -35,10 +47,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="库别名称 : "
+            android:text="库  别   名  称 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -47,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:layout_marginRight="16.5dp"
             android:lines="1"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
@@ -59,10 +73,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="发文文号 : "
+            android:text="发  文   文  号 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -71,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:lines="1"
+            android:lines="1"    android:layout_marginRight="16.5dp"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
@@ -83,10 +98,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="颁布部门 : "
+            android:text="颁  布   部  门 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -95,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:lines="1"
+            android:lines="1"    android:layout_marginRight="16.5dp"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
@@ -107,10 +123,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="时效性 : "
+            android:text="时     效      性 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -118,7 +135,7 @@
             android:id="@+id/tv_timeliness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
+            android:ellipsize="end"    android:layout_marginRight="16.5dp"
             android:lines="1"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
@@ -131,10 +148,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="颁布日期 : "
+            android:text="颁  布   日  期 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -142,7 +160,7 @@
             android:id="@+id/tv_publish_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
+            android:ellipsize="end"    android:layout_marginRight="16.5dp"
             android:lines="1"
             android:text="2016.12"
             android:textColor="@color/gray_text_6" />
@@ -156,10 +174,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="内容分类 : "
+            android:text="内  容   分  类 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -168,7 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:lines="1"
+            android:lines="1"    android:layout_marginRight="16.5dp"
             android:text="2016.12"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>

@@ -376,4 +376,17 @@ public class SystemUtil {
         }
         return object.toString();
     }
+
+    public static String getRandomSixNum() {
+//        Log.e("random", "randomSixNum: " + ((Math.random() * 9 + 1) * 100000) + "");
+//        Log.e("random", "randomSixNum: " + getRandNum(1, 999999) + "");
+        return getRandNum(1, 999999) + "";
+    }
+
+    public static int getRandNum(int min, int max) {
+        int randNum = min + (int) (Math.random() * ((max - min) + 1));
+        return randNum;
+    }
+
+
 }

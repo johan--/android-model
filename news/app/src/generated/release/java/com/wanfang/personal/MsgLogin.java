@@ -54,16 +54,6 @@ public final class MsgLogin {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_personal_ThirdPartyBindResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_personal_BindExistAccountRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_personal_BindExistAccountRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_personal_BindNewRegistRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_personal_BindNewRegistRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -85,26 +75,18 @@ public final class MsgLogin {
       " \001(\t\022\026\n\016user_real_name\030\003 \001(\t\022\026\n\016user_use",
       "d_name\030\004 \001(\t\022\027\n\017user_avatar_url\030\005 \001(\t\022\023\n" +
       "\013login_token\030\006 \001(\t\022$\n\005error\030\007 \001(\0132\025.grpc" +
-      "Common.GrpcError\"@\n\021QuickLoginRequest\022\024\n" +
-      "\014phone_number\030\001 \001(\t\022\025\n\rphone_captcha\030\002 \001" +
-      "(\t\"?\n\026ThirdPartyLoginRequest\022\013\n\003uid\030\001 \001(" +
-      "\t\022\030\n\020third_party_code\030\002 \001(\005\"d\n\025ThirdPart" +
-      "yBindRequest\022\013\n\003uid\030\001 \001(\t\022\017\n\007user_id\030\002 \001" +
-      "(\t\022\030\n\020third_party_code\030\003 \001(\005\022\023\n\013user_sta" +
-      "tus\030\004 \001(\005\"S\n\026ThirdPartyBindResponse\022\023\n\013b" +
-      "ind_status\030\001 \001(\005\022$\n\005error\030\002 \001(\0132\025.grpcCo",
-      "mmon.GrpcError\"\302\001\n\027BindExistAccountReque" +
-      "st\022\013\n\003uid\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\020\n\010pa" +
-      "ssword\030\003 \001(\t\022\021\n\tdevice_id\030\004 \001(\t\022.\n\013devic" +
-      "e_type\030\005 \001(\0162\031.personal.LoginDeviceType\022" +
-      "2\n\020third_party_type\030\006 \001(\0162\030.personal.Thi" +
-      "rdPartyType\"~\n\024BindNewRegistRequest\022\021\n\tu" +
-      "ser_name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010passwor" +
-      "d\030\003 \001(\t\0222\n\020third_party_type\030\004 \001(\0162\030.pers" +
-      "onal.ThirdPartyType*.\n\016ThirdPartyType\022\n\n" +
-      "\006WECHAT\020\000\022\006\n\002QQ\020\001\022\010\n\004SINA\020\003*\'\n\017LoginDevi",
-      "ceType\022\013\n\007ANDROID\020\000\022\007\n\003IOS\020\001B\037\n\024com.wanf" +
-      "ang.personalP\001\242\002\004WFPRb\006proto3"
+      "Common.GrpcError\")\n\021QuickLoginRequest\022\024\n" +
+      "\014phone_number\030\001 \001(\t\"?\n\026ThirdPartyLoginRe" +
+      "quest\022\013\n\003uid\030\001 \001(\t\022\030\n\020third_party_code\030\002" +
+      " \001(\005\"d\n\025ThirdPartyBindRequest\022\013\n\003uid\030\001 \001" +
+      "(\t\022\017\n\007user_id\030\002 \001(\t\022\030\n\020third_party_code\030" +
+      "\003 \001(\005\022\023\n\013user_status\030\004 \001(\005\"S\n\026ThirdParty" +
+      "BindResponse\022\023\n\013bind_status\030\001 \001(\005\022$\n\005err" +
+      "or\030\002 \001(\0132\025.grpcCommon.GrpcError*.\n\016Third",
+      "PartyType\022\006\n\002QQ\020\000\022\010\n\004SINA\020\001\022\n\n\006WECHAT\020\002*" +
+      "\'\n\017LoginDeviceType\022\013\n\007ANDROID\020\000\022\007\n\003IOS\020\001" +
+      "B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -148,7 +130,7 @@ public final class MsgLogin {
     internal_static_personal_QuickLoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_QuickLoginRequest_descriptor,
-        new java.lang.String[] { "PhoneNumber", "PhoneCaptcha", });
+        new java.lang.String[] { "PhoneNumber", });
     internal_static_personal_ThirdPartyLoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_personal_ThirdPartyLoginRequest_fieldAccessorTable = new
@@ -167,18 +149,6 @@ public final class MsgLogin {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_ThirdPartyBindResponse_descriptor,
         new java.lang.String[] { "BindStatus", "Error", });
-    internal_static_personal_BindExistAccountRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_personal_BindExistAccountRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_personal_BindExistAccountRequest_descriptor,
-        new java.lang.String[] { "Uid", "UserName", "Password", "DeviceId", "DeviceType", "ThirdPartyType", });
-    internal_static_personal_BindNewRegistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_personal_BindNewRegistRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_personal_BindNewRegistRequest_descriptor,
-        new java.lang.String[] { "UserName", "Email", "Password", "ThirdPartyType", });
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 

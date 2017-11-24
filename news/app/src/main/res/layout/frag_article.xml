@@ -17,10 +17,23 @@
         android:textSize="16sp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
+
+        android:drawableLeft="@mipmap/double_circle_icon"
+        android:drawablePadding="7.5dp"
+        android:text="期刊论文"
+        android:textColor="#999"
+        android:textSize="16sp" />
+
+    <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
         android:layout_marginTop="15dp"
         android:ellipsize="end"
         android:maxLines="4"
@@ -35,10 +48,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="作者 : "
+            android:text="作        者 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -46,6 +60,7 @@
             android:id="@+id/tv_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="16.5dp"
             android:ellipsize="end"
             android:lines="1"
             android:text="刘学疯，范仲淹"
@@ -59,7 +74,8 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="作者单位 : "
@@ -72,6 +88,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
+            android:layout_marginRight="16.5dp"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
@@ -83,10 +100,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="关键词 : "
+            android:text="关  键  词 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -96,6 +114,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
+            android:layout_marginRight="16.5dp"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
@@ -107,10 +126,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="刊名 : "
+            android:text="刊        名 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -120,6 +140,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
+            android:layout_marginRight="16.5dp"
             android:text="刘学疯，范仲淹"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>
@@ -132,10 +153,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="年期 : "
+            android:text="年        期 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -145,6 +167,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
+            android:layout_marginRight="16.5dp"
             android:text="2016.12"
             android:textColor="@color/gray_text_6" />
     </LinearLayout>

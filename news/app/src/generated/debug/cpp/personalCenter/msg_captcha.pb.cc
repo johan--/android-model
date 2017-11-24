@@ -33,6 +33,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CheckPhoneCaptchaResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CheckPhoneCaptchaResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CheckPhoneIsExistRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CheckPhoneIsExistRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CheckPhoneIsExistResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CheckPhoneIsExistResponse_reflection_ = NULL;
 
 }  // namespace
 
@@ -45,8 +51,9 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fcaptcha_2eproto() {
       "personalCenter/msg_captcha.proto");
   GOOGLE_CHECK(file != NULL);
   GetPhoneCaptchaRequest_descriptor_ = file->message_type(0);
-  static const int GetPhoneCaptchaRequest_offsets_[3] = {
+  static const int GetPhoneCaptchaRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhoneCaptchaRequest, phone_number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhoneCaptchaRequest, phone_captcha_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhoneCaptchaRequest, nation_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhoneCaptchaRequest, message_type_),
   };
@@ -107,6 +114,35 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fcaptcha_2eproto() {
       -1,
       sizeof(CheckPhoneCaptchaResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckPhoneCaptchaResponse, _internal_metadata_));
+  CheckPhoneIsExistRequest_descriptor_ = file->message_type(4);
+  static const int CheckPhoneIsExistRequest_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckPhoneIsExistRequest, phone_number_),
+  };
+  CheckPhoneIsExistRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CheckPhoneIsExistRequest_descriptor_,
+      CheckPhoneIsExistRequest::internal_default_instance(),
+      CheckPhoneIsExistRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CheckPhoneIsExistRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckPhoneIsExistRequest, _internal_metadata_));
+  CheckPhoneIsExistResponse_descriptor_ = file->message_type(5);
+  static const int CheckPhoneIsExistResponse_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckPhoneIsExistResponse, is_exist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckPhoneIsExistResponse, error_),
+  };
+  CheckPhoneIsExistResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CheckPhoneIsExistResponse_descriptor_,
+      CheckPhoneIsExistResponse::internal_default_instance(),
+      CheckPhoneIsExistResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CheckPhoneIsExistResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckPhoneIsExistResponse, _internal_metadata_));
 }
 
 namespace {
@@ -128,6 +164,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
       CheckPhoneCaptchaRequest_descriptor_, CheckPhoneCaptchaRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       CheckPhoneCaptchaResponse_descriptor_, CheckPhoneCaptchaResponse::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CheckPhoneIsExistRequest_descriptor_, CheckPhoneIsExistRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CheckPhoneIsExistResponse_descriptor_, CheckPhoneIsExistResponse::internal_default_instance());
 }
 
 }  // namespace
@@ -141,6 +181,10 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fcaptcha_2eproto() {
   delete CheckPhoneCaptchaRequest_reflection_;
   CheckPhoneCaptchaResponse_default_instance_.Shutdown();
   delete CheckPhoneCaptchaResponse_reflection_;
+  CheckPhoneIsExistRequest_default_instance_.Shutdown();
+  delete CheckPhoneIsExistRequest_reflection_;
+  CheckPhoneIsExistResponse_default_instance_.Shutdown();
+  delete CheckPhoneIsExistResponse_reflection_;
 }
 
 void protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto_impl() {
@@ -153,10 +197,15 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   CheckPhoneCaptchaRequest_default_instance_.DefaultConstruct();
   CheckPhoneCaptchaResponse_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  CheckPhoneIsExistRequest_default_instance_.DefaultConstruct();
+  CheckPhoneIsExistResponse_default_instance_.DefaultConstruct();
   GetPhoneCaptchaRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   GetPhoneCaptchaResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   CheckPhoneCaptchaRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   CheckPhoneCaptchaResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
+  CheckPhoneIsExistRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  CheckPhoneIsExistResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto_once_);
@@ -170,17 +219,21 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fcaptcha_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n personalCenter/msg_captcha.proto\022\010pers"
-    "onal\032\032grpcCommon/msg_error.proto\"T\n\026GetP"
+    "onal\032\032grpcCommon/msg_error.proto\"k\n\026GetP"
     "honeCaptchaRequest\022\024\n\014phone_number\030\001 \001(\t"
-    "\022\016\n\006nation\030\002 \001(\t\022\024\n\014message_type\030\003 \001(\t\"O"
-    "\n\027GetPhoneCaptchaResponse\022\016\n\006status\030\001 \001("
-    "\005\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcError\""
-    "m\n\030CheckPhoneCaptchaRequest\022\024\n\014phone_num"
-    "ber\030\001 \001(\t\022\025\n\rphone_captcha\030\002 \001(\t\022\016\n\006nati"
-    "on\030\003 \001(\t\022\024\n\014message_type\030\004 \001(\t\"Q\n\031CheckP"
-    "honeCaptchaResponse\022\016\n\006status\030\001 \001(\005\022$\n\005e"
-    "rror\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com"
-    ".wanfang.personalP\001\242\002\004WFPRb\006proto3", 474);
+    "\022\025\n\rphone_captcha\030\002 \001(\t\022\016\n\006nation\030\003 \001(\t\022"
+    "\024\n\014message_type\030\004 \001(\t\"O\n\027GetPhoneCaptcha"
+    "Response\022\016\n\006status\030\001 \001(\005\022$\n\005error\030\002 \001(\0132"
+    "\025.grpcCommon.GrpcError\"m\n\030CheckPhoneCapt"
+    "chaRequest\022\024\n\014phone_number\030\001 \001(\t\022\025\n\rphon"
+    "e_captcha\030\002 \001(\t\022\016\n\006nation\030\003 \001(\t\022\024\n\014messa"
+    "ge_type\030\004 \001(\t\"Q\n\031CheckPhoneCaptchaRespon"
+    "se\022\016\n\006status\030\001 \001(\005\022$\n\005error\030\002 \001(\0132\025.grpc"
+    "Common.GrpcError\"0\n\030CheckPhoneIsExistReq"
+    "uest\022\024\n\014phone_number\030\001 \001(\t\"S\n\031CheckPhone"
+    "IsExistResponse\022\020\n\010is_exist\030\001 \001(\010\022$\n\005err"
+    "or\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com.w"
+    "anfang.personalP\001\242\002\004WFPRb\006proto3", 632);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_captcha.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -213,6 +266,7 @@ static void MergeFromFail(int line) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GetPhoneCaptchaRequest::kPhoneNumberFieldNumber;
+const int GetPhoneCaptchaRequest::kPhoneCaptchaFieldNumber;
 const int GetPhoneCaptchaRequest::kNationFieldNumber;
 const int GetPhoneCaptchaRequest::kMessageTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -237,6 +291,7 @@ GetPhoneCaptchaRequest::GetPhoneCaptchaRequest(const GetPhoneCaptchaRequest& fro
 
 void GetPhoneCaptchaRequest::SharedCtor() {
   phone_number_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phone_captcha_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   nation_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
@@ -249,6 +304,7 @@ GetPhoneCaptchaRequest::~GetPhoneCaptchaRequest() {
 
 void GetPhoneCaptchaRequest::SharedDtor() {
   phone_number_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phone_captcha_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   nation_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -281,6 +337,7 @@ GetPhoneCaptchaRequest* GetPhoneCaptchaRequest::New(::google::protobuf::Arena* a
 void GetPhoneCaptchaRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.GetPhoneCaptchaRequest)
   phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -307,13 +364,30 @@ bool GetPhoneCaptchaRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_nation;
+        if (input->ExpectTag(18)) goto parse_phone_captcha;
         break;
       }
 
-      // optional string nation = 2;
+      // optional string phone_captcha = 2;
       case 2: {
         if (tag == 18) {
+         parse_phone_captcha:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_phone_captcha()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->phone_captcha().data(), this->phone_captcha().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.GetPhoneCaptchaRequest.phone_captcha"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_nation;
+        break;
+      }
+
+      // optional string nation = 3;
+      case 3: {
+        if (tag == 26) {
          parse_nation:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_nation()));
@@ -324,13 +398,13 @@ bool GetPhoneCaptchaRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_message_type;
+        if (input->ExpectTag(34)) goto parse_message_type;
         break;
       }
 
-      // optional string message_type = 3;
-      case 3: {
-        if (tag == 26) {
+      // optional string message_type = 4;
+      case 4: {
+        if (tag == 34) {
          parse_message_type:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_message_type()));
@@ -379,24 +453,34 @@ void GetPhoneCaptchaRequest::SerializeWithCachedSizes(
       1, this->phone_number(), output);
   }
 
-  // optional string nation = 2;
+  // optional string phone_captcha = 2;
+  if (this->phone_captcha().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->phone_captcha().data(), this->phone_captcha().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.GetPhoneCaptchaRequest.phone_captcha");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->phone_captcha(), output);
+  }
+
+  // optional string nation = 3;
   if (this->nation().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->nation().data(), this->nation().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "personal.GetPhoneCaptchaRequest.nation");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->nation(), output);
+      3, this->nation(), output);
   }
 
-  // optional string message_type = 3;
+  // optional string message_type = 4;
   if (this->message_type().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->message_type().data(), this->message_type().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "personal.GetPhoneCaptchaRequest.message_type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->message_type(), output);
+      4, this->message_type(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:personal.GetPhoneCaptchaRequest)
@@ -417,7 +501,18 @@ void GetPhoneCaptchaRequest::SerializeWithCachedSizes(
         1, this->phone_number(), target);
   }
 
-  // optional string nation = 2;
+  // optional string phone_captcha = 2;
+  if (this->phone_captcha().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->phone_captcha().data(), this->phone_captcha().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.GetPhoneCaptchaRequest.phone_captcha");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->phone_captcha(), target);
+  }
+
+  // optional string nation = 3;
   if (this->nation().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->nation().data(), this->nation().length(),
@@ -425,10 +520,10 @@ void GetPhoneCaptchaRequest::SerializeWithCachedSizes(
       "personal.GetPhoneCaptchaRequest.nation");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->nation(), target);
+        3, this->nation(), target);
   }
 
-  // optional string message_type = 3;
+  // optional string message_type = 4;
   if (this->message_type().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->message_type().data(), this->message_type().length(),
@@ -436,7 +531,7 @@ void GetPhoneCaptchaRequest::SerializeWithCachedSizes(
       "personal.GetPhoneCaptchaRequest.message_type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->message_type(), target);
+        4, this->message_type(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:personal.GetPhoneCaptchaRequest)
@@ -454,14 +549,21 @@ size_t GetPhoneCaptchaRequest::ByteSizeLong() const {
         this->phone_number());
   }
 
-  // optional string nation = 2;
+  // optional string phone_captcha = 2;
+  if (this->phone_captcha().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->phone_captcha());
+  }
+
+  // optional string nation = 3;
   if (this->nation().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->nation());
   }
 
-  // optional string message_type = 3;
+  // optional string message_type = 4;
   if (this->message_type().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -505,6 +607,10 @@ void GetPhoneCaptchaRequest::UnsafeMergeFrom(const GetPhoneCaptchaRequest& from)
 
     phone_number_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_number_);
   }
+  if (from.phone_captcha().size() > 0) {
+
+    phone_captcha_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_captcha_);
+  }
   if (from.nation().size() > 0) {
 
     nation_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.nation_);
@@ -540,6 +646,7 @@ void GetPhoneCaptchaRequest::Swap(GetPhoneCaptchaRequest* other) {
 }
 void GetPhoneCaptchaRequest::InternalSwap(GetPhoneCaptchaRequest* other) {
   phone_number_.Swap(&other->phone_number_);
+  phone_captcha_.Swap(&other->phone_captcha_);
   nation_.Swap(&other->nation_);
   message_type_.Swap(&other->message_type_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -601,7 +708,51 @@ void GetPhoneCaptchaRequest::set_allocated_phone_number(::std::string* phone_num
   // @@protoc_insertion_point(field_set_allocated:personal.GetPhoneCaptchaRequest.phone_number)
 }
 
-// optional string nation = 2;
+// optional string phone_captcha = 2;
+void GetPhoneCaptchaRequest::clear_phone_captcha() {
+  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& GetPhoneCaptchaRequest::phone_captcha() const {
+  // @@protoc_insertion_point(field_get:personal.GetPhoneCaptchaRequest.phone_captcha)
+  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void GetPhoneCaptchaRequest::set_phone_captcha(const ::std::string& value) {
+  
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+void GetPhoneCaptchaRequest::set_phone_captcha(const char* value) {
+  
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+void GetPhoneCaptchaRequest::set_phone_captcha(const char* value, size_t size) {
+  
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+::std::string* GetPhoneCaptchaRequest::mutable_phone_captcha() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.GetPhoneCaptchaRequest.phone_captcha)
+  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* GetPhoneCaptchaRequest::release_phone_captcha() {
+  // @@protoc_insertion_point(field_release:personal.GetPhoneCaptchaRequest.phone_captcha)
+  
+  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void GetPhoneCaptchaRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
+  if (phone_captcha != NULL) {
+    
+  } else {
+    
+  }
+  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
+  // @@protoc_insertion_point(field_set_allocated:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+
+// optional string nation = 3;
 void GetPhoneCaptchaRequest::clear_nation() {
   nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -645,7 +796,7 @@ void GetPhoneCaptchaRequest::set_allocated_nation(::std::string* nation) {
   // @@protoc_insertion_point(field_set_allocated:personal.GetPhoneCaptchaRequest.nation)
 }
 
-// optional string message_type = 3;
+// optional string message_type = 4;
 void GetPhoneCaptchaRequest::clear_message_type() {
   message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1932,6 +2083,622 @@ void CheckPhoneCaptchaResponse::set_allocated_error(::grpcCommon::GrpcError* err
 
 inline const CheckPhoneCaptchaResponse* CheckPhoneCaptchaResponse::internal_default_instance() {
   return &CheckPhoneCaptchaResponse_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CheckPhoneIsExistRequest::kPhoneNumberFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CheckPhoneIsExistRequest::CheckPhoneIsExistRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.CheckPhoneIsExistRequest)
+}
+
+void CheckPhoneIsExistRequest::InitAsDefaultInstance() {
+}
+
+CheckPhoneIsExistRequest::CheckPhoneIsExistRequest(const CheckPhoneIsExistRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.CheckPhoneIsExistRequest)
+}
+
+void CheckPhoneIsExistRequest::SharedCtor() {
+  phone_number_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+CheckPhoneIsExistRequest::~CheckPhoneIsExistRequest() {
+  // @@protoc_insertion_point(destructor:personal.CheckPhoneIsExistRequest)
+  SharedDtor();
+}
+
+void CheckPhoneIsExistRequest::SharedDtor() {
+  phone_number_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void CheckPhoneIsExistRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CheckPhoneIsExistRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CheckPhoneIsExistRequest_descriptor_;
+}
+
+const CheckPhoneIsExistRequest& CheckPhoneIsExistRequest::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<CheckPhoneIsExistRequest> CheckPhoneIsExistRequest_default_instance_;
+
+CheckPhoneIsExistRequest* CheckPhoneIsExistRequest::New(::google::protobuf::Arena* arena) const {
+  CheckPhoneIsExistRequest* n = new CheckPhoneIsExistRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CheckPhoneIsExistRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.CheckPhoneIsExistRequest)
+  phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool CheckPhoneIsExistRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.CheckPhoneIsExistRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string phone_number = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_phone_number()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->phone_number().data(), this->phone_number().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.CheckPhoneIsExistRequest.phone_number"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.CheckPhoneIsExistRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.CheckPhoneIsExistRequest)
+  return false;
+#undef DO_
+}
+
+void CheckPhoneIsExistRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.CheckPhoneIsExistRequest)
+  // optional string phone_number = 1;
+  if (this->phone_number().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->phone_number().data(), this->phone_number().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.CheckPhoneIsExistRequest.phone_number");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->phone_number(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.CheckPhoneIsExistRequest)
+}
+
+::google::protobuf::uint8* CheckPhoneIsExistRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.CheckPhoneIsExistRequest)
+  // optional string phone_number = 1;
+  if (this->phone_number().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->phone_number().data(), this->phone_number().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.CheckPhoneIsExistRequest.phone_number");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->phone_number(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.CheckPhoneIsExistRequest)
+  return target;
+}
+
+size_t CheckPhoneIsExistRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.CheckPhoneIsExistRequest)
+  size_t total_size = 0;
+
+  // optional string phone_number = 1;
+  if (this->phone_number().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->phone_number());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CheckPhoneIsExistRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.CheckPhoneIsExistRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const CheckPhoneIsExistRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CheckPhoneIsExistRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.CheckPhoneIsExistRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.CheckPhoneIsExistRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void CheckPhoneIsExistRequest::MergeFrom(const CheckPhoneIsExistRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.CheckPhoneIsExistRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void CheckPhoneIsExistRequest::UnsafeMergeFrom(const CheckPhoneIsExistRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.phone_number().size() > 0) {
+
+    phone_number_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_number_);
+  }
+}
+
+void CheckPhoneIsExistRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.CheckPhoneIsExistRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CheckPhoneIsExistRequest::CopyFrom(const CheckPhoneIsExistRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.CheckPhoneIsExistRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool CheckPhoneIsExistRequest::IsInitialized() const {
+
+  return true;
+}
+
+void CheckPhoneIsExistRequest::Swap(CheckPhoneIsExistRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CheckPhoneIsExistRequest::InternalSwap(CheckPhoneIsExistRequest* other) {
+  phone_number_.Swap(&other->phone_number_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CheckPhoneIsExistRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CheckPhoneIsExistRequest_descriptor_;
+  metadata.reflection = CheckPhoneIsExistRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CheckPhoneIsExistRequest
+
+// optional string phone_number = 1;
+void CheckPhoneIsExistRequest::clear_phone_number() {
+  phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& CheckPhoneIsExistRequest::phone_number() const {
+  // @@protoc_insertion_point(field_get:personal.CheckPhoneIsExistRequest.phone_number)
+  return phone_number_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CheckPhoneIsExistRequest::set_phone_number(const ::std::string& value) {
+  
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.CheckPhoneIsExistRequest.phone_number)
+}
+void CheckPhoneIsExistRequest::set_phone_number(const char* value) {
+  
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.CheckPhoneIsExistRequest.phone_number)
+}
+void CheckPhoneIsExistRequest::set_phone_number(const char* value, size_t size) {
+  
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.CheckPhoneIsExistRequest.phone_number)
+}
+::std::string* CheckPhoneIsExistRequest::mutable_phone_number() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.CheckPhoneIsExistRequest.phone_number)
+  return phone_number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* CheckPhoneIsExistRequest::release_phone_number() {
+  // @@protoc_insertion_point(field_release:personal.CheckPhoneIsExistRequest.phone_number)
+  
+  return phone_number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CheckPhoneIsExistRequest::set_allocated_phone_number(::std::string* phone_number) {
+  if (phone_number != NULL) {
+    
+  } else {
+    
+  }
+  phone_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_number);
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckPhoneIsExistRequest.phone_number)
+}
+
+inline const CheckPhoneIsExistRequest* CheckPhoneIsExistRequest::internal_default_instance() {
+  return &CheckPhoneIsExistRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CheckPhoneIsExistResponse::kIsExistFieldNumber;
+const int CheckPhoneIsExistResponse::kErrorFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CheckPhoneIsExistResponse::CheckPhoneIsExistResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.CheckPhoneIsExistResponse)
+}
+
+void CheckPhoneIsExistResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
+}
+
+CheckPhoneIsExistResponse::CheckPhoneIsExistResponse(const CheckPhoneIsExistResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.CheckPhoneIsExistResponse)
+}
+
+void CheckPhoneIsExistResponse::SharedCtor() {
+  error_ = NULL;
+  is_exist_ = false;
+  _cached_size_ = 0;
+}
+
+CheckPhoneIsExistResponse::~CheckPhoneIsExistResponse() {
+  // @@protoc_insertion_point(destructor:personal.CheckPhoneIsExistResponse)
+  SharedDtor();
+}
+
+void CheckPhoneIsExistResponse::SharedDtor() {
+  if (this != &CheckPhoneIsExistResponse_default_instance_.get()) {
+    delete error_;
+  }
+}
+
+void CheckPhoneIsExistResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CheckPhoneIsExistResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CheckPhoneIsExistResponse_descriptor_;
+}
+
+const CheckPhoneIsExistResponse& CheckPhoneIsExistResponse::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<CheckPhoneIsExistResponse> CheckPhoneIsExistResponse_default_instance_;
+
+CheckPhoneIsExistResponse* CheckPhoneIsExistResponse::New(::google::protobuf::Arena* arena) const {
+  CheckPhoneIsExistResponse* n = new CheckPhoneIsExistResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CheckPhoneIsExistResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.CheckPhoneIsExistResponse)
+  is_exist_ = false;
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+
+bool CheckPhoneIsExistResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.CheckPhoneIsExistResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool is_exist = 1;
+      case 1: {
+        if (tag == 8) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_exist_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.CheckPhoneIsExistResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.CheckPhoneIsExistResponse)
+  return false;
+#undef DO_
+}
+
+void CheckPhoneIsExistResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.CheckPhoneIsExistResponse)
+  // optional bool is_exist = 1;
+  if (this->is_exist() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->is_exist(), output);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.CheckPhoneIsExistResponse)
+}
+
+::google::protobuf::uint8* CheckPhoneIsExistResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.CheckPhoneIsExistResponse)
+  // optional bool is_exist = 1;
+  if (this->is_exist() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->is_exist(), target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.CheckPhoneIsExistResponse)
+  return target;
+}
+
+size_t CheckPhoneIsExistResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.CheckPhoneIsExistResponse)
+  size_t total_size = 0;
+
+  // optional bool is_exist = 1;
+  if (this->is_exist() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CheckPhoneIsExistResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.CheckPhoneIsExistResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const CheckPhoneIsExistResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CheckPhoneIsExistResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.CheckPhoneIsExistResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.CheckPhoneIsExistResponse)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void CheckPhoneIsExistResponse::MergeFrom(const CheckPhoneIsExistResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.CheckPhoneIsExistResponse)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void CheckPhoneIsExistResponse::UnsafeMergeFrom(const CheckPhoneIsExistResponse& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.is_exist() != 0) {
+    set_is_exist(from.is_exist());
+  }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
+}
+
+void CheckPhoneIsExistResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.CheckPhoneIsExistResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CheckPhoneIsExistResponse::CopyFrom(const CheckPhoneIsExistResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.CheckPhoneIsExistResponse)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool CheckPhoneIsExistResponse::IsInitialized() const {
+
+  return true;
+}
+
+void CheckPhoneIsExistResponse::Swap(CheckPhoneIsExistResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CheckPhoneIsExistResponse::InternalSwap(CheckPhoneIsExistResponse* other) {
+  std::swap(is_exist_, other->is_exist_);
+  std::swap(error_, other->error_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CheckPhoneIsExistResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CheckPhoneIsExistResponse_descriptor_;
+  metadata.reflection = CheckPhoneIsExistResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CheckPhoneIsExistResponse
+
+// optional bool is_exist = 1;
+void CheckPhoneIsExistResponse::clear_is_exist() {
+  is_exist_ = false;
+}
+bool CheckPhoneIsExistResponse::is_exist() const {
+  // @@protoc_insertion_point(field_get:personal.CheckPhoneIsExistResponse.is_exist)
+  return is_exist_;
+}
+void CheckPhoneIsExistResponse::set_is_exist(bool value) {
+  
+  is_exist_ = value;
+  // @@protoc_insertion_point(field_set:personal.CheckPhoneIsExistResponse.is_exist)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool CheckPhoneIsExistResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void CheckPhoneIsExistResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& CheckPhoneIsExistResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.CheckPhoneIsExistResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* CheckPhoneIsExistResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.CheckPhoneIsExistResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* CheckPhoneIsExistResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.CheckPhoneIsExistResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void CheckPhoneIsExistResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckPhoneIsExistResponse.error)
+}
+
+inline const CheckPhoneIsExistResponse* CheckPhoneIsExistResponse::internal_default_instance() {
+  return &CheckPhoneIsExistResponse_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

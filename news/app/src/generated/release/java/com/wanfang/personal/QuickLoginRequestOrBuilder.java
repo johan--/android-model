@@ -24,22 +24,4 @@ public interface QuickLoginRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPhoneNumberBytes();
-
-  /**
-   * <pre>
-   * 手机验证码
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 2;</code>
-   */
-  java.lang.String getPhoneCaptcha();
-  /**
-   * <pre>
-   * 手机验证码
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getPhoneCaptchaBytes();
 }

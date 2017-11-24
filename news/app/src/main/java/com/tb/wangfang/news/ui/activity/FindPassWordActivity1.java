@@ -70,19 +70,26 @@ public class FindPassWordActivity1 extends SimpleActivity {
                     handler.sendMessageDelayed(message, 1000);
                     showCountDown(countDown);
                 } else {
+                    tvGetCode.setEnabled(true);
                     showCountDown(countDown);
+                    countDown = 60;
                 }
             }
         }
     };
     private MaterialDialog mdialog;
+    private String phoneCaptcha;
 
     private void showCountDown(int countDown) {
         if (countDown > 0) {
-            tvGetCode.setText(countDown + "s");
+            if (tvGetCode != null) {
+                tvGetCode.setText(countDown + "s");
+            }
+
         } else {
-            tvGetCode.setText("获取验证码");
-            this.countDown = 60;
+            if (tvGetCode != null) {
+                tvGetCode.setText("获取验证码");
+            }
         }
     }
 
@@ -131,15 +138,15 @@ public class FindPassWordActivity1 extends SimpleActivity {
                 String phoneNum = editPhonenum.getText().toString();
                 String captcha = editSecurity.getText().toString();
                 if (!TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(phoneNum.trim())) {
-                    if (!TextUtils.isEmpty(captcha) && !TextUtils.isEmpty(captcha.trim())) {
+                    if (!TextUtils.isEmpty(captcha) && !TextUtils.isEmpty(captcha.trim()) && captcha.trim().equals(phoneCaptcha)) {
                         mdialog = new MaterialDialog.Builder(this)
-                                .title("登录中")
+                                .title("响应中")
                                 .progress(true, 0)
                                 .progressIndeterminateStyle(true)
                                 .show();
                         find(phoneNum, captcha, SystemUtil.getDeviceId(this));
                     } else {
-                        ToastUtil.show("请输入手机验证码");
+                        ToastUtil.show("请输入正确的手机验证码");
                     }
 
                 } else {
@@ -156,7 +163,7 @@ public class FindPassWordActivity1 extends SimpleActivity {
             @Override
             public void subscribe(SingleEmitter<PasswordByPhoneResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                PasswordByPhoneRequest request = PasswordByPhoneRequest.newBuilder().setPhoneNumber(phoneNum).setNation("0086").setMessageType("bind").setPhoneCaptcha(captcha).build();
+                PasswordByPhoneRequest request = PasswordByPhoneRequest.newBuilder().setPhoneNumber(phoneNum).build();
                 PasswordByPhoneResponse response = stub.getPasswordByPhone(request);
                 e.onSuccess(response);
             }
@@ -164,14 +171,13 @@ public class FindPassWordActivity1 extends SimpleActivity {
             @Override
             public void onSuccess(PasswordByPhoneResponse response) {
                 Log.d(TAG, "onSuccess: " + response);
-                if (!TextUtils.isEmpty(response.getUserId())) {
+                if (response.hasError()) {
+                    ToastUtil.show(response.getError().getErrorMessage().getErrorReason());
+                } else {
                     Intent intent = new Intent(FindPassWordActivity1.this, FindPasswordActivity2.class);
                     intent.putExtra("userId", response.getUserId());
                     startActivity(intent);
                     FindPassWordActivity1.this.finish();
-
-                } else {
-
                 }
 
 
@@ -179,18 +185,19 @@ public class FindPassWordActivity1 extends SimpleActivity {
 
             @Override
             public void onError(Throwable e) {
-                Log.d(TAG, "onError: "+e.getMessage());
+                Log.d(TAG, "onError: " + e.getMessage());
                 mdialog.dismiss();
             }
         });
     }
 
     private void getCode(final String phone, final String s) {
+        phoneCaptcha = SystemUtil.getRandomSixNum();
         Single.create(new SingleOnSubscribe<GetPhoneCaptchaResponse>() {
             @Override
             public void subscribe(SingleEmitter<GetPhoneCaptchaResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation(s).setMessageType("bind").build();
+                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation(s).setMessageType("ForgetPassword").setPhoneCaptcha(phoneCaptcha).build();
                 GetPhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
                 e.onSuccess(response);
             }
@@ -202,6 +209,7 @@ public class FindPassWordActivity1 extends SimpleActivity {
                     Message msg = new Message();
                     msg.what = 0;
                     handler.sendMessage(msg);
+                    tvGetCode.setEnabled(false);
                     ToastUtil.show("发送成功");
                 } else {
                     ToastUtil.show("发送失败");

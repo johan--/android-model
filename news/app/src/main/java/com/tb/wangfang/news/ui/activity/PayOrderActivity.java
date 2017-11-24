@@ -22,7 +22,6 @@ import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.AuthResult;
 import com.tb.wangfang.news.utils.PayResult;
-import com.tb.wangfang.news.utils.PayUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -250,7 +249,7 @@ public class PayOrderActivity extends SimpleActivity {
                                     }
                                 }
                         )
-                        .positiveText(R.string.md_choose_label)
+                        .positiveText("确定")
                         .show();
 
                 break;
@@ -271,19 +270,18 @@ public class PayOrderActivity extends SimpleActivity {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
                 Log.d(TAG, "onSuccess: " + unifiedorderResponse);
-                if (unifiedorderResponse.getStatus().equals("1")) {
-                    ToastUtil.show("支付成功");
-                    finish();
-                } else {
-                    ToastUtil.show("支付失败");
-                }
                 if (type.equals("Alipay")) {
                     payByZhiFuBao(unifiedorderResponse);
                 } else if (type.equals("Weixin")) {
-                    PayUtil.payWeiXin(PayOrderActivity.this, unifiedorderResponse.getPrepayId());
-//                    payByWeichat(unifiedorderResponse);
-                } else {
-                    PayByBalance(unifiedorderResponse);
+//                    PayUtil.payWeiXin(PayOrderActivity.this, unifiedorderResponse.getPrepayId());
+                    payByWeichat(unifiedorderResponse);
+                } else if (type.equals("WFChargeCard")) {
+                    if (unifiedorderResponse.hasError()) {
+                        ToastUtil.shortShow(unifiedorderResponse.getError().getErrorMessage().getErrorReason());
+                    } else {
+                        ToastUtil.shortShow("支付成功");
+                    }
+
                 }
 
             }
@@ -295,10 +293,6 @@ public class PayOrderActivity extends SimpleActivity {
         });
     }
 
-    private void PayByBalance(UnifiedorderResponse unifiedorderResponse) {
-
-
-    }
 
     private void payByZhiFuBao(UnifiedorderResponse unifiedorderResponse) {
         final String orderInfo = unifiedorderResponse.getSign();
@@ -333,7 +327,6 @@ public class PayOrderActivity extends SimpleActivity {
         req.timeStamp = unifiedorderResponse.getTimeStamp();
         req.packageValue = unifiedorderResponse.getPackage();
         req.sign = unifiedorderResponse.getSign();
-        Toast.makeText(PayOrderActivity.this, "正常调起支付", Toast.LENGTH_SHORT).show();
         // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
         api.sendReq(req);
         btnPay.setEnabled(true);

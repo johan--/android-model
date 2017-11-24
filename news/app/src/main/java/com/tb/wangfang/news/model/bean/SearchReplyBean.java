@@ -16,42 +16,42 @@ public class SearchReplyBean {
      * message : success
      */
 
-    private String totalRow;
-    private String totalPage;
-    private String status;
-    private String message;
+    private Object totalRow;
+    private Object totalPage;
+    private Object status;
+    private Object message;
 
     private List<DataBean> data;
 
-    public String getTotalRow() {
+    public Object getTotalRow() {
         return totalRow;
     }
 
-    public void setTotalRow(String totalRow) {
+    public void setTotalRow(Object totalRow) {
         this.totalRow = totalRow;
     }
 
-    public String getTotalPage() {
+    public Object getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(String totalPage) {
+    public void setTotalPage(Object totalPage) {
         this.totalPage = totalPage;
     }
 
-    public String getStatus() {
+    public Object getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Object status) {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -119,24 +119,24 @@ public class SearchReplyBean {
          * award_date : 2001.06.02
          */
 
-        private String id;
-        private String data_sort;
-        private String page_cnt;
-        private String refdoc_cnt;
+        private Object id;
+        private Object data_sort;
+        private Object page_cnt;
+        private Object refdoc_cnt;
         private Object title02;
         private Object prio_num;
-        private String tag_num;
+        private Object tag_num;
         private Object pub_date;
-        private String abstract_reading_num;
+        private Object abstract_reading_num;
         private Object disk_num;
         private Object app_date;
         private Object common_year;
         private Object app_num;
-        private String thirdparty_links_num;
+        private Object thirdparty_links_num;
         private Object legal_status;
         private Object prio_date;
-        private String import_num;
-        private String share_num;
+        private Object import_num;
+        private Object share_num;
         private Object common_sort_time;
         private Object patent_id;
         private Object signory;
@@ -144,19 +144,19 @@ public class SearchReplyBean {
         private Object source_db;
         private Object agy_per_name;
         private Object app_date02;
-        private String collection_num;
+        private Object collection_num;
         private Object priority;
         private Object applicant_name;
         private Object proposer_name;
         private Object issue_dir;
-        private String download_num;
+        private Object download_num;
         private Object prio_ccode;
         private Object pub_num;
         private Object data_state;
         private Object app_address;
         private Object patent_type;
-        private String fulltext_reading_num;
-        private String note_num;
+        private Object fulltext_reading_num;
+        private Object note_num;
         private Object agy_org_name;
         private Object updatetime;
         private Object class_code;
@@ -172,181 +172,181 @@ public class SearchReplyBean {
         private Object inv_name;
         private Object main_classcode;
 
-        public String getPerio_id() {
+        public Object getPerio_id() {
             return perio_id;
         }
 
-        public void setPerio_id(String perio_id) {
+        public void setPerio_id(Object perio_id) {
             this.perio_id = perio_id;
         }
 
-        private String perio_id;
+        private Object perio_id;
 
-        public String getRe_pubdate() {
+        public Object getRe_pubdate() {
             return re_pubdate;
         }
 
-        public void setRe_pubdate(String re_pubdate) {
+        public void setRe_pubdate(Object re_pubdate) {
             this.re_pubdate = re_pubdate;
         }
 
-        private String re_pubdate;
+        private Object re_pubdate;
 
-        public String getIndustry_name() {
+        public Object getIndustry_name() {
             return industry_name;
         }
 
-        public void setIndustry_name(String industry_name) {
+        public void setIndustry_name(Object industry_name) {
             this.industry_name = industry_name;
         }
 
-        private String industry_name;
+        private Object industry_name;
 
-        public String getResult_type() {
+        public Object getResult_type() {
             return result_type;
         }
 
-        public void setResult_type(String result_type) {
+        public void setResult_type(Object result_type) {
             this.result_type = result_type;
         }
 
-        private String result_type;
+        private Object result_type;
 
         public void setTitle02(Object title02) {
             this.title02 = title02;
         }
 
-        public String getResult_id() {
+        public Object getResult_id() {
             return result_id;
         }
 
-        public void setResult_id(String result_id) {
+        public void setResult_id(Object result_id) {
             this.result_id = result_id;
         }
 
-        private String result_id;
+        private Object result_id;
 
-        public String getPublish_num() {
+        public Object getPublish_num() {
             return publish_num;
         }
 
-        public void setPublish_num(String publish_num) {
+        public void setPublish_num(Object publish_num) {
             this.publish_num = publish_num;
         }
 
-        private String publish_num;
+        private Object publish_num;
 
-        public String getIssue_dept() {
+        public Object getIssue_dept() {
             return issue_dept;
         }
 
-        public void setIssue_dept(String issue_dept) {
+        public void setIssue_dept(Object issue_dept) {
             this.issue_dept = issue_dept;
         }
 
-        private String issue_dept;
+        private Object issue_dept;
 
-        public String getDb_name() {
+        public Object getDb_name() {
             return db_name;
         }
 
-        public void setDb_name(String db_name) {
+        public void setDb_name(Object db_name) {
             this.db_name = db_name;
         }
 
-        private String db_name;
+        private Object db_name;
 
 
-        public String getConf_name() {
+        public Object getConf_name() {
             return conf_name;
         }
 
-        public void setConf_name(String conf_name) {
+        public void setConf_name(Object conf_name) {
             this.conf_name = conf_name;
         }
 
-        private String conf_name;
+        private Object conf_name;
 
-        public String getConf_year() {
+        public Object getConf_year() {
             return conf_year;
         }
 
-        public void setConf_year(String conf_year) {
+        public void setConf_year(Object conf_year) {
             this.conf_year = conf_year;
         }
 
-        private String conf_year;
+        private Object conf_year;
 
-        public String getLegis_id() {
+        public Object getLegis_id() {
             return legis_id;
         }
 
-        public void setLegis_id(String legis_id) {
+        public void setLegis_id(Object legis_id) {
             this.legis_id = legis_id;
         }
 
-        private String legis_id;
+        private Object legis_id;
 
-        public String getIssue_date02() {
+        public Object getIssue_date02() {
             return issue_date02;
         }
 
-        public void setIssue_date02(String issue_date02) {
+        public void setIssue_date02(Object issue_date02) {
             this.issue_date02 = issue_date02;
         }
 
-        private String issue_date02;
+        private Object issue_date02;
 
-        public String getStand_id() {
+        public Object getStand_id() {
             return stand_id;
         }
 
-        public void setStand_id(String stand_id) {
+        public void setStand_id(Object stand_id) {
             this.stand_id = stand_id;
         }
 
-        private String stand_id;
+        private Object stand_id;
 
-        public String getStand_status() {
+        public Object getStand_status() {
             return stand_status;
         }
 
-        public void setStand_status(String stand_status) {
+        public void setStand_status(Object stand_status) {
             this.stand_status = stand_status;
         }
 
-        private String stand_status;
+        private Object stand_status;
 
-        public String getIssue_date() {
+        public Object getIssue_date() {
             return issue_date;
         }
 
-        public void setIssue_date(String issue_date) {
+        public void setIssue_date(Object issue_date) {
             this.issue_date = issue_date;
         }
 
-        private String issue_date;
+        private Object issue_date;
 
-        public String getBelong_type() {
+        public Object getBelong_type() {
             return belong_type;
         }
 
-        public void setBelong_type(String belong_type) {
+        public void setBelong_type(Object belong_type) {
             this.belong_type = belong_type;
         }
 
-        private String belong_type;
+        private Object belong_type;
 
 
-        public String getStand_num() {
+        public Object getStand_num() {
             return stand_num;
         }
 
-        public void setStand_num(String stand_num) {
+        public void setStand_num(Object stand_num) {
             this.stand_num = stand_num;
         }
 
-        private String stand_num;
+        private Object stand_num;
 
         public Object getAuthors_name() {
             return authors_name;
@@ -376,29 +376,29 @@ public class SearchReplyBean {
         private Object perio_title02;
         private Object core_perio;
 
-        public String getArticle_id() {
+        public Object getArticle_id() {
             return article_id;
         }
 
-        public void setArticle_id(String article_id) {
+        public void setArticle_id(Object article_id) {
             this.article_id = article_id;
         }
 
-        private String article_id;
+        private Object article_id;
 
-        public String getMajor_name() {
+        public Object getMajor_name() {
             return major_name;
         }
 
-        public void setMajor_name(String major_name) {
+        public void setMajor_name(Object major_name) {
             this.major_name = major_name;
         }
 
-        public String getPublish_year() {
+        public Object getPublish_year() {
             return publish_year;
         }
 
-        public void setPublish_year(String publish_year) {
+        public void setPublish_year(Object publish_year) {
             this.publish_year = publish_year;
         }
 
@@ -410,39 +410,39 @@ public class SearchReplyBean {
             this.unit_name02 = unit_name02;
         }
 
-        private String major_name;
-        private String publish_year;
+        private Object major_name;
+        private Object publish_year;
         private Object unit_name02;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getData_sort() {
+        public Object getData_sort() {
             return data_sort;
         }
 
-        public void setData_sort(String data_sort) {
+        public void setData_sort(Object data_sort) {
             this.data_sort = data_sort;
         }
 
-        public String getPage_cnt() {
+        public Object getPage_cnt() {
             return page_cnt;
         }
 
-        public void setPage_cnt(String page_cnt) {
+        public void setPage_cnt(Object page_cnt) {
             this.page_cnt = page_cnt;
         }
 
-        public String getRefdoc_cnt() {
+        public Object getRefdoc_cnt() {
             return refdoc_cnt;
         }
 
-        public void setRefdoc_cnt(String refdoc_cnt) {
+        public void setRefdoc_cnt(Object refdoc_cnt) {
             this.refdoc_cnt = refdoc_cnt;
         }
 
@@ -450,23 +450,20 @@ public class SearchReplyBean {
             return title02;
         }
 
-        public void setTitle02(String title02) {
-            this.title02 = title02;
-        }
 
         public Object getPrio_num() {
             return prio_num;
         }
 
-        public void setPrio_num(String prio_num) {
+        public void setPrio_num(Object prio_num) {
             this.prio_num = prio_num;
         }
 
-        public String getTag_num() {
+        public Object getTag_num() {
             return tag_num;
         }
 
-        public void setTag_num(String tag_num) {
+        public void setTag_num(Object tag_num) {
             this.tag_num = tag_num;
         }
 
@@ -474,15 +471,15 @@ public class SearchReplyBean {
             return pub_date;
         }
 
-        public void setPub_date(String pub_date) {
+        public void setPub_date(Object pub_date) {
             this.pub_date = pub_date;
         }
 
-        public String getAbstract_reading_num() {
+        public Object getAbstract_reading_num() {
             return abstract_reading_num;
         }
 
-        public void setAbstract_reading_num(String abstract_reading_num) {
+        public void setAbstract_reading_num(Object abstract_reading_num) {
             this.abstract_reading_num = abstract_reading_num;
         }
 
@@ -498,7 +495,7 @@ public class SearchReplyBean {
             return app_date;
         }
 
-        public void setApp_date(String app_date) {
+        public void setApp_date(Object app_date) {
             this.app_date = app_date;
         }
 
@@ -506,7 +503,7 @@ public class SearchReplyBean {
             return common_year;
         }
 
-        public void setCommon_year(String common_year) {
+        public void setCommon_year(Object common_year) {
             this.common_year = common_year;
         }
 
@@ -514,15 +511,15 @@ public class SearchReplyBean {
             return app_num;
         }
 
-        public void setApp_num(String app_num) {
+        public void setApp_num(Object app_num) {
             this.app_num = app_num;
         }
 
-        public String getThirdparty_links_num() {
+        public Object getThirdparty_links_num() {
             return thirdparty_links_num;
         }
 
-        public void setThirdparty_links_num(String thirdparty_links_num) {
+        public void setThirdparty_links_num(Object thirdparty_links_num) {
             this.thirdparty_links_num = thirdparty_links_num;
         }
 
@@ -530,7 +527,7 @@ public class SearchReplyBean {
             return legal_status;
         }
 
-        public void setLegal_status(String legal_status) {
+        public void setLegal_status(Object legal_status) {
             this.legal_status = legal_status;
         }
 
@@ -538,23 +535,23 @@ public class SearchReplyBean {
             return prio_date;
         }
 
-        public void setPrio_date(String prio_date) {
+        public void setPrio_date(Object prio_date) {
             this.prio_date = prio_date;
         }
 
-        public String getImport_num() {
+        public Object getImport_num() {
             return import_num;
         }
 
-        public void setImport_num(String import_num) {
+        public void setImport_num(Object import_num) {
             this.import_num = import_num;
         }
 
-        public String getShare_num() {
+        public Object getShare_num() {
             return share_num;
         }
 
-        public void setShare_num(String share_num) {
+        public void setShare_num(Object share_num) {
             this.share_num = share_num;
         }
 
@@ -562,7 +559,7 @@ public class SearchReplyBean {
             return common_sort_time;
         }
 
-        public void setCommon_sort_time(String common_sort_time) {
+        public void setCommon_sort_time(Object common_sort_time) {
             this.common_sort_time = common_sort_time;
         }
 
@@ -570,7 +567,7 @@ public class SearchReplyBean {
             return patent_id;
         }
 
-        public void setPatent_id(String patent_id) {
+        public void setPatent_id(Object patent_id) {
             this.patent_id = patent_id;
         }
 
@@ -578,7 +575,7 @@ public class SearchReplyBean {
             return signory;
         }
 
-        public void setSignory(String signory) {
+        public void setSignory(Object signory) {
             this.signory = signory;
         }
 
@@ -586,7 +583,7 @@ public class SearchReplyBean {
             return app_area_code;
         }
 
-        public void setApp_area_code(String app_area_code) {
+        public void setApp_area_code(Object app_area_code) {
             this.app_area_code = app_area_code;
         }
 
@@ -594,7 +591,7 @@ public class SearchReplyBean {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
@@ -602,7 +599,7 @@ public class SearchReplyBean {
             return agy_per_name;
         }
 
-        public void setAgy_per_name(String agy_per_name) {
+        public void setAgy_per_name(Object agy_per_name) {
             this.agy_per_name = agy_per_name;
         }
 
@@ -610,15 +607,15 @@ public class SearchReplyBean {
             return app_date02;
         }
 
-        public void setApp_date02(String app_date02) {
+        public void setApp_date02(Object app_date02) {
             this.app_date02 = app_date02;
         }
 
-        public String getCollection_num() {
+        public Object getCollection_num() {
             return collection_num;
         }
 
-        public void setCollection_num(String collection_num) {
+        public void setCollection_num(Object collection_num) {
             this.collection_num = collection_num;
         }
 
@@ -626,7 +623,7 @@ public class SearchReplyBean {
             return priority;
         }
 
-        public void setPriority(String priority) {
+        public void setPriority(Object priority) {
             this.priority = priority;
         }
 
@@ -650,15 +647,15 @@ public class SearchReplyBean {
             return issue_dir;
         }
 
-        public void setIssue_dir(String issue_dir) {
+        public void setIssue_dir(Object issue_dir) {
             this.issue_dir = issue_dir;
         }
 
-        public String getDownload_num() {
+        public Object getDownload_num() {
             return download_num;
         }
 
-        public void setDownload_num(String download_num) {
+        public void setDownload_num(Object download_num) {
             this.download_num = download_num;
         }
 
@@ -674,7 +671,7 @@ public class SearchReplyBean {
             return pub_num;
         }
 
-        public void setPub_num(String pub_num) {
+        public void setPub_num(Object pub_num) {
             this.pub_num = pub_num;
         }
 
@@ -682,7 +679,7 @@ public class SearchReplyBean {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
@@ -690,7 +687,7 @@ public class SearchReplyBean {
             return app_address;
         }
 
-        public void setApp_address(String app_address) {
+        public void setApp_address(Object app_address) {
             this.app_address = app_address;
         }
 
@@ -698,23 +695,23 @@ public class SearchReplyBean {
             return patent_type;
         }
 
-        public void setPatent_type(String patent_type) {
+        public void setPatent_type(Object patent_type) {
             this.patent_type = patent_type;
         }
 
-        public String getFulltext_reading_num() {
+        public Object getFulltext_reading_num() {
             return fulltext_reading_num;
         }
 
-        public void setFulltext_reading_num(String fulltext_reading_num) {
+        public void setFulltext_reading_num(Object fulltext_reading_num) {
             this.fulltext_reading_num = fulltext_reading_num;
         }
 
-        public String getNote_num() {
+        public Object getNote_num() {
             return note_num;
         }
 
-        public void setNote_num(String note_num) {
+        public void setNote_num(Object note_num) {
             this.note_num = note_num;
         }
 
@@ -722,7 +719,7 @@ public class SearchReplyBean {
             return agy_org_name;
         }
 
-        public void setAgy_org_name(String agy_org_name) {
+        public void setAgy_org_name(Object agy_org_name) {
             this.agy_org_name = agy_org_name;
         }
 
@@ -730,7 +727,7 @@ public class SearchReplyBean {
             return updatetime;
         }
 
-        public void setUpdatetime(String updatetime) {
+        public void setUpdatetime(Object updatetime) {
             this.updatetime = updatetime;
         }
 
@@ -746,7 +743,7 @@ public class SearchReplyBean {
             return pub_org_code;
         }
 
-        public void setPub_org_code(String pub_org_code) {
+        public void setPub_org_code(Object pub_org_code) {
             this.pub_org_code = pub_org_code;
         }
 
@@ -754,7 +751,7 @@ public class SearchReplyBean {
             return title;
         }
 
-        public void setTitle(String title) {
+        public void setTitle(Object title) {
             this.title = title;
         }
 
@@ -762,7 +759,7 @@ public class SearchReplyBean {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -770,7 +767,7 @@ public class SearchReplyBean {
             return keywords;
         }
 
-        public void setKeywords(String keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
@@ -786,7 +783,7 @@ public class SearchReplyBean {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
@@ -802,7 +799,7 @@ public class SearchReplyBean {
             return patent_num;
         }
 
-        public void setPatent_num(String patent_num) {
+        public void setPatent_num(Object patent_num) {
             this.patent_num = patent_num;
         }
 
@@ -810,7 +807,7 @@ public class SearchReplyBean {
             return award_date;
         }
 
-        public void setAward_date(String award_date) {
+        public void setAward_date(Object award_date) {
             this.award_date = award_date;
         }
 
@@ -904,49 +901,49 @@ public class SearchReplyBean {
                  * claim_num :
                  */
 
-                private String patent_id;
-                private String record_id;
-                private String claim_text;
-                private String id;
-                private String claim_num;
+                private Object patent_id;
+                private Object record_id;
+                private Object claim_text;
+                private Object id;
+                private Object claim_num;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getClaim_text() {
+                public Object getClaim_text() {
                     return claim_text;
                 }
 
-                public void setClaim_text(String claim_text) {
+                public void setClaim_text(Object claim_text) {
                     this.claim_text = claim_text;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getClaim_num() {
+                public Object getClaim_num() {
                     return claim_num;
                 }
 
-                public void setClaim_num(String claim_num) {
+                public void setClaim_num(Object claim_num) {
                     this.claim_num = claim_num;
                 }
             }
@@ -962,67 +959,67 @@ public class SearchReplyBean {
                  * tech_field :
                  */
 
-                private String patent_id;
-                private String disclosure;
-                private String draw_desc;
-                private String bg_tech;
-                private String spec_detail;
-                private String id;
-                private String tech_field;
+                private Object patent_id;
+                private Object disclosure;
+                private Object draw_desc;
+                private Object bg_tech;
+                private Object spec_detail;
+                private Object id;
+                private Object tech_field;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getDisclosure() {
+                public Object getDisclosure() {
                     return disclosure;
                 }
 
-                public void setDisclosure(String disclosure) {
+                public void setDisclosure(Object disclosure) {
                     this.disclosure = disclosure;
                 }
 
-                public String getDraw_desc() {
+                public Object getDraw_desc() {
                     return draw_desc;
                 }
 
-                public void setDraw_desc(String draw_desc) {
+                public void setDraw_desc(Object draw_desc) {
                     this.draw_desc = draw_desc;
                 }
 
-                public String getBg_tech() {
+                public Object getBg_tech() {
                     return bg_tech;
                 }
 
-                public void setBg_tech(String bg_tech) {
+                public void setBg_tech(Object bg_tech) {
                     this.bg_tech = bg_tech;
                 }
 
-                public String getSpec_detail() {
+                public Object getSpec_detail() {
                     return spec_detail;
                 }
 
-                public void setSpec_detail(String spec_detail) {
+                public void setSpec_detail(Object spec_detail) {
                     this.spec_detail = spec_detail;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getTech_field() {
+                public Object getTech_field() {
                     return tech_field;
                 }
 
-                public void setTech_field(String tech_field) {
+                public void setTech_field(Object tech_field) {
                     this.tech_field = tech_field;
                 }
             }
@@ -1037,58 +1034,58 @@ public class SearchReplyBean {
                  * proposer_type :
                  */
 
-                private String patent_id;
-                private String proposer_id;
-                private String record_id;
-                private String id;
-                private String proposer_name;
-                private String proposer_type;
+                private Object patent_id;
+                private Object proposer_id;
+                private Object record_id;
+                private Object id;
+                private Object proposer_name;
+                private Object proposer_type;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getProposer_id() {
+                public Object getProposer_id() {
                     return proposer_id;
                 }
 
-                public void setProposer_id(String proposer_id) {
+                public void setProposer_id(Object proposer_id) {
                     this.proposer_id = proposer_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getProposer_name() {
+                public Object getProposer_name() {
                     return proposer_name;
                 }
 
-                public void setProposer_name(String proposer_name) {
+                public void setProposer_name(Object proposer_name) {
                     this.proposer_name = proposer_name;
                 }
 
-                public String getProposer_type() {
+                public Object getProposer_type() {
                     return proposer_type;
                 }
 
-                public void setProposer_type(String proposer_type) {
+                public void setProposer_type(Object proposer_type) {
                     this.proposer_type = proposer_type;
                 }
             }
@@ -1108,103 +1105,103 @@ public class SearchReplyBean {
                  * third_abst_url :
                  */
 
-                private String patent_id;
-                private String record_id;
-                private String is_full;
-                private String third_url;
-                private String orig_num;
-                private String source_db;
-                private String is_oa;
-                private String id;
-                private String source_alburm;
-                private String platform;
-                private String third_abst_url;
+                private Object patent_id;
+                private Object record_id;
+                private Object is_full;
+                private Object third_url;
+                private Object orig_num;
+                private Object source_db;
+                private Object is_oa;
+                private Object id;
+                private Object source_alburm;
+                private Object platform;
+                private Object third_abst_url;
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getIs_full() {
+                public Object getIs_full() {
                     return is_full;
                 }
 
-                public void setIs_full(String is_full) {
+                public void setIs_full(Object is_full) {
                     this.is_full = is_full;
                 }
 
-                public String getThird_url() {
+                public Object getThird_url() {
                     return third_url;
                 }
 
-                public void setThird_url(String third_url) {
+                public void setThird_url(Object third_url) {
                     this.third_url = third_url;
                 }
 
-                public String getOrig_num() {
+                public Object getOrig_num() {
                     return orig_num;
                 }
 
-                public void setOrig_num(String orig_num) {
+                public void setOrig_num(Object orig_num) {
                     this.orig_num = orig_num;
                 }
 
-                public String getSource_db() {
+                public Object getSource_db() {
                     return source_db;
                 }
 
-                public void setSource_db(String source_db) {
+                public void setSource_db(Object source_db) {
                     this.source_db = source_db;
                 }
 
-                public String getIs_oa() {
+                public Object getIs_oa() {
                     return is_oa;
                 }
 
-                public void setIs_oa(String is_oa) {
+                public void setIs_oa(Object is_oa) {
                     this.is_oa = is_oa;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getSource_alburm() {
+                public Object getSource_alburm() {
                     return source_alburm;
                 }
 
-                public void setSource_alburm(String source_alburm) {
+                public void setSource_alburm(Object source_alburm) {
                     this.source_alburm = source_alburm;
                 }
 
-                public String getPlatform() {
+                public Object getPlatform() {
                     return platform;
                 }
 
-                public void setPlatform(String platform) {
+                public void setPlatform(Object platform) {
                     this.platform = platform;
                 }
 
-                public String getThird_abst_url() {
+                public Object getThird_abst_url() {
                     return third_abst_url;
                 }
 
-                public void setThird_abst_url(String third_abst_url) {
+                public void setThird_abst_url(Object third_abst_url) {
                     this.third_abst_url = third_abst_url;
                 }
             }
@@ -1220,67 +1217,67 @@ public class SearchReplyBean {
                  * id : 16111430-1070-4bb7-91c5-d32d2d9028c5
                  */
 
-                private String record_id;
-                private String cited_seq;
-                private String patent_id;
-                private String cited_orig_id;
-                private String cited_num_type;
-                private String cited_num;
-                private String id;
+                private Object record_id;
+                private Object cited_seq;
+                private Object patent_id;
+                private Object cited_orig_id;
+                private Object cited_num_type;
+                private Object cited_num;
+                private Object id;
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getCited_seq() {
+                public Object getCited_seq() {
                     return cited_seq;
                 }
 
-                public void setCited_seq(String cited_seq) {
+                public void setCited_seq(Object cited_seq) {
                     this.cited_seq = cited_seq;
                 }
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getCited_orig_id() {
+                public Object getCited_orig_id() {
                     return cited_orig_id;
                 }
 
-                public void setCited_orig_id(String cited_orig_id) {
+                public void setCited_orig_id(Object cited_orig_id) {
                     this.cited_orig_id = cited_orig_id;
                 }
 
-                public String getCited_num_type() {
+                public Object getCited_num_type() {
                     return cited_num_type;
                 }
 
-                public void setCited_num_type(String cited_num_type) {
+                public void setCited_num_type(Object cited_num_type) {
                     this.cited_num_type = cited_num_type;
                 }
 
-                public String getCited_num() {
+                public Object getCited_num() {
                     return cited_num;
                 }
 
-                public void setCited_num(String cited_num) {
+                public void setCited_num(Object cited_num) {
                     this.cited_num = cited_num;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
             }
@@ -1297,76 +1294,76 @@ public class SearchReplyBean {
                  * inv_name : 吉泽政洋%汤本一磨%星野和义
                  */
 
-                private String record_id;
-                private String proposer_id;
-                private String patent_id;
-                private String inv_ccode;
-                private String inv_acode;
-                private String inv_address;
-                private String id;
-                private String inv_name;
+                private Object record_id;
+                private Object proposer_id;
+                private Object patent_id;
+                private Object inv_ccode;
+                private Object inv_acode;
+                private Object inv_address;
+                private Object id;
+                private Object inv_name;
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getProposer_id() {
+                public Object getProposer_id() {
                     return proposer_id;
                 }
 
-                public void setProposer_id(String proposer_id) {
+                public void setProposer_id(Object proposer_id) {
                     this.proposer_id = proposer_id;
                 }
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getInv_ccode() {
+                public Object getInv_ccode() {
                     return inv_ccode;
                 }
 
-                public void setInv_ccode(String inv_ccode) {
+                public void setInv_ccode(Object inv_ccode) {
                     this.inv_ccode = inv_ccode;
                 }
 
-                public String getInv_acode() {
+                public Object getInv_acode() {
                     return inv_acode;
                 }
 
-                public void setInv_acode(String inv_acode) {
+                public void setInv_acode(Object inv_acode) {
                     this.inv_acode = inv_acode;
                 }
 
-                public String getInv_address() {
+                public Object getInv_address() {
                     return inv_address;
                 }
 
-                public void setInv_address(String inv_address) {
+                public void setInv_address(Object inv_address) {
                     this.inv_address = inv_address;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getInv_name() {
+                public Object getInv_name() {
                     return inv_name;
                 }
 
-                public void setInv_name(String inv_name) {
+                public void setInv_name(Object inv_name) {
                     this.inv_name = inv_name;
                 }
             }
@@ -1380,49 +1377,49 @@ public class SearchReplyBean {
                  * id : ebf0fb26-a54b-4623-8549-757ac74793b5
                  */
 
-                private String cited_npl_seq;
-                private String patent_id;
-                private String record_id;
-                private String cited_npl;
-                private String id;
+                private Object cited_npl_seq;
+                private Object patent_id;
+                private Object record_id;
+                private Object cited_npl;
+                private Object id;
 
-                public String getCited_npl_seq() {
+                public Object getCited_npl_seq() {
                     return cited_npl_seq;
                 }
 
-                public void setCited_npl_seq(String cited_npl_seq) {
+                public void setCited_npl_seq(Object cited_npl_seq) {
                     this.cited_npl_seq = cited_npl_seq;
                 }
 
-                public String getPatent_id() {
+                public Object getPatent_id() {
                     return patent_id;
                 }
 
-                public void setPatent_id(String patent_id) {
+                public void setPatent_id(Object patent_id) {
                     this.patent_id = patent_id;
                 }
 
-                public String getRecord_id() {
+                public Object getRecord_id() {
                     return record_id;
                 }
 
-                public void setRecord_id(String record_id) {
+                public void setRecord_id(Object record_id) {
                     this.record_id = record_id;
                 }
 
-                public String getCited_npl() {
+                public Object getCited_npl() {
                     return cited_npl;
                 }
 
-                public void setCited_npl(String cited_npl) {
+                public void setCited_npl(Object cited_npl) {
                     this.cited_npl = cited_npl;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
             }

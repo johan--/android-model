@@ -18,8 +18,13 @@ import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.AppUtil;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.wanfang.grpcCommon.MsgError;
+import com.wanfang.personal.CheckPhoneIsExistRequest;
+import com.wanfang.personal.CheckPhoneIsExistResponse;
+import com.wanfang.personal.CheckUserNameIsExistRequest;
+import com.wanfang.personal.CheckUserNameIsExistResponse;
 import com.wanfang.personal.GetPhoneCaptchaRequest;
 import com.wanfang.personal.GetPhoneCaptchaResponse;
 import com.wanfang.personal.LoginResponse;
@@ -98,6 +103,7 @@ public class RegisterActivity extends SimpleActivity {
     private String code;
     private String id;
     private String type;
+    private String phoneCaptcha;
 
     @Override
     protected int getLayout() {
@@ -117,6 +123,14 @@ public class RegisterActivity extends SimpleActivity {
         tvWanfangProtocol.getPaint().setAntiAlias(true);
         tvToLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         tvToLogin.getPaint().setAntiAlias(true);
+        editUserName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && editUserName.getText().length() < 6) {
+                    ToastUtil.show("用户名不能小于6位，大于16位");
+                }
+            }
+        });
     }
 
 
@@ -127,6 +141,7 @@ public class RegisterActivity extends SimpleActivity {
                 finish();
                 break;
             case R.id.tv_wanfang_protocol:
+                WebViewActivity.startThisFromActivity(RegisterActivity.this,"http://login.wanfangdata.com.cn/Agreement.aspx","万方数据网络用户服务协议","1");
                 break;
             case R.id.btn_register:
                 userName = editUserName.getText().toString();
@@ -137,10 +152,11 @@ public class RegisterActivity extends SimpleActivity {
                     if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
                         if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
                             if (AppUtil.isMobileNO(phone.trim())) {
-                                if (!TextUtils.isEmpty(code) && !TextUtils.isEmpty(code.trim())) {
-                                    register(userName, passWord, phone, code);
+                                if (!TextUtils.isEmpty(code) && !TextUtils.isEmpty(code.trim()) && code.trim().equals(phoneCaptcha)) {
+                                    checkUsername(userName.trim(), passWord.trim(), phone.trim(), code.trim());
+
                                 } else {
-                                    ToastUtil.show("请输入验证码");
+                                    ToastUtil.show("请输入正确的验证码");
                                 }
                             } else {
                                 ToastUtil.show("请输入正确的手机号码");
@@ -164,8 +180,9 @@ public class RegisterActivity extends SimpleActivity {
                 phone = editPhonenum.getText().toString();
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
                     if (AppUtil.isMobileNO(phone.trim())) {
-                        get_Code(phone.trim());
-                        startTimeing();
+
+                        checkExist(phone.trim());
+
                     } else {
                         ToastUtil.show("请输入正确的手机号码");
                     }
@@ -173,7 +190,70 @@ public class RegisterActivity extends SimpleActivity {
                     ToastUtil.show("请输入手机号码");
                 }
                 break;
+
         }
+    }
+
+    private void checkUsername(final String userName, final String passWord, final String phone, final String code) {
+        Single.create(new SingleOnSubscribe<CheckUserNameIsExistResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CheckUserNameIsExistResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                CheckUserNameIsExistRequest checkPhoneIsExistRequest = CheckUserNameIsExistRequest.newBuilder().setUserName(userName).build();
+                CheckUserNameIsExistResponse response = stub.checkUserNameIsExist(checkPhoneIsExistRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<CheckUserNameIsExistResponse>() {
+            @Override
+            public void onSuccess(CheckUserNameIsExistResponse checkPhoneIsExistResponse) {
+                Log.d(TAG, "onSuccess: " + checkPhoneIsExistResponse.toString());
+                if (checkPhoneIsExistResponse.getIsExist()) {
+                    ToastUtil.show("该用户名已经存在");
+                } else {
+
+                    register(userName, passWord, phone, code);
+                }
+
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                ToastUtil.show("服务器错误");
+            }
+        });
+    }
+
+    private void checkExist(final String trim) {
+        Single.create(new SingleOnSubscribe<CheckPhoneIsExistResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<CheckPhoneIsExistResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                CheckPhoneIsExistRequest checkPhoneIsExistRequest = CheckPhoneIsExistRequest.newBuilder().setPhoneNumber(trim).build();
+                CheckPhoneIsExistResponse response = stub.checkPhoneIsExist(checkPhoneIsExistRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<CheckPhoneIsExistResponse>() {
+            @Override
+            public void onSuccess(CheckPhoneIsExistResponse checkPhoneIsExistResponse) {
+                Log.d(TAG, "onSuccess: " + checkPhoneIsExistResponse.toString());
+                if (checkPhoneIsExistResponse.getIsExist()) {
+                    ToastUtil.show("该手机已经注册过");
+                } else {
+                    get_Code(phone.trim());
+                    startTimeing();
+                }
+
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+                ToastUtil.show("服务器错误");
+            }
+        });
     }
 
     private void register(final String userName, final String passWord, final String phone, final String code) {
@@ -184,7 +264,7 @@ public class RegisterActivity extends SimpleActivity {
             public void subscribe(SingleEmitter<RegistResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
                 RegistRequest registRequest = RegistRequest.newBuilder().setPassword(passWord.trim()).setPhone(phone.trim()).
-                        setUserName(userName.trim()).setPhoneCaptcha(code.trim()).setNation("0086").setMessageType("bind").build();
+                        setUserName(userName.trim()).build();
                 RegistResponse response = stub.regist(registRequest);
                 e.onSuccess(response);
             }
@@ -192,10 +272,14 @@ public class RegisterActivity extends SimpleActivity {
             @Override
             public void onSuccess(RegistResponse registResponse) {
                 Log.d(TAG, "onSuccess: " + registResponse.toString());
-                if (!TextUtils.isEmpty(registResponse.getUserId())) {
+                if (!registResponse.hasError()) {
                     ToastUtil.show("注册成功");
                     MiPushClient.setUserAccount(RegisterActivity.this, registResponse.getUserId(), null);
-                    bindAccount(userName, passWord);
+                    if (!TextUtils.isEmpty(id)) {
+                        bindAccount(userName, passWord);
+                    } else {
+                        login(passWord);
+                    }
 
                 } else {
                     ToastUtil.show(registResponse.getError().getErrorMessage().getErrorReason());
@@ -252,11 +336,12 @@ public class RegisterActivity extends SimpleActivity {
     }
 
     private void get_Code(final String phone) {
+        phoneCaptcha = SystemUtil.getRandomSixNum();
         Single.create(new SingleOnSubscribe<GetPhoneCaptchaResponse>() {
             @Override
             public void subscribe(SingleEmitter<GetPhoneCaptchaResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation("0086").setMessageType("bind").build();
+                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation("0086").setMessageType("Register").setPhoneCaptcha(phoneCaptcha).build();
                 GetPhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
                 e.onSuccess(response);
             }
@@ -297,6 +382,7 @@ public class RegisterActivity extends SimpleActivity {
             @Override
             public void onSuccess(LoginResponse userRolesListResponse) {
                 Log.e(TAG, "onSuccess: userRolesListResponse" + userRolesListResponse);
+
                 if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
 
                     ToastUtil.show("未绑定成功");

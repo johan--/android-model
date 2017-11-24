@@ -20,6 +20,7 @@ public  final class GetPhoneCaptchaRequest extends
   }
   private GetPhoneCaptchaRequest() {
     phoneNumber_ = "";
+    phoneCaptcha_ = "";
     nation_ = "";
     messageType_ = "";
   }
@@ -58,10 +59,16 @@ public  final class GetPhoneCaptchaRequest extends
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            nation_ = s;
+            phoneCaptcha_ = s;
             break;
           }
           case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            nation_ = s;
+            break;
+          }
+          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
             messageType_ = s;
@@ -132,14 +139,56 @@ public  final class GetPhoneCaptchaRequest extends
     }
   }
 
-  public static final int NATION_FIELD_NUMBER = 2;
+  public static final int PHONE_CAPTCHA_FIELD_NUMBER = 2;
+  private volatile java.lang.Object phoneCaptcha_;
+  /**
+   * <pre>
+   * 验证码
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 2;</code>
+   */
+  public java.lang.String getPhoneCaptcha() {
+    java.lang.Object ref = phoneCaptcha_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      phoneCaptcha_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 验证码
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPhoneCaptchaBytes() {
+    java.lang.Object ref = phoneCaptcha_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      phoneCaptcha_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int NATION_FIELD_NUMBER = 3;
   private volatile java.lang.Object nation_;
   /**
    * <pre>
    * 国际区号 如：中国：0086；
    * </pre>
    *
-   * <code>optional string nation = 2;</code>
+   * <code>optional string nation = 3;</code>
    */
   public java.lang.String getNation() {
     java.lang.Object ref = nation_;
@@ -158,7 +207,7 @@ public  final class GetPhoneCaptchaRequest extends
    * 国际区号 如：中国：0086；
    * </pre>
    *
-   * <code>optional string nation = 2;</code>
+   * <code>optional string nation = 3;</code>
    */
   public com.google.protobuf.ByteString
       getNationBytes() {
@@ -174,14 +223,14 @@ public  final class GetPhoneCaptchaRequest extends
     }
   }
 
-  public static final int MESSAGE_TYPE_FIELD_NUMBER = 3;
+  public static final int MESSAGE_TYPE_FIELD_NUMBER = 4;
   private volatile java.lang.Object messageType_;
   /**
    * <pre>
-   * 消息类型 目前仅支持“bind”
+   * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
    * </pre>
    *
-   * <code>optional string message_type = 3;</code>
+   * <code>optional string message_type = 4;</code>
    */
   public java.lang.String getMessageType() {
     java.lang.Object ref = messageType_;
@@ -197,10 +246,10 @@ public  final class GetPhoneCaptchaRequest extends
   }
   /**
    * <pre>
-   * 消息类型 目前仅支持“bind”
+   * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
    * </pre>
    *
-   * <code>optional string message_type = 3;</code>
+   * <code>optional string message_type = 4;</code>
    */
   public com.google.protobuf.ByteString
       getMessageTypeBytes() {
@@ -231,11 +280,14 @@ public  final class GetPhoneCaptchaRequest extends
     if (!getPhoneNumberBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phoneNumber_);
     }
+    if (!getPhoneCaptchaBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phoneCaptcha_);
+    }
     if (!getNationBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nation_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nation_);
     }
     if (!getMessageTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, messageType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, messageType_);
     }
   }
 
@@ -247,11 +299,14 @@ public  final class GetPhoneCaptchaRequest extends
     if (!getPhoneNumberBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phoneNumber_);
     }
+    if (!getPhoneCaptchaBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phoneCaptcha_);
+    }
     if (!getNationBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nation_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, nation_);
     }
     if (!getMessageTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, messageType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, messageType_);
     }
     memoizedSize = size;
     return size;
@@ -271,6 +326,8 @@ public  final class GetPhoneCaptchaRequest extends
     boolean result = true;
     result = result && getPhoneNumber()
         .equals(other.getPhoneNumber());
+    result = result && getPhoneCaptcha()
+        .equals(other.getPhoneCaptcha());
     result = result && getNation()
         .equals(other.getNation());
     result = result && getMessageType()
@@ -287,6 +344,8 @@ public  final class GetPhoneCaptchaRequest extends
     hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneNumber().hashCode();
+    hash = (37 * hash) + PHONE_CAPTCHA_FIELD_NUMBER;
+    hash = (53 * hash) + getPhoneCaptcha().hashCode();
     hash = (37 * hash) + NATION_FIELD_NUMBER;
     hash = (53 * hash) + getNation().hashCode();
     hash = (37 * hash) + MESSAGE_TYPE_FIELD_NUMBER;
@@ -415,6 +474,8 @@ public  final class GetPhoneCaptchaRequest extends
       super.clear();
       phoneNumber_ = "";
 
+      phoneCaptcha_ = "";
+
       nation_ = "";
 
       messageType_ = "";
@@ -442,6 +503,7 @@ public  final class GetPhoneCaptchaRequest extends
     public com.wanfang.personal.GetPhoneCaptchaRequest buildPartial() {
       com.wanfang.personal.GetPhoneCaptchaRequest result = new com.wanfang.personal.GetPhoneCaptchaRequest(this);
       result.phoneNumber_ = phoneNumber_;
+      result.phoneCaptcha_ = phoneCaptcha_;
       result.nation_ = nation_;
       result.messageType_ = messageType_;
       onBuilt();
@@ -487,6 +549,10 @@ public  final class GetPhoneCaptchaRequest extends
       if (other == com.wanfang.personal.GetPhoneCaptchaRequest.getDefaultInstance()) return this;
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
+        onChanged();
+      }
+      if (!other.getPhoneCaptcha().isEmpty()) {
+        phoneCaptcha_ = other.phoneCaptcha_;
         onChanged();
       }
       if (!other.getNation().isEmpty()) {
@@ -612,13 +678,102 @@ public  final class GetPhoneCaptchaRequest extends
       return this;
     }
 
+    private java.lang.Object phoneCaptcha_ = "";
+    /**
+     * <pre>
+     * 验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public java.lang.String getPhoneCaptcha() {
+      java.lang.Object ref = phoneCaptcha_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phoneCaptcha_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPhoneCaptchaBytes() {
+      java.lang.Object ref = phoneCaptcha_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phoneCaptcha_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public Builder setPhoneCaptcha(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      phoneCaptcha_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public Builder clearPhoneCaptcha() {
+      
+      phoneCaptcha_ = getDefaultInstance().getPhoneCaptcha();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 验证码
+     * </pre>
+     *
+     * <code>optional string phone_captcha = 2;</code>
+     */
+    public Builder setPhoneCaptchaBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      phoneCaptcha_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object nation_ = "";
     /**
      * <pre>
      * 国际区号 如：中国：0086；
      * </pre>
      *
-     * <code>optional string nation = 2;</code>
+     * <code>optional string nation = 3;</code>
      */
     public java.lang.String getNation() {
       java.lang.Object ref = nation_;
@@ -637,7 +792,7 @@ public  final class GetPhoneCaptchaRequest extends
      * 国际区号 如：中国：0086；
      * </pre>
      *
-     * <code>optional string nation = 2;</code>
+     * <code>optional string nation = 3;</code>
      */
     public com.google.protobuf.ByteString
         getNationBytes() {
@@ -657,7 +812,7 @@ public  final class GetPhoneCaptchaRequest extends
      * 国际区号 如：中国：0086；
      * </pre>
      *
-     * <code>optional string nation = 2;</code>
+     * <code>optional string nation = 3;</code>
      */
     public Builder setNation(
         java.lang.String value) {
@@ -674,7 +829,7 @@ public  final class GetPhoneCaptchaRequest extends
      * 国际区号 如：中国：0086；
      * </pre>
      *
-     * <code>optional string nation = 2;</code>
+     * <code>optional string nation = 3;</code>
      */
     public Builder clearNation() {
       
@@ -687,7 +842,7 @@ public  final class GetPhoneCaptchaRequest extends
      * 国际区号 如：中国：0086；
      * </pre>
      *
-     * <code>optional string nation = 2;</code>
+     * <code>optional string nation = 3;</code>
      */
     public Builder setNationBytes(
         com.google.protobuf.ByteString value) {
@@ -704,10 +859,10 @@ public  final class GetPhoneCaptchaRequest extends
     private java.lang.Object messageType_ = "";
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
-     * <code>optional string message_type = 3;</code>
+     * <code>optional string message_type = 4;</code>
      */
     public java.lang.String getMessageType() {
       java.lang.Object ref = messageType_;
@@ -723,10 +878,10 @@ public  final class GetPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
-     * <code>optional string message_type = 3;</code>
+     * <code>optional string message_type = 4;</code>
      */
     public com.google.protobuf.ByteString
         getMessageTypeBytes() {
@@ -743,10 +898,10 @@ public  final class GetPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
-     * <code>optional string message_type = 3;</code>
+     * <code>optional string message_type = 4;</code>
      */
     public Builder setMessageType(
         java.lang.String value) {
@@ -760,10 +915,10 @@ public  final class GetPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
-     * <code>optional string message_type = 3;</code>
+     * <code>optional string message_type = 4;</code>
      */
     public Builder clearMessageType() {
       
@@ -773,10 +928,10 @@ public  final class GetPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
-     * <code>optional string message_type = 3;</code>
+     * <code>optional string message_type = 4;</code>
      */
     public Builder setMessageTypeBytes(
         com.google.protobuf.ByteString value) {

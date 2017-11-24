@@ -21,6 +21,12 @@ namespace personal {
 
 namespace {
 
+const ::google::protobuf::Descriptor* CheckUserNameIsExistRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CheckUserNameIsExistRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CheckUserNameIsExistResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CheckUserNameIsExistResponse_reflection_ = NULL;
 const ::google::protobuf::Descriptor* RegistRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RegistRequest_reflection_ = NULL;
@@ -44,14 +50,40 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "personalCenter/msg_regist.proto");
   GOOGLE_CHECK(file != NULL);
-  RegistRequest_descriptor_ = file->message_type(0);
-  static const int RegistRequest_offsets_[6] = {
+  CheckUserNameIsExistRequest_descriptor_ = file->message_type(0);
+  static const int CheckUserNameIsExistRequest_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckUserNameIsExistRequest, user_name_),
+  };
+  CheckUserNameIsExistRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CheckUserNameIsExistRequest_descriptor_,
+      CheckUserNameIsExistRequest::internal_default_instance(),
+      CheckUserNameIsExistRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CheckUserNameIsExistRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckUserNameIsExistRequest, _internal_metadata_));
+  CheckUserNameIsExistResponse_descriptor_ = file->message_type(1);
+  static const int CheckUserNameIsExistResponse_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckUserNameIsExistResponse, is_exist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckUserNameIsExistResponse, error_),
+  };
+  CheckUserNameIsExistResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CheckUserNameIsExistResponse_descriptor_,
+      CheckUserNameIsExistResponse::internal_default_instance(),
+      CheckUserNameIsExistResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CheckUserNameIsExistResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckUserNameIsExistResponse, _internal_metadata_));
+  RegistRequest_descriptor_ = file->message_type(2);
+  static const int RegistRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, user_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, password_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, phone_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, phone_captcha_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, nation_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, message_type_),
   };
   RegistRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -63,7 +95,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto() {
       -1,
       sizeof(RegistRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistRequest, _internal_metadata_));
-  RegistResponse_descriptor_ = file->message_type(1);
+  RegistResponse_descriptor_ = file->message_type(3);
   static const int RegistResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistResponse, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistResponse, error_),
@@ -78,7 +110,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto() {
       -1,
       sizeof(RegistResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistResponse, _internal_metadata_));
-  UpdateRegistInfoRequest_descriptor_ = file->message_type(2);
+  UpdateRegistInfoRequest_descriptor_ = file->message_type(4);
   static const int UpdateRegistInfoRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateRegistInfoRequest, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateRegistInfoRequest, email_),
@@ -94,7 +126,7 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto() {
       -1,
       sizeof(UpdateRegistInfoRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateRegistInfoRequest, _internal_metadata_));
-  UpdateRegistInfoResponse_descriptor_ = file->message_type(3);
+  UpdateRegistInfoResponse_descriptor_ = file->message_type(5);
   static const int UpdateRegistInfoResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateRegistInfoResponse, error_),
   };
@@ -122,6 +154,10 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CheckUserNameIsExistRequest_descriptor_, CheckUserNameIsExistRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CheckUserNameIsExistResponse_descriptor_, CheckUserNameIsExistResponse::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RegistRequest_descriptor_, RegistRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RegistResponse_descriptor_, RegistResponse::internal_default_instance());
@@ -134,6 +170,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_personalCenter_2fmsg_5fregist_2eproto() {
+  CheckUserNameIsExistRequest_default_instance_.Shutdown();
+  delete CheckUserNameIsExistRequest_reflection_;
+  CheckUserNameIsExistResponse_default_instance_.Shutdown();
+  delete CheckUserNameIsExistResponse_reflection_;
   RegistRequest_default_instance_.Shutdown();
   delete RegistRequest_reflection_;
   RegistResponse_default_instance_.Shutdown();
@@ -149,12 +189,17 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl() {
 
   ::grpcCommon::protobuf_InitDefaults_grpcCommon_2fmsg_5ferror_2eproto();
   ::google::protobuf::internal::GetEmptyString();
+  CheckUserNameIsExistRequest_default_instance_.DefaultConstruct();
+  CheckUserNameIsExistResponse_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
   RegistRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   RegistResponse_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   UpdateRegistInfoRequest_default_instance_.DefaultConstruct();
   UpdateRegistInfoResponse_default_instance_.DefaultConstruct();
+  CheckUserNameIsExistRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  CheckUserNameIsExistResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   RegistRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   RegistResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   UpdateRegistInfoRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -172,17 +217,19 @@ void protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl() {
   protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\037personalCenter/msg_regist.proto\022\010perso"
-    "nal\032\032grpcCommon/msg_error.proto\"\200\001\n\rRegi"
-    "stRequest\022\021\n\tuser_name\030\001 \001(\t\022\020\n\010password"
-    "\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\025\n\rphone_captcha\030\004"
-    " \001(\t\022\016\n\006nation\030\005 \001(\t\022\024\n\014message_type\030\006 \001"
-    "(\t\"G\n\016RegistResponse\022\017\n\007user_id\030\001 \001(\t\022$\n"
-    "\005error\030\002 \001(\0132\025.grpcCommon.GrpcError\"S\n\027U"
-    "pdateRegistInfoRequest\022\017\n\007user_id\030\001 \001(\t\022"
-    "\r\n\005email\030\002 \001(\t\022\030\n\020interest_subject\030\003 \001(\t"
-    "\"@\n\030UpdateRegistInfoResponse\022$\n\005error\030\001 "
-    "\001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com.wanfan"
-    "g.personalP\001\242\002\004WFPRb\006proto3", 467);
+    "nal\032\032grpcCommon/msg_error.proto\"0\n\033Check"
+    "UserNameIsExistRequest\022\021\n\tuser_name\030\001 \001("
+    "\t\"V\n\034CheckUserNameIsExistResponse\022\020\n\010is_"
+    "exist\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCommon."
+    "GrpcError\"C\n\rRegistRequest\022\021\n\tuser_name\030"
+    "\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\"G"
+    "\n\016RegistResponse\022\017\n\007user_id\030\001 \001(\t\022$\n\005err"
+    "or\030\002 \001(\0132\025.grpcCommon.GrpcError\"S\n\027Updat"
+    "eRegistInfoRequest\022\017\n\007user_id\030\001 \001(\t\022\r\n\005e"
+    "mail\030\002 \001(\t\022\030\n\020interest_subject\030\003 \001(\t\"@\n\030"
+    "UpdateRegistInfoResponse\022$\n\005error\030\001 \001(\0132"
+    "\025.grpcCommon.GrpcErrorB\037\n\024com.wanfang.pe"
+    "rsonalP\001\242\002\004WFPRb\006proto3", 543);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_regist.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -214,12 +261,625 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CheckUserNameIsExistRequest::kUserNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CheckUserNameIsExistRequest::CheckUserNameIsExistRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.CheckUserNameIsExistRequest)
+}
+
+void CheckUserNameIsExistRequest::InitAsDefaultInstance() {
+}
+
+CheckUserNameIsExistRequest::CheckUserNameIsExistRequest(const CheckUserNameIsExistRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.CheckUserNameIsExistRequest)
+}
+
+void CheckUserNameIsExistRequest::SharedCtor() {
+  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+CheckUserNameIsExistRequest::~CheckUserNameIsExistRequest() {
+  // @@protoc_insertion_point(destructor:personal.CheckUserNameIsExistRequest)
+  SharedDtor();
+}
+
+void CheckUserNameIsExistRequest::SharedDtor() {
+  user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void CheckUserNameIsExistRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CheckUserNameIsExistRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CheckUserNameIsExistRequest_descriptor_;
+}
+
+const CheckUserNameIsExistRequest& CheckUserNameIsExistRequest::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<CheckUserNameIsExistRequest> CheckUserNameIsExistRequest_default_instance_;
+
+CheckUserNameIsExistRequest* CheckUserNameIsExistRequest::New(::google::protobuf::Arena* arena) const {
+  CheckUserNameIsExistRequest* n = new CheckUserNameIsExistRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CheckUserNameIsExistRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.CheckUserNameIsExistRequest)
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool CheckUserNameIsExistRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.CheckUserNameIsExistRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string user_name = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_name().data(), this->user_name().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "personal.CheckUserNameIsExistRequest.user_name"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.CheckUserNameIsExistRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.CheckUserNameIsExistRequest)
+  return false;
+#undef DO_
+}
+
+void CheckUserNameIsExistRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.CheckUserNameIsExistRequest)
+  // optional string user_name = 1;
+  if (this->user_name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_name().data(), this->user_name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.CheckUserNameIsExistRequest.user_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->user_name(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.CheckUserNameIsExistRequest)
+}
+
+::google::protobuf::uint8* CheckUserNameIsExistRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.CheckUserNameIsExistRequest)
+  // optional string user_name = 1;
+  if (this->user_name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_name().data(), this->user_name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "personal.CheckUserNameIsExistRequest.user_name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->user_name(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.CheckUserNameIsExistRequest)
+  return target;
+}
+
+size_t CheckUserNameIsExistRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.CheckUserNameIsExistRequest)
+  size_t total_size = 0;
+
+  // optional string user_name = 1;
+  if (this->user_name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_name());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CheckUserNameIsExistRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.CheckUserNameIsExistRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const CheckUserNameIsExistRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CheckUserNameIsExistRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.CheckUserNameIsExistRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.CheckUserNameIsExistRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void CheckUserNameIsExistRequest::MergeFrom(const CheckUserNameIsExistRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.CheckUserNameIsExistRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void CheckUserNameIsExistRequest::UnsafeMergeFrom(const CheckUserNameIsExistRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.user_name().size() > 0) {
+
+    user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
+  }
+}
+
+void CheckUserNameIsExistRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.CheckUserNameIsExistRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CheckUserNameIsExistRequest::CopyFrom(const CheckUserNameIsExistRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.CheckUserNameIsExistRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool CheckUserNameIsExistRequest::IsInitialized() const {
+
+  return true;
+}
+
+void CheckUserNameIsExistRequest::Swap(CheckUserNameIsExistRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CheckUserNameIsExistRequest::InternalSwap(CheckUserNameIsExistRequest* other) {
+  user_name_.Swap(&other->user_name_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CheckUserNameIsExistRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CheckUserNameIsExistRequest_descriptor_;
+  metadata.reflection = CheckUserNameIsExistRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CheckUserNameIsExistRequest
+
+// optional string user_name = 1;
+void CheckUserNameIsExistRequest::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& CheckUserNameIsExistRequest::user_name() const {
+  // @@protoc_insertion_point(field_get:personal.CheckUserNameIsExistRequest.user_name)
+  return user_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CheckUserNameIsExistRequest::set_user_name(const ::std::string& value) {
+  
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.CheckUserNameIsExistRequest.user_name)
+}
+void CheckUserNameIsExistRequest::set_user_name(const char* value) {
+  
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.CheckUserNameIsExistRequest.user_name)
+}
+void CheckUserNameIsExistRequest::set_user_name(const char* value, size_t size) {
+  
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.CheckUserNameIsExistRequest.user_name)
+}
+::std::string* CheckUserNameIsExistRequest::mutable_user_name() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.CheckUserNameIsExistRequest.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* CheckUserNameIsExistRequest::release_user_name() {
+  // @@protoc_insertion_point(field_release:personal.CheckUserNameIsExistRequest.user_name)
+  
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void CheckUserNameIsExistRequest::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    
+  } else {
+    
+  }
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckUserNameIsExistRequest.user_name)
+}
+
+inline const CheckUserNameIsExistRequest* CheckUserNameIsExistRequest::internal_default_instance() {
+  return &CheckUserNameIsExistRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CheckUserNameIsExistResponse::kIsExistFieldNumber;
+const int CheckUserNameIsExistResponse::kErrorFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CheckUserNameIsExistResponse::CheckUserNameIsExistResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:personal.CheckUserNameIsExistResponse)
+}
+
+void CheckUserNameIsExistResponse::InitAsDefaultInstance() {
+  error_ = const_cast< ::grpcCommon::GrpcError*>(
+      ::grpcCommon::GrpcError::internal_default_instance());
+}
+
+CheckUserNameIsExistResponse::CheckUserNameIsExistResponse(const CheckUserNameIsExistResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:personal.CheckUserNameIsExistResponse)
+}
+
+void CheckUserNameIsExistResponse::SharedCtor() {
+  error_ = NULL;
+  is_exist_ = false;
+  _cached_size_ = 0;
+}
+
+CheckUserNameIsExistResponse::~CheckUserNameIsExistResponse() {
+  // @@protoc_insertion_point(destructor:personal.CheckUserNameIsExistResponse)
+  SharedDtor();
+}
+
+void CheckUserNameIsExistResponse::SharedDtor() {
+  if (this != &CheckUserNameIsExistResponse_default_instance_.get()) {
+    delete error_;
+  }
+}
+
+void CheckUserNameIsExistResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CheckUserNameIsExistResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CheckUserNameIsExistResponse_descriptor_;
+}
+
+const CheckUserNameIsExistResponse& CheckUserNameIsExistResponse::default_instance() {
+  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<CheckUserNameIsExistResponse> CheckUserNameIsExistResponse_default_instance_;
+
+CheckUserNameIsExistResponse* CheckUserNameIsExistResponse::New(::google::protobuf::Arena* arena) const {
+  CheckUserNameIsExistResponse* n = new CheckUserNameIsExistResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CheckUserNameIsExistResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:personal.CheckUserNameIsExistResponse)
+  is_exist_ = false;
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+
+bool CheckUserNameIsExistResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:personal.CheckUserNameIsExistResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool is_exist = 1;
+      case 1: {
+        if (tag == 8) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_exist_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_error;
+        break;
+      }
+
+      // optional .grpcCommon.GrpcError error = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_error:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:personal.CheckUserNameIsExistResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:personal.CheckUserNameIsExistResponse)
+  return false;
+#undef DO_
+}
+
+void CheckUserNameIsExistResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:personal.CheckUserNameIsExistResponse)
+  // optional bool is_exist = 1;
+  if (this->is_exist() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->is_exist(), output);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->error_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:personal.CheckUserNameIsExistResponse)
+}
+
+::google::protobuf::uint8* CheckUserNameIsExistResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:personal.CheckUserNameIsExistResponse)
+  // optional bool is_exist = 1;
+  if (this->is_exist() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->is_exist(), target);
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->error_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:personal.CheckUserNameIsExistResponse)
+  return target;
+}
+
+size_t CheckUserNameIsExistResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:personal.CheckUserNameIsExistResponse)
+  size_t total_size = 0;
+
+  // optional bool is_exist = 1;
+  if (this->is_exist() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // optional .grpcCommon.GrpcError error = 2;
+  if (this->has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CheckUserNameIsExistResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:personal.CheckUserNameIsExistResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const CheckUserNameIsExistResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CheckUserNameIsExistResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.CheckUserNameIsExistResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.CheckUserNameIsExistResponse)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void CheckUserNameIsExistResponse::MergeFrom(const CheckUserNameIsExistResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:personal.CheckUserNameIsExistResponse)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void CheckUserNameIsExistResponse::UnsafeMergeFrom(const CheckUserNameIsExistResponse& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.is_exist() != 0) {
+    set_is_exist(from.is_exist());
+  }
+  if (from.has_error()) {
+    mutable_error()->::grpcCommon::GrpcError::MergeFrom(from.error());
+  }
+}
+
+void CheckUserNameIsExistResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:personal.CheckUserNameIsExistResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CheckUserNameIsExistResponse::CopyFrom(const CheckUserNameIsExistResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:personal.CheckUserNameIsExistResponse)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool CheckUserNameIsExistResponse::IsInitialized() const {
+
+  return true;
+}
+
+void CheckUserNameIsExistResponse::Swap(CheckUserNameIsExistResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CheckUserNameIsExistResponse::InternalSwap(CheckUserNameIsExistResponse* other) {
+  std::swap(is_exist_, other->is_exist_);
+  std::swap(error_, other->error_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CheckUserNameIsExistResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CheckUserNameIsExistResponse_descriptor_;
+  metadata.reflection = CheckUserNameIsExistResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CheckUserNameIsExistResponse
+
+// optional bool is_exist = 1;
+void CheckUserNameIsExistResponse::clear_is_exist() {
+  is_exist_ = false;
+}
+bool CheckUserNameIsExistResponse::is_exist() const {
+  // @@protoc_insertion_point(field_get:personal.CheckUserNameIsExistResponse.is_exist)
+  return is_exist_;
+}
+void CheckUserNameIsExistResponse::set_is_exist(bool value) {
+  
+  is_exist_ = value;
+  // @@protoc_insertion_point(field_set:personal.CheckUserNameIsExistResponse.is_exist)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+bool CheckUserNameIsExistResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+void CheckUserNameIsExistResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+const ::grpcCommon::GrpcError& CheckUserNameIsExistResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.CheckUserNameIsExistResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+::grpcCommon::GrpcError* CheckUserNameIsExistResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.CheckUserNameIsExistResponse.error)
+  return error_;
+}
+::grpcCommon::GrpcError* CheckUserNameIsExistResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.CheckUserNameIsExistResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void CheckUserNameIsExistResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckUserNameIsExistResponse.error)
+}
+
+inline const CheckUserNameIsExistResponse* CheckUserNameIsExistResponse::internal_default_instance() {
+  return &CheckUserNameIsExistResponse_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int RegistRequest::kUserNameFieldNumber;
 const int RegistRequest::kPasswordFieldNumber;
 const int RegistRequest::kPhoneFieldNumber;
-const int RegistRequest::kPhoneCaptchaFieldNumber;
-const int RegistRequest::kNationFieldNumber;
-const int RegistRequest::kMessageTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RegistRequest::RegistRequest()
@@ -244,9 +904,6 @@ void RegistRequest::SharedCtor() {
   user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   phone_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  phone_captcha_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  nation_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  message_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -259,9 +916,6 @@ void RegistRequest::SharedDtor() {
   user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   phone_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  phone_captcha_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  nation_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  message_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void RegistRequest::SetCachedSize(int size) const {
@@ -294,9 +948,6 @@ void RegistRequest::Clear() {
   user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   phone_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool RegistRequest::MergePartialFromCodedStream(
@@ -352,57 +1003,6 @@ bool RegistRequest::MergePartialFromCodedStream(
             this->phone().data(), this->phone().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.RegistRequest.phone"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_phone_captcha;
-        break;
-      }
-
-      // optional string phone_captcha = 4;
-      case 4: {
-        if (tag == 34) {
-         parse_phone_captcha:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone_captcha()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->phone_captcha().data(), this->phone_captcha().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.RegistRequest.phone_captcha"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(42)) goto parse_nation;
-        break;
-      }
-
-      // optional string nation = 5;
-      case 5: {
-        if (tag == 42) {
-         parse_nation:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nation()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->nation().data(), this->nation().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.RegistRequest.nation"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(50)) goto parse_message_type;
-        break;
-      }
-
-      // optional string message_type = 6;
-      case 6: {
-        if (tag == 50) {
-         parse_message_type:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_message_type()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->message_type().data(), this->message_type().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.RegistRequest.message_type"));
         } else {
           goto handle_unusual;
         }
@@ -464,36 +1064,6 @@ void RegistRequest::SerializeWithCachedSizes(
       3, this->phone(), output);
   }
 
-  // optional string phone_captcha = 4;
-  if (this->phone_captcha().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->phone_captcha().data(), this->phone_captcha().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.RegistRequest.phone_captcha");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->phone_captcha(), output);
-  }
-
-  // optional string nation = 5;
-  if (this->nation().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->nation().data(), this->nation().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.RegistRequest.nation");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->nation(), output);
-  }
-
-  // optional string message_type = 6;
-  if (this->message_type().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->message_type().data(), this->message_type().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.RegistRequest.message_type");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->message_type(), output);
-  }
-
   // @@protoc_insertion_point(serialize_end:personal.RegistRequest)
 }
 
@@ -534,39 +1104,6 @@ void RegistRequest::SerializeWithCachedSizes(
         3, this->phone(), target);
   }
 
-  // optional string phone_captcha = 4;
-  if (this->phone_captcha().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->phone_captcha().data(), this->phone_captcha().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.RegistRequest.phone_captcha");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->phone_captcha(), target);
-  }
-
-  // optional string nation = 5;
-  if (this->nation().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->nation().data(), this->nation().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.RegistRequest.nation");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->nation(), target);
-  }
-
-  // optional string message_type = 6;
-  if (this->message_type().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->message_type().data(), this->message_type().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.RegistRequest.message_type");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->message_type(), target);
-  }
-
   // @@protoc_insertion_point(serialize_to_array_end:personal.RegistRequest)
   return target;
 }
@@ -594,27 +1131,6 @@ size_t RegistRequest::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->phone());
-  }
-
-  // optional string phone_captcha = 4;
-  if (this->phone_captcha().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->phone_captcha());
-  }
-
-  // optional string nation = 5;
-  if (this->nation().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->nation());
-  }
-
-  // optional string message_type = 6;
-  if (this->message_type().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->message_type());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -662,18 +1178,6 @@ void RegistRequest::UnsafeMergeFrom(const RegistRequest& from) {
 
     phone_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_);
   }
-  if (from.phone_captcha().size() > 0) {
-
-    phone_captcha_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_captcha_);
-  }
-  if (from.nation().size() > 0) {
-
-    nation_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.nation_);
-  }
-  if (from.message_type().size() > 0) {
-
-    message_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_type_);
-  }
 }
 
 void RegistRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -703,9 +1207,6 @@ void RegistRequest::InternalSwap(RegistRequest* other) {
   user_name_.Swap(&other->user_name_);
   password_.Swap(&other->password_);
   phone_.Swap(&other->phone_);
-  phone_captcha_.Swap(&other->phone_captcha_);
-  nation_.Swap(&other->nation_);
-  message_type_.Swap(&other->message_type_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -851,138 +1352,6 @@ void RegistRequest::set_allocated_phone(::std::string* phone) {
   }
   phone_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone);
   // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.phone)
-}
-
-// optional string phone_captcha = 4;
-void RegistRequest::clear_phone_captcha() {
-  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& RegistRequest::phone_captcha() const {
-  // @@protoc_insertion_point(field_get:personal.RegistRequest.phone_captcha)
-  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void RegistRequest::set_phone_captcha(const ::std::string& value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.RegistRequest.phone_captcha)
-}
-void RegistRequest::set_phone_captcha(const char* value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.RegistRequest.phone_captcha)
-}
-void RegistRequest::set_phone_captcha(const char* value, size_t size) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.RegistRequest.phone_captcha)
-}
-::std::string* RegistRequest::mutable_phone_captcha() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.RegistRequest.phone_captcha)
-  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* RegistRequest::release_phone_captcha() {
-  // @@protoc_insertion_point(field_release:personal.RegistRequest.phone_captcha)
-  
-  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void RegistRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
-  if (phone_captcha != NULL) {
-    
-  } else {
-    
-  }
-  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
-  // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.phone_captcha)
-}
-
-// optional string nation = 5;
-void RegistRequest::clear_nation() {
-  nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& RegistRequest::nation() const {
-  // @@protoc_insertion_point(field_get:personal.RegistRequest.nation)
-  return nation_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void RegistRequest::set_nation(const ::std::string& value) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.RegistRequest.nation)
-}
-void RegistRequest::set_nation(const char* value) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.RegistRequest.nation)
-}
-void RegistRequest::set_nation(const char* value, size_t size) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.RegistRequest.nation)
-}
-::std::string* RegistRequest::mutable_nation() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.RegistRequest.nation)
-  return nation_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* RegistRequest::release_nation() {
-  // @@protoc_insertion_point(field_release:personal.RegistRequest.nation)
-  
-  return nation_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void RegistRequest::set_allocated_nation(::std::string* nation) {
-  if (nation != NULL) {
-    
-  } else {
-    
-  }
-  nation_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nation);
-  // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.nation)
-}
-
-// optional string message_type = 6;
-void RegistRequest::clear_message_type() {
-  message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& RegistRequest::message_type() const {
-  // @@protoc_insertion_point(field_get:personal.RegistRequest.message_type)
-  return message_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void RegistRequest::set_message_type(const ::std::string& value) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.RegistRequest.message_type)
-}
-void RegistRequest::set_message_type(const char* value) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.RegistRequest.message_type)
-}
-void RegistRequest::set_message_type(const char* value, size_t size) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.RegistRequest.message_type)
-}
-::std::string* RegistRequest::mutable_message_type() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.RegistRequest.message_type)
-  return message_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* RegistRequest::release_message_type() {
-  // @@protoc_insertion_point(field_release:personal.RegistRequest.message_type)
-  
-  return message_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void RegistRequest::set_allocated_message_type(::std::string* message_type) {
-  if (message_type != NULL) {
-    
-  } else {
-    
-  }
-  message_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message_type);
-  // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.message_type)
 }
 
 inline const RegistRequest* RegistRequest::internal_default_instance() {

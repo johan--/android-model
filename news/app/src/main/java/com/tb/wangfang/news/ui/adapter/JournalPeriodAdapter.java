@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.model.bean.JournalYearBean;
+import com.tb.wangfang.news.utils.SystemUtil;
 
 import java.util.List;
 
@@ -54,9 +55,9 @@ public class JournalPeriodAdapter extends BaseQuickAdapter<JournalYearBean.DataB
             helper.getView(R.id.v_line_top).setVisibility(View.INVISIBLE);
             helper.getView(R.id.v_line_bottom).setVisibility(View.VISIBLE);
             helper.getView(tv_period_name).setVisibility(View.VISIBLE);
-            helper.setText(R.id.tv_period_name, item.getIssue_num().toString() + "期");
+            helper.setText(R.id.tv_period_name, SystemUtil.getObjectString(item.getIssue_num()) + "期");
         }
-        helper.setText(R.id.tv_title, item.getTitle().toString());
+        helper.setText(R.id.tv_title, SystemUtil.getObjectString(item.getTitle()));
 
     }
 }

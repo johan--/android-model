@@ -20,7 +20,6 @@ public  final class QuickLoginRequest extends
   }
   private QuickLoginRequest() {
     phoneNumber_ = "";
-    phoneCaptcha_ = "";
   }
 
   @java.lang.Override
@@ -52,12 +51,6 @@ public  final class QuickLoginRequest extends
             java.lang.String s = input.readStringRequireUtf8();
 
             phoneNumber_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneCaptcha_ = s;
             break;
           }
         }
@@ -125,48 +118,6 @@ public  final class QuickLoginRequest extends
     }
   }
 
-  public static final int PHONE_CAPTCHA_FIELD_NUMBER = 2;
-  private volatile java.lang.Object phoneCaptcha_;
-  /**
-   * <pre>
-   * 手机验证码
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 2;</code>
-   */
-  public java.lang.String getPhoneCaptcha() {
-    java.lang.Object ref = phoneCaptcha_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      phoneCaptcha_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 手机验证码
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPhoneCaptchaBytes() {
-    java.lang.Object ref = phoneCaptcha_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      phoneCaptcha_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -182,9 +133,6 @@ public  final class QuickLoginRequest extends
     if (!getPhoneNumberBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phoneNumber_);
     }
-    if (!getPhoneCaptchaBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phoneCaptcha_);
-    }
   }
 
   public int getSerializedSize() {
@@ -194,9 +142,6 @@ public  final class QuickLoginRequest extends
     size = 0;
     if (!getPhoneNumberBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phoneNumber_);
-    }
-    if (!getPhoneCaptchaBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phoneCaptcha_);
     }
     memoizedSize = size;
     return size;
@@ -216,8 +161,6 @@ public  final class QuickLoginRequest extends
     boolean result = true;
     result = result && getPhoneNumber()
         .equals(other.getPhoneNumber());
-    result = result && getPhoneCaptcha()
-        .equals(other.getPhoneCaptcha());
     return result;
   }
 
@@ -230,8 +173,6 @@ public  final class QuickLoginRequest extends
     hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneNumber().hashCode();
-    hash = (37 * hash) + PHONE_CAPTCHA_FIELD_NUMBER;
-    hash = (53 * hash) + getPhoneCaptcha().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -356,8 +297,6 @@ public  final class QuickLoginRequest extends
       super.clear();
       phoneNumber_ = "";
 
-      phoneCaptcha_ = "";
-
       return this;
     }
 
@@ -381,7 +320,6 @@ public  final class QuickLoginRequest extends
     public com.wanfang.personal.QuickLoginRequest buildPartial() {
       com.wanfang.personal.QuickLoginRequest result = new com.wanfang.personal.QuickLoginRequest(this);
       result.phoneNumber_ = phoneNumber_;
-      result.phoneCaptcha_ = phoneCaptcha_;
       onBuilt();
       return result;
     }
@@ -425,10 +363,6 @@ public  final class QuickLoginRequest extends
       if (other == com.wanfang.personal.QuickLoginRequest.getDefaultInstance()) return this;
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
-        onChanged();
-      }
-      if (!other.getPhoneCaptcha().isEmpty()) {
-        phoneCaptcha_ = other.phoneCaptcha_;
         onChanged();
       }
       onChanged();
@@ -542,95 +476,6 @@ public  final class QuickLoginRequest extends
   checkByteStringIsUtf8(value);
       
       phoneNumber_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object phoneCaptcha_ = "";
-    /**
-     * <pre>
-     * 手机验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public java.lang.String getPhoneCaptcha() {
-      java.lang.Object ref = phoneCaptcha_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phoneCaptcha_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 手机验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPhoneCaptchaBytes() {
-      java.lang.Object ref = phoneCaptcha_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phoneCaptcha_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 手机验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public Builder setPhoneCaptcha(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      phoneCaptcha_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 手机验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public Builder clearPhoneCaptcha() {
-      
-      phoneCaptcha_ = getDefaultInstance().getPhoneCaptcha();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 手机验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public Builder setPhoneCaptchaBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      phoneCaptcha_ = value;
       onChanged();
       return this;
     }

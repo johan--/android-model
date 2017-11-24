@@ -37,8 +37,7 @@
         android:id="@+id/sv_all_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:visibility="invisible">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,12 +48,17 @@
                 android:id="@+id/view_stub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="horizontal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/divide" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12.5dp">
+                android:layout_height="40dp">
 
                 <LinearLayout
                     android:id="@+id/ll_num"
@@ -69,7 +73,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16.5dp"
-
                         android:layout_marginRight="15dp"
                         android:drawableLeft="@mipmap/summary_icon"
                         android:drawablePadding="5dp"
@@ -123,16 +126,19 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
+                android:layout_height="40dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:id="@+id/ll_read_online"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
+                    android:layout_width="95dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16.5dp"
-                    android:background="@drawable/button_blue_bg"
+
+                    android:background="@drawable/white_circle_solid"
+                    android:elevation="5dp"
                     android:gravity="center">
 
                     <TextView
@@ -142,16 +148,17 @@
                         android:drawablePadding="8dp"
                         android:gravity="center"
                         android:text="在线阅读"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textColor="#333"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_collect"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/button_blue_bg"
+                    android:background="@drawable/white_circle_solid"
+                    android:elevation="5dp"
                     android:gravity="center">
 
                     <TextView
@@ -161,40 +168,54 @@
                         android:drawablePadding="8dp"
                         android:gravity="center"
                         android:text="收藏"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:visibility="invisible" />
+                        android:textColor="#333"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_share"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="16.5dp"
-                    android:background="@drawable/button_blue_bg"
+
+                    android:background="@drawable/white_circle_solid"
+                    android:elevation="5dp"
                     android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:drawableLeft="@mipmap/share_icon"
                         android:drawablePadding="8dp"
                         android:gravity="center"
                         android:text="分享"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textColor="#333"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/divide" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginLeft="16.5dp"
-                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
                 android:text="相似论文"
-                android:textColor="@color/gray_text_6" />
+                android:textColor="#333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/divide" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_similar"

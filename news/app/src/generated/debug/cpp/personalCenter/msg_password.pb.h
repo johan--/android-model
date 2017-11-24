@@ -545,47 +545,11 @@ class PasswordByPhoneRequest : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_phone_number();
   void set_allocated_phone_number(::std::string* phone_number);
 
-  // optional string phone_captcha = 2;
-  void clear_phone_captcha();
-  static const int kPhoneCaptchaFieldNumber = 2;
-  const ::std::string& phone_captcha() const;
-  void set_phone_captcha(const ::std::string& value);
-  void set_phone_captcha(const char* value);
-  void set_phone_captcha(const char* value, size_t size);
-  ::std::string* mutable_phone_captcha();
-  ::std::string* release_phone_captcha();
-  void set_allocated_phone_captcha(::std::string* phone_captcha);
-
-  // optional string nation = 3;
-  void clear_nation();
-  static const int kNationFieldNumber = 3;
-  const ::std::string& nation() const;
-  void set_nation(const ::std::string& value);
-  void set_nation(const char* value);
-  void set_nation(const char* value, size_t size);
-  ::std::string* mutable_nation();
-  ::std::string* release_nation();
-  void set_allocated_nation(::std::string* nation);
-
-  // optional string message_type = 4;
-  void clear_message_type();
-  static const int kMessageTypeFieldNumber = 4;
-  const ::std::string& message_type() const;
-  void set_message_type(const ::std::string& value);
-  void set_message_type(const char* value);
-  void set_message_type(const char* value, size_t size);
-  ::std::string* mutable_message_type();
-  ::std::string* release_message_type();
-  void set_allocated_message_type(::std::string* message_type);
-
   // @@protoc_insertion_point(class_scope:personal.PasswordByPhoneRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr phone_number_;
-  ::google::protobuf::internal::ArenaStringPtr phone_captcha_;
-  ::google::protobuf::internal::ArenaStringPtr nation_;
-  ::google::protobuf::internal::ArenaStringPtr message_type_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fpassword_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fpassword_2eproto_impl();
@@ -1547,138 +1511,6 @@ inline void PasswordByPhoneRequest::set_allocated_phone_number(::std::string* ph
   }
   phone_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_number);
   // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.phone_number)
-}
-
-// optional string phone_captcha = 2;
-inline void PasswordByPhoneRequest::clear_phone_captcha() {
-  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& PasswordByPhoneRequest::phone_captcha() const {
-  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.phone_captcha)
-  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PasswordByPhoneRequest::set_phone_captcha(const ::std::string& value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.phone_captcha)
-}
-inline void PasswordByPhoneRequest::set_phone_captcha(const char* value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.phone_captcha)
-}
-inline void PasswordByPhoneRequest::set_phone_captcha(const char* value, size_t size) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.phone_captcha)
-}
-inline ::std::string* PasswordByPhoneRequest::mutable_phone_captcha() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.phone_captcha)
-  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* PasswordByPhoneRequest::release_phone_captcha() {
-  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.phone_captcha)
-  
-  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PasswordByPhoneRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
-  if (phone_captcha != NULL) {
-    
-  } else {
-    
-  }
-  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
-  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.phone_captcha)
-}
-
-// optional string nation = 3;
-inline void PasswordByPhoneRequest::clear_nation() {
-  nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& PasswordByPhoneRequest::nation() const {
-  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.nation)
-  return nation_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PasswordByPhoneRequest::set_nation(const ::std::string& value) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.nation)
-}
-inline void PasswordByPhoneRequest::set_nation(const char* value) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.nation)
-}
-inline void PasswordByPhoneRequest::set_nation(const char* value, size_t size) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.nation)
-}
-inline ::std::string* PasswordByPhoneRequest::mutable_nation() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.nation)
-  return nation_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* PasswordByPhoneRequest::release_nation() {
-  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.nation)
-  
-  return nation_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PasswordByPhoneRequest::set_allocated_nation(::std::string* nation) {
-  if (nation != NULL) {
-    
-  } else {
-    
-  }
-  nation_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nation);
-  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.nation)
-}
-
-// optional string message_type = 4;
-inline void PasswordByPhoneRequest::clear_message_type() {
-  message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& PasswordByPhoneRequest::message_type() const {
-  // @@protoc_insertion_point(field_get:personal.PasswordByPhoneRequest.message_type)
-  return message_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PasswordByPhoneRequest::set_message_type(const ::std::string& value) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.PasswordByPhoneRequest.message_type)
-}
-inline void PasswordByPhoneRequest::set_message_type(const char* value) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.PasswordByPhoneRequest.message_type)
-}
-inline void PasswordByPhoneRequest::set_message_type(const char* value, size_t size) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.PasswordByPhoneRequest.message_type)
-}
-inline ::std::string* PasswordByPhoneRequest::mutable_message_type() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.PasswordByPhoneRequest.message_type)
-  return message_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* PasswordByPhoneRequest::release_message_type() {
-  // @@protoc_insertion_point(field_release:personal.PasswordByPhoneRequest.message_type)
-  
-  return message_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PasswordByPhoneRequest::set_allocated_message_type(::std::string* message_type) {
-  if (message_type != NULL) {
-    
-  } else {
-    
-  }
-  message_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message_type);
-  // @@protoc_insertion_point(field_set_allocated:personal.PasswordByPhoneRequest.message_type)
 }
 
 inline const PasswordByPhoneRequest* PasswordByPhoneRequest::internal_default_instance() {

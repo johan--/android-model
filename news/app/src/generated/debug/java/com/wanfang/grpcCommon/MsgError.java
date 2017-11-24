@@ -155,6 +155,14 @@ public final class MsgError {
      * <code>ALREADY_COLLECTED = 16;</code>
      */
     ALREADY_COLLECTED(16),
+    /**
+     * <pre>
+     * 该手机号已经注册过
+     * </pre>
+     *
+     * <code>PHONE_IS_REGISTER = 17;</code>
+     */
+    PHONE_IS_REGISTER(17),
     UNRECOGNIZED(-1),
     ;
 
@@ -294,6 +302,14 @@ public final class MsgError {
      * <code>ALREADY_COLLECTED = 16;</code>
      */
     public static final int ALREADY_COLLECTED_VALUE = 16;
+    /**
+     * <pre>
+     * 该手机号已经注册过
+     * </pre>
+     *
+     * <code>PHONE_IS_REGISTER = 17;</code>
+     */
+    public static final int PHONE_IS_REGISTER_VALUE = 17;
 
 
     public final int getNumber() {
@@ -331,6 +347,7 @@ public final class MsgError {
         case 14: return USER_IS_FREEZE;
         case 15: return GRUSER_MORE;
         case 16: return ALREADY_COLLECTED;
+        case 17: return PHONE_IS_REGISTER;
         default: return null;
       }
     }
@@ -1699,7 +1716,7 @@ public final class MsgError {
       "rpcCommon.ErrorMessage\"j\n\014ErrorMessage\022)" +
       "\n\nerror_code\030\001 \001(\0162\025.grpcCommon.ErrorCod" +
       "e\022\024\n\014error_reason\030\002 \001(\t\022\031\n\021error_descrip" +
-      "tion\030\003 \001(\t*\351\002\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
+      "tion\030\003 \001(\t*\200\003\n\tErrorCode\022\016\n\nPASS_ERROR\020\000" +
       "\022\r\n\tNO_REGIST\020\001\022\016\n\nUSER_EXIST\020\002\022\016\n\nNEED_" +
       "FIELD\020\003\022\027\n\023UNKNOWN_FILELD_TYPE\020\004\022\017\n\013RESU" +
       "LT_NULL\020\005\022\020\n\014COMMON_ERROR\020\006\022\021\n\rUSER_IS_L" +
@@ -1708,8 +1725,8 @@ public final class MsgError {
       "\022\027\n\023TRADE_VALIDATE_FAIL\020\013\022\027\n\023PHONE_CAPTC" +
       "HA_ERROR\020\014\022\026\n\022PHONE_NOT_REGISTER\020\r\022\022\n\016US" +
       "ER_IS_FREEZE\020\016\022\017\n\013GRUSER_MORE\020\017\022\025\n\021ALREA" +
-      "DY_COLLECTED\020\020B\030\n\026com.wanfang.grpcCommon" +
-      "b\006proto3"
+      "DY_COLLECTED\020\020\022\025\n\021PHONE_IS_REGISTER\020\021B\030\n" +
+      "\026com.wanfang.grpcCommonb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

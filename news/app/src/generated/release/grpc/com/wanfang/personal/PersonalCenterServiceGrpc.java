@@ -28,6 +28,30 @@ public final class PersonalCenterServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.CheckUserNameIsExistRequest,
+      com.wanfang.personal.CheckUserNameIsExistResponse> METHOD_CHECK_USER_NAME_IS_EXIST =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.CheckUserNameIsExistRequest, com.wanfang.personal.CheckUserNameIsExistResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "CheckUserNameIsExist"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.CheckUserNameIsExistRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.CheckUserNameIsExistResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.wanfang.personal.CheckPhoneIsExistRequest,
+      com.wanfang.personal.CheckPhoneIsExistResponse> METHOD_CHECK_PHONE_IS_EXIST =
+      io.grpc.MethodDescriptor.<com.wanfang.personal.CheckPhoneIsExistRequest, com.wanfang.personal.CheckPhoneIsExistResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "personal.PersonalCenterService", "CheckPhoneIsExist"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.CheckPhoneIsExistRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              com.wanfang.personal.CheckPhoneIsExistResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.UserGetTradeListRequest,
       com.wanfang.personal.UserGetTradeListResponse> METHOD_GET_TRADE_LIST =
       io.grpc.MethodDescriptor.<com.wanfang.personal.UserGetTradeListRequest, com.wanfang.personal.UserGetTradeListResponse>newBuilder()
@@ -110,30 +134,6 @@ public final class PersonalCenterServiceGrpc {
               com.wanfang.personal.ThirdPartyBindRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.personal.ThirdPartyBindResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.BindExistAccountRequest,
-      com.wanfang.personal.LoginResponse> METHOD_BIND_EXIST_ACCOUNT =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.BindExistAccountRequest, com.wanfang.personal.LoginResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "BindExistAccount"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.BindExistAccountRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.LoginResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.BindNewRegistRequest,
-      com.wanfang.personal.RegistResponse> METHOD_BIND_NEW_REGIST =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.BindNewRegistRequest, com.wanfang.personal.RegistResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "BindNewRegist"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.BindNewRegistRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.RegistResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.RegistRequest,
@@ -345,6 +345,26 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 检查用户名是否已经存在
+     * </pre>
+     */
+    public void checkUserNameIsExist(com.wanfang.personal.CheckUserNameIsExistRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.CheckUserNameIsExistResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CHECK_USER_NAME_IS_EXIST, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 检查手机号是否已经存在
+     * </pre>
+     */
+    public void checkPhoneIsExist(com.wanfang.personal.CheckPhoneIsExistRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneIsExistResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CHECK_PHONE_IS_EXIST, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 获取交易历史
      * </pre>
      */
@@ -415,26 +435,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 第三方登录后绑定万方账号
-     * </pre>
-     */
-    public void bindExistAccount(com.wanfang.personal.BindExistAccountRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_BIND_EXIST_ACCOUNT, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 第三方登录后注册万方账号
-     * </pre>
-     */
-    public void bindNewRegist(com.wanfang.personal.BindNewRegistRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.RegistResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_BIND_NEW_REGIST, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 注册
      * </pre>
      */
@@ -495,7 +495,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 检验手机验证码
+     * 检验手机验证码(暂时不用)
      * </pre>
      */
     public void checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request,
@@ -586,6 +586,20 @@ public final class PersonalCenterServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
+            METHOD_CHECK_USER_NAME_IS_EXIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.CheckUserNameIsExistRequest,
+                com.wanfang.personal.CheckUserNameIsExistResponse>(
+                  this, METHODID_CHECK_USER_NAME_IS_EXIST)))
+          .addMethod(
+            METHOD_CHECK_PHONE_IS_EXIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.wanfang.personal.CheckPhoneIsExistRequest,
+                com.wanfang.personal.CheckPhoneIsExistResponse>(
+                  this, METHODID_CHECK_PHONE_IS_EXIST)))
+          .addMethod(
             METHOD_GET_TRADE_LIST,
             asyncUnaryCall(
               new MethodHandlers<
@@ -634,20 +648,6 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.ThirdPartyBindRequest,
                 com.wanfang.personal.ThirdPartyBindResponse>(
                   this, METHODID_THIRD_PARTY_BIND)))
-          .addMethod(
-            METHOD_BIND_EXIST_ACCOUNT,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.BindExistAccountRequest,
-                com.wanfang.personal.LoginResponse>(
-                  this, METHODID_BIND_EXIST_ACCOUNT)))
-          .addMethod(
-            METHOD_BIND_NEW_REGIST,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.BindNewRegistRequest,
-                com.wanfang.personal.RegistResponse>(
-                  this, METHODID_BIND_NEW_REGIST)))
           .addMethod(
             METHOD_REGIST,
             asyncUnaryCall(
@@ -777,6 +777,28 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 检查用户名是否已经存在
+     * </pre>
+     */
+    public void checkUserNameIsExist(com.wanfang.personal.CheckUserNameIsExistRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.CheckUserNameIsExistResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CHECK_USER_NAME_IS_EXIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 检查手机号是否已经存在
+     * </pre>
+     */
+    public void checkPhoneIsExist(com.wanfang.personal.CheckPhoneIsExistRequest request,
+        io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneIsExistResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CHECK_PHONE_IS_EXIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 获取交易历史
      * </pre>
      */
@@ -854,28 +876,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 第三方登录后绑定万方账号
-     * </pre>
-     */
-    public void bindExistAccount(com.wanfang.personal.BindExistAccountRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_BIND_EXIST_ACCOUNT, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 第三方登录后注册万方账号
-     * </pre>
-     */
-    public void bindNewRegist(com.wanfang.personal.BindNewRegistRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.RegistResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_BIND_NEW_REGIST, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 注册
      * </pre>
      */
@@ -942,7 +942,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 检验手机验证码
+     * 检验手机验证码(暂时不用)
      * </pre>
      */
     public void checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request,
@@ -1060,6 +1060,26 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 检查用户名是否已经存在
+     * </pre>
+     */
+    public com.wanfang.personal.CheckUserNameIsExistResponse checkUserNameIsExist(com.wanfang.personal.CheckUserNameIsExistRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CHECK_USER_NAME_IS_EXIST, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 检查手机号是否已经存在
+     * </pre>
+     */
+    public com.wanfang.personal.CheckPhoneIsExistResponse checkPhoneIsExist(com.wanfang.personal.CheckPhoneIsExistRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CHECK_PHONE_IS_EXIST, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
      * 获取交易历史
      * </pre>
      */
@@ -1130,26 +1150,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 第三方登录后绑定万方账号
-     * </pre>
-     */
-    public com.wanfang.personal.LoginResponse bindExistAccount(com.wanfang.personal.BindExistAccountRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_BIND_EXIST_ACCOUNT, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * 第三方登录后注册万方账号
-     * </pre>
-     */
-    public com.wanfang.personal.RegistResponse bindNewRegist(com.wanfang.personal.BindNewRegistRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_BIND_NEW_REGIST, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
      * 注册
      * </pre>
      */
@@ -1210,7 +1210,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 检验手机验证码
+     * 检验手机验证码(暂时不用)
      * </pre>
      */
     public com.wanfang.personal.CheckPhoneCaptchaResponse checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request) {
@@ -1319,6 +1319,28 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
+     * 检查用户名是否已经存在
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.CheckUserNameIsExistResponse> checkUserNameIsExist(
+        com.wanfang.personal.CheckUserNameIsExistRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CHECK_USER_NAME_IS_EXIST, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 检查手机号是否已经存在
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.CheckPhoneIsExistResponse> checkPhoneIsExist(
+        com.wanfang.personal.CheckPhoneIsExistRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CHECK_PHONE_IS_EXIST, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 获取交易历史
      * </pre>
      */
@@ -1396,28 +1418,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 第三方登录后绑定万方账号
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.LoginResponse> bindExistAccount(
-        com.wanfang.personal.BindExistAccountRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_BIND_EXIST_ACCOUNT, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
-     * 第三方登录后注册万方账号
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.RegistResponse> bindNewRegist(
-        com.wanfang.personal.BindNewRegistRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_BIND_NEW_REGIST, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * 注册
      * </pre>
      */
@@ -1484,7 +1484,7 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 检验手机验证码
+     * 检验手机验证码(暂时不用)
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.CheckPhoneCaptchaResponse> checkPhoneCaptcha(
@@ -1582,15 +1582,15 @@ public final class PersonalCenterServiceGrpc {
     }
   }
 
-  private static final int METHODID_GET_TRADE_LIST = 0;
-  private static final int METHODID_GET_BALANCE = 1;
-  private static final int METHODID_LOGIN = 2;
-  private static final int METHODID_LOGIN_OUT = 3;
-  private static final int METHODID_QUICK_LOGIN = 4;
-  private static final int METHODID_THIRD_PARTY_LOGIN = 5;
-  private static final int METHODID_THIRD_PARTY_BIND = 6;
-  private static final int METHODID_BIND_EXIST_ACCOUNT = 7;
-  private static final int METHODID_BIND_NEW_REGIST = 8;
+  private static final int METHODID_CHECK_USER_NAME_IS_EXIST = 0;
+  private static final int METHODID_CHECK_PHONE_IS_EXIST = 1;
+  private static final int METHODID_GET_TRADE_LIST = 2;
+  private static final int METHODID_GET_BALANCE = 3;
+  private static final int METHODID_LOGIN = 4;
+  private static final int METHODID_LOGIN_OUT = 5;
+  private static final int METHODID_QUICK_LOGIN = 6;
+  private static final int METHODID_THIRD_PARTY_LOGIN = 7;
+  private static final int METHODID_THIRD_PARTY_BIND = 8;
   private static final int METHODID_REGIST = 9;
   private static final int METHODID_GET_PASSWORD_BY_PHONE = 10;
   private static final int METHODID_PASSWORD_VERIFY = 11;
@@ -1624,6 +1624,14 @@ public final class PersonalCenterServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_CHECK_USER_NAME_IS_EXIST:
+          serviceImpl.checkUserNameIsExist((com.wanfang.personal.CheckUserNameIsExistRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.CheckUserNameIsExistResponse>) responseObserver);
+          break;
+        case METHODID_CHECK_PHONE_IS_EXIST:
+          serviceImpl.checkPhoneIsExist((com.wanfang.personal.CheckPhoneIsExistRequest) request,
+              (io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneIsExistResponse>) responseObserver);
+          break;
         case METHODID_GET_TRADE_LIST:
           serviceImpl.getTradeList((com.wanfang.personal.UserGetTradeListRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.UserGetTradeListResponse>) responseObserver);
@@ -1651,14 +1659,6 @@ public final class PersonalCenterServiceGrpc {
         case METHODID_THIRD_PARTY_BIND:
           serviceImpl.thirdPartyBind((com.wanfang.personal.ThirdPartyBindRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.ThirdPartyBindResponse>) responseObserver);
-          break;
-        case METHODID_BIND_EXIST_ACCOUNT:
-          serviceImpl.bindExistAccount((com.wanfang.personal.BindExistAccountRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.LoginResponse>) responseObserver);
-          break;
-        case METHODID_BIND_NEW_REGIST:
-          serviceImpl.bindNewRegist((com.wanfang.personal.BindNewRegistRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.RegistResponse>) responseObserver);
           break;
         case METHODID_REGIST:
           serviceImpl.regist((com.wanfang.personal.RegistRequest) request,
@@ -1745,6 +1745,8 @@ public final class PersonalCenterServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
+              .addMethod(METHOD_CHECK_USER_NAME_IS_EXIST)
+              .addMethod(METHOD_CHECK_PHONE_IS_EXIST)
               .addMethod(METHOD_GET_TRADE_LIST)
               .addMethod(METHOD_GET_BALANCE)
               .addMethod(METHOD_LOGIN)
@@ -1752,8 +1754,6 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_QUICK_LOGIN)
               .addMethod(METHOD_THIRD_PARTY_LOGIN)
               .addMethod(METHOD_THIRD_PARTY_BIND)
-              .addMethod(METHOD_BIND_EXIST_ACCOUNT)
-              .addMethod(METHOD_BIND_NEW_REGIST)
               .addMethod(METHOD_REGIST)
               .addMethod(METHOD_GET_PASSWORD_BY_PHONE)
               .addMethod(METHOD_PASSWORD_VERIFY)

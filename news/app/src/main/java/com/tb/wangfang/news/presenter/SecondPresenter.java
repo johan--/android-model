@@ -75,7 +75,10 @@ public class SecondPresenter extends RxPresenter<SecondContract.View> implements
                         Log.d(TAG, "onResponse: " + response);
                         Gson gson = new Gson();
                         HotSearchBean searchBean = gson.fromJson(response, HotSearchBean.class);
-                        mView.showHotSearchWord(searchBean);
+                        if (mView!=null){
+                            mView.showHotSearchWord(searchBean);
+                        }
+
 
                     }
 

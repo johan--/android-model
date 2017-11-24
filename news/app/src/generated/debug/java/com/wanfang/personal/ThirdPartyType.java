@@ -10,55 +10,55 @@ public enum ThirdPartyType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
-   * 微信登录
-   * </pre>
-   *
-   * <code>WECHAT = 0;</code>
-   */
-  WECHAT(0),
-  /**
-   * <pre>
    * qq登录
    * </pre>
    *
-   * <code>QQ = 1;</code>
+   * <code>QQ = 0;</code>
    */
-  QQ(1),
+  QQ(0),
   /**
    * <pre>
    * 新浪微博登录
    * </pre>
    *
-   * <code>SINA = 3;</code>
+   * <code>SINA = 1;</code>
    */
-  SINA(3),
+  SINA(1),
+  /**
+   * <pre>
+   * 微信登录
+   * </pre>
+   *
+   * <code>WECHAT = 2;</code>
+   */
+  WECHAT(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
    * <pre>
-   * 微信登录
-   * </pre>
-   *
-   * <code>WECHAT = 0;</code>
-   */
-  public static final int WECHAT_VALUE = 0;
-  /**
-   * <pre>
    * qq登录
    * </pre>
    *
-   * <code>QQ = 1;</code>
+   * <code>QQ = 0;</code>
    */
-  public static final int QQ_VALUE = 1;
+  public static final int QQ_VALUE = 0;
   /**
    * <pre>
    * 新浪微博登录
    * </pre>
    *
-   * <code>SINA = 3;</code>
+   * <code>SINA = 1;</code>
    */
-  public static final int SINA_VALUE = 3;
+  public static final int SINA_VALUE = 1;
+  /**
+   * <pre>
+   * 微信登录
+   * </pre>
+   *
+   * <code>WECHAT = 2;</code>
+   */
+  public static final int WECHAT_VALUE = 2;
 
 
   public final int getNumber() {
@@ -79,9 +79,9 @@ public enum ThirdPartyType
 
   public static ThirdPartyType forNumber(int value) {
     switch (value) {
-      case 0: return WECHAT;
-      case 1: return QQ;
-      case 3: return SINA;
+      case 0: return QQ;
+      case 1: return SINA;
+      case 2: return WECHAT;
       default: return null;
     }
   }

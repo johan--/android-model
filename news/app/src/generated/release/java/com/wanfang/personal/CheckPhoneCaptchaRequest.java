@@ -5,7 +5,7 @@ package com.wanfang.personal;
 
 /**
  * <pre>
- * 校验手机验证码-请求
+ * 校验手机验证码-请求(暂时不用)
  * </pre>
  *
  * Protobuf type {@code personal.CheckPhoneCaptchaRequest}
@@ -227,7 +227,7 @@ public  final class CheckPhoneCaptchaRequest extends
   private volatile java.lang.Object messageType_;
   /**
    * <pre>
-   * 消息类型 目前仅支持“bind”
+   * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
    * </pre>
    *
    * <code>optional string message_type = 4;</code>
@@ -246,7 +246,7 @@ public  final class CheckPhoneCaptchaRequest extends
   }
   /**
    * <pre>
-   * 消息类型 目前仅支持“bind”
+   * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
    * </pre>
    *
    * <code>optional string message_type = 4;</code>
@@ -434,7 +434,7 @@ public  final class CheckPhoneCaptchaRequest extends
   }
   /**
    * <pre>
-   * 校验手机验证码-请求
+   * 校验手机验证码-请求(暂时不用)
    * </pre>
    *
    * Protobuf type {@code personal.CheckPhoneCaptchaRequest}
@@ -859,7 +859,7 @@ public  final class CheckPhoneCaptchaRequest extends
     private java.lang.Object messageType_ = "";
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
      * <code>optional string message_type = 4;</code>
@@ -878,7 +878,7 @@ public  final class CheckPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
      * <code>optional string message_type = 4;</code>
@@ -898,7 +898,7 @@ public  final class CheckPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
      * <code>optional string message_type = 4;</code>
@@ -915,7 +915,7 @@ public  final class CheckPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
      * <code>optional string message_type = 4;</code>
@@ -928,7 +928,7 @@ public  final class CheckPhoneCaptchaRequest extends
     }
     /**
      * <pre>
-     * 消息类型 目前仅支持“bind”
+     * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
      * </pre>
      *
      * <code>optional string message_type = 4;</code>

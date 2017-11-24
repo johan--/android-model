@@ -8,6 +8,7 @@ import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.LoginContract;
 import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.wanfang.grpcCommon.MsgError;
 import com.wanfang.personal.GetPhoneCaptchaRequest;
@@ -43,6 +44,16 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
     private ImplPreferencesHelper preferencesHelps;
     private String TAG = "loginActivity";
 
+    public String getPhoneCaprcha() {
+        return phoneCaprcha;
+    }
+
+    public void setPhoneCaprcha(String phoneCaprcha) {
+        this.phoneCaprcha = phoneCaprcha;
+    }
+
+    private String phoneCaprcha;
+
     public int getCountDown() {
         return countDown;
     }
@@ -62,9 +73,13 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     Message message = new Message();
                     message.what = 0;
                     handler.sendMessageDelayed(message, 1000);
-                    mView.showCountDown(countDown);
+                    if (mView != null) {
+                        mView.showCountDown(countDown);
+                    }
                 } else {
+
                     mView.showCountDown(countDown);
+                    countDown = 60;
                     mView.setCodeBtnEnable();
                 }
             }
@@ -118,10 +133,19 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             @Override
             public void onSuccess(LoginResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
-                JMessageLogin(response);
-                preferencesHelps.storeLoginInfo(response, passWord);
+                if (response.hasError()) {
+                    if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.NO_REGIST) {
+                        ToastUtil.shortShow("用户名不存在");
+                    } else if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.PASS_ERROR) {
+                        ToastUtil.shortShow("密码错误");
+                    }
+                } else {
+                    JMessageLogin(response);
+                    preferencesHelps.storeLoginInfo(response, passWord);
 
-                mView.loginSuccess(response);
+                    mView.loginSuccess(response);
+                }
+
             }
 
 
@@ -136,12 +160,13 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     @Override
     public void getPhoneCaptcha(final String phone, final String nation) {
+        phoneCaprcha = SystemUtil.getRandomSixNum();
         mView.setCodeBtnDisable();
         Single.create(new SingleOnSubscribe<GetPhoneCaptchaResponse>() {
             @Override
             public void subscribe(SingleEmitter<GetPhoneCaptchaResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation("0086").setMessageType("bind").build();
+                GetPhoneCaptchaRequest request = GetPhoneCaptchaRequest.newBuilder().setPhoneNumber(phone).setNation("0086").setMessageType("Register").setPhoneCaptcha(phoneCaprcha).build();
                 GetPhoneCaptchaResponse response = stub.getPhoneCaptcha(request);
                 e.onSuccess(response);
             }
@@ -210,17 +235,22 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             @Override
             public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
                 PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                QuickLoginRequest request = QuickLoginRequest.newBuilder().setPhoneCaptcha(captcha).setPhoneNumber(phone).build();
+                QuickLoginRequest request = QuickLoginRequest.newBuilder().setPhoneNumber(phone).build();
                 LoginResponse response = stub.quickLogin(request);
                 e.onSuccess(response);
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
             @Override
             public void onSuccess(LoginResponse response) {
-                Log.d(TAG, "onSuccess: " + response.toString());
-                JMessageLogin(response);
-                preferencesHelps.storeLoginInfo(response, "ql&&");
-                mView.loginSuccess(response);
+                if (!response.hasError()) {
+                    Log.d(TAG, "onSuccess: " + response.toString());
+                    JMessageLogin(response);
+                    preferencesHelps.storeLoginInfo(response, "ql&&");
+                    mView.loginSuccess(response);
+                } else {
+                    ToastUtil.show(response.getError().getErrorMessage().getErrorReason());
+                }
+
             }
 
 
@@ -258,9 +288,9 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     } else {
                         preferencesHelps.setUserAvatar(null);
                     }
-                    mView.loginSuccess(response);
+//                    mView.loginSuccess(response);
                 } else {
-                    mView.loginSuccess(LoginResponse.getDefaultInstance());
+//                    mView.loginSuccess(LoginResponse.getDefaultInstance());
                 }
             }
         });

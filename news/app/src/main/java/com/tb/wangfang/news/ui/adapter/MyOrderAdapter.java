@@ -23,6 +23,6 @@ public class MyOrderAdapter extends BaseQuickAdapter<MyOrdersResponse.Result, Ba
     @Override
     protected void convert(BaseViewHolder helper, MyOrdersResponse.Result item) {
         helper.setText(R.id.tv_orderid, item.getOrderId()).setText(R.id.tv_articl_name, item.getOrderTitle())
-                .setText(R.id.tv_time, item.getCreateTime()).setText(R.id.tv_price, item.getOrderMoney());
+                .setText(R.id.tv_time, item.getCreateTime()).setText(R.id.tv_price, item.getOrderMoney()).setText(R.id.tv_method, item.getPayWay());
     }
 }

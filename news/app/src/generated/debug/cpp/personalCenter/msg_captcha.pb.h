@@ -40,6 +40,8 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5fcaptcha_2eproto();
 
 class CheckPhoneCaptchaRequest;
 class CheckPhoneCaptchaResponse;
+class CheckPhoneIsExistRequest;
+class CheckPhoneIsExistResponse;
 class GetPhoneCaptchaRequest;
 class GetPhoneCaptchaResponse;
 
@@ -119,9 +121,20 @@ class GetPhoneCaptchaRequest : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_phone_number();
   void set_allocated_phone_number(::std::string* phone_number);
 
-  // optional string nation = 2;
+  // optional string phone_captcha = 2;
+  void clear_phone_captcha();
+  static const int kPhoneCaptchaFieldNumber = 2;
+  const ::std::string& phone_captcha() const;
+  void set_phone_captcha(const ::std::string& value);
+  void set_phone_captcha(const char* value);
+  void set_phone_captcha(const char* value, size_t size);
+  ::std::string* mutable_phone_captcha();
+  ::std::string* release_phone_captcha();
+  void set_allocated_phone_captcha(::std::string* phone_captcha);
+
+  // optional string nation = 3;
   void clear_nation();
-  static const int kNationFieldNumber = 2;
+  static const int kNationFieldNumber = 3;
   const ::std::string& nation() const;
   void set_nation(const ::std::string& value);
   void set_nation(const char* value);
@@ -130,9 +143,9 @@ class GetPhoneCaptchaRequest : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_nation();
   void set_allocated_nation(::std::string* nation);
 
-  // optional string message_type = 3;
+  // optional string message_type = 4;
   void clear_message_type();
-  static const int kMessageTypeFieldNumber = 3;
+  static const int kMessageTypeFieldNumber = 4;
   const ::std::string& message_type() const;
   void set_message_type(const ::std::string& value);
   void set_message_type(const char* value);
@@ -146,6 +159,7 @@ class GetPhoneCaptchaRequest : public ::google::protobuf::Message /* @@protoc_in
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr phone_number_;
+  ::google::protobuf::internal::ArenaStringPtr phone_captcha_;
   ::google::protobuf::internal::ArenaStringPtr nation_;
   ::google::protobuf::internal::ArenaStringPtr message_type_;
   mutable int _cached_size_;
@@ -477,6 +491,193 @@ class CheckPhoneCaptchaResponse : public ::google::protobuf::Message /* @@protoc
 };
 extern ::google::protobuf::internal::ExplicitlyConstructed<CheckPhoneCaptchaResponse> CheckPhoneCaptchaResponse_default_instance_;
 
+// -------------------------------------------------------------------
+
+class CheckPhoneIsExistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.CheckPhoneIsExistRequest) */ {
+ public:
+  CheckPhoneIsExistRequest();
+  virtual ~CheckPhoneIsExistRequest();
+
+  CheckPhoneIsExistRequest(const CheckPhoneIsExistRequest& from);
+
+  inline CheckPhoneIsExistRequest& operator=(const CheckPhoneIsExistRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CheckPhoneIsExistRequest& default_instance();
+
+  static const CheckPhoneIsExistRequest* internal_default_instance();
+
+  void Swap(CheckPhoneIsExistRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CheckPhoneIsExistRequest* New() const { return New(NULL); }
+
+  CheckPhoneIsExistRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CheckPhoneIsExistRequest& from);
+  void MergeFrom(const CheckPhoneIsExistRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CheckPhoneIsExistRequest* other);
+  void UnsafeMergeFrom(const CheckPhoneIsExistRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string phone_number = 1;
+  void clear_phone_number();
+  static const int kPhoneNumberFieldNumber = 1;
+  const ::std::string& phone_number() const;
+  void set_phone_number(const ::std::string& value);
+  void set_phone_number(const char* value);
+  void set_phone_number(const char* value, size_t size);
+  ::std::string* mutable_phone_number();
+  ::std::string* release_phone_number();
+  void set_allocated_phone_number(::std::string* phone_number);
+
+  // @@protoc_insertion_point(class_scope:personal.CheckPhoneIsExistRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr phone_number_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fcaptcha_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fcaptcha_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fcaptcha_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CheckPhoneIsExistRequest> CheckPhoneIsExistRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class CheckPhoneIsExistResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.CheckPhoneIsExistResponse) */ {
+ public:
+  CheckPhoneIsExistResponse();
+  virtual ~CheckPhoneIsExistResponse();
+
+  CheckPhoneIsExistResponse(const CheckPhoneIsExistResponse& from);
+
+  inline CheckPhoneIsExistResponse& operator=(const CheckPhoneIsExistResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CheckPhoneIsExistResponse& default_instance();
+
+  static const CheckPhoneIsExistResponse* internal_default_instance();
+
+  void Swap(CheckPhoneIsExistResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CheckPhoneIsExistResponse* New() const { return New(NULL); }
+
+  CheckPhoneIsExistResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CheckPhoneIsExistResponse& from);
+  void MergeFrom(const CheckPhoneIsExistResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CheckPhoneIsExistResponse* other);
+  void UnsafeMergeFrom(const CheckPhoneIsExistResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool is_exist = 1;
+  void clear_is_exist();
+  static const int kIsExistFieldNumber = 1;
+  bool is_exist() const;
+  void set_is_exist(bool value);
+
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:personal.CheckPhoneIsExistResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
+  bool is_exist_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fcaptcha_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fcaptcha_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fcaptcha_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fcaptcha_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CheckPhoneIsExistResponse> CheckPhoneIsExistResponse_default_instance_;
+
 // ===================================================================
 
 
@@ -529,7 +730,51 @@ inline void GetPhoneCaptchaRequest::set_allocated_phone_number(::std::string* ph
   // @@protoc_insertion_point(field_set_allocated:personal.GetPhoneCaptchaRequest.phone_number)
 }
 
-// optional string nation = 2;
+// optional string phone_captcha = 2;
+inline void GetPhoneCaptchaRequest::clear_phone_captcha() {
+  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GetPhoneCaptchaRequest::phone_captcha() const {
+  // @@protoc_insertion_point(field_get:personal.GetPhoneCaptchaRequest.phone_captcha)
+  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetPhoneCaptchaRequest::set_phone_captcha(const ::std::string& value) {
+  
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+inline void GetPhoneCaptchaRequest::set_phone_captcha(const char* value) {
+  
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+inline void GetPhoneCaptchaRequest::set_phone_captcha(const char* value, size_t size) {
+  
+  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+inline ::std::string* GetPhoneCaptchaRequest::mutable_phone_captcha() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.GetPhoneCaptchaRequest.phone_captcha)
+  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetPhoneCaptchaRequest::release_phone_captcha() {
+  // @@protoc_insertion_point(field_release:personal.GetPhoneCaptchaRequest.phone_captcha)
+  
+  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetPhoneCaptchaRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
+  if (phone_captcha != NULL) {
+    
+  } else {
+    
+  }
+  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
+  // @@protoc_insertion_point(field_set_allocated:personal.GetPhoneCaptchaRequest.phone_captcha)
+}
+
+// optional string nation = 3;
 inline void GetPhoneCaptchaRequest::clear_nation() {
   nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -573,7 +818,7 @@ inline void GetPhoneCaptchaRequest::set_allocated_nation(::std::string* nation) 
   // @@protoc_insertion_point(field_set_allocated:personal.GetPhoneCaptchaRequest.nation)
 }
 
-// optional string message_type = 3;
+// optional string message_type = 4;
 inline void GetPhoneCaptchaRequest::clear_message_type() {
   message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -923,7 +1168,122 @@ inline void CheckPhoneCaptchaResponse::set_allocated_error(::grpcCommon::GrpcErr
 inline const CheckPhoneCaptchaResponse* CheckPhoneCaptchaResponse::internal_default_instance() {
   return &CheckPhoneCaptchaResponse_default_instance_.get();
 }
+// -------------------------------------------------------------------
+
+// CheckPhoneIsExistRequest
+
+// optional string phone_number = 1;
+inline void CheckPhoneIsExistRequest::clear_phone_number() {
+  phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CheckPhoneIsExistRequest::phone_number() const {
+  // @@protoc_insertion_point(field_get:personal.CheckPhoneIsExistRequest.phone_number)
+  return phone_number_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CheckPhoneIsExistRequest::set_phone_number(const ::std::string& value) {
+  
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.CheckPhoneIsExistRequest.phone_number)
+}
+inline void CheckPhoneIsExistRequest::set_phone_number(const char* value) {
+  
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.CheckPhoneIsExistRequest.phone_number)
+}
+inline void CheckPhoneIsExistRequest::set_phone_number(const char* value, size_t size) {
+  
+  phone_number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.CheckPhoneIsExistRequest.phone_number)
+}
+inline ::std::string* CheckPhoneIsExistRequest::mutable_phone_number() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.CheckPhoneIsExistRequest.phone_number)
+  return phone_number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CheckPhoneIsExistRequest::release_phone_number() {
+  // @@protoc_insertion_point(field_release:personal.CheckPhoneIsExistRequest.phone_number)
+  
+  return phone_number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CheckPhoneIsExistRequest::set_allocated_phone_number(::std::string* phone_number) {
+  if (phone_number != NULL) {
+    
+  } else {
+    
+  }
+  phone_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_number);
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckPhoneIsExistRequest.phone_number)
+}
+
+inline const CheckPhoneIsExistRequest* CheckPhoneIsExistRequest::internal_default_instance() {
+  return &CheckPhoneIsExistRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// CheckPhoneIsExistResponse
+
+// optional bool is_exist = 1;
+inline void CheckPhoneIsExistResponse::clear_is_exist() {
+  is_exist_ = false;
+}
+inline bool CheckPhoneIsExistResponse::is_exist() const {
+  // @@protoc_insertion_point(field_get:personal.CheckPhoneIsExistResponse.is_exist)
+  return is_exist_;
+}
+inline void CheckPhoneIsExistResponse::set_is_exist(bool value) {
+  
+  is_exist_ = value;
+  // @@protoc_insertion_point(field_set:personal.CheckPhoneIsExistResponse.is_exist)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool CheckPhoneIsExistResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void CheckPhoneIsExistResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& CheckPhoneIsExistResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.CheckPhoneIsExistResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* CheckPhoneIsExistResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.CheckPhoneIsExistResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* CheckPhoneIsExistResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.CheckPhoneIsExistResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void CheckPhoneIsExistResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckPhoneIsExistResponse.error)
+}
+
+inline const CheckPhoneIsExistResponse* CheckPhoneIsExistResponse::internal_default_instance() {
+  return &CheckPhoneIsExistResponse_default_instance_.get();
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

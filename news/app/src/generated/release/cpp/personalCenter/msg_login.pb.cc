@@ -45,12 +45,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ThirdPartyBindResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ThirdPartyBindResponse_reflection_ = NULL;
-const ::google::protobuf::Descriptor* BindExistAccountRequest_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  BindExistAccountRequest_reflection_ = NULL;
-const ::google::protobuf::Descriptor* BindNewRegistRequest_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  BindNewRegistRequest_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* ThirdPartyType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* LoginDeviceType_descriptor_ = NULL;
 
@@ -131,9 +125,8 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto() {
       sizeof(LoginResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _internal_metadata_));
   QuickLoginRequest_descriptor_ = file->message_type(4);
-  static const int QuickLoginRequest_offsets_[2] = {
+  static const int QuickLoginRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QuickLoginRequest, phone_number_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QuickLoginRequest, phone_captcha_),
   };
   QuickLoginRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -192,42 +185,6 @@ void protobuf_AssignDesc_personalCenter_2fmsg_5flogin_2eproto() {
       -1,
       sizeof(ThirdPartyBindResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ThirdPartyBindResponse, _internal_metadata_));
-  BindExistAccountRequest_descriptor_ = file->message_type(8);
-  static const int BindExistAccountRequest_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, user_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, password_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, device_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, device_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, third_party_type_),
-  };
-  BindExistAccountRequest_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      BindExistAccountRequest_descriptor_,
-      BindExistAccountRequest::internal_default_instance(),
-      BindExistAccountRequest_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(BindExistAccountRequest),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindExistAccountRequest, _internal_metadata_));
-  BindNewRegistRequest_descriptor_ = file->message_type(9);
-  static const int BindNewRegistRequest_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindNewRegistRequest, user_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindNewRegistRequest, email_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindNewRegistRequest, password_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindNewRegistRequest, third_party_type_),
-  };
-  BindNewRegistRequest_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      BindNewRegistRequest_descriptor_,
-      BindNewRegistRequest::internal_default_instance(),
-      BindNewRegistRequest_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(BindNewRegistRequest),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BindNewRegistRequest, _internal_metadata_));
   ThirdPartyType_descriptor_ = file->enum_type(0);
   LoginDeviceType_descriptor_ = file->enum_type(1);
 }
@@ -259,10 +216,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
       ThirdPartyBindRequest_descriptor_, ThirdPartyBindRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       ThirdPartyBindResponse_descriptor_, ThirdPartyBindResponse::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      BindExistAccountRequest_descriptor_, BindExistAccountRequest::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      BindNewRegistRequest_descriptor_, BindNewRegistRequest::internal_default_instance());
 }
 
 }  // namespace
@@ -284,10 +237,6 @@ void protobuf_ShutdownFile_personalCenter_2fmsg_5flogin_2eproto() {
   delete ThirdPartyBindRequest_reflection_;
   ThirdPartyBindResponse_default_instance_.Shutdown();
   delete ThirdPartyBindResponse_reflection_;
-  BindExistAccountRequest_default_instance_.Shutdown();
-  delete BindExistAccountRequest_reflection_;
-  BindNewRegistRequest_default_instance_.Shutdown();
-  delete BindNewRegistRequest_reflection_;
 }
 
 void protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl() {
@@ -308,10 +257,6 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   ThirdPartyBindRequest_default_instance_.DefaultConstruct();
   ThirdPartyBindResponse_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  BindExistAccountRequest_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
-  BindNewRegistRequest_default_instance_.DefaultConstruct();
   LoginOutRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   LoginOutResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   LoginRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -320,8 +265,6 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_impl() {
   ThirdPartyLoginRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   ThirdPartyBindRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   ThirdPartyBindResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
-  BindExistAccountRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
-  BindNewRegistRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto_once_);
@@ -346,26 +289,18 @@ void protobuf_AddDesc_personalCenter_2fmsg_5flogin_2eproto_impl() {
     " \001(\t\022\026\n\016user_real_name\030\003 \001(\t\022\026\n\016user_use"
     "d_name\030\004 \001(\t\022\027\n\017user_avatar_url\030\005 \001(\t\022\023\n"
     "\013login_token\030\006 \001(\t\022$\n\005error\030\007 \001(\0132\025.grpc"
-    "Common.GrpcError\"@\n\021QuickLoginRequest\022\024\n"
-    "\014phone_number\030\001 \001(\t\022\025\n\rphone_captcha\030\002 \001"
-    "(\t\"\?\n\026ThirdPartyLoginRequest\022\013\n\003uid\030\001 \001("
-    "\t\022\030\n\020third_party_code\030\002 \001(\005\"d\n\025ThirdPart"
-    "yBindRequest\022\013\n\003uid\030\001 \001(\t\022\017\n\007user_id\030\002 \001"
-    "(\t\022\030\n\020third_party_code\030\003 \001(\005\022\023\n\013user_sta"
-    "tus\030\004 \001(\005\"S\n\026ThirdPartyBindResponse\022\023\n\013b"
-    "ind_status\030\001 \001(\005\022$\n\005error\030\002 \001(\0132\025.grpcCo"
-    "mmon.GrpcError\"\302\001\n\027BindExistAccountReque"
-    "st\022\013\n\003uid\030\001 \001(\t\022\021\n\tuser_name\030\002 \001(\t\022\020\n\010pa"
-    "ssword\030\003 \001(\t\022\021\n\tdevice_id\030\004 \001(\t\022.\n\013devic"
-    "e_type\030\005 \001(\0162\031.personal.LoginDeviceType\022"
-    "2\n\020third_party_type\030\006 \001(\0162\030.personal.Thi"
-    "rdPartyType\"~\n\024BindNewRegistRequest\022\021\n\tu"
-    "ser_name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010passwor"
-    "d\030\003 \001(\t\0222\n\020third_party_type\030\004 \001(\0162\030.pers"
-    "onal.ThirdPartyType*.\n\016ThirdPartyType\022\n\n"
-    "\006WECHAT\020\000\022\006\n\002QQ\020\001\022\010\n\004SINA\020\003*\'\n\017LoginDevi"
-    "ceType\022\013\n\007ANDROID\020\000\022\007\n\003IOS\020\001B\037\n\024com.wanf"
-    "ang.personalP\001\242\002\004WFPRb\006proto3", 1269);
+    "Common.GrpcError\")\n\021QuickLoginRequest\022\024\n"
+    "\014phone_number\030\001 \001(\t\"\?\n\026ThirdPartyLoginRe"
+    "quest\022\013\n\003uid\030\001 \001(\t\022\030\n\020third_party_code\030\002"
+    " \001(\005\"d\n\025ThirdPartyBindRequest\022\013\n\003uid\030\001 \001"
+    "(\t\022\017\n\007user_id\030\002 \001(\t\022\030\n\020third_party_code\030"
+    "\003 \001(\005\022\023\n\013user_status\030\004 \001(\005\"S\n\026ThirdParty"
+    "BindResponse\022\023\n\013bind_status\030\001 \001(\005\022$\n\005err"
+    "or\030\002 \001(\0132\025.grpcCommon.GrpcError*.\n\016Third"
+    "PartyType\022\006\n\002QQ\020\000\022\010\n\004SINA\020\001\022\n\n\006WECHAT\020\002*"
+    "\'\n\017LoginDeviceType\022\013\n\007ANDROID\020\000\022\007\n\003IOS\020\001"
+    "B\037\n\024com.wanfang.personalP\001\242\002\004WFPRb\006proto"
+    "3", 921);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "personalCenter/msg_login.proto", &protobuf_RegisterTypes);
   ::grpcCommon::protobuf_AddDesc_grpcCommon_2fmsg_5ferror_2eproto();
@@ -391,7 +326,7 @@ bool ThirdPartyType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
-    case 3:
+    case 2:
       return true;
     default:
       return false;
@@ -2494,7 +2429,6 @@ inline const LoginResponse* LoginResponse::internal_default_instance() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int QuickLoginRequest::kPhoneNumberFieldNumber;
-const int QuickLoginRequest::kPhoneCaptchaFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 QuickLoginRequest::QuickLoginRequest()
@@ -2517,7 +2451,6 @@ QuickLoginRequest::QuickLoginRequest(const QuickLoginRequest& from)
 
 void QuickLoginRequest::SharedCtor() {
   phone_number_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  phone_captcha_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -2528,7 +2461,6 @@ QuickLoginRequest::~QuickLoginRequest() {
 
 void QuickLoginRequest::SharedDtor() {
   phone_number_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  phone_captcha_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void QuickLoginRequest::SetCachedSize(int size) const {
@@ -2559,7 +2491,6 @@ QuickLoginRequest* QuickLoginRequest::New(::google::protobuf::Arena* arena) cons
 void QuickLoginRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:personal.QuickLoginRequest)
   phone_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool QuickLoginRequest::MergePartialFromCodedStream(
@@ -2581,23 +2512,6 @@ bool QuickLoginRequest::MergePartialFromCodedStream(
             this->phone_number().data(), this->phone_number().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "personal.QuickLoginRequest.phone_number"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_phone_captcha;
-        break;
-      }
-
-      // optional string phone_captcha = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_phone_captcha:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone_captcha()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->phone_captcha().data(), this->phone_captcha().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.QuickLoginRequest.phone_captcha"));
         } else {
           goto handle_unusual;
         }
@@ -2639,16 +2553,6 @@ void QuickLoginRequest::SerializeWithCachedSizes(
       1, this->phone_number(), output);
   }
 
-  // optional string phone_captcha = 2;
-  if (this->phone_captcha().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->phone_captcha().data(), this->phone_captcha().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.QuickLoginRequest.phone_captcha");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->phone_captcha(), output);
-  }
-
   // @@protoc_insertion_point(serialize_end:personal.QuickLoginRequest)
 }
 
@@ -2667,17 +2571,6 @@ void QuickLoginRequest::SerializeWithCachedSizes(
         1, this->phone_number(), target);
   }
 
-  // optional string phone_captcha = 2;
-  if (this->phone_captcha().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->phone_captcha().data(), this->phone_captcha().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.QuickLoginRequest.phone_captcha");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->phone_captcha(), target);
-  }
-
   // @@protoc_insertion_point(serialize_to_array_end:personal.QuickLoginRequest)
   return target;
 }
@@ -2691,13 +2584,6 @@ size_t QuickLoginRequest::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->phone_number());
-  }
-
-  // optional string phone_captcha = 2;
-  if (this->phone_captcha().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->phone_captcha());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2737,10 +2623,6 @@ void QuickLoginRequest::UnsafeMergeFrom(const QuickLoginRequest& from) {
 
     phone_number_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_number_);
   }
-  if (from.phone_captcha().size() > 0) {
-
-    phone_captcha_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.phone_captcha_);
-  }
 }
 
 void QuickLoginRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2768,7 +2650,6 @@ void QuickLoginRequest::Swap(QuickLoginRequest* other) {
 }
 void QuickLoginRequest::InternalSwap(QuickLoginRequest* other) {
   phone_number_.Swap(&other->phone_number_);
-  phone_captcha_.Swap(&other->phone_captcha_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2826,50 +2707,6 @@ void QuickLoginRequest::set_allocated_phone_number(::std::string* phone_number) 
   }
   phone_number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_number);
   // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.phone_number)
-}
-
-// optional string phone_captcha = 2;
-void QuickLoginRequest::clear_phone_captcha() {
-  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& QuickLoginRequest::phone_captcha() const {
-  // @@protoc_insertion_point(field_get:personal.QuickLoginRequest.phone_captcha)
-  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void QuickLoginRequest::set_phone_captcha(const ::std::string& value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.QuickLoginRequest.phone_captcha)
-}
-void QuickLoginRequest::set_phone_captcha(const char* value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.QuickLoginRequest.phone_captcha)
-}
-void QuickLoginRequest::set_phone_captcha(const char* value, size_t size) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.QuickLoginRequest.phone_captcha)
-}
-::std::string* QuickLoginRequest::mutable_phone_captcha() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.QuickLoginRequest.phone_captcha)
-  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* QuickLoginRequest::release_phone_captcha() {
-  // @@protoc_insertion_point(field_release:personal.QuickLoginRequest.phone_captcha)
-  
-  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void QuickLoginRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
-  if (phone_captcha != NULL) {
-    
-  } else {
-    
-  }
-  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
-  // @@protoc_insertion_point(field_set_allocated:personal.QuickLoginRequest.phone_captcha)
 }
 
 inline const QuickLoginRequest* QuickLoginRequest::internal_default_instance() {
@@ -4057,1258 +3894,6 @@ void ThirdPartyBindResponse::set_allocated_error(::grpcCommon::GrpcError* error)
 
 inline const ThirdPartyBindResponse* ThirdPartyBindResponse::internal_default_instance() {
   return &ThirdPartyBindResponse_default_instance_.get();
-}
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int BindExistAccountRequest::kUidFieldNumber;
-const int BindExistAccountRequest::kUserNameFieldNumber;
-const int BindExistAccountRequest::kPasswordFieldNumber;
-const int BindExistAccountRequest::kDeviceIdFieldNumber;
-const int BindExistAccountRequest::kDeviceTypeFieldNumber;
-const int BindExistAccountRequest::kThirdPartyTypeFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-BindExistAccountRequest::BindExistAccountRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto();
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.BindExistAccountRequest)
-}
-
-void BindExistAccountRequest::InitAsDefaultInstance() {
-}
-
-BindExistAccountRequest::BindExistAccountRequest(const BindExistAccountRequest& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.BindExistAccountRequest)
-}
-
-void BindExistAccountRequest::SharedCtor() {
-  uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  device_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&device_type_, 0, reinterpret_cast<char*>(&third_party_type_) -
-    reinterpret_cast<char*>(&device_type_) + sizeof(third_party_type_));
-  _cached_size_ = 0;
-}
-
-BindExistAccountRequest::~BindExistAccountRequest() {
-  // @@protoc_insertion_point(destructor:personal.BindExistAccountRequest)
-  SharedDtor();
-}
-
-void BindExistAccountRequest::SharedDtor() {
-  uid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  device_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void BindExistAccountRequest::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* BindExistAccountRequest::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return BindExistAccountRequest_descriptor_;
-}
-
-const BindExistAccountRequest& BindExistAccountRequest::default_instance() {
-  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto();
-  return *internal_default_instance();
-}
-
-::google::protobuf::internal::ExplicitlyConstructed<BindExistAccountRequest> BindExistAccountRequest_default_instance_;
-
-BindExistAccountRequest* BindExistAccountRequest::New(::google::protobuf::Arena* arena) const {
-  BindExistAccountRequest* n = new BindExistAccountRequest;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void BindExistAccountRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.BindExistAccountRequest)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(BindExistAccountRequest, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<BindExistAccountRequest*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&(first), 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(device_type_, third_party_type_);
-  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  device_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-
-#undef ZR_HELPER_
-#undef ZR_
-
-}
-
-bool BindExistAccountRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.BindExistAccountRequest)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string uid = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_uid()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->uid().data(), this->uid().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindExistAccountRequest.uid"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_user_name;
-        break;
-      }
-
-      // optional string user_name = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_user_name:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_user_name()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->user_name().data(), this->user_name().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindExistAccountRequest.user_name"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_password;
-        break;
-      }
-
-      // optional string password = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_password:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_password()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->password().data(), this->password().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindExistAccountRequest.password"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_device_id;
-        break;
-      }
-
-      // optional string device_id = 4;
-      case 4: {
-        if (tag == 34) {
-         parse_device_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_device_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->device_id().data(), this->device_id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindExistAccountRequest.device_id"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(40)) goto parse_device_type;
-        break;
-      }
-
-      // optional .personal.LoginDeviceType device_type = 5;
-      case 5: {
-        if (tag == 40) {
-         parse_device_type:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_device_type(static_cast< ::personal::LoginDeviceType >(value));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(48)) goto parse_third_party_type;
-        break;
-      }
-
-      // optional .personal.ThirdPartyType third_party_type = 6;
-      case 6: {
-        if (tag == 48) {
-         parse_third_party_type:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_third_party_type(static_cast< ::personal::ThirdPartyType >(value));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:personal.BindExistAccountRequest)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:personal.BindExistAccountRequest)
-  return false;
-#undef DO_
-}
-
-void BindExistAccountRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.BindExistAccountRequest)
-  // optional string uid = 1;
-  if (this->uid().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->uid().data(), this->uid().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.uid");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->uid(), output);
-  }
-
-  // optional string user_name = 2;
-  if (this->user_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->user_name().data(), this->user_name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.user_name");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->user_name(), output);
-  }
-
-  // optional string password = 3;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.password");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->password(), output);
-  }
-
-  // optional string device_id = 4;
-  if (this->device_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.device_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->device_id(), output);
-  }
-
-  // optional .personal.LoginDeviceType device_type = 5;
-  if (this->device_type() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->device_type(), output);
-  }
-
-  // optional .personal.ThirdPartyType third_party_type = 6;
-  if (this->third_party_type() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      6, this->third_party_type(), output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:personal.BindExistAccountRequest)
-}
-
-::google::protobuf::uint8* BindExistAccountRequest::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.BindExistAccountRequest)
-  // optional string uid = 1;
-  if (this->uid().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->uid().data(), this->uid().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.uid");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->uid(), target);
-  }
-
-  // optional string user_name = 2;
-  if (this->user_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->user_name().data(), this->user_name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.user_name");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->user_name(), target);
-  }
-
-  // optional string password = 3;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.password");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->password(), target);
-  }
-
-  // optional string device_id = 4;
-  if (this->device_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindExistAccountRequest.device_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->device_id(), target);
-  }
-
-  // optional .personal.LoginDeviceType device_type = 5;
-  if (this->device_type() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->device_type(), target);
-  }
-
-  // optional .personal.ThirdPartyType third_party_type = 6;
-  if (this->third_party_type() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      6, this->third_party_type(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:personal.BindExistAccountRequest)
-  return target;
-}
-
-size_t BindExistAccountRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.BindExistAccountRequest)
-  size_t total_size = 0;
-
-  // optional string uid = 1;
-  if (this->uid().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->uid());
-  }
-
-  // optional string user_name = 2;
-  if (this->user_name().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->user_name());
-  }
-
-  // optional string password = 3;
-  if (this->password().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->password());
-  }
-
-  // optional string device_id = 4;
-  if (this->device_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->device_id());
-  }
-
-  // optional .personal.LoginDeviceType device_type = 5;
-  if (this->device_type() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->device_type());
-  }
-
-  // optional .personal.ThirdPartyType third_party_type = 6;
-  if (this->third_party_type() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->third_party_type());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void BindExistAccountRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.BindExistAccountRequest)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const BindExistAccountRequest* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const BindExistAccountRequest>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.BindExistAccountRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.BindExistAccountRequest)
-    UnsafeMergeFrom(*source);
-  }
-}
-
-void BindExistAccountRequest::MergeFrom(const BindExistAccountRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.BindExistAccountRequest)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void BindExistAccountRequest::UnsafeMergeFrom(const BindExistAccountRequest& from) {
-  GOOGLE_DCHECK(&from != this);
-  if (from.uid().size() > 0) {
-
-    uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.uid_);
-  }
-  if (from.user_name().size() > 0) {
-
-    user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
-  }
-  if (from.password().size() > 0) {
-
-    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
-  }
-  if (from.device_id().size() > 0) {
-
-    device_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.device_id_);
-  }
-  if (from.device_type() != 0) {
-    set_device_type(from.device_type());
-  }
-  if (from.third_party_type() != 0) {
-    set_third_party_type(from.third_party_type());
-  }
-}
-
-void BindExistAccountRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.BindExistAccountRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void BindExistAccountRequest::CopyFrom(const BindExistAccountRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.BindExistAccountRequest)
-  if (&from == this) return;
-  Clear();
-  UnsafeMergeFrom(from);
-}
-
-bool BindExistAccountRequest::IsInitialized() const {
-
-  return true;
-}
-
-void BindExistAccountRequest::Swap(BindExistAccountRequest* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void BindExistAccountRequest::InternalSwap(BindExistAccountRequest* other) {
-  uid_.Swap(&other->uid_);
-  user_name_.Swap(&other->user_name_);
-  password_.Swap(&other->password_);
-  device_id_.Swap(&other->device_id_);
-  std::swap(device_type_, other->device_type_);
-  std::swap(third_party_type_, other->third_party_type_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata BindExistAccountRequest::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = BindExistAccountRequest_descriptor_;
-  metadata.reflection = BindExistAccountRequest_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// BindExistAccountRequest
-
-// optional string uid = 1;
-void BindExistAccountRequest::clear_uid() {
-  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindExistAccountRequest::uid() const {
-  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.uid)
-  return uid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_uid(const ::std::string& value) {
-  
-  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.uid)
-}
-void BindExistAccountRequest::set_uid(const char* value) {
-  
-  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindExistAccountRequest.uid)
-}
-void BindExistAccountRequest::set_uid(const char* value, size_t size) {
-  
-  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindExistAccountRequest.uid)
-}
-::std::string* BindExistAccountRequest::mutable_uid() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindExistAccountRequest.uid)
-  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindExistAccountRequest::release_uid() {
-  // @@protoc_insertion_point(field_release:personal.BindExistAccountRequest.uid)
-  
-  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_allocated_uid(::std::string* uid) {
-  if (uid != NULL) {
-    
-  } else {
-    
-  }
-  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindExistAccountRequest.uid)
-}
-
-// optional string user_name = 2;
-void BindExistAccountRequest::clear_user_name() {
-  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindExistAccountRequest::user_name() const {
-  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.user_name)
-  return user_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_user_name(const ::std::string& value) {
-  
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.user_name)
-}
-void BindExistAccountRequest::set_user_name(const char* value) {
-  
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindExistAccountRequest.user_name)
-}
-void BindExistAccountRequest::set_user_name(const char* value, size_t size) {
-  
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindExistAccountRequest.user_name)
-}
-::std::string* BindExistAccountRequest::mutable_user_name() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindExistAccountRequest.user_name)
-  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindExistAccountRequest::release_user_name() {
-  // @@protoc_insertion_point(field_release:personal.BindExistAccountRequest.user_name)
-  
-  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_allocated_user_name(::std::string* user_name) {
-  if (user_name != NULL) {
-    
-  } else {
-    
-  }
-  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindExistAccountRequest.user_name)
-}
-
-// optional string password = 3;
-void BindExistAccountRequest::clear_password() {
-  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindExistAccountRequest::password() const {
-  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.password)
-  return password_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_password(const ::std::string& value) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.password)
-}
-void BindExistAccountRequest::set_password(const char* value) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindExistAccountRequest.password)
-}
-void BindExistAccountRequest::set_password(const char* value, size_t size) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindExistAccountRequest.password)
-}
-::std::string* BindExistAccountRequest::mutable_password() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindExistAccountRequest.password)
-  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindExistAccountRequest::release_password() {
-  // @@protoc_insertion_point(field_release:personal.BindExistAccountRequest.password)
-  
-  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_allocated_password(::std::string* password) {
-  if (password != NULL) {
-    
-  } else {
-    
-  }
-  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindExistAccountRequest.password)
-}
-
-// optional string device_id = 4;
-void BindExistAccountRequest::clear_device_id() {
-  device_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindExistAccountRequest::device_id() const {
-  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.device_id)
-  return device_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_device_id(const ::std::string& value) {
-  
-  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.device_id)
-}
-void BindExistAccountRequest::set_device_id(const char* value) {
-  
-  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindExistAccountRequest.device_id)
-}
-void BindExistAccountRequest::set_device_id(const char* value, size_t size) {
-  
-  device_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindExistAccountRequest.device_id)
-}
-::std::string* BindExistAccountRequest::mutable_device_id() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindExistAccountRequest.device_id)
-  return device_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindExistAccountRequest::release_device_id() {
-  // @@protoc_insertion_point(field_release:personal.BindExistAccountRequest.device_id)
-  
-  return device_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindExistAccountRequest::set_allocated_device_id(::std::string* device_id) {
-  if (device_id != NULL) {
-    
-  } else {
-    
-  }
-  device_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device_id);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindExistAccountRequest.device_id)
-}
-
-// optional .personal.LoginDeviceType device_type = 5;
-void BindExistAccountRequest::clear_device_type() {
-  device_type_ = 0;
-}
-::personal::LoginDeviceType BindExistAccountRequest::device_type() const {
-  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.device_type)
-  return static_cast< ::personal::LoginDeviceType >(device_type_);
-}
-void BindExistAccountRequest::set_device_type(::personal::LoginDeviceType value) {
-  
-  device_type_ = value;
-  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.device_type)
-}
-
-// optional .personal.ThirdPartyType third_party_type = 6;
-void BindExistAccountRequest::clear_third_party_type() {
-  third_party_type_ = 0;
-}
-::personal::ThirdPartyType BindExistAccountRequest::third_party_type() const {
-  // @@protoc_insertion_point(field_get:personal.BindExistAccountRequest.third_party_type)
-  return static_cast< ::personal::ThirdPartyType >(third_party_type_);
-}
-void BindExistAccountRequest::set_third_party_type(::personal::ThirdPartyType value) {
-  
-  third_party_type_ = value;
-  // @@protoc_insertion_point(field_set:personal.BindExistAccountRequest.third_party_type)
-}
-
-inline const BindExistAccountRequest* BindExistAccountRequest::internal_default_instance() {
-  return &BindExistAccountRequest_default_instance_.get();
-}
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int BindNewRegistRequest::kUserNameFieldNumber;
-const int BindNewRegistRequest::kEmailFieldNumber;
-const int BindNewRegistRequest::kPasswordFieldNumber;
-const int BindNewRegistRequest::kThirdPartyTypeFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-BindNewRegistRequest::BindNewRegistRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto();
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:personal.BindNewRegistRequest)
-}
-
-void BindNewRegistRequest::InitAsDefaultInstance() {
-}
-
-BindNewRegistRequest::BindNewRegistRequest(const BindNewRegistRequest& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:personal.BindNewRegistRequest)
-}
-
-void BindNewRegistRequest::SharedCtor() {
-  user_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  third_party_type_ = 0;
-  _cached_size_ = 0;
-}
-
-BindNewRegistRequest::~BindNewRegistRequest() {
-  // @@protoc_insertion_point(destructor:personal.BindNewRegistRequest)
-  SharedDtor();
-}
-
-void BindNewRegistRequest::SharedDtor() {
-  user_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  email_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void BindNewRegistRequest::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* BindNewRegistRequest::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return BindNewRegistRequest_descriptor_;
-}
-
-const BindNewRegistRequest& BindNewRegistRequest::default_instance() {
-  protobuf_InitDefaults_personalCenter_2fmsg_5flogin_2eproto();
-  return *internal_default_instance();
-}
-
-::google::protobuf::internal::ExplicitlyConstructed<BindNewRegistRequest> BindNewRegistRequest_default_instance_;
-
-BindNewRegistRequest* BindNewRegistRequest::New(::google::protobuf::Arena* arena) const {
-  BindNewRegistRequest* n = new BindNewRegistRequest;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void BindNewRegistRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:personal.BindNewRegistRequest)
-  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  third_party_type_ = 0;
-}
-
-bool BindNewRegistRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:personal.BindNewRegistRequest)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string user_name = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_user_name()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->user_name().data(), this->user_name().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindNewRegistRequest.user_name"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_email;
-        break;
-      }
-
-      // optional string email = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_email:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_email()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->email().data(), this->email().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindNewRegistRequest.email"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_password;
-        break;
-      }
-
-      // optional string password = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_password:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_password()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->password().data(), this->password().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "personal.BindNewRegistRequest.password"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_third_party_type;
-        break;
-      }
-
-      // optional .personal.ThirdPartyType third_party_type = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_third_party_type:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_third_party_type(static_cast< ::personal::ThirdPartyType >(value));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:personal.BindNewRegistRequest)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:personal.BindNewRegistRequest)
-  return false;
-#undef DO_
-}
-
-void BindNewRegistRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:personal.BindNewRegistRequest)
-  // optional string user_name = 1;
-  if (this->user_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->user_name().data(), this->user_name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindNewRegistRequest.user_name");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->user_name(), output);
-  }
-
-  // optional string email = 2;
-  if (this->email().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindNewRegistRequest.email");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->email(), output);
-  }
-
-  // optional string password = 3;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindNewRegistRequest.password");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->password(), output);
-  }
-
-  // optional .personal.ThirdPartyType third_party_type = 4;
-  if (this->third_party_type() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->third_party_type(), output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:personal.BindNewRegistRequest)
-}
-
-::google::protobuf::uint8* BindNewRegistRequest::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:personal.BindNewRegistRequest)
-  // optional string user_name = 1;
-  if (this->user_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->user_name().data(), this->user_name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindNewRegistRequest.user_name");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->user_name(), target);
-  }
-
-  // optional string email = 2;
-  if (this->email().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindNewRegistRequest.email");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->email(), target);
-  }
-
-  // optional string password = 3;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "personal.BindNewRegistRequest.password");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->password(), target);
-  }
-
-  // optional .personal.ThirdPartyType third_party_type = 4;
-  if (this->third_party_type() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->third_party_type(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:personal.BindNewRegistRequest)
-  return target;
-}
-
-size_t BindNewRegistRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:personal.BindNewRegistRequest)
-  size_t total_size = 0;
-
-  // optional string user_name = 1;
-  if (this->user_name().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->user_name());
-  }
-
-  // optional string email = 2;
-  if (this->email().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->email());
-  }
-
-  // optional string password = 3;
-  if (this->password().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->password());
-  }
-
-  // optional .personal.ThirdPartyType third_party_type = 4;
-  if (this->third_party_type() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->third_party_type());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void BindNewRegistRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:personal.BindNewRegistRequest)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const BindNewRegistRequest* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const BindNewRegistRequest>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:personal.BindNewRegistRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:personal.BindNewRegistRequest)
-    UnsafeMergeFrom(*source);
-  }
-}
-
-void BindNewRegistRequest::MergeFrom(const BindNewRegistRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:personal.BindNewRegistRequest)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void BindNewRegistRequest::UnsafeMergeFrom(const BindNewRegistRequest& from) {
-  GOOGLE_DCHECK(&from != this);
-  if (from.user_name().size() > 0) {
-
-    user_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_name_);
-  }
-  if (from.email().size() > 0) {
-
-    email_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.email_);
-  }
-  if (from.password().size() > 0) {
-
-    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
-  }
-  if (from.third_party_type() != 0) {
-    set_third_party_type(from.third_party_type());
-  }
-}
-
-void BindNewRegistRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:personal.BindNewRegistRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void BindNewRegistRequest::CopyFrom(const BindNewRegistRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:personal.BindNewRegistRequest)
-  if (&from == this) return;
-  Clear();
-  UnsafeMergeFrom(from);
-}
-
-bool BindNewRegistRequest::IsInitialized() const {
-
-  return true;
-}
-
-void BindNewRegistRequest::Swap(BindNewRegistRequest* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void BindNewRegistRequest::InternalSwap(BindNewRegistRequest* other) {
-  user_name_.Swap(&other->user_name_);
-  email_.Swap(&other->email_);
-  password_.Swap(&other->password_);
-  std::swap(third_party_type_, other->third_party_type_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata BindNewRegistRequest::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = BindNewRegistRequest_descriptor_;
-  metadata.reflection = BindNewRegistRequest_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// BindNewRegistRequest
-
-// optional string user_name = 1;
-void BindNewRegistRequest::clear_user_name() {
-  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindNewRegistRequest::user_name() const {
-  // @@protoc_insertion_point(field_get:personal.BindNewRegistRequest.user_name)
-  return user_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindNewRegistRequest::set_user_name(const ::std::string& value) {
-  
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindNewRegistRequest.user_name)
-}
-void BindNewRegistRequest::set_user_name(const char* value) {
-  
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindNewRegistRequest.user_name)
-}
-void BindNewRegistRequest::set_user_name(const char* value, size_t size) {
-  
-  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindNewRegistRequest.user_name)
-}
-::std::string* BindNewRegistRequest::mutable_user_name() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindNewRegistRequest.user_name)
-  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindNewRegistRequest::release_user_name() {
-  // @@protoc_insertion_point(field_release:personal.BindNewRegistRequest.user_name)
-  
-  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindNewRegistRequest::set_allocated_user_name(::std::string* user_name) {
-  if (user_name != NULL) {
-    
-  } else {
-    
-  }
-  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindNewRegistRequest.user_name)
-}
-
-// optional string email = 2;
-void BindNewRegistRequest::clear_email() {
-  email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindNewRegistRequest::email() const {
-  // @@protoc_insertion_point(field_get:personal.BindNewRegistRequest.email)
-  return email_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindNewRegistRequest::set_email(const ::std::string& value) {
-  
-  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindNewRegistRequest.email)
-}
-void BindNewRegistRequest::set_email(const char* value) {
-  
-  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindNewRegistRequest.email)
-}
-void BindNewRegistRequest::set_email(const char* value, size_t size) {
-  
-  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindNewRegistRequest.email)
-}
-::std::string* BindNewRegistRequest::mutable_email() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindNewRegistRequest.email)
-  return email_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindNewRegistRequest::release_email() {
-  // @@protoc_insertion_point(field_release:personal.BindNewRegistRequest.email)
-  
-  return email_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindNewRegistRequest::set_allocated_email(::std::string* email) {
-  if (email != NULL) {
-    
-  } else {
-    
-  }
-  email_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), email);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindNewRegistRequest.email)
-}
-
-// optional string password = 3;
-void BindNewRegistRequest::clear_password() {
-  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& BindNewRegistRequest::password() const {
-  // @@protoc_insertion_point(field_get:personal.BindNewRegistRequest.password)
-  return password_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindNewRegistRequest::set_password(const ::std::string& value) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.BindNewRegistRequest.password)
-}
-void BindNewRegistRequest::set_password(const char* value) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.BindNewRegistRequest.password)
-}
-void BindNewRegistRequest::set_password(const char* value, size_t size) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.BindNewRegistRequest.password)
-}
-::std::string* BindNewRegistRequest::mutable_password() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.BindNewRegistRequest.password)
-  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* BindNewRegistRequest::release_password() {
-  // @@protoc_insertion_point(field_release:personal.BindNewRegistRequest.password)
-  
-  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void BindNewRegistRequest::set_allocated_password(::std::string* password) {
-  if (password != NULL) {
-    
-  } else {
-    
-  }
-  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:personal.BindNewRegistRequest.password)
-}
-
-// optional .personal.ThirdPartyType third_party_type = 4;
-void BindNewRegistRequest::clear_third_party_type() {
-  third_party_type_ = 0;
-}
-::personal::ThirdPartyType BindNewRegistRequest::third_party_type() const {
-  // @@protoc_insertion_point(field_get:personal.BindNewRegistRequest.third_party_type)
-  return static_cast< ::personal::ThirdPartyType >(third_party_type_);
-}
-void BindNewRegistRequest::set_third_party_type(::personal::ThirdPartyType value) {
-  
-  third_party_type_ = value;
-  // @@protoc_insertion_point(field_set:personal.BindNewRegistRequest.third_party_type)
-}
-
-inline const BindNewRegistRequest* BindNewRegistRequest::internal_default_instance() {
-  return &BindNewRegistRequest_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

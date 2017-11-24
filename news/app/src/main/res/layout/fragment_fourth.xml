@@ -129,7 +129,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="14dp"
+            android:layout_marginLeft="16dp"
             android:drawableLeft="@mipmap/my_order_icon"
             android:drawablePadding="16dp"
             android:gravity="center_vertical"
@@ -233,7 +233,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="14dp"
+            android:layout_marginLeft="16dp"
             android:drawableLeft="@mipmap/my_message_icon"
             android:drawablePadding="16dp"
             android:gravity="center_vertical"
@@ -269,7 +269,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="14dp"
+            android:layout_marginLeft="16dp"
             android:drawableLeft="@mipmap/help_icon"
             android:drawablePadding="16dp"
             android:gravity="center_vertical"
@@ -307,7 +307,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="16dp"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="16dp"
             android:drawableLeft="@mipmap/setting_icon"
             android:drawablePadding="14dp"
             android:gravity="center_vertical"

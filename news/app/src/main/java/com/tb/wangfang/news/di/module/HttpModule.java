@@ -15,7 +15,6 @@ public class HttpModule {
     @Singleton
     @Provides
     ManagedChannel provideClient() {
-
         //模拟器对应的电脑
 //        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.0.3.2", 8088)
 //                .usePlaintext(true)
@@ -24,7 +23,6 @@ public class HttpModule {
 //        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.20.17.249", 8088)
 //                .usePlaintext(true)
 //                .build();
-
 //        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("192.168.2.8", 8088)
 //                .usePlaintext(true)
 //                .build();

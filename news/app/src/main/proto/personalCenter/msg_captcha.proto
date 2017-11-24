@@ -7,14 +7,18 @@ option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
 option objc_class_prefix = "WFPR";
 
+
+
 // 获取手机验证码-请求
 message GetPhoneCaptchaRequest{
     // 手机号
     string phone_number = 1;
+    // 验证码
+    string phone_captcha = 2;
     // 国际区号 如：中国：0086；
-    string nation = 2;
-    // 消息类型 目前仅支持“bind”
-    string message_type = 3;
+    string nation = 3;
+    // 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
+    string message_type = 4;
 }
 
 // 获取手机验证码-响应
@@ -24,7 +28,7 @@ message GetPhoneCaptchaResponse{
     grpcCommon.GrpcError error = 2;
 }
 
-// 校验手机验证码-请求
+// 校验手机验证码-请求(暂时不用)
 message CheckPhoneCaptchaRequest{
     // 手机号
     string phone_number = 1;
@@ -32,13 +36,22 @@ message CheckPhoneCaptchaRequest{
     string phone_captcha = 2;
     // 国际区号 如：中国：0086；
     string nation = 3;
-    // 消息类型 目前仅支持“bind”
+    // 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
     string message_type = 4;
 }
 
-// 校验手机验证码-响应
+// 校验手机验证码-响应(暂时不用)
 message CheckPhoneCaptchaResponse{
     // 结果状态:200:成功
     int32 status = 1;
+    grpcCommon.GrpcError error = 2;
+}
+
+// 检查手机号是否已经存在
+message CheckPhoneIsExistRequest {
+    string phone_number = 1;
+}
+message CheckPhoneIsExistResponse {
+    bool is_exist = 1; // true 存在 false 不存在
     grpcCommon.GrpcError error = 2;
 }

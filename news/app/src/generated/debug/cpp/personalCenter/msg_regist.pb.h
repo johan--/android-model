@@ -38,12 +38,201 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto();
 void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto();
 void protobuf_ShutdownFile_personalCenter_2fmsg_5fregist_2eproto();
 
+class CheckUserNameIsExistRequest;
+class CheckUserNameIsExistResponse;
 class RegistRequest;
 class RegistResponse;
 class UpdateRegistInfoRequest;
 class UpdateRegistInfoResponse;
 
 // ===================================================================
+
+class CheckUserNameIsExistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.CheckUserNameIsExistRequest) */ {
+ public:
+  CheckUserNameIsExistRequest();
+  virtual ~CheckUserNameIsExistRequest();
+
+  CheckUserNameIsExistRequest(const CheckUserNameIsExistRequest& from);
+
+  inline CheckUserNameIsExistRequest& operator=(const CheckUserNameIsExistRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CheckUserNameIsExistRequest& default_instance();
+
+  static const CheckUserNameIsExistRequest* internal_default_instance();
+
+  void Swap(CheckUserNameIsExistRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CheckUserNameIsExistRequest* New() const { return New(NULL); }
+
+  CheckUserNameIsExistRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CheckUserNameIsExistRequest& from);
+  void MergeFrom(const CheckUserNameIsExistRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CheckUserNameIsExistRequest* other);
+  void UnsafeMergeFrom(const CheckUserNameIsExistRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string user_name = 1;
+  void clear_user_name();
+  static const int kUserNameFieldNumber = 1;
+  const ::std::string& user_name() const;
+  void set_user_name(const ::std::string& value);
+  void set_user_name(const char* value);
+  void set_user_name(const char* value, size_t size);
+  ::std::string* mutable_user_name();
+  ::std::string* release_user_name();
+  void set_allocated_user_name(::std::string* user_name);
+
+  // @@protoc_insertion_point(class_scope:personal.CheckUserNameIsExistRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr user_name_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fregist_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CheckUserNameIsExistRequest> CheckUserNameIsExistRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class CheckUserNameIsExistResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.CheckUserNameIsExistResponse) */ {
+ public:
+  CheckUserNameIsExistResponse();
+  virtual ~CheckUserNameIsExistResponse();
+
+  CheckUserNameIsExistResponse(const CheckUserNameIsExistResponse& from);
+
+  inline CheckUserNameIsExistResponse& operator=(const CheckUserNameIsExistResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CheckUserNameIsExistResponse& default_instance();
+
+  static const CheckUserNameIsExistResponse* internal_default_instance();
+
+  void Swap(CheckUserNameIsExistResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CheckUserNameIsExistResponse* New() const { return New(NULL); }
+
+  CheckUserNameIsExistResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CheckUserNameIsExistResponse& from);
+  void MergeFrom(const CheckUserNameIsExistResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CheckUserNameIsExistResponse* other);
+  void UnsafeMergeFrom(const CheckUserNameIsExistResponse& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool is_exist = 1;
+  void clear_is_exist();
+  static const int kIsExistFieldNumber = 1;
+  bool is_exist() const;
+  void set_is_exist(bool value);
+
+  // optional .grpcCommon.GrpcError error = 2;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  const ::grpcCommon::GrpcError& error() const;
+  ::grpcCommon::GrpcError* mutable_error();
+  ::grpcCommon::GrpcError* release_error();
+  void set_allocated_error(::grpcCommon::GrpcError* error);
+
+  // @@protoc_insertion_point(class_scope:personal.CheckUserNameIsExistResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::grpcCommon::GrpcError* error_;
+  bool is_exist_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl();
+  friend void  protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl();
+  friend void protobuf_AssignDesc_personalCenter_2fmsg_5fregist_2eproto();
+  friend void protobuf_ShutdownFile_personalCenter_2fmsg_5fregist_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<CheckUserNameIsExistResponse> CheckUserNameIsExistResponse_default_instance_;
+
+// -------------------------------------------------------------------
 
 class RegistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:personal.RegistRequest) */ {
  public:
@@ -141,39 +330,6 @@ class RegistRequest : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_phone();
   void set_allocated_phone(::std::string* phone);
 
-  // optional string phone_captcha = 4;
-  void clear_phone_captcha();
-  static const int kPhoneCaptchaFieldNumber = 4;
-  const ::std::string& phone_captcha() const;
-  void set_phone_captcha(const ::std::string& value);
-  void set_phone_captcha(const char* value);
-  void set_phone_captcha(const char* value, size_t size);
-  ::std::string* mutable_phone_captcha();
-  ::std::string* release_phone_captcha();
-  void set_allocated_phone_captcha(::std::string* phone_captcha);
-
-  // optional string nation = 5;
-  void clear_nation();
-  static const int kNationFieldNumber = 5;
-  const ::std::string& nation() const;
-  void set_nation(const ::std::string& value);
-  void set_nation(const char* value);
-  void set_nation(const char* value, size_t size);
-  ::std::string* mutable_nation();
-  ::std::string* release_nation();
-  void set_allocated_nation(::std::string* nation);
-
-  // optional string message_type = 6;
-  void clear_message_type();
-  static const int kMessageTypeFieldNumber = 6;
-  const ::std::string& message_type() const;
-  void set_message_type(const ::std::string& value);
-  void set_message_type(const char* value);
-  void set_message_type(const char* value, size_t size);
-  ::std::string* mutable_message_type();
-  ::std::string* release_message_type();
-  void set_allocated_message_type(::std::string* message_type);
-
   // @@protoc_insertion_point(class_scope:personal.RegistRequest)
  private:
 
@@ -181,9 +337,6 @@ class RegistRequest : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::ArenaStringPtr user_name_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::internal::ArenaStringPtr phone_;
-  ::google::protobuf::internal::ArenaStringPtr phone_captcha_;
-  ::google::protobuf::internal::ArenaStringPtr nation_;
-  ::google::protobuf::internal::ArenaStringPtr message_type_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_personalCenter_2fmsg_5fregist_2eproto_impl();
   friend void  protobuf_AddDesc_personalCenter_2fmsg_5fregist_2eproto_impl();
@@ -505,6 +658,117 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<UpdateRegistInfoRespo
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// CheckUserNameIsExistRequest
+
+// optional string user_name = 1;
+inline void CheckUserNameIsExistRequest::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CheckUserNameIsExistRequest::user_name() const {
+  // @@protoc_insertion_point(field_get:personal.CheckUserNameIsExistRequest.user_name)
+  return user_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CheckUserNameIsExistRequest::set_user_name(const ::std::string& value) {
+  
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:personal.CheckUserNameIsExistRequest.user_name)
+}
+inline void CheckUserNameIsExistRequest::set_user_name(const char* value) {
+  
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:personal.CheckUserNameIsExistRequest.user_name)
+}
+inline void CheckUserNameIsExistRequest::set_user_name(const char* value, size_t size) {
+  
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:personal.CheckUserNameIsExistRequest.user_name)
+}
+inline ::std::string* CheckUserNameIsExistRequest::mutable_user_name() {
+  
+  // @@protoc_insertion_point(field_mutable:personal.CheckUserNameIsExistRequest.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CheckUserNameIsExistRequest::release_user_name() {
+  // @@protoc_insertion_point(field_release:personal.CheckUserNameIsExistRequest.user_name)
+  
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CheckUserNameIsExistRequest::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    
+  } else {
+    
+  }
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckUserNameIsExistRequest.user_name)
+}
+
+inline const CheckUserNameIsExistRequest* CheckUserNameIsExistRequest::internal_default_instance() {
+  return &CheckUserNameIsExistRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// CheckUserNameIsExistResponse
+
+// optional bool is_exist = 1;
+inline void CheckUserNameIsExistResponse::clear_is_exist() {
+  is_exist_ = false;
+}
+inline bool CheckUserNameIsExistResponse::is_exist() const {
+  // @@protoc_insertion_point(field_get:personal.CheckUserNameIsExistResponse.is_exist)
+  return is_exist_;
+}
+inline void CheckUserNameIsExistResponse::set_is_exist(bool value) {
+  
+  is_exist_ = value;
+  // @@protoc_insertion_point(field_set:personal.CheckUserNameIsExistResponse.is_exist)
+}
+
+// optional .grpcCommon.GrpcError error = 2;
+inline bool CheckUserNameIsExistResponse::has_error() const {
+  return this != internal_default_instance() && error_ != NULL;
+}
+inline void CheckUserNameIsExistResponse::clear_error() {
+  if (GetArenaNoVirtual() == NULL && error_ != NULL) delete error_;
+  error_ = NULL;
+}
+inline const ::grpcCommon::GrpcError& CheckUserNameIsExistResponse::error() const {
+  // @@protoc_insertion_point(field_get:personal.CheckUserNameIsExistResponse.error)
+  return error_ != NULL ? *error_
+                         : *::grpcCommon::GrpcError::internal_default_instance();
+}
+inline ::grpcCommon::GrpcError* CheckUserNameIsExistResponse::mutable_error() {
+  
+  if (error_ == NULL) {
+    error_ = new ::grpcCommon::GrpcError;
+  }
+  // @@protoc_insertion_point(field_mutable:personal.CheckUserNameIsExistResponse.error)
+  return error_;
+}
+inline ::grpcCommon::GrpcError* CheckUserNameIsExistResponse::release_error() {
+  // @@protoc_insertion_point(field_release:personal.CheckUserNameIsExistResponse.error)
+  
+  ::grpcCommon::GrpcError* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void CheckUserNameIsExistResponse::set_allocated_error(::grpcCommon::GrpcError* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:personal.CheckUserNameIsExistResponse.error)
+}
+
+inline const CheckUserNameIsExistResponse* CheckUserNameIsExistResponse::internal_default_instance() {
+  return &CheckUserNameIsExistResponse_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
 // RegistRequest
 
 // optional string user_name = 1;
@@ -637,138 +901,6 @@ inline void RegistRequest::set_allocated_phone(::std::string* phone) {
   }
   phone_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone);
   // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.phone)
-}
-
-// optional string phone_captcha = 4;
-inline void RegistRequest::clear_phone_captcha() {
-  phone_captcha_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& RegistRequest::phone_captcha() const {
-  // @@protoc_insertion_point(field_get:personal.RegistRequest.phone_captcha)
-  return phone_captcha_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistRequest::set_phone_captcha(const ::std::string& value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.RegistRequest.phone_captcha)
-}
-inline void RegistRequest::set_phone_captcha(const char* value) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.RegistRequest.phone_captcha)
-}
-inline void RegistRequest::set_phone_captcha(const char* value, size_t size) {
-  
-  phone_captcha_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.RegistRequest.phone_captcha)
-}
-inline ::std::string* RegistRequest::mutable_phone_captcha() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.RegistRequest.phone_captcha)
-  return phone_captcha_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* RegistRequest::release_phone_captcha() {
-  // @@protoc_insertion_point(field_release:personal.RegistRequest.phone_captcha)
-  
-  return phone_captcha_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistRequest::set_allocated_phone_captcha(::std::string* phone_captcha) {
-  if (phone_captcha != NULL) {
-    
-  } else {
-    
-  }
-  phone_captcha_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), phone_captcha);
-  // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.phone_captcha)
-}
-
-// optional string nation = 5;
-inline void RegistRequest::clear_nation() {
-  nation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& RegistRequest::nation() const {
-  // @@protoc_insertion_point(field_get:personal.RegistRequest.nation)
-  return nation_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistRequest::set_nation(const ::std::string& value) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.RegistRequest.nation)
-}
-inline void RegistRequest::set_nation(const char* value) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.RegistRequest.nation)
-}
-inline void RegistRequest::set_nation(const char* value, size_t size) {
-  
-  nation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.RegistRequest.nation)
-}
-inline ::std::string* RegistRequest::mutable_nation() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.RegistRequest.nation)
-  return nation_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* RegistRequest::release_nation() {
-  // @@protoc_insertion_point(field_release:personal.RegistRequest.nation)
-  
-  return nation_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistRequest::set_allocated_nation(::std::string* nation) {
-  if (nation != NULL) {
-    
-  } else {
-    
-  }
-  nation_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nation);
-  // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.nation)
-}
-
-// optional string message_type = 6;
-inline void RegistRequest::clear_message_type() {
-  message_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& RegistRequest::message_type() const {
-  // @@protoc_insertion_point(field_get:personal.RegistRequest.message_type)
-  return message_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistRequest::set_message_type(const ::std::string& value) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:personal.RegistRequest.message_type)
-}
-inline void RegistRequest::set_message_type(const char* value) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:personal.RegistRequest.message_type)
-}
-inline void RegistRequest::set_message_type(const char* value, size_t size) {
-  
-  message_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:personal.RegistRequest.message_type)
-}
-inline ::std::string* RegistRequest::mutable_message_type() {
-  
-  // @@protoc_insertion_point(field_mutable:personal.RegistRequest.message_type)
-  return message_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* RegistRequest::release_message_type() {
-  // @@protoc_insertion_point(field_release:personal.RegistRequest.message_type)
-  
-  return message_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistRequest::set_allocated_message_type(::std::string* message_type) {
-  if (message_type != NULL) {
-    
-  } else {
-    
-  }
-  message_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message_type);
-  // @@protoc_insertion_point(field_set_allocated:personal.RegistRequest.message_type)
 }
 
 inline const RegistRequest* RegistRequest::internal_default_instance() {
@@ -1050,6 +1182,10 @@ inline const UpdateRegistInfoResponse* UpdateRegistInfoResponse::internal_defaul
   return &UpdateRegistInfoResponse_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
 
+        android:text="标准信息"
+        android:drawablePadding="7.5dp"
+        android:textColor="#999"
+        android:drawableLeft="@mipmap/double_circle_icon"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -35,10 +45,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="标准编号 : "
+            android:text="标  准   编  号 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -59,10 +70,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="发布单位 : "
+            android:text="发  布   单  位 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -83,10 +95,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="发布日期 : "
+            android:text="发  布   日  期 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -107,10 +120,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="状态 : "
+            android:text="状                态 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -132,10 +147,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="强制性标准 : "
+            android:text="强 制 性 标 准 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -156,10 +172,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="实施日期 : "
+            android:text="实  施   日  期 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -180,10 +197,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="开本页数 : "
+            android:text="开  本   页  数 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -205,10 +223,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="中国分类号 : "
+            android:text="中 国 分 类 号 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -230,7 +249,8 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="中国标准分类号 : "
@@ -255,7 +275,8 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="国标标准分类号 : "
@@ -280,10 +301,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="国别 : "
+            android:text="国              别 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -110,11 +111,15 @@ public class JournalActivity extends SimpleActivity {
     }
 
     private void checkIsSubscribed() {
+        final String userId = preferencesHelper.getUserId();
+        if (TextUtils.isEmpty(userId)) {
+            return;
+        }
         Single.create(new SingleOnSubscribe<CheckPerioISSubscribeResponse>() {
             @Override
             public void subscribe(SingleEmitter<CheckPerioISSubscribeResponse> e) throws Exception {
                 SubscribeServiceGrpc.SubscribeServiceBlockingStub stub = SubscribeServiceGrpc.newBlockingStub(managedChannel);
-                CheckPerioISSubscribedRequest request = CheckPerioISSubscribedRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setPerioId(journalId).build();
+                CheckPerioISSubscribedRequest request = CheckPerioISSubscribedRequest.newBuilder().setUserId(userId).setPerioId(journalId).build();
                 CheckPerioISSubscribeResponse response = stub.checkIsSubscribed(request);
                 e.onSuccess(response);
             }
@@ -225,32 +230,35 @@ public class JournalActivity extends SimpleActivity {
 
     private void initYearItem(JournalDetailBean bean) {
         ArrayList<JournalDetailBean.CommonYearBean> years = new ArrayList<>();
-        for (int i = 0; i < bean.getCommon_year().size(); i++) {
-            if (!bean.getCommon_year().get(i).getPId().equals("-1")) {
-                years.add(bean.getCommon_year().get(i));
+        if (bean.getCommon_year() != null && bean.getCommon_year().size() > 0) {
+            for (int i = 0; i < bean.getCommon_year().size(); i++) {
+                if (!bean.getCommon_year().get(i).getPId().equals("-1")) {
+                    years.add(bean.getCommon_year().get(i));
+                }
             }
-        }
-        if (years.size() > 3) {
-            tlTime.setMinimumWidth(App.SCREEN_WIDTH / 4);
-            tlTime.setTabMode(TabLayout.MODE_SCROLLABLE);
-        } else if (years.size() == 0 || years.size() == 1) {
-            tlTime.setTabMode(TabLayout.MODE_FIXED);
+            if (years.size() > 3) {
+                tlTime.setMinimumWidth(App.SCREEN_WIDTH / 4);
+                tlTime.setTabMode(TabLayout.MODE_SCROLLABLE);
+            } else if (years.size() == 0 || years.size() == 1) {
+                tlTime.setTabMode(TabLayout.MODE_FIXED);
 
+            }
+
+            yearFragment = new JournalPeriodFragment[years.size()];
+            mTabTitle = new String[years.size()];
+            for (int i = 0; i < years.size(); i++) {
+                tlTime.addTab(tlTime.newTab().setText(years.get(i).getShowName()));
+                yearFragment[i] = new JournalPeriodFragment();
+                yearFragment[i].setYear(years.get(i).getShowName());
+                yearFragment[i].setJournalId(journalId);
+                mTabTitle[i] = years.get(i).getShowName();
+            }
+            ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), yearFragment);
+            vpPeriod.setAdapter(viewPageAdapter);
+            tlTime.setupWithViewPager(vpPeriod);
+            vpPeriod.setCurrentItem(0);
         }
 
-        yearFragment = new JournalPeriodFragment[years.size()];
-        mTabTitle = new String[years.size()];
-        for (int i = 0; i < years.size(); i++) {
-            tlTime.addTab(tlTime.newTab().setText(years.get(i).getShowName()));
-            yearFragment[i] = new JournalPeriodFragment();
-            yearFragment[i].setYear(years.get(i).getShowName());
-            yearFragment[i].setJournalId(journalId);
-            mTabTitle[i] = years.get(i).getShowName();
-        }
-        ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), yearFragment);
-        vpPeriod.setAdapter(viewPageAdapter);
-        tlTime.setupWithViewPager(vpPeriod);
-        vpPeriod.setCurrentItem(0);
 
     }
 
@@ -272,22 +280,28 @@ public class JournalActivity extends SimpleActivity {
         TextView tv_international_num = (TextView) dialog.findViewById(R.id.tv_international_num);
         TextView tv_china_num = (TextView) dialog.findViewById(R.id.tv_china_num);
         TextView tv_period = (TextView) dialog.findViewById(R.id.tv_period);
-        tv_chiness_name.setText(bean.getData().get(0).getPerio_title02().toString());
-        tv_english_name.setText(bean.getData().get(0).getPinyin_title());
-        tv_edit_aprtment.setText(bean.getData().get(0).getEf_name());
-        tv_international_num.setText(bean.getData().get(0).getIssn());
-        tv_china_num.setText(bean.getData().get(0).getCn());
-        tv_period.setText(bean.getData().get(0).getPublish_cycle());
+
+        if (bean != null && bean.getData() != null && bean.getData().size() > 0) {
+            tv_chiness_name.setText(bean.getData().get(0).getPerio_title02().toString());
+            tv_english_name.setText(bean.getData().get(0).getPinyin_title());
+            tv_edit_aprtment.setText(bean.getData().get(0).getEf_name());
+            tv_international_num.setText(bean.getData().get(0).getIssn());
+            tv_china_num.setText(bean.getData().get(0).getCn());
+            tv_period.setText(bean.getData().get(0).getPublish_cycle());
+        }
     }
 
     private void showDetail(JournalDetailBean bean) {
         String imgUrl = "http://new.wanfangdata.com.cn/images/PeriodicalImages/" + journalId + "/" + journalId + ".jpg";
         Glide.with(this).load(imgUrl).into(ivBook);
+        if (bean != null && bean.getData() != null && bean.getData().size() > 0) {
+            tvTitle.setText(bean.getData().get(0).getPerio_title02());
+            tvJournalName.setText(bean.getData().get(0).getPerio_title02());
+            tvNationalNum.setText(bean.getData().get(0).getIssn());
+            tvChinaNum.setText(bean.getData().get(0).getCn());
+            tvPeriod.setText(bean.getData().get(0).getPublish_cycle());
+        }
 
-        tvJournalName.setText(bean.getData().get(0).getPerio_title02());
-        tvNationalNum.setText(bean.getData().get(0).getIssn());
-        tvChinaNum.setText(bean.getData().get(0).getCn());
-        tvPeriod.setText(bean.getData().get(0).getPublish_cycle());
 
     }
 

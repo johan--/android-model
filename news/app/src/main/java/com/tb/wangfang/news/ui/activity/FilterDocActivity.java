@@ -146,17 +146,17 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(FilterDocActivity.this, DocDetailActivity.class);
                 if (docAdapter.getData().get(position).getClass_type().equals("perio_artical") || docAdapter.getData().get(position).getClass_type().equals("degree_artical")) {
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getArticle_id());
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getArticle_id().toString());
                 } else if (docAdapter.getData().get(position).getClass_type().equals("patent_element")) {
                     intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPatent_id().toString());
                 } else if (docAdapter.getData().get(position).getClass_type().equals("conf_artical")) {
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getArticle_id());
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getArticle_id().toString());
                 } else if (docAdapter.getData().get(position).getClass_type().equals("standards")) {
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getStand_id());
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getStand_id().toString());
                 } else if (docAdapter.getData().get(position).getClass_type().equals("legislations")) {
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getLegis_id());
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getLegis_id().toString());
                 } else if (docAdapter.getData().get(position).getClass_type().equals("tech_result")) {
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getResult_id());
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getResult_id().toString());
                 }
                 intent.putExtra(Constants.ARTICLE_TYPE, docAdapter.getData().get(position).getClass_type().toString());
                 startActivity(intent);
@@ -165,9 +165,9 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         docAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if (!TextUtils.isEmpty(docAdapter.getData().get(position).getPerio_id())) {
+                if (!TextUtils.isEmpty(docAdapter.getData().get(position).getPerio_id().toString())) {
                     Intent intent = new Intent(FilterDocActivity.this, JournalActivity.class);
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPerio_id());
+                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPerio_id().toString());
                     startActivity(intent);
                 }
 

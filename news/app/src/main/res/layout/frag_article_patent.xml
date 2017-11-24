@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginTop="15dp"
 
+        android:text="专利信息"
+        android:drawablePadding="7.5dp"
+        android:textColor="#999"
+        android:drawableLeft="@mipmap/double_circle_icon"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -35,10 +45,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="专利类型 : "
+            android:text="专  利   类  型 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -59,10 +70,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="申请号 : "
+            android:text="申     请      号 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -83,10 +95,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="申请日期 : "
+            android:text="申  请   日  期 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -107,10 +120,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="公开日 : "
+            android:text="公     开      日 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -131,10 +145,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="申请人 : "
+            android:text="申     请      人 : "
             android:textColor="@color/gray_text_6"
             android:textStyle="bold" />
 
@@ -156,7 +171,8 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16.5dp"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="主申请人地址 : "

@@ -49,19 +49,18 @@
         android:layout_marginLeft="16.5dp"
         android:layout_marginRight="16.5dp"
         android:layout_marginTop="15dp"
-        android:text="-3元"
+        android:text=""
         android:textColor="@color/red_text"
         android:textSize="12sp"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/tv_method"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_orderid"
         android:layout_marginTop="15dp"
         android:layout_toLeftOf="@+id/tv_price"
-
-
         android:text="微信支付:"
         android:textColor="@color/wanfang_gray_text" />
     <View

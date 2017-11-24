@@ -5,7 +5,7 @@ package com.wanfang.personal;
 
 /**
  * <pre>
- * 校验手机验证码-响应
+ * 校验手机验证码-响应(暂时不用)
  * </pre>
  *
  * Protobuf type {@code personal.CheckPhoneCaptchaResponse}
@@ -278,7 +278,7 @@ public  final class CheckPhoneCaptchaResponse extends
   }
   /**
    * <pre>
-   * 校验手机验证码-响应
+   * 校验手机验证码-响应(暂时不用)
    * </pre>
    *
    * Protobuf type {@code personal.CheckPhoneCaptchaResponse}

@@ -1,6 +1,7 @@
 package com.tb.wangfang.news.ui.fragment;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -127,7 +128,12 @@ public class FourthFragment extends BaseFragment<FourthPresenter> implements Fou
         if (PreferencesHelper.getLoginState()) {
             tvRegister.setVisibility(View.GONE);
             tvEditPersonnal.setVisibility(View.VISIBLE);
-            tvUserName.setText(PreferencesHelper.getUserName());
+            if (!TextUtils.isEmpty(PreferencesHelper.getUserName())) {
+                tvUserName.setText(PreferencesHelper.getUserName());
+            } else {
+                tvUserName.setText(PreferencesHelper.getUserId());
+            }
+
         } else {
             tvRegister.setVisibility(View.VISIBLE);
             tvEditPersonnal.setVisibility(View.GONE);

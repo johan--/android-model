@@ -34,6 +34,16 @@ public final class MsgCaptcha {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_personal_CheckPhoneCaptchaResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_CheckPhoneIsExistRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_CheckPhoneIsExistRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_personal_CheckPhoneIsExistResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_personal_CheckPhoneIsExistResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -44,17 +54,21 @@ public final class MsgCaptcha {
   static {
     java.lang.String[] descriptorData = {
       "\n personalCenter/msg_captcha.proto\022\010pers" +
-      "onal\032\032grpcCommon/msg_error.proto\"T\n\026GetP" +
+      "onal\032\032grpcCommon/msg_error.proto\"k\n\026GetP" +
       "honeCaptchaRequest\022\024\n\014phone_number\030\001 \001(\t" +
-      "\022\016\n\006nation\030\002 \001(\t\022\024\n\014message_type\030\003 \001(\t\"O" +
-      "\n\027GetPhoneCaptchaResponse\022\016\n\006status\030\001 \001(" +
-      "\005\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcError\"" +
-      "m\n\030CheckPhoneCaptchaRequest\022\024\n\014phone_num" +
-      "ber\030\001 \001(\t\022\025\n\rphone_captcha\030\002 \001(\t\022\016\n\006nati" +
-      "on\030\003 \001(\t\022\024\n\014message_type\030\004 \001(\t\"Q\n\031CheckP" +
-      "honeCaptchaResponse\022\016\n\006status\030\001 \001(\005\022$\n\005e",
-      "rror\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com" +
-      ".wanfang.personalP\001\242\002\004WFPRb\006proto3"
+      "\022\025\n\rphone_captcha\030\002 \001(\t\022\016\n\006nation\030\003 \001(\t\022" +
+      "\024\n\014message_type\030\004 \001(\t\"O\n\027GetPhoneCaptcha" +
+      "Response\022\016\n\006status\030\001 \001(\005\022$\n\005error\030\002 \001(\0132" +
+      "\025.grpcCommon.GrpcError\"m\n\030CheckPhoneCapt" +
+      "chaRequest\022\024\n\014phone_number\030\001 \001(\t\022\025\n\rphon" +
+      "e_captcha\030\002 \001(\t\022\016\n\006nation\030\003 \001(\t\022\024\n\014messa" +
+      "ge_type\030\004 \001(\t\"Q\n\031CheckPhoneCaptchaRespon",
+      "se\022\016\n\006status\030\001 \001(\005\022$\n\005error\030\002 \001(\0132\025.grpc" +
+      "Common.GrpcError\"0\n\030CheckPhoneIsExistReq" +
+      "uest\022\024\n\014phone_number\030\001 \001(\t\"S\n\031CheckPhone" +
+      "IsExistResponse\022\020\n\010is_exist\030\001 \001(\010\022$\n\005err" +
+      "or\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com.w" +
+      "anfang.personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -74,7 +88,7 @@ public final class MsgCaptcha {
     internal_static_personal_GetPhoneCaptchaRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_GetPhoneCaptchaRequest_descriptor,
-        new java.lang.String[] { "PhoneNumber", "Nation", "MessageType", });
+        new java.lang.String[] { "PhoneNumber", "PhoneCaptcha", "Nation", "MessageType", });
     internal_static_personal_GetPhoneCaptchaResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_personal_GetPhoneCaptchaResponse_fieldAccessorTable = new
@@ -93,6 +107,18 @@ public final class MsgCaptcha {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_CheckPhoneCaptchaResponse_descriptor,
         new java.lang.String[] { "Status", "Error", });
+    internal_static_personal_CheckPhoneIsExistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_personal_CheckPhoneIsExistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_CheckPhoneIsExistRequest_descriptor,
+        new java.lang.String[] { "PhoneNumber", });
+    internal_static_personal_CheckPhoneIsExistResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_personal_CheckPhoneIsExistResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_personal_CheckPhoneIsExistResponse_descriptor,
+        new java.lang.String[] { "IsExist", "Error", });
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 

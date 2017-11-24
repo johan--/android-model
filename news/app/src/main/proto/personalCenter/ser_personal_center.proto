@@ -18,6 +18,12 @@ option objc_class_prefix = "WFPR";
 
 service PersonalCenterService {
 
+    // 检查用户名是否已经存在
+    rpc CheckUserNameIsExist (CheckUserNameIsExistRequest) returns (CheckUserNameIsExistResponse);
+
+    // 检查手机号是否已经存在
+    rpc CheckPhoneIsExist (CheckPhoneIsExistRequest) returns (CheckPhoneIsExistResponse);
+
     // 获取交易历史
     rpc GetTradeList (UserGetTradeListRequest) returns (UserGetTradeListResponse);
 
@@ -38,12 +44,6 @@ service PersonalCenterService {
 
      // 第三方登录账号绑定
     rpc thirdPartyBind (ThirdPartyBindRequest) returns (ThirdPartyBindResponse);
-
-    // 第三方登录后绑定万方账号
-    rpc BindExistAccount (BindExistAccountRequest) returns (LoginResponse);
-
-    // 第三方登录后注册万方账号
-    rpc BindNewRegist (BindNewRegistRequest) returns (RegistResponse);
 
     // 注册
     rpc Regist (RegistRequest) returns (RegistResponse);
@@ -69,7 +69,7 @@ service PersonalCenterService {
     // 获取手机验证码
     rpc getPhoneCaptcha (GetPhoneCaptchaRequest) returns (GetPhoneCaptchaResponse);
 
-    // 检验手机验证码
+    // 检验手机验证码(暂时不用)
     rpc checkPhoneCaptcha (CheckPhoneCaptchaRequest) returns (CheckPhoneCaptchaResponse);
 
     // 上传文件

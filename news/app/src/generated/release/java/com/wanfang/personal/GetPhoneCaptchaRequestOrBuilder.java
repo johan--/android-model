@@ -27,10 +27,28 @@ public interface GetPhoneCaptchaRequestOrBuilder extends
 
   /**
    * <pre>
+   * 验证码
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 2;</code>
+   */
+  java.lang.String getPhoneCaptcha();
+  /**
+   * <pre>
+   * 验证码
+   * </pre>
+   *
+   * <code>optional string phone_captcha = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getPhoneCaptchaBytes();
+
+  /**
+   * <pre>
    * 国际区号 如：中国：0086；
    * </pre>
    *
-   * <code>optional string nation = 2;</code>
+   * <code>optional string nation = 3;</code>
    */
   java.lang.String getNation();
   /**
@@ -38,25 +56,25 @@ public interface GetPhoneCaptchaRequestOrBuilder extends
    * 国际区号 如：中国：0086；
    * </pre>
    *
-   * <code>optional string nation = 2;</code>
+   * <code>optional string nation = 3;</code>
    */
   com.google.protobuf.ByteString
       getNationBytes();
 
   /**
    * <pre>
-   * 消息类型 目前仅支持“bind”
+   * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
    * </pre>
    *
-   * <code>optional string message_type = 3;</code>
+   * <code>optional string message_type = 4;</code>
    */
   java.lang.String getMessageType();
   /**
    * <pre>
-   * 消息类型 目前仅支持“bind”
+   * 消息类型 仅支持"Register"（注册和快捷登录）、"ForgetPassword"（找回密码）
    * </pre>
    *
-   * <code>optional string message_type = 3;</code>
+   * <code>optional string message_type = 4;</code>
    */
   com.google.protobuf.ByteString
       getMessageTypeBytes();

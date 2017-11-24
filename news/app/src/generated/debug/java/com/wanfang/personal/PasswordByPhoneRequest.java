@@ -20,9 +20,6 @@ public  final class PasswordByPhoneRequest extends
   }
   private PasswordByPhoneRequest() {
     phoneNumber_ = "";
-    phoneCaptcha_ = "";
-    nation_ = "";
-    messageType_ = "";
   }
 
   @java.lang.Override
@@ -54,24 +51,6 @@ public  final class PasswordByPhoneRequest extends
             java.lang.String s = input.readStringRequireUtf8();
 
             phoneNumber_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneCaptcha_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nation_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            messageType_ = s;
             break;
           }
         }
@@ -139,132 +118,6 @@ public  final class PasswordByPhoneRequest extends
     }
   }
 
-  public static final int PHONE_CAPTCHA_FIELD_NUMBER = 2;
-  private volatile java.lang.Object phoneCaptcha_;
-  /**
-   * <pre>
-   * 短信验证码
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 2;</code>
-   */
-  public java.lang.String getPhoneCaptcha() {
-    java.lang.Object ref = phoneCaptcha_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      phoneCaptcha_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 短信验证码
-   * </pre>
-   *
-   * <code>optional string phone_captcha = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPhoneCaptchaBytes() {
-    java.lang.Object ref = phoneCaptcha_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      phoneCaptcha_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NATION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object nation_;
-  /**
-   * <pre>
-   * 国际区号 如：中国：0086；
-   * </pre>
-   *
-   * <code>optional string nation = 3;</code>
-   */
-  public java.lang.String getNation() {
-    java.lang.Object ref = nation_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      nation_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 国际区号 如：中国：0086；
-   * </pre>
-   *
-   * <code>optional string nation = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getNationBytes() {
-    java.lang.Object ref = nation_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      nation_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int MESSAGE_TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object messageType_;
-  /**
-   * <pre>
-   * 消息类型 目前仅支持“bind”
-   * </pre>
-   *
-   * <code>optional string message_type = 4;</code>
-   */
-  public java.lang.String getMessageType() {
-    java.lang.Object ref = messageType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      messageType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 消息类型 目前仅支持“bind”
-   * </pre>
-   *
-   * <code>optional string message_type = 4;</code>
-   */
-  public com.google.protobuf.ByteString
-      getMessageTypeBytes() {
-    java.lang.Object ref = messageType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      messageType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -280,15 +133,6 @@ public  final class PasswordByPhoneRequest extends
     if (!getPhoneNumberBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phoneNumber_);
     }
-    if (!getPhoneCaptchaBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, phoneCaptcha_);
-    }
-    if (!getNationBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nation_);
-    }
-    if (!getMessageTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, messageType_);
-    }
   }
 
   public int getSerializedSize() {
@@ -298,15 +142,6 @@ public  final class PasswordByPhoneRequest extends
     size = 0;
     if (!getPhoneNumberBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phoneNumber_);
-    }
-    if (!getPhoneCaptchaBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, phoneCaptcha_);
-    }
-    if (!getNationBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, nation_);
-    }
-    if (!getMessageTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, messageType_);
     }
     memoizedSize = size;
     return size;
@@ -326,12 +161,6 @@ public  final class PasswordByPhoneRequest extends
     boolean result = true;
     result = result && getPhoneNumber()
         .equals(other.getPhoneNumber());
-    result = result && getPhoneCaptcha()
-        .equals(other.getPhoneCaptcha());
-    result = result && getNation()
-        .equals(other.getNation());
-    result = result && getMessageType()
-        .equals(other.getMessageType());
     return result;
   }
 
@@ -344,12 +173,6 @@ public  final class PasswordByPhoneRequest extends
     hash = (19 * hash) + getDescriptorForType().hashCode();
     hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneNumber().hashCode();
-    hash = (37 * hash) + PHONE_CAPTCHA_FIELD_NUMBER;
-    hash = (53 * hash) + getPhoneCaptcha().hashCode();
-    hash = (37 * hash) + NATION_FIELD_NUMBER;
-    hash = (53 * hash) + getNation().hashCode();
-    hash = (37 * hash) + MESSAGE_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getMessageType().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -474,12 +297,6 @@ public  final class PasswordByPhoneRequest extends
       super.clear();
       phoneNumber_ = "";
 
-      phoneCaptcha_ = "";
-
-      nation_ = "";
-
-      messageType_ = "";
-
       return this;
     }
 
@@ -503,9 +320,6 @@ public  final class PasswordByPhoneRequest extends
     public com.wanfang.personal.PasswordByPhoneRequest buildPartial() {
       com.wanfang.personal.PasswordByPhoneRequest result = new com.wanfang.personal.PasswordByPhoneRequest(this);
       result.phoneNumber_ = phoneNumber_;
-      result.phoneCaptcha_ = phoneCaptcha_;
-      result.nation_ = nation_;
-      result.messageType_ = messageType_;
       onBuilt();
       return result;
     }
@@ -549,18 +363,6 @@ public  final class PasswordByPhoneRequest extends
       if (other == com.wanfang.personal.PasswordByPhoneRequest.getDefaultInstance()) return this;
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
-        onChanged();
-      }
-      if (!other.getPhoneCaptcha().isEmpty()) {
-        phoneCaptcha_ = other.phoneCaptcha_;
-        onChanged();
-      }
-      if (!other.getNation().isEmpty()) {
-        nation_ = other.nation_;
-        onChanged();
-      }
-      if (!other.getMessageType().isEmpty()) {
-        messageType_ = other.messageType_;
         onChanged();
       }
       onChanged();
@@ -674,273 +476,6 @@ public  final class PasswordByPhoneRequest extends
   checkByteStringIsUtf8(value);
       
       phoneNumber_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object phoneCaptcha_ = "";
-    /**
-     * <pre>
-     * 短信验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public java.lang.String getPhoneCaptcha() {
-      java.lang.Object ref = phoneCaptcha_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phoneCaptcha_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 短信验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPhoneCaptchaBytes() {
-      java.lang.Object ref = phoneCaptcha_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phoneCaptcha_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 短信验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public Builder setPhoneCaptcha(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      phoneCaptcha_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 短信验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public Builder clearPhoneCaptcha() {
-      
-      phoneCaptcha_ = getDefaultInstance().getPhoneCaptcha();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 短信验证码
-     * </pre>
-     *
-     * <code>optional string phone_captcha = 2;</code>
-     */
-    public Builder setPhoneCaptchaBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      phoneCaptcha_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object nation_ = "";
-    /**
-     * <pre>
-     * 国际区号 如：中国：0086；
-     * </pre>
-     *
-     * <code>optional string nation = 3;</code>
-     */
-    public java.lang.String getNation() {
-      java.lang.Object ref = nation_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        nation_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 国际区号 如：中国：0086；
-     * </pre>
-     *
-     * <code>optional string nation = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNationBytes() {
-      java.lang.Object ref = nation_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        nation_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 国际区号 如：中国：0086；
-     * </pre>
-     *
-     * <code>optional string nation = 3;</code>
-     */
-    public Builder setNation(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      nation_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 国际区号 如：中国：0086；
-     * </pre>
-     *
-     * <code>optional string nation = 3;</code>
-     */
-    public Builder clearNation() {
-      
-      nation_ = getDefaultInstance().getNation();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 国际区号 如：中国：0086；
-     * </pre>
-     *
-     * <code>optional string nation = 3;</code>
-     */
-    public Builder setNationBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      nation_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object messageType_ = "";
-    /**
-     * <pre>
-     * 消息类型 目前仅支持“bind”
-     * </pre>
-     *
-     * <code>optional string message_type = 4;</code>
-     */
-    public java.lang.String getMessageType() {
-      java.lang.Object ref = messageType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        messageType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 消息类型 目前仅支持“bind”
-     * </pre>
-     *
-     * <code>optional string message_type = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMessageTypeBytes() {
-      java.lang.Object ref = messageType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        messageType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 消息类型 目前仅支持“bind”
-     * </pre>
-     *
-     * <code>optional string message_type = 4;</code>
-     */
-    public Builder setMessageType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      messageType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 消息类型 目前仅支持“bind”
-     * </pre>
-     *
-     * <code>optional string message_type = 4;</code>
-     */
-    public Builder clearMessageType() {
-      
-      messageType_ = getDefaultInstance().getMessageType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 消息类型 目前仅支持“bind”
-     * </pre>
-     *
-     * <code>optional string message_type = 4;</code>
-     */
-    public Builder setMessageTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      messageType_ = value;
       onChanged();
       return this;
     }

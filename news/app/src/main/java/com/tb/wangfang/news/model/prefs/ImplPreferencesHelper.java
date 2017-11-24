@@ -60,6 +60,7 @@ public class ImplPreferencesHelper implements PreferencesHelper {
 
     @Override
     public void storeLoginInfo(LoginResponse response, String password) {
+
         mSPrefs.edit().putString(Constants.USER_AVATAR, response.getUserAvatarUrl()).putString(Constants.USER_ID, response.getUserId())
                 .putString(Constants.USER_NAME, response.getUserRealName()).putString(Constants.LOGIN_TOKEN, response.getLoginToken()).apply();
     }

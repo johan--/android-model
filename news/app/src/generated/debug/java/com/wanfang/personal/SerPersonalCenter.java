@@ -32,56 +32,57 @@ public final class SerPersonalCenter {
       "g_upload_avatar.proto\032&personalCenter/ms" +
       "g_interest_word.proto\032#personalCenter/ms" +
       "g_personInfo.proto\032 personalCenter/msg_c" +
-      "aptcha.proto2\206\017\n\025PersonalCenterService\022U",
-      "\n\014GetTradeList\022!.personal.UserGetTradeLi" +
-      "stRequest\032\".personal.UserGetTradeListRes" +
-      "ponse\022O\n\nGetBalance\022\037.personal.UserGetBa" +
-      "lenceRequest\032 .personal.UserGetBalenceRe" +
-      "sponse\0228\n\005Login\022\026.personal.LoginRequest\032" +
-      "\027.personal.LoginResponse\022A\n\010LoginOut\022\031.p" +
-      "ersonal.LoginOutRequest\032\032.personal.Login" +
-      "OutResponse\022B\n\nquickLogin\022\033.personal.Qui" +
-      "ckLoginRequest\032\027.personal.LoginResponse\022" +
-      "L\n\017thirdPartyLogin\022 .personal.ThirdParty",
-      "LoginRequest\032\027.personal.LoginResponse\022S\n" +
-      "\016thirdPartyBind\022\037.personal.ThirdPartyBin" +
-      "dRequest\032 .personal.ThirdPartyBindRespon" +
-      "se\022N\n\020BindExistAccount\022!.personal.BindEx" +
-      "istAccountRequest\032\027.personal.LoginRespon" +
-      "se\022I\n\rBindNewRegist\022\036.personal.BindNewRe" +
-      "gistRequest\032\030.personal.RegistResponse\022;\n" +
-      "\006Regist\022\027.personal.RegistRequest\032\030.perso" +
-      "nal.RegistResponse\022Y\n\022getPasswordByPhone" +
-      "\022 .personal.PasswordByPhoneRequest\032!.per",
-      "sonal.PasswordByPhoneResponse\022S\n\016Passwor" +
-      "dVerify\022\037.personal.PasswordVerifyRequest" +
-      "\032 .personal.PasswordVerifyResponse\022S\n\016Up" +
-      "datePassword\022\037.personal.PasswordUpdateRe" +
-      "quest\032 .personal.PasswordUpdateResponse\022" +
-      "D\n\013GetMyWallet\022\031.personal.MyWalletReques" +
-      "t\032\032.personal.MyWalletResponse\022V\n\017getPhon" +
-      "eCaptcha\022 .personal.GetPhoneCaptchaReque" +
-      "st\032!.personal.GetPhoneCaptchaResponse\022\\\n" +
-      "\021checkPhoneCaptcha\022\".personal.CheckPhone",
-      "CaptchaRequest\032#.personal.CheckPhoneCapt" +
-      "chaResponse\022G\n\nUploadFile\022\033.personal.Upl" +
-      "oadFileRequest\032\034.personal.UploadFileResp" +
-      "onse\022M\n\014UploadAvatar\022\035.personal.UploadAv" +
-      "atarRequest\032\036.personal.UploadAvatarRespo" +
-      "nse\022Y\n\022GetInterestSubject\022 .personal.Int" +
-      "erestSubjectRequest\032!.personal.InterestS" +
-      "ubjectResponse\022@\n\013GetUserInfo\022\027.personal" +
-      ".MyInfoRequest\032\030.personal.MyInfoResponse" +
-      "\022O\n\016UpdateUserInfo\022\035.personal.MyInfoUpda",
-      "teRequest\032\036.personal.MyInfoUpdateRespons" +
-      "e\022O\n\014GetRolesList\022\036.personal.UserRolesLi" +
-      "stRequest\032\037.personal.UserRolesListRespon" +
-      "se\022b\n\025getEducationLevelList\022#.personal.E" +
-      "ducationLevelListRequest\032$.personal.Educ" +
-      "ationLevelListResponse\022M\n\016getSubjectList" +
-      "\022\034.personal.SubjectListRequest\032\035.persona" +
-      "l.SubjectListResponseB\037\n\024com.wanfang.per" +
-      "sonalP\001\242\002\004WFPRb\006proto3"
+      "aptcha.proto2\260\017\n\025PersonalCenterService\022e",
+      "\n\024CheckUserNameIsExist\022%.personal.CheckU" +
+      "serNameIsExistRequest\032&.personal.CheckUs" +
+      "erNameIsExistResponse\022\\\n\021CheckPhoneIsExi" +
+      "st\022\".personal.CheckPhoneIsExistRequest\032#" +
+      ".personal.CheckPhoneIsExistResponse\022U\n\014G" +
+      "etTradeList\022!.personal.UserGetTradeListR" +
+      "equest\032\".personal.UserGetTradeListRespon" +
+      "se\022O\n\nGetBalance\022\037.personal.UserGetBalen" +
+      "ceRequest\032 .personal.UserGetBalenceRespo" +
+      "nse\0228\n\005Login\022\026.personal.LoginRequest\032\027.p",
+      "ersonal.LoginResponse\022A\n\010LoginOut\022\031.pers" +
+      "onal.LoginOutRequest\032\032.personal.LoginOut" +
+      "Response\022B\n\nquickLogin\022\033.personal.QuickL" +
+      "oginRequest\032\027.personal.LoginResponse\022L\n\017" +
+      "thirdPartyLogin\022 .personal.ThirdPartyLog" +
+      "inRequest\032\027.personal.LoginResponse\022S\n\016th" +
+      "irdPartyBind\022\037.personal.ThirdPartyBindRe" +
+      "quest\032 .personal.ThirdPartyBindResponse\022" +
+      ";\n\006Regist\022\027.personal.RegistRequest\032\030.per" +
+      "sonal.RegistResponse\022Y\n\022getPasswordByPho",
+      "ne\022 .personal.PasswordByPhoneRequest\032!.p" +
+      "ersonal.PasswordByPhoneResponse\022S\n\016Passw" +
+      "ordVerify\022\037.personal.PasswordVerifyReque" +
+      "st\032 .personal.PasswordVerifyResponse\022S\n\016" +
+      "UpdatePassword\022\037.personal.PasswordUpdate" +
+      "Request\032 .personal.PasswordUpdateRespons" +
+      "e\022D\n\013GetMyWallet\022\031.personal.MyWalletRequ" +
+      "est\032\032.personal.MyWalletResponse\022V\n\017getPh" +
+      "oneCaptcha\022 .personal.GetPhoneCaptchaReq" +
+      "uest\032!.personal.GetPhoneCaptchaResponse\022",
+      "\\\n\021checkPhoneCaptcha\022\".personal.CheckPho" +
+      "neCaptchaRequest\032#.personal.CheckPhoneCa" +
+      "ptchaResponse\022G\n\nUploadFile\022\033.personal.U" +
+      "ploadFileRequest\032\034.personal.UploadFileRe" +
+      "sponse\022M\n\014UploadAvatar\022\035.personal.Upload" +
+      "AvatarRequest\032\036.personal.UploadAvatarRes" +
+      "ponse\022Y\n\022GetInterestSubject\022 .personal.I" +
+      "nterestSubjectRequest\032!.personal.Interes" +
+      "tSubjectResponse\022@\n\013GetUserInfo\022\027.person" +
+      "al.MyInfoRequest\032\030.personal.MyInfoRespon",
+      "se\022O\n\016UpdateUserInfo\022\035.personal.MyInfoUp" +
+      "dateRequest\032\036.personal.MyInfoUpdateRespo" +
+      "nse\022O\n\014GetRolesList\022\036.personal.UserRoles" +
+      "ListRequest\032\037.personal.UserRolesListResp" +
+      "onse\022b\n\025getEducationLevelList\022#.personal" +
+      ".EducationLevelListRequest\032$.personal.Ed" +
+      "ucationLevelListResponse\022M\n\016getSubjectLi" +
+      "st\022\034.personal.SubjectListRequest\032\035.perso" +
+      "nal.SubjectListResponseB\037\n\024com.wanfang.p" +
+      "ersonalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

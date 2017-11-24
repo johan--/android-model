@@ -159,6 +159,9 @@ public class DocDetailActivity extends SimpleActivity {
         dialog.show();
         checkIsCollected();
         getDocDetail(articleId, articleType);
+        if (articleType.equals("conf_artical")) {
+            llReadOnline.setVisibility(View.INVISIBLE);
+        }
 
     }
 
@@ -692,7 +695,13 @@ public class DocDetailActivity extends SimpleActivity {
         TextView tvMagazine = (TextView) viewStub.findViewById(R.id.tv_magazine);
         TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
         if (bean != null && bean.getData() != null && bean.getData().get(0) != null) {
-            tvTitle.setText(bean.getData().get(0).getTitle().toString());
+            if (TextUtils.isEmpty(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getTitle()))) {
+                tvTitle.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getTitle()));
+                tvTitle.setVisibility(View.VISIBLE);
+            } else {
+                tvTitle.setVisibility(View.GONE);
+            }
+
             tvContent.setText(bean.getData().get(0).getSummary().toString());
             tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name()));
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());

@@ -34,6 +34,8 @@ enum ErrorCode {
      GRUSER_MORE = 15; // 已存在个人用户
 
      ALREADY_COLLECTED = 16; // already collect
+
+     PHONE_IS_REGISTER = 17; // 该手机号已经注册过
 }
 
 message GrpcError {

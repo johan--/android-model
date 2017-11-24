@@ -10,16 +10,21 @@ option objc_class_prefix = "WFPR";
 
 // 图片验证码相关：本地生成并校验/服务端生成？
 
+
+// 检查用户名是否已经注册
+message CheckUserNameIsExistRequest {
+	string user_name = 1;
+}
+message CheckUserNameIsExistResponse {
+	bool is_exist = 1; // true 存在 false 不存在
+	grpcCommon.GrpcError error = 2;
+}
+
 // 注册请求
 message RegistRequest {
 	string user_name = 1; // 用户名
 	string password = 2; // 密码
 	string phone = 3; // 手机号
-	string phone_captcha = 4; // 手机号验证码(发送给服务端做双向验证)
-	// 国际区号 如：中国：0086；
-    string nation = 5;
-    // 消息类型 目前仅支持“bind”
-    string message_type = 6;
 }
 // 注册返回
 message RegistResponse {

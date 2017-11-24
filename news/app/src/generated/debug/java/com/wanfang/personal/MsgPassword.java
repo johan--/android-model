@@ -81,20 +81,18 @@ public final class MsgPassword {
       "er_name\030\002 \001(\t\022$\n\005error\030\003 \001(\0132\025.grpcCommo" +
       "n.GrpcError\"%\n\024PasswordEmailRequest\022\r\n\005e" +
       "mail\030\001 \001(\t\"=\n\025PasswordEmailResponse\022$\n\005e" +
-      "rror\030\001 \001(\0132\025.grpcCommon.GrpcError\"k\n\026Pas" +
+      "rror\030\001 \001(\0132\025.grpcCommon.GrpcError\".\n\026Pas" +
       "swordByPhoneRequest\022\024\n\014phone_number\030\001 \001(",
-      "\t\022\025\n\rphone_captcha\030\002 \001(\t\022\016\n\006nation\030\003 \001(\t" +
-      "\022\024\n\014message_type\030\004 \001(\t\"P\n\027PasswordByPhon" +
-      "eResponse\022\017\n\007user_id\030\001 \001(\t\022$\n\005error\030\002 \001(" +
-      "\0132\025.grpcCommon.GrpcError\">\n\025PasswordUpda" +
-      "teRequest\022\017\n\007user_id\030\001 \001(\t\022\024\n\014new_passwo" +
-      "rd\030\002 \001(\t\">\n\026PasswordUpdateResponse\022$\n\005er" +
-      "ror\030\001 \001(\0132\025.grpcCommon.GrpcError\":\n\025Pass" +
-      "wordVerifyRequest\022\017\n\007user_id\030\001 \001(\t\022\020\n\010pa" +
-      "ssword\030\002 \001(\t\"P\n\026PasswordVerifyResponse\022\020" +
-      "\n\010is_right\030\001 \001(\010\022$\n\005error\030\002 \001(\0132\025.grpcCo",
-      "mmon.GrpcErrorB\037\n\024com.wanfang.personalP\001" +
-      "\242\002\004WFPRb\006proto3"
+      "\t\"P\n\027PasswordByPhoneResponse\022\017\n\007user_id\030" +
+      "\001 \001(\t\022$\n\005error\030\002 \001(\0132\025.grpcCommon.GrpcEr" +
+      "ror\">\n\025PasswordUpdateRequest\022\017\n\007user_id\030" +
+      "\001 \001(\t\022\024\n\014new_password\030\002 \001(\t\">\n\026PasswordU" +
+      "pdateResponse\022$\n\005error\030\001 \001(\0132\025.grpcCommo" +
+      "n.GrpcError\":\n\025PasswordVerifyRequest\022\017\n\007" +
+      "user_id\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"P\n\026Passw" +
+      "ordVerifyResponse\022\020\n\010is_right\030\001 \001(\010\022$\n\005e" +
+      "rror\030\002 \001(\0132\025.grpcCommon.GrpcErrorB\037\n\024com" +
+      ".wanfang.personalP\001\242\002\004WFPRb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -138,7 +136,7 @@ public final class MsgPassword {
     internal_static_personal_PasswordByPhoneRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_personal_PasswordByPhoneRequest_descriptor,
-        new java.lang.String[] { "PhoneNumber", "PhoneCaptcha", "Nation", "MessageType", });
+        new java.lang.String[] { "PhoneNumber", });
     internal_static_personal_PasswordByPhoneResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_personal_PasswordByPhoneResponse_fieldAccessorTable = new
