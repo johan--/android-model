@@ -52,5 +52,7 @@ public class Constants {
     public static final int TYPE_INSERT_3 = 3;//三个小图
     //微信appid
     public static final String APP_ID = "wxc9dc7abb1bf2b460";
+    public static final String SMS_RECORD = "sms_record";
+    public static final String loginMethod = "login_method";//0 普通  ，1快捷，2 第三方
 
 }

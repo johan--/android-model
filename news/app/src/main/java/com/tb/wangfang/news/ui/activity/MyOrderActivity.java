@@ -70,7 +70,8 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
         myOrderAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+//                Intent intent=new Intent(MyOrderActivity.this, DocDetailActivity.class);
+//                intent.putExtra(Constants.ARTICLE_ID,((MyOrdersResponse.Result)adapter.getData().get(position)).get)
             }
         });
         getOrderData();

@@ -502,9 +502,9 @@ public class EditPersonInforActivity extends SimpleActivity {
                 finish();
                 break;
             case R.id.iv_user_icon:
-                PhotoPicker.builder()
-                        .setPhotoCount(1)
-                        .setPreviewEnabled(false).start(this, PhotoPicker.REQUEST_CODE);
+//                PhotoPicker.builder()
+//                        .setPhotoCount(1)
+//                        .setPreviewEnabled(false).start(this, PhotoPicker.REQUEST_CODE);
                 Log.d(TAG, "onDraw: " + Thread.currentThread().getId());
                 break;
             case R.id.rl_nickname:

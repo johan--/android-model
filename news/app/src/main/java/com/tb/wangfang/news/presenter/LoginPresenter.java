@@ -19,12 +19,9 @@ import com.wanfang.personal.PersonalCenterServiceGrpc;
 import com.wanfang.personal.QuickLoginRequest;
 import com.wanfang.personal.ThirdPartyLoginRequest;
 
-import java.io.File;
-
 import javax.inject.Inject;
 
 import cn.jpush.im.android.api.JMessageClient;
-import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.api.BasicCallback;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
@@ -134,15 +131,10 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 if (response.hasError()) {
-                    if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.NO_REGIST) {
-                        ToastUtil.shortShow("用户名不存在");
-                    } else if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.PASS_ERROR) {
-                        ToastUtil.shortShow("密码错误");
-                    }
+                    mView.loginSuccess(response);
                 } else {
-                    JMessageLogin(response);
                     preferencesHelps.storeLoginInfo(response, passWord);
-
+                    preferencesHelps.setLoginMethod("0");
                     mView.loginSuccess(response);
                 }
 
@@ -179,6 +171,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     msg.what = 0;
                     handler.sendMessage(msg);
                     ToastUtil.show("发送成功");
+                    preferencesHelps.putCurrentTime();
 
                 } else {
                     ToastUtil.show("发送失败");
@@ -215,9 +208,8 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                     mView.showDialoge(id, type + "");
                 } else {
-
-                    JMessageLogin(userRolesListResponse);
                     preferencesHelps.storeLoginInfo(userRolesListResponse, "wx&&" + id);
+                    preferencesHelps.setLoginMethod("2");
                     mView.loginSuccess(userRolesListResponse);
                 }
             }
@@ -244,8 +236,9 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse response) {
                 if (!response.hasError()) {
                     Log.d(TAG, "onSuccess: " + response.toString());
-                    JMessageLogin(response);
                     preferencesHelps.storeLoginInfo(response, "ql&&");
+                    preferencesHelps.setLoginMethod("1");
+                    JmessageRegister(response.getUserId());
                     mView.loginSuccess(response);
                 } else {
                     ToastUtil.show(response.getError().getErrorMessage().getErrorReason());
@@ -263,37 +256,29 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     }
 
-    private void JMessageLogin(final LoginResponse response) {
-
-//        JMessageClient.updateUserAvatar(new File(uri.getPath()), new BasicCallback() {
-//            @Override
-//            public void gotResult(int responseCode, String responseMessage) {
-//                jiguang.chat.utils.dialog.LoadDialog.dismiss(context);
-//                if (responseCode == 0) {
-//                    ToastUtil.shortToast(mContext, "更新成功");
-//                }else {
-//                    ToastUtil.shortToast(mContext, "更新失败" + responseMessage);
-//                }
-//            }
-//        });
-        JMessageClient.login(response.getUserId(), "123456", new BasicCallback() {
+    private void JmessageRegister(String userId) {
+        JMessageClient.register(userId, "wanfangdata", new BasicCallback() {
             @Override
-            public void gotResult(int responseCode, String responseMessage) {
-                if (responseCode == 0) {
-                    UserInfo myInfo = JMessageClient.getMyInfo();
-                    File avatarFile = myInfo.getAvatarFile();
-                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
-                    if (avatarFile != null) {
-                        preferencesHelps.setUserAvatar(avatarFile.getAbsolutePath());
-                    } else {
-                        preferencesHelps.setUserAvatar(null);
-                    }
-//                    mView.loginSuccess(response);
+            public void gotResult(int i, String s) {
+                if (i == 0) {
+                    Log.e(TAG, "gotResult: jmessage注册成功");
                 } else {
-//                    mView.loginSuccess(LoginResponse.getDefaultInstance());
+
                 }
             }
         });
     }
+
+    @Override
+    public boolean checkDifftimeCount() {
+
+        return preferencesHelps.CheckSmsTen();
+    }
+
+    @Override
+    public void putCurentTime() {
+        preferencesHelps.putCurrentTime();
+    }
+
 
 }

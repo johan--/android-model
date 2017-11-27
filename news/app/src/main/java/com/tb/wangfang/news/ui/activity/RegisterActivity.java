@@ -27,6 +27,7 @@ import com.wanfang.personal.CheckUserNameIsExistRequest;
 import com.wanfang.personal.CheckUserNameIsExistResponse;
 import com.wanfang.personal.GetPhoneCaptchaRequest;
 import com.wanfang.personal.GetPhoneCaptchaResponse;
+import com.wanfang.personal.LoginRequest;
 import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 import com.wanfang.personal.RegistRequest;
@@ -34,16 +35,12 @@ import com.wanfang.personal.RegistResponse;
 import com.wanfang.personal.ThirdPartyBindRequest;
 import com.wanfang.personal.ThirdPartyBindResponse;
 import com.wanfang.personal.ThirdPartyLoginRequest;
-import com.xiaomi.mipush.sdk.MiPushClient;
-
-import java.io.File;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.jpush.im.android.api.JMessageClient;
-import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.api.BasicCallback;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
@@ -141,7 +138,7 @@ public class RegisterActivity extends SimpleActivity {
                 finish();
                 break;
             case R.id.tv_wanfang_protocol:
-                WebViewActivity.startThisFromActivity(RegisterActivity.this,"http://login.wanfangdata.com.cn/Agreement.aspx","万方数据网络用户服务协议","1");
+                WebViewActivity.startThisFromActivity(RegisterActivity.this, "http://login.wanfangdata.com.cn/Agreement.aspx", "万方数据网络用户服务协议", "1");
                 break;
             case R.id.btn_register:
                 userName = editUserName.getText().toString();
@@ -241,7 +238,12 @@ public class RegisterActivity extends SimpleActivity {
                 if (checkPhoneIsExistResponse.getIsExist()) {
                     ToastUtil.show("该手机已经注册过");
                 } else {
-                    get_Code(phone.trim());
+                    if (PreferencesHelper.CheckSmsTen()) {
+                        get_Code(phone.trim());
+                    } else {
+                        ToastUtil.shortShow("发送验证短信已超过数量限制");
+                    }
+
                     startTimeing();
                 }
 
@@ -274,11 +276,11 @@ public class RegisterActivity extends SimpleActivity {
                 Log.d(TAG, "onSuccess: " + registResponse.toString());
                 if (!registResponse.hasError()) {
                     ToastUtil.show("注册成功");
-                    MiPushClient.setUserAccount(RegisterActivity.this, registResponse.getUserId(), null);
+                    JmessageRegister(userName);
                     if (!TextUtils.isEmpty(id)) {
                         bindAccount(userName, passWord);
                     } else {
-                        login(passWord);
+                        Accountlogin(userName, passWord);
                     }
 
                 } else {
@@ -292,6 +294,54 @@ public class RegisterActivity extends SimpleActivity {
             public void onError(Throwable e) {
                 Log.d(TAG, "onError: " + e.getMessage());
                 ToastUtil.show("服务器错误");
+            }
+        });
+    }
+
+    private void Accountlogin(final String useName, final String passWord) {
+        Single.create(new SingleOnSubscribe<LoginResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                LoginRequest request = LoginRequest.newBuilder().setUserName(useName).setPassword(passWord).build();
+                LoginResponse response = stub.login(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+            @Override
+            public void onSuccess(LoginResponse response) {
+                Log.d(TAG, "onSuccess: " + response.toString());
+                if (response.hasError()) {
+                    ToastUtil.shortShow("登录失败");
+                } else {
+                    PreferencesHelper.storeLoginInfo(response, passWord);
+                    PreferencesHelper.setLoginMethod("0");
+                    PreferencesHelper.setLoginState(true);
+                    RxBus.getDefault().post("bindSuccess");
+                    finish();
+                }
+
+            }
+
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+
+            }
+        });
+
+    }
+
+    private void JmessageRegister(String userId) {
+        JMessageClient.register(userId, "wanfangdata", new BasicCallback() {
+            @Override
+            public void gotResult(int i, String s) {
+                if (i == 0) {
+                    Log.e(TAG, "gotResult: jmessage注册成功");
+                } else {
+
+                }
             }
         });
     }
@@ -350,8 +400,8 @@ public class RegisterActivity extends SimpleActivity {
             public void onSuccess(GetPhoneCaptchaResponse response) {
                 Log.d(TAG, "onSuccess: " + response.getStatus());
                 if (response.getStatus() == 200) {
-
                     ToastUtil.show("发送成功");
+                    PreferencesHelper.putCurrentTime();
                 } else {
                     ToastUtil.show("发送失败");
                 }
@@ -387,15 +437,14 @@ public class RegisterActivity extends SimpleActivity {
 
                     ToastUtil.show("未绑定成功");
                 } else {
-                    JMessageLogin(userRolesListResponse);
                     PreferencesHelper.storeLoginInfo(userRolesListResponse, passWord);
                     if (TextUtils.isEmpty(userRolesListResponse.getLoginToken())) {
                         ToastUtil.show("访问失败");
                     } else {
-
+                        PreferencesHelper.setLoginMethod("2");
                         ToastUtil.show("绑定成功");
                         RxBus.getDefault().post("bindSuccess");
-                        MiPushClient.setUserAccount(RegisterActivity.this, userRolesListResponse.getUserId(), null);
+
                         PreferencesHelper.setLoginState(true);
                         finish();
                     }
@@ -410,28 +459,6 @@ public class RegisterActivity extends SimpleActivity {
 
     }
 
-    private void JMessageLogin(final LoginResponse response) {
-
-
-        JMessageClient.login(response.getUserId(), "123456", new BasicCallback() {
-            @Override
-            public void gotResult(int responseCode, String responseMessage) {
-                if (responseCode == 0) {
-                    UserInfo myInfo = JMessageClient.getMyInfo();
-                    File avatarFile = myInfo.getAvatarFile();
-                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
-                    if (avatarFile != null) {
-                        PreferencesHelper.setUserAvatar(avatarFile.getAbsolutePath());
-                    } else {
-                        PreferencesHelper.setUserAvatar(null);
-                    }
-
-                } else {
-
-                }
-            }
-        });
-    }
 
     @Override
     protected void onDestroy() {

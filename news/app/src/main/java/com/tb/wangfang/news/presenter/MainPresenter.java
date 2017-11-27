@@ -22,6 +22,8 @@ import com.wanfang.personal.UserRolesListResponse;
 
 import javax.inject.Inject;
 
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.api.BasicCallback;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -196,6 +198,21 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
             }
         });
+        JMessageClient.login(preferencesHelper.getUserId(), "wanfangdata", new BasicCallback() {
+            @Override
+            public void gotResult(int responseCode, String responseMessage) {
+                if (responseCode == 0) {
+                    Log.e(TAG, "gotResult: " + "jmessage登录成功");
+                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
+
+                } else {
+                    Log.e(TAG, "gotResult: " + "jmessage登录失败" + responseMessage);
+                }
+
+            }
+        });
+
     }
+
 
 }

@@ -17,11 +17,9 @@ import com.tb.wangfang.news.di.component.AppComponent;
 import com.tb.wangfang.news.di.component.DaggerAppComponent;
 import com.tb.wangfang.news.di.module.AppModule;
 import com.tb.wangfang.news.di.module.HttpModule;
-import com.tb.wangfang.news.utils.SystemUtil;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.log.LoggerInterceptor;
 
@@ -99,23 +97,25 @@ public class App extends MobApplication {
         ZXingLibrary.initDisplayOpinion(this);
 
         //小米手机
-        if (SystemUtil.getSystem().equals(SystemUtil.SYS_MIUI)) {
-            if (shouldInit()) {
-                MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
-
-
-            }
-
-            //华为手机
-        } else if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
-            if (shouldInit()) {
-                MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
-            }
-            //其他手机
-        } else {
-            JPushInterface.setDebugMode(true);
-            JPushInterface.init(this);
-        }
+//        if (SystemUtil.getSystem().equals(SystemUtil.SYS_MIUI)) {
+//            if (shouldInit()) {
+//                MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
+//
+//
+//            }
+//
+//            //华为手机
+//        } else if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
+//            if (shouldInit()) {
+//                MiPushClient.registerPush(this, Constants.MI_PUSH_ID, Constants.MI_PUSH_KEY);
+//            }
+//            //其他手机
+//        } else {
+//            JPushInterface.setDebugMode(true);
+//            JPushInterface.init(this);
+//        }
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this, true);
 

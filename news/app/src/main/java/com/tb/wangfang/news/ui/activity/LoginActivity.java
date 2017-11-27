@@ -25,9 +25,9 @@ import com.tb.wangfang.news.presenter.LoginPresenter;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.CodeUtils;
+import com.wanfang.grpcCommon.MsgError;
 import com.wanfang.personal.LoginResponse;
 
-import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.HashMap;
 
@@ -165,7 +165,19 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
                     phone = phone.trim();
                     if (SystemUtil.isMobileNO(phone)) {
-                        mPresenter.getPhoneCaptcha(phone, tvPreNum.getText().toString().replace("+", ""));
+
+                        if (checkSMSCountIsLessThanTen()) {
+//                            SharedPreferences sharedPreferences = App.getInstance().getSharedPreferences("my_sp", Context.MODE_PRIVATE);
+//                            String oldData = sharedPreferences.getString(Constants.SMS_RECORD, "");
+//                            SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
+//                            editor.putString(Constants.SMS_RECORD, oldData + DateUtils.formatDate("yyyy-MM-dd HH:mm") + ",");
+//                            editor.commit();//提交修改
+                            mPresenter.getPhoneCaptcha(phone, tvPreNum.getText().toString().replace("+", ""));
+
+                        } else {
+                            ToastUtil.shortShow("发送验证短信已超过数量限制");
+                        }
+
                     } else {
                         ToastUtil.show("手机格式不正确");
                     }
@@ -248,6 +260,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
+    private boolean checkSMSCountIsLessThanTen() {
+
+        return mPresenter.checkDifftimeCount();
+
+    }
+
     private void weiboLogin() {
         Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
         weibo.SSOSetting(false);  //设置false表示使用SSO授权方式
@@ -310,10 +328,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
 
         if (TextUtils.isEmpty(response.getLoginToken())) {
-            ToastUtil.show("访问失败");
+            if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.NO_REGIST) {
+                ToastUtil.shortShow("用户名不存在");
+            } else if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.PASS_ERROR) {
+                ToastUtil.shortShow("密码错误");
+            } else {
+                ToastUtil.show("访问失败");
+            }
+
         } else {
             ToastUtil.shortShow("登录成功");
-            MiPushClient.setUserAccount(this, response.getUserId(), null);
             PreferencesHelper.setLoginState(true);
             finish();
         }
@@ -370,8 +394,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-        Log.d(TAG, "onComplete: platformname" + platform.getName());
-        Log.d(TAG, "onComplete: " + hashMap.toString());
         String id = null;
         int type = 0;// 第三方类型code(0：QQ，1：微博，2：微信)
         if (platform.getName().equals("Wechat")) {

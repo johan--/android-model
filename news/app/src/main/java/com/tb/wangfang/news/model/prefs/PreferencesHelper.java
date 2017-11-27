@@ -23,6 +23,7 @@ public interface PreferencesHelper {
     boolean getLoginState();
 
     void storeLoginInfo(LoginResponse response, String passwoard);
+
     String getPassword();
 
 
@@ -47,5 +48,11 @@ public interface PreferencesHelper {
     SubjectListResponse getSubjectMap();
 
     KeyValueListBean getEducationMap();
+
+    boolean CheckSmsTen();
+
+    void putCurrentTime();
+
+    void setLoginMethod(String method);
 
 }

@@ -125,7 +125,12 @@ public class FindPassWordActivity1 extends SimpleActivity {
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
                     phone = phone.trim();
                     if (SystemUtil.isMobileNO(phone)) {
-                        getCode(phone, "0086");
+                        if (preferencesHelper.CheckSmsTen()) {
+                            getCode(phone, "0086");
+                        } else {
+                            ToastUtil.shortShow("发送验证短信已超过数量限制");
+                        }
+
                     } else {
                         ToastUtil.show("手机格式不正确");
                     }
@@ -211,6 +216,7 @@ public class FindPassWordActivity1 extends SimpleActivity {
                     handler.sendMessage(msg);
                     tvGetCode.setEnabled(false);
                     ToastUtil.show("发送成功");
+                    preferencesHelper.putCurrentTime();
                 } else {
                     ToastUtil.show("发送失败");
                 }

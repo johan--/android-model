@@ -35,6 +35,10 @@ public interface LoginContract {
 
         void quickLogin(String phone, String captcha, String deviceId);
 
+        boolean checkDifftimeCount();
+
+        void putCurentTime();
+
 
     }
 }

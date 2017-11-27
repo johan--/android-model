@@ -527,11 +527,9 @@ public class DocDetailActivity extends SimpleActivity {
             resourceTitle = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
             classType = SystemUtil.getObjectString(bean.getData().get(0).getClass_type());
 
-            if (SystemUtil.getObjectString(bean.getData().get(0).getIs_full()).equals("1") || SystemUtil.getObjectString(bean.getData().get(0).getIs_fulltext()).equals("1")) {
-                llReadOnline.setVisibility(View.VISIBLE);
-            } else {
-                llReadOnline.setVisibility(View.INVISIBLE);
-            }
+            //会议不能阅读
+            llReadOnline.setVisibility(View.INVISIBLE);
+
             author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name());
             journal = SystemUtil.getObjectString(bean.getData().get(0).getTitle());
             if (bean.getData().get(0).getConf_year() != null) {

@@ -33,12 +33,9 @@ import com.tb.wangfang.news.ui.fragment.SecondFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.xiaomi.mipush.sdk.MiPushClient;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.jpush.im.android.api.JMessageClient;
-import cn.jpush.im.api.BasicCallback;
 import me.yokeyword.fragmentation.SupportFragment;
 
 import static com.huawei.hms.activity.BridgeActivity.EXTRA_RESULT;
@@ -100,21 +97,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
         mPresenter.reLogin();
         initView();
-        JMessageClient.login("tangbin", "123456", new BasicCallback() {
-            @Override
-            public void gotResult(int responseCode, String responseMessage) {
-                if (responseCode == 0) {
-                    Log.d(TAG, "gotResult: " + "jmessage登录成功");
-                    //登陆成功,如果用户有头像就把头像存起来,没有就设置null
 
-                } else {
-                    Log.d(TAG, "gotResult: " + "jmessage登录失败" + responseMessage);
-                }
 
-            }
-        });
-        //test
-        MiPushClient.setAlias(this, "tangbin", null);
 
 //        mPresenter.restorePersonnalMappingTable();
     }
