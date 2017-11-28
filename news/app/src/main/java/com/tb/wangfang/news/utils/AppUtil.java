@@ -59,13 +59,10 @@ public class AppUtil {
 
     public static boolean isMobileNO(String mobiles) {
 
-        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
-
+        String regExp = "^((13[0-9])|(15[^4,\\D])|(18[0,0-9])|17[0-9]|14[0-9])\\d{8}$";
+        Pattern p = Pattern.compile(regExp);
         Matcher m = p.matcher(mobiles);
-
-        System.out.println(m.matches() + "---");
-
-        return m.matches();
+        return m.matches();// boolean
 
     }
 

@@ -220,30 +220,6 @@ public final class PersonalCenterServiceGrpc {
               com.wanfang.personal.CheckPhoneCaptchaResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UploadFileRequest,
-      com.wanfang.personal.UploadFileResponse> METHOD_UPLOAD_FILE =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.UploadFileRequest, com.wanfang.personal.UploadFileResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "UploadFile"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.UploadFileRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.UploadFileResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.wanfang.personal.UploadAvatarRequest,
-      com.wanfang.personal.UploadAvatarResponse> METHOD_UPLOAD_AVATAR =
-      io.grpc.MethodDescriptor.<com.wanfang.personal.UploadAvatarRequest, com.wanfang.personal.UploadAvatarResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "personal.PersonalCenterService", "UploadAvatar"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.UploadAvatarRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              com.wanfang.personal.UploadAvatarResponse.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.wanfang.personal.InterestSubjectRequest,
       com.wanfang.personal.InterestSubjectResponse> METHOD_GET_INTEREST_SUBJECT =
       io.grpc.MethodDescriptor.<com.wanfang.personal.InterestSubjectRequest, com.wanfang.personal.InterestSubjectResponse>newBuilder()
@@ -505,26 +481,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 上传文件
-     * </pre>
-     */
-    public void uploadFile(com.wanfang.personal.UploadFileRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UploadFileResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_UPLOAD_FILE, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 上传用户头像
-     * </pre>
-     */
-    public void uploadAvatar(com.wanfang.personal.UploadAvatarRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UploadAvatarResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_UPLOAD_AVATAR, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 根据关键字获取感兴趣列表
      * </pre>
      */
@@ -697,20 +653,6 @@ public final class PersonalCenterServiceGrpc {
                 com.wanfang.personal.CheckPhoneCaptchaRequest,
                 com.wanfang.personal.CheckPhoneCaptchaResponse>(
                   this, METHODID_CHECK_PHONE_CAPTCHA)))
-          .addMethod(
-            METHOD_UPLOAD_FILE,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.UploadFileRequest,
-                com.wanfang.personal.UploadFileResponse>(
-                  this, METHODID_UPLOAD_FILE)))
-          .addMethod(
-            METHOD_UPLOAD_AVATAR,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.wanfang.personal.UploadAvatarRequest,
-                com.wanfang.personal.UploadAvatarResponse>(
-                  this, METHODID_UPLOAD_AVATAR)))
           .addMethod(
             METHOD_GET_INTEREST_SUBJECT,
             asyncUnaryCall(
@@ -949,28 +891,6 @@ public final class PersonalCenterServiceGrpc {
         io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneCaptchaResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CHECK_PHONE_CAPTCHA, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 上传文件
-     * </pre>
-     */
-    public void uploadFile(com.wanfang.personal.UploadFileRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UploadFileResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_UPLOAD_FILE, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 上传用户头像
-     * </pre>
-     */
-    public void uploadAvatar(com.wanfang.personal.UploadAvatarRequest request,
-        io.grpc.stub.StreamObserver<com.wanfang.personal.UploadAvatarResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_UPLOAD_AVATAR, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1216,26 +1136,6 @@ public final class PersonalCenterServiceGrpc {
     public com.wanfang.personal.CheckPhoneCaptchaResponse checkPhoneCaptcha(com.wanfang.personal.CheckPhoneCaptchaRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CHECK_PHONE_CAPTCHA, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * 上传文件
-     * </pre>
-     */
-    public com.wanfang.personal.UploadFileResponse uploadFile(com.wanfang.personal.UploadFileRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_UPLOAD_FILE, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * 上传用户头像
-     * </pre>
-     */
-    public com.wanfang.personal.UploadAvatarResponse uploadAvatar(com.wanfang.personal.UploadAvatarRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_UPLOAD_AVATAR, getCallOptions(), request);
     }
 
     /**
@@ -1495,28 +1395,6 @@ public final class PersonalCenterServiceGrpc {
 
     /**
      * <pre>
-     * 上传文件
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UploadFileResponse> uploadFile(
-        com.wanfang.personal.UploadFileRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_UPLOAD_FILE, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
-     * 上传用户头像
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.wanfang.personal.UploadAvatarResponse> uploadAvatar(
-        com.wanfang.personal.UploadAvatarRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_UPLOAD_AVATAR, getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * 根据关键字获取感兴趣列表
      * </pre>
      */
@@ -1598,14 +1476,12 @@ public final class PersonalCenterServiceGrpc {
   private static final int METHODID_GET_MY_WALLET = 13;
   private static final int METHODID_GET_PHONE_CAPTCHA = 14;
   private static final int METHODID_CHECK_PHONE_CAPTCHA = 15;
-  private static final int METHODID_UPLOAD_FILE = 16;
-  private static final int METHODID_UPLOAD_AVATAR = 17;
-  private static final int METHODID_GET_INTEREST_SUBJECT = 18;
-  private static final int METHODID_GET_USER_INFO = 19;
-  private static final int METHODID_UPDATE_USER_INFO = 20;
-  private static final int METHODID_GET_ROLES_LIST = 21;
-  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 22;
-  private static final int METHODID_GET_SUBJECT_LIST = 23;
+  private static final int METHODID_GET_INTEREST_SUBJECT = 16;
+  private static final int METHODID_GET_USER_INFO = 17;
+  private static final int METHODID_UPDATE_USER_INFO = 18;
+  private static final int METHODID_GET_ROLES_LIST = 19;
+  private static final int METHODID_GET_EDUCATION_LEVEL_LIST = 20;
+  private static final int METHODID_GET_SUBJECT_LIST = 21;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1688,14 +1564,6 @@ public final class PersonalCenterServiceGrpc {
           serviceImpl.checkPhoneCaptcha((com.wanfang.personal.CheckPhoneCaptchaRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.CheckPhoneCaptchaResponse>) responseObserver);
           break;
-        case METHODID_UPLOAD_FILE:
-          serviceImpl.uploadFile((com.wanfang.personal.UploadFileRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.UploadFileResponse>) responseObserver);
-          break;
-        case METHODID_UPLOAD_AVATAR:
-          serviceImpl.uploadAvatar((com.wanfang.personal.UploadAvatarRequest) request,
-              (io.grpc.stub.StreamObserver<com.wanfang.personal.UploadAvatarResponse>) responseObserver);
-          break;
         case METHODID_GET_INTEREST_SUBJECT:
           serviceImpl.getInterestSubject((com.wanfang.personal.InterestSubjectRequest) request,
               (io.grpc.stub.StreamObserver<com.wanfang.personal.InterestSubjectResponse>) responseObserver);
@@ -1761,8 +1629,6 @@ public final class PersonalCenterServiceGrpc {
               .addMethod(METHOD_GET_MY_WALLET)
               .addMethod(METHOD_GET_PHONE_CAPTCHA)
               .addMethod(METHOD_CHECK_PHONE_CAPTCHA)
-              .addMethod(METHOD_UPLOAD_FILE)
-              .addMethod(METHOD_UPLOAD_AVATAR)
               .addMethod(METHOD_GET_INTEREST_SUBJECT)
               .addMethod(METHOD_GET_USER_INFO)
               .addMethod(METHOD_UPDATE_USER_INFO)

@@ -60,12 +60,13 @@ enum ErrorCode {
   GRUSER_MORE = 15,
   ALREADY_COLLECTED = 16,
   PHONE_IS_REGISTER = 17,
+  EMAIL_IS_BIND = 18,
   ErrorCode_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ErrorCode_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ErrorCode_IsValid(int value);
 const ErrorCode ErrorCode_MIN = PASS_ERROR;
-const ErrorCode ErrorCode_MAX = PHONE_IS_REGISTER;
+const ErrorCode ErrorCode_MAX = EMAIL_IS_BIND;
 const int ErrorCode_ARRAYSIZE = ErrorCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ErrorCode_descriptor();

@@ -58,10 +58,6 @@ import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageServiceGrpc;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -80,7 +76,6 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
 
-import static cn.jpush.android.api.JPushInterface.a.i;
 import static com.tb.wangfang.news.R.id.tv_china_class_num;
 import static com.tb.wangfang.news.R.id.tv_fruit_class;
 import static com.tb.wangfang.news.R.id.tv_identity_dapart;
@@ -752,8 +747,8 @@ public class DocDetailActivity extends SimpleActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(DocDetailActivity.this, DocDetailActivity.class);
-                intent.putExtra(Constants.ARTICLE_TYPE, pageAdapter.getData().get(i).getType());
-                intent.putExtra(Constants.ARTICLE_ID, pageAdapter.getData().get(i).getId());
+                intent.putExtra(Constants.ARTICLE_TYPE, pageAdapter.getData().get(position).getType());
+                intent.putExtra(Constants.ARTICLE_ID, pageAdapter.getData().get(position).getId());
                 startActivity(intent);
             }
         });
@@ -925,7 +920,8 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void goRead() {
-
+        dialog = new MaterialDialog.Builder(DocDetailActivity.this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
+        dialog.show();
 
         Single.create(new SingleOnSubscribe<ReadResponse>() {
             @Override
@@ -946,6 +942,7 @@ public class DocDetailActivity extends SimpleActivity {
 
                     down(readResponse);
                 } else if (readResponse.getHasTradePower()) {
+                    dialog.dismiss();
                     Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
                     intent.putExtra("response", readResponse);
                     intent.putExtra("type", classType);
@@ -959,6 +956,7 @@ public class DocDetailActivity extends SimpleActivity {
 
 
                 } else {
+                    dialog.dismiss();
                     ToastUtil.show("您没有购买的权限");
                 }
 
@@ -975,50 +973,25 @@ public class DocDetailActivity extends SimpleActivity {
 
     private void down(final ReadResponse readResponse) {
 
-        dialog = new MaterialDialog.Builder(DocDetailActivity.this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
-        dialog.show();
+        String fileName = readResponse.getResourceFile().getFileName();
+        String[] s = fileName.split("\\.");
+        String fileType = "";
+        if (s.length == 2) {
+            fileType = s[1];
+        }
+
+        final String finalFileName = fileName;
+        final String finalFileType = fileType;
         Single.create(new SingleOnSubscribe<String>() {
             @Override
             public void subscribe(SingleEmitter<String> e) throws Exception {
-                String fileName = readResponse.getResourceFile().getFileName();
-                ByteString ByteString = readResponse.getResourceFile().getFileByte();
-                InputStream is = ByteString.newInput();
-                FileOutputStream fileOutputStream = null;
-                File file = new File(FileUtil.getFolioPDFEncryFilePath(fileName.replace(".pdf", "").replace(".epub", "")));
-                File Folder = new File(FileUtil.getFolioPDFEncryFolderPath(fileName.replace(".pdf", "").replace(".epub", "")));
-                if (!Folder.exists()) {
-                    Folder.mkdirs();
+                ByteString byteString = readResponse.getResourceFile().getFileByte();
+                boolean b = FileUtil.saveReadFile(byteString, getFilesDir().getAbsolutePath(), finalFileName);
+                if (b) {
+                    e.onSuccess("");
+                } else {
+                    e.onError(new Exception("error"));
                 }
-                Log.d(TAG, "subscribe: " + file.getAbsolutePath());
-                try {
-                    fileOutputStream = new FileOutputStream(file, true);
-                    byte[] buffer = new byte[2048];//缓冲数组2kB
-                    int len;
-                    while ((len = is.read(buffer)) != -1) {
-                        fileOutputStream.write(buffer, 0, len);
-                    }
-                    fileOutputStream.flush();
-                    e.onSuccess(fileName);
-                } catch (Exception e1) {
-                } finally {
-                    //关闭IO流
-                    if (is != null) {
-                        try {
-                            is.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-
-                }
-
 
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<String>() {
@@ -1026,7 +999,8 @@ public class DocDetailActivity extends SimpleActivity {
             public void onSuccess(String readResponse) {
                 dialog.dismiss();
                 Intent intent = new Intent(DocDetailActivity.this, ReadActivity.class);
-                intent.putExtra("url", readResponse);
+                intent.putExtra("url", finalFileName);
+                intent.putExtra("type", finalFileType);
                 startActivity(intent);
             }
 
@@ -1036,6 +1010,10 @@ public class DocDetailActivity extends SimpleActivity {
             }
         });
 
+
+    }
+
+    private void checkIsExistNative(String finalFileName, int size) {
 
     }
 

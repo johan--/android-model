@@ -201,7 +201,6 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fcommon_2eproto_impl() {
   UploadFileRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   UploadFileResponse_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
   PhoneCaptchaRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   PhoneCaptchaResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   FileMetaData_default_instance_.get_mutable()->InitAsDefaultInstance();

@@ -7,8 +7,6 @@ option java_multiple_files = true;
 option java_package = "com.wanfang.personal";
 option objc_class_prefix = "WFPR";
 
-
-
 // 获取手机验证码-请求
 message GetPhoneCaptchaRequest{
     // 手机号

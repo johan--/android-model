@@ -1,15 +1,14 @@
 package com.tb.wangfang.news.utils;
 
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.os.Environment;
 import android.util.Log;
+
+import com.google.protobuf.ByteString;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Created by Mahavir on 12/15/16.
@@ -17,119 +16,129 @@ import java.io.OutputStream;
 
 public class FileUtil {
     private static final String TAG = FileUtil.class.getSimpleName();
-    private static final String FOLIO_READER_ROOT = "/wanfangreader/";
-    private static final String FOLIO_READER_ROOT_ENCRY = "/wanfangencry/";
-    private static final String FOLIO_READER_ROOT_DECRY = "/wanfangdecry/";
+    private static final String WANFANG_ROOT = "wanfang";
 
-
-
-    public static void savePDFFile(final Context context, String epubFilePath, String epubFileName) {
-        String filePath;
-        InputStream epubInputStream;
-        boolean isFolderAvalable;
-        try {
-            isFolderAvalable = isFolderAvailable(epubFileName);
-            filePath = getFolioEpubFolderPath(epubFileName) + "/" + epubFileName + ".pdf";
-            if (!isFolderAvalable) {
-                AssetManager assetManager = context.getAssets();
-                epubInputStream = assetManager.open(epubFilePath);
-                saveTempEpubFile(filePath, epubFileName, epubInputStream);
-
-            }
-        } catch (Exception e) {
-            Log.d(TAG, e.getMessage());
-        }
-
-    }
-
-    public static String getFolioEpubFolderPath(String epubFileName) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/" + FOLIO_READER_ROOT + "/" + epubFileName;
-    }
 
     /**
-     * @param epubFileName
-     * @return externalStorage/wanfangencry/name
+     * 得到文件私有目录
+     *
+     * @param base
+     * @param filename
+     * @return
      */
-    public static String getFolioPDFEncryFolderPath(String epubFileName) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName;
-    }
+    public static String getPrivateFolder(String base, String filename) {
+        String[] s = filename.split("\\.");
+        return base + "/" + WANFANG_ROOT + "/" + s[0];
 
-    public static String getFolioPDFDecryFolderPath(String epubFileName) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/" + FOLIO_READER_ROOT_DECRY + "/" + epubFileName;
-    }
-
-    public static String getFolioPDFFilePath(String epubFilePath, String epubFileName) {
-        return getFolioEpubFolderPath(epubFileName) + "/" + epubFileName + ".pdf";
     }
 
     /**
-     * @param epubFileName
-     * @return /wanfangencry/epubFileName/epubFileName.pdf
+     * 得到私有文件地址
+     *
+     * @param base
+     * @param filename
+     * @return
      */
-    public static String getFolioPDFEncryFilePath(String epubFileName) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/" + FOLIO_READER_ROOT_ENCRY + "/" + epubFileName + "/" + epubFileName + ".pdf";
+    public static String getPrivateFilePath(String base, String filename) {
+
+        return getPrivateFolder(base, filename) + "/" + filename;
+
     }
-
-
-
-    private static boolean isFolderAvailable(String epubFileName) {
-        File file = new File(getFolioEpubFolderPath(epubFileName));
-        return file.isDirectory();
-    }
-
-
 
     /**
-     * @param filePath
      * @param fileName
-     * @param inputStream
      * @return
      */
-    public static Boolean saveTempEpubFile(String filePath, String fileName, InputStream inputStream) {
-        OutputStream outputStream = null;
-        File file = new File(filePath);
-        try {
-            if (!file.exists()) {
-                File folder = new File(getFolioEpubFolderPath(fileName));
-                folder.mkdirs();
 
-                outputStream = new FileOutputStream(file);
-                int read = 0;
-                byte[] bytes = new byte[inputStream.available()];
+    public static String getEncryFolderPath(String fileName) {
+        String[] s = fileName.split("\\.");
+        String m = "sda.pdf";
+        return Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/" + WANFANG_ROOT + "/" + s[0];
+    }
 
-                while ((read = inputStream.read(bytes)) != -1) {
-                    outputStream.write(bytes, 0, read);
-                }
-            } else {
-                return true;
-            }
-            if (inputStream != null) inputStream.close();
-            if (outputStream != null) outputStream.close();
-        } catch (IOException e) {
-            Log.d(TAG, e.getMessage());
+    public static String getEncryFilePath(String fileName) {
+        return getEncryFolderPath(fileName) + "/" + fileName;
+    }
+
+    public static boolean saveReadFile(ByteString byteString, String privateBase, String fileName) {
+
+        NDKFileEncryptUtils encryptUtils = new NDKFileEncryptUtils();
+        String encryString = getEncryFilePath(fileName);
+        String privateString = getPrivateFilePath(privateBase, fileName);
+        File Folder = new File(getPrivateFolder(privateBase, fileName));
+        File encryFolder = new File(getEncryFolderPath(fileName));
+        if (!Folder.exists()) {
+            Folder.mkdirs();
         }
+        if (!encryFolder.exists()) {
+            encryFolder.mkdirs();
+        }
+        if (checkIsExist(fileName, byteString.toByteArray().length)) {
+
+            encryptUtils.decry(encryString, privateString);
+            return true;
+        } else {
+            InputStream is = byteString.newInput();
+            FileOutputStream fileOutputStream = null;
+
+
+            try {
+                fileOutputStream = new FileOutputStream(privateString, true);
+
+                byte[] buffer = new byte[2048];//缓冲数组2kB
+                int len;
+                while ((len = is.read(buffer)) != -1) {
+                    fileOutputStream.write(buffer, 0, len);
+                }
+                fileOutputStream.flush();
+                //加密写到encry文件中
+                encryptUtils.encry(privateString, encryString);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            } finally {
+                //关闭IO流
+                if (is != null) {
+                    try {
+                        is.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
+
+    private static boolean checkIsExist(String fileName, int size) {
+        String fileString = getEncryFilePath(fileName);
+        File file = new File(fileString);
+        long s = file.length();
+        int m = size;
+        if (s == m) {
+            Log.e(TAG, "checkIsExist: sda");
+        }
+        if (file.exists() && file.length() == size) {
+            Log.e(TAG, "checkIsExist: 下载文件以及存在");
+            return true;
+        }
+        Log.e(TAG, "checkIsExist: 下载文件不存在");
         return false;
+
+
     }
 
 
-    public static String getFolioPDFDecryFolderPath(String path, String about) {
-
-
-        return path
-                + "/" + FOLIO_READER_ROOT_DECRY + "/" + about;
-    }
-
-    /**
-     * @param pathPre 根目录如 getFilesDir().getPath()
-     * @param about   子目录 和文件名 如pdf
-     * @return
-     */
-    public static String getFolioPDFDecryFilePath(String pathPre, String about) {
-        return pathPre
-                + "/" + FOLIO_READER_ROOT_DECRY + "/" + about + "/" + about + ".pdf";
-    }
 }

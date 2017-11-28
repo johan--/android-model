@@ -4,9 +4,7 @@ import "personalCenter/msg_login.proto"; // 登录
 import "personalCenter/msg_regist.proto"; // 注册
 import "personalCenter/msg_password.proto"; // 找回(获取)密码
 import "personalCenter/msg_my_wallet.proto"; // 获取我的钱包详情
-import "personalCenter/msg_common.proto"; // 获取验证码 上传文件
-import "personalCenter/msg_upload_avatar.proto"; // 上传用户头像
-import "personalCenter/msg_interest_word.proto"; // 上传用户头像
+import "personalCenter/msg_interest_word.proto"; // 主题关键字
 import "personalCenter/msg_personInfo.proto"; // 用户信息
 import "personalCenter/msg_captcha.proto"; // 验证码
 
@@ -71,12 +69,6 @@ service PersonalCenterService {
 
     // 检验手机验证码(暂时不用)
     rpc checkPhoneCaptcha (CheckPhoneCaptchaRequest) returns (CheckPhoneCaptchaResponse);
-
-    // 上传文件
-    rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
-
-    // 上传用户头像
-    rpc UploadAvatar (UploadAvatarRequest) returns (UploadAvatarResponse);
 
     // 根据关键字获取感兴趣列表
     rpc GetInterestSubject (InterestSubjectRequest) returns (InterestSubjectResponse);

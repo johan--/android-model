@@ -9,13 +9,13 @@ import java.util.List;
 public class HotSearchBean {
 
     /**
-     * data : [{"checkTime":"","createTime":"2017-09-20 16:23:28","field":"","frequency":15218,"id":"394267bed451496e92bf23f49382ef7d","result":0,"tableName":"","theme":"computer","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 15:52:34","field":"","frequency":10939,"id":"58fbded9e5204085aaef620a3e0f022a","result":0,"tableName":"","theme":"��������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-09-26 17:10:48","field":"","frequency":5310,"id":"5ec58896c2bc4ff3aed4c8ea3a1f88d1","result":0,"tableName":"","theme":"cad","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-18 10:13:42","field":"","frequency":4872,"id":"f362685061a049629e6c43bcfc767e4a","result":0,"tableName":"","theme":"����������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-17 18:11:49","field":"","frequency":4097,"id":"68abed080d7d4f92a902ebd6714d1585","result":0,"tableName":"","theme":"�������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-17 21:30:33","field":"","frequency":2716,"id":"457b49610c844aa082dab399359fa1e6","result":0,"tableName":"","theme":"������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 17:40:34","field":"","frequency":2453,"id":"c0170507064441b593a5c2a5518b68c7","result":0,"tableName":"","theme":"���������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 16:32:20","field":"","frequency":1677,"id":"23f3886a8d5b4893978f4fa4e4222b3d","result":0,"tableName":"","theme":"����","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 17:58:15","field":"","frequency":1599,"id":"262dc329a9ae4709899a8214777fca08","result":0,"tableName":"","theme":"�����","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 16:12:43","field":"","frequency":1469,"id":"666cd332986a43098169e7757d1b784f","result":0,"tableName":"","theme":"������������","themeState":"1","type":"","url":"","userId":"","userType":""}]
+     * data : [{"checkTime":"","createTime":"2017-11-09 13:20:15","field":"","frequency":240521,"id":"bb8c60185f82438baca1263011348e8b","result":0,"tableName":"","theme":"((((题名:计算机 科技) OR 题名:计算机 OR 信息) OR 作者:乔晓东 OR 潘薇) OR 题名:计算机 OR 互联网) OR 关键词:石墨烯","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 17:11:49","field":"","frequency":16433,"id":"a3103b06f01d410c8f2593f5fb5de7d8","result":0,"tableName":"","theme":"��������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-09-20 16:19:03","field":"","frequency":15277,"id":"fbf940362fa442dea28267de28d9df36","result":0,"tableName":"","theme":"computer","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-11-08 21:09:27","field":"","frequency":13534,"id":"fac1197dc43440158ede0031ae8f2146","result":0,"tableName":"","theme":"(((题名:计算机 OR 科技) AND 关键词:互联网) NOT 作者:乔晓东) OR 作者:潘薇","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 16:15:33","field":"","frequency":7474,"id":"8fb482a0303240d1855a92fd21dc1fb2","result":0,"tableName":"","theme":"����������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-09-21 17:49:51","field":"","frequency":6409,"id":"c803e3953c1e4a648e7d30980ecc53e2","result":0,"tableName":"","theme":"CAD","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 16:30:52","field":"","frequency":6284,"id":"f6787e04192c4521ae554981956149d0","result":0,"tableName":"","theme":"�������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-26 10:42:01","field":"","frequency":4187,"id":"64fecd046357416d829c5e794eb83acc","result":0,"tableName":"","theme":"������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 17:40:34","field":"","frequency":3633,"id":"c0170507064441b593a5c2a5518b68c7","result":0,"tableName":"","theme":"���������","themeState":"1","type":"","url":"","userId":"","userType":""},{"checkTime":"","createTime":"2017-10-23 17:58:15","field":"","frequency":2831,"id":"262dc329a9ae4709899a8214777fca08","result":0,"tableName":"","theme":"�����","themeState":"1","type":"","url":"","userId":"","userType":""}]
      * status : 200
      * message : success
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
 
     public int getStatus() {
@@ -26,11 +26,11 @@ public class HotSearchBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -45,13 +45,13 @@ public class HotSearchBean {
     public static class DataBean {
         /**
          * checkTime :
-         * createTime : 2017-09-20 16:23:28
+         * createTime : 2017-11-09 13:20:15
          * field :
-         * frequency : 15218
-         * id : 394267bed451496e92bf23f49382ef7d
+         * frequency : 240521
+         * id : bb8c60185f82438baca1263011348e8b
          * result : 0
          * tableName :
-         * theme : computer
+         * theme : ((((题名:计算机 科技) OR 题名:计算机 OR 信息) OR 作者:乔晓东 OR 潘薇) OR 题名:计算机 OR 互联网) OR 关键词:石墨烯
          * themeState : 1
          * type :
          * url :
@@ -59,121 +59,121 @@ public class HotSearchBean {
          * userType :
          */
 
-        private String checkTime;
-        private String createTime;
-        private String field;
-        private int frequency;
-        private String id;
-        private int result;
-        private String tableName;
-        private String theme;
-        private String themeState;
-        private String type;
-        private String url;
-        private String userId;
-        private String userType;
+        private Object checkTime;
+        private Object createTime;
+        private Object field;
+        private Object frequency;
+        private Object id;
+        private Object result;
+        private Object tableName;
+        private Object theme;
+        private Object themeState;
+        private Object type;
+        private Object url;
+        private Object userId;
+        private Object userType;
 
-        public String getCheckTime() {
+        public Object getCheckTime() {
             return checkTime;
         }
 
-        public void setCheckTime(String checkTime) {
+        public void setCheckTime(Object checkTime) {
             this.checkTime = checkTime;
         }
 
-        public String getCreateTime() {
+        public Object getCreateTime() {
             return createTime;
         }
 
-        public void setCreateTime(String createTime) {
+        public void setCreateTime(Object createTime) {
             this.createTime = createTime;
         }
 
-        public String getField() {
+        public Object getField() {
             return field;
         }
 
-        public void setField(String field) {
+        public void setField(Object field) {
             this.field = field;
         }
 
-        public int getFrequency() {
+        public Object getFrequency() {
             return frequency;
         }
 
-        public void setFrequency(int frequency) {
+        public void setFrequency(Object frequency) {
             this.frequency = frequency;
         }
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public int getResult() {
+        public Object getResult() {
             return result;
         }
 
-        public void setResult(int result) {
+        public void setResult(Object result) {
             this.result = result;
         }
 
-        public String getTableName() {
+        public Object getTableName() {
             return tableName;
         }
 
-        public void setTableName(String tableName) {
+        public void setTableName(Object tableName) {
             this.tableName = tableName;
         }
 
-        public String getTheme() {
+        public Object getTheme() {
             return theme;
         }
 
-        public void setTheme(String theme) {
+        public void setTheme(Object theme) {
             this.theme = theme;
         }
 
-        public String getThemeState() {
+        public Object getThemeState() {
             return themeState;
         }
 
-        public void setThemeState(String themeState) {
+        public void setThemeState(Object themeState) {
             this.themeState = themeState;
         }
 
-        public String getType() {
+        public Object getType() {
             return type;
         }
 
-        public void setType(String type) {
+        public void setType(Object type) {
             this.type = type;
         }
 
-        public String getUrl() {
+        public Object getUrl() {
             return url;
         }
 
-        public void setUrl(String url) {
+        public void setUrl(Object url) {
             this.url = url;
         }
 
-        public String getUserId() {
+        public Object getUserId() {
             return userId;
         }
 
-        public void setUserId(String userId) {
+        public void setUserId(Object userId) {
             this.userId = userId;
         }
 
-        public String getUserType() {
+        public Object getUserType() {
             return userType;
         }
 
-        public void setUserType(String userType) {
+        public void setUserType(Object userType) {
             this.userType = userType;
         }
     }

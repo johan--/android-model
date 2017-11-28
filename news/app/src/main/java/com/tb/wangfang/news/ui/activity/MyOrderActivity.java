@@ -1,9 +1,11 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -11,6 +13,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.protobuf.Any;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
+import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
@@ -70,8 +73,16 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
         myOrderAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//                Intent intent=new Intent(MyOrderActivity.this, DocDetailActivity.class);
-//                intent.putExtra(Constants.ARTICLE_ID,((MyOrdersResponse.Result)adapter.getData().get(position)).get)
+                String productDetail = ((MyOrdersResponse.Result) adapter.getData().get(position)).getProductDetail();
+                if (!TextUtils.isEmpty(productDetail) && productDetail.contains("_")) {
+                    String[] contents = productDetail.split("_");
+                    if (contents.length==2){
+                        Intent intent = new Intent(MyOrderActivity.this, DocDetailActivity.class);
+                        intent.putExtra(Constants.ARTICLE_ID, contents[1]);
+                        intent.putExtra(Constants.ARTICLE_TYPE, contents[0]);
+                    }
+                }
+
             }
         });
         getOrderData();

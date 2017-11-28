@@ -200,7 +200,7 @@ public class SettingActivity extends SimpleActivity {
                 dialog.dismiss();
                 PreferencesHelper.setLoginState(false);
 
-
+                finish();
 //                App.getInstance().exitApp();
             }
 

@@ -36,6 +36,8 @@ enum ErrorCode {
      ALREADY_COLLECTED = 16; // already collect
 
      PHONE_IS_REGISTER = 17; // 该手机号已经注册过
+
+     EMAIL_IS_BIND = 18; // 邮箱已经绑定其他账户
 }
 
 message GrpcError {
