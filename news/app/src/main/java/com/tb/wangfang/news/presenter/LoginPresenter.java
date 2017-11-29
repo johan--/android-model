@@ -208,7 +208,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                     mView.showDialoge(id, type + "");
                 } else {
-                    preferencesHelps.storeLoginInfo(userRolesListResponse, "wx&&" + id);
+                    preferencesHelps.storeLoginInfo(userRolesListResponse,  id);
                     preferencesHelps.setLoginMethod("2");
                     mView.loginSuccess(userRolesListResponse);
                 }
@@ -236,7 +236,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse response) {
                 if (!response.hasError()) {
                     Log.d(TAG, "onSuccess: " + response.toString());
-                    preferencesHelps.storeLoginInfo(response, "ql&&");
+                    preferencesHelps.storeLoginInfo(response, "");
                     preferencesHelps.setLoginMethod("1");
                     JmessageRegister(response.getUserId());
                     mView.loginSuccess(response);

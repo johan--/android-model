@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="35dp"
-    android:background="@color/white"
+    android:background="@drawable/ripple_white_bg"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -15,7 +15,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="16.5dp"
             android:gravity="center"
-            android:text="12343"
+
             android:textColor="@color/gray_text_6"
             android:textSize="12sp" />
 

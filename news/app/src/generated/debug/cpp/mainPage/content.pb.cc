@@ -25,6 +25,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ContentDetail_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ContentDetail_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ContentDetail_CustomFieldsEntry_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* Category_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Category_reflection_ = NULL;
@@ -68,7 +69,7 @@ void protobuf_AssignDesc_mainPage_2fcontent_2eproto() {
       sizeof(ContentRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentRequest, _internal_metadata_));
   ContentDetail_descriptor_ = file->message_type(1);
-  static const int ContentDetail_offsets_[8] = {
+  static const int ContentDetail_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, url_),
@@ -77,6 +78,7 @@ void protobuf_AssignDesc_mainPage_2fcontent_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, categories_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, tags_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, images_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, custom_fields_),
   };
   ContentDetail_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -88,6 +90,7 @@ void protobuf_AssignDesc_mainPage_2fcontent_2eproto() {
       -1,
       sizeof(ContentDetail),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentDetail, _internal_metadata_));
+  ContentDetail_CustomFieldsEntry_descriptor_ = ContentDetail_descriptor_->nested_type(0);
   Category_descriptor_ = file->message_type(2);
   static const int Category_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Category, id_),
@@ -181,6 +184,15 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       ContentDetail_descriptor_, ContentDetail::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+        ContentDetail_CustomFieldsEntry_descriptor_,
+        ::google::protobuf::internal::MapEntry<
+            ::std::string,
+            ::std::string,
+            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+            0>::CreateDefaultInstance(
+                ContentDetail_CustomFieldsEntry_descriptor_));
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Category_descriptor_, Category::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Tag_descriptor_, Tag::internal_default_instance());
@@ -224,12 +236,12 @@ void protobuf_InitDefaults_mainPage_2fcontent_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   ContentDetail_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  ::google::protobuf::internal::GetEmptyString();
   Category_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   Tag_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   ImageDetail_default_instance_.DefaultConstruct();
-  ::google::protobuf::internal::GetEmptyString();
   ::google::protobuf::internal::GetEmptyString();
   ImageSize_default_instance_.DefaultConstruct();
   ContentRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -253,23 +265,26 @@ void protobuf_AddDesc_mainPage_2fcontent_2eproto_impl() {
     "\n\026mainPage/content.proto\"b\n\016ContentReque"
     "st\022\014\n\004tags\030\001 \003(\t\022\022\n\ncategories\030\002 \003(\t\022\014\n\004"
     "page\030\003 \001(\005\022\021\n\tpage_size\030\004 \001(\005\022\r\n\005query\030\005"
-    " \001(\t\"\247\001\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005ti"
+    " \001(\t\"\225\002\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005ti"
     "tle\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\017\n\007"
     "excerpt\030\005 \001(\t\022\035\n\ncategories\030\006 \003(\0132\t.Cate"
     "gory\022\022\n\004tags\030\007 \003(\0132\004.Tag\022\034\n\006images\030\010 \003(\013"
-    "2\014.ImageDetail\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014"
-    "\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022"
-    "\023\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003T"
-    "ag\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001("
-    "\t\022\014\n\004slug\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005"
-    "count\030\006 \001(\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001"
-    "(\t\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmim"
-    "e_type\030\004 \001(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030"
-    "\006 \003(\0132\027.ImageDetail.SizesEntry\0328\n\nSizesE"
-    "ntry\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.Image"
-    "Size:\0028\001\"Q\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006"
-    "height\030\002 \001(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime"
-    "_type\030\004 \001(\tB\022\n\020com.wanfang.mainb\006proto3", 799);
+    "2\014.ImageDetail\0227\n\rcustom_fields\030\t \003(\0132 ."
+    "ContentDetail.CustomFieldsEntry\0323\n\021Custo"
+    "mFieldsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t"
+    ":\0028\001\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001"
+    "(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022\023\n\013descrip"
+    "tion\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003Tag\022\n\n\002id\030\001"
+    " \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030"
+    "\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001("
+    "\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001(\t\022\r\n\005widt"
+    "h\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmime_type\030\004 \001"
+    "(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030\006 \003(\0132\027.Im"
+    "ageDetail.SizesEntry\0328\n\nSizesEntry\022\013\n\003ke"
+    "y\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.ImageSize:\0028\001\"Q"
+    "\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006height\030\002 \001"
+    "(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime_type\030\004 \001("
+    "\tB\022\n\020com.wanfang.mainb\006proto3", 909);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "mainPage/content.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_mainPage_2fcontent_2eproto);
@@ -935,6 +950,7 @@ const int ContentDetail::kExcerptFieldNumber;
 const int ContentDetail::kCategoriesFieldNumber;
 const int ContentDetail::kTagsFieldNumber;
 const int ContentDetail::kImagesFieldNumber;
+const int ContentDetail::kCustomFieldsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ContentDetail::ContentDetail()
@@ -956,6 +972,10 @@ ContentDetail::ContentDetail(const ContentDetail& from)
 }
 
 void ContentDetail::SharedCtor() {
+  custom_fields_.SetAssignDescriptorCallback(
+      protobuf_AssignDescriptorsOnce);
+  custom_fields_.SetEntryDescriptor(
+      &::ContentDetail_CustomFieldsEntry_descriptor_);
   title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1011,6 +1031,7 @@ void ContentDetail::Clear() {
   categories_.Clear();
   tags_.Clear();
   images_.Clear();
+  custom_fields_.Clear();
 }
 
 bool ContentDetail::MergePartialFromCodedStream(
@@ -1149,6 +1170,36 @@ bool ContentDetail::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(66)) goto parse_loop_images;
+        if (input->ExpectTag(74)) goto parse_loop_custom_fields;
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // map<string, string> custom_fields = 9;
+      case 9: {
+        if (tag == 74) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_custom_fields:
+          ContentDetail_CustomFieldsEntry::Parser< ::google::protobuf::internal::MapField<
+              ::std::string, ::std::string,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::std::string > > parser(&custom_fields_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), parser.key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ContentDetail.CustomFieldsEntry.key"));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.value().data(), parser.value().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ContentDetail.CustomFieldsEntry.value"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(74)) goto parse_loop_custom_fields;
         input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
@@ -1241,6 +1292,59 @@ void ContentDetail::SerializeWithCachedSizes(
       8, this->images(i), output);
   }
 
+  // map<string, string> custom_fields = 9;
+  if (!this->custom_fields().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), p->first.length(),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ContentDetail.CustomFieldsEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), p->second.length(),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ContentDetail.CustomFieldsEntry.value");
+      }
+    };
+
+    if (output->IsSerializationDeterminstic() &&
+        this->custom_fields().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->custom_fields().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->custom_fields().begin();
+          it != this->custom_fields().end(); ++it, ++n) {
+        items[n] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[n], Less());
+      ::google::protobuf::scoped_ptr<ContentDetail_CustomFieldsEntry> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(custom_fields_.NewEntryWrapper(
+            items[i]->first, items[i]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            9, *entry, output);
+        Utf8Check::Check(items[i]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<ContentDetail_CustomFieldsEntry> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->custom_fields().begin();
+          it != this->custom_fields().end(); ++it) {
+        entry.reset(custom_fields_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            9, *entry, output);
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
   // @@protoc_insertion_point(serialize_end:ContentDetail)
 }
 
@@ -1316,6 +1420,63 @@ void ContentDetail::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         8, this->images(i), false, target);
+  }
+
+  // map<string, string> custom_fields = 9;
+  if (!this->custom_fields().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), p->first.length(),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ContentDetail.CustomFieldsEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), p->second.length(),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ContentDetail.CustomFieldsEntry.value");
+      }
+    };
+
+    if (deterministic &&
+        this->custom_fields().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->custom_fields().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->custom_fields().begin();
+          it != this->custom_fields().end(); ++it, ++n) {
+        items[n] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[n], Less());
+      ::google::protobuf::scoped_ptr<ContentDetail_CustomFieldsEntry> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(custom_fields_.NewEntryWrapper(
+            items[i]->first, items[i]->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       9, *entry, deterministic, target);
+;
+        Utf8Check::Check(items[i]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<ContentDetail_CustomFieldsEntry> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->custom_fields().begin();
+          it != this->custom_fields().end(); ++it) {
+        entry.reset(custom_fields_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       9, *entry, deterministic, target);
+;
+        Utf8Check::Check(&*it);
+      }
+    }
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:ContentDetail)
@@ -1394,6 +1555,20 @@ size_t ContentDetail::ByteSizeLong() const {
     }
   }
 
+  // map<string, string> custom_fields = 9;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->custom_fields_size());
+  {
+    ::google::protobuf::scoped_ptr<ContentDetail_CustomFieldsEntry> entry;
+    for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+        it = this->custom_fields().begin();
+        it != this->custom_fields().end(); ++it) {
+      entry.reset(custom_fields_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -1430,6 +1605,7 @@ void ContentDetail::UnsafeMergeFrom(const ContentDetail& from) {
   categories_.MergeFrom(from.categories_);
   tags_.MergeFrom(from.tags_);
   images_.MergeFrom(from.images_);
+  custom_fields_.MergeFrom(from.custom_fields_);
   if (from.id() != 0) {
     set_id(from.id());
   }
@@ -1483,6 +1659,7 @@ void ContentDetail::InternalSwap(ContentDetail* other) {
   categories_.UnsafeArenaSwap(&other->categories_);
   tags_.UnsafeArenaSwap(&other->tags_);
   images_.UnsafeArenaSwap(&other->images_);
+  custom_fields_.Swap(&other->custom_fields_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1776,6 +1953,24 @@ const ::google::protobuf::RepeatedPtrField< ::ImageDetail >&
 ContentDetail::images() const {
   // @@protoc_insertion_point(field_list:ContentDetail.images)
   return images_;
+}
+
+// map<string, string> custom_fields = 9;
+int ContentDetail::custom_fields_size() const {
+  return custom_fields_.size();
+}
+void ContentDetail::clear_custom_fields() {
+  custom_fields_.Clear();
+}
+ const ::google::protobuf::Map< ::std::string, ::std::string >&
+ContentDetail::custom_fields() const {
+  // @@protoc_insertion_point(field_map:ContentDetail.custom_fields)
+  return custom_fields_.GetMap();
+}
+ ::google::protobuf::Map< ::std::string, ::std::string >*
+ContentDetail::mutable_custom_fields() {
+  // @@protoc_insertion_point(field_mutable_map:ContentDetail.custom_fields)
+  return custom_fields_.MutableMap();
 }
 
 inline const ContentDetail* ContentDetail::internal_default_instance() {

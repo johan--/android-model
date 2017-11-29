@@ -23,13 +23,11 @@ import com.tb.wangfang.news.presenter.FirstPresenter;
 import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.MianSearchActivity;
 import com.tb.wangfang.news.ui.activity.WebViewActivity;
-import com.tb.wangfang.news.ui.adapter.MainCourseAdapter;
+
 import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
 import com.tb.wangfang.news.widget.VerticalTextview;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
-import com.wanfang.main.AllCource;
-import com.wanfang.main.AllLastNews;
 import com.wanfang.main.Content;
 import com.wanfang.main.SerMainContent;
 import com.youth.banner.Banner;
@@ -70,8 +68,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     @BindView(R.id.iv_qc_code)
     ImageView ivQcCode;
     Unbinder unbinder;
-    private MainCourseAdapter mainCourseAdapter;
-    private ArrayList<AllCource.Course> coursetemArrayList = new ArrayList<>();
+
     private MainPageAdapter mainPageAdapter;
     private Banner banner;
     private int page = 1;
@@ -104,16 +101,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvScience.setOnClickListener(this);
         tvMeeting.setOnClickListener(this);
         tvJournal.setOnClickListener(this);
-//        for (int i = 0; i < 30; i++) {
-//            MainPageData data = new MainPageData();
-//            data.setImg1("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
-//            data.setImg2("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
-//            data.setImg3("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
-//            data.setItemType(i % 3);
-//            data.setSource("个玩热风发改委为");
-//            data.setTitle("心有猛虎，细嗅蔷薇");
-//            datas.add(data);
-//        }
+
         mainPageAdapter = new MainPageAdapter(getActivity(), null);
         mainPageAdapter.setOnLoadMoreListener(this, recyclerCourse);
         mainPageAdapter.addHeaderView(view);
@@ -197,24 +185,24 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     }
 
     @Override
-    public void showLastNews(final AllLastNews.LastNewsReply reply) {
-        tvLastNews.setTextList(reply.getLastNewsList());
-        tvLastNews.setTextStillTime(3000);//设置停留时长间隔
-        tvLastNews.setAnimTime(300);//设置进入和退出的时间间隔
-
-        tvLastNews.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Toast.makeText(getActivity(), "点击了 : " + reply.getLastNews(position).getLastNewsLink(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        tvLastNews.setOnItemUpdataListener(new VerticalTextview.onItemUpdataListener() {
-            @Override
-            public void onItemUpdata(int position) {
-                ivNewsType.setImageResource(R.mipmap.red_stroke_fruit);
-            }
-        });
-        tvLastNews.startAutoScroll();
+    public void showLastNews(SerMainContent.ContentResponse response) {
+//        tvLastNews.setTextList(reply.getLastNewsList());
+//        tvLastNews.setTextStillTime(3000);//设置停留时长间隔
+//        tvLastNews.setAnimTime(300);//设置进入和退出的时间间隔
+//
+//        tvLastNews.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//                Toast.makeText(getActivity(), "点击了 : " + reply.getLastNews(position).getLastNewsLink(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        tvLastNews.setOnItemUpdataListener(new VerticalTextview.onItemUpdataListener() {
+//            @Override
+//            public void onItemUpdata(int position) {
+//                ivNewsType.setImageResource(R.mipmap.red_stroke_fruit);
+//            }
+//        });
+//        tvLastNews.startAutoScroll();
     }
 
     @Override
@@ -224,21 +212,32 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         for (int i = 0; i < response.getContentsList().size(); i++) {
             ContentBean bean = new ContentBean();
             bean.setTitle(response.getContents(i).getTitle());
-//            for (int j = 0; j < response.getContents(i).getTagsList().size(); j++) {
-//                if ()
-//            }
             bean.setTags(response.getContents(i).getTagsList());
             bean.setId(response.getContents(i).getId() + "");
             bean.setUrl(response.getContents(i).getUrl());
-            bean.setUrl(response.getContents(i).getDate() + "");
             bean.setExcerpt(response.getContents(i).getExcerpt());
             bean.setImages(response.getContents(i).getImagesList());
             bean.setCategories(response.getContents(i).getCategoriesList());
-            bean.setItemType(response.getContents(i).getTags(0).getId());
-            if (bean.getItemType() == Constants.TYPE_INSERT_1 || bean.getItemType() == Constants.TYPE_INSERT_2 || bean.getItemType() == Constants.TYPE_INSERT_3) {
-                listContent.add(bean);
-            }
+//            bean.setItemType(response.getContents(i).getTags(0).getId());
+            String soucre = response.getContents(i).getCustomFieldsMap().get("来源");
+            String style = response.getContents(i).getCustomFieldsMap().get("显示样式");
+            bean.setSource(soucre);
+            bean.setStyle(style);
+            switch (style) {
+                case "1小图":
+                    bean.setItemType(Constants.TYPE_INSERT_2);
+                    break;
+                case "1大图":
+                    bean.setItemType(Constants.TYPE_INSERT_1);
 
+                    break;
+                case "3小图":
+                    bean.setItemType(Constants.TYPE_INSERT_3);
+                    break;
+                default:
+                    break;
+            }
+            listContent.add(bean);
         }
 
         mainPageAdapter.addData(listContent);

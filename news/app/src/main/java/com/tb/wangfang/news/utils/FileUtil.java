@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.utils;
 
+import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
 
@@ -9,6 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * Created by Mahavir on 12/15/16.
@@ -137,6 +139,19 @@ public class FileUtil {
         Log.e(TAG, "checkIsExist: 下载文件不存在");
         return false;
 
+
+    }
+
+    public static boolean saveBitmap(Bitmap bitmap, String path) {
+        try {
+            OutputStream os = new FileOutputStream(path);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+            os.close();
+            return true;
+        } catch (Exception e) {
+            Log.e("TAG", "", e);
+            return false;
+        }
 
     }
 

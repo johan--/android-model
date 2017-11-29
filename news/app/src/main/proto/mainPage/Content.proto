@@ -4,55 +4,56 @@ syntax = "proto3";
 option java_package = "com.wanfang.main";
 
 message ContentRequest {
-    repeated string tags = 1;//限定标签名称，可为空
-    repeated string categories = 2;//限定分类名称，可为空
-    int32 page = 3;//可为空，默认为1
-    int32 page_size = 4;//可为空，默认为5
-    string query = 5;//限定检索词，可为空
+    repeated string tags = 1; //限定标签名称，可为空
+    repeated string categories = 2; //限定分类名称，可为空
+    int32 page = 3; //可为空，默认为1
+    int32 page_size = 4; //可为空，默认为5
+    string query = 5; //限定检索词，可为空
 }
 
 //文章详细信息
 message ContentDetail {
-    int32 id = 1;//id
-    string title = 2;//标题
-    string url = 3;//url
-    string date = 4;//发布时间
-    string excerpt = 5;//摘要
-    repeated Category categories = 6;//分类信息
-    repeated Tag tags = 7;//标签信息
-    repeated ImageDetail images = 8;//图片媒体信息
+    int32 id = 1; //id
+    string title = 2; //标题
+    string url = 3; //url
+    string date = 4; //发布时间
+    string excerpt = 5; //摘要
+    repeated Category categories = 6; //分类信息
+    repeated Tag tags = 7; //标签信息
+    repeated ImageDetail images = 8; //图片媒体信息
+    map<string, string> custom_fields = 9; //自定义信息，即拓展信息
 }
 
 message Category {
-    int32 id = 1;//分类id
-    string name = 2;//分类名称
-    string url = 3;//分类url
-    string slug = 4;//类型唯一标识符
-    string description = 5;//分类描述
-    int32 count = 6;//分类内的文章数
+    int32 id = 1; //分类id
+    string name = 2; //分类名称
+    string url = 3; //分类url
+    string slug = 4; //类型唯一标识符
+    string description = 5; //分类描述
+    int32 count = 6; //分类内的文章数
 }
 
 message Tag {
-    int32 id = 1;//标签id
-    string name = 2;//标签名称
-    string url = 3;//标签url
-    string slug = 4;//类型唯一标识符
-    string description = 5;//标签描述
-    int32 count = 6;//标签内的文章数
+    int32 id = 1; //标签id
+    string name = 2; //标签名称
+    string url = 3; //标签url
+    string slug = 4; //类型唯一标识符
+    string description = 5; //标签描述
+    int32 count = 6; //标签内的文章数
 }
 
 message ImageDetail {
-    string title = 1;//图片标题
-    int32 width = 2;//图片宽度
-    int32 height = 3;//图片高度
-    string mime_type = 4;//图片mime_type
-    string alt_text = 5;//图片alt_text
-    map<string,ImageSize> sizes = 6;//thumbnail(截取150*150),medium,medium_large,large,full
+    string title = 1; //图片标题
+    int32 width = 2; //图片宽度
+    int32 height = 3; //图片高度
+    string mime_type = 4; //图片mime_type
+    string alt_text = 5; //图片alt_text
+    map<string, ImageSize> sizes = 6; //thumbnail(截取150*150),medium,medium_large,large,full
 }
 
 message ImageSize {
-    int32 width = 1;//图片宽度
-    int32 height = 2;//图片高度
-    string source_url = 3;//图片url
-    string mime_type = 4;//图片mime_type
+    int32 width = 1; //图片宽度
+    int32 height = 2; //图片高度
+    string source_url = 3; //图片url
+    string mime_type = 4; //图片mime_type
 }

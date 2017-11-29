@@ -10,6 +10,7 @@ import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.wanfang.grpcCommon.MsgError;
 import com.wanfang.personal.EducationLevelListRequest;
 import com.wanfang.personal.EducationLevelListResponse;
 import com.wanfang.personal.LoginRequest;
@@ -17,6 +18,7 @@ import com.wanfang.personal.LoginResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 import com.wanfang.personal.SubjectListRequest;
 import com.wanfang.personal.SubjectListResponse;
+import com.wanfang.personal.ThirdPartyLoginRequest;
 import com.wanfang.personal.UserRolesListRequest;
 import com.wanfang.personal.UserRolesListResponse;
 
@@ -175,29 +177,64 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
     @Override
     public void reLogin() {
-        Single.create(new SingleOnSubscribe<LoginResponse>() {
-            @Override
-            public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
-                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
-                LoginRequest request = LoginRequest.newBuilder().setUserName(preferencesHelper.getUserId()).setPassword(preferencesHelper.getPassword()).build();
-                LoginResponse response = stub.login(request);
-                e.onSuccess(response);
-            }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
-            @Override
-            public void onSuccess(LoginResponse response) {
-                Log.d(TAG, "onSuccess: " + response.toString());
+        if (preferencesHelper.getLoginMethod().equals("0")) {
+            Single.create(new SingleOnSubscribe<LoginResponse>() {
+                @Override
+                public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                    PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                    LoginRequest request = LoginRequest.newBuilder().setUserName(preferencesHelper.getUserId()).setPassword(preferencesHelper.getPassword()).build();
+                    LoginResponse response = stub.login(request);
+                    e.onSuccess(response);
+                }
+            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+                @Override
+                public void onSuccess(LoginResponse response) {
+                    preferencesHelper.storeLoginInfo(response, preferencesHelper.getPassword());
+                    Log.e(TAG, "onSuccess: 重新登录成功");
+                }
 
-            }
+                @Override
+                public void onError(Throwable e) {
+                    Log.e(TAG, "onError: " + e.getMessage());
 
 
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "onError: " + e.getMessage());
+                }
+            });
+        } else if (preferencesHelper.getLoginMethod().equals("1")) {
 
 
-            }
-        });
+        } else if (preferencesHelper.getLoginMethod().equals("2")) {
+            //  0：QQ，1：微博，2：微信
+            Single.create(new SingleOnSubscribe<LoginResponse>() {
+                @Override
+                public void subscribe(SingleEmitter<LoginResponse> e) throws Exception {
+                    PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+                    ThirdPartyLoginRequest request = ThirdPartyLoginRequest.newBuilder().setUid(preferencesHelper.getPassword()).setThirdPartyCode(2).build();
+                    LoginResponse response = stub.thirdPartyLogin(request);
+                    e.onSuccess(response);
+
+                }
+            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
+                @Override
+                public void onSuccess(LoginResponse userRolesListResponse) {
+                    Log.e(TAG, "onSuccess: userRolesListResponse" + userRolesListResponse);
+                    if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
+
+
+                    } else {
+                        preferencesHelper.storeLoginInfo(userRolesListResponse, preferencesHelper.getPassword());
+                        Log.e(TAG, "onSuccess: 重新登录成功");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+            });
+
+        }
+
         JMessageClient.login(preferencesHelper.getUserId(), "wanfangdata", new BasicCallback() {
             @Override
             public void gotResult(int responseCode, String responseMessage) {

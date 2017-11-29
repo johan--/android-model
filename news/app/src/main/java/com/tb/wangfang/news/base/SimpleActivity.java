@@ -16,7 +16,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
-import com.tb.wangfang.news.ui.activity.LoginActivity;
+import com.tb.wangfang.news.ui.activity.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -118,12 +118,11 @@ public abstract class SimpleActivity extends SupportActivity {
                         .negativeText("退出").onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-
                                 JMessageClient.login(mSPrefs.getString(Constants.USER_ID, ""), "wanfangdata", new BasicCallback() {
                                     @Override
                                     public void gotResult(int responseCode, String responseMessage) {
                                         if (responseCode == 0) {
-                                            Intent intent = new Intent(mContext, LoginActivity.class);
+                                            Intent intent = new Intent(mContext, MainActivity.class);
                                             startActivity(intent);
                                         }
                                     }
@@ -143,4 +142,6 @@ public abstract class SimpleActivity extends SupportActivity {
                 break;
         }
     }
+
+
 }

@@ -5,7 +5,7 @@ option java_package = "com.wanfang.main";
 option objc_class_prefix = "WFPR";
 
 service ContentService {
-    rpc searchContent (ContentRequest) returns (ContentResponse);
+    rpc SearchContent(ContentRequest) returns (ContentResponse);
 }
 
 message ContentResponse {

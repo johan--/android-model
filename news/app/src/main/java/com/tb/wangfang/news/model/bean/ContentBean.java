@@ -93,6 +93,26 @@ public class ContentBean implements MultiItemEntity {
     List<Content.Tag> tags;
     List<Content.ImageDetail> images;
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    String source;
+    String style;
+
+
     public void setItemType(int itemType) {
         ItemType = itemType;
     }

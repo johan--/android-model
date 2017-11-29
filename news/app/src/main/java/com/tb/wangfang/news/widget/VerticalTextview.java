@@ -11,7 +11,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.wanfang.main.AllLastNews;
+import com.wanfang.main.Content;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,10 +87,10 @@ public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewF
         };
     }
 
-    public void setTextList(List<AllLastNews.LastNews> titles) {
+    public void setTextList(List<Content.ContentDetail> titles) {
         this.textList.clear();
         for (int i = 0; i < titles.size(); i++) {
-            this.textList.add(titles.get(i).getLastNewsTitle());
+            this.textList.add(titles.get(i).getTitle());
         }
 
 
@@ -102,7 +102,7 @@ public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewF
     }
 
     public void stopAutoScroll() {
-        if (handler!=null){
+        if (handler != null) {
             this.handler.sendEmptyMessage(1);
         }
 

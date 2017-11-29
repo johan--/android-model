@@ -33,7 +33,7 @@ public final class ContentServiceGrpc {
       io.grpc.MethodDescriptor.<com.wanfang.main.Content.ContentRequest, com.wanfang.main.SerMainContent.ContentResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "ContentService", "searchContent"))
+              "ContentService", "SearchContent"))
           .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
               com.wanfang.main.Content.ContentRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(

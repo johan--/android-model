@@ -35,26 +35,29 @@ public class MainPageAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, 
     @Override
     protected void convert(BaseViewHolder helper, MultiItemEntity item) {
         ContentBean dataItem = (ContentBean) item;
+        Content.ImageSize imageSize1 = null;
 
-        Content.ImageSize imageSize1 = (Content.ImageSize) dataItem.getImages().get(0).getSizesMap().get("full");
-        Content.ImageSize imageSize2 = (Content.ImageSize) dataItem.getImages().get(1).getSizesMap().get("full");
-        Content.ImageSize imageSize3 = (Content.ImageSize) dataItem.getImages().get(2).getSizesMap().get("full");
         switch (helper.getItemViewType()) {
             case Constants.TYPE_INSERT_1:
-                helper.setText(R.id.tv_title, dataItem.getTitle()).setText(R.id.tv_source, dataItem.getExcerpt());
+                imageSize1 = (Content.ImageSize) dataItem.getImages().get(0).getSizesMap().get("full");
+
                 Glide.with(context).load(imageSize1.getSourceUrl()).into((ImageView) helper.getView(R.id.iv));
                 break;
             case Constants.TYPE_INSERT_2:
-                helper.setText(R.id.tv_title, dataItem.getTitle()).setText(R.id.tv_source, dataItem.getExcerpt());
+                imageSize1 = (Content.ImageSize) dataItem.getImages().get(0).getSizesMap().get("full");
+
                 Glide.with(context).load(imageSize1.getSourceUrl()).into((ImageView) helper.getView(R.id.iv));
                 break;
             case Constants.TYPE_INSERT_3:
-                helper.setText(R.id.tv_title, dataItem.getTitle()).setText(R.id.tv_source, dataItem.getExcerpt());
+                imageSize1 = (Content.ImageSize) dataItem.getImages().get(0).getSizesMap().get("full");
+                Content.ImageSize imageSize2 = (Content.ImageSize) dataItem.getImages().get(1).getSizesMap().get("full");
+                Content.ImageSize imageSize3 = (Content.ImageSize) dataItem.getImages().get(2).getSizesMap().get("full");
                 Glide.with(context).load(imageSize1.getSourceUrl()).into((ImageView) helper.getView(R.id.iv_1));
                 Glide.with(context).load(imageSize2.getSourceUrl()).into((ImageView) helper.getView(R.id.iv_2));
                 Glide.with(context).load(imageSize3.getSourceUrl()).into((ImageView) helper.getView(R.id.iv_3));
                 break;
         }
+        helper.setText(R.id.tv_title, dataItem.getTitle()).setText(R.id.tv_source, dataItem.getSource());
         helper.addOnClickListener(R.id.iv_delete);
     }
 }

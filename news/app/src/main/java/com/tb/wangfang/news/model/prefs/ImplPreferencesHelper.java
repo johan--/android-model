@@ -69,7 +69,7 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     public void storeLoginInfo(LoginResponse response, String password) {
 
         mSPrefs.edit().putString(Constants.USER_AVATAR, response.getUserAvatarUrl()).putString(Constants.USER_ID, response.getUserId())
-                .putString(Constants.USER_NAME, response.getUserRealName()).putString(Constants.LOGIN_TOKEN, response.getLoginToken()).apply();
+                .putString(Constants.USER_NAME, response.getUserRealName()).putString(Constants.LOGIN_TOKEN, response.getLoginToken()).putString(Constants.PASS_WORD, password).apply();
     }
 
     @Override
@@ -204,5 +204,10 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     @Override
     public void setLoginMethod(String method) {
         mSPrefs.edit().putString(Constants.loginMethod, method).apply();
+    }
+
+    @Override
+    public String getLoginMethod() {
+        return mSPrefs.getString(Constants.loginMethod, "");
     }
 }

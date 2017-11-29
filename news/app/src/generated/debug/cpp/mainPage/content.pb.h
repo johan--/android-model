@@ -246,6 +246,7 @@ class ContentDetail : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   // optional int32 id = 1;
@@ -334,6 +335,15 @@ class ContentDetail : public ::google::protobuf::Message /* @@protoc_insertion_p
   const ::google::protobuf::RepeatedPtrField< ::ImageDetail >&
       images() const;
 
+  // map<string, string> custom_fields = 9;
+  int custom_fields_size() const;
+  void clear_custom_fields();
+  static const int kCustomFieldsFieldNumber = 9;
+  const ::google::protobuf::Map< ::std::string, ::std::string >&
+      custom_fields() const;
+  ::google::protobuf::Map< ::std::string, ::std::string >*
+      mutable_custom_fields();
+
   // @@protoc_insertion_point(class_scope:ContentDetail)
  private:
 
@@ -341,6 +351,17 @@ class ContentDetail : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::RepeatedPtrField< ::Category > categories_;
   ::google::protobuf::RepeatedPtrField< ::Tag > tags_;
   ::google::protobuf::RepeatedPtrField< ::ImageDetail > images_;
+  typedef ::google::protobuf::internal::MapEntryLite<
+      ::std::string, ::std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      0 >
+      ContentDetail_CustomFieldsEntry;
+  ::google::protobuf::internal::MapField<
+      ::std::string, ::std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      0 > custom_fields_;
   ::google::protobuf::internal::ArenaStringPtr title_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   ::google::protobuf::internal::ArenaStringPtr date_;
@@ -1380,6 +1401,24 @@ inline const ::google::protobuf::RepeatedPtrField< ::ImageDetail >&
 ContentDetail::images() const {
   // @@protoc_insertion_point(field_list:ContentDetail.images)
   return images_;
+}
+
+// map<string, string> custom_fields = 9;
+inline int ContentDetail::custom_fields_size() const {
+  return custom_fields_.size();
+}
+inline void ContentDetail::clear_custom_fields() {
+  custom_fields_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::std::string >&
+ContentDetail::custom_fields() const {
+  // @@protoc_insertion_point(field_map:ContentDetail.custom_fields)
+  return custom_fields_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::std::string >*
+ContentDetail::mutable_custom_fields() {
+  // @@protoc_insertion_point(field_mutable_map:ContentDetail.custom_fields)
+  return custom_fields_.MutableMap();
 }
 
 inline const ContentDetail* ContentDetail::internal_default_instance() {

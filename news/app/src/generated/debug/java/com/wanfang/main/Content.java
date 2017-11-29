@@ -1454,6 +1454,60 @@ public final class Content {
      */
     com.wanfang.main.Content.ImageDetailOrBuilder getImagesOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+    int getCustomFieldsCount();
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+    boolean containsCustomFields(
+        java.lang.String key);
+    /**
+     * Use {@link #getCustomFieldsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getCustomFields();
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getCustomFieldsMap();
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+
+    java.lang.String getCustomFieldsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+
+    java.lang.String getCustomFieldsOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -1562,6 +1616,19 @@ public final class Content {
                   input.readMessage(com.wanfang.main.Content.ImageDetail.parser(), extensionRegistry));
               break;
             }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                customFields_ = com.google.protobuf.MapField.newMapField(
+                    CustomFieldsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000100;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              customFields__ = input.readMessage(
+                  CustomFieldsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              customFields_.getMutableMap().put(
+                  customFields__.getKey(), customFields__.getValue());
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1587,6 +1654,17 @@ public final class Content {
       return com.wanfang.main.Content.internal_static_ContentDetail_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 9:
+          return internalGetCustomFields();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.wanfang.main.Content.internal_static_ContentDetail_fieldAccessorTable
@@ -1941,6 +2019,98 @@ public final class Content {
       return images_.get(index);
     }
 
+    public static final int CUSTOM_FIELDS_FIELD_NUMBER = 9;
+    private static final class CustomFieldsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  com.wanfang.main.Content.internal_static_ContentDetail_CustomFieldsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> customFields_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetCustomFields() {
+      if (customFields_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            CustomFieldsDefaultEntryHolder.defaultEntry);
+      }
+      return customFields_;
+    }
+
+    public int getCustomFieldsCount() {
+      return internalGetCustomFields().getMap().size();
+    }
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+
+    public boolean containsCustomFields(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetCustomFields().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getCustomFieldsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getCustomFields() {
+      return getCustomFieldsMap();
+    }
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getCustomFieldsMap() {
+      return internalGetCustomFields().getMap();
+    }
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+
+    public java.lang.String getCustomFieldsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetCustomFields().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     *自定义信息，即拓展信息
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+     */
+
+    public java.lang.String getCustomFieldsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetCustomFields().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1977,6 +2147,12 @@ public final class Content {
       for (int i = 0; i < images_.size(); i++) {
         output.writeMessage(8, images_.get(i));
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetCustomFields(),
+          CustomFieldsDefaultEntryHolder.defaultEntry,
+          9);
     }
 
     public int getSerializedSize() {
@@ -2012,6 +2188,16 @@ public final class Content {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, images_.get(i));
       }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetCustomFields().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        customFields__ = CustomFieldsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, customFields__);
+      }
       memoizedSize = size;
       return size;
     }
@@ -2044,6 +2230,8 @@ public final class Content {
           .equals(other.getTagsList());
       result = result && getImagesList()
           .equals(other.getImagesList());
+      result = result && internalGetCustomFields().equals(
+          other.internalGetCustomFields());
       return result;
     }
 
@@ -2075,6 +2263,10 @@ public final class Content {
       if (getImagesCount() > 0) {
         hash = (37 * hash) + IMAGES_FIELD_NUMBER;
         hash = (53 * hash) + getImagesList().hashCode();
+      }
+      if (!internalGetCustomFields().getMap().isEmpty()) {
+        hash = (37 * hash) + CUSTOM_FIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetCustomFields().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2174,6 +2366,28 @@ public final class Content {
         return com.wanfang.main.Content.internal_static_ContentDetail_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 9:
+            return internalGetCustomFields();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 9:
+            return internalGetMutableCustomFields();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.wanfang.main.Content.internal_static_ContentDetail_fieldAccessorTable
@@ -2229,6 +2443,7 @@ public final class Content {
         } else {
           imagesBuilder_.clear();
         }
+        internalGetMutableCustomFields().clear();
         return this;
       }
 
@@ -2285,6 +2500,8 @@ public final class Content {
         } else {
           result.images_ = imagesBuilder_.build();
         }
+        result.customFields_ = internalGetCustomFields();
+        result.customFields_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2424,6 +2641,8 @@ public final class Content {
             }
           }
         }
+        internalGetMutableCustomFields().mergeFrom(
+            other.internalGetCustomFields());
         onChanged();
         return this;
       }
@@ -3779,6 +3998,153 @@ public final class Content {
           images_ = null;
         }
         return imagesBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> customFields_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetCustomFields() {
+        if (customFields_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              CustomFieldsDefaultEntryHolder.defaultEntry);
+        }
+        return customFields_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableCustomFields() {
+        onChanged();;
+        if (customFields_ == null) {
+          customFields_ = com.google.protobuf.MapField.newMapField(
+              CustomFieldsDefaultEntryHolder.defaultEntry);
+        }
+        if (!customFields_.isMutable()) {
+          customFields_ = customFields_.copy();
+        }
+        return customFields_;
+      }
+
+      public int getCustomFieldsCount() {
+        return internalGetCustomFields().getMap().size();
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+
+      public boolean containsCustomFields(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetCustomFields().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getCustomFieldsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getCustomFields() {
+        return getCustomFieldsMap();
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getCustomFieldsMap() {
+        return internalGetCustomFields().getMap();
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+
+      public java.lang.String getCustomFieldsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetCustomFields().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+
+      public java.lang.String getCustomFieldsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetCustomFields().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearCustomFields() {
+        getMutableCustomFields().clear();
+        return this;
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+
+      public Builder removeCustomFields(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        getMutableCustomFields().remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableCustomFields() {
+        return internalGetMutableCustomFields().getMutableMap();
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+      public Builder putCustomFields(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        getMutableCustomFields().put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *自定义信息，即拓展信息
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; custom_fields = 9;</code>
+       */
+
+      public Builder putAllCustomFields(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        getMutableCustomFields().putAll(values);
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8588,6 +8954,11 @@ public final class Content {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ContentDetail_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ContentDetail_CustomFieldsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ContentDetail_CustomFieldsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Category_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8624,23 +8995,26 @@ public final class Content {
       "\n\026mainPage/content.proto\"b\n\016ContentReque" +
       "st\022\014\n\004tags\030\001 \003(\t\022\022\n\ncategories\030\002 \003(\t\022\014\n\004" +
       "page\030\003 \001(\005\022\021\n\tpage_size\030\004 \001(\005\022\r\n\005query\030\005" +
-      " \001(\t\"\247\001\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005ti" +
+      " \001(\t\"\225\002\n\rContentDetail\022\n\n\002id\030\001 \001(\005\022\r\n\005ti" +
       "tle\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\017\n\007" +
       "excerpt\030\005 \001(\t\022\035\n\ncategories\030\006 \003(\0132\t.Cate" +
       "gory\022\022\n\004tags\030\007 \003(\0132\004.Tag\022\034\n\006images\030\010 \003(\013" +
-      "2\014.ImageDetail\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014" +
-      "\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022" +
-      "\023\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003T",
-      "ag\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(" +
-      "\t\022\014\n\004slug\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005" +
-      "count\030\006 \001(\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001" +
-      "(\t\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmim" +
-      "e_type\030\004 \001(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030" +
-      "\006 \003(\0132\027.ImageDetail.SizesEntry\0328\n\nSizesE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.Image" +
-      "Size:\0028\001\"Q\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006" +
-      "height\030\002 \001(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime" +
-      "_type\030\004 \001(\tB\022\n\020com.wanfang.mainb\006proto3"
+      "2\014.ImageDetail\0227\n\rcustom_fields\030\t \003(\0132 ." +
+      "ContentDetail.CustomFieldsEntry\0323\n\021Custo" +
+      "mFieldsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t",
+      ":\0028\001\"c\n\010Category\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
+      "(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030\004 \001(\t\022\023\n\013descrip" +
+      "tion\030\005 \001(\t\022\r\n\005count\030\006 \001(\005\"^\n\003Tag\022\n\n\002id\030\001" +
+      " \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022\014\n\004slug\030" +
+      "\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\r\n\005count\030\006 \001(" +
+      "\005\"\302\001\n\013ImageDetail\022\r\n\005title\030\001 \001(\t\022\r\n\005widt" +
+      "h\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\021\n\tmime_type\030\004 \001" +
+      "(\t\022\020\n\010alt_text\030\005 \001(\t\022&\n\005sizes\030\006 \003(\0132\027.Im" +
+      "ageDetail.SizesEntry\0328\n\nSizesEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.ImageSize:\0028\001\"Q",
+      "\n\tImageSize\022\r\n\005width\030\001 \001(\005\022\016\n\006height\030\002 \001" +
+      "(\005\022\022\n\nsource_url\030\003 \001(\t\022\021\n\tmime_type\030\004 \001(" +
+      "\tB\022\n\020com.wanfang.mainb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8665,7 +9039,13 @@ public final class Content {
     internal_static_ContentDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ContentDetail_descriptor,
-        new java.lang.String[] { "Id", "Title", "Url", "Date", "Excerpt", "Categories", "Tags", "Images", });
+        new java.lang.String[] { "Id", "Title", "Url", "Date", "Excerpt", "Categories", "Tags", "Images", "CustomFields", });
+    internal_static_ContentDetail_CustomFieldsEntry_descriptor =
+      internal_static_ContentDetail_descriptor.getNestedTypes().get(0);
+    internal_static_ContentDetail_CustomFieldsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ContentDetail_CustomFieldsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_Category_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_Category_fieldAccessorTable = new

@@ -1,6 +1,8 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -17,9 +19,7 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
-import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
@@ -47,8 +47,6 @@ import com.wanfang.collect.CheckISCollectedResponse;
 import com.wanfang.collect.CollectRequest;
 import com.wanfang.collect.CollectResponse;
 import com.wanfang.collect.CollectServiceGrpc;
-import com.wanfang.collect.MyCollectConfMessage;
-import com.wanfang.collect.MyCollectDetailResponse;
 import com.wanfang.read.ReadRequest;
 import com.wanfang.read.ReadResponse;
 import com.wanfang.read.ReadServiceGrpc;
@@ -128,6 +126,9 @@ public class DocDetailActivity extends SimpleActivity {
     private String author;
     private String time;
     private String journal;
+    private TextView tvContent;
+    private String shareType = "";
+    private TextView tvTitle;
 
 
     @Override
@@ -208,18 +209,25 @@ public class DocDetailActivity extends SimpleActivity {
 
                         if (articleType.equals("perio_artical")) {
                             initViewPerioArticle(response);
+                            shareType = "perio";
                         } else if (articleType.equals("degree_artical")) {
                             initViewDegreeArtcle(response);
+                            shareType = "degree";
                         } else if (articleType.equals("patent_element")) {
                             initViewPatentElement(response);
+                            shareType = "patent";
                         } else if (articleType.equals("conf_artical")) {
                             initViewConfArticle(response);
+                            shareType = "conference";
                         } else if (articleType.equals("standards")) {
                             initViewStandards(response);
+                            shareType = "standards";
                         } else if (articleType.equals("legislations")) {
                             initViewLeaislations(response);
+                            shareType = "legislations";
                         } else if (articleType.equals("tech_result")) {
                             initViewTechResult(response);
+                            shareType = "techResult";
                         }
 
                         scrollView.setVisibility(View.VISIBLE);
@@ -239,8 +247,8 @@ public class DocDetailActivity extends SimpleActivity {
         viewStub.addView(view);
 
 
-        TextView tvTitle = (TextView) findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) findViewById(R.id.tv_content);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        tvContent = (TextView) findViewById(R.id.tv_content);
         TextView tvProgressNum = (TextView) findViewById(tv_progress_num);
         TextView tvLimitUse = (TextView) findViewById(R.id.tv_limit_use);
         TextView tvProvince = (TextView) findViewById(tv_province);
@@ -392,8 +400,8 @@ public class DocDetailActivity extends SimpleActivity {
         LegisBean bean = gson.fromJson(response, LegisBean.class);
         View view = inflater.inflate(R.layout.frag_article_law, viewStub, false);
         viewStub.addView(view);
-        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
         TextView tvBankName = (TextView) viewStub.findViewById(R.id.tv_bank_name);
         TextView tvArticleId = (TextView) viewStub.findViewById(R.id.tv_article_id);
         TextView tvPublishUnis = (TextView) viewStub.findViewById(R.id.tv_publish_unit);
@@ -439,8 +447,8 @@ public class DocDetailActivity extends SimpleActivity {
         StandardsBean bean = gson.fromJson(response, StandardsBean.class);
         View view = inflater.inflate(R.layout.frag_article_standard, viewStub, false);
         viewStub.addView(view);
-        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
         TextView tvStandardId = (TextView) viewStub.findViewById(R.id.tv_standard_id);
         TextView tvunit = (TextView) viewStub.findViewById(R.id.tv_unit);
         TextView tvTime = (TextView) viewStub.findViewById(R.id.tv_time);
@@ -497,8 +505,8 @@ public class DocDetailActivity extends SimpleActivity {
         ConfArticle bean = gson.fromJson(response, ConfArticle.class);
         View view = inflater.inflate(R.layout.frag_article_meeting, viewStub, false);
         viewStub.addView(view);
-        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
         TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
         TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
         TextView tvMeetingName = (TextView) viewStub.findViewById(R.id.tv_meeting_name);
@@ -555,8 +563,8 @@ public class DocDetailActivity extends SimpleActivity {
         PatentElementBean bean = gson.fromJson(response, PatentElementBean.class);
         View view = inflater.inflate(R.layout.frag_article_patent, viewStub, false);
         viewStub.addView(view);
-        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
         TextView tvPatentClass = (TextView) viewStub.findViewById(R.id.tv_patent_class);
         TextView tvPatentId = (TextView) viewStub.findViewById(R.id.tv_patent_id);
         TextView tvDate = (TextView) viewStub.findViewById(R.id.tv_date);
@@ -617,8 +625,8 @@ public class DocDetailActivity extends SimpleActivity {
         DegreeArticleBean bean = gson.fromJson(response, DegreeArticleBean.class);
         View view = inflater.inflate(R.layout.frag_article_degree, viewStub, false);
         viewStub.addView(view);
-        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
         TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
         TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
         TextView tvUnitPublish = (TextView) viewStub.findViewById(R.id.tv_unit_publish);
@@ -680,8 +688,8 @@ public class DocDetailActivity extends SimpleActivity {
         View view_pro = inflater.inflate(R.layout.frag_article, viewStub, false);
         viewStub.addView(view_pro);
 
-        TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-        TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
+        tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
+        tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
         TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
         TextView tvUnit = (TextView) viewStub.findViewById(R.id.tv_unit);
         TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
@@ -756,50 +764,6 @@ public class DocDetailActivity extends SimpleActivity {
 
     }
 
-    private void initView(int detailTypeValue, MyCollectDetailResponse myCollectDetailResponse) {
-        Any any = myCollectDetailResponse.getCollectDetail();
-
-        switch (detailTypeValue) {
-            case 0://degree
-
-                break;
-            case 1://会议
-                View view_meeting = inflater.inflate(R.layout.frag_article_meeting, viewStub, false);
-                viewStub.addView(view_meeting);
-                try {
-                    MyCollectConfMessage confMessage = any.unpack(MyCollectConfMessage.class);
-                    TextView tvTitle = (TextView) viewStub.findViewById(R.id.tv_title);
-                    TextView tvContent = (TextView) viewStub.findViewById(R.id.tv_content);
-                    TextView tvKeyWord = (TextView) viewStub.findViewById(tv_key_word);
-                    TextView tvAuthor = (TextView) viewStub.findViewById(R.id.tv_author);
-                    TextView tvMettingName = (TextView) viewStub.findViewById(R.id.tv_meeting_name);
-                    TextView tvMeetingSity = (TextView) viewStub.findViewById(R.id.tv_meeting_sity);
-                    TextView tvPublishMetting = (TextView) viewStub.findViewById(R.id.tv_publish_meeting);
-                    tvTitle.setText(myCollectDetailResponse.getTitle());
-                    tvContent.setText(myCollectDetailResponse.getSummary());
-                    tvKeyWord.setText(myCollectDetailResponse.getKeywords());
-                    tvAuthor.setText(myCollectDetailResponse.getAuthorsName());
-                    tvMettingName.setText(confMessage.getConfName());
-                    tvMeetingSity.setText(confMessage.getPublishPlace());
-                    tvPublishMetting.setText(confMessage.getHostunitName());
-                } catch (InvalidProtocolBufferException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 2://PERIO_TYPE_VALUE
-
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-        }
-        tvSummaryNum.setText("文摘阅读 : " + myCollectDetailResponse.getFulltextReadingNum());
-        tvDownNum.setText("下载 : " + myCollectDetailResponse.getDownloadNum());
-        tvLinkNum.setText("第三方链接 : " + myCollectDetailResponse.getThirdpartyLinksNum());
-        tvReferenceNum.setText("被应用 : " + myCollectDetailResponse.getCiteNum());
-
-    }
 
     @OnClick({R.id.tv_return, R.id.ll_read_online, R.id.ll_collect, R.id.ll_share})
     public void onViewClicked(View view) {
@@ -1018,31 +982,62 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void showShare() {
-        OnekeyShare oks = new OnekeyShare();
-        //关闭sso授权
-        oks.disableSSOWhenAuthorize();
+        dialog.show();
+        final String shareUrl = "new.wanfangdata.com.cn/details/detail.do?_type=" + shareType + "&id=" + articleId;
+        final String title = tvTitle.getText().toString();
+        final String content = tvContent.getText().toString();
+        final OnekeyShare oks = new OnekeyShare();
+        Single.create(new SingleOnSubscribe<String>() {
+            @Override
+            public void subscribe(SingleEmitter<String> e) throws Exception {
+                BitmapDrawable bitmap = (BitmapDrawable) getResources().getDrawable(R.mipmap.ic_launcher);
+                Bitmap img = bitmap.getBitmap();
+                String path = FileUtil.getEncryFilePath("ic_launcher.png");
+                boolean b = FileUtil.saveBitmap(img, path);
+                if (b) {
+                    e.onSuccess(path);
+                } else {
+                    e.onError(new Exception("e"));
+                }
 
-        // 分享时Notification的图标和文字  2.5.9以后的版本不     调用此方法
-        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
-        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-        oks.setTitle("分享");
-        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-        oks.setTitleUrl("http://sharesdk.cn");
-        // text是分享文本，所有平台都需要这个字段
-        oks.setText("我是分享文本");
-        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
-        // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://sharesdk.cn");
-        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("我是测试评论文本");
-        // site是分享此内容的网站名称，仅在QQ空间使用
-        oks.setSite(getString(R.string.app_name));
-        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://sharesdk.cn");
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<String>() {
+            @Override
+            public void onSuccess(String readResponse) {
+                dialog.dismiss();
+                //关闭sso授权
+                oks.disableSSOWhenAuthorize();
+                // 分享时Notification的图标和文字  2.5.9以后的版本不     调用此方法
+                //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+                // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+                oks.setTitle(title);
+                // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+                oks.setTitleUrl(shareUrl);
+                // text是分享文本，所有平台都需要这个字段
+                oks.setText(content);
+                // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+                oks.setImagePath(readResponse);//确保SDcard下面存在此张图片
+                // url仅在微信（包括好友和朋友圈）中使用
+                oks.setUrl(shareUrl);
+                // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+//        oks.setComment("我是测试评论文本");
+                // site是分享此内容的网站名称，仅在QQ空间使用
+                oks.setSite("万方App");
+                // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+                oks.setSiteUrl("http://www.wanfangdata.com.cn/");
 
-        // 启动分享GUI
-        oks.show(this);
+                // 启动分享GUI
+                oks.show(DocDetailActivity.this);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                dialog.dismiss();
+            }
+        });
+
+
     }
 
     @Override

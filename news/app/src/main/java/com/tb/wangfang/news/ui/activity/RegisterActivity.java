@@ -437,11 +437,12 @@ public class RegisterActivity extends SimpleActivity {
 
                     ToastUtil.show("未绑定成功");
                 } else {
-                    PreferencesHelper.storeLoginInfo(userRolesListResponse, passWord);
+
                     if (TextUtils.isEmpty(userRolesListResponse.getLoginToken())) {
                         ToastUtil.show("访问失败");
                     } else {
-                        PreferencesHelper.setLoginMethod("2");
+                        PreferencesHelper.storeLoginInfo(userRolesListResponse, passWord);
+                        PreferencesHelper.setLoginMethod("0");
                         ToastUtil.show("绑定成功");
                         RxBus.getDefault().post("bindSuccess");
 

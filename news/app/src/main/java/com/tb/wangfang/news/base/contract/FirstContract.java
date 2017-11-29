@@ -2,7 +2,6 @@ package com.tb.wangfang.news.base.contract;
 
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
-import com.wanfang.main.AllLastNews;
 import com.wanfang.main.Content;
 import com.wanfang.main.SerMainContent;
 
@@ -17,7 +16,7 @@ public interface FirstContract {
 
         void showSpanner(List<Content.ContentDetail> baners);
 
-        void showLastNews(AllLastNews.LastNewsReply reply);
+        void showLastNews(SerMainContent.ContentResponse response );
 
         void showMainPage(SerMainContent.ContentResponse response);
     }

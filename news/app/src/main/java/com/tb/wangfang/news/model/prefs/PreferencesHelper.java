@@ -54,5 +54,6 @@ public interface PreferencesHelper {
     void putCurrentTime();
 
     void setLoginMethod(String method);
+    String getLoginMethod();
 
 }

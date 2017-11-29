@@ -99,18 +99,6 @@ public class SettingActivity extends SimpleActivity {
         }
     }
 
-    //    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == RESULT_OK && requestCode == PhotoPicker.REQUEST_CODE) {
-//            if (data != null) {
-//                ArrayList<String> photos =
-//                        data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
-//                Glide.with(this).load(photos.get(0)).transform(new GlideCircleTransform(this)).into(ivUserIcon);
-//            }
-//        }
-//    }
     public void changeTextSize(Activity activity) {
         Configuration configuration = activity.getResources().getConfiguration();
         configuration.fontScale = Constants.TEXTVIEWSIXE; //1为标准字体，multiple为放大的倍数

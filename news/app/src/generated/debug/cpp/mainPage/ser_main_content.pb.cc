@@ -93,7 +93,7 @@ void protobuf_AddDesc_mainPage_2fser_5fmain_5fcontent_2eproto_impl() {
     "\n\037mainPage/ser_main_content.proto\032\026mainP"
     "age/content.proto\"D\n\017ContentResponse\022 \n\010"
     "contents\030\001 \003(\0132\016.ContentDetail\022\017\n\007no_mor"
-    "e\030\002 \001(\0102D\n\016ContentService\0222\n\rsearchConte"
+    "e\030\002 \001(\0102D\n\016ContentService\0222\n\rSearchConte"
     "nt\022\017.ContentRequest\032\020.ContentResponseB\031\n"
     "\020com.wanfang.main\242\002\004WFPRb\006proto3", 232);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(

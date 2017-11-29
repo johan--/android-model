@@ -204,7 +204,7 @@ public class BindwanfangAccountActivity extends SimpleActivity {
                         ToastUtil.show("绑定成功");
                         RxBus.getDefault().post("bindSuccess");
                         preferencesHelper.setLoginState(true);
-                        preferencesHelper.setLoginMethod("2");
+                        preferencesHelper.setLoginMethod("0");
                         finish();
                     }
                 }
