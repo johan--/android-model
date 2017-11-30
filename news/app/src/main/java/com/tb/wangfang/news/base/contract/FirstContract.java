@@ -16,18 +16,22 @@ public interface FirstContract {
 
         void showSpanner(List<Content.ContentDetail> baners);
 
-        void showLastNews(SerMainContent.ContentResponse response );
+        void showLastNews(SerMainContent.ContentResponse response);
 
         void showMainPage(SerMainContent.ContentResponse response);
+
     }
 
     interface Presenter extends BasePresenter<View> {
-
+        //轮播
         void getBanner(String userId);
 
+        //最新资讯
         void getLastNews();
 
+        //首页动态
         void getMianPage(int page);
+
 
     }
 }

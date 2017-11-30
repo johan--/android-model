@@ -18,6 +18,8 @@ import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
 import com.tb.wangfang.news.ui.activity.MainActivity;
 
+import java.io.File;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.jpush.im.android.api.JMessageClient;
@@ -133,6 +135,7 @@ public abstract class SimpleActivity extends SupportActivity {
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                 mSPrefs.edit().putBoolean(Constants.LOGIN_STATE, false).apply();
                                 mSPrefs.edit().clear().apply();
+                                deletePrivateCache();
                                 App.getInstance().exitApp();
                             }
                         })
@@ -141,6 +144,12 @@ public abstract class SimpleActivity extends SupportActivity {
 
                 break;
         }
+    }
+
+    private void deletePrivateCache() {
+        String PrivateFolder = getFilesDir().getAbsolutePath();
+        File file = new File(PrivateFolder);
+        file.delete();
     }
 
 

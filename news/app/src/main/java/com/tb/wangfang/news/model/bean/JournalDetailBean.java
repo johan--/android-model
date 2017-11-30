@@ -17,7 +17,7 @@ public class JournalDetailBean {
      */
 
     private int status;
-    private String message;
+    private Object message;
     private List<DataBean> data;
     private List<CommonYearBean> common_year;
 
@@ -29,11 +29,11 @@ public class JournalDetailBean {
         this.status = status;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -163,72 +163,72 @@ public class JournalDetailBean {
          * class_type : periodical_info
          */
 
-        private String id;
+        private Object id;
         private double avg_perio_down;
-        private String former_name;
-        private String perio_id;
-        private String language;
-        private String major_editor;
-        private String start_year02;
-        private String issue_postcode;
-        private String perio_format;
-        private String fax;
+        private Object former_name;
+        private Object perio_id;
+        private Object language;
+        private Object major_editor;
+        private Object start_year02;
+        private Object issue_postcode;
+        private Object perio_format;
+        private Object fax;
         private int share_num;
-        private String publish_cycle;
-        private String pinyin_title;
+        private Object publish_cycle;
+        private Object pinyin_title;
         private double avg_article_down;
-        private String director;
-        private String postcode;
-        private String telephone;
-        private String solicit_notice;
+        private Object director;
+        private Object postcode;
+        private Object telephone;
+        private Object solicit_notice;
         private int cite_num;
-        private String perio_title02;
-        private String country_code;
-        private String issn;
-        private String data_state;
-        private String ef_name;
-        private String release_cycle;
-        private String end_issue;
-        private String start_year;
+        private Object perio_title02;
+        private Object country_code;
+        private Object issn;
+        private Object data_state;
+        private Object ef_name;
+        private Object release_cycle;
+        private Object end_issue;
+        private Object start_year;
         private int tag_num;
-        private String subscribe_notice;
+        private Object subscribe_notice;
         private int abstract_reading_num;
-        private String hostunit_area;
+        private Object hostunit_area;
         private int thirdparty_links_num;
         private int import_num;
-        private String email;
-        private String website;
-        private String address;
-        private String committee;
-        private String source_db;
-        private String cn;
+        private Object email;
+        private Object website;
+        private Object address;
+        private Object committee;
+        private Object source_db;
+        private Object cn;
         private int collection_num;
-        private String dep_name;
+        private Object dep_name;
         private int download_num;
-        private String first_publish;
+        private Object first_publish;
         private double affectoi;
         private int article_num;
         private int fulltext_reading_num;
         private int note_num;
-        private String end_year;
-        private String class_code;
-        private String trans_title;
-        private String perio_desc;
-        private String perio_title;
-        private String keywords;
-        private String summary;
+        private Object end_year;
+        private Object class_code;
+        private Object trans_title;
+        private Object perio_desc;
+        private Object perio_title;
+        private Object keywords;
+        private Object summary;
         private OpBean op;
-        private String class_type;
+        private Object class_type;
         private Object hostunit_name;
         private Object main_column;
         private Object core_perio;
         private Object win_prize;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
@@ -240,67 +240,67 @@ public class JournalDetailBean {
             this.avg_perio_down = avg_perio_down;
         }
 
-        public String getFormer_name() {
+        public Object getFormer_name() {
             return former_name;
         }
 
-        public void setFormer_name(String former_name) {
+        public void setFormer_name(Object former_name) {
             this.former_name = former_name;
         }
 
-        public String getPerio_id() {
+        public Object getPerio_id() {
             return perio_id;
         }
 
-        public void setPerio_id(String perio_id) {
+        public void setPerio_id(Object perio_id) {
             this.perio_id = perio_id;
         }
 
-        public String getLanguage() {
+        public Object getLanguage() {
             return language;
         }
 
-        public void setLanguage(String language) {
+        public void setLanguage(Object language) {
             this.language = language;
         }
 
-        public String getMajor_editor() {
+        public Object getMajor_editor() {
             return major_editor;
         }
 
-        public void setMajor_editor(String major_editor) {
+        public void setMajor_editor(Object major_editor) {
             this.major_editor = major_editor;
         }
 
-        public String getStart_year02() {
+        public Object getStart_year02() {
             return start_year02;
         }
 
-        public void setStart_year02(String start_year02) {
+        public void setStart_year02(Object start_year02) {
             this.start_year02 = start_year02;
         }
 
-        public String getIssue_postcode() {
+        public Object getIssue_postcode() {
             return issue_postcode;
         }
 
-        public void setIssue_postcode(String issue_postcode) {
+        public void setIssue_postcode(Object issue_postcode) {
             this.issue_postcode = issue_postcode;
         }
 
-        public String getPerio_format() {
+        public Object getPerio_format() {
             return perio_format;
         }
 
-        public void setPerio_format(String perio_format) {
+        public void setPerio_format(Object perio_format) {
             this.perio_format = perio_format;
         }
 
-        public String getFax() {
+        public Object getFax() {
             return fax;
         }
 
-        public void setFax(String fax) {
+        public void setFax(Object fax) {
             this.fax = fax;
         }
 
@@ -312,19 +312,19 @@ public class JournalDetailBean {
             this.share_num = share_num;
         }
 
-        public String getPublish_cycle() {
+        public Object getPublish_cycle() {
             return publish_cycle;
         }
 
-        public void setPublish_cycle(String publish_cycle) {
+        public void setPublish_cycle(Object publish_cycle) {
             this.publish_cycle = publish_cycle;
         }
 
-        public String getPinyin_title() {
+        public Object getPinyin_title() {
             return pinyin_title;
         }
 
-        public void setPinyin_title(String pinyin_title) {
+        public void setPinyin_title(Object pinyin_title) {
             this.pinyin_title = pinyin_title;
         }
 
@@ -336,35 +336,35 @@ public class JournalDetailBean {
             this.avg_article_down = avg_article_down;
         }
 
-        public String getDirector() {
+        public Object getDirector() {
             return director;
         }
 
-        public void setDirector(String director) {
+        public void setDirector(Object director) {
             this.director = director;
         }
 
-        public String getPostcode() {
+        public Object getPostcode() {
             return postcode;
         }
 
-        public void setPostcode(String postcode) {
+        public void setPostcode(Object postcode) {
             this.postcode = postcode;
         }
 
-        public String getTelephone() {
+        public Object getTelephone() {
             return telephone;
         }
 
-        public void setTelephone(String telephone) {
+        public void setTelephone(Object telephone) {
             this.telephone = telephone;
         }
 
-        public String getSolicit_notice() {
+        public Object getSolicit_notice() {
             return solicit_notice;
         }
 
-        public void setSolicit_notice(String solicit_notice) {
+        public void setSolicit_notice(Object solicit_notice) {
             this.solicit_notice = solicit_notice;
         }
 
@@ -376,67 +376,67 @@ public class JournalDetailBean {
             this.cite_num = cite_num;
         }
 
-        public String getPerio_title02() {
+        public Object getPerio_title02() {
             return perio_title02;
         }
 
-        public void setPerio_title02(String perio_title02) {
+        public void setPerio_title02(Object perio_title02) {
             this.perio_title02 = perio_title02;
         }
 
-        public String getCountry_code() {
+        public Object getCountry_code() {
             return country_code;
         }
 
-        public void setCountry_code(String country_code) {
+        public void setCountry_code(Object country_code) {
             this.country_code = country_code;
         }
 
-        public String getIssn() {
+        public Object getIssn() {
             return issn;
         }
 
-        public void setIssn(String issn) {
+        public void setIssn(Object issn) {
             this.issn = issn;
         }
 
-        public String getData_state() {
+        public Object getData_state() {
             return data_state;
         }
 
-        public void setData_state(String data_state) {
+        public void setData_state(Object data_state) {
             this.data_state = data_state;
         }
 
-        public String getEf_name() {
+        public Object getEf_name() {
             return ef_name;
         }
 
-        public void setEf_name(String ef_name) {
+        public void setEf_name(Object ef_name) {
             this.ef_name = ef_name;
         }
 
-        public String getRelease_cycle() {
+        public Object getRelease_cycle() {
             return release_cycle;
         }
 
-        public void setRelease_cycle(String release_cycle) {
+        public void setRelease_cycle(Object release_cycle) {
             this.release_cycle = release_cycle;
         }
 
-        public String getEnd_issue() {
+        public Object getEnd_issue() {
             return end_issue;
         }
 
-        public void setEnd_issue(String end_issue) {
+        public void setEnd_issue(Object end_issue) {
             this.end_issue = end_issue;
         }
 
-        public String getStart_year() {
+        public Object getStart_year() {
             return start_year;
         }
 
-        public void setStart_year(String start_year) {
+        public void setStart_year(Object start_year) {
             this.start_year = start_year;
         }
 
@@ -448,11 +448,11 @@ public class JournalDetailBean {
             this.tag_num = tag_num;
         }
 
-        public String getSubscribe_notice() {
+        public Object getSubscribe_notice() {
             return subscribe_notice;
         }
 
-        public void setSubscribe_notice(String subscribe_notice) {
+        public void setSubscribe_notice(Object subscribe_notice) {
             this.subscribe_notice = subscribe_notice;
         }
 
@@ -464,11 +464,11 @@ public class JournalDetailBean {
             this.abstract_reading_num = abstract_reading_num;
         }
 
-        public String getHostunit_area() {
+        public Object getHostunit_area() {
             return hostunit_area;
         }
 
-        public void setHostunit_area(String hostunit_area) {
+        public void setHostunit_area(Object hostunit_area) {
             this.hostunit_area = hostunit_area;
         }
 
@@ -488,51 +488,51 @@ public class JournalDetailBean {
             this.import_num = import_num;
         }
 
-        public String getEmail() {
+        public Object getEmail() {
             return email;
         }
 
-        public void setEmail(String email) {
+        public void setEmail(Object email) {
             this.email = email;
         }
 
-        public String getWebsite() {
+        public Object getWebsite() {
             return website;
         }
 
-        public void setWebsite(String website) {
+        public void setWebsite(Object website) {
             this.website = website;
         }
 
-        public String getAddress() {
+        public Object getAddress() {
             return address;
         }
 
-        public void setAddress(String address) {
+        public void setAddress(Object address) {
             this.address = address;
         }
 
-        public String getCommittee() {
+        public Object getCommittee() {
             return committee;
         }
 
-        public void setCommittee(String committee) {
+        public void setCommittee(Object committee) {
             this.committee = committee;
         }
 
-        public String getSource_db() {
+        public Object getSource_db() {
             return source_db;
         }
 
-        public void setSource_db(String source_db) {
+        public void setSource_db(Object source_db) {
             this.source_db = source_db;
         }
 
-        public String getCn() {
+        public Object getCn() {
             return cn;
         }
 
-        public void setCn(String cn) {
+        public void setCn(Object cn) {
             this.cn = cn;
         }
 
@@ -544,11 +544,11 @@ public class JournalDetailBean {
             this.collection_num = collection_num;
         }
 
-        public String getDep_name() {
+        public Object getDep_name() {
             return dep_name;
         }
 
-        public void setDep_name(String dep_name) {
+        public void setDep_name(Object dep_name) {
             this.dep_name = dep_name;
         }
 
@@ -560,11 +560,11 @@ public class JournalDetailBean {
             this.download_num = download_num;
         }
 
-        public String getFirst_publish() {
+        public Object getFirst_publish() {
             return first_publish;
         }
 
-        public void setFirst_publish(String first_publish) {
+        public void setFirst_publish(Object first_publish) {
             this.first_publish = first_publish;
         }
 
@@ -600,59 +600,59 @@ public class JournalDetailBean {
             this.note_num = note_num;
         }
 
-        public String getEnd_year() {
+        public Object getEnd_year() {
             return end_year;
         }
 
-        public void setEnd_year(String end_year) {
+        public void setEnd_year(Object end_year) {
             this.end_year = end_year;
         }
 
-        public String getClass_code() {
+        public Object getClass_code() {
             return class_code;
         }
 
-        public void setClass_code(String class_code) {
+        public void setClass_code(Object class_code) {
             this.class_code = class_code;
         }
 
-        public String getTrans_title() {
+        public Object getTrans_title() {
             return trans_title;
         }
 
-        public void setTrans_title(String trans_title) {
+        public void setTrans_title(Object trans_title) {
             this.trans_title = trans_title;
         }
 
-        public String getPerio_desc() {
+        public Object getPerio_desc() {
             return perio_desc;
         }
 
-        public void setPerio_desc(String perio_desc) {
+        public void setPerio_desc(Object perio_desc) {
             this.perio_desc = perio_desc;
         }
 
-        public String getPerio_title() {
+        public Object getPerio_title() {
             return perio_title;
         }
 
-        public void setPerio_title(String perio_title) {
+        public void setPerio_title(Object perio_title) {
             this.perio_title = perio_title;
         }
 
-        public String getKeywords() {
+        public Object getKeywords() {
             return keywords;
         }
 
-        public void setKeywords(String keywords) {
+        public void setKeywords(Object keywords) {
             this.keywords = keywords;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -664,11 +664,11 @@ public class JournalDetailBean {
             this.op = op;
         }
 
-        public String getClass_type() {
+        public Object getClass_type() {
             return class_type;
         }
 
-        public void setClass_type(String class_type) {
+        public void setClass_type(Object class_type) {
             this.class_type = class_type;
         }
 
@@ -734,139 +734,139 @@ public class JournalDetailBean {
                  * perio_title : 计算机应用
                  */
 
-                private String publish_year;
-                private String trans_title;
-                private String issue_id;
-                private String show_issue_num;
-                private String page_cnt;
-                private String issue_num;
-                private String perio_id;
-                private String orig_catalog;
-                private String volume;
-                private String catalog_url;
-                private String total_issue;
-                private String special_title;
-                private String issue_cover;
-                private String id;
-                private String perio_title;
+                private Object publish_year;
+                private Object trans_title;
+                private Object issue_id;
+                private Object show_issue_num;
+                private Object page_cnt;
+                private Object issue_num;
+                private Object perio_id;
+                private Object orig_catalog;
+                private Object volume;
+                private Object catalog_url;
+                private Object total_issue;
+                private Object special_title;
+                private Object issue_cover;
+                private Object id;
+                private Object perio_title;
 
-                public String getPublish_year() {
+                public Object getPublish_year() {
                     return publish_year;
                 }
 
-                public void setPublish_year(String publish_year) {
+                public void setPublish_year(Object publish_year) {
                     this.publish_year = publish_year;
                 }
 
-                public String getTrans_title() {
+                public Object getTrans_title() {
                     return trans_title;
                 }
 
-                public void setTrans_title(String trans_title) {
+                public void setTrans_title(Object trans_title) {
                     this.trans_title = trans_title;
                 }
 
-                public String getIssue_id() {
+                public Object getIssue_id() {
                     return issue_id;
                 }
 
-                public void setIssue_id(String issue_id) {
+                public void setIssue_id(Object issue_id) {
                     this.issue_id = issue_id;
                 }
 
-                public String getShow_issue_num() {
+                public Object getShow_issue_num() {
                     return show_issue_num;
                 }
 
-                public void setShow_issue_num(String show_issue_num) {
+                public void setShow_issue_num(Object show_issue_num) {
                     this.show_issue_num = show_issue_num;
                 }
 
-                public String getPage_cnt() {
+                public Object getPage_cnt() {
                     return page_cnt;
                 }
 
-                public void setPage_cnt(String page_cnt) {
+                public void setPage_cnt(Object page_cnt) {
                     this.page_cnt = page_cnt;
                 }
 
-                public String getIssue_num() {
+                public Object getIssue_num() {
                     return issue_num;
                 }
 
-                public void setIssue_num(String issue_num) {
+                public void setIssue_num(Object issue_num) {
                     this.issue_num = issue_num;
                 }
 
-                public String getPerio_id() {
+                public Object getPerio_id() {
                     return perio_id;
                 }
 
-                public void setPerio_id(String perio_id) {
+                public void setPerio_id(Object perio_id) {
                     this.perio_id = perio_id;
                 }
 
-                public String getOrig_catalog() {
+                public Object getOrig_catalog() {
                     return orig_catalog;
                 }
 
-                public void setOrig_catalog(String orig_catalog) {
+                public void setOrig_catalog(Object orig_catalog) {
                     this.orig_catalog = orig_catalog;
                 }
 
-                public String getVolume() {
+                public Object getVolume() {
                     return volume;
                 }
 
-                public void setVolume(String volume) {
+                public void setVolume(Object volume) {
                     this.volume = volume;
                 }
 
-                public String getCatalog_url() {
+                public Object getCatalog_url() {
                     return catalog_url;
                 }
 
-                public void setCatalog_url(String catalog_url) {
+                public void setCatalog_url(Object catalog_url) {
                     this.catalog_url = catalog_url;
                 }
 
-                public String getTotal_issue() {
+                public Object getTotal_issue() {
                     return total_issue;
                 }
 
-                public void setTotal_issue(String total_issue) {
+                public void setTotal_issue(Object total_issue) {
                     this.total_issue = total_issue;
                 }
 
-                public String getSpecial_title() {
+                public Object getSpecial_title() {
                     return special_title;
                 }
 
-                public void setSpecial_title(String special_title) {
+                public void setSpecial_title(Object special_title) {
                     this.special_title = special_title;
                 }
 
-                public String getIssue_cover() {
+                public Object getIssue_cover() {
                     return issue_cover;
                 }
 
-                public void setIssue_cover(String issue_cover) {
+                public void setIssue_cover(Object issue_cover) {
                     this.issue_cover = issue_cover;
                 }
 
-                public String getId() {
+                public Object getId() {
                     return id;
                 }
 
-                public void setId(String id) {
+                public void setId(Object id) {
                     this.id = id;
                 }
 
-                public String getPerio_title() {
+                public Object getPerio_title() {
                     return perio_title;
                 }
 
-                public void setPerio_title(String perio_title) {
+                public void setPerio_title(Object perio_title) {
                     this.perio_title = perio_title;
                 }
             }
@@ -885,52 +885,52 @@ public class JournalDetailBean {
          * isHidden : false
          */
 
-        private String id;
-        private String showName;
-        private String name;
-        private String pId;
-        private String value;
+        private Object id;
+        private Object showName;
+        private Object name;
+        private Object pId;
+        private Object value;
         private int count;
-        private String facetField;
-        private String isHidden;
+        private Object facetField;
+        private Object isHidden;
 
-        public String getId() {
+        public Object getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(Object id) {
             this.id = id;
         }
 
-        public String getShowName() {
+        public Object getShowName() {
             return showName;
         }
 
-        public void setShowName(String showName) {
+        public void setShowName(Object showName) {
             this.showName = showName;
         }
 
-        public String getName() {
+        public Object getName() {
             return name;
         }
 
-        public void setName(String name) {
+        public void setName(Object name) {
             this.name = name;
         }
 
-        public String getPId() {
+        public Object getPId() {
             return pId;
         }
 
-        public void setPId(String pId) {
+        public void setPId(Object pId) {
             this.pId = pId;
         }
 
-        public String getValue() {
+        public Object getValue() {
             return value;
         }
 
-        public void setValue(String value) {
+        public void setValue(Object value) {
             this.value = value;
         }
 
@@ -942,19 +942,19 @@ public class JournalDetailBean {
             this.count = count;
         }
 
-        public String getFacetField() {
+        public Object getFacetField() {
             return facetField;
         }
 
-        public void setFacetField(String facetField) {
+        public void setFacetField(Object facetField) {
             this.facetField = facetField;
         }
 
-        public String getIsHidden() {
+        public Object getIsHidden() {
             return isHidden;
         }
 
-        public void setIsHidden(String isHidden) {
+        public void setIsHidden(Object isHidden) {
             this.isHidden = isHidden;
         }
     }

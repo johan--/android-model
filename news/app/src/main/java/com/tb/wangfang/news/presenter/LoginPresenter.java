@@ -74,7 +74,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                         mView.showCountDown(countDown);
                     }
                 } else {
-
+                    handler.removeMessages(0);
                     mView.showCountDown(countDown);
                     countDown = 60;
                     mView.setCodeBtnEnable();
@@ -208,7 +208,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                     mView.showDialoge(id, type + "");
                 } else {
-                    preferencesHelps.storeLoginInfo(userRolesListResponse,  id);
+                    preferencesHelps.storeLoginInfo(userRolesListResponse, id);
                     preferencesHelps.setLoginMethod("2");
                     mView.loginSuccess(userRolesListResponse);
                 }

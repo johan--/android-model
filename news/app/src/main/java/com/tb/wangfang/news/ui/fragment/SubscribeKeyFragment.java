@@ -71,12 +71,13 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
 
     private int pageNum = 1;
     private List<SubscribeKeywordMessage> keyWords;
-    private List<SubscribeDocListResponse.SubscribeDocMessage> DocLists;
+
     private SubscribeLineWordAdapter adapter;
     private KeyWordArticleAdapter docAdapter;
     private MaterialDialog dialog;
     private TextView[] flowTvs;
     private SubscribeKeywordMessage currentKeywordMessage;
+    private List<SubscribeDocListResponse.SubscribeDocMessage> SubscribeDocMessages = new ArrayList<>();
 
     public SubscribeKeyFragment() {
         // Required empty public constructor
@@ -106,16 +107,16 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
                 adapter.setSelectedPosition(position);
                 adapter.notifyDataSetChanged();
                 rvKeyWord.smoothScrollToPosition(position);
-
-                getDocList(adapter.getData().get(position));
+                pageNum = 1;
                 currentKeywordMessage = adapter.getData().get(position);
+                getDocList(adapter.getData().get(position));
+
             }
         });
 
         rvKeyWord.setAdapter(adapter);
         rvDoc.setLayoutManager(new LinearLayoutManager(getActivity()));
-        DocLists = new ArrayList<>();
-        docAdapter = new KeyWordArticleAdapter(DocLists);
+        docAdapter = new KeyWordArticleAdapter(SubscribeDocMessages);
         docAdapter.setOnLoadMoreListener(this, rvDoc);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         docAdapter.setPreLoadNumber(2);
@@ -133,9 +134,10 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
         docAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Log.e(TAG, "onItemClick: position" + position);
                 Intent intent = new Intent(getActivity(), DocDetailActivity.class);
-                intent.putExtra(Constants.ARTICLE_TYPE, DocLists.get(position).getDocuType());
-                intent.putExtra(Constants.ARTICLE_ID, DocLists.get(position).getDocId());
+                intent.putExtra(Constants.ARTICLE_TYPE, docAdapter.getData().get(position).getDocuType());
+                intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getDocId());
                 startActivity(intent);
             }
         });
@@ -165,8 +167,15 @@ public class SubscribeKeyFragment extends SimpleFragment implements BaseQuickAda
                 docAdapter.setEnableLoadMore(true);
 
                 docAdapter.loadMoreComplete();
-                DocLists = response.getSubscribeDocList();
-                docAdapter.addData(DocLists);
+
+                if (pageNum == 1) {
+                    SubscribeDocMessages.clear();
+
+                    SubscribeDocMessages.addAll(response.getSubscribeDocList());
+                } else {
+                    SubscribeDocMessages.addAll(response.getSubscribeDocList());
+                }
+                docAdapter.setNewData(SubscribeDocMessages);
                 if (!response.getHasMore()) {
                     docAdapter.loadMoreEnd(true);
                 }

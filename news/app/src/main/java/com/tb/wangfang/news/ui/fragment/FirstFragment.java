@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,6 @@ import com.tb.wangfang.news.presenter.FirstPresenter;
 import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.MianSearchActivity;
 import com.tb.wangfang.news.ui.activity.WebViewActivity;
-
 import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
 import com.tb.wangfang.news.widget.VerticalTextview;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
@@ -37,7 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 import static com.tb.wangfang.news.app.App.SCREEN_HEIGHT;
 import static me.iwf.photopicker.PhotoPicker.REQUEST_CODE;
@@ -63,15 +62,16 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
 
     VerticalTextview tvLastNews;
 
-    TextView tvLastNewsMore;
+
     int halfScreen = SCREEN_HEIGHT / 2;
     @BindView(R.id.iv_qc_code)
     ImageView ivQcCode;
-    Unbinder unbinder;
+
 
     private MainPageAdapter mainPageAdapter;
     private Banner banner;
     private int page = 1;
+    private RelativeLayout rlLastNews;
 
 
     public static FirstFragment newInstance() {
@@ -94,7 +94,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         tvJournal = (TextView) view.findViewById(R.id.tv_journal);
         ivNewsType = (ImageView) view.findViewById(R.id.iv_news_type);
         tvLastNews = (VerticalTextview) view.findViewById(R.id.tv_last_news);
-        tvLastNewsMore = (TextView) view.findViewById(R.id.tv_last_news_more);
+        rlLastNews = (RelativeLayout) view.findViewById(R.id.rl_last_news);
         banner = (Banner) view.findViewById(R.id.banner);
         llTopSearch.setOnClickListener(this);
         tvSpecial.setOnClickListener(this);
@@ -185,24 +185,30 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     }
 
     @Override
-    public void showLastNews(SerMainContent.ContentResponse response) {
-//        tvLastNews.setTextList(reply.getLastNewsList());
-//        tvLastNews.setTextStillTime(3000);//设置停留时长间隔
-//        tvLastNews.setAnimTime(300);//设置进入和退出的时间间隔
-//
-//        tvLastNews.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                Toast.makeText(getActivity(), "点击了 : " + reply.getLastNews(position).getLastNewsLink(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        tvLastNews.setOnItemUpdataListener(new VerticalTextview.onItemUpdataListener() {
-//            @Override
-//            public void onItemUpdata(int position) {
-//                ivNewsType.setImageResource(R.mipmap.red_stroke_fruit);
-//            }
-//        });
-//        tvLastNews.startAutoScroll();
+    public void showLastNews(final SerMainContent.ContentResponse response) {
+        if (response.getContentsList().size() > 0) {
+            rlLastNews.setVisibility(View.VISIBLE);
+        } else {
+            rlLastNews.setVisibility(View.GONE);
+        }
+        tvLastNews.setTextList(response.getContentsList());
+        tvLastNews.setTextStillTime(3000);//设置停留时长间隔
+        tvLastNews.setAnimTime(300);//设置进入和退出的时间间隔
+
+        tvLastNews.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Content.ContentDetail contentBean = response.getContents(position);
+                WebViewActivity.startThisFromActivity(getActivity(), contentBean.getUrl(), contentBean.getTitle(), "0");
+            }
+        });
+        tvLastNews.setOnItemUpdataListener(new VerticalTextview.onItemUpdataListener() {
+            @Override
+            public void onItemUpdata(int position) {
+                ivNewsType.setImageResource(R.mipmap.red_stroke_fruit);
+            }
+        });
+        tvLastNews.startAutoScroll();
     }
 
     @Override
@@ -218,7 +224,6 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
             bean.setExcerpt(response.getContents(i).getExcerpt());
             bean.setImages(response.getContents(i).getImagesList());
             bean.setCategories(response.getContents(i).getCategoriesList());
-//            bean.setItemType(response.getContents(i).getTags(0).getId());
             String soucre = response.getContents(i).getCustomFieldsMap().get("来源");
             String style = response.getContents(i).getCustomFieldsMap().get("显示样式");
             bean.setSource(soucre);
@@ -226,18 +231,21 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
             switch (style) {
                 case "1小图":
                     bean.setItemType(Constants.TYPE_INSERT_2);
+                    listContent.add(bean);
                     break;
                 case "1大图":
                     bean.setItemType(Constants.TYPE_INSERT_1);
+                    listContent.add(bean);
 
                     break;
                 case "3小图":
                     bean.setItemType(Constants.TYPE_INSERT_3);
+                    listContent.add(bean);
                     break;
                 default:
                     break;
             }
-            listContent.add(bean);
+
         }
 
         mainPageAdapter.addData(listContent);
@@ -289,7 +297,14 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
                 break;
             case R.id.tv_special:
                 Intent intent2 = new Intent(getActivity(), MainDetailActivity.class);
+                intent2.putExtra("type", MainDetailActivity.TYPE_ONE);
                 getActivity().startActivity(intent2);
+                break;
+            case R.id.tv_meeting:
+                //每周优选
+                Intent intent3 = new Intent(getActivity(), MainDetailActivity.class);
+                intent3.putExtra("type", MainDetailActivity.TYPE_THREE);
+                getActivity().startActivity(intent3);
                 break;
         }
     }
@@ -325,6 +340,8 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
     }
 
     public class GlideImageLoader extends ImageLoader {
+
+
         public GlideImageLoader() {
         }
 
@@ -340,14 +357,21 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
             //Glide 加载图片简单用法
 
             Content.ContentDetail detail = (Content.ContentDetail) path;
-            String url = detail.getImages(0).getSizesMap().get("full").getSourceUrl();
-            final String title = detail.getTitle();
-            final String webUrl = detail.getUrl();
-            Glide.with(context).load(url).into(imageView);
+            String webUrl = "";
+            String title = "";
+            if (detail.getImagesCount() > 0) {
+                String url = detail.getImages(0).getSizesMap().get("full").getSourceUrl();
+                title = detail.getTitle();
+                webUrl = detail.getUrl();
+                Glide.with(context).load(url).into(imageView);
+            }
+
+            final String finalWebUrl = webUrl;
+            final String finalTitle = title;
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    WebViewActivity.startThisFromActivity(getActivity(), webUrl, title, "");
+                    WebViewActivity.startThisFromActivity(getActivity(), finalWebUrl, finalTitle, "");
                 }
             });
         }

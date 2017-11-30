@@ -199,7 +199,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         app:tabBackground="@color/divide"
-        app:tabGravity="fill"
+        app:tabGravity="center"
         app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabMinWidth="90dp"
         app:tabSelectedTextColor="@color/colorPrimaryDark"

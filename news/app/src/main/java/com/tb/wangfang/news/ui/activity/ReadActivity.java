@@ -41,4 +41,12 @@ public class ReadActivity extends SimpleActivity {
             ToastUtil.shortShow("手机暂不支持阅读");
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+
 }

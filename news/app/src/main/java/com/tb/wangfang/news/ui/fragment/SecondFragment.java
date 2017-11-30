@@ -180,7 +180,6 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     public void deleteHistory() {
 
         new MaterialDialog.Builder(getActivity())
-                .title("提示")
                 .content("确定清空检索历史")
                 .positiveText("确定")
                 .negativeText("取消").onPositive(new MaterialDialog.SingleButtonCallback() {

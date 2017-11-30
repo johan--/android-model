@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="35dp"
-    android:background="@drawable/ripple_white_bg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="34dp">
+        android:layout_height="34dp"
+        android:background="@drawable/ripple_white_bg">
 
         <TextView
             android:id="@+id/tv_item"

@@ -76,11 +76,16 @@ public class FileUtil {
         if (!encryFolder.exists()) {
             encryFolder.mkdirs();
         }
-        if (checkIsExist(fileName, byteString.toByteArray().length)) {
+        if (checkIsExist(fileName, byteString.size())) {
 
             encryptUtils.decry(encryString, privateString);
             return true;
         } else {
+            File privateFile = new File(privateString);
+            if (privateFile.exists()) {
+                privateFile.delete();
+            }
+
             InputStream is = byteString.newInput();
             FileOutputStream fileOutputStream = null;
 
@@ -125,9 +130,12 @@ public class FileUtil {
     }
 
     private static boolean checkIsExist(String fileName, int size) {
+        Log.e(TAG, "checkIsExist: size" + size);
+
         String fileString = getEncryFilePath(fileName);
         File file = new File(fileString);
         long s = file.length();
+        Log.e(TAG, "checkIsExist: file.length" + file.length());
         int m = size;
         if (s == m) {
             Log.e(TAG, "checkIsExist: sda");
@@ -144,6 +152,7 @@ public class FileUtil {
 
     public static boolean saveBitmap(Bitmap bitmap, String path) {
         try {
+
             OutputStream os = new FileOutputStream(path);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
             os.close();

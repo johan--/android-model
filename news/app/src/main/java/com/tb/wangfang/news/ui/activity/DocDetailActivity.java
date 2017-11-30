@@ -56,6 +56,7 @@ import com.wanfangdata.grpcservice.message.jmessage.SendTextMessageServiceGrpc;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -886,7 +887,7 @@ public class DocDetailActivity extends SimpleActivity {
     private void goRead() {
         dialog = new MaterialDialog.Builder(DocDetailActivity.this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
         dialog.show();
-
+        final long s = System.currentTimeMillis();
         Single.create(new SingleOnSubscribe<ReadResponse>() {
             @Override
             public void subscribe(SingleEmitter<ReadResponse> e) throws Exception {
@@ -936,7 +937,6 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void down(final ReadResponse readResponse) {
-
         String fileName = readResponse.getResourceFile().getFileName();
         String[] s = fileName.split("\\.");
         String fileType = "";
@@ -993,6 +993,11 @@ public class DocDetailActivity extends SimpleActivity {
                 BitmapDrawable bitmap = (BitmapDrawable) getResources().getDrawable(R.mipmap.ic_launcher);
                 Bitmap img = bitmap.getBitmap();
                 String path = FileUtil.getEncryFilePath("ic_launcher.png");
+                String folder = FileUtil.getEncryFolderPath("ic_launcher.png");
+                File folderFile = new File(folder);
+                if (!folderFile.exists()) {
+                    folderFile.mkdirs();
+                }
                 boolean b = FileUtil.saveBitmap(img, path);
                 if (b) {
                     e.onSuccess(path);

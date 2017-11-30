@@ -71,6 +71,7 @@ public class FindPassWordActivity1 extends SimpleActivity {
                     showCountDown(countDown);
                 } else {
                     tvGetCode.setEnabled(true);
+                    handler.removeMessages(0);
                     showCountDown(countDown);
                     countDown = 60;
                 }

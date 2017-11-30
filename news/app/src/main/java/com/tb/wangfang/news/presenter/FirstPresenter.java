@@ -42,53 +42,56 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
     @Override
     public void getBanner(String userId) {
 
-//        Single.create(new SingleOnSubscribe<SerMainContent.ContentResponse>() {
-//            @Override
-//            public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
-//                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
-//                Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(1).setPageSize(20).build();
-////                Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(1).setPageSize(20).setTag(0, Constants.TYPE_BANNER_4 + "").build();
-//                SerMainContent.ContentResponse reply = stub.searchContent(request);
-//                e.onSuccess(reply);
-//
-//            }
-//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<SerMainContent.ContentResponse>() {
-//            @Override
-//            public void onSuccess(SerMainContent.ContentResponse Reply) {
-//                Log.d(TAG, "onSuccess: " + Reply.toString());
-//
-//                mView.showSpanner(Reply.getContentsList());
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                Log.d(TAG, "onError: " + e.getMessage());
-//            }
-//        });
+        Single.create(new SingleOnSubscribe<SerMainContent.ContentResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
+                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
+                Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(1).setPageSize(20).addCategories("轮播").build();
+                SerMainContent.ContentResponse reply = stub.searchContent(request);
+                e.onSuccess(reply);
+
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<SerMainContent.ContentResponse>() {
+            @Override
+            public void onSuccess(SerMainContent.ContentResponse Reply) {
+                Log.d(TAG, "onSuccess: " + Reply.toString());
+
+                mView.showSpanner(Reply.getContentsList());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
     }
 
     @Override
     public void getLastNews() {
-//        Single.create(new SingleOnSubscribe<AllLastNews.LastNewsReply>() {
-//            @Override
-//            public void subscribe(SingleEmitter<AllLastNews.LastNewsReply> e) throws Exception {
-//                HomePageServiceGrpc.HomePageServiceBlockingStub stub = HomePageServiceGrpc.newBlockingStub(managedChannel);
-//                AllLastNews.LastNewsRequest request = AllLastNews.LastNewsRequest.newBuilder().build();
-//                AllLastNews.LastNewsReply reply = stub.getAllLastNews(request);
-//                e.onSuccess(reply);
-//
-//            }
-//        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<AllLastNews.LastNewsReply>() {
-//            @Override
-//            public void onSuccess(AllLastNews.LastNewsReply Reply) {
-//                mView.showLastNews(Reply);
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                Log.d(TAG, "onError: " + e.getMessage());
-//            }
-//        });
+
+        Single.create(new SingleOnSubscribe<SerMainContent.ContentResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
+                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
+                Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(1).setPageSize(20).addCategories("最新资讯").build();
+                SerMainContent.ContentResponse reply = stub.searchContent(request);
+                e.onSuccess(reply);
+
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<SerMainContent.ContentResponse>() {
+            @Override
+            public void onSuccess(SerMainContent.ContentResponse Reply) {
+                Log.d(TAG, "onSuccess: " + Reply.toString());
+
+                mView.showLastNews(Reply);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        });
+
 
     }
 
@@ -98,7 +101,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
             @Override
             public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
                 ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
-                Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(page).setPageSize(20).build();
+                Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(page).setPageSize(20).addCategories("首页动态").build();
                 SerMainContent.ContentResponse reply = stub.searchContent(request);
                 e.onSuccess(reply);
 

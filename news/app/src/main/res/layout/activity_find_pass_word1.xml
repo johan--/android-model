@@ -47,8 +47,8 @@
             android:layout_marginLeft="16.5dp"
             android:background="@null"
             android:hint="请输入手机号"
+            android:lines="1"
             android:paddingLeft="4dp"
-
             android:shadowColor="@color/black"
             android:textColor="#333"
             android:textColorHint="#ccc"
@@ -77,7 +77,7 @@
             android:layout_marginLeft="16.5dp"
             android:background="@null"
             android:hint="请输入验证码"
-
+            android:lines="1"
             android:paddingLeft="4dp"
             android:shadowColor="@color/black"
             android:textColor="#333"

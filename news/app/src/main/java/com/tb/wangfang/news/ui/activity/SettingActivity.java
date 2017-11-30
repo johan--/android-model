@@ -24,6 +24,8 @@ import com.wanfang.personal.LoginOutRequest;
 import com.wanfang.personal.LoginOutResponse;
 import com.wanfang.personal.PersonalCenterServiceGrpc;
 
+import java.io.File;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -187,7 +189,7 @@ public class SettingActivity extends SimpleActivity {
             public void onSuccess(LoginOutResponse loginOutResponse) {
                 dialog.dismiss();
                 PreferencesHelper.setLoginState(false);
-
+                deletePrivateCache();
                 finish();
 //                App.getInstance().exitApp();
             }
@@ -198,5 +200,11 @@ public class SettingActivity extends SimpleActivity {
                 ToastUtil.show("服务器错误");
             }
         });
+    }
+
+    private void deletePrivateCache() {
+        String PrivateFolder = getFilesDir().getAbsolutePath();
+        File file = new File(PrivateFolder);
+        file.delete();
     }
 }

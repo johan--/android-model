@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tb.wangfang.news.R;
+import com.wanfang.main.Content;
 
 import java.util.List;
 
@@ -12,13 +13,13 @@ import java.util.List;
  * Created by tangbin on 2017/9/11.
  */
 
-public class MainPageDetailAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
-    public MainPageDetailAdapter(@Nullable List<String> data) {
+public class MainPageDetailAdapter extends BaseQuickAdapter<Content.ContentDetail, BaseViewHolder> {
+    public MainPageDetailAdapter(@Nullable List<Content.ContentDetail> data) {
         super(R.layout.item_mian_detail, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, String item) {
-        helper.setText(R.id.tv_title, item);
+    protected void convert(BaseViewHolder helper, Content.ContentDetail item) {
+        helper.setText(R.id.tv_title, item.getTitle());
     }
 }

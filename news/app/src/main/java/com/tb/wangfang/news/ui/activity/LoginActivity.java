@@ -215,20 +215,20 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     String graphCode = editGraphCode.getText().toString();
                     if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(account.trim())) {
                         if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
-                            if (!TextUtils.isEmpty(graphCode) && !TextUtils.isEmpty(graphCode.trim())) {
-                                if (graphCode.equals(CodeUtils.getInstance().getCode())) {
+//                            if (!TextUtils.isEmpty(graphCode) && !TextUtils.isEmpty(graphCode.trim())) {
+//                                if (graphCode.equals(CodeUtils.getInstance().getCode())) {
                                     mdialog = new MaterialDialog.Builder(this)
                                             .title("登录中")
                                             .progress(true, 0)
                                             .progressIndeterminateStyle(true)
                                             .show();
                                     mPresenter.AccountLogin(account, passWord);
-                                } else {
-                                    ToastUtil.show("图形码不正确，请重新输入");
-                                }
-                            } else {
-                                ToastUtil.show("请输入图形验证码");
-                            }
+//                                } else {
+//                                    ToastUtil.show("图形码不正确，请重新输入");
+//                                }
+//                            } else {
+//                                ToastUtil.show("请输入图形验证码");
+//                            }
                         } else {
                             ToastUtil.show("请输入密码");
                         }

@@ -25,6 +25,7 @@ import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.bean.JournalDetailBean;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.fragment.JournalPeriodFragment;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.wanfang.subscribe.CancelSubscribeRequest;
 import com.wanfang.subscribe.CancelSubscribeResponse;
@@ -212,7 +213,7 @@ public class JournalActivity extends SimpleActivity {
                     public void onError(Call call, Exception e, int id) {
                         Log.d(TAG, "onError: " + e.getMessage());
                         ToastUtil.show("服务器异常");
-                        dialog.dismiss();
+//                        dialog.dismiss();
                     }
 
                     @Override
@@ -236,22 +237,22 @@ public class JournalActivity extends SimpleActivity {
                     years.add(bean.getCommon_year().get(i));
                 }
             }
-            if (years.size() > 3) {
-                tlTime.setMinimumWidth(App.SCREEN_WIDTH / 4);
+            if (years.size() < 4) {
+                tlTime.setMinimumWidth(App.SCREEN_WIDTH / years.size());
                 tlTime.setTabMode(TabLayout.MODE_SCROLLABLE);
-            } else if (years.size() == 0 || years.size() == 1) {
-                tlTime.setTabMode(TabLayout.MODE_FIXED);
-
+            } else {
+                tlTime.setTabMode(TabLayout.MODE_SCROLLABLE);
+                tlTime.setMinimumWidth(App.SCREEN_WIDTH / 4);
             }
 
             yearFragment = new JournalPeriodFragment[years.size()];
             mTabTitle = new String[years.size()];
             for (int i = 0; i < years.size(); i++) {
-                tlTime.addTab(tlTime.newTab().setText(years.get(i).getShowName()));
+                tlTime.addTab(tlTime.newTab().setText(SystemUtil.getStringFromJsonarray(years.get(i).getShowName())));
                 yearFragment[i] = new JournalPeriodFragment();
-                yearFragment[i].setYear(years.get(i).getShowName());
+                yearFragment[i].setYear(SystemUtil.getStringFromJsonarray(years.get(i).getShowName()));
                 yearFragment[i].setJournalId(journalId);
-                mTabTitle[i] = years.get(i).getShowName();
+                mTabTitle[i] = SystemUtil.getStringFromJsonarray(years.get(i).getShowName());
             }
             ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), yearFragment);
             vpPeriod.setAdapter(viewPageAdapter);
@@ -283,11 +284,11 @@ public class JournalActivity extends SimpleActivity {
 
         if (bean != null && bean.getData() != null && bean.getData().size() > 0) {
             tv_chiness_name.setText(bean.getData().get(0).getPerio_title02().toString());
-            tv_english_name.setText(bean.getData().get(0).getPinyin_title());
-            tv_edit_aprtment.setText(bean.getData().get(0).getEf_name());
-            tv_international_num.setText(bean.getData().get(0).getIssn());
-            tv_china_num.setText(bean.getData().get(0).getCn());
-            tv_period.setText(bean.getData().get(0).getPublish_cycle());
+            tv_english_name.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPinyin_title()));
+            tv_edit_aprtment.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getEf_name()));
+            tv_international_num.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssn()));
+            tv_china_num.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getCn()));
+            tv_period.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPublish_cycle()));
         }
     }
 
@@ -295,11 +296,11 @@ public class JournalActivity extends SimpleActivity {
         String imgUrl = "http://new.wanfangdata.com.cn/images/PeriodicalImages/" + journalId + "/" + journalId + ".jpg";
         Glide.with(this).load(imgUrl).into(ivBook);
         if (bean != null && bean.getData() != null && bean.getData().size() > 0) {
-            tvTitle.setText(bean.getData().get(0).getPerio_title02());
-            tvJournalName.setText(bean.getData().get(0).getPerio_title02());
-            tvNationalNum.setText(bean.getData().get(0).getIssn());
-            tvChinaNum.setText(bean.getData().get(0).getCn());
-            tvPeriod.setText(bean.getData().get(0).getPublish_cycle());
+            tvTitle.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title02()));
+            tvJournalName.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title02()));
+            tvNationalNum.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssn()));
+            tvChinaNum.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getCn()));
+            tvPeriod.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPublish_cycle()));
         }
 
 

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/divide"
     android:orientation="vertical"
     tools:context="com.tb.wangfang.news.ui.fragment.SubscribeKeyFragment">
 
@@ -9,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageView

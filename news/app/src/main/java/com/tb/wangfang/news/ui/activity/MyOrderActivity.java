@@ -76,10 +76,11 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
                 String productDetail = ((MyOrdersResponse.Result) adapter.getData().get(position)).getProductDetail();
                 if (!TextUtils.isEmpty(productDetail) && productDetail.contains("_")) {
                     String[] contents = productDetail.split("_");
-                    if (contents.length==2){
+                    if (contents.length == 2) {
                         Intent intent = new Intent(MyOrderActivity.this, DocDetailActivity.class);
                         intent.putExtra(Constants.ARTICLE_ID, contents[1]);
                         intent.putExtra(Constants.ARTICLE_TYPE, contents[0]);
+                        startActivity(intent);
                     }
                 }
 
@@ -104,7 +105,7 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
                 .subscribeWith(new DisposableSingleObserver<MyOrdersResponse>() {
                     @Override
                     public void onSuccess(MyOrdersResponse myOrdersResponse) {
-                        Log.d(TAG, "onSuccess: " + myOrdersResponse.getHasMore());
+                        Log.d(TAG, "onSuccess: " + myOrdersResponse.toString());
                         myOrderAdapter.addData(myOrdersResponse.getResultsList());
                         swipeLayout.setEnabled(true);
                         swipeLayout.setRefreshing(false);

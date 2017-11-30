@@ -18,8 +18,5 @@
         android:text="寻找更多感兴趣的内容"
         android:textColor="@color/colorPrimaryDark" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/divide" />
+
 </LinearLayout>

@@ -29,7 +29,7 @@
             android:drawableTop="@mipmap/hot_icon"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:text="专题聚焦"
+            android:text="科技动态"
             android:textColor="@color/text_table"
             android:textSize="12sp" />
 
@@ -44,7 +44,7 @@
             android:drawableTop="@mipmap/quick_see"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:text="科技动态"
+            android:text="基金会议"
             android:textColor="@color/text_table"
             android:textSize="12sp" />
 
@@ -59,7 +59,7 @@
             android:drawableTop="@mipmap/you_love_icon"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:text="会议信息"
+            android:text="每周优选"
             android:textColor="@color/text_table"
             android:textSize="12sp" />
 
@@ -85,8 +85,11 @@
         android:background="@color/frame_line" />
 
     <RelativeLayout
+        android:id="@+id/rl_last_news"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/iv_last_news_icon"
@@ -113,32 +116,13 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="12.5dp"
             android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@+id/tv_last_news_more"
+
             android:layout_toRightOf="@id/iv_news_type"
             android:ellipsize="end"
             android:lines="1"
             android:text="西安数图研讨班会议通知"
             android:textColor="#4c566c" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="10dp"
-
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/tv_last_news_more"
-            android:background="#d7d7d7"></View>
-
-        <TextView
-            android:id="@+id/tv_last_news_more"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="16.5dp"
-            android:text="更多"
-            android:textColor="#999999" />
     </RelativeLayout>
 
     <View
