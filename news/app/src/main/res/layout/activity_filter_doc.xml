@@ -88,9 +88,13 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/ms_selet_one"
-                       />
+                        android:layout_toRightOf="@id/ms_selet_one" />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divide" />
 
                 <RelativeLayout
                     android:id="@+id/rl_selet_two"
@@ -114,9 +118,13 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/ms_selet_two"
-                      />
+                        android:layout_toRightOf="@id/ms_selet_two" />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divide" />
 
                 <RelativeLayout
                     android:id="@+id/rl_selet_three"
@@ -143,9 +151,13 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/ms_selet_three"
-                       />
+                        android:layout_toRightOf="@id/ms_selet_three" />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divide" />
 
                 <RelativeLayout
                     android:id="@+id/rl_selet_four"
@@ -171,12 +183,16 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/ms_selet_four"
-                       />
+                        android:layout_toRightOf="@id/ms_selet_four" />
                 </RelativeLayout>
 
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divide" />
 
             <com.tb.wangfang.news.widget.FlowLayout
                 android:id="@+id/fl_condition"

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -28,11 +29,14 @@ import com.tb.wangfang.news.base.contract.MainContract;
 import com.tb.wangfang.news.component.UpdateService;
 import com.tb.wangfang.news.presenter.MainPresenter;
 import com.tb.wangfang.news.ui.fragment.FirstFragment;
+import com.tb.wangfang.news.ui.fragment.FlashFragment;
 import com.tb.wangfang.news.ui.fragment.FourthFragment;
 import com.tb.wangfang.news.ui.fragment.SecondFragment;
 import com.tb.wangfang.news.ui.fragment.ThirdFragment;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -66,15 +70,29 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private String TAG = "MainActivity";
     private HuaweiApiClient mClient;
     private int prePosition = 0;
+    private Handler mHandler = new Handler();
 
     @Override
     protected int getLayout() {
+
         return R.layout.activity_main;
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final FlashFragment splashFragment = new FlashFragment();
+        final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fl_splash, splashFragment);
+        transaction.commit();
+        getWindow().getDecorView().post(new Runnable() {
+            @Override
+            public void run() {
+                mHandler.postDelayed(new DelayRunnable(MainActivity.this, splashFragment), 3000);
+            }
+        });
+//        mHandler.postDelayed(new DelayRunnable(this, splashFragment), 6000);
+
         if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
             initHuaweiPush(this);
         }
@@ -97,7 +115,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
         mPresenter.reLogin();
         initView();
-
 
 
 //        mPresenter.restorePersonnalMappingTable();
@@ -253,6 +270,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             case R.id.tv_home:
 
                 setState(0);
+
                 showHideFragment(mFragments[0], mFragments[prePosition]);
                 prePosition = 0;
                 break;
@@ -346,5 +364,36 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         }
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
+    }
+
+    static class DelayRunnable implements Runnable {
+        private WeakReference<Context> contextRef;
+        private WeakReference<FlashFragment> fragmentRef;
+
+
+        public DelayRunnable(Context context, FlashFragment splashFragment) {
+            contextRef = new WeakReference<Context>(context);
+            fragmentRef = new WeakReference<FlashFragment>(splashFragment);
+
+        }
+
+        @Override
+        public void run() {
+            FragmentActivity context = (FragmentActivity) contextRef.get();
+            if (context != null) {
+                FlashFragment splashFragment = fragmentRef.get();
+                if (splashFragment == null)
+                    return;
+                final android.support.v4.app.FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
+                transaction.remove(splashFragment);
+                transaction.commit();
+            }
+        }
     }
 }

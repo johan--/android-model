@@ -88,4 +88,5 @@ public interface ActivityComponent {
 
     void inject(AccountSecurityActivity accountSecurityActivity);
 
+
 }

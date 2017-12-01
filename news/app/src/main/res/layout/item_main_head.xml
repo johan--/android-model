@@ -9,7 +9,7 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="#8749"
+        android:background="@mipmap/banner_hold"
         app:indicator_height="4dp"
         app:indicator_width="18dp" />
 

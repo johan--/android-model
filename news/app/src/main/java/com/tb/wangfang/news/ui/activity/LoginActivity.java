@@ -217,12 +217,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                         if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
 //                            if (!TextUtils.isEmpty(graphCode) && !TextUtils.isEmpty(graphCode.trim())) {
 //                                if (graphCode.equals(CodeUtils.getInstance().getCode())) {
-                                    mdialog = new MaterialDialog.Builder(this)
-                                            .title("登录中")
-                                            .progress(true, 0)
-                                            .progressIndeterminateStyle(true)
-                                            .show();
-                                    mPresenter.AccountLogin(account, passWord);
+                            mdialog = new MaterialDialog.Builder(this)
+                                    .title("登录中")
+                                    .progress(true, 0)
+                                    .progressIndeterminateStyle(true)
+                                    .show();
+                            mPresenter.AccountLogin(account, passWord);
 //                                } else {
 //                                    ToastUtil.show("图形码不正确，请重新输入");
 //                                }

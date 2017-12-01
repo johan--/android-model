@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,8 +51,6 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
 
-import static com.tb.wangfang.news.R.id.tv_articl_name;
-
 public class PayOrderActivity extends SimpleActivity {
 
     @Inject
@@ -62,12 +62,42 @@ public class PayOrderActivity extends SimpleActivity {
     TextView tvTitle;
     @BindView(R.id.tv_article_title)
     TextView tvArticleTitle;
-    @BindView(tv_articl_name)
-    TextView tvArticlName;
     @BindView(R.id.tv_price)
     TextView tvPrice;
     @BindView(R.id.btn_pay)
     Button btnPay;
+    @BindView(R.id.tv_return)
+    ImageView tvReturn;
+    @BindView(R.id.tv_articl_name)
+    TextView tvArticlName;
+    @BindView(R.id.iv_remian_gou)
+    ImageView ivRemianGou;
+    @BindView(R.id.tv_remain_sum)
+    TextView tvRemainSum;
+    @BindView(R.id.tv_remain_insufficient)
+    TextView tvRemainInsufficient;
+    @BindView(R.id.iv_remain_green_gou)
+    ImageView ivRemainGreenGou;
+    @BindView(R.id.rl_remain)
+    RelativeLayout rlRemain;
+    @BindView(R.id.iv_sign_two)
+    ImageView ivSignTwo;
+    @BindView(R.id.iv_wanfang_gou)
+    ImageView ivWanfangGou;
+    @BindView(R.id.tv_wanfang_card_sum)
+    TextView tvWanfangCardSum;
+    @BindView(R.id.iv_wanfang_green_gou)
+    ImageView ivWanfangGreenGou;
+    @BindView(R.id.rl_wanfagn_card)
+    RelativeLayout rlWanfagnCard;
+    @BindView(R.id.iv_sign_three)
+    ImageView ivSignThree;
+    @BindView(R.id.rl_weichat)
+    RelativeLayout rlWeichat;
+    @BindView(R.id.iv_sign_four)
+    ImageView ivSignFour;
+    @BindView(R.id.rl_zhifubao)
+    RelativeLayout rlZhifubao;
     private IWXAPI api;
     private ReadResponse readResponse;
     private final String TAG = "PayOrderActivity";

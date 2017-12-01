@@ -50,6 +50,8 @@ public abstract class SimpleActivity extends SupportActivity {
         onViewCreated();
         App.getInstance().addActivity(this);
         initEventAndData();
+
+
     }
 
     protected void setToolBar(Toolbar toolbar, String title) {

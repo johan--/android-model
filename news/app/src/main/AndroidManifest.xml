@@ -261,7 +261,8 @@
         <activity android:name=".ui.activity.MessageCenterActivity" />
         <activity android:name=".ui.activity.WebViewActivity" />
         <activity android:name=".ui.activity.BindwanfangAccountActivity" />
-        <activity android:name=".ui.activity.ReadActivity"></activity>
+        <activity android:name=".ui.activity.ReadActivity" />
+        <activity android:name=".ui.activity.SplashActivity"></activity>
     </application>
 
 </manifest>

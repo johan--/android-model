@@ -74,7 +74,7 @@ public class WebViewActivity extends SimpleActivity {
         mWebView.getSettings().setSupportZoom(true);
         mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         mWebView.getSettings().setBuiltInZoomControls(true);
-        mWebView.getSettings().setUseWideViewPort(true);//设置此属性，可任意比例缩放
+        mWebView.getSettings().setUseWideViewPort(false);//设置此属性，可任意比例缩放
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setDefaultTextEncodingName("utf-8");
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);//不加上白边

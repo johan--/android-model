@@ -35,7 +35,7 @@
         android:layout_marginLeft="16.5dp"
         android:layout_marginTop="15dp"
         android:ellipsize="end"
-        android:maxLines="4"
+
         android:layout_marginRight="16.5dp"
         android:text=""
         android:textColor="@color/gray_text_6"
