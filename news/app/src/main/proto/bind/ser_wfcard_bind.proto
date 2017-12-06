@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "bind/msg_wfcard_bind.proto";
+
+package bind;
+option java_multiple_files = true;
+option java_package = "com.wanfang.bind";
+option objc_class_prefix = "WFPR";
+
+service WFCardBindService {
+    rpc CardBind (WFCardBindRequest) returns (WFCardBindResponse);
+    rpc GetWFCardBlance (WFCardBlanceRequest) returns (WfCardBlanceResponse);
+}

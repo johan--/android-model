@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
-import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
@@ -146,6 +145,14 @@ public class RegisterActivity extends SimpleActivity {
                 passWord = editPassword.getText().toString();
                 code = editSecurity.getText().toString();
                 if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userName.trim())) {
+                    try {
+                        Integer.parseInt(userName.trim());
+                        ToastUtil.shortShow("不能仅含数字或下划线");
+                    } catch (NumberFormatException e) {
+
+                    }
+
+
                     if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
                         if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {
                             if (AppUtil.isMobileNO(phone.trim())) {
@@ -317,7 +324,8 @@ public class RegisterActivity extends SimpleActivity {
                     PreferencesHelper.storeLoginInfo(response, passWord);
                     PreferencesHelper.setLoginMethod("0");
                     PreferencesHelper.setLoginState(true);
-                    RxBus.getDefault().post("bindSuccess");
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(intent);
                     finish();
                 }
 
@@ -444,9 +452,10 @@ public class RegisterActivity extends SimpleActivity {
                         PreferencesHelper.storeLoginInfo(userRolesListResponse, passWord);
                         PreferencesHelper.setLoginMethod("0");
                         ToastUtil.show("绑定成功");
-                        RxBus.getDefault().post("bindSuccess");
 
                         PreferencesHelper.setLoginState(true);
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        startActivity(intent);
                         finish();
                     }
                 }

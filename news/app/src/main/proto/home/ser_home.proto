@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "home/msg_home.proto"; // 搜索
+
+package home;
+option java_multiple_files = true;
+option java_package = "com.wanfang.home";
+option objc_class_prefix = "WFPR";
+
+service HomeService {
+    // 获取首页基金会议/科技动态列表
+    rpc GetHomeList (GetHomeListReqeust) returns (GetFoundListResponse);
+
+    // 获取最新期刊列表数据
+    rpc GetLastPerio (GetLastPerioRequest) returns (GetLastPerioResponse);
+}

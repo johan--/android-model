@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,7 +13,6 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
-import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
@@ -26,7 +26,6 @@ import com.wanfang.personal.ThirdPartyBindRequest;
 import com.wanfang.personal.ThirdPartyBindResponse;
 import com.wanfang.personal.ThirdPartyLoginRequest;
 import com.wanfang.personal.ThirdPartyType;
-
 
 import javax.inject.Inject;
 
@@ -202,9 +201,11 @@ public class BindwanfangAccountActivity extends SimpleActivity {
                     } else {
 
                         ToastUtil.show("绑定成功");
-                        RxBus.getDefault().post("bindSuccess");
+
                         preferencesHelper.setLoginState(true);
                         preferencesHelper.setLoginMethod("0");
+                        Intent intent = new Intent(BindwanfangAccountActivity.this, MainActivity.class);
+                        startActivity(intent);
                         finish();
                     }
                 }

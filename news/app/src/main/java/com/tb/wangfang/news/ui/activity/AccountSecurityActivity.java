@@ -71,7 +71,7 @@ public class AccountSecurityActivity extends SimpleActivity {
     }
 
 
-    @OnClick({R.id.tv_return, R.id.tv_account_bind, R.id.tv_alter_password, R.id.tv_qq_bind, R.id.tv_weichat_bind, R.id.tv_weibo_bind, R.id.btn_alter})
+    @OnClick({R.id.tv_return, R.id.tv_account_bind, R.id.tv_alter_password, R.id.tv_phone_bind, R.id.tv_email_bind, R.id.tv_qq_bind, R.id.tv_weichat_bind, R.id.tv_weibo_bind, R.id.btn_alter})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_return:
@@ -97,6 +97,10 @@ public class AccountSecurityActivity extends SimpleActivity {
                 state = 2;
                 llAccountSecurity.setVisibility(View.GONE);
                 llAlterPassword.setVisibility(View.VISIBLE);
+                break;
+            case R.id.tv_phone_bind:
+                break;
+            case R.id.tv_email_bind:
                 break;
             case R.id.tv_qq_bind:
                 break;

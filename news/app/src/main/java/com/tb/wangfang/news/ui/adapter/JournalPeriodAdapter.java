@@ -2,6 +2,7 @@ package com.tb.wangfang.news.ui.adapter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -57,7 +58,12 @@ public class JournalPeriodAdapter extends BaseQuickAdapter<JournalYearBean.DataB
             helper.getView(tv_period_name).setVisibility(View.VISIBLE);
             helper.setText(R.id.tv_period_name, SystemUtil.getObjectString(item.getIssue_num()) + "期");
         }
-        helper.setText(R.id.tv_title, SystemUtil.getObjectString(item.getTitle()));
+        if (!TextUtils.isEmpty(SystemUtil.getObjectString(item.getTitle()))) {
+            helper.setText(R.id.tv_title, SystemUtil.getObjectString(item.getTitle()));
+        } else {
+            helper.setText(R.id.tv_title, SystemUtil.getObjectString(item.getTrans_title()));
+        }
+
 
     }
 }

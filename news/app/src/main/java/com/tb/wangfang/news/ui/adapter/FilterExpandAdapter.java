@@ -1,10 +1,13 @@
 package com.tb.wangfang.news.ui.adapter;
 
+import android.content.Context;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -21,7 +24,7 @@ import java.util.List;
  * Created by tangbin on 2017/5/27.
  */
 
-public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder> {
+public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder> implements View.OnFocusChangeListener {
     public static final int TYPE_LEVEL_0 = 0;
     public static final int TYPE_LEVEL_1 = 1;
     public static final int TYPE_LEVEL_2 = 2;
@@ -29,8 +32,25 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
 
     String TAG = "FilterExpandAdapter";
 
+    public EditText getEtStartTime() {
+        return etStartTime;
+    }
+
+    public void setEtStartTime(EditText etStartTime) {
+        this.etStartTime = etStartTime;
+    }
+
+    public EditText getEtStartEnd() {
+        return etStartEnd;
+    }
+
+    public void setEtStartEnd(EditText etStartEnd) {
+        this.etStartEnd = etStartEnd;
+    }
+
     EditText etStartTime;
     EditText etStartEnd;
+    Context context;
 
     private int endyear;
     private int startYear;
@@ -45,13 +65,14 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
      *
      * @param data A new list is created out of this one to avoid mutable list
      */
-    public FilterExpandAdapter(List<MultiItemEntity> data) {
+    public FilterExpandAdapter(Context context, List<MultiItemEntity> data) {
         super(data);
 
         addItemType(TYPE_LEVEL_0, R.layout.item_filter_level0);
         addItemType(TYPE_LEVEL_1, R.layout.item_filter_level1);
         addItemType(TYPE_LEVEL_2, R.layout.item_filter_level0);
         addItemType(TYPE_LEVEL_3, R.layout.item_year_condition);
+        this.context = context;
     }
 
     @Override
@@ -144,41 +165,64 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
             case TYPE_LEVEL_3:
                 etStartTime = helper.getView(R.id.et_start_time);
                 etStartEnd = helper.getView(R.id.et_start_end);
+                etStartEnd.setOnFocusChangeListener(this);
+                etStartTime.setOnFocusChangeListener(this);
                 rlLastOneYear = helper.getView(R.id.rl_last_one_year);
                 rlLastThreeYear = helper.getView(R.id.rl_last_three_year);
                 rlLastFiveYear = helper.getView(R.id.rl_last_five_year);
                 rlLastAllYear = helper.getView(R.id.rl_last_all_year);
+
+
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
                 String date = sdf.format(new java.util.Date());
                 endyear = Integer.parseInt(date);
+                TextView tvPeriodOne = helper.getView(R.id.tv_period_one);
+                TextView tvPeriodTwo = helper.getView(R.id.tv_period_three);
+                TextView tvPeriodThree = helper.getView(R.id.tv_period_five);
+                TextView tvPeriodFour = helper.getView(R.id.tv_period_all);
                 rlLastOneYear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startYear = endyear - 1;
                         SelectedTime(startYear + "", endyear + "", rlLastOneYear);
+                        etStartTime.clearFocus();
+                        etStartEnd.clearFocus();
                     }
                 });
+                startYear = endyear - 1;
+                tvPeriodOne.setText(startYear + "-" + endyear);
                 rlLastThreeYear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startYear = endyear - 3;
                         SelectedTime(startYear + "", endyear + "", rlLastThreeYear);
+                        etStartTime.clearFocus();
+                        etStartEnd.clearFocus();
                     }
                 });
+                startYear = endyear - 3;
+                tvPeriodTwo.setText(startYear + "-" + endyear);
                 rlLastFiveYear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startYear = endyear - 5;
                         SelectedTime(startYear + "", endyear + "", rlLastFiveYear);
+                        etStartTime.clearFocus();
+                        etStartEnd.clearFocus();
                     }
                 });
+                startYear = endyear - 5;
+                tvPeriodThree.setText(startYear + "-" + endyear);
                 rlLastAllYear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                         SelectedTime("", "", rlLastAllYear);
+                        etStartTime.clearFocus();
+                        etStartEnd.clearFocus();
                     }
                 });
+                tvPeriodFour.setText("-" + endyear);
                 break;
         }
 
@@ -195,27 +239,48 @@ public class FilterExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
     }
 
     public String getStartTime() {
-        if (etStartTime==null){
+        if (etStartTime == null) {
             return null;
         }
-        Editable s=etStartTime.getText();
-        if (s!=null){
+        Editable s = etStartTime.getText();
+        if (s != null) {
             return s.toString();
-        }else{
+        } else {
             return null;
         }
 
     }
 
     public String getEndTime() {
-        if (etStartEnd==null){
+        if (etStartEnd == null) {
             return null;
         }
-        Editable s=etStartEnd.getText();
-        if (s!=null){
+        Editable s = etStartEnd.getText();
+        if (s != null) {
             return s.toString();
-        }else{
+        } else {
             return null;
+        }
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (v.getId() == R.id.et_start_time) {
+            if (!etStartEnd.hasFocus() && !etStartTime.hasFocus()) {
+                closeSoftKey();
+            }
+        }
+        if (v.getId() == R.id.et_start_end) {
+            if (!etStartEnd.hasFocus() && !etStartTime.hasFocus()) {
+                closeSoftKey();
+            }
+        }
+    }
+
+    private void closeSoftKey() {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE); //得到InputMethodManager的实例
+        if (imm.isActive()) {//如果开启
+            imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);//关闭软键盘，开启方法相同，这个方法是切换开启与关闭状态的
         }
     }
 }

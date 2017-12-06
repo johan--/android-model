@@ -120,6 +120,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 //        mPresenter.restorePersonnalMappingTable();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.jMessageLogin();
+
+    }
 
     private void initView() {
 
@@ -392,7 +398,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                     return;
                 final android.support.v4.app.FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
                 transaction.remove(splashFragment);
-                transaction.commit();
+                transaction.commitAllowingStateLoss();
             }
         }
     }

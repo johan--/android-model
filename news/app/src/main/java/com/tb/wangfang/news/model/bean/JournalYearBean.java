@@ -215,6 +215,16 @@ public class JournalYearBean {
         private Object head_words;
         private Object fund_info02;
 
+        public Object getTrans_title() {
+            return trans_title;
+        }
+
+        public void setTrans_title(Object trans_title) {
+            this.trans_title = trans_title;
+        }
+
+        private Object trans_title;
+
         public Object getId() {
             return id;
         }

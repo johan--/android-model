@@ -11,7 +11,6 @@ import com.wanfang.main.SerMainContent;
 import javax.inject.Inject;
 
 import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.SingleOnSubscribe;
@@ -25,7 +24,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class FirstPresenter extends RxPresenter<FirstContract.View> implements FirstContract.Presenter {
     private final ManagedChannel managedChannel;
-    private final ManagedChannel managedChannel2;
 
     private String TAG = "FirstPresenter";
 
@@ -33,9 +31,6 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
     @Inject
     public FirstPresenter(ManagedChannel managedChannel) {
         this.managedChannel = managedChannel;
-        this.managedChannel2 = ManagedChannelBuilder.forAddress("10.20.13.179", 8081)
-                .usePlaintext(true)
-                .build();
 
     }
 
@@ -45,7 +40,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
         Single.create(new SingleOnSubscribe<SerMainContent.ContentResponse>() {
             @Override
             public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
-                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
+                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel);
                 Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(1).setPageSize(20).addCategories("轮播").build();
                 SerMainContent.ContentResponse reply = stub.searchContent(request);
                 e.onSuccess(reply);
@@ -55,8 +50,11 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
             @Override
             public void onSuccess(SerMainContent.ContentResponse Reply) {
                 Log.d(TAG, "onSuccess: " + Reply.toString());
+                if (mView != null) {
+                    mView.showSpanner(Reply.getContentsList());
+                }
 
-                mView.showSpanner(Reply.getContentsList());
+
             }
 
             @Override
@@ -72,7 +70,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
         Single.create(new SingleOnSubscribe<SerMainContent.ContentResponse>() {
             @Override
             public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
-                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
+                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel);
                 Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(1).setPageSize(20).addCategories("最新资讯").build();
                 SerMainContent.ContentResponse reply = stub.searchContent(request);
                 e.onSuccess(reply);
@@ -82,8 +80,10 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
             @Override
             public void onSuccess(SerMainContent.ContentResponse Reply) {
                 Log.d(TAG, "onSuccess: " + Reply.toString());
+                if (mView != null) {
+                    mView.showLastNews(Reply);
+                }
 
-                mView.showLastNews(Reply);
             }
 
             @Override
@@ -100,7 +100,7 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
         Single.create(new SingleOnSubscribe<SerMainContent.ContentResponse>() {
             @Override
             public void subscribe(SingleEmitter<SerMainContent.ContentResponse> e) throws Exception {
-                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel2);
+                ContentServiceGrpc.ContentServiceBlockingStub stub = ContentServiceGrpc.newBlockingStub(managedChannel);
                 Content.ContentRequest request = Content.ContentRequest.newBuilder().setPage(page).setPageSize(20).addCategories("首页动态").build();
                 SerMainContent.ContentResponse reply = stub.searchContent(request);
                 e.onSuccess(reply);
@@ -110,7 +110,10 @@ public class FirstPresenter extends RxPresenter<FirstContract.View> implements F
             @Override
             public void onSuccess(SerMainContent.ContentResponse Reply) {
                 Log.d(TAG, "onSuccess: " + Reply.toString());
-                mView.showMainPage(Reply);
+                if (mView != null) {
+                    mView.showMainPage(Reply);
+                }
+
             }
 
             @Override

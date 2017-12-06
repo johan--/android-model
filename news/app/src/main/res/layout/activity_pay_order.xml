@@ -170,7 +170,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:src="@mipmap/orange_gou_icon" />
+                        android:src="@mipmap/orange_gou_icon"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/tv_remain_sum"
@@ -179,6 +180,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
                         android:text="30.00元"
+
                         android:textColor="#333"
                         android:textSize="12sp" />
 
@@ -188,7 +190,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
-                        android:text="账号余额不足，可使用万方卡支付剩余部分"
+
                         android:textSize="10sp" />
                 </LinearLayout>
 
@@ -202,7 +204,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="16.5dp"
-                android:src="@mipmap/green_gou_icon" />
+                android:src="@mipmap/green_gou_icon"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -232,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="万方卡 ( 学位卡 : 24587964512 )"
+                    android:text="万方卡 "
                     android:textColor="#333"
                     android:textSize="12sp" />
 
@@ -247,7 +250,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:src="@mipmap/orange_gou_icon" />
+                        android:src="@mipmap/orange_gou_icon"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/tv_wanfang_card_sum"
@@ -272,13 +276,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="16.5dp"
-                android:src="@mipmap/green_gou_icon" />
+                android:src="@mipmap/green_gou_icon"
+                android:visibility="gone" />
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/divide" />
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:background="@color/divide" />-->
 
         <RelativeLayout
             android:id="@+id/rl_weichat"
@@ -305,6 +310,15 @@
                 android:textColor="#333"
                 android:textSize="12sp" />
 
+            <ImageView
+                android:id="@+id/iv_weichat_green_gou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/green_gou_icon"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -334,7 +348,15 @@
                 android:textColor="#333"
                 android:textSize="12sp" />
 
-
+            <ImageView
+                android:id="@+id/iv_zhifubao_green_gou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16.5dp"
+                android:src="@mipmap/green_gou_icon"
+                android:visibility="gone" />
         </RelativeLayout>
     </LinearLayout>
 

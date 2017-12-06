@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.tb.wangfang.news.R;
@@ -26,10 +25,9 @@ public class PopSubscribe extends PopupWindow {
         int w = context.getWindowManager().getDefaultDisplay().getWidth();
         // 设置SelectPicPopupWindow的View
         this.setContentView(conentView);
-        // 设置SelectPicPopupWindow弹出窗体的宽
-        this.setWidth(SystemUtil.dp2px(context, 120));
+        this.setWidth(SystemUtil.dp2px(context, 121));
         // 设置SelectPicPopupWindow弹出窗体的高
-        this.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        this.setHeight(SystemUtil.dp2px(context, 81));
         // 设置SelectPicPopupWindow弹出窗体可点击
         this.setFocusable(true);
         this.setOutsideTouchable(true);

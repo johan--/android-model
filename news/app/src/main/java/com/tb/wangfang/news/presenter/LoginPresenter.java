@@ -6,7 +6,6 @@ import android.util.Log;
 
 import com.tb.wangfang.news.base.RxPresenter;
 import com.tb.wangfang.news.base.contract.LoginContract;
-import com.tb.wangfang.news.component.RxBus;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
@@ -30,7 +29,6 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.DisposableSubscriber;
 
 /**
  * Created by tangbin on 2017/8/3.
@@ -86,29 +84,8 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
     @Override
     public void attachView(LoginContract.View view) {
         super.attachView(view);
-        registerEvent();
     }
 
-    private void registerEvent() {
-        addSubscribe(RxBus.getDefault().toFlowable(String.class).subscribeWith(new DisposableSubscriber<String>() {
-            @Override
-            public void onNext(String s) {
-                Log.d(TAG, "onNext: " + s);
-                if (s.equals("bindSuccess"))
-                    mView.prefinish();
-            }
-
-            @Override
-            public void onError(Throwable t) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        }));
-    }
 
     @Inject
     public LoginPresenter(ManagedChannel managedChannel, ImplPreferencesHelper preferencesHelps) {
@@ -183,7 +160,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
             @Override
             public void onError(Throwable e) {
-                mView.loginSuccess(LoginResponse.getDefaultInstance());
+                ToastUtil.shortShow("服务器错误");
 
             }
         });

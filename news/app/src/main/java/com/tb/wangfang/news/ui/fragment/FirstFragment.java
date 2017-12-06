@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.ui.fragment;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +26,9 @@ import com.tb.wangfang.news.ui.activity.MainDetailActivity;
 import com.tb.wangfang.news.ui.activity.MianSearchActivity;
 import com.tb.wangfang.news.ui.activity.WebViewActivity;
 import com.tb.wangfang.news.ui.adapter.MainPageAdapter;
+import com.tb.wangfang.news.utils.SnackbarUtil;
 import com.tb.wangfang.news.widget.VerticalTextview;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.wanfang.main.Content;
@@ -37,6 +40,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
 import static com.tb.wangfang.news.app.App.SCREEN_HEIGHT;
 import static me.iwf.photopicker.PhotoPicker.REQUEST_CODE;
@@ -172,8 +177,20 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
         ivQcCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CaptureActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
+                new RxPermissions(getActivity()).request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(@NonNull Boolean granted) throws Exception {
+                                if (granted) {
+
+                                    Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                                    startActivityForResult(intent, REQUEST_CODE);
+                                } else {
+                                    SnackbarUtil.show(((ViewGroup) getActivity().findViewById(android.R.id.content)).getChildAt(0), "二维码扫描需要相机权限~");
+                                }
+                            }
+                        });
+
             }
         });
 
@@ -300,12 +317,23 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
                 intent2.putExtra("type", MainDetailActivity.TYPE_ONE);
                 getActivity().startActivity(intent2);
                 break;
+            case R.id.tv_science:
+                Intent intent4 = new Intent(getActivity(), MainDetailActivity.class);
+                intent4.putExtra("type", MainDetailActivity.TYPE_TWO);
+                getActivity().startActivity(intent4);
+                break;
             case R.id.tv_meeting:
                 //每周优选
                 Intent intent3 = new Intent(getActivity(), MainDetailActivity.class);
                 intent3.putExtra("type", MainDetailActivity.TYPE_THREE);
                 getActivity().startActivity(intent3);
                 break;
+            case R.id.tv_journal:
+                Intent intent5 = new Intent(getActivity(), MainDetailActivity.class);
+                intent5.putExtra("type", MainDetailActivity.TYPE_FOUR);
+                getActivity().startActivity(intent5);
+                break;
+
         }
     }
 

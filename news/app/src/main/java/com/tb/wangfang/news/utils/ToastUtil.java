@@ -26,7 +26,7 @@ public class ToastUtil {
             td = new ToastUtil(App.getInstance());
         }
         td.setText(msg);
-        td.create().show();
+        td.createShort().show();
     }
 
     public static void shortShow(String msg) {

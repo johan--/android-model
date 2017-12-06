@@ -85,7 +85,7 @@ public class FindPasswordActivity2 extends SimpleActivity {
                                     .show();
                             findPassword();
                         } else {
-                            ToastUtil.show("两次输入密码不一致，请修改");
+                            ToastUtil.shortShow("两次输入密码不一致，请修改");
                         }
 
                     } else {

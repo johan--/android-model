@@ -1,6 +1,7 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -32,6 +33,9 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.wanfang.bind.WFCardBindServiceGrpc;
+import com.wanfang.bind.WFCardBlanceRequest;
+import com.wanfang.bind.WfCardBlanceResponse;
 import com.wanfang.charge.ChargeRequest;
 import com.wanfang.charge.ChargeResponse;
 import com.wanfang.charge.ChargeServiceGrpc;
@@ -156,8 +160,42 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
         rvItem.setAdapter(adapter);
 //        adapter.setEmptyView(R.layout.normal_empty_layout);
         getWalletNum();
+        getWFCardBalance();
         getTradeHis();
 
+    }
+
+    private void getWFCardBalance() {
+        {
+            Single.create(new SingleOnSubscribe<WfCardBlanceResponse>() {
+                @Override
+                public void subscribe(SingleEmitter<WfCardBlanceResponse> e) throws Exception {
+
+                    WFCardBindServiceGrpc.WFCardBindServiceBlockingStub stub = WFCardBindServiceGrpc.newBlockingStub(managedChannel);
+
+                    WFCardBlanceRequest request = WFCardBlanceRequest.newBuilder().setUserId(preferencesHelper.getUserId()).build();
+                    WfCardBlanceResponse response = stub.getWFCardBlance(request);
+                    e.onSuccess(response);
+                }
+            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<WfCardBlanceResponse>() {
+                @Override
+                public void onSuccess(WfCardBlanceResponse response) {
+                    Log.e(TAG, "onSuccess: " + response.toString());
+                    if (!response.hasError()) {
+                        tvWanfangCardSum.setText(response.getBlance() + "元");
+                    }
+                }
+
+
+                @Override
+                public void onError(Throwable e) {
+                    Log.e(TAG, "onError: " + e.getMessage());
+
+                    ToastUtil.shortShow(" 服务器错误");
+
+                }
+            });
+        }
     }
 
     private void getTradeHis() {
@@ -184,6 +222,7 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
 
             @Override
             public void onError(Throwable e) {
+                Log.e(TAG, "onError: grpc" + e.getMessage());
                 ToastUtil.show("访问服务器错误");
             }
         });
@@ -221,6 +260,8 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
                 this.finish();
                 break;
             case R.id.btn_bind:
+                Intent intent = new Intent(this, BindCardActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_recharge:
                 MaterialDialog dialog =

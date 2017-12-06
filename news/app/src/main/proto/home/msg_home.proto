@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "grpcCommon/msg_error.proto"; // 错误码
+
+package home;
+option java_multiple_files = true;
+option java_package = "com.wanfang.home";
+option objc_class_prefix = "WFPR";
+
+enum HOMELISTTYPE {
+    TYPE_FOUNDE = 0; // 基金会议
+    TYPE_CONFERENCE = 1; // 科技动态
+}
+
+
+message GetHomeListReqeust {
+    HOMELISTTYPE home_list_type = 1;
+    int32 page_number = 2;
+    int32 page_size = 3;
+}
+
+message GetFoundListResponse {
+    message HomeListMessage {
+        string title = 1;
+        string content = 2;
+        string link_url = 3;
+        string create_time = 4;
+    }
+    repeated HomeListMessage home_list_message = 1;
+    grpcCommon.GrpcError error = 2;
+    bool has_more = 3;
+}
+
+
+// 获取最新期刊
+message GetLastPerioRequest {
+    int32 page_number = 1; // 暂时不用传 dubbo接口没有翻页
+    int32 page_size = 2; // 传多少，返回多少数据
+}
+message GetLastPerioResponse {
+    message LastPerioMessage {
+        string perio_album = 1;
+        string perio_title = 2;
+        string end_year = 3;
+        string end_issue = 4;
+        string publish_cycle = 5;
+        string perio_id = 6;
+    }
+    repeated LastPerioMessage perio_message = 1;
+    grpcCommon.GrpcError error = 2;
+    bool has_more = 3;
+}

@@ -339,6 +339,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         } else {
             ToastUtil.shortShow("登录成功");
             PreferencesHelper.setLoginState(true);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
             finish();
         }
     }

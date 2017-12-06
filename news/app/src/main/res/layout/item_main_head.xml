@@ -29,7 +29,7 @@
             android:drawableTop="@mipmap/hot_icon"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:text="科技动态"
+            android:text="基金会议"
             android:textColor="@color/text_table"
             android:textSize="12sp" />
 
@@ -44,7 +44,7 @@
             android:drawableTop="@mipmap/quick_see"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:text="基金会议"
+            android:text="科技动态"
             android:textColor="@color/text_table"
             android:textSize="12sp" />
 

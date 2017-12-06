@@ -5,6 +5,7 @@ import com.tb.wangfang.news.base.BaseView;
 import com.tb.wangfang.news.model.bean.HistoryDocItem;
 import com.tb.wangfang.news.model.bean.HotSearchBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public interface SecondContract {
 
         void showHistoryItem(List<HistoryDocItem> historyDocItems);
 
-        void showHotSearchWord(HotSearchBean hotSearchBean);
+        void showHotSearchWord(   ArrayList<HotSearchBean> hotSearchBean);
 
     }
 

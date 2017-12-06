@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -127,7 +128,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         docAdapter.setEmptyView(R.layout.normal_empty_layout);
 
         //初始化筛选控件
-        expandAdapter = new FilterExpandAdapter(multiItemEntityArrayList);
+        expandAdapter = new FilterExpandAdapter(this, multiItemEntityArrayList);
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -194,6 +195,29 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 } else {
                     dlRight.openDrawer(Gravity.RIGHT);
                 }
+                dlRight.addDrawerListener(new DrawerLayout.DrawerListener() {
+                    @Override
+                    public void onDrawerSlide(View drawerView, float slideOffset) {
+                        Log.e(TAG, "onDrawerSlide: ");
+                    }
+
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        Log.e(TAG, "onDrawerOpened: ");
+                    }
+
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        Log.e(TAG, "onDrawerClosed: ");
+                        closeSoftKey();
+                    }
+
+                    @Override
+                    public void onDrawerStateChanged(int newState) {
+                        Log.e(TAG, "onDrawerStateChanged: ");
+
+                    }
+                });
                 break;
             case R.id.tv_reset:
 //                for (int i = 0; i < expandAdapter.getData().size(); i++) {
@@ -207,6 +231,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 //                    }
 //                }
 //                expandAdapter.notifyDataSetChanged();
+
                 mPresenter.search(text, page, "", "", "", "");
                 mPresenter.searchNavigation(text, null, null, null);
                 flCondition.removeAllViews();
@@ -214,6 +239,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 dlRight.closeDrawer(Gravity.RIGHT);
                 break;
             case R.id.tv_complete:
+
                 viewArrayList.clear();
                 page = 1;
                 docAdapter.setNewData(null);
@@ -327,6 +353,13 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         }
     }
 
+    private void closeSoftKey() {
+
+        int flags = WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
+        getWindow().addFlags(flags);
+
+    }
+
     private void setDrabelRight(ImageView msSeletOne, int ms_selet_four) {
         ivSelectedOne.setImageResource(0);
         ivSelectedTwo.setImageResource(0);
@@ -339,22 +372,24 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 
     @Override
     public void onDrawerSlide(View drawerView, float slideOffset) {
+        Log.e(TAG, "onDrawerSlide: ");
 
     }
 
     @Override
     public void onDrawerOpened(View drawerView) {
+        Log.e(TAG, "onDrawerOpened: ");
 
     }
 
     @Override
     public void onDrawerClosed(View drawerView) {
-
+        Log.e(TAG, "onDrawerClosed: ");
     }
 
     @Override
     public void onDrawerStateChanged(int newState) {
-
+        Log.e(TAG, "onDrawerStateChanged: ");
     }
 
 

@@ -131,7 +131,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/ripple_white_bg">
+                    android:background="@drawable/ripple_white_bg"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/ms_selet_three"
@@ -157,7 +158,8 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/divide" />
+                    android:background="@color/divide"
+                    android:visibility="gone" />
 
                 <RelativeLayout
                     android:id="@+id/rl_selet_four"

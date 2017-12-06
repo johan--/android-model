@@ -58,7 +58,10 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
                             Log.d(TAG, "onResponse: " + response);
                             Gson gson = new Gson();
                             SearchReplyBean searchReplyBean = gson.fromJson(response, SearchReplyBean.class);
-                            mView.loadSearchContent(searchReplyBean);
+                            if (mView!=null){
+                                mView.loadSearchContent(searchReplyBean);
+                            }
+
                         }
 
                     }
@@ -88,7 +91,10 @@ public class FilterDocPresenter extends RxPresenter<FilterDocContract.View> impl
                             Log.d(TAG, "onResponse: " + response);
                             Gson gson = new Gson();
                             SearchFilterListBean searchFilterListBean = gson.fromJson(response, SearchFilterListBean.class);
-                            mView.loadFilterView(searchFilterListBean);
+                            if (mView!=null){
+                                mView.loadFilterView(searchFilterListBean);
+                            }
+
                         }
 
                     }

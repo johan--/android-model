@@ -1,5 +1,6 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,6 +13,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -37,9 +39,11 @@ import com.tb.wangfang.news.model.bean.TechResultBean;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.SimilarPageAdapter;
 import com.tb.wangfang.news.utils.FileUtil;
+import com.tb.wangfang.news.utils.SnackbarUtil;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.AutoLinearLayoutManager;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.wanfang.collect.CancelCollectReqeust;
 import com.wanfang.collect.CancelCollectResponse;
 import com.wanfang.collect.CheckISCollectedRequest;
@@ -71,6 +75,8 @@ import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
@@ -706,7 +712,7 @@ public class DocDetailActivity extends SimpleActivity {
 
             tvContent.setText(bean.getData().get(0).getSummary().toString());
             tvAuthor.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name()));
-            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name().toString());
+            author = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_name());
             journal = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPerio_title());
             time = bean.getData().get(0).getCommon_year() + "年" + bean.getData().get(0).getIssue_num() + "期";
             tvUnit.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getAuthors_unit()));
@@ -748,6 +754,9 @@ public class DocDetailActivity extends SimpleActivity {
     }
 
     private void initSimilarPage(ArrayList<RelatePapers> list) {
+        if (list.size() > 0) {
+            list.remove(0);
+        }
         rvSimilar.setLayoutManager(new AutoLinearLayoutManager(this));
 
         final SimilarPageAdapter pageAdapter = new SimilarPageAdapter(list);
@@ -786,7 +795,19 @@ public class DocDetailActivity extends SimpleActivity {
                 break;
             case R.id.ll_share:
                 sendJPush();
-                showShare();
+                new RxPermissions(this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(@NonNull Boolean granted) throws Exception {
+                                if (granted) {
+
+                                    showShare();
+                                } else {
+                                    SnackbarUtil.show(((ViewGroup) findViewById(android.R.id.content)).getChildAt(0), "分享需要文件存储权限~");
+                                }
+                            }
+                        });
+
                 break;
         }
     }
@@ -900,12 +921,23 @@ public class DocDetailActivity extends SimpleActivity {
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ReadResponse>() {
             @Override
-            public void onSuccess(ReadResponse readResponse) {
+            public void onSuccess(final ReadResponse readResponse) {
                 Log.d(TAG, "onSuccess: readResponse" + readResponse);
                 if (readResponse.getAlreadyBuy()) {
+                    new RxPermissions(DocDetailActivity.this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            .subscribe(new Consumer<Boolean>() {
+                                @Override
+                                public void accept(@NonNull Boolean granted) throws Exception {
+                                    if (granted) {
+
+                                        down(readResponse);
+                                    } else {
+                                        SnackbarUtil.show(((ViewGroup) findViewById(android.R.id.content)).getChildAt(0), "阅读需要文件存储权限~");
+                                    }
+                                }
+                            });
 
 
-                    down(readResponse);
                 } else if (readResponse.getHasTradePower()) {
                     dialog.dismiss();
                     Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);

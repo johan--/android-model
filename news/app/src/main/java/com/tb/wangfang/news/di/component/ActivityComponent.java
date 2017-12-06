@@ -5,6 +5,8 @@ import android.app.Activity;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.di.scope.ActivityScope;
 import com.tb.wangfang.news.ui.activity.AccountSecurityActivity;
+import com.tb.wangfang.news.ui.activity.BindCardActivity;
+import com.tb.wangfang.news.ui.activity.BindPhoneActivity;
 import com.tb.wangfang.news.ui.activity.BindwanfangAccountActivity;
 import com.tb.wangfang.news.ui.activity.DocDetailActivity;
 import com.tb.wangfang.news.ui.activity.EditNackNameActivity;
@@ -87,6 +89,10 @@ public interface ActivityComponent {
     void inject(FindPasswordActivity2 findPasswordActivity2);
 
     void inject(AccountSecurityActivity accountSecurityActivity);
+
+    void inject(BindPhoneActivity bindPhoneActivity);
+
+    void inject(BindCardActivity bindCardActivity);
 
 
 }

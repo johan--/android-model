@@ -1,6 +1,8 @@
 package com.tb.wangfang.news.ui.activity;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,7 +11,9 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -43,6 +47,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import io.grpc.ManagedChannel;
@@ -69,8 +74,8 @@ public class JournalActivity extends SimpleActivity {
     ImageView ivBook;
     @BindView(R.id.tv_journal_name)
     TextView tvJournalName;
-    @BindView(R.id.tv_label)
-    TextView tvLabel;
+    //    @BindView(R.id.tv_label)
+//    TextView tvLabel;
     @BindView(R.id.tv_national_num)
     TextView tvNationalNum;
     @BindView(R.id.tv_china_num)
@@ -89,6 +94,10 @@ public class JournalActivity extends SimpleActivity {
     String[] mTabTitle;
     @BindView(R.id.tv_order)
     TextView tvOrder;
+    @BindView(R.id.ll_sign_one)
+    LinearLayout llSignOne;
+    @BindView(R.id.ll_label)
+    LinearLayout llLabel;
     private MaterialDialog dialog;
     private String journalId;
     private String TAG = "JournalActivity";
@@ -105,6 +114,8 @@ public class JournalActivity extends SimpleActivity {
     @Override
     protected void initEventAndData() {
         journalId = getIntent().getStringExtra(Constants.ARTICLE_ID);
+        dialog = new MaterialDialog.Builder(this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
+
         checkIsSubscribed();
         getDetail();
 
@@ -206,14 +217,15 @@ public class JournalActivity extends SimpleActivity {
     }
 
     private void getDetail() {
-
+        dialog.show();
         OkHttpUtils.get().url(SEARCH_DETAIL).addParams("params", journalId).addParams("clstype", "periodical_info").build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.d(TAG, "onError: " + e.getMessage());
                         ToastUtil.show("服务器异常");
-//                        dialog.dismiss();
+                        llSignOne.setVisibility(View.VISIBLE);
+                        dialog.dismiss();
                     }
 
                     @Override
@@ -223,7 +235,10 @@ public class JournalActivity extends SimpleActivity {
                         JournalDetailBean bean = gson.fromJson(response, JournalDetailBean.class);
                         showDetail(bean);
                         initYearItem(bean);
+                        dialog.dismiss();
+                        llSignOne.setVisibility(View.VISIBLE);
                         initDialog(bean);
+
 
                     }
                 });
@@ -301,6 +316,51 @@ public class JournalActivity extends SimpleActivity {
             tvNationalNum.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getIssn()));
             tvChinaNum.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getCn()));
             tvPeriod.setText(SystemUtil.getStringFromJsonarray(bean.getData().get(0).getPublish_cycle()));
+            String corePeriostring = SystemUtil.getStringFromJsonarray(bean.getData().get(0).getCore_perio());
+            String[] corePerios = corePeriostring.split(" ");
+            for (int i = 0; i < corePerios.length; i++) {
+                LinearLayout.LayoutParams params = new AppBarLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                params.setMargins(SystemUtil.dp2px(2), 0, 0, 0);
+                TextView textView = new TextView(this);
+                textView.setTextSize(10);
+                textView.setPadding(SystemUtil.dp2px(2), SystemUtil.dp2px(2), SystemUtil.dp2px(2), SystemUtil.dp2px(2));
+                textView.setTextColor(getResources().getColor(R.color.white));
+                textView.setLayoutParams(params);
+                if (corePerios[i].equals("北大核心")) {
+                    textView.setBackgroundResource(R.mipmap.source_bdhx_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("CSSCI")) {
+                    textView.setBackgroundResource(R.mipmap.source_cssci_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("ESTPCD")) {
+                    textView.setBackgroundResource(R.mipmap.source_cstpcd_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("EI")) {
+                    textView.setBackgroundResource(R.mipmap.source_ei_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("ISTIC")) {
+                    textView.setBackgroundResource(R.mipmap.source_istic_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("NJU")) {
+                    textView.setBackgroundResource(R.mipmap.source_nju_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("PKU")) {
+                    textView.setBackgroundResource(R.mipmap.pku_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("SCI")) {
+                    textView.setBackgroundResource(R.mipmap.source_sci_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("CSSCI")) {
+                    textView.setBackgroundResource(R.mipmap.source_cssci_icon);
+                    llLabel.addView(textView);
+                } else if (corePerios[i].equals("CSTPCD")) {
+                    textView.setBackgroundResource(R.mipmap.source_cstpcd_icon);
+                    llLabel.addView(textView);
+                }
+
+            }
+
+
         }
 
 
@@ -354,6 +414,13 @@ public class JournalActivity extends SimpleActivity {
 
         // 启动分享GUI
         oks.show(this);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 
 

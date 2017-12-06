@@ -39,9 +39,11 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_sign_one"
         android:layout_width="match_parent"
         android:layout_height="215dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/iv_book"
@@ -64,19 +66,27 @@
                 android:textColor="@color/black_text"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/tv_label"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/ll_label"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/tv_journal_name"
+                android:orientation="horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/tv_journal_name">
 
-                android:background="@drawable/red_label"
-                android:padding="2dp"
-                android:text="北大核心"
-                android:textColor="@color/white"
-                android:textSize="10sp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_label"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:background="@drawable/red_label"-->
+                    <!--android:padding="2dp"-->
+                    <!--android:text="北大核心"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="10sp" />-->
+
+            </LinearLayout>
 
 
             <TextView

@@ -28,6 +28,7 @@ public interface MainContract {
 
         void restorePersonnalMappingTable();
         void  reLogin();
+        void jMessageLogin();
 
     }
 }

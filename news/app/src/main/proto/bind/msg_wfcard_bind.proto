@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "grpcCommon/msg_error.proto";
+
+package bind;
+option java_multiple_files = true;
+option java_package = "com.wanfang.bind";
+option objc_class_prefix = "WFPR";
+
+message WFCardBindRequest {
+    string user_id = 1; // 必须
+    string login_token = 2; // 必须
+    string card_num = 3; // 必须
+    string card_pwd = 4; // 必须
+}
+
+message WFCardBindResponse {
+    string status = 1;
+    grpcCommon.GrpcError error = 2;
+}
+message WFCardBlanceRequest {
+    string user_id = 1; //必须
+}
+message WfCardBlanceResponse {
+    string blance = 1;
+    grpcCommon.GrpcError error = 2;
+}

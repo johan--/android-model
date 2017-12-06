@@ -243,6 +243,7 @@ void protobuf_InitDefaults_mainPage_2fcontent_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   ImageDetail_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  ::google::protobuf::internal::GetEmptyString();
   ImageSize_default_instance_.DefaultConstruct();
   ContentRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   ContentDetail_default_instance_.get_mutable()->InitAsDefaultInstance();

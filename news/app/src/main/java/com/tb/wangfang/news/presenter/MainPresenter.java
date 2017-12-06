@@ -189,8 +189,11 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
             }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<LoginResponse>() {
                 @Override
                 public void onSuccess(LoginResponse response) {
-                    preferencesHelper.storeLoginInfo(response, preferencesHelper.getPassword());
-                    Log.e(TAG, "onSuccess: 重新登录成功");
+                    if (!response.hasError()) {
+                        preferencesHelper.storeLoginInfo(response, preferencesHelper.getPassword());
+                        Log.e(TAG, "onSuccess: 重新登录成功");
+                    }
+
                 }
 
                 @Override
@@ -235,6 +238,11 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
         }
 
+
+    }
+
+    @Override
+    public void jMessageLogin() {
         JMessageClient.login(preferencesHelper.getUserId(), "wanfangdata", new BasicCallback() {
             @Override
             public void gotResult(int responseCode, String responseMessage) {
@@ -248,7 +256,6 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
 
             }
         });
-
     }
 
 

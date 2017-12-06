@@ -27,7 +27,6 @@ import com.tb.wangfang.news.presenter.SecondPresenter;
 import com.tb.wangfang.news.ui.activity.FilterDocActivity;
 import com.tb.wangfang.news.ui.adapter.HistoryItemAdapter;
 import com.tb.wangfang.news.ui.adapter.HotAdapter;
-import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
 import com.tb.wangfang.news.widget.DividerGridItemDecoration;
 import com.tb.wangfang.news.widget.SearchEditText;
@@ -86,7 +85,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), FilterDocActivity.class);
-                intent.putExtra("text", SystemUtil.getStringFromJsonarray(hotAdapter.getData().get(position).getTheme()));
+                intent.putExtra("text", ((HotSearchBean) hotAdapter.getData().get(position)).getWords());
                 startActivity(intent);
             }
         });
@@ -217,9 +216,9 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     }
 
     @Override
-    public void showHotSearchWord(HotSearchBean hotSearchBean) {
+    public void showHotSearchWord(   ArrayList<HotSearchBean> hotSearchBeans) {
 
-        hotAdapter.setNewData(hotSearchBean.getData());
+        hotAdapter.setNewData(hotSearchBeans);
     }
 
 

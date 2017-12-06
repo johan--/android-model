@@ -1,6 +1,7 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -28,6 +29,13 @@ import com.tb.wangfang.news.utils.ToastUtil;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.wanfang.bind.WFCardBindServiceGrpc;
+import com.wanfang.bind.WFCardBlanceRequest;
+import com.wanfang.bind.WfCardBlanceResponse;
+import com.wanfang.personal.BALENCETYPE;
+import com.wanfang.personal.PersonalCenterServiceGrpc;
+import com.wanfang.personal.UserGetBalenceRequest;
+import com.wanfang.personal.UserGetBalenceResponse;
 import com.wanfang.read.ReadResponse;
 import com.wanfang.trade.AccountId;
 import com.wanfang.trade.TradeServiceGrpc;
@@ -39,6 +47,7 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
@@ -50,6 +59,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
+
+import static com.tb.wangfang.news.R.id.btn_pay;
 
 public class PayOrderActivity extends SimpleActivity {
 
@@ -64,7 +75,7 @@ public class PayOrderActivity extends SimpleActivity {
     TextView tvArticleTitle;
     @BindView(R.id.tv_price)
     TextView tvPrice;
-    @BindView(R.id.btn_pay)
+    @BindView(btn_pay)
     Button btnPay;
     @BindView(R.id.tv_return)
     ImageView tvReturn;
@@ -98,11 +109,17 @@ public class PayOrderActivity extends SimpleActivity {
     ImageView ivSignFour;
     @BindView(R.id.rl_zhifubao)
     RelativeLayout rlZhifubao;
+    @BindView(R.id.iv_weichat_green_gou)
+    ImageView ivWeichatGreenGou;
+    @BindView(R.id.iv_zhifubao_green_gou)
+    ImageView ivZhifubaoGreenGou;
     private IWXAPI api;
     private ReadResponse readResponse;
     private final String TAG = "PayOrderActivity";
     private static final int SDK_PAY_FLAG = 1;
     private static final int SDK_AUTH_FLAG = 2;
+    private UnifiedorderResponse unifiedorderResponse;
+    String type = "";
 
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
@@ -161,6 +178,7 @@ public class PayOrderActivity extends SimpleActivity {
     private String journal;
     private String time;
     protected CompositeDisposable mCompositeDisposable;
+    private ImageView[] iv_green_gous;
 
     protected void unSubscribe() {
         if (mCompositeDisposable != null) {
@@ -193,6 +211,9 @@ public class PayOrderActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
+        iv_green_gous = new ImageView[]{ivRemainGreenGou, ivWanfangGreenGou, ivWeichatGreenGou, ivZhifubaoGreenGou};
+
+
         registerEvent();
 
 
@@ -225,6 +246,81 @@ public class PayOrderActivity extends SimpleActivity {
         s += "-" + journal + "-";
         s += time;
         tvArticlName.setText(s);
+        getWalletNum();
+
+
+    }
+
+    private void getWFCardBalance() {
+        Single.create(new SingleOnSubscribe<WfCardBlanceResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<WfCardBlanceResponse> e) throws Exception {
+
+                WFCardBindServiceGrpc.WFCardBindServiceBlockingStub stub = WFCardBindServiceGrpc.newBlockingStub(managedChannel);
+
+                WFCardBlanceRequest request = WFCardBlanceRequest.newBuilder().setUserId(preferencesHelper.getUserId()).build();
+                WfCardBlanceResponse response = stub.getWFCardBlance(request);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<WfCardBlanceResponse>() {
+            @Override
+            public void onSuccess(WfCardBlanceResponse response) {
+                Log.e(TAG, "onSuccess: " + response.toString());
+                if (!response.hasError()) {
+                    tvWanfangCardSum.setText(response.getBlance() + "元");
+                    if (Double.parseDouble(response.getBlance()) >= Double.parseDouble(readResponse.getPrice()) && ivRemainGreenGou.getVisibility() == View.GONE) {
+                        selectMethod(1);
+                    }
+                }
+            }
+
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+
+                ToastUtil.shortShow(" 服务器错误");
+
+            }
+        });
+    }
+
+
+    private void getWalletNum() {
+        Single.create(new SingleOnSubscribe<UserGetBalenceResponse>() {
+            @Override
+            public void subscribe(SingleEmitter<UserGetBalenceResponse> e) throws Exception {
+                PersonalCenterServiceGrpc.PersonalCenterServiceBlockingStub stub = PersonalCenterServiceGrpc.newBlockingStub(managedChannel);
+
+                UserGetBalenceRequest userGetBalenceRequest = UserGetBalenceRequest.newBuilder().setUserId(preferencesHelper.getUserId()).setBalenceType(BALENCETYPE.NORMAL).build();
+                UserGetBalenceResponse response = stub.getBalance(userGetBalenceRequest);
+                e.onSuccess(response);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<UserGetBalenceResponse>() {
+            @Override
+            public void onSuccess(UserGetBalenceResponse userGetBalenceResponse) {
+                Log.e(TAG, "onSuccess: " + userGetBalenceResponse);
+                tvRemainSum.setText(userGetBalenceResponse.getBalence() + "元");
+                if (userGetBalenceResponse.getBalence() >= Double.parseDouble(readResponse.getPrice())) {
+                    selectMethod(0);
+                }
+                getWFCardBalance();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtil.show("访问服务器错误");
+            }
+        });
+    }
+
+    private void selectMethod(int i) {
+
+        for (int j = 0; j < iv_green_gous.length; j++) {
+            iv_green_gous[i].setVisibility(View.GONE);
+
+        }
+        iv_green_gous[i].setVisibility(View.VISIBLE);
 
     }
 
@@ -253,41 +349,9 @@ public class PayOrderActivity extends SimpleActivity {
 
     }
 
-    @OnClick({R.id.tv_return, R.id.btn_pay})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.tv_return:
-                finish();
-                break;
-            case R.id.btn_pay:
-                materialDialog = new MaterialDialog.Builder(this)
-                        .title("选择支付方式")
-                        .items(R.array.payMethod)
-                        .itemsCallbackSingleChoice(
-                                0, new MaterialDialog.ListCallbackSingleChoice() {
-                                    @Override
-                                    public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                                        if (which == 0) {
-                                            getOrders("Alipay");
-                                        } else if (which == 1) {
-                                            getOrders("Weixin");
-
-                                        } else if (which == 2) {
-                                            getOrders("WFChargeCard");
-                                        }
-
-                                        return true;
-                                    }
-                                }
-                        )
-                        .positiveText("确定")
-                        .show();
-
-                break;
-        }
-    }
-
     private void getOrders(final String type) {
+        materialDialog = new MaterialDialog.Builder(PayOrderActivity.this).content("加载中...").progress(true, 0).progressIndeterminateStyle(false).build();
+        materialDialog.show();
         Single.create(new SingleOnSubscribe<UnifiedorderResponse>() {
             @Override
             public void subscribe(SingleEmitter<UnifiedorderResponse> e) throws Exception {
@@ -300,6 +364,7 @@ public class PayOrderActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<UnifiedorderResponse>() {
             @Override
             public void onSuccess(UnifiedorderResponse unifiedorderResponse) {
+                materialDialog.dismiss();
                 Log.d(TAG, "onSuccess: " + unifiedorderResponse);
                 if (type.equals("Alipay")) {
                     payByZhiFuBao(unifiedorderResponse);
@@ -320,6 +385,7 @@ public class PayOrderActivity extends SimpleActivity {
 
             @Override
             public void onError(Throwable e) {
+                materialDialog.dismiss();
                 Log.d(TAG, "onError: " + e.getMessage());
             }
         });
@@ -365,4 +431,41 @@ public class PayOrderActivity extends SimpleActivity {
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @OnClick({R.id.tv_return, R.id.rl_remain, R.id.rl_wanfagn_card, R.id.rl_weichat, R.id.rl_zhifubao, btn_pay})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_return:
+                this.finish();
+                break;
+            case R.id.rl_remain:
+                type = "Person";
+                selectMethod(0);
+                break;
+            case R.id.rl_wanfagn_card:
+
+                type = "WFChargeCard";
+                selectMethod(1);
+                break;
+            case R.id.rl_weichat:
+
+                type = "Weixin";
+                selectMethod(2);
+                break;
+            case R.id.rl_zhifubao:
+
+                type = "Alipay";
+                selectMethod(3);
+                break;
+            case btn_pay:
+                getOrders(type);
+                break;
+        }
+    }
 }
