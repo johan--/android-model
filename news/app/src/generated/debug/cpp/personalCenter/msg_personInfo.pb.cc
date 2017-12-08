@@ -791,6 +791,7 @@ void protobuf_InitDefaults_personalCenter_2fmsg_5fpersonInfo_2eproto_impl() {
   UserRolesListRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   UserRolesListResponse_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
   EducationLevelListRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   EducationLevelListResponse_default_instance_.DefaultConstruct();

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
+import com.baidu.mobstat.StatService;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
@@ -92,6 +93,8 @@ public class MianSearchActivity extends SimpleActivity {
                 textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        StatService.onEvent(MianSearchActivity.this, "jiansuolishi", "首页检索框", 1);
+
                         Intent intent = new Intent(MianSearchActivity.this, FilterDocActivity.class);
                         intent.putExtra("text", historyDocItems.get(finalI).getText());
                         startActivity(intent);

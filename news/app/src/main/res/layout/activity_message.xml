@@ -45,7 +45,7 @@
             android:padding="5dp"
             android:paddingLeft="16.5dp"
             android:paddingRight="16.5dp"
-            android:src="@mipmap/ic_meun"
+            android:src="@mipmap/ic_menu"
             android:visibility="gone" />
     </RelativeLayout>
 

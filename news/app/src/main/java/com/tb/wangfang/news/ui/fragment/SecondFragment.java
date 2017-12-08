@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.baidu.mobstat.StatService;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.base.BaseFragment;
@@ -84,6 +85,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         hotAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                StatService.onEvent(getActivity(), "resouci", "智搜热搜词搜索", 1);
                 Intent intent = new Intent(getActivity(), FilterDocActivity.class);
                 intent.putExtra("text", ((HotSearchBean) hotAdapter.getData().get(position)).getWords());
                 startActivity(intent);
@@ -97,6 +99,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
         historyAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                StatService.onEvent(getActivity(), "jiansuolishi", "智搜检索记录搜索", 1);
                 Intent intent = new Intent(getActivity(), FilterDocActivity.class);
                 intent.putExtra("text", historyAdapter.getData().get(position).getText());
                 startActivity(intent);
@@ -106,6 +109,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.iv_delete_item) {
+                    StatService.onEvent(getActivity(), "qingkonglishi", "删除全单条检索记录", 1);
                     HistoryDocItem docItem = (HistoryDocItem) adapter.getData().get(position);
                     mPresenter.deleteHistory(docItem);
                     mPresenter.searchAllHistory();
@@ -184,6 +188,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
                 .negativeText("取消").onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                StatService.onEvent(getActivity(), "qingkonglishi", "删除全部检索记录", 1);
                 mPresenter.deleteAllHistry();
             }
         }).show();
@@ -216,7 +221,7 @@ public class SecondFragment extends BaseFragment<SecondPresenter> implements Sec
     }
 
     @Override
-    public void showHotSearchWord(   ArrayList<HotSearchBean> hotSearchBeans) {
+    public void showHotSearchWord(ArrayList<HotSearchBean> hotSearchBeans) {
 
         hotAdapter.setNewData(hotSearchBeans);
     }

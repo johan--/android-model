@@ -108,11 +108,17 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse response) {
                 Log.d(TAG, "onSuccess: " + response.toString());
                 if (response.hasError()) {
-                    mView.loginSuccess(response);
+                    if (mView != null) {
+                        mView.loginSuccess(response);
+                    }
+
                 } else {
                     preferencesHelps.storeLoginInfo(response, passWord);
                     preferencesHelps.setLoginMethod("0");
-                    mView.loginSuccess(response);
+                    if (mView != null) {
+                        mView.loginSuccess(response);
+                    }
+
                 }
 
             }
@@ -121,7 +127,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             @Override
             public void onError(Throwable e) {
                 Log.d(TAG, "onError: " + e.getMessage());
-                mView.loginSuccess(LoginResponse.getDefaultInstance());
+                mView.loginSuccess(null);
 
             }
         });
@@ -152,7 +158,10 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                 } else {
                     ToastUtil.show("发送失败");
-                    mView.setCodeBtnEnable();
+                    if (mView != null) {
+                        mView.setCodeBtnEnable();
+                    }
+
                 }
 
 
@@ -182,12 +191,17 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             public void onSuccess(LoginResponse userRolesListResponse) {
                 Log.e(TAG, "onSuccess: userRolesListResponse" + userRolesListResponse);
                 if (userRolesListResponse.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.THIRD_PARTY_NOT_BINd) {
+                    if (mView != null) {
+                        mView.showDialoge(id, type + "");
+                    }
 
-                    mView.showDialoge(id, type + "");
                 } else {
                     preferencesHelps.storeLoginInfo(userRolesListResponse, id);
                     preferencesHelps.setLoginMethod("2");
-                    mView.loginSuccess(userRolesListResponse);
+                    if (mView!=null){
+                        mView.loginSuccess(userRolesListResponse);
+                    }
+
                 }
             }
 
@@ -216,7 +230,10 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     preferencesHelps.storeLoginInfo(response, "");
                     preferencesHelps.setLoginMethod("1");
                     JmessageRegister(response.getUserId());
-                    mView.loginSuccess(response);
+                    if (mView != null) {
+                        mView.loginSuccess(response);
+                    }
+
                 } else {
                     ToastUtil.show(response.getError().getErrorMessage().getErrorReason());
                 }

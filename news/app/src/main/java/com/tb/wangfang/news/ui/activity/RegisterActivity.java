@@ -122,8 +122,24 @@ public class RegisterActivity extends SimpleActivity {
         editUserName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus && editUserName.getText().length() < 6) {
+                if (!hasFocus && !TextUtils.isEmpty(editUserName.getText().toString()) && editUserName.getText().length() < 6) {
                     ToastUtil.show("用户名不能小于6位，大于16位");
+
+                } else {
+                    if (!hasFocus && !TextUtils.isEmpty(editUserName.getText().toString()) && (SystemUtil.isPurenumber(editUserName.getText().toString().trim()) || SystemUtil.isPureUnderline(editUserName.getText().toString().trim()))) {
+                        ToastUtil.shortShow("用户名不能仅含数字或下划线");
+                    }
+                }
+
+
+            }
+        });
+        editPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !TextUtils.isEmpty(editPassword.getText().toString()) && editPassword.getText().length() < 6) {
+                    ToastUtil.show("密码不能小于6位，大于16位");
+
                 }
             }
         });
@@ -145,13 +161,6 @@ public class RegisterActivity extends SimpleActivity {
                 passWord = editPassword.getText().toString();
                 code = editSecurity.getText().toString();
                 if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userName.trim())) {
-                    try {
-                        Integer.parseInt(userName.trim());
-                        ToastUtil.shortShow("不能仅含数字或下划线");
-                    } catch (NumberFormatException e) {
-
-                    }
-
 
                     if (!TextUtils.isEmpty(passWord) && !TextUtils.isEmpty(passWord.trim())) {
                         if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(phone.trim())) {

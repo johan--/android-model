@@ -38,9 +38,10 @@ void protobuf_InitDefaults_read_2fmsg_5fread_2eproto();
 void protobuf_AssignDesc_read_2fmsg_5fread_2eproto();
 void protobuf_ShutdownFile_read_2fmsg_5fread_2eproto();
 
+class GetResourceFileRequest;
+class GetResourceFileResponse;
 class ReadRequest;
 class ReadResponse;
-class ResourceFile;
 
 // ===================================================================
 
@@ -320,25 +321,16 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   bool already_buy() const;
   void set_already_buy(bool value);
 
-  // optional .read.ResourceFile resource_file = 6;
-  bool has_resource_file() const;
-  void clear_resource_file();
-  static const int kResourceFileFieldNumber = 6;
-  const ::read::ResourceFile& resource_file() const;
-  ::read::ResourceFile* mutable_resource_file();
-  ::read::ResourceFile* release_resource_file();
-  void set_allocated_resource_file(::read::ResourceFile* resource_file);
-
-  // optional bool has_trade_power = 7;
+  // optional bool has_trade_power = 6;
   void clear_has_trade_power();
-  static const int kHasTradePowerFieldNumber = 7;
+  static const int kHasTradePowerFieldNumber = 6;
   bool has_trade_power() const;
   void set_has_trade_power(bool value);
 
-  // optional .grpcCommon.GrpcError error = 8;
+  // optional .grpcCommon.GrpcError error = 7;
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 8;
+  static const int kErrorFieldNumber = 7;
   const ::grpcCommon::GrpcError& error() const;
   ::grpcCommon::GrpcError* mutable_error();
   ::grpcCommon::GrpcError* release_error();
@@ -352,7 +344,6 @@ class ReadResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::ArenaStringPtr title_;
   ::google::protobuf::internal::ArenaStringPtr display_info_;
   ::google::protobuf::internal::ArenaStringPtr safe_transaction_string_;
-  ::read::ResourceFile* resource_file_;
   ::grpcCommon::GrpcError* error_;
   bool already_buy_;
   bool has_trade_power_;
@@ -368,34 +359,34 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<ReadResponse> ReadRes
 
 // -------------------------------------------------------------------
 
-class ResourceFile : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:read.ResourceFile) */ {
+class GetResourceFileRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:read.GetResourceFileRequest) */ {
  public:
-  ResourceFile();
-  virtual ~ResourceFile();
+  GetResourceFileRequest();
+  virtual ~GetResourceFileRequest();
 
-  ResourceFile(const ResourceFile& from);
+  GetResourceFileRequest(const GetResourceFileRequest& from);
 
-  inline ResourceFile& operator=(const ResourceFile& from) {
+  inline GetResourceFileRequest& operator=(const GetResourceFileRequest& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ResourceFile& default_instance();
+  static const GetResourceFileRequest& default_instance();
 
-  static const ResourceFile* internal_default_instance();
+  static const GetResourceFileRequest* internal_default_instance();
 
-  void Swap(ResourceFile* other);
+  void Swap(GetResourceFileRequest* other);
 
   // implements Message ----------------------------------------------
 
-  inline ResourceFile* New() const { return New(NULL); }
+  inline GetResourceFileRequest* New() const { return New(NULL); }
 
-  ResourceFile* New(::google::protobuf::Arena* arena) const;
+  GetResourceFileRequest* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ResourceFile& from);
-  void MergeFrom(const ResourceFile& from);
+  void CopyFrom(const GetResourceFileRequest& from);
+  void MergeFrom(const GetResourceFileRequest& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -414,8 +405,111 @@ class ResourceFile : public ::google::protobuf::Message /* @@protoc_insertion_po
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(ResourceFile* other);
-  void UnsafeMergeFrom(const ResourceFile& from);
+  void InternalSwap(GetResourceFileRequest* other);
+  void UnsafeMergeFrom(const GetResourceFileRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string resource_type = 1;
+  void clear_resource_type();
+  static const int kResourceTypeFieldNumber = 1;
+  const ::std::string& resource_type() const;
+  void set_resource_type(const ::std::string& value);
+  void set_resource_type(const char* value);
+  void set_resource_type(const char* value, size_t size);
+  ::std::string* mutable_resource_type();
+  ::std::string* release_resource_type();
+  void set_allocated_resource_type(::std::string* resource_type);
+
+  // optional string resource_id = 2;
+  void clear_resource_id();
+  static const int kResourceIdFieldNumber = 2;
+  const ::std::string& resource_id() const;
+  void set_resource_id(const ::std::string& value);
+  void set_resource_id(const char* value);
+  void set_resource_id(const char* value, size_t size);
+  ::std::string* mutable_resource_id();
+  ::std::string* release_resource_id();
+  void set_allocated_resource_id(::std::string* resource_id);
+
+  // @@protoc_insertion_point(class_scope:read.GetResourceFileRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr resource_type_;
+  ::google::protobuf::internal::ArenaStringPtr resource_id_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_read_2fmsg_5fread_2eproto_impl();
+  friend void  protobuf_AddDesc_read_2fmsg_5fread_2eproto_impl();
+  friend void protobuf_AssignDesc_read_2fmsg_5fread_2eproto();
+  friend void protobuf_ShutdownFile_read_2fmsg_5fread_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<GetResourceFileRequest> GetResourceFileRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class GetResourceFileResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:read.GetResourceFileResponse) */ {
+ public:
+  GetResourceFileResponse();
+  virtual ~GetResourceFileResponse();
+
+  GetResourceFileResponse(const GetResourceFileResponse& from);
+
+  inline GetResourceFileResponse& operator=(const GetResourceFileResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GetResourceFileResponse& default_instance();
+
+  static const GetResourceFileResponse* internal_default_instance();
+
+  void Swap(GetResourceFileResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline GetResourceFileResponse* New() const { return New(NULL); }
+
+  GetResourceFileResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GetResourceFileResponse& from);
+  void MergeFrom(const GetResourceFileResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(GetResourceFileResponse* other);
+  void UnsafeMergeFrom(const GetResourceFileResponse& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -453,9 +547,21 @@ class ResourceFile : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_content_type();
   void set_allocated_content_type(::std::string* content_type);
 
-  // optional bytes file_byte = 3;
+  // optional int64 total_byte_length = 3;
+  void clear_total_byte_length();
+  static const int kTotalByteLengthFieldNumber = 3;
+  ::google::protobuf::int64 total_byte_length() const;
+  void set_total_byte_length(::google::protobuf::int64 value);
+
+  // optional int64 loading_byte_length = 4;
+  void clear_loading_byte_length();
+  static const int kLoadingByteLengthFieldNumber = 4;
+  ::google::protobuf::int64 loading_byte_length() const;
+  void set_loading_byte_length(::google::protobuf::int64 value);
+
+  // optional bytes file_byte = 5;
   void clear_file_byte();
-  static const int kFileByteFieldNumber = 3;
+  static const int kFileByteFieldNumber = 5;
   const ::std::string& file_byte() const;
   void set_file_byte(const ::std::string& value);
   void set_file_byte(const char* value);
@@ -464,13 +570,15 @@ class ResourceFile : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_file_byte();
   void set_allocated_file_byte(::std::string* file_byte);
 
-  // @@protoc_insertion_point(class_scope:read.ResourceFile)
+  // @@protoc_insertion_point(class_scope:read.GetResourceFileResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr file_name_;
   ::google::protobuf::internal::ArenaStringPtr content_type_;
   ::google::protobuf::internal::ArenaStringPtr file_byte_;
+  ::google::protobuf::int64 total_byte_length_;
+  ::google::protobuf::int64 loading_byte_length_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_read_2fmsg_5fread_2eproto_impl();
   friend void  protobuf_AddDesc_read_2fmsg_5fread_2eproto_impl();
@@ -479,7 +587,7 @@ class ResourceFile : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   void InitAsDefaultInstance();
 };
-extern ::google::protobuf::internal::ExplicitlyConstructed<ResourceFile> ResourceFile_default_instance_;
+extern ::google::protobuf::internal::ExplicitlyConstructed<GetResourceFileResponse> GetResourceFileResponse_default_instance_;
 
 // ===================================================================
 
@@ -994,46 +1102,7 @@ inline void ReadResponse::set_already_buy(bool value) {
   // @@protoc_insertion_point(field_set:read.ReadResponse.already_buy)
 }
 
-// optional .read.ResourceFile resource_file = 6;
-inline bool ReadResponse::has_resource_file() const {
-  return this != internal_default_instance() && resource_file_ != NULL;
-}
-inline void ReadResponse::clear_resource_file() {
-  if (GetArenaNoVirtual() == NULL && resource_file_ != NULL) delete resource_file_;
-  resource_file_ = NULL;
-}
-inline const ::read::ResourceFile& ReadResponse::resource_file() const {
-  // @@protoc_insertion_point(field_get:read.ReadResponse.resource_file)
-  return resource_file_ != NULL ? *resource_file_
-                         : *::read::ResourceFile::internal_default_instance();
-}
-inline ::read::ResourceFile* ReadResponse::mutable_resource_file() {
-  
-  if (resource_file_ == NULL) {
-    resource_file_ = new ::read::ResourceFile;
-  }
-  // @@protoc_insertion_point(field_mutable:read.ReadResponse.resource_file)
-  return resource_file_;
-}
-inline ::read::ResourceFile* ReadResponse::release_resource_file() {
-  // @@protoc_insertion_point(field_release:read.ReadResponse.resource_file)
-  
-  ::read::ResourceFile* temp = resource_file_;
-  resource_file_ = NULL;
-  return temp;
-}
-inline void ReadResponse::set_allocated_resource_file(::read::ResourceFile* resource_file) {
-  delete resource_file_;
-  resource_file_ = resource_file;
-  if (resource_file) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:read.ReadResponse.resource_file)
-}
-
-// optional bool has_trade_power = 7;
+// optional bool has_trade_power = 6;
 inline void ReadResponse::clear_has_trade_power() {
   has_trade_power_ = false;
 }
@@ -1047,7 +1116,7 @@ inline void ReadResponse::set_has_trade_power(bool value) {
   // @@protoc_insertion_point(field_set:read.ReadResponse.has_trade_power)
 }
 
-// optional .grpcCommon.GrpcError error = 8;
+// optional .grpcCommon.GrpcError error = 7;
 inline bool ReadResponse::has_error() const {
   return this != internal_default_instance() && error_ != NULL;
 }
@@ -1091,144 +1160,269 @@ inline const ReadResponse* ReadResponse::internal_default_instance() {
 }
 // -------------------------------------------------------------------
 
-// ResourceFile
+// GetResourceFileRequest
+
+// optional string resource_type = 1;
+inline void GetResourceFileRequest::clear_resource_type() {
+  resource_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GetResourceFileRequest::resource_type() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileRequest.resource_type)
+  return resource_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetResourceFileRequest::set_resource_type(const ::std::string& value) {
+  
+  resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.GetResourceFileRequest.resource_type)
+}
+inline void GetResourceFileRequest::set_resource_type(const char* value) {
+  
+  resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.GetResourceFileRequest.resource_type)
+}
+inline void GetResourceFileRequest::set_resource_type(const char* value, size_t size) {
+  
+  resource_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.GetResourceFileRequest.resource_type)
+}
+inline ::std::string* GetResourceFileRequest::mutable_resource_type() {
+  
+  // @@protoc_insertion_point(field_mutable:read.GetResourceFileRequest.resource_type)
+  return resource_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetResourceFileRequest::release_resource_type() {
+  // @@protoc_insertion_point(field_release:read.GetResourceFileRequest.resource_type)
+  
+  return resource_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetResourceFileRequest::set_allocated_resource_type(::std::string* resource_type) {
+  if (resource_type != NULL) {
+    
+  } else {
+    
+  }
+  resource_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_type);
+  // @@protoc_insertion_point(field_set_allocated:read.GetResourceFileRequest.resource_type)
+}
+
+// optional string resource_id = 2;
+inline void GetResourceFileRequest::clear_resource_id() {
+  resource_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GetResourceFileRequest::resource_id() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileRequest.resource_id)
+  return resource_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetResourceFileRequest::set_resource_id(const ::std::string& value) {
+  
+  resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:read.GetResourceFileRequest.resource_id)
+}
+inline void GetResourceFileRequest::set_resource_id(const char* value) {
+  
+  resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:read.GetResourceFileRequest.resource_id)
+}
+inline void GetResourceFileRequest::set_resource_id(const char* value, size_t size) {
+  
+  resource_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:read.GetResourceFileRequest.resource_id)
+}
+inline ::std::string* GetResourceFileRequest::mutable_resource_id() {
+  
+  // @@protoc_insertion_point(field_mutable:read.GetResourceFileRequest.resource_id)
+  return resource_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetResourceFileRequest::release_resource_id() {
+  // @@protoc_insertion_point(field_release:read.GetResourceFileRequest.resource_id)
+  
+  return resource_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetResourceFileRequest::set_allocated_resource_id(::std::string* resource_id) {
+  if (resource_id != NULL) {
+    
+  } else {
+    
+  }
+  resource_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), resource_id);
+  // @@protoc_insertion_point(field_set_allocated:read.GetResourceFileRequest.resource_id)
+}
+
+inline const GetResourceFileRequest* GetResourceFileRequest::internal_default_instance() {
+  return &GetResourceFileRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// GetResourceFileResponse
 
 // optional string file_name = 1;
-inline void ResourceFile::clear_file_name() {
+inline void GetResourceFileResponse::clear_file_name() {
   file_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ResourceFile::file_name() const {
-  // @@protoc_insertion_point(field_get:read.ResourceFile.file_name)
+inline const ::std::string& GetResourceFileResponse::file_name() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileResponse.file_name)
   return file_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ResourceFile::set_file_name(const ::std::string& value) {
+inline void GetResourceFileResponse::set_file_name(const ::std::string& value) {
   
   file_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:read.ResourceFile.file_name)
+  // @@protoc_insertion_point(field_set:read.GetResourceFileResponse.file_name)
 }
-inline void ResourceFile::set_file_name(const char* value) {
+inline void GetResourceFileResponse::set_file_name(const char* value) {
   
   file_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:read.ResourceFile.file_name)
+  // @@protoc_insertion_point(field_set_char:read.GetResourceFileResponse.file_name)
 }
-inline void ResourceFile::set_file_name(const char* value, size_t size) {
+inline void GetResourceFileResponse::set_file_name(const char* value, size_t size) {
   
   file_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:read.ResourceFile.file_name)
+  // @@protoc_insertion_point(field_set_pointer:read.GetResourceFileResponse.file_name)
 }
-inline ::std::string* ResourceFile::mutable_file_name() {
+inline ::std::string* GetResourceFileResponse::mutable_file_name() {
   
-  // @@protoc_insertion_point(field_mutable:read.ResourceFile.file_name)
+  // @@protoc_insertion_point(field_mutable:read.GetResourceFileResponse.file_name)
   return file_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ResourceFile::release_file_name() {
-  // @@protoc_insertion_point(field_release:read.ResourceFile.file_name)
+inline ::std::string* GetResourceFileResponse::release_file_name() {
+  // @@protoc_insertion_point(field_release:read.GetResourceFileResponse.file_name)
   
   return file_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ResourceFile::set_allocated_file_name(::std::string* file_name) {
+inline void GetResourceFileResponse::set_allocated_file_name(::std::string* file_name) {
   if (file_name != NULL) {
     
   } else {
     
   }
   file_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_name);
-  // @@protoc_insertion_point(field_set_allocated:read.ResourceFile.file_name)
+  // @@protoc_insertion_point(field_set_allocated:read.GetResourceFileResponse.file_name)
 }
 
 // optional string content_type = 2;
-inline void ResourceFile::clear_content_type() {
+inline void GetResourceFileResponse::clear_content_type() {
   content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ResourceFile::content_type() const {
-  // @@protoc_insertion_point(field_get:read.ResourceFile.content_type)
+inline const ::std::string& GetResourceFileResponse::content_type() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileResponse.content_type)
   return content_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ResourceFile::set_content_type(const ::std::string& value) {
+inline void GetResourceFileResponse::set_content_type(const ::std::string& value) {
   
   content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:read.ResourceFile.content_type)
+  // @@protoc_insertion_point(field_set:read.GetResourceFileResponse.content_type)
 }
-inline void ResourceFile::set_content_type(const char* value) {
+inline void GetResourceFileResponse::set_content_type(const char* value) {
   
   content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:read.ResourceFile.content_type)
+  // @@protoc_insertion_point(field_set_char:read.GetResourceFileResponse.content_type)
 }
-inline void ResourceFile::set_content_type(const char* value, size_t size) {
+inline void GetResourceFileResponse::set_content_type(const char* value, size_t size) {
   
   content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:read.ResourceFile.content_type)
+  // @@protoc_insertion_point(field_set_pointer:read.GetResourceFileResponse.content_type)
 }
-inline ::std::string* ResourceFile::mutable_content_type() {
+inline ::std::string* GetResourceFileResponse::mutable_content_type() {
   
-  // @@protoc_insertion_point(field_mutable:read.ResourceFile.content_type)
+  // @@protoc_insertion_point(field_mutable:read.GetResourceFileResponse.content_type)
   return content_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ResourceFile::release_content_type() {
-  // @@protoc_insertion_point(field_release:read.ResourceFile.content_type)
+inline ::std::string* GetResourceFileResponse::release_content_type() {
+  // @@protoc_insertion_point(field_release:read.GetResourceFileResponse.content_type)
   
   return content_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ResourceFile::set_allocated_content_type(::std::string* content_type) {
+inline void GetResourceFileResponse::set_allocated_content_type(::std::string* content_type) {
   if (content_type != NULL) {
     
   } else {
     
   }
   content_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content_type);
-  // @@protoc_insertion_point(field_set_allocated:read.ResourceFile.content_type)
+  // @@protoc_insertion_point(field_set_allocated:read.GetResourceFileResponse.content_type)
 }
 
-// optional bytes file_byte = 3;
-inline void ResourceFile::clear_file_byte() {
+// optional int64 total_byte_length = 3;
+inline void GetResourceFileResponse::clear_total_byte_length() {
+  total_byte_length_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GetResourceFileResponse::total_byte_length() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileResponse.total_byte_length)
+  return total_byte_length_;
+}
+inline void GetResourceFileResponse::set_total_byte_length(::google::protobuf::int64 value) {
+  
+  total_byte_length_ = value;
+  // @@protoc_insertion_point(field_set:read.GetResourceFileResponse.total_byte_length)
+}
+
+// optional int64 loading_byte_length = 4;
+inline void GetResourceFileResponse::clear_loading_byte_length() {
+  loading_byte_length_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GetResourceFileResponse::loading_byte_length() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileResponse.loading_byte_length)
+  return loading_byte_length_;
+}
+inline void GetResourceFileResponse::set_loading_byte_length(::google::protobuf::int64 value) {
+  
+  loading_byte_length_ = value;
+  // @@protoc_insertion_point(field_set:read.GetResourceFileResponse.loading_byte_length)
+}
+
+// optional bytes file_byte = 5;
+inline void GetResourceFileResponse::clear_file_byte() {
   file_byte_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ResourceFile::file_byte() const {
-  // @@protoc_insertion_point(field_get:read.ResourceFile.file_byte)
+inline const ::std::string& GetResourceFileResponse::file_byte() const {
+  // @@protoc_insertion_point(field_get:read.GetResourceFileResponse.file_byte)
   return file_byte_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ResourceFile::set_file_byte(const ::std::string& value) {
+inline void GetResourceFileResponse::set_file_byte(const ::std::string& value) {
   
   file_byte_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:read.ResourceFile.file_byte)
+  // @@protoc_insertion_point(field_set:read.GetResourceFileResponse.file_byte)
 }
-inline void ResourceFile::set_file_byte(const char* value) {
+inline void GetResourceFileResponse::set_file_byte(const char* value) {
   
   file_byte_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:read.ResourceFile.file_byte)
+  // @@protoc_insertion_point(field_set_char:read.GetResourceFileResponse.file_byte)
 }
-inline void ResourceFile::set_file_byte(const void* value, size_t size) {
+inline void GetResourceFileResponse::set_file_byte(const void* value, size_t size) {
   
   file_byte_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:read.ResourceFile.file_byte)
+  // @@protoc_insertion_point(field_set_pointer:read.GetResourceFileResponse.file_byte)
 }
-inline ::std::string* ResourceFile::mutable_file_byte() {
+inline ::std::string* GetResourceFileResponse::mutable_file_byte() {
   
-  // @@protoc_insertion_point(field_mutable:read.ResourceFile.file_byte)
+  // @@protoc_insertion_point(field_mutable:read.GetResourceFileResponse.file_byte)
   return file_byte_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ResourceFile::release_file_byte() {
-  // @@protoc_insertion_point(field_release:read.ResourceFile.file_byte)
+inline ::std::string* GetResourceFileResponse::release_file_byte() {
+  // @@protoc_insertion_point(field_release:read.GetResourceFileResponse.file_byte)
   
   return file_byte_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ResourceFile::set_allocated_file_byte(::std::string* file_byte) {
+inline void GetResourceFileResponse::set_allocated_file_byte(::std::string* file_byte) {
   if (file_byte != NULL) {
     
   } else {
     
   }
   file_byte_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_byte);
-  // @@protoc_insertion_point(field_set_allocated:read.ResourceFile.file_byte)
+  // @@protoc_insertion_point(field_set_allocated:read.GetResourceFileResponse.file_byte)
 }
 
-inline const ResourceFile* ResourceFile::internal_default_instance() {
-  return &ResourceFile_default_instance_.get();
+inline const GetResourceFileResponse* GetResourceFileResponse::internal_default_instance() {
+  return &GetResourceFileResponse_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

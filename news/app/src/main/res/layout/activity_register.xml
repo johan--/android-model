@@ -41,7 +41,7 @@
         android:layout_marginLeft="16.5dp"
         android:layout_marginTop="20dp"
         android:background="@null"
-        android:hint="请输入6到16位的字符名"
+        android:hint="请输入6到16位的字符的用户名"
         android:maxLength="16"
         android:paddingLeft="4dp"
         android:shadowColor="@color/black"

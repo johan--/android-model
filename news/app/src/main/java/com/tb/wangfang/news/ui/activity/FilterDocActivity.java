@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.mobstat.StatService;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -35,6 +36,7 @@ import com.tb.wangfang.news.presenter.FilterDocPresenter;
 import com.tb.wangfang.news.ui.adapter.FilterExpandAdapter;
 import com.tb.wangfang.news.ui.adapter.SearchDocumentAdapter;
 import com.tb.wangfang.news.utils.SnackbarUtil;
+import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.widget.FlowLayout;
 
 import java.util.ArrayList;
@@ -120,7 +122,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         rvContent.setLayoutManager(new LinearLayoutManager(this));
 
-        docAdapter = new SearchDocumentAdapter(null);
+        docAdapter = new SearchDocumentAdapter(this, null);
         docAdapter.setOnLoadMoreListener(this, rvContent);
         docAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         docAdapter.setPreLoadNumber(2);
@@ -164,15 +166,39 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         docAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if (!TextUtils.isEmpty(docAdapter.getData().get(position).getPerio_id().toString())) {
-                    Intent intent = new Intent(FilterDocActivity.this, JournalActivity.class);
-                    intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPerio_id().toString());
-                    startActivity(intent);
+                if (view.getId() == R.id.tv_book_name) {
+                    if (!TextUtils.isEmpty(docAdapter.getData().get(position).getPerio_id().toString())) {
+                        Intent intent = new Intent(FilterDocActivity.this, JournalActivity.class);
+                        intent.putExtra(Constants.ARTICLE_ID, docAdapter.getData().get(position).getPerio_id().toString());
+                        startActivity(intent);
+                    }
+                } else if (view.getId() == R.id.ib_read) {
+                    String resourceId = "";
+                    if (docAdapter.getData().get(position).getClass_type().equals("perio_artical") || docAdapter.getData().get(position).getClass_type().equals("degree_artical") ||
+                            docAdapter.getData().get(position).getClass_type().equals("conf_artical")) {
+                        resourceId = docAdapter.getData().get(position).getArticle_id().toString();
+                    } else if (docAdapter.getData().get(position).getClass_type().equals("patent_element")) {
+                        resourceId = docAdapter.getData().get(position).getPatent_id().toString();
+                    } else if (docAdapter.getData().get(position).getClass_type().equals("standards")) {
+                        resourceId = docAdapter.getData().get(position).getStand_id().toString();
+                    } else if (docAdapter.getData().get(position).getClass_type().equals("legislations")) {
+                        resourceId = docAdapter.getData().get(position).getLegis_id().toString();
+                    } else if (docAdapter.getData().get(position).getClass_type().equals("tech_result")) {
+                        resourceId = docAdapter.getData().get(position).getResult_id().toString();
+                    }
+                    String resourceType = docAdapter.getData().get(position).getClass_type().toString();
+                    String author = SystemUtil.getStringFromJsonarray(docAdapter.getData().get(position).getAuthors_name());
+                    String journal = SystemUtil.getStringFromJsonarray(docAdapter.getData().get(position).getPerio_title02());
+                    String time = SystemUtil.getStringFromJsonarray(docAdapter.getData().get(position).getCommon_sort_time());
+                    mPresenter.goRead(resourceId, resourceType, author, journal, time, FilterDocActivity.this);
                 }
+
 
             }
         });
+        StatService.onEvent(this, "jiansuo", "关键字检索", 1);
         mPresenter.search(text, page, "", "", "", "");
+
         mPresenter.searchNavigation(text, null, null, null);
     }
 
@@ -231,7 +257,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
 //                    }
 //                }
 //                expandAdapter.notifyDataSetChanged();
-
+                StatService.onEvent(this, "shaixuan", "重置筛选条件", 1);
                 mPresenter.search(text, page, "", "", "", "");
                 mPresenter.searchNavigation(text, null, null, null);
                 flCondition.removeAllViews();
@@ -279,6 +305,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                                 }
                             }
                             Log.d(TAG, "onViewClicked: navigation" + navigation);
+                            StatService.onEvent(FilterDocActivity.this, "shaixuan", "筛选条件减一", 1);
                             mPresenter.searchNavigation(text, navigation, startDate, endDate);
 
                             mPresenter.search(text, page, navigation, startDate, endDate, sortField);
@@ -299,6 +326,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 startDate = expandAdapter.getStartTime();
                 endDate = expandAdapter.getEndTime();
                 dlRight.closeDrawer(Gravity.RIGHT);
+                StatService.onEvent(this, "shaixuan", "筛选结果", 1);
                 mPresenter.searchNavigation(text, navigation, startDate, endDate);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
@@ -312,6 +340,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
                 page = 1;
                 docAdapter.setNewData(null);
+                StatService.onEvent(this, "xiangguandu", "相关度排序", 1);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
             case R.id.rl_selet_two:
@@ -324,6 +353,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
                 page = 1;
                 docAdapter.setNewData(null);
+                StatService.onEvent(this, "fabiaoshijian", "发表时间排序", 1);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
             case R.id.rl_selet_three:
@@ -336,6 +366,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
                 page = 1;
                 docAdapter.setNewData(null);
+                StatService.onEvent(this, "jiansuo", "热度排序", 1);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
             case R.id.rl_selet_four:
@@ -348,6 +379,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
                 }
                 page = 1;
                 docAdapter.setNewData(null);
+                StatService.onEvent(this, "beiyinliang", "被引量排序", 1);
                 mPresenter.search(text, page, navigation, startDate, endDate, sortField);
                 break;
         }
@@ -471,11 +503,9 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         docAdapter.setEnableLoadMore(false);
         docAdapter.setNewData(null);
         page = 1;
-
-
         mPresenter.search(text, page, navigation, startDate, endDate, sortField);
         mPresenter.searchNavigation(text, navigation, startDate, endDate);
-
+        StatService.onEvent(this, "jiansuo", "下拉加载", 1);
     }
 
     @Override
@@ -483,6 +513,7 @@ public class FilterDocActivity extends BaseActivity<FilterDocPresenter> implemen
         swipeLayout.setEnabled(false);
         page++;
         mPresenter.search(text, page, navigation, startDate, endDate, sortField);
+        StatService.onEvent(this, "jiansuo", "上拉刷新", 1);
     }
 
 

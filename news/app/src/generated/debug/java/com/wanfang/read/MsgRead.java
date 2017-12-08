@@ -25,10 +25,15 @@ public final class MsgRead {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_read_ReadResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_read_ResourceFile_descriptor;
+    internal_static_read_GetResourceFileRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_read_ResourceFile_fieldAccessorTable;
+      internal_static_read_GetResourceFileRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_read_GetResourceFileResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_read_GetResourceFileResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,15 +48,18 @@ public final class MsgRead {
       "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rresource_t" +
       "ype\030\003 \001(\t\022\016\n\006source\030\004 \001(\t\022\026\n\016resource_ti" +
       "tle\030\005 \001(\t\022\023\n\013resource_id\030\006 \001(\t\022\023\n\013login_" +
-      "token\030\007 \001(\t\"\342\001\n\014ReadResponse\022\r\n\005price\030\001 " +
+      "token\030\007 \001(\t\"\267\001\n\014ReadResponse\022\r\n\005price\030\001 " +
       "\001(\t\022\r\n\005title\030\002 \001(\t\022\024\n\014display_info\030\003 \001(\t" +
       "\022\037\n\027safe_transaction_string\030\004 \001(\t\022\023\n\013alr" +
-      "eady_buy\030\005 \001(\010\022)\n\rresource_file\030\006 \001(\0132\022." +
-      "read.ResourceFile\022\027\n\017has_trade_power\030\007 \001",
-      "(\010\022$\n\005error\030\010 \001(\0132\025.grpcCommon.GrpcError" +
-      "\"J\n\014ResourceFile\022\021\n\tfile_name\030\001 \001(\t\022\024\n\014c" +
-      "ontent_type\030\002 \001(\t\022\021\n\tfile_byte\030\003 \001(\014B\033\n\020" +
-      "com.wanfang.readP\001\242\002\004WFPRb\006proto3"
+      "eady_buy\030\005 \001(\010\022\027\n\017has_trade_power\030\006 \001(\010\022" +
+      "$\n\005error\030\007 \001(\0132\025.grpcCommon.GrpcError\"D\n",
+      "\026GetResourceFileRequest\022\025\n\rresource_type" +
+      "\030\001 \001(\t\022\023\n\013resource_id\030\002 \001(\t\"\215\001\n\027GetResou" +
+      "rceFileResponse\022\021\n\tfile_name\030\001 \001(\t\022\024\n\014co" +
+      "ntent_type\030\002 \001(\t\022\031\n\021total_byte_length\030\003 " +
+      "\001(\003\022\033\n\023loading_byte_length\030\004 \001(\003\022\021\n\tfile" +
+      "_byte\030\005 \001(\014B\033\n\020com.wanfang.readP\001\242\002\004WFPR" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -77,13 +85,19 @@ public final class MsgRead {
     internal_static_read_ReadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_read_ReadResponse_descriptor,
-        new java.lang.String[] { "Price", "Title", "DisplayInfo", "SafeTransactionString", "AlreadyBuy", "ResourceFile", "HasTradePower", "Error", });
-    internal_static_read_ResourceFile_descriptor =
+        new java.lang.String[] { "Price", "Title", "DisplayInfo", "SafeTransactionString", "AlreadyBuy", "HasTradePower", "Error", });
+    internal_static_read_GetResourceFileRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_read_ResourceFile_fieldAccessorTable = new
+    internal_static_read_GetResourceFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_read_ResourceFile_descriptor,
-        new java.lang.String[] { "FileName", "ContentType", "FileByte", });
+        internal_static_read_GetResourceFileRequest_descriptor,
+        new java.lang.String[] { "ResourceType", "ResourceId", });
+    internal_static_read_GetResourceFileResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_read_GetResourceFileResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_read_GetResourceFileResponse_descriptor,
+        new java.lang.String[] { "FileName", "ContentType", "TotalByteLength", "LoadingByteLength", "FileByte", });
     com.wanfang.grpcCommon.MsgError.getDescriptor();
   }
 

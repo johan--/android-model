@@ -1,5 +1,7 @@
 package com.tb.wangfang.news.base.contract;
 
+import android.app.Activity;
+
 import com.tb.wangfang.news.base.BasePresenter;
 import com.tb.wangfang.news.base.BaseView;
 import com.tb.wangfang.news.model.bean.SearchFilterListBean;
@@ -23,6 +25,8 @@ public interface FilterDocContract {
         void search(String text, int page, String navigation, String startTime, String endTime, String sort);
 
         void searchNavigation(String params, String navigation, String startDate, String endDate);
+
+        void goRead(String id, String type,  String author,  String journal,  String time, Activity activity);
 
     }
 }

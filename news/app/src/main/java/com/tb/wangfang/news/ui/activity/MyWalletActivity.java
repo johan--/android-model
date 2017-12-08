@@ -4,22 +4,24 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.internal.MDButton;
 import com.alipay.sdk.app.PayTask;
+import com.baidu.mobstat.StatService;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
@@ -27,9 +29,11 @@ import com.tb.wangfang.news.base.SimpleActivity;
 import com.tb.wangfang.news.di.component.DaggerActivityComponent;
 import com.tb.wangfang.news.di.module.ActivityModule;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
+import com.tb.wangfang.news.ui.adapter.RemainChargeAdapter;
 import com.tb.wangfang.news.utils.AuthResult;
 import com.tb.wangfang.news.utils.PayResult;
 import com.tb.wangfang.news.utils.ToastUtil;
+import com.tb.wangfang.news.widget.PopCharge;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -75,6 +79,8 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
     TextView tvWanfangCardSum;
     @BindView(R.id.rv_item)
     RecyclerView rvItem;
+    @BindView(R.id.tv_return)
+    ImageView tvReturn;
     private String TAG = "MyWalletActivity";
     private TradeListAdapter adapter;
     private ArrayList<UserGetTradeListResponse.TradeTransaction> tradeTransactions = new ArrayList<>();
@@ -105,7 +111,7 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
                         Toast.makeText(MyWalletActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
                     }
-                    positiveAction.setEnabled(true);
+
                     break;
                 }
                 case SDK_AUTH_FLAG: {
@@ -127,18 +133,19 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
                                 "授权失败" + String.format("authCode:%s", authResult.getAuthCode()), Toast.LENGTH_SHORT).show();
 
                     }
-                    positiveAction.setEnabled(true);
+
                     break;
                 }
                 default:
-                    positiveAction.setEnabled(true);
+
                     break;
             }
         }
     };
-    private MDButton positiveAction;
+
     private IWXAPI api;
     private EditText etChargeNum;
+    private RemainChargeAdapter rcAdapter;
 
     @Override
     protected int getLayout() {
@@ -152,7 +159,7 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
     @Override
     protected void initEventAndData() {
 
-
+        StatService.onEvent(this, "qianbao", "进入目录", 1);
         rvItem.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new TradeListAdapter(tradeTransactions);
@@ -264,43 +271,53 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
                 startActivity(intent);
                 break;
             case R.id.btn_recharge:
-                MaterialDialog dialog =
-                        new MaterialDialog.Builder(this)
-                                .title("充值方式选择及充值")
-                                .customView(R.layout.dialog_charge, true)
-                                .positiveText("充值")
-                                .negativeText("取消")
-                                .onPositive(
-                                        new MaterialDialog.SingleButtonCallback() {
+                StatService.onEvent(this, "chongzhi", "点击充值", 1);
+                PopCharge popCharge = new PopCharge(this);
+                popCharge.showPopupWindow(tvReturn);
+                RecyclerView rvCharge = (RecyclerView) popCharge.getContentView().findViewById(R.id.rv_charge);
+                Button positiveAction = (Button) popCharge.getContentView().findViewById(R.id.btn_charge);
+                positiveAction.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (rcAdapter.getSelectPoint() == -1) {
+                            ToastUtil.shortShow("请选择支付金额");
+                            return;
+                        }
+                        new MaterialDialog.Builder(MyWalletActivity.this)
+                                .title("请选择充值方式")
+                                .items(R.array.payMethod2)
+                                .itemsCallbackSingleChoice(
+                                        0, new MaterialDialog.ListCallbackSingleChoice() {
                                             @Override
-                                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                                ChargeNum = etChargeNum.getText().toString();
-                                                if (!TextUtils.isEmpty(ChargeNum) && !TextUtils.isEmpty(ChargeNum.trim())) {
-                                                    if (!ckZhifubao.isChecked() && !ckWeixin.isChecked()) {
-                                                        ToastUtil.show("请选择一个支付方式");
-                                                    } else {
-                                                        if (ckZhifubao.isChecked()) {
-                                                            Pay("Alipay");
-                                                        } else {
-                                                            Pay("Weixin");
-                                                        }
-                                                    }
-
+                                            public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
+                                                if (text.equals("微信")) {
+                                                    Pay("Weixin");
                                                 } else {
-                                                    ToastUtil.show("充值金额不能为空");
+                                                    Pay("Alipay");
                                                 }
-
+                                                return true;
                                             }
                                         })
-                                .build();
-                etChargeNum = (EditText) dialog.getCustomView().findViewById(R.id.et_charge_num);
-                ckZhifubao = (CheckBox) dialog.getCustomView().findViewById(R.id.ck_zhifubao);
-                ckWeixin = (CheckBox) dialog.getCustomView().findViewById(R.id.ck_weixing);
-                positiveAction = dialog.getActionButton(DialogAction.POSITIVE);
+                                .positiveText("充值")
+                                .show();
+                    }
+                });
 
-                ckZhifubao.setOnCheckedChangeListener(this);
-                ckWeixin.setOnCheckedChangeListener(this);
-                dialog.show();
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+                rvCharge.setLayoutManager(gridLayoutManager);
+                rcAdapter = new RemainChargeAdapter();
+                rvCharge.setAdapter(rcAdapter);
+
+                rcAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        ChargeNum = rcAdapter.getItem(position);
+                        rcAdapter.setSelectPoint(position);
+                        rcAdapter.notifyDataSetChanged();
+                    }
+                });
+
+
                 break;
         }
     }
@@ -319,6 +336,7 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<ChargeResponse>() {
             @Override
             public void onSuccess(ChargeResponse unifiedorderResponse) {
+
                 Log.d(TAG, "onSuccess: " + unifiedorderResponse);
                 if (alipay.equals("Alipay")) {
                     payByZhifubao(unifiedorderResponse);
@@ -338,7 +356,7 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
     }
 
     private void payByWeixing(ChargeResponse unifiedorderResponse) {
-        positiveAction.setEnabled(false);
+        StatService.onEvent(this, "chongzhi", "微信充值", 1);
         api = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
         PayReq req = new PayReq();
         req.appId = unifiedorderResponse.getAppId();
@@ -353,11 +371,11 @@ public class MyWalletActivity extends SimpleActivity implements CompoundButton.O
         // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
         api.sendReq(req);
 
-        positiveAction.setEnabled(true);
+
     }
 
     private void payByZhifubao(ChargeResponse unifiedorderResponse) {
-        positiveAction.setEnabled(false);
+        StatService.onEvent(this, "chongzhi", "支付宝充值", 1);
         final String orderInfo = unifiedorderResponse.getSign();
         Log.d(TAG, "payByZhiFuBao: " + unifiedorderResponse.getSign());
         Runnable payRunnable = new Runnable() {

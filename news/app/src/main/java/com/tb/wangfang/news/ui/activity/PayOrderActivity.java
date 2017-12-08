@@ -1,7 +1,6 @@
 package com.tb.wangfang.news.ui.activity;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -15,6 +14,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alipay.sdk.app.PayTask;
+import com.baidu.mobstat.StatService;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
@@ -47,7 +47,6 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.grpc.ManagedChannel;
 import io.reactivex.Single;
@@ -137,7 +136,7 @@ public class PayOrderActivity extends SimpleActivity {
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-                        Toast.makeText(PayOrderActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PayOrderActivity.this, "支付成功,请点击阅读", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
@@ -150,8 +149,7 @@ public class PayOrderActivity extends SimpleActivity {
                     AuthResult authResult = new AuthResult((Map<String, String>) msg.obj, true);
                     String resultStatus = authResult.getResultStatus();
 
-                    // 判断resultStatus 为“9000”且result_code
-                    // 为“200”则代表授权成功，具体状态码代表含义可参考授权接口文档
+                    // 判断resultStatus 为“9000”且result_c// 为“200”则代表授权成功，具体状态码代表含义可参考授权接口文档
                     if (TextUtils.equals(resultStatus, "9000") && TextUtils.equals(authResult.getResultCode(), "200")) {
                         // 获取alipay_open_id，调支付时作为参数extern_token 的value
                         // 传入，则支付账户为该授权账户
@@ -270,6 +268,7 @@ public class PayOrderActivity extends SimpleActivity {
                     tvWanfangCardSum.setText(response.getBlance() + "元");
                     if (Double.parseDouble(response.getBlance()) >= Double.parseDouble(readResponse.getPrice()) && ivRemainGreenGou.getVisibility() == View.GONE) {
                         selectMethod(1);
+                        type = "WFChargeCard";
                     }
                 }
             }
@@ -303,6 +302,7 @@ public class PayOrderActivity extends SimpleActivity {
                 tvRemainSum.setText(userGetBalenceResponse.getBalence() + "元");
                 if (userGetBalenceResponse.getBalence() >= Double.parseDouble(readResponse.getPrice())) {
                     selectMethod(0);
+                    type = "Person";
                 }
                 getWFCardBalance();
             }
@@ -317,7 +317,7 @@ public class PayOrderActivity extends SimpleActivity {
     private void selectMethod(int i) {
 
         for (int j = 0; j < iv_green_gous.length; j++) {
-            iv_green_gous[i].setVisibility(View.GONE);
+            iv_green_gous[j].setVisibility(View.GONE);
 
         }
         iv_green_gous[i].setVisibility(View.VISIBLE);
@@ -371,14 +371,19 @@ public class PayOrderActivity extends SimpleActivity {
                 } else if (type.equals("Weixin")) {
 //                    PayUtil.payWeiXin(PayOrderActivity.this, unifiedorderResponse.getPrepayId());
                     payByWeichat(unifiedorderResponse);
-                } else if (type.equals("WFChargeCard")) {
+                } else if (type.equals("WFChargeCard") || type.equals("Person")) {
+                    if (type.equals("Person")) {
+                        StatService.onEvent(PayOrderActivity.this, "buy", "余额支付", 1);
+                    } else {
+                        StatService.onEvent(PayOrderActivity.this, "buy", "万方卡支付", 1);
+                    }
+
                     if (unifiedorderResponse.hasError()) {
                         ToastUtil.shortShow(unifiedorderResponse.getError().getErrorMessage().getErrorReason());
                     } else {
-                        ToastUtil.shortShow("支付成功");
+                        ToastUtil.shortShow("支付成功,请点击阅读");
                         finish();
                     }
-
                 }
 
             }
@@ -393,6 +398,7 @@ public class PayOrderActivity extends SimpleActivity {
 
 
     private void payByZhiFuBao(UnifiedorderResponse unifiedorderResponse) {
+        StatService.onEvent(PayOrderActivity.this, "buy", "支付宝支付", 1);
         final String orderInfo = unifiedorderResponse.getSign();
         Log.d(TAG, "payByZhiFuBao: " + unifiedorderResponse.getSign());
         Runnable payRunnable = new Runnable() {
@@ -415,6 +421,7 @@ public class PayOrderActivity extends SimpleActivity {
     }
 
     private void payByWeichat(UnifiedorderResponse unifiedorderResponse) {
+        StatService.onEvent(PayOrderActivity.this, "buy", "微信支付", 1);
         btnPay.setEnabled(false);
         api = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
         PayReq req = new PayReq();
@@ -430,13 +437,6 @@ public class PayOrderActivity extends SimpleActivity {
         btnPay.setEnabled(true);
     }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @OnClick({R.id.tv_return, R.id.rl_remain, R.id.rl_wanfagn_card, R.id.rl_weichat, R.id.rl_zhifubao, btn_pay})
     public void onViewClicked(View view) {

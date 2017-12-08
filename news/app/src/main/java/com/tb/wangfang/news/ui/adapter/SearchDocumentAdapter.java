@@ -1,9 +1,11 @@
 package com.tb.wangfang.news.ui.adapter;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tb.wangfang.news.R;
@@ -20,10 +22,13 @@ import java.util.List;
  */
 
 public class SearchDocumentAdapter extends BaseQuickAdapter<SearchReplyBean.DataBean, BaseViewHolder> {
+    Context context;
+    private MaterialDialog dialog;
 
-    public SearchDocumentAdapter(List<SearchReplyBean.DataBean> searchDocItemList) {
+    public SearchDocumentAdapter(Context context, List<SearchReplyBean.DataBean> searchDocItemList) {
 
         super(R.layout.item_search_result, searchDocItemList);
+        this.context = context;
     }
 
     @Override
@@ -136,6 +141,8 @@ public class SearchDocumentAdapter extends BaseQuickAdapter<SearchReplyBean.Data
         helper.setText(R.id.tv_summary_num, "文摘阅读 : " + item.getAbstract_reading_num()).setText(R.id.tv_down_num, "下载 : " + item.getDownload_num())
                 .setText(R.id.tv_link_num, "第三方链接 : " + item.getNote_num()).setText(R.id.tv_reference_num, "被引用 : " + item.getImport_num());
         helper.addOnClickListener(R.id.tv_book_name);
+        helper.addOnClickListener(R.id.ib_read);
 
     }
+
 }

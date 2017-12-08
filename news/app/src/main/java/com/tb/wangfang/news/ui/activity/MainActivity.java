@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mobstat.StatService;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
 import com.huawei.hms.api.HuaweiApiClient;
@@ -91,8 +92,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 mHandler.postDelayed(new DelayRunnable(MainActivity.this, splashFragment), 3000);
             }
         });
-//        mHandler.postDelayed(new DelayRunnable(this, splashFragment), 6000);
-
+        //百度统计
+        StatService.start(this);
         if (SystemUtil.getSystem().equals(SystemUtil.SYS_EMUI)) {
             initHuaweiPush(this);
         }

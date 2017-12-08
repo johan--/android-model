@@ -98,11 +98,13 @@
 #okhttp
 -dontwarn okhttp3.**
 -keep class okhttp3.**{*;}
-
-
 #okio
 -dontwarn okio.**
 -keep class okio.**{*;}
 -keep class com.tencent.mm.sdk.** {
    *;
 }
+#百度统计
+-keep class com.baidu.bottom.** { *; }
+-keep class com.baidu.kirin.** { *; }
+-keep class com.baidu.mobstat.** { *; }

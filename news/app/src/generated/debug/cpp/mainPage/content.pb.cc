@@ -236,7 +236,6 @@ void protobuf_InitDefaults_mainPage_2fcontent_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   ContentDetail_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
-  ::google::protobuf::internal::GetEmptyString();
   Category_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   Tag_default_instance_.DefaultConstruct();

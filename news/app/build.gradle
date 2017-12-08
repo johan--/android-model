@@ -41,6 +41,7 @@ android {
     }
     sourceSets {
         main {
+            jniLibs.srcDirs = ['libs']
             proto {
                 srcDir 'src/main/proto'
                 include '**/*.proto'
@@ -196,4 +197,5 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile files('libs/Baidu_Mtj_3.8.1.1.jar')
 }

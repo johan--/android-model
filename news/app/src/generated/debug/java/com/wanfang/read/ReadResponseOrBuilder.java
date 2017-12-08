@@ -74,48 +74,23 @@ public interface ReadResponseOrBuilder extends
 
   /**
    * <pre>
-   * 文件信息
-   * </pre>
-   *
-   * <code>optional .read.ResourceFile resource_file = 6;</code>
-   */
-  boolean hasResourceFile();
-  /**
-   * <pre>
-   * 文件信息
-   * </pre>
-   *
-   * <code>optional .read.ResourceFile resource_file = 6;</code>
-   */
-  com.wanfang.read.ResourceFile getResourceFile();
-  /**
-   * <pre>
-   * 文件信息
-   * </pre>
-   *
-   * <code>optional .read.ResourceFile resource_file = 6;</code>
-   */
-  com.wanfang.read.ResourceFileOrBuilder getResourceFileOrBuilder();
-
-  /**
-   * <pre>
    * 是否可以支付 先判断
    * </pre>
    *
-   * <code>optional bool has_trade_power = 7;</code>
+   * <code>optional bool has_trade_power = 6;</code>
    */
   boolean getHasTradePower();
 
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   boolean hasError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcError getError();
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder();
 }

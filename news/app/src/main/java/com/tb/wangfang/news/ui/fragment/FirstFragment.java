@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
@@ -217,6 +218,7 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
             public void onItemClick(int position) {
                 Content.ContentDetail contentBean = response.getContents(position);
                 WebViewActivity.startThisFromActivity(getActivity(), contentBean.getUrl(), contentBean.getTitle(), "0");
+                StatService.onEvent(getActivity(), "zuixinzixun", "进入单个详情", 1);
             }
         });
         tvLastNews.setOnItemUpdataListener(new VerticalTextview.onItemUpdataListener() {
@@ -399,7 +401,9 @@ public class FirstFragment extends BaseFragment<FirstPresenter> implements First
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     WebViewActivity.startThisFromActivity(getActivity(), finalWebUrl, finalTitle, "");
+                    StatService.onEvent(getActivity(), "banner", "点击banner触发阅读", 1);
                 }
             });
         }

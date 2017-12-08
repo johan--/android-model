@@ -327,6 +327,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             mdialog.dismiss();
         }
 
+        if (response == null) {
+            ToastUtil.shortShow("网络错误");
+            return;
+        }
         if (TextUtils.isEmpty(response.getLoginToken())) {
             if (response.getError().getErrorMessage().getErrorCode() == MsgError.ErrorCode.NO_REGIST) {
                 ToastUtil.shortShow("用户名不存在");

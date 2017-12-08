@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -19,9 +18,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.baidu.mobstat.StatService;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
-import com.google.protobuf.ByteString;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.app.Constants;
@@ -39,6 +38,7 @@ import com.tb.wangfang.news.model.bean.TechResultBean;
 import com.tb.wangfang.news.model.prefs.ImplPreferencesHelper;
 import com.tb.wangfang.news.ui.adapter.SimilarPageAdapter;
 import com.tb.wangfang.news.utils.FileUtil;
+import com.tb.wangfang.news.utils.NDKFileEncryptUtils;
 import com.tb.wangfang.news.utils.SnackbarUtil;
 import com.tb.wangfang.news.utils.SystemUtil;
 import com.tb.wangfang.news.utils.ToastUtil;
@@ -51,6 +51,8 @@ import com.wanfang.collect.CheckISCollectedResponse;
 import com.wanfang.collect.CollectRequest;
 import com.wanfang.collect.CollectResponse;
 import com.wanfang.collect.CollectServiceGrpc;
+import com.wanfang.read.GetResourceFileRequest;
+import com.wanfang.read.GetResourceFileResponse;
 import com.wanfang.read.ReadRequest;
 import com.wanfang.read.ReadResponse;
 import com.wanfang.read.ReadServiceGrpc;
@@ -61,12 +63,15 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import io.grpc.ManagedChannel;
@@ -77,6 +82,7 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
@@ -90,6 +96,7 @@ import static com.tb.wangfang.news.R.id.tv_province;
 import static com.tb.wangfang.news.R.id.tv_publish_data;
 import static com.tb.wangfang.news.R.id.tv_summary_num;
 import static com.tb.wangfang.news.app.Constants.SEARCH_DETAIL;
+import static com.tb.wangfang.news.utils.FileUtil.getEncryFolderPath;
 
 public class DocDetailActivity extends SimpleActivity {
     @Inject
@@ -136,6 +143,8 @@ public class DocDetailActivity extends SimpleActivity {
     private TextView tvContent;
     private String shareType = "";
     private TextView tvTitle;
+    private String fileType = "";
+    private String fileName = "";
 
 
     @Override
@@ -787,8 +796,10 @@ public class DocDetailActivity extends SimpleActivity {
             case R.id.ll_collect:
                 TextView tvCollect = (TextView) llCollect.getChildAt(0);
                 if (tvCollect.getText().toString().equals("收藏")) {
+                    StatService.onEvent(this, "shoucang", "收藏", 1);
                     collectPro();
                 } else {
+                    StatService.onEvent(this, "shoucang", "取消收藏", 1);
                     unCollectPro();
                 }
 
@@ -802,6 +813,7 @@ public class DocDetailActivity extends SimpleActivity {
                                 if (granted) {
 
                                     showShare();
+
                                 } else {
                                     SnackbarUtil.show(((ViewGroup) findViewById(android.R.id.content)).getChildAt(0), "分享需要文件存储权限~");
                                 }
@@ -923,38 +935,40 @@ public class DocDetailActivity extends SimpleActivity {
             @Override
             public void onSuccess(final ReadResponse readResponse) {
                 Log.d(TAG, "onSuccess: readResponse" + readResponse);
-                if (readResponse.getAlreadyBuy()) {
-                    new RxPermissions(DocDetailActivity.this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            .subscribe(new Consumer<Boolean>() {
-                                @Override
-                                public void accept(@NonNull Boolean granted) throws Exception {
-                                    if (granted) {
+                if (!readResponse.hasError()) {
+                    if (readResponse.getAlreadyBuy()) {
+                        new RxPermissions(DocDetailActivity.this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                .subscribe(new Consumer<Boolean>() {
+                                    @Override
+                                    public void accept(@NonNull Boolean granted) throws Exception {
+                                        if (granted) {
+                                            getDocResource();
 
-                                        down(readResponse);
-                                    } else {
-                                        SnackbarUtil.show(((ViewGroup) findViewById(android.R.id.content)).getChildAt(0), "阅读需要文件存储权限~");
+                                        } else {
+                                            SnackbarUtil.show(((ViewGroup) findViewById(android.R.id.content)).getChildAt(0), "阅读需要文件存储权限~");
+                                        }
                                     }
-                                }
-                            });
+                                });
 
 
-                } else if (readResponse.getHasTradePower()) {
-                    dialog.dismiss();
-                    Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
-                    intent.putExtra("response", readResponse);
-                    intent.putExtra("type", classType);
+                    } else if (readResponse.getHasTradePower()) {
+                        dialog.dismiss();
+                        Intent intent = new Intent(DocDetailActivity.this, PayOrderActivity.class);
+                        intent.putExtra("response", readResponse);
+                        intent.putExtra("type", classType);
 
 
-                    intent.putExtra("author", author);
-                    intent.putExtra("journal", journal);
-                    intent.putExtra("time", time);
+                        intent.putExtra("author", author);
+                        intent.putExtra("journal", journal);
+                        intent.putExtra("time", time);
 
-                    startActivity(intent);
+                        startActivity(intent);
 
 
+                    }
                 } else {
                     dialog.dismiss();
-                    ToastUtil.show("您没有购买的权限");
+                    ToastUtil.show(readResponse.getError().getErrorMessage().getErrorReason());
                 }
 
 
@@ -968,49 +982,142 @@ public class DocDetailActivity extends SimpleActivity {
 
     }
 
-    private void down(final ReadResponse readResponse) {
-        String fileName = readResponse.getResourceFile().getFileName();
-        String[] s = fileName.split("\\.");
-        String fileType = "";
-        if (s.length == 2) {
-            fileType = s[1];
-        }
-
-        final String finalFileName = fileName;
-        final String finalFileType = fileType;
-        Single.create(new SingleOnSubscribe<String>() {
+    private void getDocResource() {
+        Single.create(new SingleOnSubscribe<Iterator<GetResourceFileResponse>>() {
             @Override
-            public void subscribe(SingleEmitter<String> e) throws Exception {
-                ByteString byteString = readResponse.getResourceFile().getFileByte();
-                boolean b = FileUtil.saveReadFile(byteString, getFilesDir().getAbsolutePath(), finalFileName);
+            public void subscribe(SingleEmitter<Iterator<GetResourceFileResponse>> e) throws Exception {
+                ReadServiceGrpc.ReadServiceBlockingStub stub = ReadServiceGrpc.newBlockingStub(managedChannel);
+                GetResourceFileRequest getResourceFileRequest = GetResourceFileRequest.newBuilder().setResourceId(articleId).setResourceType(articleType).build();
+                Iterator<GetResourceFileResponse> getResourceFileResponse = stub.getResourceFile(getResourceFileRequest);
+                e.onSuccess(getResourceFileResponse);
+            }
+        }).map(new Function<Iterator<GetResourceFileResponse>, Boolean>() {
+            @Override
+            public Boolean apply(@NonNull Iterator<GetResourceFileResponse> getResourceFileResponseIterator) throws Exception {
+                boolean b = dwon(getResourceFileResponseIterator);
+                return b;
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<Boolean>() {
+            @Override
+            public void onSuccess(final Boolean b) {
+                Log.d(TAG, "onSuccess: getDocResource" + b);
+                dialog.dismiss();
                 if (b) {
-                    e.onSuccess("");
+                    Intent intent = new Intent(DocDetailActivity.this, ReadActivity.class);
+                    intent.putExtra("url", fileName);
+                    intent.putExtra("type", fileType);
+                    startActivity(intent);
+
                 } else {
-                    e.onError(new Exception("error"));
+                    ToastUtil.shortShow("下载失败");
                 }
 
+
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<String>() {
-            @Override
-            public void onSuccess(String readResponse) {
-                dialog.dismiss();
-                Intent intent = new Intent(DocDetailActivity.this, ReadActivity.class);
-                intent.putExtra("url", finalFileName);
-                intent.putExtra("type", finalFileType);
-                startActivity(intent);
-            }
+
 
             @Override
             public void onError(Throwable e) {
-                dialog.dismiss();
+                Log.d(TAG, "onError: " + e.getMessage());
             }
         });
-
-
     }
 
-    private void checkIsExistNative(String finalFileName, int size) {
+    private boolean dwon(Iterator<GetResourceFileResponse> getResourceFileResponse) {
+        String privateBase = getFilesDir().getAbsolutePath();
+        FileOutputStream fileOutputStream = null;
+        NDKFileEncryptUtils encryptUtils = new NDKFileEncryptUtils();
 
+        boolean on_of = true;
+
+        String encryString = "";
+        String privateString = "";
+        while (getResourceFileResponse.hasNext()) {
+            GetResourceFileResponse resourceFrag = getResourceFileResponse.next();
+            if (on_of && resourceFrag.getTotalByteLength() == 0) {
+                return false;
+            }
+            if (on_of) {
+                fileName = resourceFrag.getFileName();
+                String[] s = fileName.split("\\.");
+                fileType = "";
+                if (s.length == 2) {
+                    fileType = s[1];
+                }
+                encryString = FileUtil.getEncryFilePath(fileName);
+                privateString = FileUtil.getPrivateFilePath(privateBase, fileName);
+                File Folder = new File(FileUtil.getPrivateFolder(privateBase, fileName));
+                File encryFolder = new File(getEncryFolderPath(fileName));
+                if (!Folder.exists()) {
+                    Folder.mkdirs();
+                }
+                if (!encryFolder.exists()) {
+                    encryFolder.mkdirs();
+                }
+
+            }
+
+
+            //
+            if (on_of && FileUtil.checkIsExist(fileName, resourceFrag.getTotalByteLength())) {
+                encryptUtils.decry(encryString, privateString);
+                return true;
+            }
+
+
+            File privateFile = new File(privateString);
+            if (on_of && privateFile.exists()) {
+                privateFile.delete();
+            }
+            on_of = false;
+            InputStream is = resourceFrag.getFileByte().newInput();
+
+
+            try {
+                if (fileOutputStream == null) {
+                    fileOutputStream = new FileOutputStream(privateString, true);
+                }
+                byte[] buffer = new byte[2048];//缓冲数组2kB
+                int len;
+                while ((len = is.read(buffer)) != -1) {
+                    fileOutputStream.write(buffer, 0, len);
+                }
+                fileOutputStream.flush();
+                //加密写到encry文件中
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                return false;
+            } finally {
+                //关闭IO流
+                if (is != null) {
+                    try {
+                        is.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+        encryptUtils.encry(privateString, encryString);
+        if (fileOutputStream != null)
+
+        {
+            try {
+                fileOutputStream.close();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+        }
+        return true;
     }
 
     private void showShare() {
@@ -1025,7 +1132,7 @@ public class DocDetailActivity extends SimpleActivity {
                 BitmapDrawable bitmap = (BitmapDrawable) getResources().getDrawable(R.mipmap.ic_launcher);
                 Bitmap img = bitmap.getBitmap();
                 String path = FileUtil.getEncryFilePath("ic_launcher.png");
-                String folder = FileUtil.getEncryFolderPath("ic_launcher.png");
+                String folder = getEncryFolderPath("ic_launcher.png");
                 File folderFile = new File(folder);
                 if (!folderFile.exists()) {
                     folderFile.mkdirs();
@@ -1065,6 +1172,7 @@ public class DocDetailActivity extends SimpleActivity {
 
                 // 启动分享GUI
                 oks.show(DocDetailActivity.this);
+                StatService.onEvent(DocDetailActivity.this, "fenxiang", "分享", 1);
 
             }
 
@@ -1077,10 +1185,5 @@ public class DocDetailActivity extends SimpleActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }

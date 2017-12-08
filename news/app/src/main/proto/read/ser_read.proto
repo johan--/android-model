@@ -10,4 +10,7 @@ option objc_class_prefix = "WFPR";
 service ReadService {
     // 发起阅读请求
     rpc Read (ReadRequest) returns (ReadResponse);
+
+    // 获取全文信息
+    rpc GetResourceFile (GetResourceFileRequest) returns (stream GetResourceFileResponse);
 }

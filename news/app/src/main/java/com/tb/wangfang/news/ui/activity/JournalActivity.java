@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.baidu.mobstat.StatService;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.tb.wangfang.news.R;
@@ -375,11 +376,14 @@ public class JournalActivity extends SimpleActivity {
             case tv_order:
                 if (tvOrder.getText().toString().equals("订阅")) {
                     subscribe();
+                    StatService.onEvent(this, "tianjiadingyue", "添加订阅", 1);
                 } else {
                     unSubscribe();
+                    StatService.onEvent(this, "tianjiadingyue", "取消订阅", 1);
                 }
                 break;
             case R.id.tv_share:
+                StatService.onEvent(this, "fenxiang", "期刊分享", 1);
                 showShare();
                 break;
             case R.id.tv_more:

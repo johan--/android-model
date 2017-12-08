@@ -388,5 +388,21 @@ public class SystemUtil {
         return randNum;
     }
 
+    public static Boolean isPurenumber(String str) {
+        String regEx = "^\\d+$";
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(str);
+        boolean is = matcher.matches();
+        return is;
+    }
+
+    public static Boolean isPureUnderline(String str) {
+        String regEx = "^_+$";
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(str);
+        boolean is = matcher.matches();
+        return is;
+    }
+
 
 }

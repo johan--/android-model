@@ -27,17 +27,17 @@ public class HttpModule {
 //                .usePlaintext(true)
 //                .build();
 //        //唐斌的电脑
-//        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.20.17.147", 8088)
-//                .usePlaintext(true)
-//                .build();
+        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.20.17.147", 8088)
+                .usePlaintext(true)
+                .build();
         // 叶书胜的电脑
 //        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("10.20.13.178", 8088)
 //                .usePlaintext(true)
 //                .build();
         //公网服务地址
-        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("122.115.55.3", 8080)
-                .usePlaintext(true)
-                .build();
+//        ManagedChannel mChannel = ManagedChannelBuilder.forAddress("122.115.55.3", 8080)
+//                .usePlaintext(true)
+//                .build();
         return mChannel;
     }
 

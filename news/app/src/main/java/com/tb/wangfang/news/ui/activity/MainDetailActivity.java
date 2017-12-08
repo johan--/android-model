@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.baidu.mobstat.StatService;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
@@ -79,16 +80,20 @@ public class MainDetailActivity extends SimpleActivity implements BaseQuickAdapt
         switch (type) {
             case TYPE_ONE:
                 tvPageTitle.setText("基金会议");
+                StatService.onEvent(this, "jijinhuiyi", "进入目录", 1);
                 break;
 
             case TYPE_TWO:
                 tvPageTitle.setText("科技动态");
+                StatService.onEvent(this, "kejidongtai", "进入目录", 1);
                 break;
             case TYPE_THREE:
                 tvPageTitle.setText("每周优选");
+                StatService.onEvent(this, "meizhouyouxuan", "进入目录", 1);
                 break;
             case TYPE_FOUR:
                 tvPageTitle.setText("期刊");
+                StatService.onEvent(this, "qikan", "进入目录", 1);
                 break;
         }
 
@@ -126,10 +131,25 @@ public class MainDetailActivity extends SimpleActivity implements BaseQuickAdapt
             adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
                     GetFoundListResponse.HomeListMessage detail = (GetFoundListResponse.HomeListMessage) adapter.getData().get(position);
-                    if (!TextUtils.isEmpty(detail.getTitle())) {
+                    if (!TextUtils.isEmpty(detail.getLinkUrl())) {
                         WebViewActivity.startThisFromActivity(MainDetailActivity.this, detail.getLinkUrl(), detail.getTitle(), "");
+                        switch (type) {
+                            case TYPE_ONE:
+                                StatService.onEvent(MainDetailActivity.this, "jijinhuiyi", "进入单个详情", 1);
+                                break;
+                            case TYPE_TWO:
+                                StatService.onEvent(MainDetailActivity.this, "kejidongtai", "进入单个详情", 1);
+                                break;
+                            case TYPE_THREE:
+                                StatService.onEvent(MainDetailActivity.this, "meizhouyouxuan", "进入单个详情", 1);
+                                break;
+                            case TYPE_FOUR:
+                                StatService.onEvent(MainDetailActivity.this, "qikan", "进入单个详情", 1);
+                                break;
+                        }
+
+
                     }
 
                 }

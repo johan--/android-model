@@ -77,25 +77,12 @@ public  final class ReadResponse extends
             alreadyBuy_ = input.readBool();
             break;
           }
-          case 50: {
-            com.wanfang.read.ResourceFile.Builder subBuilder = null;
-            if (resourceFile_ != null) {
-              subBuilder = resourceFile_.toBuilder();
-            }
-            resourceFile_ = input.readMessage(com.wanfang.read.ResourceFile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resourceFile_);
-              resourceFile_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
+          case 48: {
 
             hasTradePower_ = input.readBool();
             break;
           }
-          case 66: {
+          case 58: {
             com.wanfang.grpcCommon.MsgError.GrpcError.Builder subBuilder = null;
             if (error_ != null) {
               subBuilder = error_.toBuilder();
@@ -296,68 +283,35 @@ public  final class ReadResponse extends
     return alreadyBuy_;
   }
 
-  public static final int RESOURCE_FILE_FIELD_NUMBER = 6;
-  private com.wanfang.read.ResourceFile resourceFile_;
-  /**
-   * <pre>
-   * 文件信息
-   * </pre>
-   *
-   * <code>optional .read.ResourceFile resource_file = 6;</code>
-   */
-  public boolean hasResourceFile() {
-    return resourceFile_ != null;
-  }
-  /**
-   * <pre>
-   * 文件信息
-   * </pre>
-   *
-   * <code>optional .read.ResourceFile resource_file = 6;</code>
-   */
-  public com.wanfang.read.ResourceFile getResourceFile() {
-    return resourceFile_ == null ? com.wanfang.read.ResourceFile.getDefaultInstance() : resourceFile_;
-  }
-  /**
-   * <pre>
-   * 文件信息
-   * </pre>
-   *
-   * <code>optional .read.ResourceFile resource_file = 6;</code>
-   */
-  public com.wanfang.read.ResourceFileOrBuilder getResourceFileOrBuilder() {
-    return getResourceFile();
-  }
-
-  public static final int HAS_TRADE_POWER_FIELD_NUMBER = 7;
+  public static final int HAS_TRADE_POWER_FIELD_NUMBER = 6;
   private boolean hasTradePower_;
   /**
    * <pre>
    * 是否可以支付 先判断
    * </pre>
    *
-   * <code>optional bool has_trade_power = 7;</code>
+   * <code>optional bool has_trade_power = 6;</code>
    */
   public boolean getHasTradePower() {
     return hasTradePower_;
   }
 
-  public static final int ERROR_FIELD_NUMBER = 8;
+  public static final int ERROR_FIELD_NUMBER = 7;
   private com.wanfang.grpcCommon.MsgError.GrpcError error_;
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   public boolean hasError() {
     return error_ != null;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
     return error_ == null ? com.wanfang.grpcCommon.MsgError.GrpcError.getDefaultInstance() : error_;
   }
   /**
-   * <code>optional .grpcCommon.GrpcError error = 8;</code>
+   * <code>optional .grpcCommon.GrpcError error = 7;</code>
    */
   public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
     return getError();
@@ -390,14 +344,11 @@ public  final class ReadResponse extends
     if (alreadyBuy_ != false) {
       output.writeBool(5, alreadyBuy_);
     }
-    if (resourceFile_ != null) {
-      output.writeMessage(6, getResourceFile());
-    }
     if (hasTradePower_ != false) {
-      output.writeBool(7, hasTradePower_);
+      output.writeBool(6, hasTradePower_);
     }
     if (error_ != null) {
-      output.writeMessage(8, getError());
+      output.writeMessage(7, getError());
     }
   }
 
@@ -422,17 +373,13 @@ public  final class ReadResponse extends
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, alreadyBuy_);
     }
-    if (resourceFile_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getResourceFile());
-    }
     if (hasTradePower_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, hasTradePower_);
+        .computeBoolSize(6, hasTradePower_);
     }
     if (error_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, getError());
+        .computeMessageSize(7, getError());
     }
     memoizedSize = size;
     return size;
@@ -460,11 +407,6 @@ public  final class ReadResponse extends
         .equals(other.getSafeTransactionString());
     result = result && (getAlreadyBuy()
         == other.getAlreadyBuy());
-    result = result && (hasResourceFile() == other.hasResourceFile());
-    if (hasResourceFile()) {
-      result = result && getResourceFile()
-          .equals(other.getResourceFile());
-    }
     result = result && (getHasTradePower()
         == other.getHasTradePower());
     result = result && (hasError() == other.hasError());
@@ -493,10 +435,6 @@ public  final class ReadResponse extends
     hash = (37 * hash) + ALREADY_BUY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAlreadyBuy());
-    if (hasResourceFile()) {
-      hash = (37 * hash) + RESOURCE_FILE_FIELD_NUMBER;
-      hash = (53 * hash) + getResourceFile().hashCode();
-    }
     hash = (37 * hash) + HAS_TRADE_POWER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHasTradePower());
@@ -632,12 +570,6 @@ public  final class ReadResponse extends
 
       alreadyBuy_ = false;
 
-      if (resourceFileBuilder_ == null) {
-        resourceFile_ = null;
-      } else {
-        resourceFile_ = null;
-        resourceFileBuilder_ = null;
-      }
       hasTradePower_ = false;
 
       if (errorBuilder_ == null) {
@@ -673,11 +605,6 @@ public  final class ReadResponse extends
       result.displayInfo_ = displayInfo_;
       result.safeTransactionString_ = safeTransactionString_;
       result.alreadyBuy_ = alreadyBuy_;
-      if (resourceFileBuilder_ == null) {
-        result.resourceFile_ = resourceFile_;
-      } else {
-        result.resourceFile_ = resourceFileBuilder_.build();
-      }
       result.hasTradePower_ = hasTradePower_;
       if (errorBuilder_ == null) {
         result.error_ = error_;
@@ -743,9 +670,6 @@ public  final class ReadResponse extends
       }
       if (other.getAlreadyBuy() != false) {
         setAlreadyBuy(other.getAlreadyBuy());
-      }
-      if (other.hasResourceFile()) {
-        mergeResourceFile(other.getResourceFile());
       }
       if (other.getHasTradePower() != false) {
         setHasTradePower(other.getHasTradePower());
@@ -1133,166 +1057,13 @@ public  final class ReadResponse extends
       return this;
     }
 
-    private com.wanfang.read.ResourceFile resourceFile_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.wanfang.read.ResourceFile, com.wanfang.read.ResourceFile.Builder, com.wanfang.read.ResourceFileOrBuilder> resourceFileBuilder_;
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public boolean hasResourceFile() {
-      return resourceFileBuilder_ != null || resourceFile_ != null;
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public com.wanfang.read.ResourceFile getResourceFile() {
-      if (resourceFileBuilder_ == null) {
-        return resourceFile_ == null ? com.wanfang.read.ResourceFile.getDefaultInstance() : resourceFile_;
-      } else {
-        return resourceFileBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public Builder setResourceFile(com.wanfang.read.ResourceFile value) {
-      if (resourceFileBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        resourceFile_ = value;
-        onChanged();
-      } else {
-        resourceFileBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public Builder setResourceFile(
-        com.wanfang.read.ResourceFile.Builder builderForValue) {
-      if (resourceFileBuilder_ == null) {
-        resourceFile_ = builderForValue.build();
-        onChanged();
-      } else {
-        resourceFileBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public Builder mergeResourceFile(com.wanfang.read.ResourceFile value) {
-      if (resourceFileBuilder_ == null) {
-        if (resourceFile_ != null) {
-          resourceFile_ =
-            com.wanfang.read.ResourceFile.newBuilder(resourceFile_).mergeFrom(value).buildPartial();
-        } else {
-          resourceFile_ = value;
-        }
-        onChanged();
-      } else {
-        resourceFileBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public Builder clearResourceFile() {
-      if (resourceFileBuilder_ == null) {
-        resourceFile_ = null;
-        onChanged();
-      } else {
-        resourceFile_ = null;
-        resourceFileBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public com.wanfang.read.ResourceFile.Builder getResourceFileBuilder() {
-      
-      onChanged();
-      return getResourceFileFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    public com.wanfang.read.ResourceFileOrBuilder getResourceFileOrBuilder() {
-      if (resourceFileBuilder_ != null) {
-        return resourceFileBuilder_.getMessageOrBuilder();
-      } else {
-        return resourceFile_ == null ?
-            com.wanfang.read.ResourceFile.getDefaultInstance() : resourceFile_;
-      }
-    }
-    /**
-     * <pre>
-     * 文件信息
-     * </pre>
-     *
-     * <code>optional .read.ResourceFile resource_file = 6;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.wanfang.read.ResourceFile, com.wanfang.read.ResourceFile.Builder, com.wanfang.read.ResourceFileOrBuilder> 
-        getResourceFileFieldBuilder() {
-      if (resourceFileBuilder_ == null) {
-        resourceFileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.wanfang.read.ResourceFile, com.wanfang.read.ResourceFile.Builder, com.wanfang.read.ResourceFileOrBuilder>(
-                getResourceFile(),
-                getParentForChildren(),
-                isClean());
-        resourceFile_ = null;
-      }
-      return resourceFileBuilder_;
-    }
-
     private boolean hasTradePower_ ;
     /**
      * <pre>
      * 是否可以支付 先判断
      * </pre>
      *
-     * <code>optional bool has_trade_power = 7;</code>
+     * <code>optional bool has_trade_power = 6;</code>
      */
     public boolean getHasTradePower() {
       return hasTradePower_;
@@ -1302,7 +1073,7 @@ public  final class ReadResponse extends
      * 是否可以支付 先判断
      * </pre>
      *
-     * <code>optional bool has_trade_power = 7;</code>
+     * <code>optional bool has_trade_power = 6;</code>
      */
     public Builder setHasTradePower(boolean value) {
       
@@ -1315,7 +1086,7 @@ public  final class ReadResponse extends
      * 是否可以支付 先判断
      * </pre>
      *
-     * <code>optional bool has_trade_power = 7;</code>
+     * <code>optional bool has_trade_power = 6;</code>
      */
     public Builder clearHasTradePower() {
       
@@ -1328,13 +1099,13 @@ public  final class ReadResponse extends
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> errorBuilder_;
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public boolean hasError() {
       return errorBuilder_ != null || error_ != null;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError getError() {
       if (errorBuilder_ == null) {
@@ -1344,7 +1115,7 @@ public  final class ReadResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder setError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1360,7 +1131,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder setError(
         com.wanfang.grpcCommon.MsgError.GrpcError.Builder builderForValue) {
@@ -1374,7 +1145,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder mergeError(com.wanfang.grpcCommon.MsgError.GrpcError value) {
       if (errorBuilder_ == null) {
@@ -1392,7 +1163,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public Builder clearError() {
       if (errorBuilder_ == null) {
@@ -1406,7 +1177,7 @@ public  final class ReadResponse extends
       return this;
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcError.Builder getErrorBuilder() {
       
@@ -1414,7 +1185,7 @@ public  final class ReadResponse extends
       return getErrorFieldBuilder().getBuilder();
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     public com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder getErrorOrBuilder() {
       if (errorBuilder_ != null) {
@@ -1425,7 +1196,7 @@ public  final class ReadResponse extends
       }
     }
     /**
-     * <code>optional .grpcCommon.GrpcError error = 8;</code>
+     * <code>optional .grpcCommon.GrpcError error = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.wanfang.grpcCommon.MsgError.GrpcError, com.wanfang.grpcCommon.MsgError.GrpcError.Builder, com.wanfang.grpcCommon.MsgError.GrpcErrorOrBuilder> 

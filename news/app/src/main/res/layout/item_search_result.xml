@@ -75,8 +75,8 @@
             android:id="@+id/ll_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -91,7 +91,8 @@
                 android:lines="1"
                 android:text="文摘阅读 : 67"
                 android:textColor="@color/gray_text_6"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_down_num"
@@ -111,18 +112,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15dp"
-
                 android:drawableLeft="@mipmap/link_icon"
                 android:drawablePadding="5dp"
                 android:lines="1"
                 android:text="第三方链接 : 67"
                 android:textColor="@color/gray_text_6"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_reference_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_marginRight="16.5dp"
                 android:drawableLeft="@mipmap/reference_icon"
                 android:drawablePadding="5dp"
@@ -131,6 +133,17 @@
                 android:textColor="@color/gray_text_6"
                 android:textSize="10sp" />
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/ib_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16.5dp"
+            android:background="@drawable/ripple_white_bg"
+            android:gravity="center"
+            android:padding="5dp"
+            android:src="@mipmap/filter_read" />
 
     </RelativeLayout>
 

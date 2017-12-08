@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.baidu.mobstat.StatService;
 import com.tb.wangfang.news.R;
 import com.tb.wangfang.news.app.App;
 import com.tb.wangfang.news.base.SimpleActivity;
@@ -72,6 +73,7 @@ public class ManageSubscribeActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
+        StatService.onEvent(this, "guanlidingyue", "进入页面", 1);
         getKeyWord();
         getMyJournal();
         getEmail();
@@ -170,15 +172,23 @@ public class ManageSubscribeActivity extends SimpleActivity {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<CancelSubscribeResponse>() {
             @Override
             public void onSuccess(CancelSubscribeResponse response) {
+
                 if (response.getCancelSubscribeSuccess()) {
                     ToastUtil.show("删除成功");
                     if (deleteKeyWord == CancelSubscribeType.DeleteKeyWord) {
                         flKeyword.removeView((View) view.getParent());
+                        StatService.onEvent(ManageSubscribeActivity.this, "guanlidingyue", "删除一个关键词订阅", 1);
                     } else {
                         flJournal.removeView((View) view.getParent());
+                        StatService.onEvent(ManageSubscribeActivity.this, "guanlidingyue", "删除一个期刊订阅", 1);
                     }
                 } else {
-                    ToastUtil.show("删除失败");
+                    if (response.hasError()) {
+                        ToastUtil.shortShow(response.getError().getErrorMessage().getErrorReason());
+                    } else {
+                        ToastUtil.show("删除失败");
+                    }
+
                 }
             }
 
@@ -220,7 +230,7 @@ public class ManageSubscribeActivity extends SimpleActivity {
                     ivDelete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(final View v) {
-                            dialog = new MaterialDialog.Builder(ManageSubscribeActivity.this).content("确定删除此关键字吗？")
+                            dialog = new MaterialDialog.Builder(ManageSubscribeActivity.this).content("确定删除此期刊吗？")
                                     .positiveText("确定").negativeText("取消").onPositive(new MaterialDialog.SingleButtonCallback() {
                                         @Override
                                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {

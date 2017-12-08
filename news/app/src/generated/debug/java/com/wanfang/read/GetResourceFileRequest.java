@@ -5,23 +5,22 @@ package com.wanfang.read;
 
 /**
  * <pre>
- *全文
+ * 获取全文-请求
  * </pre>
  *
- * Protobuf type {@code read.ResourceFile}
+ * Protobuf type {@code read.GetResourceFileRequest}
  */
-public  final class ResourceFile extends
+public  final class GetResourceFileRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:read.ResourceFile)
-    ResourceFileOrBuilder {
-  // Use ResourceFile.newBuilder() to construct.
-  private ResourceFile(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:read.GetResourceFileRequest)
+    GetResourceFileRequestOrBuilder {
+  // Use GetResourceFileRequest.newBuilder() to construct.
+  private GetResourceFileRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ResourceFile() {
-    fileName_ = "";
-    contentType_ = "";
-    fileByte_ = com.google.protobuf.ByteString.EMPTY;
+  private GetResourceFileRequest() {
+    resourceType_ = "";
+    resourceId_ = "";
   }
 
   @java.lang.Override
@@ -29,7 +28,7 @@ public  final class ResourceFile extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private ResourceFile(
+  private GetResourceFileRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,18 +51,13 @@ public  final class ResourceFile extends
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            fileName_ = s;
+            resourceType_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            contentType_ = s;
-            break;
-          }
-          case 26: {
-
-            fileByte_ = input.readBytes();
+            resourceId_ = s;
             break;
           }
         }
@@ -79,111 +73,98 @@ public  final class ResourceFile extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wanfang.read.MsgRead.internal_static_read_ResourceFile_descriptor;
+    return com.wanfang.read.MsgRead.internal_static_read_GetResourceFileRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wanfang.read.MsgRead.internal_static_read_ResourceFile_fieldAccessorTable
+    return com.wanfang.read.MsgRead.internal_static_read_GetResourceFileRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.wanfang.read.ResourceFile.class, com.wanfang.read.ResourceFile.Builder.class);
+            com.wanfang.read.GetResourceFileRequest.class, com.wanfang.read.GetResourceFileRequest.Builder.class);
   }
 
-  public static final int FILE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object fileName_;
+  public static final int RESOURCE_TYPE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object resourceType_;
   /**
    * <pre>
-   * 文件名称
+   * 资源类型 eg：perio
    * </pre>
    *
-   * <code>optional string file_name = 1;</code>
+   * <code>optional string resource_type = 1;</code>
    */
-  public java.lang.String getFileName() {
-    java.lang.Object ref = fileName_;
+  public java.lang.String getResourceType() {
+    java.lang.Object ref = resourceType_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      fileName_ = s;
+      resourceType_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 文件名称
+   * 资源类型 eg：perio
    * </pre>
    *
-   * <code>optional string file_name = 1;</code>
+   * <code>optional string resource_type = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getFileNameBytes() {
-    java.lang.Object ref = fileName_;
+      getResourceTypeBytes() {
+    java.lang.Object ref = resourceType_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      fileName_ = b;
+      resourceType_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int CONTENT_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object contentType_;
+  public static final int RESOURCE_ID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object resourceId_;
   /**
    * <pre>
-   * 文件类型
+   * 论文id
    * </pre>
    *
-   * <code>optional string content_type = 2;</code>
+   * <code>optional string resource_id = 2;</code>
    */
-  public java.lang.String getContentType() {
-    java.lang.Object ref = contentType_;
+  public java.lang.String getResourceId() {
+    java.lang.Object ref = resourceId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      contentType_ = s;
+      resourceId_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 文件类型
+   * 论文id
    * </pre>
    *
-   * <code>optional string content_type = 2;</code>
+   * <code>optional string resource_id = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getContentTypeBytes() {
-    java.lang.Object ref = contentType_;
+      getResourceIdBytes() {
+    java.lang.Object ref = resourceId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      contentType_ = b;
+      resourceId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int FILE_BYTE_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString fileByte_;
-  /**
-   * <pre>
-   * 文件字节（若为空，则获取全文失败）
-   * </pre>
-   *
-   * <code>optional bytes file_byte = 3;</code>
-   */
-  public com.google.protobuf.ByteString getFileByte() {
-    return fileByte_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -198,14 +179,11 @@ public  final class ResourceFile extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFileNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileName_);
+    if (!getResourceTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, resourceType_);
     }
-    if (!getContentTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, contentType_);
-    }
-    if (!fileByte_.isEmpty()) {
-      output.writeBytes(3, fileByte_);
+    if (!getResourceIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, resourceId_);
     }
   }
 
@@ -214,15 +192,11 @@ public  final class ResourceFile extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getFileNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileName_);
+    if (!getResourceTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, resourceType_);
     }
-    if (!getContentTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, contentType_);
-    }
-    if (!fileByte_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(3, fileByte_);
+    if (!getResourceIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, resourceId_);
     }
     memoizedSize = size;
     return size;
@@ -234,18 +208,16 @@ public  final class ResourceFile extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.wanfang.read.ResourceFile)) {
+    if (!(obj instanceof com.wanfang.read.GetResourceFileRequest)) {
       return super.equals(obj);
     }
-    com.wanfang.read.ResourceFile other = (com.wanfang.read.ResourceFile) obj;
+    com.wanfang.read.GetResourceFileRequest other = (com.wanfang.read.GetResourceFileRequest) obj;
 
     boolean result = true;
-    result = result && getFileName()
-        .equals(other.getFileName());
-    result = result && getContentType()
-        .equals(other.getContentType());
-    result = result && getFileByte()
-        .equals(other.getFileByte());
+    result = result && getResourceType()
+        .equals(other.getResourceType());
+    result = result && getResourceId()
+        .equals(other.getResourceId());
     return result;
   }
 
@@ -256,69 +228,67 @@ public  final class ResourceFile extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptorForType().hashCode();
-    hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getFileName().hashCode();
-    hash = (37 * hash) + CONTENT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getContentType().hashCode();
-    hash = (37 * hash) + FILE_BYTE_FIELD_NUMBER;
-    hash = (53 * hash) + getFileByte().hashCode();
+    hash = (37 * hash) + RESOURCE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getResourceType().hashCode();
+    hash = (37 * hash) + RESOURCE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getResourceId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.wanfang.read.ResourceFile parseFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(byte[] data)
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(java.io.InputStream input)
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.wanfang.read.ResourceFile parseDelimitedFrom(java.io.InputStream input)
+  public static com.wanfang.read.GetResourceFileRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.wanfang.read.ResourceFile parseDelimitedFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.wanfang.read.ResourceFile parseFrom(
+  public static com.wanfang.read.GetResourceFileRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -330,7 +300,7 @@ public  final class ResourceFile extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.wanfang.read.ResourceFile prototype) {
+  public static Builder newBuilder(com.wanfang.read.GetResourceFileRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -346,28 +316,28 @@ public  final class ResourceFile extends
   }
   /**
    * <pre>
-   *全文
+   * 获取全文-请求
    * </pre>
    *
-   * Protobuf type {@code read.ResourceFile}
+   * Protobuf type {@code read.GetResourceFileRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:read.ResourceFile)
-      com.wanfang.read.ResourceFileOrBuilder {
+      // @@protoc_insertion_point(builder_implements:read.GetResourceFileRequest)
+      com.wanfang.read.GetResourceFileRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wanfang.read.MsgRead.internal_static_read_ResourceFile_descriptor;
+      return com.wanfang.read.MsgRead.internal_static_read_GetResourceFileRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wanfang.read.MsgRead.internal_static_read_ResourceFile_fieldAccessorTable
+      return com.wanfang.read.MsgRead.internal_static_read_GetResourceFileRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wanfang.read.ResourceFile.class, com.wanfang.read.ResourceFile.Builder.class);
+              com.wanfang.read.GetResourceFileRequest.class, com.wanfang.read.GetResourceFileRequest.Builder.class);
     }
 
-    // Construct using com.wanfang.read.ResourceFile.newBuilder()
+    // Construct using com.wanfang.read.GetResourceFileRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -384,37 +354,34 @@ public  final class ResourceFile extends
     }
     public Builder clear() {
       super.clear();
-      fileName_ = "";
+      resourceType_ = "";
 
-      contentType_ = "";
-
-      fileByte_ = com.google.protobuf.ByteString.EMPTY;
+      resourceId_ = "";
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wanfang.read.MsgRead.internal_static_read_ResourceFile_descriptor;
+      return com.wanfang.read.MsgRead.internal_static_read_GetResourceFileRequest_descriptor;
     }
 
-    public com.wanfang.read.ResourceFile getDefaultInstanceForType() {
-      return com.wanfang.read.ResourceFile.getDefaultInstance();
+    public com.wanfang.read.GetResourceFileRequest getDefaultInstanceForType() {
+      return com.wanfang.read.GetResourceFileRequest.getDefaultInstance();
     }
 
-    public com.wanfang.read.ResourceFile build() {
-      com.wanfang.read.ResourceFile result = buildPartial();
+    public com.wanfang.read.GetResourceFileRequest build() {
+      com.wanfang.read.GetResourceFileRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.wanfang.read.ResourceFile buildPartial() {
-      com.wanfang.read.ResourceFile result = new com.wanfang.read.ResourceFile(this);
-      result.fileName_ = fileName_;
-      result.contentType_ = contentType_;
-      result.fileByte_ = fileByte_;
+    public com.wanfang.read.GetResourceFileRequest buildPartial() {
+      com.wanfang.read.GetResourceFileRequest result = new com.wanfang.read.GetResourceFileRequest(this);
+      result.resourceType_ = resourceType_;
+      result.resourceId_ = resourceId_;
       onBuilt();
       return result;
     }
@@ -446,26 +413,23 @@ public  final class ResourceFile extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.wanfang.read.ResourceFile) {
-        return mergeFrom((com.wanfang.read.ResourceFile)other);
+      if (other instanceof com.wanfang.read.GetResourceFileRequest) {
+        return mergeFrom((com.wanfang.read.GetResourceFileRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.wanfang.read.ResourceFile other) {
-      if (other == com.wanfang.read.ResourceFile.getDefaultInstance()) return this;
-      if (!other.getFileName().isEmpty()) {
-        fileName_ = other.fileName_;
+    public Builder mergeFrom(com.wanfang.read.GetResourceFileRequest other) {
+      if (other == com.wanfang.read.GetResourceFileRequest.getDefaultInstance()) return this;
+      if (!other.getResourceType().isEmpty()) {
+        resourceType_ = other.resourceType_;
         onChanged();
       }
-      if (!other.getContentType().isEmpty()) {
-        contentType_ = other.contentType_;
+      if (!other.getResourceId().isEmpty()) {
+        resourceId_ = other.resourceId_;
         onChanged();
-      }
-      if (other.getFileByte() != com.google.protobuf.ByteString.EMPTY) {
-        setFileByte(other.getFileByte());
       }
       onChanged();
       return this;
@@ -479,11 +443,11 @@ public  final class ResourceFile extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.wanfang.read.ResourceFile parsedMessage = null;
+      com.wanfang.read.GetResourceFileRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.wanfang.read.ResourceFile) e.getUnfinishedMessage();
+        parsedMessage = (com.wanfang.read.GetResourceFileRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -493,21 +457,21 @@ public  final class ResourceFile extends
       return this;
     }
 
-    private java.lang.Object fileName_ = "";
+    private java.lang.Object resourceType_ = "";
     /**
      * <pre>
-     * 文件名称
+     * 资源类型 eg：perio
      * </pre>
      *
-     * <code>optional string file_name = 1;</code>
+     * <code>optional string resource_type = 1;</code>
      */
-    public java.lang.String getFileName() {
-      java.lang.Object ref = fileName_;
+    public java.lang.String getResourceType() {
+      java.lang.Object ref = resourceType_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        fileName_ = s;
+        resourceType_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -515,19 +479,19 @@ public  final class ResourceFile extends
     }
     /**
      * <pre>
-     * 文件名称
+     * 资源类型 eg：perio
      * </pre>
      *
-     * <code>optional string file_name = 1;</code>
+     * <code>optional string resource_type = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getFileNameBytes() {
-      java.lang.Object ref = fileName_;
+        getResourceTypeBytes() {
+      java.lang.Object ref = resourceType_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        fileName_ = b;
+        resourceType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -535,68 +499,68 @@ public  final class ResourceFile extends
     }
     /**
      * <pre>
-     * 文件名称
+     * 资源类型 eg：perio
      * </pre>
      *
-     * <code>optional string file_name = 1;</code>
+     * <code>optional string resource_type = 1;</code>
      */
-    public Builder setFileName(
+    public Builder setResourceType(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      fileName_ = value;
+      resourceType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 文件名称
+     * 资源类型 eg：perio
      * </pre>
      *
-     * <code>optional string file_name = 1;</code>
+     * <code>optional string resource_type = 1;</code>
      */
-    public Builder clearFileName() {
+    public Builder clearResourceType() {
       
-      fileName_ = getDefaultInstance().getFileName();
+      resourceType_ = getDefaultInstance().getResourceType();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 文件名称
+     * 资源类型 eg：perio
      * </pre>
      *
-     * <code>optional string file_name = 1;</code>
+     * <code>optional string resource_type = 1;</code>
      */
-    public Builder setFileNameBytes(
+    public Builder setResourceTypeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      fileName_ = value;
+      resourceType_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object contentType_ = "";
+    private java.lang.Object resourceId_ = "";
     /**
      * <pre>
-     * 文件类型
+     * 论文id
      * </pre>
      *
-     * <code>optional string content_type = 2;</code>
+     * <code>optional string resource_id = 2;</code>
      */
-    public java.lang.String getContentType() {
-      java.lang.Object ref = contentType_;
+    public java.lang.String getResourceId() {
+      java.lang.Object ref = resourceId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        contentType_ = s;
+        resourceId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -604,19 +568,19 @@ public  final class ResourceFile extends
     }
     /**
      * <pre>
-     * 文件类型
+     * 论文id
      * </pre>
      *
-     * <code>optional string content_type = 2;</code>
+     * <code>optional string resource_id = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getContentTypeBytes() {
-      java.lang.Object ref = contentType_;
+        getResourceIdBytes() {
+      java.lang.Object ref = resourceId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        contentType_ = b;
+        resourceId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -624,90 +588,49 @@ public  final class ResourceFile extends
     }
     /**
      * <pre>
-     * 文件类型
+     * 论文id
      * </pre>
      *
-     * <code>optional string content_type = 2;</code>
+     * <code>optional string resource_id = 2;</code>
      */
-    public Builder setContentType(
+    public Builder setResourceId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      contentType_ = value;
+      resourceId_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 文件类型
+     * 论文id
      * </pre>
      *
-     * <code>optional string content_type = 2;</code>
+     * <code>optional string resource_id = 2;</code>
      */
-    public Builder clearContentType() {
+    public Builder clearResourceId() {
       
-      contentType_ = getDefaultInstance().getContentType();
+      resourceId_ = getDefaultInstance().getResourceId();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 文件类型
+     * 论文id
      * </pre>
      *
-     * <code>optional string content_type = 2;</code>
+     * <code>optional string resource_id = 2;</code>
      */
-    public Builder setContentTypeBytes(
+    public Builder setResourceIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      contentType_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.ByteString fileByte_ = com.google.protobuf.ByteString.EMPTY;
-    /**
-     * <pre>
-     * 文件字节（若为空，则获取全文失败）
-     * </pre>
-     *
-     * <code>optional bytes file_byte = 3;</code>
-     */
-    public com.google.protobuf.ByteString getFileByte() {
-      return fileByte_;
-    }
-    /**
-     * <pre>
-     * 文件字节（若为空，则获取全文失败）
-     * </pre>
-     *
-     * <code>optional bytes file_byte = 3;</code>
-     */
-    public Builder setFileByte(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      fileByte_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 文件字节（若为空，则获取全文失败）
-     * </pre>
-     *
-     * <code>optional bytes file_byte = 3;</code>
-     */
-    public Builder clearFileByte() {
-      
-      fileByte_ = getDefaultInstance().getFileByte();
+      resourceId_ = value;
       onChanged();
       return this;
     }
@@ -722,39 +645,39 @@ public  final class ResourceFile extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:read.ResourceFile)
+    // @@protoc_insertion_point(builder_scope:read.GetResourceFileRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:read.ResourceFile)
-  private static final com.wanfang.read.ResourceFile DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:read.GetResourceFileRequest)
+  private static final com.wanfang.read.GetResourceFileRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.wanfang.read.ResourceFile();
+    DEFAULT_INSTANCE = new com.wanfang.read.GetResourceFileRequest();
   }
 
-  public static com.wanfang.read.ResourceFile getDefaultInstance() {
+  public static com.wanfang.read.GetResourceFileRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ResourceFile>
-      PARSER = new com.google.protobuf.AbstractParser<ResourceFile>() {
-    public ResourceFile parsePartialFrom(
+  private static final com.google.protobuf.Parser<GetResourceFileRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetResourceFileRequest>() {
+    public GetResourceFileRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResourceFile(input, extensionRegistry);
+        return new GetResourceFileRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ResourceFile> parser() {
+  public static com.google.protobuf.Parser<GetResourceFileRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ResourceFile> getParserForType() {
+  public com.google.protobuf.Parser<GetResourceFileRequest> getParserForType() {
     return PARSER;
   }
 
-  public com.wanfang.read.ResourceFile getDefaultInstanceForType() {
+  public com.wanfang.read.GetResourceFileRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

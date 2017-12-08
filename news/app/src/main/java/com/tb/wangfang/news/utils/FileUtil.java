@@ -129,14 +129,14 @@ public class FileUtil {
 
     }
 
-    private static boolean checkIsExist(String fileName, int size) {
+    public static boolean checkIsExist(String fileName, long size) {
         Log.e(TAG, "checkIsExist: size" + size);
 
         String fileString = getEncryFilePath(fileName);
         File file = new File(fileString);
         long s = file.length();
         Log.e(TAG, "checkIsExist: file.length" + file.length());
-        int m = size;
+        long m = size;
         if (s == m) {
             Log.e(TAG, "checkIsExist: sda");
         }

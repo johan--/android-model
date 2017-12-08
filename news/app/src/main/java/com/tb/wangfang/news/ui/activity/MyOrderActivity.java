@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.baidu.mobstat.StatService;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.protobuf.Any;
 import com.tb.wangfang.news.R;
@@ -61,6 +62,7 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
 
     @Override
     protected void initEventAndData() {
+        StatService.onEvent(this, "dingdan", "进入页面", 1);
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         rvOrder.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -77,6 +79,7 @@ public class MyOrderActivity extends SimpleActivity implements BaseQuickAdapter.
                 if (!TextUtils.isEmpty(productDetail) && productDetail.contains("_")) {
                     String[] contents = productDetail.split("_");
                     if (contents.length == 2) {
+                        StatService.onEvent(MyOrderActivity.this, "dingdan", "进入订单详情页面", 1);
                         Intent intent = new Intent(MyOrderActivity.this, DocDetailActivity.class);
                         intent.putExtra(Constants.ARTICLE_ID, contents[1]);
                         intent.putExtra(Constants.ARTICLE_TYPE, contents[0]);
